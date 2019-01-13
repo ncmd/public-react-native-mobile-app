@@ -117,6 +117,19 @@ platform :ios do
       keychain_name: "login.keychain",
       keychain_password: "Changeme@1"
     )
+
+    gym(
+      scheme: "publicreactnativeapp",
+      clean: true,
+      silent: true,
+      project: "./publicreactnativeapp.xcodeproj",
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: { 
+          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+        }
+      }
+    )
   end
 
   lane :travisgym do |values|
@@ -126,6 +139,9 @@ platform :ios do
 
       # suppress_xcode_output: true,
       # disable_xcpretty: true,
+
+  #     get_certificates           # invokes cert
+  # get_provisioning_profile 
     gym(
       scheme: "publicreactnativeapp",
       clean: true,
