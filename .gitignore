@@ -55,5 +55,7 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
+publicreactnativeapp.app.dSYM.zip
 */ios/publicreactnativeapp.app.dSYM.zip
 */ios/publicreactnativeapp.ipa
+ios/publicreactnativeapp.app.dSYM.zip

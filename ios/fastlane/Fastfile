@@ -131,12 +131,8 @@ platform :ios do
       project: "./publicreactnativeapp.xcodeproj",
       suppress_xcode_output: true,
       disable_xcpretty: true,
-      include_bitcode: false,
       export_method: "app-store",
       export_options: {
-        uploadBitcode: false,
-        uploadSymbols: true,
-        compileBitcode: false,
         provisioningProfiles: { 
           "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
         }
