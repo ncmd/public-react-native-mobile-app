@@ -1,0 +1,4 @@
+app_identifier("com.ncmd.publicreactnativeapp") # The bundle identifier of your app
+apple_id("cchong.vise@gmail.com") # Your Apple email address
+itc_team_id("118484519") # App Store Connect Team ID
+team_id("9S2JY9AX68") # Developer Portal Team ID
