@@ -2,7 +2,7 @@ matrix:
   include:
     - language: objective-c
       os: osx
-      osx_image: xcode8.3
+      osx_image: xcode10.1
       xcode_project: ./publicreactnativeapp.xcodeproj # path to your xcodeproj folder
       xcode_scheme: publicreactnativeapp
       node_js: false
@@ -12,7 +12,10 @@ matrix:
         - LANG=en_US.UTF-8
         - NODE_OPTIONS="--max-old-space-size=4096"
       before_install:
-        - pwd
+        - nvm install 11.6
+        - rvm install 2.6.0
+        - rvm --default use 2.6.0
+        - gem update --system
         - gem install bundler
         - gem install fastlane
       install:
@@ -24,8 +27,8 @@ matrix:
         - bundle update
         - bundle exec fastlane ios travisenable
         - bundle exec fastlane ios travismatch
-        - for i in $(seq 1 60); do sleep 20; echo $i; done
         - bundle exec fastlane ios travisgym
+        # - for i in $(seq 1 60); do sleep 20; echo $i; done
   exclude:
     - language: android
       jdk: oraclejdk8
