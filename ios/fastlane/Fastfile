@@ -11,24 +11,28 @@ default_platform(:ios)
 platform :ios do
 
   lane :localsign do
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh
-    gym(
-      scheme: "publicreactnativeapp",
-      clean: true,
-      silent: true,
-      project: "./publicreactnativeapp.xcodeproj",
-      include_bitcode: false,
-      export_options: {
-        method: "app-store",
-        uploadBitcode: false,
-        uploadSymbols: true,
-        compileBitcode: false,
-        provisioningProfiles: { 
-          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
-        }
-      }
+    # get_certificates           # invokes cert
+    import_certificate(
+      keychain_name:"login.keychain",
+      certificate_path: "./ios_distribution.cer"
     )
+    get_provisioning_profile   # invokes sigh
+    # gym(
+    #   scheme: "publicreactnativeapp",
+    #   clean: true,
+    #   silent: true,
+    #   project: "./publicreactnativeapp.xcodeproj",
+    #   include_bitcode: false,
+    #   export_options: {
+    #     method: "app-store",
+    #     uploadBitcode: false,
+    #     uploadSymbols: true,
+    #     compileBitcode: false,
+    #     provisioningProfiles: { 
+    #       "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+    #     }
+    #   }
+    # )
     
   end
 
@@ -132,10 +136,10 @@ platform :ios do
 
   lane :travismatch do |values|
 
-    get_certificates(
-      development:false
-    )           # invokes cert
-    get_provisioning_profile   # invokes sigh
+    # get_certificates(
+    #   development:false
+    # )           # invokes cert
+    # get_provisioning_profile   # invokes sigh
 
     match(
       app_identifier: "com.ncmd.publicreactnativeapp",
@@ -146,6 +150,12 @@ platform :ios do
       readonly: true,  #readonly mode to be sure it won't create any new certificates or profiles.
       keychain_name: "login.keychain",
       keychain_password: "Changeme@1"
+    )
+
+    import_certificate(
+      keychain_name:"login.keychain",
+      keychain_password:"Changeme@1",
+      certificate_path: "./ios_distribution.cer"
     )
 
     gym(
