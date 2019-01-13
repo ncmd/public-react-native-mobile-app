@@ -124,13 +124,13 @@ platform :ios do
 
     # ensure_xcode_version(version: "10.1")
 
+      # suppress_xcode_output: true,
+      # disable_xcpretty: true,
     gym(
       scheme: "publicreactnativeapp",
       clean: true,
       silent: true,
       project: "./publicreactnativeapp.xcodeproj",
-      suppress_xcode_output: true,
-      disable_xcpretty: true,
       export_method: "app-store",
       export_options: {
         provisioningProfiles: { 

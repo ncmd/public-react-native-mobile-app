@@ -12,6 +12,7 @@ matrix:
         - LANG=en_US.UTF-8
         - NODE_OPTIONS="--max-old-space-size=4096"
       before_install:
+        - pwd
         - gem install bundler
         - gem install fastlane
       install:
@@ -19,13 +20,12 @@ matrix:
         - npm install
       script:
         - pwd
-        - cd ./ios
-        - bundle install
+        - cd ./ios && bundle install
         - bundle update
         - bundle exec fastlane ios travisenable
         - bundle exec fastlane ios travismatch
+        - for i in $(seq 1 60); do sleep 20; echo $i; done
         - bundle exec fastlane ios travisgym
-        # - for i in $(seq 1 60); do sleep 20; echo $i; done
   exclude:
     - language: android
       jdk: oraclejdk8
