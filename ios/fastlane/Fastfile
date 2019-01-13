@@ -13,10 +13,28 @@ platform :ios do
   lane :localsign do
     get_certificates           # invokes cert
     get_provisioning_profile   # invokes sigh
-    build_app
+    gym(
+      scheme: "publicreactnativeapp",
+      clean: true,
+      silent: true,
+      project: "./publicreactnativeapp.xcodeproj",
+      include_bitcode: false,
+      export_options: {
+        method: "app-store",
+        uploadBitcode: false,
+        uploadSymbols: true,
+        compileBitcode: false,
+        provisioningProfiles: { 
+          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+        }
+      }
+    )
+    
   end
 
   lane :localmatch do
+    get_certificates(development:false)           # invokes cert
+    get_provisioning_profile   # invokes sigh
     match(
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       app_identifier: "com.ncmd.publicreactnativeapp",
@@ -113,6 +131,12 @@ platform :ios do
   end
 
   lane :travismatch do |values|
+
+    get_certificates(
+      development:false
+    )           # invokes cert
+    get_provisioning_profile   # invokes sigh
+
     match(
       app_identifier: "com.ncmd.publicreactnativeapp",
       type: "appstore",

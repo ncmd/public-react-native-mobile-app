@@ -5,27 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.008203">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.005613">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000976">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000772">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: get_certificates" time="3.317198">
+      <testcase classname="fastlane.lanes" name="2: get_certificates" time="1.403606">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: get_provisioning_profile" time="2.34037">
+      <testcase classname="fastlane.lanes" name="3: get_provisioning_profile" time="1.44394">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: build_app" time="3.344677">
+      <testcase classname="fastlane.lanes" name="4: match" time="1.359903">
         
       </testcase>
     
