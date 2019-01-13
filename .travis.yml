@@ -24,6 +24,8 @@ matrix:
         - cd ./ios
         - bundle install
         - bundle update
+        - bundle exec fastlane ios travisenable
+        - bundle exec fastlane ios travismatch
         - bundle exec fastlane ios travisgym
         # - for i in $(seq 1 60); do sleep 20; echo $i; done
   exclude:
