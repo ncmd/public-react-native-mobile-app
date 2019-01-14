@@ -23,17 +23,15 @@ matrix:
         - npm install
       script:
         - pwd
-        - echo $FASTLANE_SESSION
         - cd ./ios && bundle install
-        - source ./session.txt
         - echo $FASTLANE_SESSION
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         - echo $FASTLANE_SESSION
         - bundle update
-        - bundle exec fastlane ios travisenable
-        - bundle exec fastlane ios travismatch
+        # - bundle exec fastlane ios travisenable
+        - nohup bundle exec fastlane ios travismatch &
         # - bundle exec fastlane ios travisgym
-        # - for i in $(seq 1 60); do sleep 20; echo $i; done
+        - for i in $(seq 1 60); do sleep 20; echo $i; done
   exclude:
     - language: android
       jdk: oraclejdk8
