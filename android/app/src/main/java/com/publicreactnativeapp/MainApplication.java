@@ -1,4 +1,4 @@
-package com.publicreactnativeapp;
+package com.ncmd.publicreactnativeapp;
 
 import android.app.Application;
 

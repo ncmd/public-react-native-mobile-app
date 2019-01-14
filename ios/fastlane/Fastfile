@@ -166,7 +166,7 @@ platform :ios do
       export_options: {
         uploadBitcode: false,
         uploadSymbols: true,
-        compileBitcode: false
+        compileBitcode: false,
         provisioningProfiles: { 
           "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
         }

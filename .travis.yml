@@ -28,7 +28,7 @@ matrix:
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         - echo $FASTLANE_SESSION
         - bundle update
-        # - bundle exec fastlane ios travisenable
+        - bundle exec fastlane ios travisenable
         - nohup bundle exec fastlane ios travismatch &
         # - bundle exec fastlane ios travisgym
         - for i in $(seq 1 20); do sleep 60; echo $i && tail -n 5 ./nohup.out; done
@@ -53,7 +53,7 @@ matrix:
         components:
           - platform-tools
           - tools
-          - build-tools-28.0.3
+          - build-tools-27.0.3
           - android-27
           - extra-android-m2repository
           - extra-google-google_play_services
@@ -73,8 +73,8 @@ matrix:
         - gem update --system
         - gem install bundler
         - pwd
-        - openssl aes-256-cbc -K $encrypted_d51915f205d6_key -iv $encrypted_d51915f205d6_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
-        - openssl aes-256-cbc -K $encrypted_d51915f205d6_key -iv $encrypted_d51915f205d6_iv -in ./android/app/my-release-key.keystore.enc -out ./android/my-release-key.keystore -d
+        - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
+        - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/my-release-key.keystore -d
         - cd android && bundle install && bundle update && ./gradlew clean
       install:
         - npm install
