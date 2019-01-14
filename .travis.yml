@@ -32,12 +32,15 @@ matrix:
       script:
         - pwd
         - cd ./ios && bundle install
-        - echo $FASTLANE_SESSION
-        - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
-        - echo $FASTLANE_SESSION
+        # - echo $FASTLANE_SESSION
+        # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
+        # - echo $FASTLANE_SESSION
         - bundle update
-        - bundle exec fastlane ios travisenable
+        # - bundle exec fastlane ios travisenable
         - bundle exec fastlane ios travismatch
+        - fastlane spaceauth -u cchong.vise@gmail.com > test.text
+        - FASTLANE_SESSION=$(sed '14q;d' ./test.txt)
+        - echo $FASTLANE_SESSION
         - nohup bundle exec fastlane ios travisgym &
         - for i in $(seq 1 10); do sleep 60; echo $i; done
         - bundle exec fastlane ios travisupload

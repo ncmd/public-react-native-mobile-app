@@ -1,0 +1,18 @@
+[22:52:12]: [33mfastlane detected a Gemfile in the current directory[0m
+[22:52:12]: [33mhowever it seems like you don't use `bundle exec`[0m
+[22:52:12]: [33mto launch fastlane faster, please use[0m
+[22:52:12]: 
+[22:52:12]: [36m$ bundle exec fastlane spaceauth -u cchong.vise@gmail.com[0m
+[22:52:12]: 
+[22:52:12]: [33mGet started using a Gemfile for fastlane https://docs.fastlane.tools/getting-started/ios/setup/#use-a-gemfile[0m
+Logging into to App Store Connect (cchong.vise@gmail.com)...
+[32mSuccessfully logged in to App Store Connect[0m
+
+---
+
+Pass the following via the FASTLANE_SESSION environment variable:
+[4m[36m---\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV28c09d1307bce8f7efa466571567ad88b1758747d92901a014e5cdcac6f95d4c9fdd94759b09d3553cb43948f4805a85c601ca5b19e45a9477624b0c7c9f86a2c194228553444a61cb9f0946e70e362a158affba7f8e391a7909e2bdb107b348ece43e7a87e059b859b3485549bf3bca8d4ba1b68a9725a2aa562e4c2fd8aac4d8d107ac09d14d3a78dee34c905955239900bb3d461ba18b9fec2213c3cb9e9903c711a726662be155fbec10aabfafe2496fdf85c881ee3850ac3525534cb9ebe68354bbdf394ea03b237ecf8540f81200d31ff69692c50e9a73683586068fa07f40cbd64e8b53d62dc1202eb2c2038ee4930897ed9ad40a9dbc375eae96cb60235643930323733613361316432396637313435633832326334363966643534333231623865303663MVRYV2\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: \n  created_at: 2019-01-13 21:12:28.543819000 -08:00\n  accessed_at: 2019-01-13 22:52:12.738558000 -08:00\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkRjUwRVJGYkh4dlJXbWQzblFfakp3In0.aQVabcKRcXmLSm0ilGvwwgs3c5Ou8RTFvDqbFEMRiKM\n  domain: olympus.itunes.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 1800\n  created_at: &1 2019-01-13 22:52:13.288864000 -08:00\n  accessed_at: *1\n[0m[0m
+
+
+Example:
+[4m[36mexport FASTLANE_SESSION='---\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV28c09d1307bce8f7efa466571567ad88b1758747d92901a014e5cdcac6f95d4c9fdd94759b09d3553cb43948f4805a85c601ca5b19e45a9477624b0c7c9f86a2c194228553444a61cb9f0946e70e362a158affba7f8e391a7909e2bdb107b348ece43e7a87e059b859b3485549bf3bca8d4ba1b68a9725a2aa562e4c2fd8aac4d8d107ac09d14d3a78dee34c905955239900bb3d461ba18b9fec2213c3cb9e9903c711a726662be155fbec10aabfafe2496fdf85c881ee3850ac3525534cb9ebe68354bbdf394ea03b237ecf8540f81200d31ff69692c50e9a73683586068fa07f40cbd64e8b53d62dc1202eb2c2038ee4930897ed9ad40a9dbc375eae96cb60235643930323733613361316432396637313435633832326334363966643534333231623865303663MVRYV2\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: \n  created_at: 2019-01-13 21:12:28.543819000 -08:00\n  accessed_at: 2019-01-13 22:52:12.738558000 -08:00\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkRjUwRVJGYkh4dlJXbWQzblFfakp3In0.aQVabcKRcXmLSm0ilGvwwgs3c5Ou8RTFvDqbFEMRiKM\n  domain: olympus.itunes.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 1800\n  created_at: &1 2019-01-13 22:52:13.288864000 -08:00\n  accessed_at: *1\n'[0m[0m

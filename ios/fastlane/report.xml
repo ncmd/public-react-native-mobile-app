@@ -5,17 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.003585">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.00414">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001356">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000756">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="939.924009">
+      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="1.190626">
         
       </testcase>
     

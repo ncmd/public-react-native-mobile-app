@@ -56,6 +56,11 @@ fastlane ios travismatch
 fastlane ios travisgym
 ```
 
+### ios travisupload
+```
+fastlane ios travisupload
+```
+
 ### ios travistest
 ```
 fastlane ios travistest
