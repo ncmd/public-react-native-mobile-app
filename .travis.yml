@@ -39,9 +39,8 @@ matrix:
         - bundle exec fastlane ios travisenable
         - bundle exec fastlane ios travismatch
         - nohup bundle exec fastlane ios travisgym &
+        - for i in $(seq 1 10); do sleep 60; echo $i; done
         - bundle exec fastlane ios travisupload
-        - for i in $(seq 1 20); do sleep 60; echo $i; done
-        - 
   exclude:
     - language: android
       jdk: oraclejdk8
