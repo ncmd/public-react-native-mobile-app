@@ -23,10 +23,12 @@ matrix:
         - npm install
       script:
         - pwd
-        
         - echo $FASTLANE_SESSION
         - cd ./ios && bundle install
         - source ./session.txt
+        - echo $FASTLANE_SESSION
+        - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
+        - echo $FASTLANE_SESSION
         - bundle update
         - bundle exec fastlane ios travisenable
         - bundle exec fastlane ios travismatch
