@@ -31,7 +31,7 @@ matrix:
         - npm install
       script:
         - pwd
-        - cd ./ios && bundle install
+        - bundle install
         - echo $FASTLANE_SESSION
         # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
