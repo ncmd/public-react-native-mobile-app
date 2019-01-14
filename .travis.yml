@@ -19,13 +19,13 @@ matrix:
         - gem install bundler
         - gem install fastlane
         - pwd
-        # - ls ~/.ssh/
-        # - openssl aes-256-cbc -K $encrypted_a1c7f21d2e08_key -iv $encrypted_a1c7f21d2e08_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
-        # - mv deploy_key.pub ~/.ssh/deploy_key.pub
-        # - ls ~/.ssh/
-        # - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
-        # - ssh-keyscan github.com >> ~/.ssh/known_hosts
-        # - chmod 600 ~/.ssh/deploy_key
+        - ls ~/.ssh/
+        - openssl aes-256-cbc -K $encrypted_135108afd44f_key -iv $encrypted_135108afd44f_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
+        - mv deploy_key.pub ~/.ssh/deploy_key.pub
+        - ls ~/.ssh/
+        - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
+        - ssh-keyscan github.com >> ~/.ssh/known_hosts
+        - chmod 600 ~/.ssh/deploy_key
       install:
         - pwd
         - npm install
