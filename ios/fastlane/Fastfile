@@ -165,10 +165,10 @@ platform :ios do
       keychain_password: "Changeme@1"
     )
 
-    get_certificates(
-      development:false
-    )           # invokes cert
-    get_provisioning_profile   # invokes sigh
+    # get_certificates(
+    #   development:false
+    # )           # invokes cert
+    # get_provisioning_profile   # invokes sigh
 
     import_certificate(
       keychain_name:"login.keychain",
