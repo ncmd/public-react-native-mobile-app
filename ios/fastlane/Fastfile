@@ -125,16 +125,16 @@ platform :ios do
       password: "Changeme@1"
     )
 
-    # match(
-    #   app_identifier: "com.ncmd.publicreactnativeapp",
-    #   type: "appstore",
-    #   force_for_new_devices: !is_ci,
-    #   git_url:"https://github.com/ncmd/public-fastlane-certificates",
-    #   # clone_branch_directly: true,
-    #   readonly: true,  #readonly mode to be sure it won't create any new certificates or profiles.
-    #   keychain_name: "login.keychain",
-    #   keychain_password: "Changeme@1"
-    # )
+    match(
+      app_identifier: "com.ncmd.publicreactnativeapp",
+      type: "appstore",
+      force_for_new_devices: !is_ci,
+      git_url:"https://github.com/ncmd/public-fastlane-certificates",
+      # clone_branch_directly: true,
+      readonly: true,  #readonly mode to be sure it won't create any new certificates or profiles.
+      keychain_name: "login.keychain",
+      keychain_password: "Changeme@1"
+    )
 
     sync_code_signing(
       type: "appstore",
@@ -142,17 +142,6 @@ platform :ios do
       keychain_name:"login.keychain",
       keychain_password:"Changeme@1"
       )
-
-    # get_certificates(
-    #   development:false
-    # )           # invokes cert
-    # get_provisioning_profile   # invokes sigh
-
-    # import_certificate(
-    #   keychain_name:"login.keychain",
-    #   keychain_password:"Changeme@1",
-    #   certificate_path: "./ios_distribution.cer"
-    # )
 
     gym(
       scheme: "publicreactnativeapp",
@@ -179,7 +168,6 @@ platform :ios do
 
     # Upload to App Store
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
-
 
   end
 

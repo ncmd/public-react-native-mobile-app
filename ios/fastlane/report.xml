@@ -5,32 +5,39 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.005064">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.007328">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000756">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000839">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: unlock_keychain" time="0.090709">
+      <testcase classname="fastlane.lanes" name="2: unlock_keychain" time="0.096445">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: is_ci" time="0.000996">
+      <testcase classname="fastlane.lanes" name="3: sync_code_signing" time="3.182854">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: match" time="1.444356">
+      <testcase classname="fastlane.lanes" name="4: gym" time="85.223701">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: gym" time="11.106415">
+      <testcase classname="fastlane.lanes" name="5: increment_build_number" time="1.278355">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: upload_to_app_store" time="23.172634">
+        
+          <failure message="/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:232:in `block in execute_action'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:227:in `chdir'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:227:in `execute_action'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/fast_file.rb:154:in `method_missing'&#10;Fastfile:181:in `block (2 levels) in parsing_binding'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/lane_manager.rb:56:in `cruise_lane'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'&#10;/usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'&#10;/usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/commands_generator.rb:333:in `run'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/commands_generator.rb:41:in `start'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/cli_tools_distributor.rb:108:in `take_off'&#10;/Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/user/.gems/bin/fastlane:23:in `load'&#10;/Users/user/.gems/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/cli/exec.rb:74:in `load'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/cli/exec.rb:74:in `kernel_load'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/cli/exec.rb:28:in `run'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/cli.rb:463:in `exec'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/cli.rb:27:in `dispatch'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/vendor/thor/lib/thor/base.rb:466:in `start'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/cli.rb:18:in `start'&#10;/usr/local/opt/ruby/bin/bundle:30:in `block in &lt;main&gt;'&#10;/Users/user/.gems/gems/bundler-2.0.1/lib/bundler/friendly_errors.rb:124:in `with_friendly_errors'&#10;/usr/local/opt/ruby/bin/bundle:22:in `&lt;main&gt;'&#10;&#10;Could not upload binary to App Store Connect. Check out the error above" />
         
       </testcase>
     
