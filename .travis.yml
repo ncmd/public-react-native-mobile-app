@@ -23,6 +23,8 @@ matrix:
         - npm install
       script:
         - pwd
+        - source ./session.txt
+        - echo $FASTLANE_SESSION
         - cd ./ios && bundle install
         - bundle update
         - bundle exec fastlane ios travisenable

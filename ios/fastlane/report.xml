@@ -5,22 +5,22 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.003728">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.004134">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000813">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000786">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="2.457188">
+      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="2.479002">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: gym" time="0.760148">
+      <testcase classname="fastlane.lanes" name="3: gym" time="94.334419">
         
       </testcase>
     
