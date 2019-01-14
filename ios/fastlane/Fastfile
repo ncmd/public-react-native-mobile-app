@@ -10,6 +10,15 @@ default_platform(:ios)
 
 platform :ios do
 
+  lane :localsign do
+    sync_code_signing(
+      type: "appstore",
+      git_url:"https://github.com/ncmd/public-fastlane-certificates",
+      keychain_name:"login.keychain",
+      keychain_password:"Changeme@1"
+      )
+  end
+
   lane :localmatch do
     match(
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
@@ -136,12 +145,12 @@ platform :ios do
       keychain_password: "Changeme@1"
     )
 
-    sync_code_signing(
-      type: "appstore",
-      git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      keychain_name:"login.keychain",
-      keychain_password:"Changeme@1"
-      )
+    # sync_code_signing(
+    #   type: "appstore",
+    #   git_url:"https://github.com/ncmd/public-fastlane-certificates",
+    #   keychain_name:"login.keychain",
+    #   keychain_password:"Changeme@1"
+    #   )
 
     gym(
       scheme: "publicreactnativeapp",
