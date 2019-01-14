@@ -134,7 +134,7 @@ platform :ios do
     setup_travis
 
     unlock_keychain(
-      path: "./login.keychain",
+      path: "login.keychain",
       add_to_search_list: :replace,
       password: "Changeme@1"
     )

@@ -36,7 +36,7 @@ matrix:
         # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         # - echo $FASTLANE_SESSION
         - bundle update
-        - fastlane fastlane-credentials add --username cchong.vise@gmail.com
+        - echo $FASTLANE_PW | fastlane fastlane-credentials add --username cchong.vise@gmail.com
         - fastlane spaceauth -u cchong.vise@gmail.com > test.text
         - FASTLANE_SESSION=$(sed '14q;d' ./test.txt)
         - echo $FASTLANE_SESSION
