@@ -152,6 +152,9 @@ platform :ios do
     #   keychain_password:"Changeme@1"
     #   )
 
+  end
+
+  lane :travisgym do |values|
     gym(
       scheme: "publicreactnativeapp",
       codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
@@ -170,41 +173,18 @@ platform :ios do
         }
       }
     )
+  end
 
+  lane :travisupload do |values|
     increment_build_number(
      xcodeproj: "./publicreactnativeapp.xcodeproj"
     )
 
     # Upload to App Store
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
-
   end
 
-  lane :travisgym do |values|
-    # xcversion(version: "10.1")
 
-    # ensure_xcode_version(version: "10.1")
-
-      # suppress_xcode_output: true,
-      # disable_xcpretty: true,
-
-  #     get_certificates           # invokes cert
-  # get_provisioning_profile 
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh
-    gym(
-      scheme: "publicreactnativeapp",
-      clean: true,
-      silent: true,
-      project: "./publicreactnativeapp.xcodeproj",
-      export_method: "app-store",
-      export_options: {
-        provisioningProfiles: { 
-          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
-        }
-      }
-    )
-  end
 
   desc "travis test"
   lane :travistest do |values|
