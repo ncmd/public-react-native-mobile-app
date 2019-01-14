@@ -131,7 +131,7 @@ platform :ios do
 
   lane :travismatch do |values|
 
-    setup_travis
+    # setup_travis
 
     unlock_keychain(
       path: "login.keychain",
