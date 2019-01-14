@@ -11,11 +11,13 @@ default_platform(:ios)
 platform :ios do
 
   lane :localsign do
-    # get_certificates           # invokes cert
-    import_certificate(
-      keychain_name:"login.keychain",
-      certificate_path: "./ios_distribution.cer"
+    get_certificates(
+      development:false
     )
+    # import_certificate(
+    #   keychain_name:"login.keychain",
+    #   certificate_path: "./ios_distribution.cer"
+    # )
     get_provisioning_profile   # invokes sigh
     # gym(
     #   scheme: "publicreactnativeapp",
@@ -37,8 +39,6 @@ platform :ios do
   end
 
   lane :localmatch do
-    get_certificates(development:false)           # invokes cert
-    get_provisioning_profile   # invokes sigh
     match(
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       app_identifier: "com.ncmd.publicreactnativeapp",
@@ -50,13 +50,23 @@ platform :ios do
     )
   end
 
+
+
   lane :localgym do
+
+    import_certificate(
+      keychain_name:"login.keychain",
+      keychain_password:"Changeme@1",
+      certificate_path: "./ios_distribution.cer"
+    )
+
     gym(
       scheme: "publicreactnativeapp",
       clean: true,
       silent: true,
       project: "./publicreactnativeapp.xcodeproj",
       include_bitcode: false,
+      codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
       export_options: {
         method: "app-store",
         uploadBitcode: false,
@@ -64,7 +74,8 @@ platform :ios do
         compileBitcode: false,
         provisioningProfiles: { 
           "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
-        }
+        },
+        signingStyle: "automatic"
       }
     )
   end
@@ -136,10 +147,12 @@ platform :ios do
 
   lane :travismatch do |values|
 
-    # get_certificates(
-    #   development:false
-    # )           # invokes cert
-    # get_provisioning_profile   # invokes sigh
+    
+    unlock_keychain(
+      path: "./login.keychain",
+      add_to_search_list: :replace,
+      password: "Changeme@1"
+    )
 
     match(
       app_identifier: "com.ncmd.publicreactnativeapp",
@@ -152,6 +165,11 @@ platform :ios do
       keychain_password: "Changeme@1"
     )
 
+    get_certificates(
+      development:false
+    )           # invokes cert
+    get_provisioning_profile   # invokes sigh
+
     import_certificate(
       keychain_name:"login.keychain",
       keychain_password:"Changeme@1",
@@ -160,10 +178,12 @@ platform :ios do
 
     gym(
       scheme: "publicreactnativeapp",
+      codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
       clean: true,
       silent: true,
       project: "./publicreactnativeapp.xcodeproj",
       export_method: "app-store",
+      export_xcargs: "-allowProvisioningUpdates",
       export_options: {
         provisioningProfiles: { 
           "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
