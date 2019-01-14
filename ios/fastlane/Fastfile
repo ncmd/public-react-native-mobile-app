@@ -172,6 +172,15 @@ platform :ios do
         }
       }
     )
+
+    increment_build_number(
+     xcodeproj: "./publicreactnativeapp.xcodeproj"
+    )
+
+    # Upload to App Store
+    upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+
+
   end
 
   lane :travisgym do |values|
