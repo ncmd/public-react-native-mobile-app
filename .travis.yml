@@ -31,7 +31,7 @@ matrix:
         # - bundle exec fastlane ios travisenable
         - nohup bundle exec fastlane ios travismatch &
         # - bundle exec fastlane ios travisgym
-        - for i in $(seq 1 60); do sleep 50; echo $i; done
+        - for i in $(seq 1 20); do sleep 60; echo $i && tail -n 5 ./nohup.out; done
   exclude:
     - language: android
       jdk: oraclejdk8

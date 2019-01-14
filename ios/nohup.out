@@ -1,0 +1,270 @@
+[20:02:26]: [33mfastlane detected a Gemfile in the current directory[0m
+[20:02:26]: [33mhowever it seems like you don't use `bundle exec`[0m
+[20:02:26]: [33mto launch fastlane faster, please use[0m
+[20:02:26]: 
+[20:02:26]: [36m$ bundle exec fastlane ios localsign[0m
+[20:02:26]: 
+[20:02:26]: [33mGet started using a Gemfile for fastlane https://docs.fastlane.tools/getting-started/ios/setup/#use-a-gemfile[0m
+[20:02:27]: [32m---------------------------[0m
+[20:02:27]: [32m--- Step: opt_out_usage ---[0m
+[20:02:27]: [32m---------------------------[0m
+[20:02:27]: Disabled upload of used actions
+[20:02:27]: [32m------------------------------[0m
+[20:02:27]: [32m--- Step: default_platform ---[0m
+[20:02:27]: [32m------------------------------[0m
+[20:02:27]: [32mDriving the lane 'ios localsign' 🚀[0m
+[20:02:27]: [32m-------------------------------[0m
+[20:02:27]: [32m--- Step: sync_code_signing ---[0m
+[20:02:27]: [32m-------------------------------[0m
+WARNING: You are running Ruby 2.3.7, which is nearing end-of-life.
+The Google Cloud API clients work best on supported versions of Ruby. Consider upgrading to Ruby 2.4 or later.
+See https://www.ruby-lang.org/en/downloads/branches/ for more info on the Ruby maintenance schedule.
+To suppress this message, set the GOOGLE_CLOUD_SUPPRESS_RUBY_WARNINGS environment variable.
+
++-----------------------+--------------------------------------+
+|        [32mSummary for match 2.114.0.beta.20190111200053[0m         |
++-----------------------+--------------------------------------+
+| type                  | appstore                             |
+| git_url               | https://github.com/ncmd/public-fast  |
+|                       | lane-certificates                    |
+| keychain_name         | login.keychain                       |
+| keychain_password     | ********                             |
+| readonly              | false                                |
+| app_identifier        | ["com.ncmd.publicreactnativeapp"]    |
+| username              | cchong.vise@gmail.com                |
+| team_id               | 9S2JY9AX68                           |
+| storage_mode          | git                                  |
+| git_branch            | master                               |
+| shallow_clone         | false                                |
+| clone_branch_directly | false                                |
+| force                 | false                                |
+| force_for_new_devices | false                                |
+| skip_confirmation     | false                                |
+| skip_docs             | false                                |
+| platform              | ios                                  |
+| verbose               | false                                |
++-----------------------+--------------------------------------+
+
+[20:02:28]: Cloning remote git repo...
+[20:02:28]: If cloning the repo takes too long, you can use the `clone_branch_directly` option in match.
+[20:02:28]: [32m🔓  Successfully decrypted certificates repo[0m
+[20:02:28]: Verifying that the certificate and profile are still valid on the Dev Portal...
+Available session is not valid any more. Continuing with normal login.
+Error loading session from environment
+Make sure to pass the session in a valid format
++------------------+---------------+
+|           [33mLane Context[0m           |
++------------------+---------------+
+| DEFAULT_PLATFORM | ios           |
+| PLATFORM_NAME    | ios           |
+| LANE_NAME        | ios localsign |
++------------------+---------------+
+[20:02:28]: [31m(<unknown>): mapping values are not allowed in this context at line 3 column 7[0m
+
++------+-------------------+-------------+
+|            [32mfastlane summary[0m            |
++------+-------------------+-------------+
+| Step | Action            | Time (in s) |
++------+-------------------+-------------+
+| 1    | opt_out_usage     | 0           |
+| 2    | default_platform  | 0           |
+| 💥   | [31msync_code_signing[0m | 1           |
++------+-------------------+-------------+
+
+[20:02:28]: [31mfastlane finished with errors[0m
+
+Looking for related GitHub issues on fastlane/fastlane...
+
+➡️  [33mtestmunk intro text[0m
+    https://github.com/fastlane/fastlane/pull/3 [[32mclosed[0m] 0 💬
+    04 Feb 2017
+
+➡️  [33mTypo[0m
+    https://github.com/fastlane/fastlane/pull/7 [[32mclosed[0m] 4 💬
+    04 Feb 2017
+
+➡️  [33mRemove Shenzhen dependency[0m
+    https://github.com/fastlane/fastlane/pull/6991 [[32mclosed[0m] 19 💬
+    13 Mar 2017
+
+🔗  You can ⌘ + double-click on links to open them directly in your browser.
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/psych.rb:379:in `parse': [31m[!] (<unknown>): mapping values are not allowed in this context at line 3 column 7[0m (Psych::SyntaxError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/psych.rb:379:in `parse_stream'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/psych.rb:327:in `parse'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/psych.rb:254:in `load'
+	from /Library/Ruby/Gems/2.3.0/gems/http-cookie-1.0.3/lib/http/cookie_jar/yaml_saver.rb:24:in `load'
+	from /Library/Ruby/Gems/2.3.0/gems/http-cookie-1.0.3/lib/http/cookie_jar.rb:325:in `block in load'
+	from /Library/Ruby/Gems/2.3.0/gems/http-cookie-1.0.3/lib/http/cookie_jar.rb:324:in `open'
+	from /Library/Ruby/Gems/2.3.0/gems/http-cookie-1.0.3/lib/http/cookie_jar.rb:324:in `load'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/client.rb:581:in `load_session_from_env'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/client.rb:430:in `send_shared_login_request'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/portal/portal_client.rb:28:in `send_login_request'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/client.rb:751:in `do_login'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/client.rb:383:in `login'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/client.rb:345:in `login'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/portal/spaceship.rb:25:in `login'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/spaceship/lib/spaceship/portal/spaceship.rb:103:in `login'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/match/lib/match/spaceship_ensure.rb:22:in `initialize'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/match/lib/match/runner.rb:63:in `new'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/match/lib/match/runner.rb:63:in `run'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/actions/sync_code_signing.rb:12:in `run'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:253:in `block (2 levels) in execute_action'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/actions/actions_helper.rb:50:in `execute_action'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:232:in `block in execute_action'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:227:in `chdir'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:227:in `execute_action'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/fast_file.rb:154:in `method_missing'
+	from Fastfile:14:in `block (2 levels) in parsing_binding'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/lane.rb:33:in `call'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:49:in `block in execute'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:45:in `chdir'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/runner.rb:45:in `execute'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/lane_manager.rb:56:in `cruise_lane'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'
+	from /Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'
+	from /Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'
+	from /Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'
+	from /Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/commands_generator.rb:333:in `run'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/commands_generator.rb:41:in `start'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/fastlane/lib/fastlane/cli_tools_distributor.rb:108:in `take_off'
+	from /Users/user/.gems/gems/fastlane-2.114.0.beta.20190111200053/bin/fastlane:23:in `<top (required)>'
+	from /usr/local/bin/fastlane:23:in `load'
+	from /usr/local/bin/fastlane:23:in `<main>'
+[20:04:54]: [32m---------------------------[0m
+[20:04:54]: [32m--- Step: opt_out_usage ---[0m
+[20:04:54]: [32m---------------------------[0m
+[20:04:54]: Disabled upload of used actions
+[20:04:54]: [32m------------------------------[0m
+[20:04:54]: [32m--- Step: default_platform ---[0m
+[20:04:54]: [32m------------------------------[0m
+[20:04:54]: [32mDriving the lane 'ios travismatch' 🚀[0m
+[20:04:54]: [32m-----------------------------[0m
+[20:04:54]: [32m--- Step: unlock_keychain ---[0m
+[20:04:54]: [32m-----------------------------[0m
+[20:04:54]: Unlocking keychain at path: /Users/user/Library/Keychains/login.keychain-db
+[20:04:54]: [32m-------------------------------[0m
+[20:04:54]: [32m--- Step: sync_code_signing ---[0m
+[20:04:54]: [32m-------------------------------[0m
+
++-----------------------+--------------------------------------+
+|                  [32mSummary for match 2.113.0[0m                   |
++-----------------------+--------------------------------------+
+| type                  | appstore                             |
+| git_url               | https://github.com/ncmd/public-fast  |
+|                       | lane-certificates                    |
+| keychain_name         | login.keychain                       |
+| keychain_password     | ********                             |
+| readonly              | false                                |
+| app_identifier        | ["com.ncmd.publicreactnativeapp"]    |
+| username              | cchong.vise@gmail.com                |
+| team_id               | 9S2JY9AX68                           |
+| storage_mode          | git                                  |
+| git_branch            | master                               |
+| shallow_clone         | false                                |
+| clone_branch_directly | false                                |
+| force                 | false                                |
+| force_for_new_devices | false                                |
+| skip_confirmation     | false                                |
+| skip_docs             | false                                |
+| platform              | ios                                  |
+| verbose               | false                                |
++-----------------------+--------------------------------------+
+
+[20:04:55]: Cloning remote git repo...
+[20:04:55]: If cloning the repo takes too long, you can use the `clone_branch_directly` option in match.
+[20:04:55]: [32m🔓  Successfully decrypted certificates repo[0m
+[20:04:55]: Verifying that the certificate and profile are still valid on the Dev Portal...
+Available session is not valid any more. Continuing with normal login.
+Error loading session from environment
+Make sure to pass the session in a valid format
++---------------------------+--------------------------------------+
+|                           [33mLane Context[0m                           |
++---------------------------+--------------------------------------+
+| DEFAULT_PLATFORM          | ios                                  |
+| PLATFORM_NAME             | ios                                  |
+| LANE_NAME                 | ios travismatch                      |
+| ORIGINAL_DEFAULT_KEYCHAIN | "/Users/user/Library/Keychains/logi  |
+|                           | n.keychain-db"                       |
++---------------------------+--------------------------------------+
+[20:04:55]: [31m(<unknown>): mapping values are not allowed in this context at line 3 column 7[0m
+
++------+-------------------+-------------+
+|            [32mfastlane summary[0m            |
++------+-------------------+-------------+
+| Step | Action            | Time (in s) |
++------+-------------------+-------------+
+| 1    | opt_out_usage     | 0           |
+| 2    | default_platform  | 0           |
+| 3    | unlock_keychain   | 0           |
+| 💥   | [31msync_code_signing[0m | 0           |
++------+-------------------+-------------+
+
+[20:04:55]: [31mfastlane finished with errors[0m
+
+Looking for related GitHub issues on fastlane/fastlane...
+
+➡️  [33mtestmunk intro text[0m
+    https://github.com/fastlane/fastlane/pull/3 [[32mclosed[0m] 0 💬
+    04 Feb 2017
+
+➡️  [33mTypo[0m
+    https://github.com/fastlane/fastlane/pull/7 [[32mclosed[0m] 4 💬
+    04 Feb 2017
+
+➡️  [33mRemove Shenzhen dependency[0m
+    https://github.com/fastlane/fastlane/pull/6991 [[32mclosed[0m] 19 💬
+    13 Mar 2017
+
+🔗  You can ⌘ + double-click on links to open them directly in your browser.
+bundler: failed to load command: fastlane (/Users/user/.gems/bin/fastlane)
+Psych::SyntaxError: [31m[!] (<unknown>): mapping values are not allowed in this context at line 3 column 7[0m
+  /usr/local/Cellar/ruby/2.6.0/lib/ruby/2.6.0/psych.rb:456:in `parse'
+  /usr/local/Cellar/ruby/2.6.0/lib/ruby/2.6.0/psych.rb:456:in `parse_stream'
+  /usr/local/Cellar/ruby/2.6.0/lib/ruby/2.6.0/psych.rb:390:in `parse'
+  /usr/local/Cellar/ruby/2.6.0/lib/ruby/2.6.0/psych.rb:277:in `load'
+  /usr/local/lib/ruby/gems/2.6.0/gems/http-cookie-1.0.3/lib/http/cookie_jar/yaml_saver.rb:24:in `load'
+  /usr/local/lib/ruby/gems/2.6.0/gems/http-cookie-1.0.3/lib/http/cookie_jar.rb:325:in `block in load'
+  /usr/local/lib/ruby/gems/2.6.0/gems/http-cookie-1.0.3/lib/http/cookie_jar.rb:324:in `open'
+  /usr/local/lib/ruby/gems/2.6.0/gems/http-cookie-1.0.3/lib/http/cookie_jar.rb:324:in `load'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/client.rb:581:in `load_session_from_env'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/client.rb:430:in `send_shared_login_request'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/portal/portal_client.rb:28:in `send_login_request'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/client.rb:751:in `do_login'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/client.rb:383:in `login'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/client.rb:345:in `login'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/portal/spaceship.rb:25:in `login'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/spaceship/lib/spaceship/portal/spaceship.rb:103:in `login'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/match/lib/match/spaceship_ensure.rb:22:in `initialize'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/match/lib/match/runner.rb:63:in `new'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/match/lib/match/runner.rb:63:in `run'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/actions/sync_code_signing.rb:12:in `run'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:253:in `block (2 levels) in execute_action'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/actions/actions_helper.rb:50:in `execute_action'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:232:in `block in execute_action'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:227:in `chdir'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:227:in `execute_action'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/fast_file.rb:154:in `method_missing'
+  Fastfile:141:in `block (2 levels) in parsing_binding'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/lane.rb:33:in `call'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:49:in `block in execute'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:45:in `chdir'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/runner.rb:45:in `execute'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/lane_manager.rb:56:in `cruise_lane'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'
+  /usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'
+  /usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'
+  /usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'
+  /usr/local/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/commands_generator.rb:333:in `run'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/commands_generator.rb:41:in `start'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/fastlane/lib/fastlane/cli_tools_distributor.rb:108:in `take_off'
+  /Users/user/.gems/bundler/gems/fastlane-e71f892cfac9/bin/fastlane:23:in `<top (required)>'
+  /Users/user/.gems/bin/fastlane:23:in `load'
+  /Users/user/.gems/bin/fastlane:23:in `<top (required)>'

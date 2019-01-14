@@ -10,37 +10,6 @@ default_platform(:ios)
 
 platform :ios do
 
-  lane :localsign do
-    sync_code_signing(
-      type: "appstore",
-      git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      keychain_name:"login.keychain",
-      keychain_password:"Changeme@1"
-      )
-    # import_certificate(
-    #   keychain_name:"login.keychain",
-    #   certificate_path: "./ios_distribution.cer"
-    # )
-    # get_provisioning_profile   # invokes sigh
-    # gym(
-    #   scheme: "publicreactnativeapp",
-    #   clean: true,
-    #   silent: true,
-    #   project: "./publicreactnativeapp.xcodeproj",
-    #   include_bitcode: false,
-    #   export_options: {
-    #     method: "app-store",
-    #     uploadBitcode: false,
-    #     uploadSymbols: true,
-    #     compileBitcode: false,
-    #     provisioningProfiles: { 
-    #       "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
-    #     }
-    #   }
-    # )
-    
-  end
-
   lane :localmatch do
     match(
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
@@ -53,15 +22,7 @@ platform :ios do
     )
   end
 
-
-
   lane :localgym do
-
-    # import_certificate(
-    #   keychain_name:"login.keychain",
-    #   keychain_password:"Changeme@1",
-    #   certificate_path: "./ios_distribution.cer"
-    # )
 
     sync_code_signing(
       type: "appstore",
@@ -69,6 +30,7 @@ platform :ios do
       keychain_name:"login.keychain",
       keychain_password:"Changeme@1"
       )
+
     get_provisioning_profile
 
     gym(
@@ -89,8 +51,6 @@ platform :ios do
       }
     )
   end
-
-
 
   lane :localupload do
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
@@ -202,7 +162,11 @@ platform :ios do
       project: "./publicreactnativeapp.xcodeproj",
       export_method: "app-store",
       export_xcargs: "-allowProvisioningUpdates",
+      include_bitcode: false,
       export_options: {
+        uploadBitcode: false,
+        uploadSymbols: true,
+        compileBitcode: false
         provisioningProfiles: { 
           "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
         }

@@ -5,17 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.007411">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.005064">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001063">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000756">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="2.345593">
+      <testcase classname="fastlane.lanes" name="2: unlock_keychain" time="0.090709">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: is_ci" time="0.000996">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: match" time="1.444356">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: gym" time="11.106415">
         
       </testcase>
     
