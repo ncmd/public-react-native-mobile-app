@@ -52,7 +52,6 @@ matrix:
         # - echo $FASTLANE_PW | bundle exec fastlane fastlane-credentials add --username cchong.vise@gmail.com
         # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > session.txt
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
-        # REGEX_TEST=\'/[^\']--\\\\n.*\\*1\\\\n/g\'
         # - echo $FASTLANE_SESSION
         # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
