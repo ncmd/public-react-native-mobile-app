@@ -142,7 +142,7 @@ platform :ios do
     
 
     unlock_keychain(
-      path: "fastlane_tmp_keychain",
+      path: "login.keychain",
       add_to_search_list: :replace,
       password: "Changeme@1"
     )
@@ -167,7 +167,7 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      keychain_name: "fastlane_tmp_keychain",
+      keychain_name: "login.keychain",
       keychain_password: "Changeme@1"
       )
 
