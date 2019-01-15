@@ -164,12 +164,12 @@ platform :ios do
     #   keychain_password: "Changeme@1"
     # )
 
-    sync_code_signing(
-      type: "appstore",
-      git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      # keychain_name: "fastlane_tmp_keychain",
-      # keychain_password: "Changeme@1"
-      )
+    # sync_code_signing(
+    #   type: "appstore",
+    #   git_url:"https://github.com/ncmd/public-fastlane-certificates",
+    #   # keychain_name: "fastlane_tmp_keychain",
+    #   # keychain_password: "Changeme@1"
+    #   )
 
   end
 
