@@ -2,7 +2,7 @@ matrix:
   include:
     - language: objective-c
       os: osx
-      osx_image: xcode8.3
+      osx_image: xcode10.1
       xcode_project: ./publicreactnativeapp.xcodeproj
       xcode_scheme: publicreactnativeapp
       node_js: false
@@ -42,7 +42,7 @@ matrix:
         # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > session.txt
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         # - echo $FASTLANE_SESSION
-        # - bundle exec fastlane ios travisenable
+        - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
         - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
