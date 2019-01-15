@@ -159,7 +159,7 @@ platform :ios do
       # force_for_new_devices: !is_ci,
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       # clone_branch_directly: true,
-      readonly: false,  #readonly mode to be sure it won't create any new certificates or profiles.
+      readonly: true,  #readonly mode to be sure it won't create any new certificates or profiles.
       keychain_name: "fastlane_tmp_keychain",
       keychain_password: "Changeme@1"
     )
