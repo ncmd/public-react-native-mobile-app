@@ -132,6 +132,13 @@ platform :ios do
   lane :travismatch do |values|
 
     # setup_travis
+    create_keychain(
+      name: "login.keychain",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
 
     unlock_keychain(
       path: "login.keychain",
