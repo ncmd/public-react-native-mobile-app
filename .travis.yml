@@ -42,9 +42,9 @@ matrix:
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         # - echo $FASTLANE_SESSION
         - bundle exec fastlane ios travisenable
-        - ls /Users/user/Library/Keychains/
+        - ls /Users/travis/Library/Keychains/
         - bundle exec fastlane ios travismatch
-        - ls /Users/user/Library/Keychains/
+        - ls /Users/travis/Library/Keychains/
         - nohup bundle exec fastlane ios travisgym &
         - for i in $(seq 1 10); do sleep 60; echo $i; done
         - bundle exec fastlane ios travisupload

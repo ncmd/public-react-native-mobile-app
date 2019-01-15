@@ -133,11 +133,12 @@ platform :ios do
 
     # setup_travis
     create_keychain(
-      name: "login.keychain",
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_KEYCHAIN_PASSWORD"],
       default_keychain: true,
       unlock: true,
       timeout: 3600,
-      lock_when_sleeps: true
+      add_to_search_list: true
     )
 
     unlock_keychain(
