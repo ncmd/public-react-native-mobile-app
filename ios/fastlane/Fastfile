@@ -139,6 +139,7 @@ platform :ios do
     #   timeout: 3600,
     #   add_to_search_list: true
     # )
+    
 
     unlock_keychain(
       path: "fastlane_tmp_keychain",
@@ -146,10 +147,16 @@ platform :ios do
       password: "Changeme@1"
     )
 
+    register_devices(
+      devices: {
+        "Travis iPhone X" => "1234567890123456789012345678901234567890"
+      }
+    ) # 
+
     match(
       app_identifier: "com.ncmd.publicreactnativeapp",
       type: "appstore",
-      # force_for_new_devices: !is_ci,
+      force_for_new_devices: !is_ci,
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       # clone_branch_directly: true,
       readonly: false,  #readonly mode to be sure it won't create any new certificates or profiles.
@@ -157,12 +164,12 @@ platform :ios do
       keychain_password: "Changeme@1"
     )
 
-    sync_code_signing(
-      type: "appstore",
-      git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      keychain_name: "fastlane_tmp_keychain",
-      keychain_password: "Changeme@1"
-      )
+    # sync_code_signing(
+    #   type: "appstore",
+    #   git_url:"https://github.com/ncmd/public-fastlane-certificates",
+    #   keychain_name: "fastlane_tmp_keychain",
+    #   keychain_password: "Changeme@1"
+    #   )
 
   end
 
