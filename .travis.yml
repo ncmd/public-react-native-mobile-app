@@ -59,7 +59,7 @@ matrix:
         - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
         - nohup bundle exec fastlane ios travisgym &
-        # - for i in $(seq 0 1); do sleep 600; echo $i ; tail -n 100 ./nohup.out ; done
+        - for i in $(seq 0 10); do sleep 60; echo $i ; tail -n 20 ./nohup.out ; done
         - bundle exec fastlane ios travisupload
   exclude:
     - language: android
