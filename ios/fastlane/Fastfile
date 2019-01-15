@@ -174,6 +174,30 @@ platform :ios do
   end
 
   lane :travisgym do |values|
+
+    unlock_keychain(
+      path: "./login.keychain",
+      add_to_search_list: :replace,
+      password: "Changeme@1"
+    )
+    
+    match(
+      app_identifier: "com.ncmd.publicreactnativeapp",
+      type: "appstore",
+      force_for_new_devices: !is_ci,
+      git_url:"https://github.com/ncmd/public-fastlane-certificates",
+      # clone_branch_directly: true,
+      readonly: true,  #readonly mode to be sure it won't create any new certificates or profiles.
+      keychain_name: "login.keychain",
+      keychain_password: "Changeme@1"
+    )
+    
+    import_certificate(
+      keychain_name:"login.keychain",
+      keychain_password:"Changeme@1",
+      certificate_path: "./ios_distribution.cer"
+    )
+
     gym(
       scheme: "publicreactnativeapp",
       codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
