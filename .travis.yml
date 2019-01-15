@@ -31,16 +31,16 @@ matrix:
         - npm install
       script:
         - pwd
-        # - bundle install
+        - bundle install
         - echo $FASTLANE_SESSION
         # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         - echo $FASTLANE_SESSION
-        # - bundle update
+        - bundle update
         - echo $FASTLANE_PW | fastlane fastlane-credentials add --username cchong.vise@gmail.com
-        # - fastlane spaceauth -u cchong.vise@gmail.com > session.txt
-        # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
-        # - echo $FASTLANE_SESSION
+        - fastlane spaceauth -u cchong.vise@gmail.com > session.txt
+        - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
+        - echo $FASTLANE_SESSION
         - fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
         - fastlane ios travismatch
