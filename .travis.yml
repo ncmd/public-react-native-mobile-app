@@ -54,7 +54,7 @@ matrix:
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         # REGEX_TEST=\'/[^\']--\\\\n.*\\*1\\\\n/g\'
         # - echo $FASTLANE_SESSION
-        # - bundle exec fastlane ios travisenable
+        - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
         # - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
