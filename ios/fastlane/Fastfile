@@ -176,11 +176,11 @@ platform :ios do
   lane :travisgym do |values|
 
     unlock_keychain(
-      path: "./login.keychain",
+      path: "login.keychain",
       add_to_search_list: :replace,
       password: "Changeme@1"
     )
-    
+
     match(
       app_identifier: "com.ncmd.publicreactnativeapp",
       type: "appstore",
@@ -207,6 +207,8 @@ platform :ios do
       export_method: "app-store",
       export_xcargs: "-allowProvisioningUpdates",
       include_bitcode: false,
+      suppress_xcode_output: true,
+      disable_xcpretty: true,
       export_options: {
         uploadBitcode: false,
         uploadSymbols: true,
