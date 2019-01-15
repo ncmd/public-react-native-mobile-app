@@ -16,7 +16,7 @@ matrix:
         - rvm install 2.6.0
         - rvm --default use 2.6.0
         - brew update
-        - gem update --system
+        # - gem update --system
         - gem install bundler -v 1.17.3
         - gem install fastlane -v 2.112.0
         - pwd
