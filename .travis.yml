@@ -17,7 +17,7 @@ matrix:
         - rvm --default use 2.6.0
         - gem update --system
         - gem install bundler
-        - gem install fastlane
+        - gem install fastlane -v 2.112.0
         - pwd
         - ls ~/.ssh/
         - cd ./ios && openssl aes-256-cbc -K $encrypted_135108afd44f_key -iv $encrypted_135108afd44f_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
@@ -31,23 +31,23 @@ matrix:
         - npm install
       script:
         - pwd
-        - bundle install
+        # - bundle install
         - echo $FASTLANE_SESSION
         # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         - echo $FASTLANE_SESSION
-        - bundle update
+        # - bundle update
         - echo $FASTLANE_PW | fastlane fastlane-credentials add --username cchong.vise@gmail.com
         # - fastlane spaceauth -u cchong.vise@gmail.com > session.txt
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         # - echo $FASTLANE_SESSION
-        - bundle exec fastlane ios travisenable
+        - fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
-        - bundle exec fastlane ios travismatch
+        - fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
-        - nohup bundle exec fastlane ios travisgym &
+        - nohup fastlane ios travisgym &
         - for i in $(seq 1 10); do sleep 60; echo $i; done
-        - bundle exec fastlane ios travisupload
+        - fastlane ios travisupload
   exclude:
     - language: android
       jdk: oraclejdk8
