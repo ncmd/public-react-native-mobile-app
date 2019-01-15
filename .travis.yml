@@ -53,9 +53,9 @@ matrix:
         # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > session.txt
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         # - echo $FASTLANE_SESSION
-        # - bundle exec fastlane ios travisenable
+        - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
-        # - bundle exec fastlane ios travismatch
+        - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
         - bundle exec fastlane ios travisgym 
         # - for i in $(seq 1 10); do sleep 60; echo $i; done
