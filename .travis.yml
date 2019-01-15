@@ -1,3 +1,11 @@
+cache:
+  yarn: true
+  directories:
+    - $HOME/.yarn-cache
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - node_modules
+
 matrix:
   include:
     - language: objective-c
@@ -31,7 +39,7 @@ matrix:
         - chmod 600 ~/.ssh/deploy_key
       install:
         - pwd
-        - npm install
+        - travis_retry yarn
       script:
         - pwd
         - bundle install
@@ -44,7 +52,7 @@ matrix:
         # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > session.txt
         # - FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
         # - echo $FASTLANE_SESSION
-        - bundle exec fastlane ios travisenable
+        # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
         - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
