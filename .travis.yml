@@ -44,6 +44,7 @@ matrix:
         - travis_retry yarn install --silent
       script:
         - pwd
+        - cd ./ios
         - bundle install
         - echo $FASTLANE_SESSION
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
