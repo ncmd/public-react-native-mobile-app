@@ -268,9 +268,20 @@ platform :ios do
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       keychain_name:"fastlane_tmp_keychain"
       )
+      
     build_app(
       scheme: "publicreactnativeapp",
-      workspace: "publicreactnativeapp.xcworkspace"
+      workspace: "publicreactnativeapp.xcworkspace",
+      include_bitcode: false,
+      export_method: "app-store",
+      export_options: {
+        uploadBitcode: false,
+        uploadSymbols: true,
+        compileBitcode: false,
+        provisioningProfiles: { 
+          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+        }
+      }
     )
   end
 
