@@ -38,9 +38,10 @@ matrix:
         - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
         - ssh-keyscan github.com >> ~/.ssh/known_hosts
         - chmod 600 ~/.ssh/deploy_key
+        - cd ..
       install:
         - pwd
-        - travis_retry yarn
+        - travis_retry yarn install --silent
       script:
         - pwd
         - bundle install
