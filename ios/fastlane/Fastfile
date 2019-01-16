@@ -188,17 +188,17 @@ platform :ios do
     #   add_to_search_list: true
     # )
 
-    unlock_keychain(
-      path: "fastlane_tmp_keychain",
-      add_to_search_list: :replace,
-      password: "Changeme@1"
-    )
+    # unlock_keychain(
+    #   path: "fastlane_tmp_keychain",
+    #   add_to_search_list: :replace,
+    #   password: "Changeme@1"
+    # )
 
-    import_certificate(
-      keychain_name:"fastlane_tmp_keychain",
-      keychain_password:"Changeme@1",
-      certificate_path: "./ios_distribution.cer"
-    )
+    # import_certificate(
+    #   keychain_name:"fastlane_tmp_keychain",
+    #   keychain_password:"Changeme@1",
+    #   certificate_path: "./ios_distribution.cer"
+    # )
 
     # sync_code_signing(
     #   type: "appstore",
@@ -226,17 +226,34 @@ platform :ios do
     #   certificate_path: "./ios_distribution.cer"
     # )
 
+    # gym(
+    #   scheme: "publicreactnativeapp",
+    #   codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
+    #   clean: true,
+    #   silent: true,
+    #   project: "./publicreactnativeapp.xcodeproj",
+    #   export_method: "app-store",
+    #   export_xcargs: "-allowProvisioningUpdates",
+    #   include_bitcode: false,
+    #   suppress_xcode_output: true,
+    #   disable_xcpretty: true,
+    #   export_options: {
+    #     uploadBitcode: false,
+    #     uploadSymbols: true,
+    #     compileBitcode: false,
+    #     provisioningProfiles: { 
+    #       "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+    #     }
+    #   }
+    # )
     gym(
       scheme: "publicreactnativeapp",
-      codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
       clean: true,
       silent: true,
       project: "./publicreactnativeapp.xcodeproj",
-      export_method: "app-store",
-      export_xcargs: "-allowProvisioningUpdates",
       include_bitcode: false,
-      suppress_xcode_output: true,
-      disable_xcpretty: true,
+      codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
+      export_method: "app-store",
       export_options: {
         uploadBitcode: false,
         uploadSymbols: true,
