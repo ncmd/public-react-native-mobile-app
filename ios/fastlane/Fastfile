@@ -246,22 +246,31 @@ platform :ios do
     #     }
     #   }
     # )
-    gym(
+    # gym(
+    #   scheme: "publicreactnativeapp",
+    #   clean: true,
+    #   silent: true,
+    #   project: "./publicreactnativeapp.xcodeproj",
+    #   include_bitcode: false,
+    #   codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
+    #   export_method: "app-store",
+    #   export_options: {
+    #     uploadBitcode: false,
+    #     uploadSymbols: true,
+    #     compileBitcode: false,
+    #     provisioningProfiles: { 
+    #       "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+    #     }
+    #   }
+    # )
+    sync_code_signing(
+      type: "appstore",
+      git_url:"https://github.com/ncmd/public-fastlane-certificates",
+      keychain_name:"fastlane_tmp_keychain"
+      )
+    build_app(
       scheme: "publicreactnativeapp",
-      clean: true,
-      silent: true,
-      project: "./publicreactnativeapp.xcodeproj",
-      include_bitcode: false,
-      codesigning_identity:"iPhone Distribution: Charles Chong (9S2JY9AX68)",
-      export_method: "app-store",
-      export_options: {
-        uploadBitcode: false,
-        uploadSymbols: true,
-        compileBitcode: false,
-        provisioningProfiles: { 
-          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
-        }
-      }
+      workspace: "publicreactnativeapp.xcworkspace"
     )
   end
 

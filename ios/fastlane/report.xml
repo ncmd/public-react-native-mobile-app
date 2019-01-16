@@ -5,17 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.004847">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.009752">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000729">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00106">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: gym" time="113.536654">
+      <testcase classname="fastlane.lanes" name="2: build_app" time="94.018259">
         
       </testcase>
     

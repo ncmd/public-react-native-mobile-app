@@ -61,9 +61,10 @@ matrix:
         - ls /Users/travis/Library/Keychains/
         # - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
-        - nohup bundle exec fastlane ios travisgym &
+        - bundle exec fastlane ios travisgym
         - pwd
-        - for i in $(seq 1 10); do sleep 60; echo $i; done
+        # - for i in $(seq 1 10); do sleep 60; echo $i; done
+        - ls
         - bundle exec fastlane ios travisupload
   exclude:
     - language: android
