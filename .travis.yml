@@ -42,6 +42,7 @@ matrix:
       install:
         - pwd
         - yarn install
+        - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
       script:
         - pwd
         - cd ./ios/
