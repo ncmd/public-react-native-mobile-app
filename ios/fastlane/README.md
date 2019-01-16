@@ -16,11 +16,6 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios localsign
-```
-fastlane ios localsign
-```
-
 ### ios localmatch
 ```
 fastlane ios localmatch
@@ -34,11 +29,6 @@ fastlane ios localgym
 ### ios localupload
 ```
 fastlane ios localupload
-```
-
-### ios local
-```
-fastlane ios local
 ```
 
 ### ios travisenable
@@ -61,16 +51,6 @@ fastlane ios travisgym
 fastlane ios travisupload
 ```
 
-### ios travistest
-```
-fastlane ios travistest
-```
-travis test
-### ios travis
-```
-fastlane ios travis
-```
-travis deployment
 
 ----
 
