@@ -175,23 +175,29 @@ platform :ios do
 
   lane :travisgym do |values|
 
-    delete_keychain(
-      name:"login.keychain"
-    )
+    # delete_keychain(
+    #   name:"login.keychain"
+    # )
 
-    create_keychain(
-      name: "login.keychain",
-      password: "Changeme@1",
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      add_to_search_list: true
-    )
+    # create_keychain(
+    #   name: "login.keychain",
+    #   password: "Changeme@1",
+    #   default_keychain: true,
+    #   unlock: true,
+    #   timeout: 3600,
+    #   add_to_search_list: true
+    # )
 
     unlock_keychain(
-      path: "login.keychain",
+      path: "fastlane_tmp_keychain",
       add_to_search_list: :replace,
       password: "Changeme@1"
+    )
+
+    import_certificate(
+      keychain_name:"fastlane_tmp_keychain",
+      keychain_password:"Changeme@1",
+      certificate_path: "./ios_distribution.cer"
     )
 
     # sync_code_signing(
