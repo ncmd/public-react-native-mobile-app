@@ -41,7 +41,7 @@ matrix:
         - cd ..
       install:
         - pwd
-        - travis_retry yarn install --silent
+        - yarn install
       script:
         - pwd
         - cd ./ios/
