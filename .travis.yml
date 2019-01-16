@@ -62,7 +62,7 @@ matrix:
         - nohup react-native run-ios &
         - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
-        # - bundle exec fastlane ios travismatch
+        - bundle exec fastlane ios travismatch
         - ls /Users/travis/Library/Keychains/
         - nohup bundle exec fastlane ios travisgym &
         - pwd
