@@ -22,7 +22,7 @@ matrix:
         # increase node space just in case
         - NODE_OPTIONS="--max-old-space-size=4096"
       before_install:
-        # Setting up enviroment similar to local environment
+        # Setting up environment similar to local environment
         - nvm install 11.6
         - rvm install 2.6.0
         - travis_retry npm install -g yarn
@@ -32,9 +32,9 @@ matrix:
         - gem install bundler
         - gem install fastlane
         - pwd
+        # Decrypt key to download certificate from a private certificate repository
         - ls ~/.ssh/
         - cd ./ios && openssl aes-256-cbc -K $encrypted_135108afd44f_key -iv $encrypted_135108afd44f_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
-        # Create key to download certificate from a private certificate repository
         - cp deploy_key.pub ~/.ssh/deploy_key.pub
         - ls ~/.ssh/
         - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config

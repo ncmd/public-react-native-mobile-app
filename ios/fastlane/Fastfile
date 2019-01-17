@@ -1,10 +1,7 @@
 # Opt out of Analytics
 opt_out_usage
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane(
-#   nightly: true
-#   )
+update_fastlane
 
 default_platform(:ios)
 
@@ -68,6 +65,10 @@ platform :ios do
       keychain_name:"fastlane_tmp_keychain"
       )
 
+    increment_build_number(
+      xcodeproj: "./publicreactnativeapp.xcodeproj"
+      )
+      
     build_app(
       scheme: "publicreactnativeapp",
       workspace: "publicreactnativeapp.xcworkspace",
@@ -85,9 +86,6 @@ platform :ios do
   end
 
   lane :travisupload do |values|
-    increment_build_number(
-     xcodeproj: "./publicreactnativeapp.xcodeproj"
-    )
 
     # Upload to App Store
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
