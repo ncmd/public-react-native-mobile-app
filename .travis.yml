@@ -56,19 +56,21 @@ matrix:
         - cd ./ios/
         # Install all gemfile requirements and allows faster fastlane performance
         - bundle install
-        # Setting fastlane session to bypass 2-factor for apple account; this session much be changed every build or else it will fail whole build process
-        - echo $FASTLANE_SESSION
-        - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
+        # - echo $FASTLANE_SESSION
+        # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         # Confirm session environment variable is set
-        - echo $FASTLANE_SESSION
+        # - echo $FASTLANE_SESSION
         - bundle update
         # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
-        # - bundle exec fastlane ios travismatch
+        - bundle exec fastlane ios travismatch
+        - # Setting fastlane session to bypass 2-factor for apple account; this session much be changed every build or else it will fail whole build process
+        - echo "y" | bundle exec fastlane spaceauth -u cchong.vise@gmail.com ; export FASTLANE_SESSION=$(pbpaste)
+        - echo $FASTLANE_SESSION
         - ls /Users/travis/Library/Keychains/
         - nohup bundle exec fastlane ios travisgym &
         - pwd
-        - for i in $(seq 1 10); do sleep 60; echo $i; done
+        - for i in $(seq 1 6); do sleep 60; echo $i; done
         - ls
         - bundle exec fastlane ios travisupload
         # - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
