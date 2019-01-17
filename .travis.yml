@@ -16,10 +16,13 @@ matrix:
       node_js: false
       sudo: required
       env:
+        # required by fastlane
         - LC_ALL=en_US.UTF-8
         - LANG=en_US.UTF-8
+        # increase node space just in case
         - NODE_OPTIONS="--max-old-space-size=4096"
       before_install:
+        # Setting up enviroment similar to local environment
         - nvm install 11.6
         - rvm install 2.6.0
         - travis_retry npm install -g yarn
@@ -28,11 +31,10 @@ matrix:
         - gem update --system
         - gem install bundler
         - gem install fastlane
-        # - gem install bundler -v 1.17.3
-        # - gem install fastlane -v 2.112.0
         - pwd
         - ls ~/.ssh/
         - cd ./ios && openssl aes-256-cbc -K $encrypted_135108afd44f_key -iv $encrypted_135108afd44f_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
+        # Create key to download certificate from a private certificate repository
         - cp deploy_key.pub ~/.ssh/deploy_key.pub
         - ls ~/.ssh/
         - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
@@ -40,25 +42,24 @@ matrix:
         - chmod 600 ~/.ssh/deploy_key
         - cd ..
       install:
+        # using yarn instead of npm install because project would not build properly in travis
         - pwd
         - yarn install
+        # required to use react-native 
         - npm install -g react-native-cli
+        # Adds missing main.jsbundle file when react-native project is created
         - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
       script:
         - pwd
         - cd ./ios/
+        # Install all gemfile requirements and allows faster fastlane performance
         - bundle install
+        # Setting fastlane session to bypass 2-factor for apple account; this session much be changed every build or else it will fail whole build process
         - echo $FASTLANE_SESSION
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
-        # - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
+        # Confirm session environment variable is set
         - echo $FASTLANE_SESSION
         - bundle update
-        # - echo $FASTLANE_PW | bundle exec fastlane fastlane-credentials add --username cchong.vise@gmail.com
-        # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > test.txt
-        # - FASTLANE_SESSION=$(sed '7q;d' ./session.txt)
-        # | sed 's/^.......//' ./test.txt > test.txt | sed 's/......$//' ./test.txt > test.txt
-        # REGEX_TEST=\'/[^\']--\\\\n.*\\*1\\\\n/g\'
-        # - echo $FASTLANE_SESSION
         - nohup react-native run-ios &
         # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
@@ -66,9 +67,16 @@ matrix:
         - ls /Users/travis/Library/Keychains/
         - nohup bundle exec fastlane ios travisgym &
         - pwd
-        - for i in $(seq 1 20); do sleep 60; echo $i; done
+        - for i in $(seq 1 10); do sleep 60; echo $i; done
         - ls
         - bundle exec fastlane ios travisupload
+        # - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
+        # - echo $FASTLANE_PW | bundle exec fastlane fastlane-credentials add --username cchong.vise@gmail.com
+        # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > test.txt
+        # - FASTLANE_SESSION=$(sed '7q;d' ./session.txt)
+        # | sed 's/^.......//' ./test.txt > test.txt | sed 's/......$//' ./test.txt > test.txt
+        # REGEX_TEST=\'/[^\']--\\\\n.*\\*1\\\\n/g\'
+        # - echo $FASTLANE_SESSION
   exclude:
     - language: android
       jdk: oraclejdk8
