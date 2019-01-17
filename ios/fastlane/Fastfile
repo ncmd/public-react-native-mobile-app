@@ -50,6 +50,9 @@ platform :ios do
   end
 
   lane :travismatch do |values|
+    
+    setup_travis
+
     sync_code_signing(
       type: "appstore",
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
@@ -59,13 +62,11 @@ platform :ios do
 
   lane :travisgym do |values|
 
-    setup_travis
-    
-    sync_code_signing(
-      type: "appstore",
-      git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      keychain_name:"fastlane_tmp_keychain"
-      )
+    # sync_code_signing(
+    #   type: "appstore",
+    #   git_url:"https://github.com/ncmd/public-fastlane-certificates",
+    #   keychain_name:"fastlane_tmp_keychain"
+    #   )
 
     build_app(
       scheme: "publicreactnativeapp",
