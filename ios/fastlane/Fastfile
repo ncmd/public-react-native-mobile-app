@@ -50,8 +50,6 @@ platform :ios do
   end
 
   lane :travismatch do |values|
-    
-    setup_travis
 
     sync_code_signing(
       type: "appstore",
