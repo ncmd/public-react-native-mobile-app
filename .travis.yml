@@ -51,6 +51,8 @@ matrix:
         - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
       script:
         - pwd
+        # try running app in background?
+        - nohup react-native run-ios &
         - cd ./ios/
         # Install all gemfile requirements and allows faster fastlane performance
         - bundle install
@@ -60,7 +62,6 @@ matrix:
         # Confirm session environment variable is set
         - echo $FASTLANE_SESSION
         - bundle update
-        - nohup react-native run-ios &
         # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
         # - bundle exec fastlane ios travismatch
@@ -77,7 +78,7 @@ matrix:
         # | sed 's/^.......//' ./test.txt > test.txt | sed 's/......$//' ./test.txt > test.txt
         # REGEX_TEST=\'/[^\']--\\\\n.*\\*1\\\\n/g\'
         # - echo $FASTLANE_SESSION
-  exclude:
+  # exclude:
     - language: android
       jdk: oraclejdk8
       sudo: required
