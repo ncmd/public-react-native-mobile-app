@@ -56,30 +56,20 @@ matrix:
         - bundle install
         - # Setting fastlane session to bypass 2-factor for apple account
         - # This session much be changed every build or else it will fail whole build process
-        - # Add the following line to a packege.json script
+        - # Add the following line to a package.json script
         # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u cchong.vise@gmail.com ; pbpaste > ./session.txt
         - echo $FASTLANE_SESSION
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         # Confirm session environment variable is set
         - echo $FASTLANE_SESSION
         - bundle update
-        # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
-        - bundle exec fastlane ios travismatch
-        - echo $FASTLANE_SESSION
-        - ls /Users/travis/Library/Keychains/
+        # Run Gym in the background to prevent verbose build
         - nohup bundle exec fastlane ios travisgym &
         - pwd
         - for i in $(seq 1 6); do sleep 60; echo $i; done
         - ls
         - bundle exec fastlane ios travisupload
-        # - export FASTLANE_SESSION=$(sed '14q;d' ./session.txt)
-        # - echo $FASTLANE_PW | bundle exec fastlane fastlane-credentials add --username cchong.vise@gmail.com
-        # - bundle exec fastlane spaceauth -u cchong.vise@gmail.com > test.txt
-        # - FASTLANE_SESSION=$(sed '7q;d' ./session.txt)
-        # | sed 's/^.......//' ./test.txt > test.txt | sed 's/......$//' ./test.txt > test.txt
-        # REGEX_TEST=\'/[^\']--\\\\n.*\\*1\\\\n/g\'
-        # - echo $FASTLANE_SESSION
   # exclude:
     - language: android
       jdk: oraclejdk8
