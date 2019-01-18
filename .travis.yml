@@ -51,21 +51,21 @@ matrix:
         - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
       script:
         - pwd
-        # try running app in background?
-        - nohup react-native run-ios &
         - cd ./ios/
         # Install all gemfile requirements and allows faster fastlane performance
         - bundle install
-        # - echo $FASTLANE_SESSION
-        # - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
+        - # Setting fastlane session to bypass 2-factor for apple account
+        - # This session much be changed every build or else it will fail whole build process
+        - # Add the following line to a packege.json script
+        # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u cchong.vise@gmail.com ; pbpaste > ./session.txt
+        - echo $FASTLANE_SESSION
+        - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         # Confirm session environment variable is set
-        # - echo $FASTLANE_SESSION
+        - echo $FASTLANE_SESSION
         - bundle update
         # - bundle exec fastlane ios travisenable
         - ls /Users/travis/Library/Keychains/
         - bundle exec fastlane ios travismatch
-        - # Setting fastlane session to bypass 2-factor for apple account; this session much be changed every build or else it will fail whole build process
-        - echo "y" | bundle exec fastlane spaceauth -u cchong.vise@gmail.com ; export FASTLANE_SESSION=$(pbpaste)
         - echo $FASTLANE_SESSION
         - ls /Users/travis/Library/Keychains/
         - nohup bundle exec fastlane ios travisgym &
