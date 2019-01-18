@@ -11,8 +11,16 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
-      keychain_name:"fastlane_tmp_keychain"
+      keychain_name:"login.keychain"
       )
+
+    increment_build_number
+
+    increment_version_number(
+      bump_type: "minor",
+      xcodeproj: "./publicreactnativeapp.xcodeproj"
+    )
+
     build_app(
       scheme: "publicreactnativeapp",
       workspace: "publicreactnativeapp.xcworkspace",
@@ -27,9 +35,7 @@ platform :ios do
         }
       }
     )
-    increment_build_number(
-      xcodeproj: "./publicreactnativeapp.xcodeproj"
-      )
+
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
   end
 
@@ -40,6 +46,13 @@ platform :ios do
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       keychain_name:"fastlane_tmp_keychain"
       )
+    
+      increment_build_number
+
+      increment_version_number(
+        bump_type: "minor"
+      )
+      
     build_app(
       scheme: "publicreactnativeapp",
       workspace: "publicreactnativeapp.xcworkspace",
@@ -54,9 +67,7 @@ platform :ios do
         }
       }
     )
-    increment_build_number(
-      xcodeproj: "./publicreactnativeapp.xcodeproj"
-      )
+    
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
   end
 end
