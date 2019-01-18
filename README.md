@@ -2,7 +2,7 @@
 
 # Fastlane Deployment (Instructions for new app for REFERENCE; DO NOT DO THIS for this current app)
 ## Android
-0. Follow starter instructions: https://github.com/invertase/react-native-firebase-starter
+0. You will need a developer license (or invite)
 1. Create App - https://play.google.com/apps/publish/
 2. Create Service Account - Download JSON key
 - Grant permissions to your specific user email addresses
