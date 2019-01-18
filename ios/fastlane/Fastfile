@@ -8,13 +8,11 @@ default_platform(:ios)
 platform :ios do
 
   lane :localdeploy do
-
     sync_code_signing(
       type: "appstore",
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       keychain_name:"fastlane_tmp_keychain"
       )
-
     build_app(
       scheme: "publicreactnativeapp",
       workspace: "publicreactnativeapp.xcworkspace",
@@ -29,24 +27,19 @@ platform :ios do
         }
       }
     )
-
     increment_build_number(
       xcodeproj: "./publicreactnativeapp.xcodeproj"
       )
-
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
   end
 
   lane :travisdeploy do |values|
-
     setup_travis
-
     sync_code_signing(
       type: "appstore",
       git_url:"https://github.com/ncmd/public-fastlane-certificates",
       keychain_name:"fastlane_tmp_keychain"
       )
-
     build_app(
       scheme: "publicreactnativeapp",
       workspace: "publicreactnativeapp.xcworkspace",
@@ -61,11 +54,9 @@ platform :ios do
         }
       }
     )
-
     increment_build_number(
       xcodeproj: "./publicreactnativeapp.xcodeproj"
       )
-    # Upload to App Store
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
   end
 end

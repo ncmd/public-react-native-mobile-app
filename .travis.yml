@@ -46,10 +46,10 @@ matrix:
         - cd ./ios/
         # Install all gemfile requirements and allows faster fastlane performance
         - bundle install
-        - # Setting fastlane session to bypass 2-factor for apple account
-        - # This session much be changed every build or else it will fail whole build process
-        - # Add the following line to a package.json script
-        - # (NOTE: set an environment variable for your email address, export EMAIL_ADDRESS=email_address@gmail.com)
+        # Setting fastlane session to bypass 2-factor for apple account
+        # This session much be changed every build or else it will fail whole build process
+        # Add the following line to a package.json script
+        # (NOTE: set an environment variable for your email address, export EMAIL_ADDRESS=email_address@gmail.com)
         # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt
         - echo $FASTLANE_SESSION
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
@@ -60,7 +60,7 @@ matrix:
         # Run Gym in the background to prevent verbose build over 10000 lines (Travis auto terminates build)
         - nohup bundle exec fastlane ios travisdeploy &
         - pwd
-         # Silence gym in the background or else logs will pass 10000 and travis will force end the build
+        # Silence gym in the background or else logs will pass 10000 and travis will force end the build
         - for i in $(seq 1 10); do sleep 60; echo $i; done
         # Check if ipa and app.dSYM.zip builds are created
         # You should see "publicreactnativeapp.app.dSYM.zip and publicreactnativeapp.ipa"
