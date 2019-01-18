@@ -49,19 +49,24 @@ matrix:
         - # Setting fastlane session to bypass 2-factor for apple account
         - # This session much be changed every build or else it will fail whole build process
         - # Add the following line to a package.json script
-        # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u cchong.vise@gmail.com ; pbpaste > ./session.txt
+        - # (NOTE: set an environment variable for your email address, export EMAIL_ADDRESS=email_address@gmail.com)
+        # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt
         - echo $FASTLANE_SESSION
         - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
         # Confirm session environment variable is set
         - echo $FASTLANE_SESSION
         - bundle update
         - ls /Users/travis/Library/Keychains/
-        # Run Gym in the background to prevent verbose build
-        - nohup bundle exec fastlane ios travisgym &
+        # Run Gym in the background to prevent verbose build over 10000 lines (Travis auto terminates build)
+        - nohup bundle exec fastlane ios travisdeploy &
         - pwd
-        - for i in $(seq 1 6); do sleep 60; echo $i; done
+         # Silence gym in the background or else logs will pass 10000 and travis will force end the build
+        - for i in $(seq 1 10); do sleep 60; echo $i; done
+        # Check if ipa and app.dSYM.zip builds are created
+        # You should see "publicreactnativeapp.app.dSYM.zip and publicreactnativeapp.ipa"
         - ls
-        - bundle exec fastlane ios travisupload
+        # now upload your build (If this part failed that means you didnt generate a new session token to pass 2factor
+        # - bundle exec fastlane ios travisupload
   # exclude:
     - language: android
       jdk: oraclejdk8
