@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "session": "cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u cchong.vise@gmail.com ; pbpaste > ./session.txt",
     "commit": "git add . && git commit -m \"Deploy\" && git push",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "session": "cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt",
     "deploy-local": "cd ios/ ; bundle exec fastlane localdeploy ",
-    "deploy-prod": "run-s session commit",
     "test": "jest"
   },
   "dependencies": {

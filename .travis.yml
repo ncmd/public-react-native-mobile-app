@@ -24,7 +24,7 @@ matrix:
         - gem install bundler
         - gem install fastlane
         - pwd
-        # Decrypt key to download certificate from a private certificate repository
+        # Decrypt key to download certificate from a private certificate "public-fastlane-certificates" repository
         - ls ~/.ssh/
         - cd ./ios && openssl aes-256-cbc -K $encrypted_135108afd44f_key -iv $encrypted_135108afd44f_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
         - cp deploy_key.pub ~/.ssh/deploy_key.pub
@@ -44,15 +44,15 @@ matrix:
       script:
         - pwd
         - cd ./ios/
-        # Install all gemfile requirements and allows faster fastlane performance
+        # Install all ios/Gemfile requirements and allows faster fastlane performance
         - bundle install
         # Setting fastlane session to bypass 2-factor for apple account
         # This session much be changed every build or else it will fail whole build process
-        # Add the following line to a package.json script
+        # Refer to package.json "session" script
         # (NOTE: set an environment variable for your email address, export EMAIL_ADDRESS=email_address@gmail.com)
         # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt
         - echo $FASTLANE_SESSION
-        - var=$(cat ./session.txt) && export FASTLANE_SESSION=$var
+        - set_fastlane_session_from_file=$(cat ./session.txt) && export FASTLANE_SESSION=$set_fastlane_session_from_file
         # Confirm session environment variable is set
         - echo $FASTLANE_SESSION
         - bundle update
@@ -61,13 +61,13 @@ matrix:
         - nohup bundle exec fastlane ios travisdeploy &
         - pwd
         # Silence gym in the background or else logs will pass 10000 and travis will force end the build
-        - for i in $(seq 1 10); do sleep 60; echo $i; done
+        - for i in $(seq 1 7); do sleep 60; echo $i; done
         # Check if ipa and app.dSYM.zip builds are created
         # You should see "publicreactnativeapp.app.dSYM.zip and publicreactnativeapp.ipa"
         - ls
-        # now upload your build (If this part failed that means you didnt generate a new session token to pass 2factor
-        # - bundle exec fastlane ios travisupload
-  # exclude:
+        # You build should be uploaded (If this part failed that means you didnt generate a new session token to pass 2factor
+  # This is used to prevent Android build
+  # exclude: 
     - language: android
       jdk: oraclejdk8
       sudo: required
