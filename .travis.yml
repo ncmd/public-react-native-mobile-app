@@ -1,3 +1,7 @@
+branches:
+  only:
+  - master
+  
 matrix:
   include:
     - language: objective-c
@@ -123,6 +127,3 @@ matrix:
       after_script:
         - chmod +x ./android/gradlew
         - ./gradlew assembleRelease
-      branches:
-        only:
-        - master
