@@ -14,13 +14,16 @@ import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import { Circle, G, Line, Rect } from 'react-native-svg'
 
+
+const buttons = ['LIVE', '1D', '1W', '1M', '1Y', 'ALL']
+
 class Stock extends React.Component {
 
     constructor() {
         super()
         this.state = {
             selectedIndex: 0,
-            stockData: [50, 10, -4, -24, 33],
+            stockData: [50, 10, 33],
             status: "Disconnected",
             open: false,
             text: '',
@@ -44,13 +47,13 @@ class Stock extends React.Component {
         // When socket opens
         this.socket.onopen = () => {
           // Check if Socket Open
-          this.setState({ status: "Connected" })
+          this.setState({ status: "Connected Stock Socket" })
         }
     
         // When socket closes
         this.socket.onclose = () => {
-          this.socket.send("Closing");
-          this.setState({ status: "Disconnected" })
+          this.socket.send("Closing Stock Socket");
+          this.setState({ status: "Disconnected Stock Socket" })
         }
     
         // When socket receives messages
@@ -69,8 +72,7 @@ class Stock extends React.Component {
         this.setState({ selectedIndex })
     }
 
-    render() {
-        const buttons = ['LIVE', '1D', '1W', '1M', '1Y', 'ALL']
+    renderStockView(){
         const { selectedIndex } = this.state
         const Shadow = ({ line }) => (
             <Path
@@ -83,7 +85,7 @@ class Stock extends React.Component {
             />
         )
 
-        return (
+        return(
             <View>
                 <Header headerText={'Stock Name'} />
                 <View style={{ height: 25 }}>
@@ -119,7 +121,12 @@ class Stock extends React.Component {
                     />
                 </View>
             </View>
-            // Main Container
+        )
+    }
+
+    render() {
+        return (
+            this.renderStockView()
         );
     }
 }
