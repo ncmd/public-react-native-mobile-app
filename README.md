@@ -1,5 +1,7 @@
 # public-react-native-app
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ncmd/public-react-native-mobile-app.svg)](https://greenkeeper.io/)
+
 # Fastlane Deployment (Instructions for new app for REFERENCE; DO NOT DO THIS for this current app)
 ## Android
 0. You will need a developer license (or invite)
