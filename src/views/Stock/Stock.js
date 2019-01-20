@@ -107,8 +107,7 @@ class Stock extends React.Component {
                         contentInset={{ top: 20, bottom: 20 }}
                     >
                         <Grid />
-                        <Shadow />
-                        
+                        <Shadow /> 
                     </LineChart>
                 </View>
                 <View>

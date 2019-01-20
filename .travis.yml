@@ -115,9 +115,9 @@ matrix:
         - pwd
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/my-release-key.keystore -d
-        - cd android && bundle install && bundle update && ./gradlew clean
       install:
         - npm install
+        - cd android && bundle install && bundle update && ./gradlew clean
       script:
         - pwd
         - ls
