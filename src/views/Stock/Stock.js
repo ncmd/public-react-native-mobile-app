@@ -11,6 +11,7 @@ import {
     ScrollView,
 } from 'react-native';
 import Header from '../../components/Header/Header'
+import SocketStatus from '../../components/Socket/SocketStatus'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import { Circle, G, Line, Rect } from 'react-native-svg'
 
@@ -18,7 +19,6 @@ import { Circle, G, Line, Rect } from 'react-native-svg'
 const buttons = ['LIVE', '1D', '1W', '1M', '1Y', 'ALL']
 
 class Stock extends React.Component {
-
     constructor() {
         super()
         this.state = {
