@@ -1,5 +1,7 @@
 # public-react-native-app
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ncmd/public-react-native-mobile-app.svg)](https://greenkeeper.io/)
+
 # How this project was created
 1. Requires nodejs to be installed (Advised to use nodejs 11.6.x)
 2. Create app using create-native-app
