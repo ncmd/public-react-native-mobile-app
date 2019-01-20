@@ -10,7 +10,7 @@ import {
     FlatList,
     ScrollView,
 } from 'react-native';
-import Header from '../components/Header/Header'
+import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import { Circle, G, Line, Rect } from 'react-native-svg'
 
@@ -20,34 +20,23 @@ class Stock extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
-            stockData: [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80],
+            stockData: [50, 10, -4, -24, 33],
             status: "Disconnected",
             open: false,
             text: '',
             chat: []
         }
         this.updateIndex = this.updateIndex.bind(this)
-        if (Platform.OS === 'ios') {
-            if (process.env.APP_ENV === 'production'){
-                this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
-            } else if (process.env.APP_ENV === 'local'){
-                console.log("local")
+        if (process.env.APP_ENV === 'production'){
+            this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
+        } else {
+            if (Platform.OS === 'ios') {
                 this.socket = new WebSocket('ws://127.0.0.1:8080/wsstock');
-            } else {
-                console.log("else")
-                this.socket = new WebSocket('ws://127.0.0.1:8080/wsstock');
-            }  
-          } else if (Platform.OS === 'android') {
-            if (process.env.APP_ENV === 'production'){
-                this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
-            } else if (process.env.APP_ENV === 'local'){
-                console.log("local")
-                this.socket = new WebSocket('ws://10.0.2.2:8080/wsstock');
-            } else {
-                console.log("else")
+            }
+            if (Platform.OS === 'android'){
                 this.socket = new WebSocket('ws://10.0.2.2:8080/wsstock');
             }
-          }
+        } 
     }
 
     componentDidMount() {
@@ -56,14 +45,6 @@ class Stock extends React.Component {
         this.socket.onopen = () => {
           // Check if Socket Open
           this.setState({ status: "Connected" })
-        //   for (i = 0; i < 20; i++) { 
-              
-        //     prevStockData = this.state.stockData
-        //     prevStockData.push(this.state.stockData[prevStockData.length-1]+i)
-        //     this.setState({
-        //         stockData:prevStockData
-        //     })
-        //   }
         }
     
         // When socket closes

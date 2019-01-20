@@ -10,8 +10,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './redux/reducers';
-import ChatComponent from './views/Chat'
-import StockComponent from './views/Stock'
+import ChatComponent from './views/Chat/Chat'
+import StockComponent from './views/Stock/Stock'
 
 const persistConfig = {
     key: 'root',
