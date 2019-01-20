@@ -43,6 +43,7 @@ matrix:
         - yarn install
         # required to use react-native 
         - npm install -g react-native-cli
+        - npm install
         # Adds missing main.jsbundle file when react-native project is created
         - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
       script:
