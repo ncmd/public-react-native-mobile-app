@@ -44,14 +44,14 @@ class Chat extends React.Component {
 
     this.send_message = this.send_message.bind(this);
     if (Platform.OS === 'ios') {
-      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/ws');
+      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wschat');
     } else if (Platform.OS === 'android') {
-      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/ws');
+      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wschat');
     }
   }
 
   componentDidMount() {
-    
+
     // When socket opens
     this.socket.onopen = () => {
       const min = 1;
@@ -75,14 +75,16 @@ class Chat extends React.Component {
       const rand = min + Math.random() * (max - min);
       this.setState({ chat: [...this.state.chat, { key: rand + e.data, message: e.data }] })
       // this.myFlatList.scrollToEnd({ animated: false })
-      if (Platform.OS === 'ios') {
-        setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
-        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-      } else if (Platform.OS === 'android') {
-        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-      }
+      this.handle_scroll_chat()
+    }
+  }
 
-
+  handle_scroll_chat(){
+    if (Platform.OS === 'ios') {
+      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+    } else if (Platform.OS === 'android') {
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
     }
   }
 
@@ -92,12 +94,7 @@ class Chat extends React.Component {
     this.setState({
       text: ''
     })
-    if (Platform.OS === 'ios') {
-      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-    } else if (Platform.OS === 'android') {
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-    }
+    this.handle_scroll_chat()
   }
 
 
@@ -106,16 +103,21 @@ class Chat extends React.Component {
     <Text style={{ color: 'white' }} key={item.key}><Text style={{ color: '#FD971F' }}>{index}</Text> - {item.message}</Text>
   );
 
+  renderConnectionStatus() {
+    return (
+      < View style={{ height: 25 }}>
+        <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
+      </View >
+    )
+  }
+
   renderAndroid() {
     return (
       <View style={styles.container}>
-        {/* Connection Status  */}
-        <View style={{ height: 25 }}>
-          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
-        </View>
+        {this.renderConnectionStatus()}
         {/* Chatbox */}
-        <View style={{ height: '80%', marginBottom: 10, flex:1 }}>
-          <ScrollView contentContainerStyle={{  flexGrow:1 }}  ref={(ref) => { this.myScrollView = ref; }}>
+        <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
             <FlatList
               contentContainerStyle={styles.flatlist}
               ref={(ref) => { this.myFlatList = ref; }}
@@ -147,13 +149,10 @@ class Chat extends React.Component {
   renderIos() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-        {/* Connection Status  */}
-        <View style={{ height: 25}}>
-          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
-        </View>
+        {this.renderConnectionStatus()}
         {/* Chatbox */}
-        <View style={{ height: '80%', marginBottom: 10, flex:1}}>
-          <ScrollView contentContainerStyle={{ flexGrow:1}} ref={(ref) => { this.myScrollView = ref; }}>
+        <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
             <FlatList
               contentContainerStyle={styles.flatlist}
               ref={(ref) => { this.myFlatList = ref; }}
