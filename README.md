@@ -1,22 +1,6 @@
 # public-react-native-app
 
-# How this project was created
-1. Requires nodejs to be installed (Advised to use nodejs 11.6.x)
-2. Create app using create-native-app
-```
-npm install -g react-native-cli
-react-native init publicereactnativeapp
-```
-
-# How react-native-svg * react-native-svg-charts were installed
-```
-npm install react-native-svg react-native-svg-charts --save
-react-native link react-native-svg
-If the above fails, follow manual instructions at: https://github.com/react-native-community/react-native-svg
-```
-
-# Fastlane Deployment (Instructions for new app for REFERENCE when making a NEW PROJECT; DO NOT DO THIS for this current app)
-
+# Fastlane Deployment (Instructions for new app for REFERENCE; DO NOT DO THIS for this current app)
 ## Android
 0. You will need a developer license (or invite)
 1. Create App - https://play.google.com/apps/publish/

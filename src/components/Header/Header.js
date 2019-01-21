@@ -9,26 +9,20 @@ const Header = (props) => {
     // const { viewStyle, textStyle } = styles;
     if (Platform.OS === 'ios') {
         styles = ios_styles
-        return (
-            <View style={styles.viewStyleIOS}>
-                <Text style={styles.textStyleIOS}>{props.headerText}</Text>
-            </View>
-        )
     } else if (Platform.OS === 'android') {
         styles = android_styles
-        return (
-            <View style={styles.viewStyleANDROID}>
-                <Text style={styles.textStyleANDROID}>{props.headerText}</Text>
-            </View>
-        )
     }
 
-    
+    return (
+        <View style={styles.viewStyle}>
+            <Text style={styles.textStyle}>{props.headerText}</Text>
+        </View>
+    )
 }
 
 // iOS Styles
 const ios_styles = StyleSheet.create({
-    viewStyleIOS: {
+    viewStyle: {
         backgroundColor: '#F8F8F8',
         justifyContent: 'center',
         alignItems: 'center',
@@ -48,7 +42,7 @@ const ios_styles = StyleSheet.create({
 
 // Android Styles
 const android_styles = StyleSheet.create({
-    viewStyleANDROID: {
+    viewStyle: {
         backgroundColor: '#F8F8F8',
         justifyContent: 'center',
         alignItems: 'center',

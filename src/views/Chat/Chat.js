@@ -46,14 +46,14 @@ class Chat extends React.Component {
 
     this.send_message = this.send_message.bind(this);
     if (Platform.OS === 'ios') {
-      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wschat');
+      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/ws');
     } else if (Platform.OS === 'android') {
-      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wschat');
+      this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/ws');
     }
   }
 
   componentDidMount() {
-
+    
     // When socket opens
     this.socket.onopen = () => {
       const min = 1;
@@ -77,16 +77,14 @@ class Chat extends React.Component {
       const rand = min + Math.random() * (max - min);
       this.setState({ chat: [...this.state.chat, { key: rand + e.data, message: e.data }] })
       // this.myFlatList.scrollToEnd({ animated: false })
-      this.handle_scroll_chat()
-    }
-  }
+      if (Platform.OS === 'ios') {
+        setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
+        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+      } else if (Platform.OS === 'android') {
+        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+      }
 
-  handle_scroll_chat() {
-    if (Platform.OS === 'ios') {
-      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-    } else if (Platform.OS === 'android') {
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+
     }
   }
 
@@ -96,7 +94,12 @@ class Chat extends React.Component {
     this.setState({
       text: ''
     })
-    this.handle_scroll_chat()
+    if (Platform.OS === 'ios') {
+      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+    } else if (Platform.OS === 'android') {
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+    }
   }
 
 
@@ -105,29 +108,26 @@ class Chat extends React.Component {
     <Text style={{ color: 'white' }} key={item.key}><Text style={{ color: '#FD971F' }}>{index}</Text> - {item.message}</Text>
   );
 
-  renderScrollViewChatList() {
-    return (
-      <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
-          <FlatList
-            contentContainerStyle={styles.flatlist}
-            ref={(ref) => { this.myFlatList = ref; }}
-            data={this.state.chat}
-            extraData={this.state}
-            keyExtractor={(item, index) => item.key}
-            renderItem={this._renderItem}
-          />
-        </ScrollView>
-      </View>
-    )
-  }
-
-  // Render Chatbox 
   renderAndroid() {
     return (
       <View style={styles.container}>
-        <ConnectionStatus ConnectionStatus={this.state.status}/>
-        {this.renderScrollViewChatList()}
+        {/* Connection Status  */}
+        <View style={{ height: 25 }}>
+          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
+        </View>
+        {/* Chatbox */}
+        <View style={{ height: '80%', marginBottom: 10, flex:1 }}>
+          <ScrollView contentContainerStyle={{  flexGrow:1 }}  ref={(ref) => { this.myScrollView = ref; }}>
+            <FlatList
+              contentContainerStyle={styles.flatlist}
+              ref={(ref) => { this.myFlatList = ref; }}
+              data={this.state.chat}
+              extraData={this.state}
+              keyExtractor={(item, index) => item.key}
+              renderItem={this._renderItem}
+            />
+          </ScrollView>
+        </View>
         {/* Textbox */}
         <View style={styles.container_textbox}>
           <View style={styles.textinput}>
@@ -150,8 +150,28 @@ class Chat extends React.Component {
   renderIos() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+<<<<<<< HEAD:src/views/Chat/Chat.js
         <ConnectionStatus ConnectionStatus={this.state.status}/>
         {this.renderScrollViewChatList()}
+=======
+        {/* Connection Status  */}
+        <View style={{ height: 25}}>
+          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
+        </View>
+        {/* Chatbox */}
+        <View style={{ height: '80%', marginBottom: 10, flex:1}}>
+          <ScrollView contentContainerStyle={{ flexGrow:1}} ref={(ref) => { this.myScrollView = ref; }}>
+            <FlatList
+              contentContainerStyle={styles.flatlist}
+              ref={(ref) => { this.myFlatList = ref; }}
+              data={this.state.chat}
+              extraData={this.state}
+              keyExtractor={(item, index) => item.key}
+              renderItem={this._renderItem}
+            />
+          </ScrollView>
+        </View>
+>>>>>>> parent of 079bbbe0... Deploy:src/views/Chat.js
         {/* Textbox */}
         <View style={styles.container_textbox}>
           <View style={styles.textinput}>
