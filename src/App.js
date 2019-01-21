@@ -10,12 +10,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './redux/reducers';
-<<<<<<< HEAD
 import ChatComponent from './views/Chat/Chat'
 import StockComponent from './views/Stock/Stock'
-=======
-import ChatComponent from './views/Chat'
->>>>>>> parent of 079bbbe0... Deploy
 
 const persistConfig = {
     key: 'root',
@@ -32,7 +28,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                <ChatComponent/>
+                <StockComponent/>
                     {/* <View>
                         <Header headerText={'Chat'} />
                         <AlbumList />

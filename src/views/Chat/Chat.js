@@ -150,28 +150,8 @@ class Chat extends React.Component {
   renderIos() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-<<<<<<< HEAD:src/views/Chat/Chat.js
         <ConnectionStatus ConnectionStatus={this.state.status}/>
         {this.renderScrollViewChatList()}
-=======
-        {/* Connection Status  */}
-        <View style={{ height: 25}}>
-          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
-        </View>
-        {/* Chatbox */}
-        <View style={{ height: '80%', marginBottom: 10, flex:1}}>
-          <ScrollView contentContainerStyle={{ flexGrow:1}} ref={(ref) => { this.myScrollView = ref; }}>
-            <FlatList
-              contentContainerStyle={styles.flatlist}
-              ref={(ref) => { this.myFlatList = ref; }}
-              data={this.state.chat}
-              extraData={this.state}
-              keyExtractor={(item, index) => item.key}
-              renderItem={this._renderItem}
-            />
-          </ScrollView>
-        </View>
->>>>>>> parent of 079bbbe0... Deploy:src/views/Chat.js
         {/* Textbox */}
         <View style={styles.container_textbox}>
           <View style={styles.textinput}>
