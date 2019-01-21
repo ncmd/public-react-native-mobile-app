@@ -53,7 +53,7 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
-    
+
     // When socket opens
     this.socket.onopen = () => {
       const min = 1;
@@ -77,14 +77,18 @@ class Chat extends React.Component {
       const rand = min + Math.random() * (max - min);
       this.setState({ chat: [...this.state.chat, { key: rand + e.data, message: e.data }] })
       // this.myFlatList.scrollToEnd({ animated: false })
-      if (Platform.OS === 'ios') {
-        setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
-        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-      } else if (Platform.OS === 'android') {
-        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-      }
+      this.messageScrollAnimation()
 
 
+    }
+  }
+
+  messageScrollAnimation(){
+    if (Platform.OS === 'ios') {
+      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+    } else if (Platform.OS === 'android') {
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
     }
   }
 
@@ -94,12 +98,7 @@ class Chat extends React.Component {
     this.setState({
       text: ''
     })
-    if (Platform.OS === 'ios') {
-      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-    } else if (Platform.OS === 'android') {
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-    }
+    this.messageScrollAnimation()
   }
 
 
@@ -108,16 +107,31 @@ class Chat extends React.Component {
     <Text style={{ color: 'white' }} key={item.key}><Text style={{ color: '#FD971F' }}>{index}</Text> - {item.message}</Text>
   );
 
+  renderMessageTextbox() {
+    return (
+      < View style = { styles.container_textbox } >
+        <View style={styles.textinput}>
+          <Textinput
+            multiline={false}
+            numberOfLines={1}
+            onChangeText={(text) => this.setState({ text })}
+            value={this.state.text}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button onPress={this.send_message} title={"Send"} color="#F92672" />
+        </View>
+        </View >
+    )
+  }
+
   renderAndroid() {
     return (
       <View style={styles.container}>
-        {/* Connection Status  */}
-        <View style={{ height: 25 }}>
-          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
-        </View>
+        <ConnectionStatus ConnectionStatus={this.state.status} />
         {/* Chatbox */}
-        <View style={{ height: '80%', marginBottom: 10, flex:1 }}>
-          <ScrollView contentContainerStyle={{  flexGrow:1 }}  ref={(ref) => { this.myScrollView = ref; }}>
+        <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
             <FlatList
               contentContainerStyle={styles.flatlist}
               ref={(ref) => { this.myFlatList = ref; }}
@@ -129,19 +143,7 @@ class Chat extends React.Component {
           </ScrollView>
         </View>
         {/* Textbox */}
-        <View style={styles.container_textbox}>
-          <View style={styles.textinput}>
-            <Textinput
-              multiline={false}
-              numberOfLines={1}
-              onChangeText={(text) => this.setState({ text })}
-              value={this.state.text}
-            />
-          </View>
-          <View style={styles.button}>
-            <Button onPress={this.send_message} title={"Send"} color="#F92672" />
-          </View>
-        </View>
+        {this.renderMessageTextbox()}
       </View>
     )
   }
@@ -150,22 +152,10 @@ class Chat extends React.Component {
   renderIos() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-        <ConnectionStatus ConnectionStatus={this.state.status}/>
+        <ConnectionStatus ConnectionStatus={this.state.status} />
         {this.renderScrollViewChatList()}
         {/* Textbox */}
-        <View style={styles.container_textbox}>
-          <View style={styles.textinput}>
-            <Textinput
-              multiline={false}
-              numberOfLines={1}
-              onChangeText={(text) => this.setState({ text })}
-              value={this.state.text}
-            />
-          </View>
-          <View style={styles.button}>
-            <Button onPress={this.send_message} title={"Send"} color="#F92672" />
-          </View>
-        </View>
+        {this.renderMessageTextbox()}
       </KeyboardAvoidingView>
     )
   }
