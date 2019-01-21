@@ -6,11 +6,11 @@ import {
     Text,
     View,
     Platform,
+    Button,
     FlatList,
     ScrollView,
 } from 'react-native';
 import Header from '../../components/Header/Header'
-import SocketStatus from '../../components/Socket/SocketStatus'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import { Circle, G, Line, Rect } from 'react-native-svg'
 
@@ -70,7 +70,7 @@ class Stock extends React.Component {
         this.socket.onmessage = (e) => {
             console.log(e)
             prevStockData = this.state.stockData
-            prevStockData.push(this.state.stockData[prevStockData.length - 1] + 20)
+            prevStockData.push(parseInt(e.data))
             this.setState({
                 stockData: prevStockData
             })
@@ -80,6 +80,10 @@ class Stock extends React.Component {
 
     updateIndex(selectedIndex) {
         this.setState({ selectedIndex })
+    }
+
+    renderButtonAdd(){
+        this.sets
     }
 
     renderStockChart() {

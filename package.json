@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "commit": "npm-run-all session com",
+    "commit": "npm-run-all session increment com",
     "com": "git add . && git commit -m \"Deploy\" && git push",
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "increment": "cd ios/ ; bundle exec fastlane run increment_build_number",
     "session": "cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt",
     "deploy-local": "cd ios/ ; bundle exec fastlane localdeploy ",
     "test": "jest"
