@@ -13,9 +13,10 @@ import {
 import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import { Circle, G, Line, Rect } from 'react-native-svg'
+import { Actions } from 'react-native-router-flux'
+import { systemWeights } from 'react-native-typography'
 
-
-const timeButtons = ['LIVE', '1D', '1W', '1M', '1Y', 'ALL']
+const timeButtonGroupValues = ['LIVE', '1D', '1W', '1M', '1Y', 'ALL']
 
 const Shadow = ({ line }) => (
     <Path
@@ -53,7 +54,6 @@ class Stock extends React.Component {
     }
 
     componentDidMount() {
-
         // When socket opens
         this.socket.onopen = () => {
             // Check if Socket Open
@@ -71,9 +71,16 @@ class Stock extends React.Component {
             console.log(e)
             prevStockData = this.state.stockData
             prevStockData.push(parseInt(e.data))
-            this.setState({
-                stockData: prevStockData
-            })
+            if (prevStockData.length > 10) {
+                prevStockData.shift()
+                this.setState({
+                    stockData: prevStockData
+                })
+            } else {
+                this.setState({
+                    stockData: prevStockData
+                })
+            }
 
         }
     }
@@ -82,12 +89,12 @@ class Stock extends React.Component {
         this.setState({ selectedIndex })
     }
 
-    renderButtonAdd(){
+    renderButtonAdd() {
         this.sets
     }
 
     renderStockChart() {
-        
+
         return (
             <View>
                 <LineChart
@@ -105,22 +112,44 @@ class Stock extends React.Component {
         )
     }
 
+    renderStockPriceDifference() {
+        let previousPrice = this.state.stockData[this.state.stockData.length - 2]
+        let currentPrice = this.state.stockData[this.state.stockData.length - 1]
+        let differencePrice = currentPrice - previousPrice
+        if (differencePrice < 0) {
+            return (
+                <Text style={{ fontSize: 15, paddingLeft:10 , color:'#f45531',  fontWeight:systemWeights.bold.fontWeight}}>
+                    DOWN ${differencePrice}(2.84%) Today
+                </Text>
+            )
+        } else if (differencePrice > 0) {
+            return (
+                <Text style={{ fontSize: 15, paddingLeft:10 , color:'#21ce99',  fontWeight:systemWeights.bold.fontWeight}}>
+                    UP ${differencePrice}(2.84%) Today
+                </Text>
+            )
+        }
+    }
+
     renderStockView() {
         return (
             <View>
-                <Header headerText={'Stock Name'} />
-                <View style={{ height: 25 }}>
-                    <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
+                {/* <Header headerText={'Stock Name'} /> */}
+                <View style={{ height: 25, backgroundColor: "#0e0d0d" }}>
+                    <Text style={{ color: 'white' }}>Connection Status:
+                    <Text style={{ color: '#21ce99' }}>{this.state.status}</Text></Text>
                 </View>
                 <View>
-                    <Text style={{ fontSize: 45 }}>
-                        $123.45
+                    <Text style={{fontSize:30,paddingLeft:10, fontWeight:systemWeights.thin.fontWeight}}>
+                        Username
                     </Text>
-                    <Text style={{ fontSize: 15 }}>
-                        +$3.23(2.84%) Today
+                    <Text style={{ fontSize: 35, padding:5 }}>
+                        ${this.state.stockData[this.state.stockData.length - 1]}
                     </Text>
+                    {this.renderStockPriceDifference()}
                 </View>
                 {this.renderStockChart()}
+                <Button title="Order" onPress={() => Actions.stockorder()}>Order Stock</Button>
             </View>
         )
     }

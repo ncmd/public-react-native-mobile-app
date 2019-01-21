@@ -12,6 +12,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './redux/reducers';
 import ChatComponent from './views/Chat/Chat'
 import StockComponent from './views/Stock/Stock'
+import StockOrderComponent from './views/Stock/StockOrder'
+import Router from './Router'
 
 const persistConfig = {
     key: 'root',
@@ -28,7 +30,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                <StockComponent/>
+                <Router/>
                     {/* <View>
                         <Header headerText={'Chat'} />
                         <AlbumList />

@@ -11,10 +11,8 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import ios_styles from './ChatStylesIOS'
-import android_styles from './ChatStylesANDROID'
+
 import Header from '../../components/Header/Header'
-import ConnectionStatus from '../../components/Connection/ConnectionStatus'
 
 class Textinput extends Component {
   render() {
@@ -53,7 +51,7 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
-
+    
     // When socket opens
     this.socket.onopen = () => {
       const min = 1;
@@ -61,13 +59,13 @@ class Chat extends React.Component {
       const rand = min + Math.random() * (max - min);
       // Check if Socket Open
       // this.socket.send("Open"+rand);
-      this.setState({ status: "Connected Chat Socket" })
+      this.setState({ status: "Connected" })
     }
 
     // When socket closes
     this.socket.onclose = () => {
-      this.socket.send("Closing Chat Socket");
-      this.setState({ status: "Disconnected Chat Socket" })
+      this.socket.send("Closing");
+      this.setState({ status: "Disconnected" })
     }
 
     // When socket receives messages
@@ -77,18 +75,14 @@ class Chat extends React.Component {
       const rand = min + Math.random() * (max - min);
       this.setState({ chat: [...this.state.chat, { key: rand + e.data, message: e.data }] })
       // this.myFlatList.scrollToEnd({ animated: false })
-      this.messageScrollAnimation()
+      if (Platform.OS === 'ios') {
+        setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
+        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+      } else if (Platform.OS === 'android') {
+        setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+      }
 
 
-    }
-  }
-
-  messageScrollAnimation(){
-    if (Platform.OS === 'ios') {
-      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
-    } else if (Platform.OS === 'android') {
-      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
     }
   }
 
@@ -98,7 +92,12 @@ class Chat extends React.Component {
     this.setState({
       text: ''
     })
-    this.messageScrollAnimation()
+    if (Platform.OS === 'ios') {
+      setTimeout(() => this.myFlatList.scrollToEnd({ animated: false }), 0)
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+    } else if (Platform.OS === 'android') {
+      setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
+    }
   }
 
 
@@ -107,31 +106,16 @@ class Chat extends React.Component {
     <Text style={{ color: 'white' }} key={item.key}><Text style={{ color: '#FD971F' }}>{index}</Text> - {item.message}</Text>
   );
 
-  renderMessageTextbox() {
-    return (
-      < View style = { styles.container_textbox } >
-        <View style={styles.textinput}>
-          <Textinput
-            multiline={false}
-            numberOfLines={1}
-            onChangeText={(text) => this.setState({ text })}
-            value={this.state.text}
-          />
-        </View>
-        <View style={styles.button}>
-          <Button onPress={this.send_message} title={"Send"} color="#F92672" />
-        </View>
-        </View >
-    )
-  }
-
   renderAndroid() {
     return (
       <View style={styles.container}>
-        <ConnectionStatus ConnectionStatus={this.state.status} />
+        {/* Connection Status  */}
+        <View style={{ height: 25 }}>
+          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
+        </View>
         {/* Chatbox */}
-        <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
-          <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
+        <View style={{ height: '80%', marginBottom: 10, flex:1 }}>
+          <ScrollView contentContainerStyle={{  flexGrow:1 }}  ref={(ref) => { this.myScrollView = ref; }}>
             <FlatList
               contentContainerStyle={styles.flatlist}
               ref={(ref) => { this.myFlatList = ref; }}
@@ -143,19 +127,57 @@ class Chat extends React.Component {
           </ScrollView>
         </View>
         {/* Textbox */}
-        {this.renderMessageTextbox()}
+        <View style={styles.container_textbox}>
+          <View style={styles.textinput}>
+            <Textinput
+              multiline={false}
+              numberOfLines={1}
+              onChangeText={(text) => this.setState({ text })}
+              value={this.state.text}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button onPress={this.send_message} title={"Send"} color="#F92672" />
+          </View>
+        </View>
       </View>
     )
   }
 
-  // Render Chatbox 
   renderIos() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-        <ConnectionStatus ConnectionStatus={this.state.status} />
-        {this.renderScrollViewChatList()}
+        {/* Connection Status  */}
+        <View style={{ height: 25}}>
+          <Text style={{ color: 'white' }}>Connection Status: <Text style={{ color: '#66D9EF' }}>{this.state.status}</Text></Text>
+        </View>
+        {/* Chatbox */}
+        <View style={{ height: '80%', marginBottom: 10, flex:1}}>
+          <ScrollView contentContainerStyle={{ flexGrow:1}} ref={(ref) => { this.myScrollView = ref; }}>
+            <FlatList
+              contentContainerStyle={styles.flatlist}
+              ref={(ref) => { this.myFlatList = ref; }}
+              data={this.state.chat}
+              extraData={this.state}
+              keyExtractor={(item, index) => item.key}
+              renderItem={this._renderItem}
+            />
+          </ScrollView>
+        </View>
         {/* Textbox */}
-        {this.renderMessageTextbox()}
+        <View style={styles.container_textbox}>
+          <View style={styles.textinput}>
+            <Textinput
+              multiline={false}
+              numberOfLines={1}
+              onChangeText={(text) => this.setState({ text })}
+              value={this.state.text}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button onPress={this.send_message} title={"Send"} color="#F92672" />
+          </View>
+        </View>
       </KeyboardAvoidingView>
     )
   }
@@ -171,12 +193,136 @@ class Chat extends React.Component {
 
     return (
       <View style={styles.base}>
-        <Header headerText={'Chat'} />
         {renderPlatform}
       </View>
       // Main Container
     );
   }
 }
+
+// iOS Styles
+const ios_styles = StyleSheet.create({
+  flatlist: {
+    height: '100%',
+    borderWidth: 3,
+    borderColor: '#F92672',
+    padding: 5,
+  },
+
+  contentContainer: {
+    paddingVertical: 0,
+    height: '70%'
+  },
+  base: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  container_textbox: {
+    flex: 0,
+    flexDirection: 'row',
+    height: '10%'
+  },
+  container: {
+    flex: 1,
+    flexGrow: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    backgroundColor: '#272822',
+    borderWidth: 10,
+    borderColor: '#272822',
+  },
+  connection: {
+    height: 50,
+    borderWidth: 10,
+    borderColor: 'black',
+    backgroundColor: 'red',
+    width: '100%'
+  },
+
+  container_textinput: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    backgroundColor: 'green',
+    borderWidth: 10,
+    borderColor: 'green',
+  },
+  textinput: {
+    width: '80%',
+    height: 40,
+    backgroundColor: 'white',
+  },
+  button: {
+    width: '20%',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
+
+// Android Styles
+const android_styles = StyleSheet.create({
+  container_textbox: {
+    flex: 0,
+    flexDirection: 'row',
+    height: '10%'
+  },
+
+  flatlist: {
+    height: '100%',
+    borderWidth: 3,
+    borderColor: '#F92672',
+    padding: 5,
+  },
+
+  chatbox: {
+    borderWidth: 10,
+    borderColor: 'yellow',
+  },
+
+  base: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+
+  container: {
+    flex: 1,
+    flexGrow: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    backgroundColor: '#272822',
+    borderWidth: 10,
+    borderColor: '#272822',
+  },
+
+  connection: {
+    height: 50,
+    borderWidth: 10,
+    borderColor: 'black',
+    backgroundColor: 'red',
+    width: '100%'
+  },
+
+  container_textinput: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    backgroundColor: 'green',
+    borderWidth: 10,
+    borderColor: 'green',
+  },
+
+  textinput: {
+    width: '80%',
+    height: 40,
+    backgroundColor: 'white',
+  },
+  button: {
+    width: '20%',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
 
 export default Chat;
