@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup } from 'react-native-elements';
 import {
     KeyboardAvoidingView,
     StyleSheet,
@@ -113,12 +112,7 @@ class Stock extends React.Component {
                     </LineChart>
                 </View>
                 <View>
-                    <ButtonGroup
-                        onPress={this.updateIndex}
-                        selectedIndex={selectedIndex}
-                        buttons={buttons}
-                        containerStyle={{ height: 50 }}
-                    />
+                    
                 </View>
             </View>
         )
