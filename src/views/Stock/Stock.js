@@ -16,7 +16,7 @@ import { Actions } from 'react-native-router-flux'
 import { systemWeights } from 'react-native-typography'
 import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{color:'red'}}></Icon>Live</Text>, '1D', '1W', '1M', '3M', '6M', '1Y', '5Y']
 // Live = 1hr | 15 sec = 240
@@ -29,7 +29,7 @@ const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{color:'
 // 5Years = 35d | 7d = 260
 const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365, 260]
 
-const Shadow = ({ line }) => (
+const ShadowDOWN = ({ line }) => (
     <Path
         key={'shadow'}
         y={0}
@@ -38,7 +38,20 @@ const Shadow = ({ line }) => (
         strokeLinecap={'round'}
         strokeWidth={10}
         strokeLinejoin={'round'}
-        stroke={'rgba(33,206,153,0.2)'}
+        stroke={'rgba(244,85,49,0.3)'}
+    />
+)
+
+const ShadowUP = ({ line }) => (
+    <Path
+        key={'shadow'}
+        y={0}
+        d={line}
+        fill={'none'}
+        strokeLinecap={'round'}
+        strokeWidth={10}
+        strokeLinejoin={'round'}
+        stroke={'rgba(33,206,153,0.3)'}
     />
 )
 
@@ -47,7 +60,7 @@ class Stock extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
-            stockData: [10.12, 10.22, 9.93, 10.01, 10.05, 10.13, 10.12, 10.42, 10.33, 10.62, 10.72, 10.93],
+            stockData: [13.12, 12.22, 11.93, 10.01, 11.05, 10.13, 9.12, 9.42, 9.33, 11.62, 11.72, 10.93],
             stockPerformance: '',
             stockVolume: 12023,
             status: "Disconnected",
@@ -69,6 +82,7 @@ class Stock extends React.Component {
     }
 
     componentDidMount() {
+
         // When socket opens
         this.socket.onopen = () => {
             // Check if Socket Open
@@ -86,6 +100,15 @@ class Stock extends React.Component {
             console.log(e)
             prevStockData = this.state.stockData
             prevStockData.push(parseFloat(e.data))
+            if (this.state.stockData[0] > this.state.stockData[this.state.stockData.length-1]){
+                this.setState({
+                    stockPerformance: 'down'
+                })
+            } else {
+                this.setState({
+                    stockPerformance: 'up'
+                })
+            }
             if (prevStockData.length > 100) {
                 prevStockData.shift()
                 this.setState({
@@ -106,10 +129,6 @@ class Stock extends React.Component {
         this.setState({ selectedIndex })
     }
 
-    renderButtonAdd() {
-        this.sets
-    }
-
     // Live = 1hr | 15 sec = 240
     // 1Day = 24h | 5min = 288  
     // 1Week = 7d | 1hr = 168
@@ -119,19 +138,36 @@ class Stock extends React.Component {
     // 1Year = 365d | 1 day = 365
     renderStockChartSelect(maxslice) {
         dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
-        return (
-            <View>
-                <LineChart
-                    style={{ height: 300, backgroundColor: "#0e0d0d" }}
-                    data={dayStockData}
-                    animate={false}
-                    svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
-                    contentInset={{ top: 20, bottom: 20 }}
-                >
-                    <Shadow />
-                </LineChart>
-            </View>
-        )
+        if (this.state.stockPerformance === 'up'){
+            return (
+                <View>
+                    <LineChart
+                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        data={dayStockData}
+                        animate={false}
+                        svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
+                        contentInset={{ top: 20, bottom: 20 }}
+                    >
+                        <ShadowUP />
+                    </LineChart>
+                </View>
+            )
+        } else {
+            return (
+                <View>
+                    <LineChart
+                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        data={dayStockData}
+                        animate={false}
+                        svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
+                        contentInset={{ top: 20, bottom: 20 }}
+                    >
+                        <ShadowDOWN />
+                    </LineChart>
+                </View>
+            )
+        }
+        
     }
 
     renderStockChart(index) {
@@ -171,7 +207,7 @@ class Stock extends React.Component {
                             </View>
                             <View>
                                 <Text style={{ fontSize: 30, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 10, fontWeight: systemWeights.thin.fontWeight }}>
-                                    Username
+                                    stock_name
                                 </Text>
                                 <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", padding: 5 }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
