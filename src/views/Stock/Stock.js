@@ -34,7 +34,7 @@ const Shadow = ({ line }) => (
         d={line}
         fill={'none'}
         strokeLinecap={'round'}
-        strokeWidth={15}
+        strokeWidth={10}
         strokeLinejoin={'round'}
         stroke={'rgba(33,206,153,0.2)'}
     />
@@ -46,6 +46,8 @@ class Stock extends React.Component {
         this.state = {
             selectedIndex: 0,
             stockData: [10.12, 10.22, 9.93, 10.01, 10.05, 10.13, 10.12, 10.42, 10.33, 10.62, 10.72, 10.93],
+            stockPerformance:'',
+            stockVolume: 12023,
             status: "Disconnected",
             open: false,
             text: '',
@@ -85,11 +87,13 @@ class Stock extends React.Component {
             if (prevStockData.length > 100) {
                 prevStockData.shift()
                 this.setState({
-                    stockData: prevStockData
+                    stockData: prevStockData,
+                    stockVolume: this.state.stockVolume+223
                 })
             } else {
                 this.setState({
-                    stockData: prevStockData
+                    stockData: prevStockData,
+                    stockVolume: this.state.stockVolume+223
                 })
             }
 
@@ -119,8 +123,7 @@ class Stock extends React.Component {
                     style={{ height: 300,backgroundColor:"#0e0d0d" }}
                     data={dayStockData}
                     animate={false}
-                    
-                    svg={{ stroke: 'rgb(255,255,255)',strokeWidth:4,strokeLinejoin:'round'}}
+                    svg={{ stroke: 'rgb(255,255,255)',strokeWidth:2,strokeLinejoin:'round'}}
                     contentInset={{ top: 20, bottom: 20 }}
                 >
                     <Shadow />
@@ -169,7 +172,7 @@ class Stock extends React.Component {
                                     Username
                                 </Text>
                                 <Text style={{ fontSize: 35,color:"white",backgroundColor:"#0e0d0d", padding: 5 }}>
-                                    ${this.state.stockData[this.state.stockData.length - 1]}
+                                    ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
                             </View>
@@ -183,7 +186,7 @@ class Stock extends React.Component {
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
                             <Text style={{ paddingLeft: 10, paddingTop: 10,color:"white" }}>TODAY'S VOLUME</Text>
-                            <Text style={{ paddingLeft: 10,color:"white" }}>123,234,222</Text>
+                            <Text style={{ paddingLeft: 10,color:"white" }}>{this.state.stockVolume}</Text>
                         </View>
                         <View style={{ width: "50%" }}>
                             <Button title="Buy" onPress={() => Actions.stockorder()} style={{ width: "100%", padding: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }}>Buy Stock</Button>
@@ -202,7 +205,10 @@ class Stock extends React.Component {
                 onPress={this.updateIndex}
                 selectedIndex={selectedIndex}
                 buttons={timeSelectorButtonGroupValues}
-                containerStyle={{ height: 25 }}
+                containerStyle={{ height: 30, backgroundColor:'rgba(33,206,153,0.1)' }}
+                textStyle={{color:'white'}}
+                selectedButtonStyle={{backgroundColor:'#21ce99'}}
+                selectedTextStyle={{color:'white'}}
             />
         )
     }
