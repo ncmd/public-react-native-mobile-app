@@ -15,8 +15,10 @@ import { Circle, G, Line, Rect } from 'react-native-svg'
 import { Actions } from 'react-native-router-flux'
 import { systemWeights } from 'react-native-typography'
 import { ButtonGroup, Button } from 'react-native-elements';
+import NumberFormat from 'react-number-format';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const timeSelectorButtonGroupValues = ['LIVE', '1D', '1W', '1M', '3M', '6M', '1Y', '5Y']
+const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{color:'red'}}></Icon>Live</Text>, '1D', '1W', '1M', '3M', '6M', '1Y', '5Y']
 // Live = 1hr | 15 sec = 240
 // 1Day = 24h | 5min = 288  
 // 1Week = 7d | 1hr = 168
@@ -46,7 +48,7 @@ class Stock extends React.Component {
         this.state = {
             selectedIndex: 0,
             stockData: [10.12, 10.22, 9.93, 10.01, 10.05, 10.13, 10.12, 10.42, 10.33, 10.62, 10.72, 10.93],
-            stockPerformance:'',
+            stockPerformance: '',
             stockVolume: 12023,
             status: "Disconnected",
             open: false,
@@ -88,12 +90,12 @@ class Stock extends React.Component {
                 prevStockData.shift()
                 this.setState({
                     stockData: prevStockData,
-                    stockVolume: this.state.stockVolume+223
+                    stockVolume: this.state.stockVolume + 223
                 })
             } else {
                 this.setState({
                     stockData: prevStockData,
-                    stockVolume: this.state.stockVolume+223
+                    stockVolume: this.state.stockVolume + 223
                 })
             }
 
@@ -120,10 +122,10 @@ class Stock extends React.Component {
         return (
             <View>
                 <LineChart
-                    style={{ height: 300,backgroundColor:"#0e0d0d" }}
+                    style={{ height: 300, backgroundColor: "#0e0d0d" }}
                     data={dayStockData}
                     animate={false}
-                    svg={{ stroke: 'rgb(255,255,255)',strokeWidth:2,strokeLinejoin:'round'}}
+                    svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
                     contentInset={{ top: 20, bottom: 20 }}
                 >
                     <Shadow />
@@ -144,13 +146,13 @@ class Stock extends React.Component {
         let differencePrice = currentPrice - previousPrice
         if (differencePrice < 0) {
             return (
-                <Text style={{ fontSize: 15,backgroundColor:"#0e0d0d", paddingLeft: 10, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
+                <Text style={{ fontSize: 15, backgroundColor: "#0e0d0d", paddingLeft: 10, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
                     DOWN ${differencePrice.toFixed(2)}(2.84%) Today
                 </Text>
             )
         } else if (differencePrice > 0) {
             return (
-                <Text style={{ fontSize: 15,backgroundColor:"#0e0d0d", paddingLeft: 10, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
+                <Text style={{ fontSize: 15, backgroundColor: "#0e0d0d", paddingLeft: 10, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
                     UP ${differencePrice.toFixed(2)}(2.84%) Today
                 </Text>
             )
@@ -159,19 +161,19 @@ class Stock extends React.Component {
 
     renderStockView() {
         return (
-            <KeyboardAvoidingView behavior="padding" style={{ flex: 1,backgroundColor:"#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <View style={{ height: '80%', marginBottom: 10, flex:1}}>
-                    <ScrollView contentContainerStyle={{ flexGrow:1}} ref={(ref) => { this.myScrollView = ref; }}>
+            <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
+                <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
+                    <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
-                            <View style={{ backgroundColor: "#0e0d0d",padding:10 }}>
+                            <View style={{ backgroundColor: "#0e0d0d", padding: 10 }}>
                                 <Text style={{ color: 'white' }}>Connection Status:
                                 <Text style={{ color: '#21ce99' }}> {this.state.status}</Text></Text>
                             </View>
                             <View>
-                                <Text style={{ fontSize: 30,color:"white",backgroundColor:"#0e0d0d", paddingLeft: 10, fontWeight: systemWeights.thin.fontWeight }}>
+                                <Text style={{ fontSize: 30, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 10, fontWeight: systemWeights.thin.fontWeight }}>
                                     Username
                                 </Text>
-                                <Text style={{ fontSize: 35,color:"white",backgroundColor:"#0e0d0d", padding: 5 }}>
+                                <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", padding: 5 }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
@@ -181,12 +183,19 @@ class Stock extends React.Component {
                         </View>
                     </ScrollView>
                 </View>
-                
-                <View style={{ flex: 0, flexDirection: 'row',height: '20%',backgroundColor:"#0e0d0d" }}>
+
+                <View style={{ flex: 0, flexDirection: 'row', height: '20%', backgroundColor: "#0e0d0d" }}>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
-                            <Text style={{ paddingLeft: 10, paddingTop: 10,color:"white" }}>TODAY'S VOLUME</Text>
-                            <Text style={{ paddingLeft: 10,color:"white" }}>{this.state.stockVolume}</Text>
+                            <Text style={{ paddingLeft: 10, paddingTop: 10, color: "white" }}>TODAY'S VOLUME</Text>
+                            <NumberFormat
+                                style={{ color: 'red' }}
+                                value={this.state.stockVolume}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={''}
+                                renderText={value => <Text style={{ paddingLeft: 10, color: "white" }}>{value}</Text>}
+                            />
                         </View>
                         <View style={{ width: "50%" }}>
                             <Button title="Buy" onPress={() => Actions.stockorder()} style={{ width: "100%", padding: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }}>Buy Stock</Button>
@@ -205,10 +214,10 @@ class Stock extends React.Component {
                 onPress={this.updateIndex}
                 selectedIndex={selectedIndex}
                 buttons={timeSelectorButtonGroupValues}
-                containerStyle={{ height: 30, backgroundColor:'rgba(33,206,153,0.1)' }}
-                textStyle={{color:'white'}}
-                selectedButtonStyle={{backgroundColor:'#21ce99'}}
-                selectedTextStyle={{color:'white'}}
+                containerStyle={{ height: 30, backgroundColor: 'rgba(33,206,153,0.1)', borderRadius:25 }}
+                textStyle={{ color: 'white', fontSize:12 }}
+                selectedButtonStyle={{ backgroundColor: '#21ce99' }}
+                selectedTextStyle={{ color: 'white' }}
             />
         )
     }
