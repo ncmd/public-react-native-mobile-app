@@ -13,12 +13,12 @@ import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import { Circle, G, Line, Rect } from 'react-native-svg'
 import { Actions } from 'react-native-router-flux'
-import { systemWeights } from 'react-native-typography'
+import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{color:'red'}}></Icon>Live</Text>, '1D', '1W', '1M', '3M', '6M', '1Y', '5Y']
+const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
 // Live = 1hr | 15 sec = 240
 // 1Day = 24h | 5min = 288  
 // 1Week = 7d | 1hr = 168
@@ -27,7 +27,7 @@ const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{color:'
 // 6Months = 180d | 1 day = 180
 // 1Year = 365d | 1 day = 365
 // 5Years = 35d | 7d = 260
-const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365, 260]
+const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365]
 
 const ShadowDOWN = ({ line }) => (
     <Path
@@ -100,7 +100,7 @@ class Stock extends React.Component {
             console.log(e)
             prevStockData = this.state.stockData
             prevStockData.push(parseFloat(e.data))
-            if (this.state.stockData[0] > this.state.stockData[this.state.stockData.length-1]){
+            if (this.state.stockData[0] > this.state.stockData[this.state.stockData.length - 1]) {
                 this.setState({
                     stockPerformance: 'down'
                 })
@@ -138,7 +138,7 @@ class Stock extends React.Component {
     // 1Year = 365d | 1 day = 365
     renderStockChartSelect(maxslice) {
         dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
-        if (this.state.stockPerformance === 'up'){
+        if (this.state.stockPerformance === 'up') {
             return (
                 <View>
                     <LineChart
@@ -167,7 +167,6 @@ class Stock extends React.Component {
                 </View>
             )
         }
-        
     }
 
     renderStockChart(index) {
@@ -179,17 +178,18 @@ class Stock extends React.Component {
     renderStockPriceDifference() {
         let previousPrice = this.state.stockData[this.state.stockData.length - 2]
         let currentPrice = this.state.stockData[this.state.stockData.length - 1]
-        let differencePrice = currentPrice - previousPrice
+        let differencePrice = currentPrice - this.state.stockData[0]
+        let differencePricePercentage = currentPrice / this.state.stockData[0] * 100
         if (differencePrice < 0) {
             return (
-                <Text style={{ fontSize: 15, backgroundColor: "#0e0d0d", paddingLeft: 10, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
-                    DOWN ${differencePrice.toFixed(2)}(2.84%) Today
+                <Text style={{ fontSize: 20, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
+                    <Icon name="arrow-down-bold" style={{ fontSize:20,color: '#f45531' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) Today
                 </Text>
             )
         } else if (differencePrice > 0) {
             return (
-                <Text style={{ fontSize: 15, backgroundColor: "#0e0d0d", paddingLeft: 10, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
-                    UP ${differencePrice.toFixed(2)}(2.84%) Today
+                <Text style={{ fontSize: 20, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
+                    <Icon name="arrow-up-bold" style={{ fontSize:20,color: '#21ce99' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) Today
                 </Text>
             )
         }
@@ -206,10 +206,10 @@ class Stock extends React.Component {
                                 <Text style={{ color: '#21ce99' }}> {this.state.status}</Text></Text>
                             </View>
                             <View>
-                                <Text style={{ fontSize: 30, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 10, fontWeight: systemWeights.thin.fontWeight }}>
-                                    stock_name
+                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                    System
                                 </Text>
-                                <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", padding: 5 }}>
+                                <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
@@ -219,22 +219,21 @@ class Stock extends React.Component {
                         </View>
                     </ScrollView>
                 </View>
-
                 <View style={{ flex: 0, flexDirection: 'row', height: '20%', backgroundColor: "#0e0d0d" }}>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
-                            <Text style={{ paddingLeft: 10, paddingTop: 10, color: "white" }}>TODAY'S VOLUME</Text>
+                            <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>TODAY'S VOLUME</Text>
                             <NumberFormat
                                 style={{ color: 'red' }}
                                 value={this.state.stockVolume}
                                 displayType={'text'}
                                 thousandSeparator={true}
                                 prefix={''}
-                                renderText={value => <Text style={{ paddingLeft: 10, color: "white" }}>{value}</Text>}
+                                renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>{value}</Text>}
                             />
                         </View>
                         <View style={{ width: "50%" }}>
-                            <Button title="Buy" onPress={() => Actions.stockorder()} style={{ width: "100%", padding: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }}>Buy Stock</Button>
+                            <Button title="Buy" onPress={() => Actions.stockorder()} titleStyle={{ fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }} style={{ width: "100%", padding: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }}>Buy Stock</Button>
                         </View>
                     </View>
                 </View>
@@ -250,8 +249,8 @@ class Stock extends React.Component {
                 onPress={this.updateIndex}
                 selectedIndex={selectedIndex}
                 buttons={timeSelectorButtonGroupValues}
-                containerStyle={{ height: 30, backgroundColor: 'rgba(33,206,153,0.1)', borderRadius:25 }}
-                textStyle={{ color: 'white', fontSize:12 }}
+                containerStyle={{ height: 30, backgroundColor: 'rgba(33,206,153,0.1)', borderRadius: 25 }}
+                textStyle={{ color: 'white', fontSize: 12, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}
                 selectedButtonStyle={{ backgroundColor: '#21ce99' }}
                 selectedTextStyle={{ color: 'white' }}
             />
