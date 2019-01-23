@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
-import { Circle, G, Line, Rect } from 'react-native-svg'
+import { ClipPath, Defs, Rect } from 'react-native-svg'
 import { Actions } from 'react-native-router-flux'
 import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 import { ButtonGroup, Button } from 'react-native-elements';
@@ -182,14 +182,14 @@ class Stock extends React.Component {
         let differencePricePercentage = currentPrice / this.state.stockData[0] * 100
         if (differencePrice < 0) {
             return (
-                <Text style={{ fontSize: 20, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
-                    <Icon name="arrow-down-bold" style={{ fontSize:20,color: '#f45531' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) Today
+                <Text style={{ fontSize: 14, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
+                    <Icon name="arrow-down-bold" style={{ fontSize:20,color: '#f45531' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) <Text style={{color:'white'}}>Today</Text>
                 </Text>
             )
         } else if (differencePrice > 0) {
             return (
-                <Text style={{ fontSize: 20, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
-                    <Icon name="arrow-up-bold" style={{ fontSize:20,color: '#21ce99' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) Today
+                <Text style={{ fontSize: 14, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
+                    <Icon name="arrow-up-bold" style={{ fontSize:20,color: '#21ce99' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) <Text style={{color:'white'}}>Today</Text>
                 </Text>
             )
         }
@@ -207,9 +207,9 @@ class Stock extends React.Component {
                             </View>
                             <View>
                                 <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
-                                    stock_name
+                                    hack_the_planet
                                 </Text>
-                                <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }}>
+                                <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
@@ -233,7 +233,7 @@ class Stock extends React.Component {
                             />
                         </View>
                         <View style={{ width: "50%" }}>
-                            <Button title="Buy" onPress={() => Actions.stockorder()} titleStyle={{ fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }} style={{ width: "100%", padding: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }}>Buy Stock</Button>
+                            <Button title="TRADE" onPress={() => Actions.stockorder()} titleStyle={{ color:'#0e0d0d',fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }} style={{ width: "100%", paddingRight: 25, paddingTop:10, paddingBottom:10 }} buttonStyle={{ backgroundColor: "#21ce99" }}/>
                         </View>
                     </View>
                 </View>

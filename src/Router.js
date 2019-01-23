@@ -5,12 +5,14 @@ import StockOrder from './views/Stock/StockOrder'
 import StockReview from './views/Stock/StockReview'
 import StockInvoice from './views/Stock/StockInvoice'
 import Chat from './views/Chat/Chat'
+import Fingerprint from './views/Authentication/Fingerprint'
 
 const RouterComponent = () => {
     return (
         <Router navigationBarStyle={{ backgroundColor: '#0e0d0d' }} titleStyle={{color:'white'}}>
             <Scene key="root">
-                <Scene key="stock" component={Stock} initial/>
+                <Scene key="stock" component={Stock}/>
+                <Scene key="fingerprint" component={Fingerprint} initial/>
                 <Scene key="stockorder" component={StockOrder} title="StockOrder"/>
                 <Scene key="stockreview" component={StockReview} title="StockReview"/>
                 <Scene key="stockinvoice" component={StockInvoice} title="StockInvoice"/>
