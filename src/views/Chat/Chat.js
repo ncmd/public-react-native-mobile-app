@@ -81,8 +81,6 @@ class Chat extends React.Component {
       } else if (Platform.OS === 'android') {
         setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
       }
-
-
     }
   }
 
@@ -99,7 +97,6 @@ class Chat extends React.Component {
       setTimeout(() => this.myScrollView.scrollToEnd({ animated: false }), 0)
     }
   }
-
 
   // Render chat messages
   _renderItem = ({ item, index }) => (

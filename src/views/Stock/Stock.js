@@ -207,7 +207,7 @@ class Stock extends React.Component {
                             </View>
                             <View>
                                 <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
-                                    System
+                                    stock_name
                                 </Text>
                                 <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
