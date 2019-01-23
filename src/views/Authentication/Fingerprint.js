@@ -10,7 +10,8 @@ import {
     NativeModules,
     Platform
 } from 'react-native';
-
+import { Button } from 'react-native-elements';
+import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 import TouchID from 'react-native-touch-id'
 //config is optional to be passed in on Android
 const optionalConfigObject = {
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#21ce99'
     },
     btn: {
-        borderRadius: 3,
+        borderRadius: 5,
         width:'80%',
         marginTop: 400,
         paddingTop: 15,
@@ -101,16 +102,20 @@ class FingerPrint extends React.Component {
                 <TouchableHighlight
                     style={styles.btn}
                     onPress={this.clickHandler}
-                    underlayColor="rgba(255,255,255,0.2)"
+                    underlayColor="rgba(255,255,255,0.6)"
                     activeOpacity={1}
                 >
                     <Text style={{
                         color: '#21ce99',
-                        fontWeight: '600'
+                        textAlign: 'center',
+                        width: '100%',
+                        fontFamily: sanFranciscoWeights.regular.fontFamily,
+                        fontWeight: sanFranciscoWeights.regular.fontWeight
                     }}>
                         {`Unlock with ${this.state.biometryType}`}
                     </Text>
                 </TouchableHighlight>
+                <Button title="Log Out" titleStyle={{ textAlign:"center", width: '80%',color:'white',fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop:25, elevation: 0, backgroundColor:"transparent"}}/>
             </View>
         );
     }
