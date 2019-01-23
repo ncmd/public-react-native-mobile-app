@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
-    AlertIOS,
-    AlertAndroid,
+    Alert,
     StyleSheet,
     Text,
     TouchableHighlight,
@@ -74,13 +73,31 @@ class FingerPrint extends React.Component {
             TouchID.isSupported()
                 .then(authenticate)
                 .catch(error => {
-                    AlertIOS.alert('TouchID not supported');
+                    Alert.alert(
+                        'TouchID not supported',
+                        'My Alert Msg',
+                        [
+                          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                          {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        ],
+                        { cancelable: false }
+                      )
                 });
         } else if (Platform.OS === 'android') {
             TouchID.isSupported()
                 .then(authenticate)
                 .catch(error => {
-                    AlertAndroid.alert('Fingerprint Authentication not supported');
+                    Alert.alert(
+                        'Fingerprint Authentication not supported',
+                        'My Alert Msg',
+                        [
+                          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                          {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        ],
+                        { cancelable: false }
+                      )
                 });
         }
     }
@@ -88,10 +105,28 @@ class FingerPrint extends React.Component {
     pressHandler() {
         TouchID.authenticate('to demo this react-native component', optionalConfigObject)
             .then(success => {
-                AlertIOS.alert('Authenticated Successfully');
+                Alert.alert(
+                    'Authenticated Successfully',
+                    'My Alert Msg',
+                    [
+                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                  )
             })
             .catch(error => {
-                AlertIOS.alert('Authentication Failed');
+                Alert.alert(
+                    'Authentication Failed',
+                    'My Alert Msg',
+                    [
+                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                  )
             });
     }
 
@@ -127,20 +162,56 @@ function authenticate() {
     if (Platform.OS === 'ios') {
         return TouchID.authenticate()
             .then(success => {
-                AlertIOS.alert('Authenticated Successfully');
+                Alert.alert(
+                    'Authenticated Successfully',
+                    'My Alert Msg',
+                    [
+                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                  )
             })
             .catch(error => {
                 console.log(error)
-                AlertIOS.alert(error.message);
+                Alert.alert(
+                    'Authentication Failed',
+                    error.message,
+                    [
+                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                  )
             });
     } else if (Platform.OS === 'android') {
         return TouchID.authenticate()
             .then(success => {
-                AlertAndroid.alert('Authenticated Successfully');
+                Alert.alert(
+                    'Authenticated Successfully',
+                    'My Alert Msg',
+                    [
+                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                  )
             })
             .catch(error => {
                 console.log(error)
-                AlertAndroid.alert(error.message);
+                Alert.alert(
+                    'Authentication Failed',
+                    error.message,
+                    [
+                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                  )
                 })
     }
 }
