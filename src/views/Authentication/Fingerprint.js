@@ -7,11 +7,14 @@ import {
     View,
     Image,
     NativeModules,
-    Platform
+    Platform,
+    ImageBackground
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 import TouchID from 'react-native-touch-id'
+import Svg, { Path, Circle, Rect, G } from 'react-native-svg'
+// import Image from 'react-native-remote-svg'
 //config is optional to be passed in on Android
 const optionalConfigObject = {
     title: "Authentication Required", // Android
@@ -21,15 +24,24 @@ const optionalConfigObject = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#21ce99'
+        backgroundColor: '#21ce99',
+        width: '100%',
+        height: '100%',
+        flex: 1
+    },
+    interactiveContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        transform: [{ rotate: '25deg'}],
+        flex: 1
     },
     btn: {
         borderRadius: 5,
-        width:'80%',
-        marginTop: 400,
+        width: '30%',
+        marginTop:400,
         paddingTop: 15,
         paddingBottom: 15,
         paddingLeft: 25,
@@ -37,6 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     }
 });
+
 
 class FingerPrint extends React.Component {
 
@@ -52,14 +65,14 @@ class FingerPrint extends React.Component {
         TouchID.isSupported()
             .then(biometryType => {
                 if (biometryType === 'TouchID') {
-                    this.setState({ biometryType:'Touch ID' });
-                // Touch ID is supported on iOS
+                    this.setState({ biometryType: 'Touch ID' });
+                    // Touch ID is supported on iOS
                 } else if (biometryType === 'FaceID') {
-                    this.setState({ biometryType:'Face ID' });
-                // Face ID is supported on iOS
+                    this.setState({ biometryType: 'Face ID' });
+                    // Face ID is supported on iOS
                 } else if (biometryType === true) {
-                    this.setState({ biometryType:'Fingerprint Authentication' });
-                // Touch ID is supported on Android
+                    this.setState({ biometryType: 'Fingerprint Authentication' });
+                    // Touch ID is supported on Android
                 }
             })
             .catch(error => {
@@ -77,12 +90,12 @@ class FingerPrint extends React.Component {
                         'TouchID not supported',
                         'My Alert Msg',
                         [
-                          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                          {text: 'OK', onPress: () => console.log('OK Pressed')},
+                            { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                            { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                            { text: 'OK', onPress: () => console.log('OK Pressed') },
                         ],
                         { cancelable: false }
-                      )
+                    )
                 });
         } else if (Platform.OS === 'android') {
             TouchID.isSupported()
@@ -92,12 +105,12 @@ class FingerPrint extends React.Component {
                         'Fingerprint Authentication not supported',
                         'My Alert Msg',
                         [
-                          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                          {text: 'OK', onPress: () => console.log('OK Pressed')},
+                            { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                            { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                            { text: 'OK', onPress: () => console.log('OK Pressed') },
                         ],
                         { cancelable: false }
-                      )
+                    )
                 });
         }
     }
@@ -109,48 +122,57 @@ class FingerPrint extends React.Component {
                     'Authenticated Successfully',
                     'My Alert Msg',
                     [
-                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
                     { cancelable: false }
-                  )
+                )
             })
             .catch(error => {
                 Alert.alert(
                     'Authentication Failed',
                     'My Alert Msg',
                     [
-                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
                     { cancelable: false }
-                  )
+                )
             });
     }
+
+
 
     render() {
         return (
             <View style={styles.container}>
-                
-                <TouchableHighlight
-                    style={styles.btn}
-                    onPress={this.clickHandler}
-                    underlayColor="rgba(255,255,255,0.6)"
-                    activeOpacity={1}
+                <ImageBackground
+                    source={require('./pattern.png')}
+                    style={{ width: 1000, height: 1000,transform: [{ rotate: '-25deg'}] }}
+                    resizeMode="repeat"
                 >
-                    <Text style={{
-                        color: '#21ce99',
-                        textAlign: 'center',
-                        width: '100%',
-                        fontFamily: sanFranciscoWeights.regular.fontFamily,
-                        fontWeight: sanFranciscoWeights.regular.fontWeight
-                    }}>
-                        {`Unlock with ${this.state.biometryType}`}
-                    </Text>
-                </TouchableHighlight>
-                <Button title="Log Out" titleStyle={{ textAlign:"center", width: '80%',color:'white',fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop:25, elevation: 0, backgroundColor:"transparent"}}/>
+                    <View style={styles.interactiveContainer}>
+                        <TouchableHighlight
+                            style={styles.btn}
+                            onPress={this.clickHandler}
+                            underlayColor="rgba(255,255,255,0.6)"
+                            activeOpacity={1}
+                        >
+                            <Text style={{
+                                color: '#21ce99',
+                                textAlign: 'center',
+                                width: '100%',
+                                fontFamily: sanFranciscoWeights.regular.fontFamily,
+                                fontWeight: sanFranciscoWeights.regular.fontWeight
+                            }}>
+                                {`Unlock with ${this.state.biometryType}`}
+                            </Text>
+                        </TouchableHighlight>
+                        <Button title="Log Out" titleStyle={{ textAlign: "center", width: '80%', color: 'white', fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop: 25, elevation: 0, backgroundColor: "transparent" }} />
+                    </View>
+                </ImageBackground>
             </View>
         );
     }
@@ -166,12 +188,12 @@ function authenticate() {
                     'Authenticated Successfully',
                     'My Alert Msg',
                     [
-                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
                     { cancelable: false }
-                  )
+                )
             })
             .catch(error => {
                 console.log(error)
@@ -179,12 +201,12 @@ function authenticate() {
                     'Authentication Failed',
                     error.message,
                     [
-                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
                     { cancelable: false }
-                  )
+                )
             });
     } else if (Platform.OS === 'android') {
         return TouchID.authenticate()
@@ -193,12 +215,12 @@ function authenticate() {
                     'Authenticated Successfully',
                     'My Alert Msg',
                     [
-                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
                     { cancelable: false }
-                  )
+                )
             })
             .catch(error => {
                 console.log(error)
@@ -206,13 +228,13 @@ function authenticate() {
                     'Authentication Failed',
                     error.message,
                     [
-                      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
                     { cancelable: false }
-                  )
-                })
+                )
+            })
     }
 }
 
