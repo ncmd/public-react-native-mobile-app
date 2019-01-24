@@ -14,7 +14,7 @@ import { Button } from 'react-native-elements';
 import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 import TouchID from 'react-native-touch-id'
 import Svg, { Path, Circle, Rect, G } from 'react-native-svg'
-import MIcon from 'react-native-vector-icons/MaterialIcons';
+import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     btn: {
         borderRadius: 5,
         width: '30%',
-        marginTop: 400,
+        marginTop: 300,
         paddingTop: 15,
         paddingBottom: 15,
         paddingLeft: 25,
@@ -120,7 +120,7 @@ class Unlock extends React.Component {
                     resizeMode="repeat"
                 >
                     <View style={styles.interactiveContainer}>
-                    <MIcon name="remove-red-eye" style={{ fontSize: 200,color: 'white' }}></MIcon>
+                    <SLIicon name="eye" style={{ fontSize: 110,color: 'white',marginTop:50 }}></SLIicon>
                         <TouchableHighlight
                             style={styles.btn}
                             onPress={this.clickHandler}
