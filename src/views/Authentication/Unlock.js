@@ -14,8 +14,10 @@ import { Button } from 'react-native-elements';
 import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 import TouchID from 'react-native-touch-id'
 import Svg, { Path, Circle, Rect, G } from 'react-native-svg'
-// import Image from 'react-native-remote-svg'
-//config is optional to be passed in on Android
+import MIcon from 'react-native-vector-icons/MaterialIcons';
+
+// Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
+
 const optionalConfigObject = {
     title: "Authentication Required", // Android
     color: "#e00606", // Android,
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
-        transform: [{ rotate: '25deg' }],
+        transform: [{ rotate: '35deg' }],
         flex: 1
     },
     btn: {
@@ -114,10 +116,11 @@ class Unlock extends React.Component {
             <View style={styles.container}>
                 <ImageBackground
                     source={require('./pattern.png')}
-                    style={{ width: 1000, height: 1000, transform: [{ rotate: '-25deg' }] }}
+                    style={{ width: 1000, height: 1000, transform: [{ rotate: '-35deg' }] }}
                     resizeMode="repeat"
                 >
                     <View style={styles.interactiveContainer}>
+                    <MIcon name="remove-red-eye" style={{ fontSize: 200,color: 'white' }}></MIcon>
                         <TouchableHighlight
                             style={styles.btn}
                             onPress={this.clickHandler}
@@ -152,14 +155,6 @@ function authenticate() {
             })
             .catch(error => {
                 console.log(error)
-                // Alert.alert(
-                //     'Authentication Failed',
-                //     error.message,
-                //     [
-                //         { text: 'OK', onPress: () => console.log('OK Pressed') },
-                //     ],
-                //     { cancelable: false }
-                // )
             });
     } else if (Platform.OS === 'android') {
         return TouchID.authenticate()
@@ -168,14 +163,6 @@ function authenticate() {
             })
             .catch(error => {
                 console.log(error)
-                // Alert.alert(
-                //     'Authentication Failed',
-                //     error.message,
-                //     [
-                //         { text: 'OK', onPress: () => console.log('OK Pressed') },
-                //     ],
-                //     { cancelable: false }
-                // )
             })
     }
 }

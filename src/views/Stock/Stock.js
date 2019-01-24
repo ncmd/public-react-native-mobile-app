@@ -17,6 +17,7 @@ import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-
 import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MIcon from 'react-native-vector-icons/MaterialIcons';
 
 const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
 // Live = 1hr | 15 sec = 240
