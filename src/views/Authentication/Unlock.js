@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
-        transform: [{ rotate: '25deg'}],
+        transform: [{ rotate: '25deg' }],
         flex: 1
     },
     btn: {
         borderRadius: 5,
         width: '30%',
-        marginTop:400,
+        marginTop: 400,
         paddingTop: 15,
         paddingBottom: 15,
         paddingLeft: 25,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 });
 
 
-class FingerPrint extends React.Component {
+class Unlock extends React.Component {
 
     constructor() {
         super()
@@ -87,11 +87,8 @@ class FingerPrint extends React.Component {
                 .then(authenticate)
                 .catch(error => {
                     Alert.alert(
-                        'TouchID not supported',
-                        'My Alert Msg',
+                        error.message,
                         [
-                            { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                            { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
                             { text: 'OK', onPress: () => console.log('OK Pressed') },
                         ],
                         { cancelable: false }
@@ -102,11 +99,8 @@ class FingerPrint extends React.Component {
                 .then(authenticate)
                 .catch(error => {
                     Alert.alert(
-                        'Fingerprint Authentication not supported',
-                        'My Alert Msg',
+                        error.message,
                         [
-                            { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                            { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
                             { text: 'OK', onPress: () => console.log('OK Pressed') },
                         ],
                         { cancelable: false }
@@ -115,42 +109,12 @@ class FingerPrint extends React.Component {
         }
     }
 
-    pressHandler() {
-        TouchID.authenticate('to demo this react-native component', optionalConfigObject)
-            .then(success => {
-                Alert.alert(
-                    'Authenticated Successfully',
-                    'My Alert Msg',
-                    [
-                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                        { text: 'OK', onPress: () => console.log('OK Pressed') },
-                    ],
-                    { cancelable: false }
-                )
-            })
-            .catch(error => {
-                Alert.alert(
-                    'Authentication Failed',
-                    'My Alert Msg',
-                    [
-                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                        { text: 'OK', onPress: () => console.log('OK Pressed') },
-                    ],
-                    { cancelable: false }
-                )
-            });
-    }
-
-
-
     render() {
         return (
             <View style={styles.container}>
                 <ImageBackground
                     source={require('./pattern.png')}
-                    style={{ width: 1000, height: 1000,transform: [{ rotate: '-25deg'}] }}
+                    style={{ width: 1000, height: 1000, transform: [{ rotate: '-25deg' }] }}
                     resizeMode="repeat"
                 >
                     <View style={styles.interactiveContainer}>
@@ -184,58 +148,36 @@ function authenticate() {
     if (Platform.OS === 'ios') {
         return TouchID.authenticate()
             .then(success => {
-                Alert.alert(
-                    'Authenticated Successfully',
-                    'My Alert Msg',
-                    [
-                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                        { text: 'OK', onPress: () => console.log('OK Pressed') },
-                    ],
-                    { cancelable: false }
-                )
+                console.log('Authentication Success')
             })
             .catch(error => {
                 console.log(error)
-                Alert.alert(
-                    'Authentication Failed',
-                    error.message,
-                    [
-                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                        { text: 'OK', onPress: () => console.log('OK Pressed') },
-                    ],
-                    { cancelable: false }
-                )
+                // Alert.alert(
+                //     'Authentication Failed',
+                //     error.message,
+                //     [
+                //         { text: 'OK', onPress: () => console.log('OK Pressed') },
+                //     ],
+                //     { cancelable: false }
+                // )
             });
     } else if (Platform.OS === 'android') {
         return TouchID.authenticate()
             .then(success => {
-                Alert.alert(
-                    'Authenticated Successfully',
-                    'My Alert Msg',
-                    [
-                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                        { text: 'OK', onPress: () => console.log('OK Pressed') },
-                    ],
-                    { cancelable: false }
-                )
+                console.log('Authentication Success')
             })
             .catch(error => {
                 console.log(error)
-                Alert.alert(
-                    'Authentication Failed',
-                    error.message,
-                    [
-                        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                        { text: 'OK', onPress: () => console.log('OK Pressed') },
-                    ],
-                    { cancelable: false }
-                )
+                // Alert.alert(
+                //     'Authentication Failed',
+                //     error.message,
+                //     [
+                //         { text: 'OK', onPress: () => console.log('OK Pressed') },
+                //     ],
+                //     { cancelable: false }
+                // )
             })
     }
 }
 
-export default FingerPrint;
+export default Unlock;
