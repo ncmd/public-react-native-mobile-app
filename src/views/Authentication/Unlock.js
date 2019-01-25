@@ -69,12 +69,15 @@ class Unlock extends React.Component {
             .then(biometryType => {
                 if (biometryType === 'TouchID') {
                     this.setState({ biometryType: 'Touch ID' });
+                    this.clickHandler()
                     // Touch ID is supported on iOS
                 } else if (biometryType === 'FaceID') {
                     this.setState({ biometryType: 'Face ID' });
+                    this.clickHandler()
                     // Face ID is supported on iOS
                 } else if (biometryType === true) {
                     this.setState({ biometryType: 'Fingerprint Authentication' });
+                    this.clickHandler()
                     // Touch ID is supported on Android
                 }
             })

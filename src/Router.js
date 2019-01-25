@@ -13,7 +13,7 @@ const RouterComponent = () => {
     return (
         <Router >
             <Scene key="root">
-                <Scene key="stock" renderLeftButton={() => <View/>} component={Stock}/>
+                <Scene key="stock"  hideNavBar={true} renderLeftButton={() => <View/>} component={Stock}/>
                 <Scene key="unlock" component={Unlock} navTransparent={true} navigationBarStyle={{ backgroundColor: '#21ce99', elevation:0 }} titleStyle={{color:'white'}} initial/>
                 <Scene key="stockorder" component={StockOrder} title="StockOrder"/>
                 <Scene key="stockreview" component={StockReview} title="StockReview"/>

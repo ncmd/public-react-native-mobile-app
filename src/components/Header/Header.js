@@ -1,9 +1,11 @@
 import React from 'react';
-import { 
+import {
     Platform,
-    Text, 
-    View, 
-    StyleSheet } from 'react-native';
+    Text,
+    View,
+    StyleSheet,
+    StatusBar
+} from 'react-native';
 
 const Header = (props) => {
     // const { viewStyle, textStyle } = styles;
@@ -15,7 +17,12 @@ const Header = (props) => {
 
     return (
         <View style={styles.viewStyle}>
-            <Text style={styles.textStyle}>{props.headerText}</Text>
+            <StatusBar
+                backgroundColor="#0e0d0d"
+                barStyle="light-content"
+            />
+            <Text style={styles.textStylePrice}>${props.headerPrice}</Text>
+            <Text style={styles.textStyleTicker}>{props.headerTicker}</Text>
         </View>
     )
 }
@@ -23,40 +30,48 @@ const Header = (props) => {
 // iOS Styles
 const ios_styles = StyleSheet.create({
     viewStyle: {
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#0e0d0d',
         justifyContent: 'center',
         alignItems: 'center',
         height: 70,
-        paddingTop: 25,
+        paddingTop: 35,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         elevation: 2,
         position: 'relative'
     },
-    textStyle: {
+    textStylePrice: {
         fontSize: 20,
-        color: '#000000'
+        color: '#FFFFFF'
+    },
+    textStyleTicker: {
+        fontSize: 15,
+        color: '#FFFFFF'
     }
 })
 
 // Android Styles
 const android_styles = StyleSheet.create({
     viewStyle: {
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#0e0d0d',
         justifyContent: 'center',
         alignItems: 'center',
         height: 50,
-        paddingTop: 0,
+        paddingTop: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         elevation: 2,
         position: 'relative'
     },
-    textStyle: {
-        fontSize: 20,
-        color: '#000000'
+    textStylePrice: {
+        fontSize: 25,
+        color: '#FFFFFF'
+    },
+    textStyleTicker: {
+        fontSize: 16,
+        color: '#FFFFFF'
     }
 })
 

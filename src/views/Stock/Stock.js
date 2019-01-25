@@ -8,7 +8,6 @@ import {
     Platform,
     FlatList,
     ScrollView,
-    Animated,
 } from 'react-native';
 import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
@@ -62,10 +61,9 @@ class Stock extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
-            stockData: [13.12, 12.22, 11.93, 10.01, 11.05, 10.13, 9.12, 9.42, 9.33, 11.62, 11.72, 10.93],
+            stockData: [12.87,12.84,12.06,11.21,10.25,10.16,9.99,9.77,9.16,9.2,9.33,9.4,9.94,9.94,10.09,10.55,10.73,10.65,10.4,10.32,9.58,9.51,9.48,9.34,9.34,10.67,10.69,10.9,11.1,11.32,11.34,11.44,12.57,12.87,12.81,12.43,12.42,11.72,11.69,11.58,11.27,12.82,12.77,12.65,12.18,11.66,11.26,10.11,10.97,10.74,10.94,11.3,11.4,11.53,11.87,11.99,12.45,11.56,11.86,11.93,11.98,12.06,12.2,12.54,12.54,12.8,12.9,12.78,12.28,12.18,12.09,12,11.67,11.64,11.49,10.41,10.14,9.01,9.08,9.22,9.49,9.31,9.27,9.22,9.24,9.84,9.96,10,10.01,10.44,10.55,10.63,10.74,10.96,9.83,9.88,9.99,10.05,10.1,10.28],
             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
             stockTimePickerValuesToggle: false,
-            fadeAnim: new Animated.Value(0),
             stockPerformance: '',
             stockVolume: 12023,
             status: "Disconnected",
@@ -84,19 +82,6 @@ class Stock extends React.Component {
                 this.socket = new WebSocket('ws://10.0.2.2:8080/wsstock');
             }
         }
-    }
-
-    renderAnimation() {
-        let { fadeAnim } = this.state;
-        return (
-            <Animated.View
-                style={{
-                    opacity: fadeAnim,
-                }}
-            >
-                <Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>,
-            </Animated.View>
-        )
     }
 
     componentDidMount() {
@@ -239,6 +224,7 @@ class Stock extends React.Component {
     renderStockView() {
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
+                <Header headerPrice={parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)} headerTicker="APPL"/>
                 <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
@@ -247,10 +233,13 @@ class Stock extends React.Component {
                                 <Text style={{ color: '#21ce99' }}> {this.state.status}</Text></Text>
                             </View>
                             <View>
-                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
-                                    hack_the_planet
+                                <Text style={{ fontSize: 14, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                    APPL
                                 </Text>
-                                <Text style={{ fontSize: 35, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                    Apple
+                                </Text>
+                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
