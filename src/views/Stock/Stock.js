@@ -11,15 +11,17 @@ import {
 } from 'react-native';
 import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
-import { ClipPath, Defs, Rect } from 'react-native-svg'
+import * as shape from 'd3-shape'
+import { Circle, G, Line, Rect, Text as SVGText } from 'react-native-svg'
 import { Actions } from 'react-native-router-flux'
-import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
+import { systemWeights } from 'react-native-typography'
 import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 
-const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
+
+// const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
 // Live = 1hr | 15 sec = 240
 // 1Day = 24h | 5min = 288  
 // 1Week = 7d | 1hr = 168
@@ -37,9 +39,9 @@ const ShadowDOWN = ({ line }) => (
         d={line}
         fill={'none'}
         strokeLinecap={'round'}
-        strokeWidth={10}
+        strokeWidth={8}
         strokeLinejoin={'round'}
-        stroke={'rgba(244,85,49,0.3)'}
+        stroke={'rgba(244,85,49,0.4)'}
     />
 )
 
@@ -50,9 +52,9 @@ const ShadowUP = ({ line }) => (
         d={line}
         fill={'none'}
         strokeLinecap={'round'}
-        strokeWidth={10}
+        strokeWidth={8}
         strokeLinejoin={'round'}
-        stroke={'rgba(33,206,153,0.3)'}
+        stroke={'rgba(33,206,153,0.4)'}
     />
 )
 
@@ -61,11 +63,12 @@ class Stock extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
-            stockData: [12.87,12.84,12.06,11.21,10.25,10.16,9.99,9.77,9.16,9.2,9.33,9.4,9.94,9.94,10.09,10.55,10.73,10.65,10.4,10.32,9.58,9.51,9.48,9.34,9.34,10.67,10.69,10.9,11.1,11.32,11.34,11.44,12.57,12.87,12.81,12.43,12.42,11.72,11.69,11.58,11.27,12.82,12.77,12.65,12.18,11.66,11.26,10.11,10.97,10.74,10.94,11.3,11.4,11.53,11.87,11.99,12.45,11.56,11.86,11.93,11.98,12.06,12.2,12.54,12.54,12.8,12.9,12.78,12.28,12.18,12.09,12,11.67,11.64,11.49,10.41,10.14,9.01,9.08,9.22,9.49,9.31,9.27,9.22,9.24,9.84,9.96,10,10.01,10.44,10.55,10.63,10.74,10.96,9.83,9.88,9.99,10.05,10.1,10.28],
+            stockData: [12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09, 10.55, 10.73, 10.65, 10.4, 10.32, 9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28],
             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
             stockTimePickerValuesToggle: false,
             stockPerformance: '',
             stockVolume: 12023,
+            fingerTouchXCoordinate:50,
             status: "Disconnected",
             open: false,
             text: '',
@@ -155,6 +158,13 @@ class Stock extends React.Component {
         this.setState({ selectedIndex })
     }
 
+    handlePress(evt){
+        console.log(`x coord = ${evt.nativeEvent.locationX}`);
+        this.setState({
+            fingerTouchXCoordinate: evt.nativeEvent.locationX
+        })
+      }
+
     // Live = 1hr | 15 sec = 240
     // 1Day = 24h | 5min = 288  
     // 1Week = 7d | 1hr = 168
@@ -164,6 +174,45 @@ class Stock extends React.Component {
     // 1Year = 365d | 1 day = 365
     renderStockChartSelect(maxslice) {
         dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
+
+        const HorizontalLine = (({ y }) => (
+            <Line
+                key={'zero-axis'}
+                x1={'0%'}
+                x2={'100%'}
+                y1={y(10)}
+                y2={y(10)}
+                borderRadius={1}
+                stroke={'red'}
+                strokeWidth={2}
+                strokeDasharray={"2,10"}
+            />
+        ))
+
+        const Tooltip = ({ x, y }) => (
+            <G
+                x={x(this.state.fingerTouchXCoordinate)}
+                key={'tooltip'}
+            >
+                <G x={this.state.fingerTouchXCoordinate}>
+                    <Line
+                        y1={10}
+                        y2={y(-10)}
+                        stroke={'grey'}
+                        strokeWidth={2}
+                    />
+                    <Circle
+                        cy={y(10)}
+                        r={6}
+                        stroke={'rgb(134, 65, 244)'}
+                        strokeWidth={2}
+                        fill={'white'}
+                        onPress={(e) => this.handlePress(e)}
+                    />
+                </G>
+            </G>
+        )
+
         if (this.state.stockPerformance === 'up') {
             return (
                 <View>
@@ -173,8 +222,11 @@ class Stock extends React.Component {
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
                         contentInset={{ top: 20, bottom: 20 }}
+                        curve={ shape.curveLinear }
                     >
                         <ShadowUP />
+                        <HorizontalLine />
+                        <Tooltip />
                     </LineChart>
                 </View>
             )
@@ -189,6 +241,8 @@ class Stock extends React.Component {
                         contentInset={{ top: 20, bottom: 20 }}
                     >
                         <ShadowDOWN />
+                        <HorizontalLine />
+                        <Tooltip />
                     </LineChart>
                 </View>
             )
@@ -224,7 +278,7 @@ class Stock extends React.Component {
     renderStockView() {
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <Header headerPrice={parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)} headerTicker="APPL"/>
+                <Header headerPrice={parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)} headerTicker="APPL" />
                 <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
@@ -233,13 +287,13 @@ class Stock extends React.Component {
                                 <Text style={{ color: '#21ce99' }}> {this.state.status}</Text></Text>
                             </View>
                             <View>
-                                <Text style={{ fontSize: 14, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                <Text style={{ fontSize: 14, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
                                     APPL
                                 </Text>
-                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
                                     Apple
                                 </Text>
-                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>
+                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
                                     ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
@@ -252,18 +306,18 @@ class Stock extends React.Component {
                 <View style={{ flex: 0, flexDirection: 'row', height: '15%', backgroundColor: "#0e0d0d" }}>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
-                            <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>TODAY'S VOLUME</Text>
+                            <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>TODAY'S VOLUME</Text>
                             <NumberFormat
                                 style={{ color: 'red' }}
                                 value={this.state.stockVolume}
                                 displayType={'text'}
                                 thousandSeparator={true}
                                 prefix={''}
-                                renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>{value}</Text>}
+                                renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>{value}</Text>}
                             />
                         </View>
                         <View style={{ width: "50%" }}>
-                            <Button title="TRADE" onPress={() => Actions.stockorder()} titleStyle={{ color: '#0e0d0d', fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }} style={{ width: "100%", paddingRight: 25, paddingTop: 10, paddingBottom: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }} />
+                            <Button title="Trade" onPress={() => Actions.stockorder()} titleStyle={{ fontSize: 14, color: '#0e0d0d', fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }} style={{ width: "100%", paddingRight: 25, paddingTop: 10, paddingBottom: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }} />
                         </View>
                     </View>
                 </View>
@@ -280,7 +334,7 @@ class Stock extends React.Component {
                 selectedIndex={selectedIndex}
                 buttons={this.state.stockTimePickerValues}
                 containerStyle={{ height: 30, backgroundColor: 'rgba(33,206,153,0.1)', borderRadius: 25 }}
-                textStyle={{ color: 'white', fontSize: 12, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}
+                textStyle={{ color: 'white', fontSize: 12, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}
                 selectedButtonStyle={{ backgroundColor: '#21ce99' }}
                 selectedTextStyle={{ color: 'white' }}
             />

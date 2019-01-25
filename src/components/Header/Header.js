@@ -6,6 +6,7 @@ import {
     StyleSheet,
     StatusBar
 } from 'react-native';
+import { systemWeights } from 'react-native-typography'
 
 const Header = (props) => {
     // const { viewStyle, textStyle } = styles;
@@ -43,11 +44,13 @@ const ios_styles = StyleSheet.create({
     },
     textStylePrice: {
         fontSize: 20,
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        fontWeight: systemWeights.bold.fontWeight
     },
     textStyleTicker: {
         fontSize: 15,
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        fontWeight: systemWeights.regular.fontWeight
     }
 })
 
@@ -67,11 +70,13 @@ const android_styles = StyleSheet.create({
     },
     textStylePrice: {
         fontSize: 25,
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        fontWeight: systemWeights.bold.fontWeight
     },
     textStyleTicker: {
         fontSize: 16,
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        fontWeight: systemWeights.regular.fontWeight
     }
 })
 
