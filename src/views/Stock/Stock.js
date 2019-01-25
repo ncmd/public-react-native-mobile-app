@@ -100,13 +100,6 @@ class Stock extends React.Component {
     }
 
     componentDidMount() {
-        Animated.timing(
-            this.state.fadeAnim,
-            {
-                toValue: 1,
-                duration: 1000,
-            }
-        ).start();
 
         setInterval(() => {
 
@@ -116,12 +109,12 @@ class Stock extends React.Component {
             // if false
             if (this.state.stockTimePickerValuesToggle === false) {
                 this.setState({
-                    stockTimePickerValues: [this.state.renderAnimation(), '1D', '1W', '1M', '3M', '6M', '1Y'],
+                    stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,0.1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
                     stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
                 })
             } else {
                 this.setState({
-                    stockTimePickerValues: [this.state.renderAnimation(), '1D', '1W', '1M', '3M', '6M', '1Y'],
+                    stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
                     stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
                 })
             }
