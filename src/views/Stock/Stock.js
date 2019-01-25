@@ -8,6 +8,7 @@ import {
     Platform,
     FlatList,
     ScrollView,
+    Animated,
 } from 'react-native';
 import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
@@ -62,6 +63,9 @@ class Stock extends React.Component {
         this.state = {
             selectedIndex: 0,
             stockData: [13.12, 12.22, 11.93, 10.01, 11.05, 10.13, 9.12, 9.42, 9.33, 11.62, 11.72, 10.93],
+            stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
+            stockTimePickerValuesToggle: false,
+            fadeAnim: new Animated.Value(0),
             stockPerformance: '',
             stockVolume: 12023,
             status: "Disconnected",
@@ -82,7 +86,50 @@ class Stock extends React.Component {
         }
     }
 
+    renderAnimation() {
+        let { fadeAnim } = this.state;
+        return (
+            <Animated.View
+                style={{
+                    opacity: fadeAnim,
+                }}
+            >
+                <Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>,
+            </Animated.View>
+        )
+    }
+
     componentDidMount() {
+        Animated.timing(
+            this.state.fadeAnim,
+            {
+                toValue: 1,
+                duration: 1000,
+            }
+        ).start();
+
+        setInterval(() => {
+
+            // toggle between true/false
+            // if true
+
+            // if false
+            if (this.state.stockTimePickerValuesToggle === false) {
+                this.setState({
+                    stockTimePickerValues: [this.state.renderAnimation(), '1D', '1W', '1M', '3M', '6M', '1Y'],
+                    stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
+                })
+            } else {
+                this.setState({
+                    stockTimePickerValues: [this.state.renderAnimation(), '1D', '1W', '1M', '3M', '6M', '1Y'],
+                    stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
+                })
+            }
+
+        },
+            // Define blinking time in milliseconds
+            1000
+        );
 
         // When socket opens
         this.socket.onopen = () => {
@@ -184,13 +231,13 @@ class Stock extends React.Component {
         if (differencePrice < 0) {
             return (
                 <Text style={{ fontSize: 14, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
-                    <Icon name="arrow-down-bold" style={{ fontSize:20,color: '#f45531' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) <Text style={{color:'white'}}>Today</Text>
+                    <Icon name="arrow-down-bold" style={{ fontSize: 20, color: '#f45531' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) <Text style={{ color: 'white' }}>Today</Text>
                 </Text>
             )
         } else if (differencePrice > 0) {
             return (
                 <Text style={{ fontSize: 14, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#21ce99', fontWeight: systemWeights.bold.fontWeight }}>
-                    <Icon name="arrow-up-bold" style={{ fontSize:20,color: '#21ce99' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) <Text style={{color:'white'}}>Today</Text>
+                    <Icon name="arrow-up-bold" style={{ fontSize: 20, color: '#21ce99' }}></Icon> ${differencePrice.toFixed(2)} ({differencePricePercentage.toFixed(2)}%) <Text style={{ color: 'white' }}>Today</Text>
                 </Text>
             )
         }
@@ -220,7 +267,7 @@ class Stock extends React.Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={{ flex: 0, flexDirection: 'row', height: '20%', backgroundColor: "#0e0d0d" }}>
+                <View style={{ flex: 0, flexDirection: 'row', height: '15%', backgroundColor: "#0e0d0d" }}>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
                             <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>TODAY'S VOLUME</Text>
@@ -234,7 +281,7 @@ class Stock extends React.Component {
                             />
                         </View>
                         <View style={{ width: "50%" }}>
-                            <Button title="TRADE" onPress={() => Actions.stockorder()} titleStyle={{ color:'#0e0d0d',fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }} style={{ width: "100%", paddingRight: 25, paddingTop:10, paddingBottom:10 }} buttonStyle={{ backgroundColor: "#21ce99" }}/>
+                            <Button title="TRADE" onPress={() => Actions.stockorder()} titleStyle={{ color: '#0e0d0d', fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }} style={{ width: "100%", paddingRight: 25, paddingTop: 10, paddingBottom: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }} />
                         </View>
                     </View>
                 </View>
@@ -249,7 +296,7 @@ class Stock extends React.Component {
             <ButtonGroup
                 onPress={this.updateIndex}
                 selectedIndex={selectedIndex}
-                buttons={timeSelectorButtonGroupValues}
+                buttons={this.state.stockTimePickerValues}
                 containerStyle={{ height: 30, backgroundColor: 'rgba(33,206,153,0.1)', borderRadius: 25 }}
                 textStyle={{ color: 'white', fontSize: 12, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}
                 selectedButtonStyle={{ backgroundColor: '#21ce99' }}

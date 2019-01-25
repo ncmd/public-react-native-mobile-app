@@ -15,6 +15,7 @@ import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-
 import TouchID from 'react-native-touch-id'
 import Svg, { Path, Circle, Rect, G } from 'react-native-svg'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
+import { Actions } from 'react-native-router-flux'
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 
@@ -83,6 +84,18 @@ class Unlock extends React.Component {
             });
     }
 
+
+    logoutConfirmation() {
+        Alert.alert(
+            "Are you sure you want to log out?",
+            [
+                { text: 'Yes', onPress: () => console.log('OK Pressed') },
+                { text: 'No', onPress: () => console.log('OK Pressed'), style: "cancel" }
+            ],
+            { cancelable: false }
+        )
+    }
+
     clickHandler() {
         if (Platform.OS === 'ios') {
             TouchID.isSupported()
@@ -120,7 +133,7 @@ class Unlock extends React.Component {
                     resizeMode="repeat"
                 >
                     <View style={styles.interactiveContainer}>
-                    <SLIicon name="eye" style={{ fontSize: 110,color: 'white',marginTop:50 }}></SLIicon>
+                        <SLIicon name="eye" style={{ fontSize: 110, color: 'white', marginTop: 50 }}></SLIicon>
                         <TouchableHighlight
                             style={styles.btn}
                             onPress={this.clickHandler}
@@ -137,7 +150,7 @@ class Unlock extends React.Component {
                                 {`Unlock with ${this.state.biometryType}`}
                             </Text>
                         </TouchableHighlight>
-                        <Button title="Log Out" titleStyle={{ textAlign: "center", width: '80%', color: 'white', fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop: 25, elevation: 0, backgroundColor: "transparent" }} />
+                        <Button title="Log Out" onPress={() => this.logoutConfirmation} titleStyle={{ textAlign: "center", width: '100%', color: 'white', fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop: 15, padding: 10, elevation: 0, backgroundColor: "transparent" }} />
                     </View>
                 </ImageBackground>
             </View>
@@ -146,12 +159,14 @@ class Unlock extends React.Component {
 };
 
 
+
 function authenticate() {
 
     if (Platform.OS === 'ios') {
         return TouchID.authenticate()
             .then(success => {
                 console.log('Authentication Success')
+                Actions.stock()
             })
             .catch(error => {
                 console.log(error)
@@ -160,6 +175,7 @@ function authenticate() {
         return TouchID.authenticate()
             .then(success => {
                 console.log('Authentication Success')
+                Actions.stock()
             })
             .catch(error => {
                 console.log(error)
