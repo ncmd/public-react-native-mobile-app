@@ -29,7 +29,7 @@ class LandingMain extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
@@ -64,6 +64,7 @@ function mapStateToProps({ style }) {
         style
     };
 }
+
 
 export default connect(mapStateToProps, {
     androidStyleLoad,

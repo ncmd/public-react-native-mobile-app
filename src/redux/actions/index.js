@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
   SET_STYLE
 } from './types';
-import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
+import { sanFranciscoWeights } from 'react-native-typography'
 
 export const iosStyleLoad = () => dispatch => {
   const style = [{
@@ -55,7 +55,7 @@ export const androidStyleLoad = () => dispatch => {
     ButtonBorderWidthPrimary:1,
     ViewBackgroundColorPrimary:"#0e0d0d",
     LogoIconSize:30,
-    HeaderBaseHeight:"10%",
+    HeaderBaseHeight:"15%",
   }]
   dispatch({ type: SET_STYLE, payload: style })
 }

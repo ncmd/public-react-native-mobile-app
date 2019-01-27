@@ -1,8 +1,4 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import AlbumList from './components/Album/AlbumList';
-import { View } from 'react-native'
-// Redux Setup
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import storage from 'redux-persist/lib/storage';
@@ -27,7 +23,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                <Router/>
+                    <Router />
                 </PersistGate>
             </Provider>
         );
