@@ -27,7 +27,7 @@ export const iosStyleLoad = () => dispatch => {
     ButtonBorderWidthPrimary:1,
     ViewBackgroundColorPrimary:"#0e0d0d",
     LogoIconSize:30,
-    HeaderBaseHeight:70,
+    HeaderBaseHeight:"10%",
   }]
   dispatch({ type: SET_STYLE, payload: style })
 }
