@@ -21,8 +21,8 @@ const RouterComponent = () => {
                 <Scene key="landingmain"  hideNavBar={true} renderLeftButton={() => <View/>} component={LandingMain} initial/>
                 <Scene key="signupmain" init={true} headerTintColor="#21ce99" component={SignupMain} navTransparent={true} />
                 <Scene key="signupstep1" init={false} headerTintColor="#21ce99" component={SignupStep1} navTransparent={true} title="Step 1 of 3" titleStyle={{fontSize:14}}/>
-                <Scene key="signupstep2" init={false} headerTintColor="#21ce99" component={SignupStep2} navTransparent={true} title="Step 2 of 3" />
-                <Scene key="signupstep3" init={false} headerTintColor="#21ce99" component={SignupStep3} navTransparent={true} title="Step 3 of 3" />
+                <Scene key="signupstep2" init={false} headerTintColor="#21ce99" component={SignupStep2} navTransparent={true} title="Step 2 of 3" titleStyle={{fontSize:14}}/>
+                <Scene key="signupstep3" init={false} headerTintColor="#21ce99" component={SignupStep3} navTransparent={true} title="Step 3 of 3" titleStyle={{fontSize:14}}/>
                 <Scene key="unlock" component={Unlock} navTransparent={true} navigationBarStyle={{ backgroundColor: '#21ce99', elevation:0 }} titleStyle={{color:'white'}}/>
                 <Scene key="stockview"  hideNavBar={true} renderLeftButton={() => <View/>} component={StockView}/>
                 <Scene key="stockorder" component={StockOrder} title="StockOrder"/>

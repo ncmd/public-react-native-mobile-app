@@ -30,10 +30,14 @@ class Login extends React.Component {
 
     componentDidMount() {
         if (Platform.OS === 'ios') {
-            this.props.iosStyleLoad()
+            if (this.props.style.length > 0) {
+                this.props.iosStyleLoad()
+            } 
         }
         if (Platform.OS === 'android') {
-            this.props.androidStyleLoad()
+            if (this.props.style.length > 0) {
+                this.props.androidStyleLoad()
+            }  
         }
     }
 
