@@ -152,6 +152,9 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-firebase')
+    implementation "com.google.android.gms:play-services-base:16.0.1"
+    implementation "com.google.firebase:firebase-core:16.0.6"
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-touch-id')
     implementation project(':react-native-svg')
@@ -166,3 +169,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+apply plugin: 'com.google.gms.google-services'

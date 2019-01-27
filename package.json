@@ -10,7 +10,7 @@
     "session": "cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt",
     "deploy-local": "cd ios/ ; bundle exec fastlane localdeploy ",
     "test": "jest",
-    "test-revert-original":""
+    "test-revert-original": ""
   },
   "dependencies": {
     "axios": "^0.18.0",
