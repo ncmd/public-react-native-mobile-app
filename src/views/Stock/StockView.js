@@ -8,6 +8,7 @@ import {
     Platform,
     FlatList,
     ScrollView,
+    Dimensions,
 } from 'react-native';
 import Header from '../../components/Header/Header'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
@@ -19,7 +20,6 @@ import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
-
 
 // const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
 // Live = 1hr | 15 sec = 240
@@ -58,7 +58,7 @@ const ShadowUP = ({ line }) => (
     />
 )
 
-class Stock extends React.Component {
+class StockView extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -66,6 +66,7 @@ class Stock extends React.Component {
             stockData: [12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09, 10.55, 10.73, 10.65, 10.4, 10.32, 9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28],
             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
             stockTimePickerValuesToggle: false,
+            deviceWidth: 200,
             stockPerformance: '',
             stockVolume: 12023,
             fingerTouchXCoordinate:50,
@@ -76,18 +77,37 @@ class Stock extends React.Component {
         }
         this.updateIndex = this.updateIndex.bind(this)
         if (process.env.APP_ENV === 'production') {
-            this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
+            // This is for connecting to production websocket
+            
         } else {
+            // This is for connecting to local websocket
             if (Platform.OS === 'ios') {
-                this.socket = new WebSocket('ws://127.0.0.1:8080/wsstock');
+                try{
+                    this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
+                }
+                catch {
+                    this.socket = new WebSocket('ws://127.0.0.1:8080/wsstock');
+                }
+                
             }
             if (Platform.OS === 'android') {
-                this.socket = new WebSocket('ws://10.0.2.2:8080/wsstock');
+                try{
+                    this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
+                }
+                catch{
+                    this.socket = new WebSocket('ws://10.0.2.2:8080/wsstock');
+                }
+                
             }
         }
     }
 
     componentDidMount() {
+
+        var thiswidth = Dimensions.get('window').width;
+        this.setState({
+            deviceWidth: thiswidth
+        })
 
         setInterval(() => {
 
@@ -159,9 +179,13 @@ class Stock extends React.Component {
     }
 
     handlePress(evt){
+        
         console.log(`x coord = ${evt.nativeEvent.locationX}`);
+
+        var newValue = (evt.nativeEvent.locationX/this.state.deviceWidth)*100
+        console.log(newValue)
         this.setState({
-            fingerTouchXCoordinate: evt.nativeEvent.locationX
+            fingerTouchXCoordinate: newValue
         })
       }
 
@@ -180,10 +204,10 @@ class Stock extends React.Component {
                 key={'zero-axis'}
                 x1={'0%'}
                 x2={'100%'}
-                y1={y(10)}
-                y2={y(10)}
+                y1={y(this.state.stockData[0])}
+                y2={y(this.state.stockData[0])}
                 borderRadius={1}
-                stroke={'red'}
+                stroke={'white'}
                 strokeWidth={2}
                 strokeDasharray={"2,10"}
             />
@@ -226,7 +250,7 @@ class Stock extends React.Component {
                     >
                         <ShadowUP />
                         <HorizontalLine />
-                        <Tooltip />
+                        {/* <Tooltip /> */}
                     </LineChart>
                 </View>
             )
@@ -242,7 +266,7 @@ class Stock extends React.Component {
                     >
                         <ShadowDOWN />
                         <HorizontalLine />
-                        <Tooltip />
+                        {/* <Tooltip /> */}
                     </LineChart>
                 </View>
             )
@@ -306,14 +330,14 @@ class Stock extends React.Component {
                 <View style={{ flex: 0, flexDirection: 'row', height: '15%', backgroundColor: "#0e0d0d" }}>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
-                            <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>TODAY'S VOLUME</Text>
+                            <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.regular.fontWeight }}>TODAY'S VOLUME</Text>
                             <NumberFormat
                                 style={{ color: 'red' }}
                                 value={this.state.stockVolume}
                                 displayType={'text'}
                                 thousandSeparator={true}
                                 prefix={''}
-                                renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>{value}</Text>}
+                                renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.regular.fontWeight }}>{value}</Text>}
                             />
                         </View>
                         <View style={{ width: "50%" }}>
@@ -348,4 +372,4 @@ class Stock extends React.Component {
     }
 }
 
-export default Stock;
+export default StockView;

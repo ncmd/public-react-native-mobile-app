@@ -1,54 +1,59 @@
 import axios from 'axios';
 import {
-  // GET_POSTS,
-  GET_POST,
-  ADD_POST,
-  STAR_POST,
-  ADD_REQUEST,
-  ADD_ACTIVITY,
-  REMOVE_POST,
-  UPDATE_POST,
+  SET_STYLE
 } from './types';
+import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
 
-// Action Creator, call Golang RestAPI, uses Dispatch Redux to send to store
-export const getPosts = () => async dispatch => {
-  const res = await axios.get(backend + '/api/posts')
-  console.log(res.data)
-  dispatch({ type: 'GET_POSTS', payload: res.data });
-};
-
-
-export const addPost = (author, title, description, tags, objectives) => async dispatch => {
-  const data = { author: author, title: title, description: description, tags: tags, objectives: objectives };
-  await axios.post(backend + '/api/post/new', data);
-  dispatch({ type: ADD_POST });
-};
-
-export const getPost = (uri) => async dispatch => {
-  // // console.log("URI:",uri);
-  const res = await axios.get(backend + `${uri}`);
-  // console.log("RES",res)
-  dispatch({ type: GET_POST, payload: res.data });
+export const iosStyleLoad = () => dispatch => {
+  const style = [{
+    TextFontFamilyBoldPrimary: sanFranciscoWeights.bold.fontFamily, 
+    TextFontWeightBoldPrimary: sanFranciscoWeights.bold.fontWeight,
+    TextFontFamilyRegularPrimary: sanFranciscoWeights.regular.fontFamily, 
+    TextFontWeightRegularPrimary: sanFranciscoWeights.regular.fontWeight,
+    TextFontColorPrimary: "#21ce99",
+    TextFontColorSecondary: "#21ce99",
+    TextFontSizePrimary:14,
+    TextFontColorPrimary: "#21ce99",
+    BorderColorPrimary: "#21ce99",
+    BorderColorSecondary: "#21ce99",
+    BorderWidthPrimary:2,
+    ButtonBackgroundColorPrimary:"#21ce99",
+    ButtonBackgroundColorSecondary:"transparent",
+    ButtonTextColorPrimary:"#0e0d0d",
+    ButtonTextColorSecondary:"#21ce99",
+    ButtonTextSizePrimary:14,
+    ButtonTextSizeSecondary:14,
+    ButtonBorderRadiusPrimary: 25,
+    ButtonBorderWidthPrimary:1,
+    ViewBackgroundColorPrimary:"#0e0d0d",
+    LogoIconSize:30    
+  }]
+  dispatch({ type: SET_STYLE, payload: style })
 }
 
-export const editPost = (uri) => async dispatch => {
-  // console.log("URI:",uri);
-  const res = await axios.get(backend + `${uri}`);
-  dispatch({ type: GET_POST, payload: res.data });
+export const androidStyleLoad = () => dispatch => {
+  const style = [{
+    TextFontFamilyBoldPrimary: sanFranciscoWeights.bold.fontFamily, 
+    TextFontWeightBoldPrimary: sanFranciscoWeights.bold.fontWeight,
+    TextFontFamilyRegularPrimary: sanFranciscoWeights.regular.fontFamily, 
+    TextFontWeightRegularPrimary: sanFranciscoWeights.regular.fontWeight,
+    TextFontColorPrimary: "#21ce99",
+    TextFontColorSecondary: "#21ce99",
+    TextFontSizePrimary:14,
+    TextFontColorPrimary: "#21ce99",
+    BorderColorPrimary: "#21ce99",
+    BorderColorSecondary: "#21ce99",
+    BorderWidthPrimary:1,
+    ButtonBackgroundColorPrimary:"#21ce99",
+    ButtonBackgroundColorSecondary:"transparent",
+    ButtonTextColorPrimary:"#0e0d0d",
+    ButtonTextColorSecondary:"#21ce99",
+    ButtonTextSizePrimary:15,
+    ButtonTextSizeSecondary:14,
+    ButtonBorderRadiusPrimary: 25,
+    ButtonBorderWidthPrimary:1,
+    ViewBackgroundColorPrimary:"#0e0d0d",
+    LogoIconSize:30    
+  }]
+  dispatch({ type: SET_STYLE, payload: style })
 }
-
-export const starPost = (postid, username, starred, action, index) => async dispatch => {
-  auth.starRunbookFirestore(postid, username, action)
-
-  if (index !== null) {
-    dispatch({ type: STAR_POST, payloadindex: index, payloadaction: action, payloadusername: username });
-  } else if (index === null) {
-    dispatch({ type: STAR_POST_LOCAL, payloadaction: action, payloadusername: username });
-  }
-
-}
-
-export const removePost = () => async dispatch => {
-  const res = await axios.post(backend + '/api/post');
-  dispatch({ type: REMOVE_POST, payload: res.data });
-};

@@ -10,9 +10,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './redux/reducers';
-import ChatComponent from './views/Chat/Chat'
-import StockComponent from './views/Stock/Stock'
-import StockOrderComponent from './views/Stock/StockOrder'
 import Router from './Router'
 
 const persistConfig = {
@@ -31,10 +28,6 @@ class App extends React.Component {
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                 <Router/>
-                    {/* <View>
-                        <Header headerText={'Chat'} />
-                        <AlbumList />
-                    </View> */}
                 </PersistGate>
             </Provider>
         );

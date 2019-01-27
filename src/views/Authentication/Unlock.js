@@ -169,7 +169,7 @@ function authenticate() {
         return TouchID.authenticate()
             .then(success => {
                 console.log('Authentication Success')
-                Actions.stock()
+                Actions.stockview()
             })
             .catch(error => {
                 console.log(error)
@@ -178,7 +178,7 @@ function authenticate() {
         return TouchID.authenticate()
             .then(success => {
                 console.log('Authentication Success')
-                Actions.stock()
+                Actions.stockview()
             })
             .catch(error => {
                 console.log(error)
