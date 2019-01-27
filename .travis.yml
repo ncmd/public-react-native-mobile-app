@@ -11,6 +11,7 @@ matrix:
       xcode_scheme: publicreactnativeapp
       node_js: false
       sudo: required
+      podfile: ./ios/Podfile
       env:
         # required by fastlane
         - LC_ALL=en_US.UTF-8
@@ -36,6 +37,7 @@ matrix:
         - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
         - ssh-keyscan github.com >> ~/.ssh/known_hosts
         - chmod 600 ~/.ssh/deploy_key
+        - bundle exec pod install
         - cd ..
       install:
         # using yarn instead of npm install because project would not build properly in travis
