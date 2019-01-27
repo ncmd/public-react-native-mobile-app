@@ -38,9 +38,21 @@ class LandingMain extends React.Component {
         }
     }
 
+    // activateStyleProps() {
+    //     if (this.props.style.length > 0) {
+    //         return this.props.theme[0]
+    //     } else {
+    //         this.props.lightThemeLoad()
+    //     }
+    // }
+    
+
     render() {
+
+        const { loading } = this.props;
+
         return (
-            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+            !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <StatusBar
                     backgroundColor="#0e0d0d"
                     barStyle="light-content"
@@ -64,7 +76,6 @@ function mapStateToProps({ style }) {
         style
     };
 }
-
 
 export default connect(mapStateToProps, {
     androidStyleLoad,
