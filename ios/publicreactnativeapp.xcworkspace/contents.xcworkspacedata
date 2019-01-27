@@ -4,10 +4,4 @@
    <FileRef
       location = "container:publicreactnativeapp.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:publicreactnativeapp.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
 </Workspace>
