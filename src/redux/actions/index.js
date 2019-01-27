@@ -26,7 +26,8 @@ export const iosStyleLoad = () => dispatch => {
     ButtonBorderRadiusPrimary: 25,
     ButtonBorderWidthPrimary:1,
     ViewBackgroundColorPrimary:"#0e0d0d",
-    LogoIconSize:30    
+    LogoIconSize:30,
+    HeaderBaseHeight:70,
   }]
   dispatch({ type: SET_STYLE, payload: style })
 }
@@ -53,7 +54,8 @@ export const androidStyleLoad = () => dispatch => {
     ButtonBorderRadiusPrimary: 25,
     ButtonBorderWidthPrimary:1,
     ViewBackgroundColorPrimary:"#0e0d0d",
-    LogoIconSize:30    
+    LogoIconSize:30,
+    HeaderBaseHeight:"10%",
   }]
   dispatch({ type: SET_STYLE, payload: style })
 }
