@@ -82,12 +82,12 @@ matrix:
       before_cache:
         - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
         - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-      cache:
-        yarn: true
-        directories:
-          - $HOME/.gradle/caches/
-          - $HOME/.gradle/wrapper/
-          - node_modules
+      # cache:
+      #   yarn: true
+      #   directories:
+      #     - $HOME/.gradle/caches/
+      #     - $HOME/.gradle/wrapper/
+      #     - node_modules
       android:
         components:
           - platform-tools
@@ -97,7 +97,7 @@ matrix:
           - extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
-          - sys-img-armeabi-v7a-android-28
+          - sys-img-armeabi-v7a-android-27
       licenses:
         - android-sdk-preview-license-.+
         - android-sdk-license-.+
