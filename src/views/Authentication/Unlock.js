@@ -128,8 +128,11 @@ class Unlock extends React.Component {
     }
 
     render() {
+        // Initializing Props from ./redux/reducers/stylesReducer.js
+        const { loading } = this.props;
+
         return (
-            <View style={styles.container}>
+            !loading && <View style={styles.container}>
                 <ImageBackground
                     source={require('./pattern.png')}
                     style={{ width: 1000, height: 1000, transform: [{ rotate: '-35deg' }] }}

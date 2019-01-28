@@ -38,17 +38,8 @@ class LandingMain extends React.Component {
         }
     }
 
-    // activateStyleProps() {
-    //     if (this.props.style.length > 0) {
-    //         return this.props.theme[0]
-    //     } else {
-    //         this.props.lightThemeLoad()
-    //     }
-    // }
-    
-
     render() {
-
+        // Initializing Props from ./redux/reducers/stylesReducer.js
         const { loading } = this.props;
 
         return (
