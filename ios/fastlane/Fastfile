@@ -35,7 +35,6 @@ platform :ios do
       )
     build_app(
       scheme: "publicreactnativeapp",
-      workspace: "publicreactnativeapp.xcworkspace",
       include_bitcode: false,
       export_method: "app-store",
       export_options: {
