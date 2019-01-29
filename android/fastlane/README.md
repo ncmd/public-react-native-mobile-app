@@ -21,9 +21,9 @@ or alternatively using `brew cask install fastlane`
 fastlane android test
 ```
 Runs all the tests
-### android local
+### android localdeploy
 ```
-fastlane android local
+fastlane android localdeploy
 ```
 Local Build App
 ### android build

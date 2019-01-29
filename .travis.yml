@@ -117,7 +117,6 @@ matrix:
         # - travis_retry npm install -g yarn
       install:
         - rm -rf node_modules
-        - watchman watch-del-all
         - rm -rf /tmp/metro-bundler-cache-*
         - rm -rf /tmp/haste-map-react-native-packager-*
         # - yarn install
@@ -129,7 +128,7 @@ matrix:
         - ls ./app
         - fastlane supply init
         - bundle exec fastlane test
-        - bundle exec fastlane build
+        - bundle exec fastlane travisdeploy
       after_script:
         - chmod +x ./android/gradlew
         - ./gradlew assembleRelease

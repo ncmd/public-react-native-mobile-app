@@ -18,19 +18,7 @@ platform :ios do
       xcodeproj: "./publicreactnativeapp.xcodeproj"
     )
     build_app(
-      scheme: "publicreactnativeapp",
-      workspace: "publicreactnativeapp.xcworkspace",
-      include_bitcode: false,
-      export_method: "app-store",
-      export_options: {
-        uploadBitcode: false,
-        uploadSymbols: true,
-        compileBitcode: false,
-        provisioningProfiles: { 
-          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
-        }
-      }
-    )
+      scheme: "publicreactnativeapp")
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
   end
 

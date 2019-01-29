@@ -13,7 +13,7 @@ platform :android do
   end
 
   desc "Local Build App"
-  lane :local do
+  lane :localdeploy do
     # Build APK
     gradle(
       task: 'assemble',
