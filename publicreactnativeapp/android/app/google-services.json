@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "463527114055",
+    "firebase_url": "https://publicreactnativeapp-c2cc1.firebaseio.com",
+    "project_id": "publicreactnativeapp-c2cc1",
+    "storage_bucket": "publicreactnativeapp-c2cc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463527114055:android:c4b73721cd537cb0",
+        "android_client_info": {
+          "package_name": "com.ncmd.publicreactnativeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463527114055-p63fihfeksvepgnbg75i0u252urd9it0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVkUMGqY7TTxZ9zi1IQiZXzuruVvHsC2o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

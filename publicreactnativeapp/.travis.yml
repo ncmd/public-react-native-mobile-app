@@ -1,0 +1,131 @@
+branches:
+  only:
+  - master
+  
+matrix:
+  include:
+    - language: objective-c
+      os: osx
+      osx_image: xcode10.1
+      xcode_project: ./publicreactnativeapp.xcodeproj
+      xcode_scheme: publicreactnativeapp
+      node_js: false
+      sudo: required
+      env:
+        # required by fastlane
+        - LC_ALL=en_US.UTF-8
+        - LANG=en_US.UTF-8
+        # increase node space just in case
+        - NODE_OPTIONS="--max-old-space-size=4096"
+      before_install:
+        # Setting up environment similar to local environment
+        - nvm install 11.6
+        - rvm install 2.6.0
+        - travis_retry npm install -g yarn
+        - rvm --default use 2.6.0
+        - brew update
+        - gem update --system
+        - gem install bundler
+        - gem install fastlane
+        - pwd
+        # Decrypt key to download certificate from a private certificate "public-fastlane-certificates" repository
+        - ls ~/.ssh/
+        - cd ./ios && openssl aes-256-cbc -K $encrypted_135108afd44f_key -iv $encrypted_135108afd44f_iv -in deploy_key.enc -out ~/.ssh/deploy_key -d
+        - cp deploy_key.pub ~/.ssh/deploy_key.pub
+        - ls ~/.ssh/
+        - echo -e "Host github.com\n\tHostName github.com\n\tncmd git\n\tIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
+        - ssh-keyscan github.com >> ~/.ssh/known_hosts
+        - chmod 600 ~/.ssh/deploy_key
+        - cd ..
+      install:
+        # using yarn instead of npm install because project would not build properly in travis
+        - pwd
+        - yarn install
+        # required to use react-native 
+        - npm install -g react-native-cli
+        # Adds missing main.jsbundle file when react-native project is created
+        - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
+      script:
+        - pwd
+        - cd ./ios/
+        # Install all ios/Gemfile requirements and allows faster fastlane performance
+        - bundle install
+        # Setting fastlane session to bypass 2-factor for apple account
+        # This session much be changed every build or else it will fail whole build process
+        # Refer to package.json "session" script
+        # (NOTE: set an environment variable for your email address, export EMAIL_ADDRESS=email_address@gmail.com)
+        # - cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt
+        - echo $FASTLANE_SESSION
+        - set_fastlane_session_from_file=$(cat ./session.txt) && export FASTLANE_SESSION=$set_fastlane_session_from_file
+        # Confirm session environment variable is set
+        - echo $FASTLANE_SESSION
+        - bundle update
+        - ls /Users/travis/Library/Keychains/
+        # Run Gym in the background to prevent verbose build over 10000 lines (Travis auto terminates build)
+        - nohup bundle exec fastlane ios travisdeploy &
+        - pwd
+        # Silence gym in the background or else logs will pass 10000 and travis will force end the build
+        - for i in $(seq 1 10); do sleep 60; echo $i; done
+        # Check if ipa and app.dSYM.zip builds are created
+        # You should see "publicreactnativeapp.app.dSYM.zip and publicreactnativeapp.ipa"
+        - ls
+        # You build should be uploaded (If this part failed that means you didnt generate a new session token to pass 2factor
+  # This is used to prevent Android build
+  # exclude: 
+    - language: android
+      jdk: oraclejdk8
+      sudo: required
+      dist: precise
+      env:
+        - LC_ALL=en_US.UTF-8
+        - LANG=en_US.UTF-8
+      before_cache:
+        - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+      cache:
+        yarn: true
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+          - node_modules
+      android:
+        components:
+          - platform-tools
+          - tools
+          - build-tools-28.0.3
+          - android-28
+          - extra-android-m2repository
+          - extra-google-google_play_services
+          - extra-google-m2repository
+          - sys-img-armeabi-v7a-android-28
+      licenses:
+        - android-sdk-preview-license-.+
+        - android-sdk-license-.+
+        - google-gdk-license-.+
+      before_install:
+        - nvm install 11.6
+        - node --version
+        - PATH="/bin:$PATH" rvm use 2.6.0 --install --binary --fuzzy
+        - ruby --version
+        - chmod +x ./android/gradlew
+        - pwd
+        - gem update --system
+        - gem install bundler
+        - pwd
+        - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
+        - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/my-release-key.keystore -d
+        - travis_retry npm install -g yarn
+      install:
+        - yarn install
+        - npm install
+        - cd android && bundle install && bundle update && ./gradlew clean
+      script:
+        - pwd
+        - ls
+        - ls ./app
+        - fastlane supply init
+        - bundle exec fastlane test
+        - bundle exec fastlane build
+      after_script:
+        - chmod +x ./android/gradlew
+        - ./gradlew assembleRelease

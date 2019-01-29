@@ -1,0 +1,52 @@
+# Opt out of Analytics
+opt_out_usage
+
+update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  lane :localdeploy do
+    sync_code_signing(
+      type: "appstore",
+      git_url:"https://github.com/ncmd/public-fastlane-certificates",
+      keychain_name:"login.keychain"
+      )
+    increment_build_number
+    increment_version_number(
+      bump_type: "minor",
+      xcodeproj: "./publicreactnativeapp.xcodeproj"
+    )
+    build_app(
+      scheme: "publicreactnativeapp")
+    upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+  end
+
+  lane :travisdeploy do |values|
+    setup_travis
+    sync_code_signing(
+      type: "appstore",
+      git_url:"https://github.com/ncmd/public-fastlane-certificates",
+      keychain_name:"fastlane_tmp_keychain"
+      )
+      increment_build_number
+      increment_version_number(
+        bump_type: "minor"
+      )
+    build_app(
+      scheme: "publicreactnativeapp",
+      include_bitcode: false,
+      export_method: "app-store",
+      export_options: {
+        uploadBitcode: false,
+        uploadSymbols: true,
+        compileBitcode: false,
+        provisioningProfiles: { 
+          "com.ncmd.publicreactnativeapp" => "match AppStore com.ncmd.publicreactnativeapp"
+        }
+      }
+    )
+    
+    upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+  end
+end

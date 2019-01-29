@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "api-8452509954607468974-928983",
+  "private_key_id": "dba2d4f1036a801e570afaf279072e0c03e7c7ee",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCuXJTzMbtJFzGH\n349nnXFvPKKg+rBkGM8CqjjFZld7FT/poy0ADHK6V+Pr+BXIwcYGoqX2MIet/LzH\nAGhLCWU9QDRJyvtUtJGL5ROWQR68xTebN/8jH9dj3xD4yNpLLqLEReFdBYX1hjM8\nc8c63bxZAylW1TXqNXj1im27aqCXFfieHSxDYz6j7PUmWaO9TrbB20wu5bT87ecg\nw9BxgCxmQGwTVYVM9Nn3h0z41eiFebu5VoLJynHXon8n4WwRY7Vftg2cK0N7/EWv\nfxc5VB0qz0t9tYEu4WeW/xXakEx97Zjj1Eig06NBiEo/hl2W1qbUMioWRoNbuYO2\n3oIlYZf9AgMBAAECggEAAtaSrjKoGVzRRGcSVkqoc3S+wfypD8e7rhoVwDTV7Dn1\nJKxjrY0lCp54taSzDerxE+n48HKzGg1h1QihFX3XmbFg341uCOS4wWLm0g8qdpSG\nC6dtjNETutEvYnA1QcP+1LYPXiddAJlNzs17vOjdIJ8oIe2cBhRpBqjjm4lbh/WN\nnViir9kBm0YIlgJeqj9KuwTaKZpmvBtKHIATV1IsTavMhDIM4fyvIY5JJruXLlmm\nvF61m5RmqGjqiRRkbJpRbS/UHm8u3epS/gEYgzXXUWlBtK0BE00zpnQfd7rPU3AG\nXof8tvc+/qovI3ysCHxcNKcrLdGaEZwYro4OIBmECwKBgQDa3HOKpH9g7BqokbGe\n50tHo/23FolRoc4vGYJQ0YV1HLm2o9MOzdmJHSNioU0NRWkE/t0gWiNP45SJvi8y\nUipMW2veIxShAtLmO3fLhjuAJ99tm8Y3XKMA6v2Lfsoh8WRiJjvOtPp1EyGJ8fbE\nNI+W6PT8ciCyL6tYUYnMPeAXRwKBgQDL8wcaYT9BKxc/rJenbJpaw6OoMYYRP8ou\nzv6czUYHTGt0l0zy8DW34QOsoCoylON1O/kF0DsccOBVWw5OwqQU2gqCXUKwW8zs\nXAPGDTGWfuFakzr0Vg7A8lWn8IQC1hD+m1GJ0tyt2FeLq0mh1N8vHzzuPjJe6Gj7\nkPHP7HCAmwKBgGNDcTQEf7FZ5I1n5wOHK+GGQ2By3D0mAfniu/Qj0z/Wk3R+wQ8J\n1gwWJyJoviWywXr+jRRLTZDCS3BdzdIo6f5PyJCroIOWYEkD18V7UClD7FYuPKyH\nW3bjHbPTAaJ7dWf+p0mNU7sdvixujdlXbXiol9SXfrTSYghgkvsLZUOpAoGBAJMM\nAo8OlqDSBM0wD5fzQcc3T4QxUMyXBZuCOymrB1azzrYdcKmob9LINfH8+O/HUchx\nGTcLz9LNv7FLGaHHzK4MF4+u1ip5xeKU5VOip6IukSTRCqyob7LGBuQzEbtJxK8O\nJVgN5HajiVt2gHxiExjSmQfdaEvtnePjubWEcAkJAoGBAItNFZ4tpd9WQsF+40x8\nDtrvAe6bfoPgLfixo2fj8VukiA1MMS4I9dyWPtiwNyDGdET2mQRTU1kaS8HOncMC\nZY09y1eSGbYI4o9eDJQc+s/8UktBz+ZFEv0GrtOmsJWRDb1cL9eEO4PcsLGnWywk\nRHdeTvXaKnMz4GIi3jfmOzOl\n-----END PRIVATE KEY-----\n",
+  "client_email": "com-ncmd-publicreactnativeapp@api-8452509954607468974-928983.iam.gserviceaccount.com",
+  "client_id": "113424757105878447832",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/com-ncmd-publicreactnativeapp%40api-8452509954607468974-928983.iam.gserviceaccount.com"
+}
