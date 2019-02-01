@@ -1,0 +1,10 @@
+export const ADD_ORGANIZATION = 'add_organization';
+export const REMOVE_ORGANIZATION = 'remove_organization';
+export const LEAVE_ORGANIZATION = 'leave_organization';
+export const ADD_ORGANIZATION_MEMBER = 'add_organization_member';
+export const REMOVE_ORGANIZATION_MEMBER = 'remove_organization_member';
+export const INVITE_ORGANIZATION_MEMBER = 'invite_organization_member';
+export const CHECK_ORGANIZATION= 'check_organization';
+export const JOIN_ORGANIZATION = 'join_organization';
+export const SIGNOUT_ORGANIZATION = 'signout_organziation';
+export const LOAD_ORGANIZATION = 'load_organziation';

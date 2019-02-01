@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import {
     androidStyleLoad,
     iosStyleLoad,
-} from '../../redux/actions';
+} from '../../redux/actions/actions_styles';
 import { Actions } from 'react-native-router-flux'
 
 class LandingMain extends React.Component {

@@ -1,6 +1,6 @@
 import {
     SET_STYLE,
-} from '../actions/types';
+} from '../types/types_styles';
 
 export default function(state = [{loading: true}], action) {
     switch (action.type) {

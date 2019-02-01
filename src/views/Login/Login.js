@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import {
     androidStyleLoad,
     iosStyleLoad,
-} from '../../redux/actions';
+} from '../../redux/actions/actions_styles';
 
 class Login extends React.Component {
     constructor() {

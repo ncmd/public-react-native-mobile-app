@@ -1,61 +1,31 @@
-import axios from 'axios';
-import {
-  SET_STYLE
-} from './types';
-import { sanFranciscoWeights } from 'react-native-typography'
+import * as styles from './actions_styles'
+import * as accounts from './actions_accounts'
+import * as activity from './actions_activity'
+import * as authentication from './actions_firebase_authentication'
+import * as comments from './actions_comments'
+import * as edit_posts from './actions_edit_posts'
+import * as feedback_requests from './actions_feedback_requests'
+import * as groups from './actions_groups'
+import * as misc from './actions_misc'
+import * as posts from './actions_posts'
+import * as search from './actions_search'
+import * as security from './actions_security'
+import * as stripe from './actions_stripe'
+import * as users from './actions_users'
 
-export const iosStyleLoad = () => dispatch => {
-  const style = [{
-    TextFontFamilyBoldPrimary: sanFranciscoWeights.bold.fontFamily, 
-    TextFontWeightBoldPrimary: sanFranciscoWeights.bold.fontWeight,
-    TextFontFamilyRegularPrimary: sanFranciscoWeights.regular.fontFamily, 
-    TextFontWeightRegularPrimary: sanFranciscoWeights.regular.fontWeight,
-    TextFontColorPrimary: "#21ce99",
-    TextFontColorSecondary: "#21ce99",
-    TextFontSizePrimary:14,
-    TextFontColorPrimary: "#21ce99",
-    BorderColorPrimary: "#21ce99",
-    BorderColorSecondary: "#21ce99",
-    BorderWidthPrimary:2,
-    ButtonBackgroundColorPrimary:"#21ce99",
-    ButtonBackgroundColorSecondary:"transparent",
-    ButtonTextColorPrimary:"#0e0d0d",
-    ButtonTextColorSecondary:"#21ce99",
-    ButtonTextSizePrimary:14,
-    ButtonTextSizeSecondary:14,
-    ButtonBorderRadiusPrimary: 25,
-    ButtonBorderWidthPrimary:1,
-    ViewBackgroundColorPrimary:"#0e0d0d",
-    LogoIconSize:30,
-    HeaderBaseHeight:"10%",
-  }]
-  dispatch({ type: SET_STYLE, payload: style })
-}
-
-export const androidStyleLoad = () => dispatch => {
-  const style = [{
-    TextFontFamilyBoldPrimary: sanFranciscoWeights.bold.fontFamily, 
-    TextFontWeightBoldPrimary: sanFranciscoWeights.bold.fontWeight,
-    TextFontFamilyRegularPrimary: sanFranciscoWeights.regular.fontFamily, 
-    TextFontWeightRegularPrimary: sanFranciscoWeights.regular.fontWeight,
-    TextFontColorPrimary: "#21ce99",
-    TextFontColorSecondary: "#21ce99",
-    TextFontSizePrimary:14,
-    TextFontColorPrimary: "#21ce99",
-    BorderColorPrimary: "#21ce99",
-    BorderColorSecondary: "#21ce99",
-    BorderWidthPrimary:1,
-    ButtonBackgroundColorPrimary:"#21ce99",
-    ButtonBackgroundColorSecondary:"transparent",
-    ButtonTextColorPrimary:"#0e0d0d",
-    ButtonTextColorSecondary:"#21ce99",
-    ButtonTextSizePrimary:15,
-    ButtonTextSizeSecondary:14,
-    ButtonBorderRadiusPrimary: 25,
-    ButtonBorderWidthPrimary:1,
-    ViewBackgroundColorPrimary:"#0e0d0d",
-    LogoIconSize:30,
-    HeaderBaseHeight:"15%",
-  }]
-  dispatch({ type: SET_STYLE, payload: style })
+export {
+    styles,
+    accounts,
+    activity,
+    authentication,
+    comments,
+    edit_posts,
+    feedback_requests,
+    groups,
+    misc,
+    posts,
+    search,
+    security,
+    stripe,
+    users,
 }

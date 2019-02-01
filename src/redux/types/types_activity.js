@@ -1,0 +1,11 @@
+export const ADD_RUNBOOK_ACTIVITY = 'add_runbook_activity';
+export const ADD_OBJECTIVE_ACTIVITY = 'add_objective_activity';
+export const CHANGE_STATUS_OBJECTIVE_ACTIVITY = 'change_status_objective_activity';
+export const ADD_COMMENT_OBJECTIVE_ACTIVITY = 'add_comment_objective_activity';
+export const ADD_ACTIVITY_ORGANIZATION = 'add_activity_organization';
+export const ADD_RUNBOOK_ORGANIZATION_ACTIVITY = 'add_runbook_organization_activity';
+export const ADD_OBJECTIVE_ORGANIZATION_ACTIVITY = 'add_objective_organization_activity';
+export const ASSIGN_OBJECTIVE_ORGANIZATION_ACTIVITY = 'assign_objective_organization_activity';
+export const COMPLETE_OBJECTIVE_ACTIVITY = 'complete_objective_activity';
+export const COMPLETE_ACTIVITY_ORGANIZATION = 'complete_activity_organization';
+export const ADD_ACTIVITY = 'add_activity';

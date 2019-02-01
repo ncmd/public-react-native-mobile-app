@@ -40,12 +40,11 @@ matrix:
       install:
         # using yarn instead of npm install because project would not build properly in travis
         - pwd
-        # - yarn install
-        - npm install
+        - yarn install
         # required to use react-native 
         - npm install -g react-native-cli
         # Adds missing main.jsbundle file when react-native project is created
-        # - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
+        - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
       script:
         - pwd
         - cd ./ios/
@@ -115,9 +114,9 @@ matrix:
         - pwd
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/my-release-key.keystore -d
-        # - travis_retry npm install -g yarn
+        - travis_retry npm install -g yarn
       install:
-        # - yarn install
+        - yarn install
         - npm install
         - cd android && bundle install && bundle update && ./gradlew clean
       script:

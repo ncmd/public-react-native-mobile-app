@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import {
     androidStyleLoad,
     iosStyleLoad,
-} from '../../redux/actions';
+} from '../../redux/actions/actions_styles';
 
 class HeaderBase extends React.Component {
 

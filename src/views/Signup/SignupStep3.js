@@ -12,13 +12,12 @@ import {
     StatusBar,
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
-import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
+import { sanFranciscoWeights } from 'react-native-typography'
 import { connect } from 'react-redux';
 import {
     androidStyleLoad,
     iosStyleLoad,
-} from '../../redux/actions';
+} from '../../redux/actions/actions_styles';
 
 class SignupStep3 extends React.Component {
     constructor() {
