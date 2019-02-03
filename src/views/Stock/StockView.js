@@ -20,16 +20,9 @@ import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
-
+import NavigationBase from '../../components/Navigation/NavigationBase'
 // const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
-// Live = 1hr | 15 sec = 240
-// 1Day = 24h | 5min = 288  
-// 1Week = 7d | 1hr = 168
-// 1Month = 30d | 1 day = 30
-// 3Months = 90d | 1 day = 90
-// 6Months = 180d | 1 day = 180
-// 1Year = 365d | 1 day = 365
-// 5Years = 35d | 7d = 260
+
 const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365]
 
 const ShadowDOWN = ({ line }) => (
@@ -69,7 +62,7 @@ class StockView extends React.Component {
             deviceWidth: 200,
             stockPerformance: '',
             stockVolume: 12023,
-            fingerTouchXCoordinate:50,
+            fingerTouchXCoordinate: 50,
             status: "Disconnected",
             open: false,
             text: '',
@@ -78,26 +71,26 @@ class StockView extends React.Component {
         this.updateIndex = this.updateIndex.bind(this)
         if (process.env.APP_ENV === 'production') {
             // This is for connecting to production websocket
-            
+
         } else {
             // This is for connecting to local websocket
             if (Platform.OS === 'ios') {
-                try{
+                try {
                     this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
                 }
                 catch {
                     this.socket = new WebSocket('ws://127.0.0.1:8080/wsstock');
                 }
-                
+
             }
             if (Platform.OS === 'android') {
-                try{
+                try {
                     this.socket = new WebSocket('wss://public-go-websockets-prod.herokuapp.com/wsstock');
                 }
                 catch{
                     this.socket = new WebSocket('ws://10.0.2.2:8080/wsstock');
                 }
-                
+
             }
         }
     }
@@ -178,24 +171,17 @@ class StockView extends React.Component {
         this.setState({ selectedIndex })
     }
 
-    handlePress(evt){
-        
+    handlePress(evt) {
+
         console.log(`x coord = ${evt.nativeEvent.locationX}`);
 
-        var newValue = (evt.nativeEvent.locationX/this.state.deviceWidth)*100
+        var newValue = (evt.nativeEvent.locationX / this.state.deviceWidth) * 100
         console.log(newValue)
         this.setState({
             fingerTouchXCoordinate: newValue
         })
-      }
+    }
 
-    // Live = 1hr | 15 sec = 240
-    // 1Day = 24h | 5min = 288  
-    // 1Week = 7d | 1hr = 168
-    // 1Month = 30d | 1 day = 30
-    // 3Months = 90d | 1 day = 90
-    // 6Months = 180d | 1 day = 180
-    // 1Year = 365d | 1 day = 365
     renderStockChartSelect(maxslice) {
         dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
 
@@ -246,7 +232,7 @@ class StockView extends React.Component {
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
                         contentInset={{ top: 20, bottom: 20 }}
-                        curve={ shape.curveLinear }
+                        curve={shape.curveLinear}
                     >
                         <ShadowUP />
                         <HorizontalLine />
@@ -303,7 +289,7 @@ class StockView extends React.Component {
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <Header headerPrice={parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)} headerTicker="APPL" />
-                <View style={{ height: '80%', marginBottom: 10, flex: 1 }}>
+                <View style={{marginBottom: 10, flex: 1 }}>
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
                             <View style={{ backgroundColor: "#0e0d0d", padding: 10 }}>
@@ -327,7 +313,7 @@ class StockView extends React.Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={{ flex: 0, flexDirection: 'row', height: '15%', backgroundColor: "#0e0d0d" }}>
+                <View style={{ flex: 0, flexDirection: 'row', backgroundColor: "#0e0d0d" }}>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <View style={{ width: "50%" }}>
                             <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.regular.fontWeight }}>TODAY'S VOLUME</Text>
@@ -345,6 +331,7 @@ class StockView extends React.Component {
                         </View>
                     </View>
                 </View>
+                <NavigationBase />
             </KeyboardAvoidingView>
         )
     }

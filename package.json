@@ -19,6 +19,7 @@
     "react-native": "0.58.1",
     "react-native-elements": "^1.0.0",
     "react-native-firebase": "^5.2.1",
+    "react-native-material-bottom-navigation": "^1.0.2",
     "react-native-router-flux": "^4.0.6",
     "react-native-svg": "^9.0.5",
     "react-native-svg-charts": "^5.2.0",

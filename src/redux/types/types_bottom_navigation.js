@@ -1,0 +1,1 @@
+export const SET_BOTTOM_NAVIGATION = 'set_bottom_navigation';

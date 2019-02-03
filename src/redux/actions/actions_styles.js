@@ -1,7 +1,7 @@
 
 import {
     SET_STYLE
-} from './types';
+} from '../types/types_styles';
 import { sanFranciscoWeights } from 'react-native-typography'
 
 export const iosStyleLoad = () => dispatch => {
