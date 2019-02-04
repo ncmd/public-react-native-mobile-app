@@ -34,6 +34,7 @@ class AccountMain extends React.Component {
                     key: 'a',
                     name: 'Referrals',
                     subtitle: 'Invite Friends to the Platform'
+                    
                 },
                 {
                     key: 'b',
