@@ -56,8 +56,9 @@ class PortfolioPerformance extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
+            investmentTotal: 38023.33,
             stockData: [12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09, 10.55, 10.73, 10.65, 10.4, 10.32, 9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28],
-            stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
+            stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1W', '1M', '3M', '1Y', 'ALL'],
             stockTimePickerValuesToggle: false,
             deviceWidth: 200,
             stockPerformance: '',
@@ -191,11 +192,11 @@ class PortfolioPerformance extends React.Component {
             return (
                 <View>
                     <LineChart
-                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        style={{ height: 200, backgroundColor: "#0e0d0d" }}
                         data={dayStockData}
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
-                        contentInset={{ top: 20, bottom: 20 }}
+                        contentInset={{ top: 5, bottom: 5, left: 0, right: 10 }}
                         curve={shape.curveLinear}
                     >
                         <ShadowUP />
@@ -208,11 +209,11 @@ class PortfolioPerformance extends React.Component {
             return (
                 <View>
                     <LineChart
-                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        style={{ height: 200, backgroundColor: "#0e0d0d" }}
                         data={dayStockData}
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
-                        contentInset={{ top: 20, bottom: 20 }}
+                        contentInset={{ top: 5, bottom: 5, left: 0, right: 10 }}
                     >
                         <ShadowDOWN />
                         <HorizontalLine />
@@ -252,25 +253,24 @@ class PortfolioPerformance extends React.Component {
     renderStockView() {
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <View style={{marginBottom: 10, flex: 1 }}>
-                    <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
+                <View style={{ marginBottom: 10, flex: 1 }}>
+                    <View>
                         <View>
-                            <View>
-                                <Text style={{ fontSize: 14, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                    APPL
-                                </Text>
-                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                    Apple
-                                </Text>
-                                <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                    ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
-                                </Text>
-                                {this.renderStockPriceDifference()}
-                            </View>
-                            {this.renderStockChart(this.state.selectedIndex)}
-                            {this.renderTimeSelectorButtonGroup()}
+                            <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
+                                <NumberFormat
+                                    style={{ color: 'red' }}
+                                    value={this.state.investmentTotal}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    prefix={''}
+                                    renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>${value}</Text>}
+                                />
+                            </Text>
+                            {this.renderStockPriceDifference()}
                         </View>
-                    </ScrollView>
+                        {this.renderStockChart(this.state.selectedIndex)}
+                        {this.renderTimeSelectorButtonGroup()}
+                    </View>
                 </View>
             </KeyboardAvoidingView>
         )
@@ -285,10 +285,12 @@ class PortfolioPerformance extends React.Component {
                 onPress={this.updateIndex}
                 selectedIndex={selectedIndex}
                 buttons={this.state.stockTimePickerValues}
-                containerStyle={{ height: 30, backgroundColor: 'rgba(33,206,153,0.1)', borderRadius: 25 }}
-                textStyle={{ color: 'white', fontSize: 12, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}
-                selectedButtonStyle={{ backgroundColor: '#21ce99' }}
-                selectedTextStyle={{ color: 'white' }}
+                buttonStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                containerStyle={{ backgroundColor: 'rgba(33,206,153,0.0)', borderRadius: 10, borderWidth: 0 }}
+                textStyle={{ color: '#21ce99', fontSize: 12, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight, borderWidth: 0 }}
+                selectedButtonStyle={{ backgroundColor: '#21ce99', height: 10, margin: 7, borderRadius: 5, borderWidth: 0 }}
+                selectedTextStyle={{ color: '#0e0d0d', fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}
+                innerBorderStyle={{ width: 0 }}
             />
         )
     }

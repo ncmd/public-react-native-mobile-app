@@ -93,6 +93,7 @@ class AccountMain extends React.Component {
                 <FlatList
                     data={this.state.list}
                     renderItem={this.renderItem}
+                    scrollEnabled={false}
                 />
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Account Number</Text>
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>ABC123ABC123ABC123ABC</Text>
