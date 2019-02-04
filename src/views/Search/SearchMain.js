@@ -9,8 +9,6 @@ import {
     FlatList,
     ScrollView,
     Dimensions,
-    TouchableOpacity,
-    Animated,
 } from 'react-native';
 import HeaderBase from '../../components/Header/HeaderBase'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
@@ -18,52 +16,20 @@ import * as shape from 'd3-shape'
 import { Circle, G, Line, Rect, Text as SVGText } from 'react-native-svg'
 import { Actions } from 'react-native-router-flux'
 import { systemWeights } from 'react-native-typography'
-import { ButtonGroup, Button, ListItem } from 'react-native-elements';
+import { ButtonGroup, Button, ListItem, SearchBar } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import NavigationBase from '../../components/Navigation/NavigationBase'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import PortfolioPerformance from './PortfolioPerformance';
 
-const ShadowDOWN = ({ line }) => (
-    <Path
-        key={'shadow'}
-        y={0}
-        d={line}
-        fill={'none'}
-        strokeLinecap={'round'}
-        strokeWidth={4}
-        strokeLinejoin={'round'}
-        stroke={'rgba(244,85,49,0.4)'}
-    />
-)
 
-const ShadowUP = ({ line }) => (
-    <Path
-        key={'shadow'}
-        y={0}
-        d={line}
-        fill={'none'}
-        strokeLinecap={'round'}
-        strokeWidth={4}
-        strokeLinejoin={'round'}
-        stroke={'rgba(33,206,153,0.4)'}
-    />
-)
-
-class PortfolioMain extends React.Component {
+class SearchMain extends React.Component {
     constructor() {
         super()
         this.state = {
-            index: 0,
-            routes: [
-                { key: 'performance', title: "Performance" },
-                { key: 'positions', title: "Positions" },
-                { key: 'watchlist', title: "Watchlist" },
-            ],
+            search: '',
             list: [
                 {
                     key:'a',
@@ -133,10 +99,12 @@ class PortfolioMain extends React.Component {
 
     }
 
+    updateSearch = search => {
+        this.setState({ search });
+    };
 
-    keyExtractor = (item, index) => {
-        return index
-    }
+
+    keyExtractor = (item, index) => index
 
     renderItem = ({ item }) => (
         <ListItem
@@ -145,86 +113,29 @@ class PortfolioMain extends React.Component {
             title={item.name}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
-            rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <LineChart
-                    style={{ width: 190, marginLeft: -125, backgroundColor: "transparent" }}
-                    data={item.stocktrend}
-                    animate={false}
-                    svg={{ stroke: 'rgb(33,206,153)', strokeWidth: 1, strokeLinejoin: 'round' }}
-                    contentInset={{ top: 5, bottom: 5, left: 5, right: 5 }}
-                    curve={shape.curveLinear}
-                >
-                    <ShadowUP />
-                </LineChart>
-                <Button title={item.stockprice} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+            subtitle={item.subtitle}
+            subtitleStyle={{ paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}
+            rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
+                <SLIicon name="plus" style={{ fontSize: 20, color: '#21ce99' }}></SLIicon>
             </View>}
             bottomDivider={true}
         />
     )
 
-    _handleIndexChange = index => this.setState({ index });
-
-    _renderTabBar = props => {
-        const inputRange = props.navigationState.routes.map((x, i) => i);
-
-        return (
-            <View style={styles.tabBar}>
-                {props.navigationState.routes.map((route, i) => {
-                    const color = props.position.interpolate({
-                        inputRange,
-                        outputRange: inputRange.map(
-                            inputIndex => (inputIndex === i ? '#21ce99' : 'grey')
-                        ),
-                    });
-                    return (
-                        <TouchableOpacity
-                            key={i} 
-                            style={styles.tabItem}
-                            onPress={() => this.setState({ index: i })}>
-                            <Animated.Text style={{ fontSize: 14, color: color, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>{route.title}</Animated.Text>
-                        </TouchableOpacity>
-                    );
-                })}
-            </View>
-        );
-    };
-
-    FirstRoute = () => (
-        <PortfolioPerformance />
-    );
-
-    SecondRoute = () => (
-        <View style={[styles.scene, { backgroundColor: '#0e0d0d' }]} >
-            <FlatList
-                data={this.state.list}
-                renderItem={this.renderItem}
-            />
-        </View>
-    );
-
-    ThirdRoute = () => (
-        <View style={[styles.scene, { backgroundColor: '#0e0d0d' }]} >
-            <FlatList
-                data={this.state.list}
-                renderItem={this.renderItem}
-            />
-        </View>
-    );
-
     renderStockView() {
+        const { search } = this.state;
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <HeaderBase />
-
-                <TabView
-                    navigationState={this.state}
-                    renderScene={SceneMap({
-                        performance: this.FirstRoute,
-                        positions: this.SecondRoute,
-                        watchlist: this.ThirdRoute,
-                    })}
-                    onIndexChange={this._handleIndexChange}
-                    renderTabBar={this._renderTabBar}
+                <SearchBar
+                    placeholder="Search..."
+                    onChangeText={this.updateSearch}
+                    value={search}
+                    containerStyle={{ backgroundColor: "#0e0d0d" }}
+                />
+                <FlatList
+                    data={this.state.list}
+                    renderItem={this.renderItem}
                 />
             </KeyboardAvoidingView>
         )
@@ -237,20 +148,4 @@ class PortfolioMain extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    tabBar: {
-        flexDirection: 'row',
-        borderBottomWidth: 1,
-        borderColor: "rgba(33,206,153,0.2)"
-    },
-    tabItem: {
-        flex: 1,
-        alignItems: 'center',
-        padding: 10
-    },
-});
-
-export default PortfolioMain;
+export default SearchMain;

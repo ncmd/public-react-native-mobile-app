@@ -36,7 +36,7 @@ class NavigationBase extends React.Component {
       label: 'Account',
       barColor: '#0e0d0d',
       pressColor: 'rgba(33,206,153, 0.16)',
-      icon: 'account-circle'
+      icon: 'account-box'
     }
   ]
 
@@ -62,7 +62,7 @@ class NavigationBase extends React.Component {
     const { loading,bottomnavigation } = this.props;
 
     return (
-      !loading && <View>
+      !loading && <View style={{borderTopWidth:1, borderColor:"rgba(33,206,153,0.2)"}}>
         <BottomNavigation
           tabs={this.tabs}
           activeTab={this.state.activeTab}

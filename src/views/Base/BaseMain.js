@@ -21,7 +21,9 @@ import {
 import { Actions } from 'react-native-router-flux';
 import { setBottomNavigation } from '../../redux/actions/actions_bottom_navigation';
 import NavigationBase from '../../components/Navigation/NavigationBase';
-import StockPortfolio from '../../views/Stock/StockPortfolio';
+import PortfolioMain from '../../views/Portfolio/PortfolioMain';
+import SearchMain from '../../views/Search/SearchMain';
+import AccountMain from '../../views/Account/AccountMain';
 
 class BaseMain extends React.Component {
     constructor() {
@@ -43,7 +45,15 @@ class BaseMain extends React.Component {
     renderView() {
         if (this.props.bottomnavigation == 'portfolio') {
             return (
-                <StockPortfolio />
+                <PortfolioMain />
+            )
+        } else if (this.props.bottomnavigation == 'search') {
+            return (
+                <SearchMain />
+            )
+        } else if (this.props.bottomnavigation == 'account') {
+            return (
+                <AccountMain />
             )
         }
     }

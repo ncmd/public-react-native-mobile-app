@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './redux/reducers';
 import Router from './Router'
+import epicMiddleware from '../src/rxjs/epics/rootEpic';
 
 const persistConfig = {
     key: 'root',
@@ -14,7 +15,7 @@ const persistConfig = {
 }
 const persistedReducer = persistReducer(persistConfig, reducers)
 
-const store = createStore(persistedReducer, (applyMiddleware(thunk)));
+const store = createStore(persistedReducer, (applyMiddleware(thunk,epicMiddleware)));
 
 const persistor = persistStore(store)
 

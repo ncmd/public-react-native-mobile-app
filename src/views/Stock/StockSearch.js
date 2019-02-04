@@ -9,8 +9,6 @@ import {
     FlatList,
     ScrollView,
     Dimensions,
-    TouchableOpacity,
-    Animated,
 } from 'react-native';
 import HeaderBase from '../../components/Header/HeaderBase'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
@@ -18,15 +16,13 @@ import * as shape from 'd3-shape'
 import { Circle, G, Line, Rect, Text as SVGText } from 'react-native-svg'
 import { Actions } from 'react-native-router-flux'
 import { systemWeights } from 'react-native-typography'
-import { ButtonGroup, Button, ListItem } from 'react-native-elements';
+import { ButtonGroup, Button, ListItem, SearchBar } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import NavigationBase from '../../components/Navigation/NavigationBase'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import PortfolioPerformance from './PortfolioPerformance';
 
 const ShadowDOWN = ({ line }) => (
     <Path
@@ -54,74 +50,70 @@ const ShadowUP = ({ line }) => (
     />
 )
 
-class PortfolioMain extends React.Component {
+
+class StockSearch extends React.Component {
     constructor() {
         super()
         this.state = {
-            index: 0,
-            routes: [
-                { key: 'performance', title: "Performance" },
-                { key: 'positions', title: "Positions" },
-                { key: 'watchlist', title: "Watchlist" },
-            ],
+            search: '',
             list: [
                 {
-                    key:'a',
                     name: 'APPLE',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09, 10.55, 10.73, 10.65, 10.4, 10.32, 9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28],
                     stockprice: '$10000.28'
                 },
                 {
-                    key:'b',
                     name: 'AMAZO',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'c',
                     name: 'MICRO',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'d',
                     name: 'SPLUNK',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'e',
                     name: 'ALIBA',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'f',
                     name: 'AMD',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'g',
                     name: 'NVIDI',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'h',
                     name: 'SHOPI',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'i',
                     name: 'FLEXI',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 },
                 {
-                    key:'j',
                     name: 'GOOGL',
+                    subtitle: 'Invite Friends to the Platform',
                     stocktrend: [9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.55, 10.73, 10.65, 10.4, 10.32, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09],
                     stockprice: '$10.09'
                 }
@@ -133,10 +125,12 @@ class PortfolioMain extends React.Component {
 
     }
 
+    updateSearch = search => {
+        this.setState({ search });
+    };
 
-    keyExtractor = (item, index) => {
-        return index
-    }
+
+    keyExtractor = (item, index) => index
 
     renderItem = ({ item }) => (
         <ListItem
@@ -145,86 +139,30 @@ class PortfolioMain extends React.Component {
             title={item.name}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
-            rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <LineChart
-                    style={{ width: 190, marginLeft: -125, backgroundColor: "transparent" }}
-                    data={item.stocktrend}
-                    animate={false}
-                    svg={{ stroke: 'rgb(33,206,153)', strokeWidth: 1, strokeLinejoin: 'round' }}
-                    contentInset={{ top: 5, bottom: 5, left: 5, right: 5 }}
-                    curve={shape.curveLinear}
-                >
-                    <ShadowUP />
-                </LineChart>
-                <Button title={item.stockprice} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+            subtitle={item.subtitle}
+            subtitleStyle={{ paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}
+            rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
+                <SLIicon name="plus" style={{ fontSize: 20, color: '#21ce99' }}></SLIicon>
             </View>}
             bottomDivider={true}
         />
     )
 
-    _handleIndexChange = index => this.setState({ index });
-
-    _renderTabBar = props => {
-        const inputRange = props.navigationState.routes.map((x, i) => i);
-
-        return (
-            <View style={styles.tabBar}>
-                {props.navigationState.routes.map((route, i) => {
-                    const color = props.position.interpolate({
-                        inputRange,
-                        outputRange: inputRange.map(
-                            inputIndex => (inputIndex === i ? '#21ce99' : 'grey')
-                        ),
-                    });
-                    return (
-                        <TouchableOpacity
-                            key={i} 
-                            style={styles.tabItem}
-                            onPress={() => this.setState({ index: i })}>
-                            <Animated.Text style={{ fontSize: 14, color: color, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>{route.title}</Animated.Text>
-                        </TouchableOpacity>
-                    );
-                })}
-            </View>
-        );
-    };
-
-    FirstRoute = () => (
-        <PortfolioPerformance />
-    );
-
-    SecondRoute = () => (
-        <View style={[styles.scene, { backgroundColor: '#0e0d0d' }]} >
-            <FlatList
-                data={this.state.list}
-                renderItem={this.renderItem}
-            />
-        </View>
-    );
-
-    ThirdRoute = () => (
-        <View style={[styles.scene, { backgroundColor: '#0e0d0d' }]} >
-            <FlatList
-                data={this.state.list}
-                renderItem={this.renderItem}
-            />
-        </View>
-    );
-
     renderStockView() {
+        const { search } = this.state;
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <HeaderBase />
-
-                <TabView
-                    navigationState={this.state}
-                    renderScene={SceneMap({
-                        performance: this.FirstRoute,
-                        positions: this.SecondRoute,
-                        watchlist: this.ThirdRoute,
-                    })}
-                    onIndexChange={this._handleIndexChange}
-                    renderTabBar={this._renderTabBar}
+                <SearchBar
+                    placeholder="Search..."
+                    onChangeText={this.updateSearch}
+                    value={search}
+                    containerStyle={{ backgroundColor: "#0e0d0d" }}
+                />
+                <FlatList
+                    keyExtractor={this.keyExtractor}
+                    data={this.state.list}
+                    renderItem={this.renderItem}
                 />
             </KeyboardAvoidingView>
         )
@@ -237,20 +175,4 @@ class PortfolioMain extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    tabBar: {
-        flexDirection: 'row',
-        borderBottomWidth: 1,
-        borderColor: "rgba(33,206,153,0.2)"
-    },
-    tabItem: {
-        flex: 1,
-        alignItems: 'center',
-        padding: 10
-    },
-});
-
-export default PortfolioMain;
+export default StockSearch;

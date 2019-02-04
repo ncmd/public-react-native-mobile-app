@@ -51,7 +51,7 @@ const ShadowUP = ({ line }) => (
     />
 )
 
-class StockView extends React.Component {
+class PortfolioPerformance extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -97,33 +97,32 @@ class StockView extends React.Component {
 
     componentDidMount() {
 
-        var thiswidth = Dimensions.get('window').width;
-        this.setState({
-            deviceWidth: thiswidth
-        })
+        // var thiswidth = Dimensions.get('window').width;
+        // this.setState({
+        //     deviceWidth: thiswidth
+        // })
 
-        setInterval(() => {
+        // setInterval(() => {
 
-            // toggle between true/false
-            // if true
+        //     // toggle between true/false
+        //     // if true
 
-            // if false
-            if (this.state.stockTimePickerValuesToggle === false) {
-                this.setState({
-                    stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,0.1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
-                    stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
-                })
-            } else {
-                this.setState({
-                    stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
-                    stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
-                })
-            }
-
-        },
-            // Define blinking time in milliseconds
-            1000
-        );
+        //     // if false
+        //     if (this.state.stockTimePickerValuesToggle === false) {
+        //         this.setState({
+        //             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,0.1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
+        //             stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
+        //         })
+        //     } else {
+        //         this.setState({
+        //             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
+        //             stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
+        //         })
+        //     }
+        // },
+        //     // Define blinking time in milliseconds
+        //     1000
+        // );
 
         // When socket opens
         this.socket.onopen = () => {
@@ -171,17 +170,6 @@ class StockView extends React.Component {
         this.setState({ selectedIndex })
     }
 
-    handlePress(evt) {
-
-        console.log(`x coord = ${evt.nativeEvent.locationX}`);
-
-        var newValue = (evt.nativeEvent.locationX / this.state.deviceWidth) * 100
-        console.log(newValue)
-        this.setState({
-            fingerTouchXCoordinate: newValue
-        })
-    }
-
     renderStockChartSelect(maxslice) {
         dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
 
@@ -198,30 +186,6 @@ class StockView extends React.Component {
                 strokeDasharray={"2,10"}
             />
         ))
-
-        const Tooltip = ({ x, y }) => (
-            <G
-                x={x(this.state.fingerTouchXCoordinate)}
-                key={'tooltip'}
-            >
-                <G x={this.state.fingerTouchXCoordinate}>
-                    <Line
-                        y1={10}
-                        y2={y(-10)}
-                        stroke={'grey'}
-                        strokeWidth={2}
-                    />
-                    <Circle
-                        cy={y(10)}
-                        r={6}
-                        stroke={'rgb(134, 65, 244)'}
-                        strokeWidth={2}
-                        fill={'white'}
-                        onPress={(e) => this.handlePress(e)}
-                    />
-                </G>
-            </G>
-        )
 
         if (this.state.stockPerformance === 'up') {
             return (
@@ -288,14 +252,9 @@ class StockView extends React.Component {
     renderStockView() {
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <Header headerPrice={parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)} headerTicker="APPL" />
                 <View style={{marginBottom: 10, flex: 1 }}>
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
-                            <View style={{ backgroundColor: "#0e0d0d", padding: 10 }}>
-                                <Text style={{ color: 'white' }}>Connection Status:
-                                <Text style={{ color: '#21ce99' }}> {this.state.status}</Text></Text>
-                            </View>
                             <View>
                                 <Text style={{ fontSize: 14, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
                                     APPL
@@ -313,28 +272,11 @@ class StockView extends React.Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={{ flex: 0, flexDirection: 'row', backgroundColor: "#0e0d0d" }}>
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <View style={{ width: "50%" }}>
-                            <Text style={{ paddingLeft: 25, paddingTop: 10, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.regular.fontWeight }}>TODAY'S VOLUME</Text>
-                            <NumberFormat
-                                style={{ color: 'red' }}
-                                value={this.state.stockVolume}
-                                displayType={'text'}
-                                thousandSeparator={true}
-                                prefix={''}
-                                renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.regular.fontWeight }}>{value}</Text>}
-                            />
-                        </View>
-                        <View style={{ width: "50%" }}>
-                            <Button title="Trade" onPress={() => Actions.stockorder()} titleStyle={{ fontSize: 14, color: '#0e0d0d', fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }} style={{ width: "100%", paddingRight: 25, paddingTop: 10, paddingBottom: 10 }} buttonStyle={{ backgroundColor: "#21ce99" }} />
-                        </View>
-                    </View>
-                </View>
             </KeyboardAvoidingView>
         )
     }
 
+    // Time Picker
     renderTimeSelectorButtonGroup() {
         const { selectedIndex } = this.state
 
@@ -358,4 +300,4 @@ class StockView extends React.Component {
     }
 }
 
-export default StockView;
+export default PortfolioPerformance;
