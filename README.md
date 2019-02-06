@@ -408,3 +408,7 @@ matrix:
         # now upload your build (If this part failed that means you didnt generate a new session token to pass 2factor
         # - bundle exec fastlane ios travisupload
 ```
+
+
+## 7. Could not file Firebase.h
+- https://github.com/invertase/react-native-firebase/issues/1016#issuecomment-384027481
