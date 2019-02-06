@@ -13,7 +13,8 @@ import StockInvoice from './views/Stock/StockInvoice';
 import BaseMain from './views/Base/BaseMain';
 import StockList from './views/Stock/StockList';
 import Chat from './views/Chat/Chat';
-import Unlock from './views/Authentication/Unlock';
+// import Unlock from './views/Authentication/Unlock';
+import UnlockPinCode from './views/Authentication/UnlockPinCode';
 import {
     View
 } from 'react-native';
@@ -21,7 +22,7 @@ import {
 class RouterComponent extends React.Component {
 
     state = {
-        isUserLogin: false
+        isUserLogin: true
     }
     omponentDidMount() {
 
@@ -36,6 +37,7 @@ class RouterComponent extends React.Component {
         return (
             <Router >
                 <Scene key="root" navTransparent={true}>
+                <Scene key="unlockpincode" component={UnlockPinCode} initial={this.state.isUserLogin} navTransparent={true} navigationBarStyle={{ backgroundColor: '#21ce99', elevation: 0 }} titleStyle={{ color: 'white' }} />
                     <Scene key="basemain" hideNavBar={true} renderLeftButton={() => <View />} component={BaseMain} />
                     <Scene key="landingmain" hideNavBar={true} renderLeftButton={() => <View />} component={LandingMain} initial={!this.state.isUserLogin}  />
                     <Scene key="signupmain" init={true} headerTintColor="#21ce99" component={SignupMain} navTransparent={true} />
@@ -43,7 +45,6 @@ class RouterComponent extends React.Component {
                     <Scene key="signupstep1" init={false} headerTintColor="#21ce99" component={SignupStep1} navTransparent={true} title="Step 1 of 3" titleStyle={{ fontSize: 14 }} />
                     <Scene key="signupstep2" init={false} headerTintColor="#21ce99" component={SignupStep2} navTransparent={true} title="Step 2 of 3" titleStyle={{ fontSize: 14 }} />
                     <Scene key="signupstep3" init={false} headerTintColor="#21ce99" component={SignupStep3} navTransparent={true} title="Step 3 of 3" titleStyle={{ fontSize: 14 }} />
-                    <Scene key="unlock" component={Unlock} initial={this.state.isUserLogin} navTransparent={true} navigationBarStyle={{ backgroundColor: '#21ce99', elevation: 0 }} titleStyle={{ color: 'white' }} />
                     <Scene key="stockview" component={StockView} />
                     <Scene key="stocklist" hideNavBar={true} renderLeftButton={() => <View />} component={StockList} />
                     <Scene key="stockorder" component={StockOrder} title="StockOrder" />

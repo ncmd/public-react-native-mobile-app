@@ -45,13 +45,20 @@ class SignupStep3 extends React.Component {
         this.setState({pincode:pincode})
     }
 
+    hasSet = async() => {
+        const res = await hasUserSetPinCode()
+        console.log(res)
+        if (res == true){
+            Actions.basemain()
+        }
+      }
+
 
     render() {
         return (
             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <PINCode status={'choose'}
-                    storePin={(code) => this.storePincode(code)}
-                    finishProcess={() => Actions.basemain()}
+                    finishProcess={() => this.hasSet()}
                     stylePinCodeColorTitle="white"
                     subtitleChoose={' '}
                     stylePinCodeDeleteButtonColorShowUnderlay="white"
