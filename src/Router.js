@@ -22,9 +22,10 @@ import {
 class RouterComponent extends React.Component {
 
     state = {
-        isUserLogin: true
+        isUserLogin: false
     }
-    omponentDidMount() {
+    
+    componentDidMount() {
 
     }
 

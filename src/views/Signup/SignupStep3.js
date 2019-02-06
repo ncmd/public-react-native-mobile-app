@@ -66,6 +66,8 @@ class SignupStep3 extends React.Component {
                     colorPassword={"white"}
                     stylePinCodeButtonNumberPressed={"white"}
                     stylePinCodeButtonNumber={"#21ce99"}
+                    titleChoose={"Create PIN"}
+                    titleConfirm={"Confirm PIN"}
                     stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: '#0e0d0d', borderRadius: 10 * 2 }}
                     stylePinCodeTextTitle={{ fontSize: 20, fontWeight: systemWeights.regular.fontWeight, textAlign: 'center' }} />
 

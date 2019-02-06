@@ -12,9 +12,10 @@ import * as search from './actions_search'
 import * as security from './actions_security'
 import * as stripe from './actions_stripe'
 import * as users from './actions_users'
-
+import * as signup from './actions_signup'
 export {
     styles,
+    signup,
     accounts,
     activity,
     authentication,
