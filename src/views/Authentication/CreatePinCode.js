@@ -17,7 +17,7 @@ import Svg, { Path, Circle, Rect, G } from 'react-native-svg'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux'
-import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
+import PINCode from '@haskkor/react-native-pincode'
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 
@@ -56,13 +56,12 @@ const styles = StyleSheet.create({
 });
 
 
-class Unlock extends React.Component {
+class CreatePinCode extends React.Component {
 
     constructor() {
         super()
         this.state = {
             biometryType: null,
-            pincode:"",
             unlockMessage: "Enable Fingerprint or Face Unlock to Login"
         };
     }
@@ -148,12 +147,6 @@ class Unlock extends React.Component {
         }
     }
 
-    storePincode(pincode){
-        this.setState({pincode:pincode})
-    }
-
-    // Need to switch to Pincode if Fingerprint authentication fails/not available
-
     render() {
         // Initializing Props from ./redux/reducers/stylesReducer.js
         const { loading } = this.props;
@@ -167,19 +160,11 @@ class Unlock extends React.Component {
                 >
                     <View style={styles.interactiveContainer}>
                         <SLIicon name="eye" style={{ padding: 20, fontSize: 70, color: 'white' }} />
-                        {/* <PINCode status={'enter'}
-                            storePin={(code) => this.storePincode(code)}
-                            finishProcess={() => Actions.basemain()}
+                        <PINCode status={'choose'}
                             stylePinCodeColorTitle="white"
                             subtitleChoose={' '}
-                            stylePinCodeDeleteButtonColorShowUnderlay="white"
-                            stylePinCodeDeleteButtonColorHideUnderlay="white"
-                            colorPassword={"white"}
-                            stylePinCodeButtonNumberPressed={"white"}
-                            stylePinCodeButtonNumber={"#21ce99"}
-                            stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
-                            stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} /> */}
-                        <TouchableHighlight
+                            stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
+                        {/* <TouchableHighlight
                             style={styles.btn}
                             onPress={this.clickHandler}
                             underlayColor="rgba(255,255,255,0.6)"
@@ -195,7 +180,7 @@ class Unlock extends React.Component {
                                 {`${this.state.unlockMessage}`}
                             </Text>
                         </TouchableHighlight>
-                        <Button title="Log Out" onPress={() => this.logoutConfirmation} titleStyle={{ textAlign: "center", width: '100%', color: 'white', fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop: 15, padding: 10, elevation: 0, backgroundColor: "transparent" }} />
+                        <Button title="Log Out" onPress={() => this.logoutConfirmation} titleStyle={{ textAlign: "center", width: '100%', color: 'white', fontFamily: sanFranciscoWeights.regular.fontFamily, fontWeight: sanFranciscoWeights.regular.fontWeight }} raised={false} buttonStyle={{ marginTop: 15, padding: 10, elevation: 0, backgroundColor: "transparent" }} /> */}
                     </View>
                 </ImageBackground>
             </View>
@@ -228,4 +213,4 @@ function authenticate() {
     }
 }
 
-export default Unlock;
+export default CreatePinCode;

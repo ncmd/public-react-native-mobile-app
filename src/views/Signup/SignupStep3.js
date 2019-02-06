@@ -18,12 +18,17 @@ import {
     androidStyleLoad,
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
+import HeaderBase from '../../components/Header/HeaderBase';
+import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
+import { systemWeights} from 'react-native-typography'
+import { Actions } from 'react-native-router-flux';
 
 class SignupStep3 extends React.Component {
     constructor() {
         super()
         this.state = {
             selectedIndex: 0,
+            pincode:"",
         }
     }
 
@@ -36,31 +41,27 @@ class SignupStep3 extends React.Component {
         }
     }
 
+    storePincode(pincode){
+        this.setState({pincode:pincode})
+    }
+
+
     render() {
         return (
             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
-                <StatusBar
-                    backgroundColor="#0e0d0d"
-                    barStyle="light-content"
-                />
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '80%', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ padding:20,color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyBoldPrimary, fontWeight: this.props.style[0].TextFontWeightBoldPrimary }}>Step 1 of 3</Text>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 30, marginTop: 15 }}>
-                        <View style={{ borderRadius: 100 / 2, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].BorderWidthPrimary, width: 30, height: 30 }}><Text style={{ color: this.props.style[0].TextFontColorPrimary, textAlign: 'center', padding: 0, fontSize: 20, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>1</Text></View>
-                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Create your profile</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 30, marginTop: 15 }}>
-                        <View style={{ borderRadius: 100 / 2, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].BorderWidthPrimary, width: 30, height: 30 }}><Text style={{ color: this.props.style[0].TextFontColorPrimary, textAlign: 'center', padding: 0, fontSize: 20, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>2</Text></View>
-                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Link payment method</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 30, marginTop: 15 }}>
-                        <View style={{ borderRadius: 100 / 2, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].BorderWidthPrimary, width: 30, height: 30 }}><Text style={{ color: this.props.style[0].TextFontColorPrimary, textAlign: 'center', padding: 0, fontSize: 20, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>3</Text></View>
-                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Verify your identity</Text>
-                    </View>
-                </View>
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'center', alignItems: 'center' }}>
-                    <Button title="Get Started" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
-                </View>
+                <PINCode status={'choose'}
+                    storePin={(code) => this.storePincode(code)}
+                    finishProcess={() => Actions.basemain()}
+                    stylePinCodeColorTitle="white"
+                    subtitleChoose={' '}
+                    stylePinCodeDeleteButtonColorShowUnderlay="white"
+                    stylePinCodeDeleteButtonColorHideUnderlay="white"
+                    colorPassword={"white"}
+                    stylePinCodeButtonNumberPressed={"white"}
+                    stylePinCodeButtonNumber={"#21ce99"}
+                    stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: '#0e0d0d', borderRadius: 10 * 2 }}
+                    stylePinCodeTextTitle={{ fontSize: 20, fontWeight: systemWeights.regular.fontWeight, textAlign: 'center' }} />
+
             </View>
         );
     }
