@@ -15,6 +15,7 @@ import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-
 import TouchID from 'react-native-touch-id'
 import Svg, { Path, Circle, Rect, G } from 'react-native-svg'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
+import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux'
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
@@ -139,7 +140,7 @@ class Unlock extends React.Component {
                     resizeMode="repeat"
                 >
                     <View style={styles.interactiveContainer}>
-                        <SLIicon name="eye" style={{ fontSize: 110, color: 'white', marginTop: 50 }}></SLIicon>
+                        <SLIicon name="eye" style={{ padding: 20, fontSize: 70, color: 'white' }} />
                         <TouchableHighlight
                             style={styles.btn}
                             onPress={this.clickHandler}
@@ -172,7 +173,7 @@ function authenticate() {
         return TouchID.authenticate()
             .then(success => {
                 console.log('Authentication Success')
-                Actions.stockview()
+                Actions.basemain()
             })
             .catch(error => {
                 console.log(error)
@@ -181,7 +182,7 @@ function authenticate() {
         return TouchID.authenticate()
             .then(success => {
                 console.log('Authentication Success')
-                Actions.stockview()
+                Actions.basemain()
             })
             .catch(error => {
                 console.log(error)
