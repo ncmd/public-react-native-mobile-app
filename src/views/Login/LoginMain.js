@@ -37,8 +37,6 @@ class LoginMain extends React.Component {
     }
 
     componentDidMount() {
-        
-        
         this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
             this.setState({ user });
           });
@@ -50,6 +48,7 @@ class LoginMain extends React.Component {
             this.props.androidStyleLoad()
         }
     }
+
     componentWillUnmount() {
         if (this.unsubscriber) {
           this.unsubscriber();
@@ -57,7 +56,7 @@ class LoginMain extends React.Component {
       }
 
     signInUser(emailaddress,password){
-        firebase.auth().signInWithEmailAndPassword(emailaddress, password).catch(function(error) {
+        firebase.auth().signInWithEmailAndPassword(emailaddress, password).catch((error) => {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;

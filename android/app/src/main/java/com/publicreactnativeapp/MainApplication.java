@@ -11,6 +11,11 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +35,12 @@ public class MainApplication extends Application implements ReactApplication {
           new FingerprintAuthPackage(),
           new SvgPackage(),
           new VectorIconsPackage(),
-          new KeychainPackage()
+          new KeychainPackage(),
+          new RNFirebasePackage(),
+          new RNFirebaseAnalyticsPackage(),
+          new RNFirebaseAuthPackage(),
+          new RNFirebaseFirestorePackage(),
+          new RNFirebaseStoragePackage()
       );
     }
 
