@@ -84,6 +84,14 @@ class UnlockPinCode extends React.Component {
         }
     }
 
+    logout() {
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.
+        }).catch(function (error) {
+            // An error happened.
+        }, () => Actions.landingmain());
+    }
+
     render() {
         // Initializing Props from ./redux/reducers/stylesReducer.js
         const { loading } = this.props;
@@ -114,7 +122,14 @@ class UnlockPinCode extends React.Component {
                                 stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
                                 stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
                             :
-                            <Text>Loading...</Text>
+                            <Button onPress={this.logout()} title={'Log out'} buttonStyle={{ borderRadius: 5,
+                                width: '30%',
+                                marginTop: 300,
+                                paddingTop: 15,
+                                paddingBottom: 15,
+                                paddingLeft: 25,
+                                paddingRight: 25,
+                                backgroundColor: '#ffffff'}}></Button>
                         }
 
                     </View>
