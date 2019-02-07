@@ -18,16 +18,36 @@ import UnlockPinCode from './views/Authentication/UnlockPinCode';
 import {
     View
 } from 'react-native';
+import firebase from 'react-native-firebase';
 
 class RouterComponent extends React.Component {
 
-    state = {
-        isUserLogin: false
+    constructor() {
+        super()
+        this.unsubscriber = null;
+        this.state = {
+            selectedIndex: 0,
+            user: null,
+            isUserLogin: false
+        }
     }
-    
-    componentDidMount() {
 
+    componentDidMount() {
+        this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+            this.setState({ user });
+            if (this.state.user !== null){
+                this.setState({
+                    isUserLogin:true
+                })
+            }
+          });
     }
+
+    componentWillUnmount() {
+        if (this.unsubscriber) {
+          this.unsubscriber();
+        }
+      }
 
     // HELPER FUNCTION FOR AUTH
     authenticate = () => {

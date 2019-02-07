@@ -23,6 +23,7 @@ import MIcon from 'react-native-vector-icons/MaterialIcons';
 import NavigationBase from '../../components/Navigation/NavigationBase'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
+import firebase from 'react-native-firebase';
 
 class AccountMain extends React.Component {
     constructor() {
@@ -34,7 +35,7 @@ class AccountMain extends React.Component {
                     key: 'a',
                     name: 'Referrals',
                     subtitle: 'Invite Friends to the Platform'
-                    
+
                 },
                 {
                     key: 'b',
@@ -64,6 +65,15 @@ class AccountMain extends React.Component {
             ]
         }
     }
+
+    logout() {
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.
+        }).catch(function (error) {
+            // An error happened.
+        }, () => Actions.landingmain());
+    }
+
 
     componentDidMount() {
 
@@ -98,7 +108,7 @@ class AccountMain extends React.Component {
                 />
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Account Number</Text>
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>ABC123ABC123ABC123ABC</Text>
-                <Text style={{ paddingBottom: 25, paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "#21ce99" }}>LOGOUT</Text>
+                <Button title={'Log out'} onPress={this.logout()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
             </KeyboardAvoidingView>
         )
     }

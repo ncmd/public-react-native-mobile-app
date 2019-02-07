@@ -18,6 +18,7 @@ import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux'
 import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
+import firebase from 'react-native-firebase';
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 const optionalConfigObject = {
@@ -60,30 +61,28 @@ class UnlockPinCode extends React.Component {
     constructor() {
         super()
         this.state = {
-            pincode:"",
-            hasCode:false
+            pincode: "",
+            hasCode: false
         };
     }
 
-    storePincode(pincode){
-        this.setState({pincode:pincode})
+    storePincode(pincode) {
+        this.setState({ pincode: pincode })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.hasSet()
     }
 
-    hasSet = async() => {
+    hasSet = async () => {
         const res = await hasUserSetPinCode()
         console.log(res)
-        if (res == true){
+        if (res == true) {
             this.setState({
-                hasCode:true
+                hasCode: true
             })
         }
-      }
-
-    // Need to switch to Pincode if Fingerprint authentication fails/not available
+    }
 
     render() {
         // Initializing Props from ./redux/reducers/stylesReducer.js
@@ -100,24 +99,24 @@ class UnlockPinCode extends React.Component {
                         <SLIicon name="eye" style={{ padding: 20, fontSize: 70, color: 'white' }} />
                         <Text>{this.state.hasCode}</Text>
                         {this.state.hasCode
-                        ?
-                        <PINCode status={'enter'}
-                            storePin={(code) => this.storePincode(code)}
-                            touchIDDisabled={true}
-                            finishProcess={() => Actions.basemain()}
-                            stylePinCodeColorTitle="white"
-                            subtitleChoose={' '}
-                            stylePinCodeDeleteButtonColorShowUnderlay="white"
-                            stylePinCodeDeleteButtonColorHideUnderlay="white"
-                            colorPassword={"white"}
-                            stylePinCodeButtonNumberPressed={"white"}
-                            stylePinCodeButtonNumber={"#21ce99"}
-                            stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
-                            stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
-                        :
-                        <Text>Loading...</Text>
+                            ?
+                            <PINCode status={'enter'}
+                                storePin={(code) => this.storePincode(code)}
+                                touchIDDisabled={false}
+                                finishProcess={() => Actions.basemain()}
+                                stylePinCodeColorTitle="white"
+                                subtitleChoose={' '}
+                                stylePinCodeDeleteButtonColorShowUnderlay="white"
+                                stylePinCodeDeleteButtonColorHideUnderlay="white"
+                                colorPassword={"white"}
+                                stylePinCodeButtonNumberPressed={"white"}
+                                stylePinCodeButtonNumber={"#21ce99"}
+                                stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
+                                stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
+                            :
+                            <Text>Loading...</Text>
                         }
-                        
+
                     </View>
                 </ImageBackground>
             </View>

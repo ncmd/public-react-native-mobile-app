@@ -53,7 +53,6 @@ class SignupStep3 extends React.Component {
         }
       }
 
-
     render() {
         return (
             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>

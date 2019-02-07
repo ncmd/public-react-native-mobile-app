@@ -21,16 +21,28 @@ import {
 } from '../../redux/actions/actions_styles';
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
+import firebase from 'react-native-firebase';
 
 class LoginMain extends React.Component {
     constructor() {
         super()
+        this.unsubscriber = null;
         this.state = {
             selectedIndex: 0,
+            user: null,
+            emailaddress:"",
+            password:"",
+            loginerror:"",
         }
     }
 
     componentDidMount() {
+        
+        
+        this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+            this.setState({ user });
+          });
+
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
@@ -38,6 +50,31 @@ class LoginMain extends React.Component {
             this.props.androidStyleLoad()
         }
     }
+    componentWillUnmount() {
+        if (this.unsubscriber) {
+          this.unsubscriber();
+        }
+      }
+
+    signInUser(emailaddress,password){
+        firebase.auth().signInWithEmailAndPassword(emailaddress, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            this.setState({loginerror: errorMessage})
+            // ...
+          }).then(
+            this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+                this.setState({ user });
+              }, () => {
+                  if (this.state.user !== null){
+                      Actions.basemain()
+                  }
+              })
+            
+          );
+    }
+      
     renderIos() {
         return (
             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
@@ -50,11 +87,14 @@ class LoginMain extends React.Component {
                             <TextInput onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                            <TextInput onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <TextInput onChangeText={(password) => this.setState({ password })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                        </View>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                            <Text style={{color:'white'}}>{this.state.loginerror}</Text>
                         </View>
                     </View>
-                    <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-end',padding:20, alignItems: 'center' }}>
-                        <Button onPress={() => Actions.basemain()} title="Log in" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                    <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <Button onPress={() => this.signInUser(this.state.emailaddress,this.state.password)} title="Log in" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                         <Button onPress={() => Actions.basemain()} title="Reset Password" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
                     </View>
                 </KeyboardAvoidingView>
@@ -76,7 +116,7 @@ class LoginMain extends React.Component {
                         <TextInput onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
                     </View>
                 </View>
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-end',padding:20, alignItems: 'center' }}>
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <Button onPress={() => Actions.basemain()} title="Log in" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                     <Button onPress={() => Actions.basemain()} title="Reset Password" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
                 </View>
