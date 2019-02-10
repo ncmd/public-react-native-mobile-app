@@ -18,6 +18,10 @@ import {
     androidStyleLoad,
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
+import {
+    accountLogin,
+    accountLogout,
+} from '../../redux/actions/actions_account';
 import { Actions } from 'react-native-router-flux'
 
 class LandingMain extends React.Component {
@@ -35,6 +39,8 @@ class LandingMain extends React.Component {
         if (Platform.OS === 'android') {
             this.props.androidStyleLoad()
         }
+        this.props.accountLogout()
+        console.log(this.props)
     }
 
     render() {
@@ -52,7 +58,7 @@ class LandingMain extends React.Component {
                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyBoldPrimary, fontWeight: this.props.style[0].TextFontWeightBoldPrimary }}>Welcome to [App_Name] </Text>
                     <Text style={{ marginTop: 15, padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>A <Text style={{ fontStyle: 'italic', color: this.props.style[0].TextFontColorPrimary }}>distruptive</Text> trading app.</Text>
                 </View>
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-end', alignItems: 'center',padding:20 }}>
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center'}}>
                     <Button onPress={() => Actions.signupmain()} title="Sign up" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                     <Button onPress={() => Actions.loginmain()} title="Log in" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
                 </View>
@@ -61,13 +67,16 @@ class LandingMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style }) {
+function mapStateToProps({ style,account }) {
     return {
-        style
+        style,
+        account
     };
 }
 
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
+    accountLogin,
+    accountLogout,
 })(LandingMain);

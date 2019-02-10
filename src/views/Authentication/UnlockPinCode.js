@@ -19,6 +19,11 @@ import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux'
 import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
 import firebase from 'react-native-firebase';
+import { connect } from 'react-redux';
+import {
+    accountLogin,
+    accountLogout,
+} from '../../redux/actions/actions_account';
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 const optionalConfigObject = {
@@ -71,12 +76,13 @@ class UnlockPinCode extends React.Component {
     }
 
     componentDidMount() {
+        console.log("UnlockPinCode: this.props.account",this.props.account)
         this.hasSet()
     }
 
     hasSet = async () => {
         const res = await hasUserSetPinCode()
-        console.log(res)
+        console.log("Has Pincode:",res)
         if (res == true) {
             this.setState({
                 hasCode: true
@@ -122,14 +128,19 @@ class UnlockPinCode extends React.Component {
                                 stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
                                 stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
                             :
-                            <Button onPress={this.logout()} title={'Log out'} buttonStyle={{ borderRadius: 5,
-                                width: '30%',
-                                marginTop: 300,
-                                paddingTop: 15,
-                                paddingBottom: 15,
-                                paddingLeft: 25,
-                                paddingRight: 25,
-                                backgroundColor: '#ffffff'}}></Button>
+                            <PINCode status={'choose'}
+                                finishProcess={() => this.hasSet()}
+                                stylePinCodeColorTitle="white"
+                                subtitleChoose={' '}
+                                stylePinCodeDeleteButtonColorShowUnderlay="white"
+                                stylePinCodeDeleteButtonColorHideUnderlay="white"
+                                colorPassword={"white"}
+                                stylePinCodeButtonNumberPressed={"white"}
+                                stylePinCodeButtonNumber={"#21ce99"}
+                                titleChoose={"Create PIN"}
+                                titleConfirm={"Confirm PIN"}
+                                stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
+                                stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
                         }
 
                     </View>
@@ -139,4 +150,14 @@ class UnlockPinCode extends React.Component {
     }
 };
 
-export default UnlockPinCode;
+function mapStateToProps({ style,account }) {
+    return {
+        style,
+        account
+    };
+}
+
+export default connect(mapStateToProps, {
+    accountLogin,
+    accountLogout,
+})(UnlockPinCode);

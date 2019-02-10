@@ -1,15 +1,15 @@
-// import axios from 'axios';
-// import {
-//   ADD_ACCOUNT,
-//   GET_ACCOUNT,
-// } from './types';
+import {
+  ACCOUNT_LOGIN,
+  ACCOUNT_LOGOUT,
+} from '../types/types_account';
 
-// const keys = require('../../secrets/keys');
-// let backend = keys.heroku_backend_uri
+export const accountLogin = () => dispatch => {
+  dispatch({ type: ACCOUNT_LOGIN, payload: true });
+}
 
-
-
-
+export const accountLogout = () => dispatch => {
+    dispatch({ type: ACCOUNT_LOGOUT, payload: false });
+}
 
 // export const setAccount = (email, accountid, plan) => async dispatch => {
 //   // console.log(email,accountid,plan)

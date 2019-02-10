@@ -24,6 +24,16 @@ import NavigationBase from '../../components/Navigation/NavigationBase'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
 import firebase from 'react-native-firebase';
+import { connect } from 'react-redux';
+import {
+    androidStyleLoad,
+    iosStyleLoad,
+} from '../../redux/actions/actions_styles';
+import {
+    accountLogout
+} from '../../redux/actions/actions_account';
+import { deleteUserPinCode } from '@haskkor/react-native-pincode'
+
 
 class AccountMain extends React.Component {
     constructor() {
@@ -66,13 +76,19 @@ class AccountMain extends React.Component {
         }
     }
 
-    logout() {
+    logout = async () =>  {
         firebase.auth().signOut().then(function () {
-            // Sign-out successful.
+            Actions.landingmain()
+            this.props.accountLogout()
         }).catch(function (error) {
             // An error happened.
-        }, () => Actions.landingmain());
+        });
+
+         // Sign-out successful.
+         await deleteUserPinCode()
+        
     }
+
 
 
     componentDidMount() {
@@ -96,7 +112,7 @@ class AccountMain extends React.Component {
     )
 
 
-    renderStockView() {
+    renderAccountView() {
         const { search } = this.state;
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
@@ -108,16 +124,30 @@ class AccountMain extends React.Component {
                 />
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Account Number</Text>
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>ABC123ABC123ABC123ABC</Text>
-                <Button title={'Log out'} onPress={this.logout()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-start', alignItems: 'center', width:"100%" }}>
+                    <Button title={'Log out'} onPress={() => this.logout()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, paddingRight: 20, paddingLeft:20, paddingTop:5, paddingBottom:5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary, marginBottom: 20,marginTop:10 }} />
+                </View>
+
             </KeyboardAvoidingView>
         )
     }
 
     render() {
         return (
-            this.renderStockView()
+            this.renderAccountView()
         );
     }
 }
 
-export default AccountMain;
+function mapStateToProps({ style,account }) {
+    return {
+        style,
+        account,
+    };
+}
+
+export default connect(mapStateToProps, {
+    androidStyleLoad,
+    iosStyleLoad,
+    accountLogout,
+})(AccountMain);
