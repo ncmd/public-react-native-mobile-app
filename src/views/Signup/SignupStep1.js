@@ -18,6 +18,53 @@ import {
 } from '../../redux/actions/actions_signup';
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
+import validate from 'validate.js'
+import firebase from 'react-native-firebase';
+
+const constraints = {
+    email: {
+        format: {
+            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            message: 'address is not a valid format.',
+        },
+        presence: {
+            message: "Cannot be blank."
+        },
+        email: {
+            message: 'address does not exist!'
+        }
+    },
+    password: {
+        presence: {
+            message: "Cannot be blank."
+        },
+        length: {
+            minimum: 5,
+            message: 'Your password must be at least 5 characters'
+        }
+    }
+}
+
+const validator = (field, value) => {
+    // Creates an object based on the field name and field value
+    // e.g. let object = {email: 'email@example.com'}
+    let object = {}
+    object[field] = value
+
+    let constraint = constraints[field]
+    console.log(object, constraint)
+
+    // Validate against the constraint and hold the error messages
+    const result = validate(object, { [field]: constraint })
+    console.log(object, constraint, result)
+
+    // If there is an error message, return it!
+    if (result) {
+        // Return only the field error message if there are multiple
+        return result[field][0]
+    }
+    return null
+}
 
 class SignupStep1 extends React.Component {
     constructor() {
@@ -26,10 +73,14 @@ class SignupStep1 extends React.Component {
             selectedIndex: 0,
             emailaddress: "",
             emailaddresserror:true,
+            emailError: "",
         }
     }
 
     componentDidMount() {
+        this.setState({
+            emailaddress:this.props.setSignupEmailAddress
+        })
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
@@ -39,8 +90,31 @@ class SignupStep1 extends React.Component {
     }
 
     continueButtonAction(){
-        this.props.setSignupEmailAddress(this.state.emailaddress)
-        Actions.signupstep2()
+        this.onChangeEmailAddress(this.props.setSignupEmailAddress)
+        if (this.state.emailaddresserror === false ){
+            this.props.setSignupEmailAddress(this.state.emailaddress)
+            Actions.signupstep2()
+        }
+    }
+
+    onChangeEmailAddress(email) {
+        let emailError = validator('email', email)
+        if (emailError === "" || emailError === null){
+            this.props.setSignupEmailAddress(email)
+            this.setState({
+                emailaddresserror:false,
+                emailError:""
+            })
+        } else {
+            this.setState({
+                emailError: emailError,
+                emailaddresserror:true
+            })
+        }
+    }
+
+    signupUser(){
+
     }
 
     renderIos() {
@@ -51,8 +125,9 @@ class SignupStep1 extends React.Component {
                     <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Submit email address</Text>
                         <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll send updates to this inbox.</Text>
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                            <TextInput maxLength={40} onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                            <TextInput maxLength={40} onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <Text style={{color:'white'}}>{this.state.emailError}</Text>
                         </View>
                     </View>
                     <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-end', alignItems: 'center' }}>
@@ -73,8 +148,9 @@ class SignupStep1 extends React.Component {
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '60%', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Your email address</Text>
                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll send updates to this inbox.</Text>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <TextInput autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                    <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                        <TextInput onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                        <Text style={{color:'white'}}>{this.state.emailError}</Text>
                     </View>
                 </View>
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-end', alignItems: 'center' }}>

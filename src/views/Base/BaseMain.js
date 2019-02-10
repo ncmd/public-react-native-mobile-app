@@ -55,6 +55,10 @@ class BaseMain extends React.Component {
             return (
                 <AccountMain />
             )
+        } else {
+            return(
+                <PortfolioMain />
+            )
         }
     }
 
@@ -63,7 +67,7 @@ class BaseMain extends React.Component {
         const { loading } = this.props;
 
         return (
-            !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
+            <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <View style={{ flex: 1 }}>
                     {this.renderView()}
                 </View>

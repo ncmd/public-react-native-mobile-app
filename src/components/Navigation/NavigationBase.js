@@ -62,7 +62,7 @@ class NavigationBase extends React.Component {
     const { loading,bottomnavigation } = this.props;
 
     return (
-      !loading && <View style={{borderTopWidth:1, borderColor:"rgba(33,206,153,0.2)"}}>
+      <View style={{borderTopWidth:1, borderColor:"rgba(33,206,153,0.2)"}}>
         <BottomNavigation
           tabs={this.tabs}
           activeTab={this.state.activeTab}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    Alert,
     KeyboardAvoidingView,
     StyleSheet,
     TextInput,
@@ -89,8 +90,6 @@ class AccountMain extends React.Component {
         
     }
 
-
-
     componentDidMount() {
 
     }
@@ -125,10 +124,26 @@ class AccountMain extends React.Component {
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Account Number</Text>
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>ABC123ABC123ABC123ABC</Text>
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-start', alignItems: 'center', width:"100%" }}>
-                    <Button title={'Log out'} onPress={() => this.logout()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, paddingRight: 20, paddingLeft:20, paddingTop:5, paddingBottom:5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary, marginBottom: 20,marginTop:10 }} />
+                    <Button title={'Log out'} onPress={() => this.logoutConfirmation()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, paddingRight: 20, paddingLeft:20, paddingTop:5, paddingBottom:5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary, marginBottom: 20,marginTop:10 }} />
                 </View>
 
             </KeyboardAvoidingView>
+        )
+    }
+
+    logoutConfirmation() {
+        Alert.alert(
+            "Are you sure you want to log out?",
+            'This will remove your PIN code.',
+            [
+                { text: 'Yes', onPress: () => this.logout() },
+                {
+                  text: 'Cancel',
+                  onPress: () => console.log('Cancel Pressed'),
+                  style: 'cancel',
+                },
+              ],
+            { cancelable: false }
         )
     }
 

@@ -75,9 +75,10 @@ class SignupStep3 extends React.Component {
     }
 }
 
-function mapStateToProps({ style }) {
+function mapStateToProps({ styl,signup }) {
     return {
-        style
+        style,
+        signup,
     };
 }
 

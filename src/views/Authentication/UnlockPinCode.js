@@ -24,6 +24,7 @@ import {
     accountLogin,
     accountLogout,
 } from '../../redux/actions/actions_account';
+import { setBottomNavigation } from '../../redux/actions/actions_bottom_navigation';
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 const optionalConfigObject = {
@@ -76,6 +77,7 @@ class UnlockPinCode extends React.Component {
     }
 
     componentDidMount() {
+        this.props.setBottomNavigation("portfolio")
         console.log("UnlockPinCode: this.props.account",this.props.account)
         this.hasSet()
     }
@@ -97,6 +99,8 @@ class UnlockPinCode extends React.Component {
             // An error happened.
         }, () => Actions.landingmain());
     }
+
+
 
     render() {
         // Initializing Props from ./redux/reducers/stylesReducer.js
@@ -160,4 +164,5 @@ function mapStateToProps({ style,account }) {
 export default connect(mapStateToProps, {
     accountLogin,
     accountLogout,
+    setBottomNavigation,
 })(UnlockPinCode);

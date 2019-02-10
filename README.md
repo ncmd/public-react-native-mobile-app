@@ -412,3 +412,17 @@ matrix:
 
 ## 7. Could not file Firebase.h
 - https://github.com/invertase/react-native-firebase/issues/1016#issuecomment-384027481
+
+## 8. react-native-firebase ios please register custom url scheme phone
+- https://stackoverflow.com/questions/47201133/app-crashes-in-ios-simulator-when-trying-to-use-phone-auth-in-react-native-fireb
+- https://developers.google.com/identity/sign-in/ios/start-integrating
+```
+1. Add custom URL schemes to your Xcode project:
+
+- Open your project configuration: double-click the project name in the left tree view. Select your app from the TARGETS section, then select the Info tab, and expand the URL Types section.
+- Click the + button, and add a URL scheme for your reversed client ID. To find this value, open the  GoogleService-Info.plist configuration file, and look for the REVERSED_CLIENT_ID key. Copy the value of that key, and paste it into the URL Schemes box on the configuration page. Leave the other fields blank.
+- more info here https://developers.google.com/identity/sign-in/ios/start-integrating
+
+2. Run project from xcode then get back to terminal
+- Using Xcode, make sure you are opening the workspace file and not the project file. Run the it, once successfully built close Xcode get back to terminal react-native run-ios
+```

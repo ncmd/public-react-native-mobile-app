@@ -26,6 +26,7 @@ import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
 import firebase from 'react-native-firebase';
 import validate from 'validate.js'
+import { setBottomNavigation } from '../../redux/actions/actions_bottom_navigation';
 
 const constraints = {
     email: {
@@ -137,8 +138,11 @@ class LoginMain extends React.Component {
                 this.setState({ user });
             }, () => {
                 if (this.state.user !== null) {
+                    this.props.setBottomNavigation("portfolio")
                     this.props.accountLogin()
+                    
                     Actions.basemain()
+
                 }
             })
 
@@ -227,10 +231,11 @@ class LoginMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style,account }) {
+function mapStateToProps({ style,account,bottomnavigation }) {
     return {
         style,
-        account
+        account,
+        bottomnavigation
     };
 }
 
@@ -238,4 +243,5 @@ export default connect(mapStateToProps, {
     accountLogin,
     androidStyleLoad,
     iosStyleLoad,
+    setBottomNavigation,
 })(LoginMain);
