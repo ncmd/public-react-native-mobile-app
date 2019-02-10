@@ -77,17 +77,18 @@ class AccountMain extends React.Component {
         }
     }
 
-    logout = async () =>  {
+    logout = async () => {
+        console.log("Logout")
         firebase.auth().signOut().then(function () {
-            Actions.landingmain()
             this.props.accountLogout()
         }).catch(function (error) {
             // An error happened.
         });
-
-         // Sign-out successful.
-         await deleteUserPinCode()
         
+        await deleteUserPinCode()
+        Actions.reset('landingmain')
+        // console.log("AccountMain this.props.account:", this.props.account)
+        // Sign-out successful.
     }
 
     componentDidMount() {
@@ -112,9 +113,9 @@ class AccountMain extends React.Component {
 
 
     renderAccountView() {
-        const { search } = this.state;
+        const { search,loading } = this.state;
         return (
-            <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
+            !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <HeaderBase />
                 <FlatList
                     data={this.state.list}
@@ -123,8 +124,8 @@ class AccountMain extends React.Component {
                 />
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Account Number</Text>
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>ABC123ABC123ABC123ABC</Text>
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-start', alignItems: 'center', width:"100%" }}>
-                    <Button title={'Log out'} onPress={() => this.logoutConfirmation()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, paddingRight: 20, paddingLeft:20, paddingTop:5, paddingBottom:5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary, marginBottom: 20,marginTop:10 }} />
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-start', alignItems: 'center', width: "100%" }}>
+                    <Button title={'Log out'} onPress={() => this.logoutConfirmation()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, paddingRight: 20, paddingLeft: 20, paddingTop: 5, paddingBottom: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary, marginBottom: 20, marginTop: 10 }} />
                 </View>
 
             </KeyboardAvoidingView>
@@ -138,11 +139,11 @@ class AccountMain extends React.Component {
             [
                 { text: 'Yes', onPress: () => this.logout() },
                 {
-                  text: 'Cancel',
-                  onPress: () => console.log('Cancel Pressed'),
-                  style: 'cancel',
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
                 },
-              ],
+            ],
             { cancelable: false }
         )
     }
@@ -154,7 +155,7 @@ class AccountMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style,account }) {
+function mapStateToProps({ style, account }) {
     return {
         style,
         account,

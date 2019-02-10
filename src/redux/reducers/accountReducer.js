@@ -3,13 +3,17 @@ import {
     ACCOUNT_LOGOUT,
 } from '../types/types_account';
 
-export default function (state = [{ account_login_status: false, loading: true }], action) {
+export default function (state = [{ email: "", loggedIn: false, loading: true }], action) {
 
     switch (action.type) {
         case ACCOUNT_LOGIN:
-            return action.payload;
+            return {
+                loggedIn: true
+            }
         case ACCOUNT_LOGOUT:
-            return action.payload;
+            return {
+                loggedIn: false
+            }
         default:
             return state;
     }

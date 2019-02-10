@@ -39,33 +39,34 @@ class RouterComponent extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Router this.props.account:",this.props.account)
+        console.log("Router this.props.account:", this.props.account)
         this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
-            this.setState({ user });
-            if (this.state.user !== null){
-                this.setState({
-                    isUserLogin:true
-                })
-                this.props.accountLogin()
+            console.log("componentDidMount user:", user)
+            if (user !== null) {
+                this.setState({ isUserLogin:true });
+                // this.props.accountLogin()
+            } else {
+                this.setState({ isUserLogin:false });
             }
-          });
+
+        });
     }
 
     componentWillUnmount() {
-        console.log("UNMOUNT:",this.unsubscriber,this.props.account)
+        console.log("UNMOUNT:", this.unsubscriber, this.props.account)
         if (this.unsubscriber) {
-          this.unsubscriber();
+            this.unsubscriber();
         }
-      }
+    }
 
     render() {
         const { loading } = this.props;
         return (
             !loading && <Router >
                 <Scene key="root" navTransparent={true}>
-                <Scene key="unlockpincode" component={UnlockPinCode} initial={this.props.account} navTransparent={true} navigationBarStyle={{ backgroundColor: '#21ce99', elevation: 0 }} titleStyle={{ color: 'white' }} />
+                    <Scene key="unlockpincode" component={UnlockPinCode} initial={this.state.isUserLogin} navTransparent={true} navigationBarStyle={{ backgroundColor: '#21ce99', elevation: 0 }} titleStyle={{ color: 'white' }} />
                     <Scene key="basemain" hideNavBar={true} renderLeftButton={() => <View />} component={BaseMain} />
-                    <Scene key="landingmain" hideNavBar={true} renderLeftButton={() => <View />} component={LandingMain} initial={!this.props.account}  />
+                    <Scene key="landingmain" hideNavBar={true} renderLeftButton={() => <View />} component={LandingMain} initial={!this.state.isUserLogin} />
                     <Scene key="signupmain" init={true} headerTintColor="#21ce99" component={SignupMain} navTransparent={true} />
                     <Scene key="loginmain" init={true} headerTintColor="#21ce99" component={LoginMain} navTransparent={true} />
                     <Scene key="signupstep1" init={false} headerTintColor="#21ce99" component={SignupStep1} navTransparent={true} title="Step 1 of 3" titleStyle={{ fontSize: 14 }} />

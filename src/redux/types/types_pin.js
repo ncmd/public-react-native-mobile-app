@@ -1,0 +1,1 @@
+export const HAS_PIN = 'has_pin';

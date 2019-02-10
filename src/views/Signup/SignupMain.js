@@ -52,11 +52,11 @@ class SignupMain extends React.Component {
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 30, marginTop: 15 }}>
                         <View style={{ borderRadius: 100 / 2, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].BorderWidthPrimary, width: 30, height: 30 }}><Text style={{ color: this.props.style[0].TextFontColorPrimary, textAlign: 'center', padding: 0, fontSize: 20, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>2</Text></View>
-                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Verification Code</Text>
+                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Verify phone number</Text>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 30, marginTop: 15 }}>
                         <View style={{ borderRadius: 100 / 2, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].BorderWidthPrimary, width: 30, height: 30 }}><Text style={{ color: this.props.style[0].TextFontColorPrimary, textAlign: 'center', padding: 0, fontSize: 20, fontFamily: sanFranciscoWeights.bold.fontFamily, fontWeight: sanFranciscoWeights.bold.fontWeight }}>3</Text></View>
-                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Create PIN</Text>
+                        <Text style={{ padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary, padding: 5 }}>Create PIN code</Text>
                     </View>
                 </View>
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'center', alignItems: 'center' }}>

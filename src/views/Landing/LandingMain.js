@@ -18,10 +18,6 @@ import {
     androidStyleLoad,
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
-import {
-    accountLogin,
-    accountLogout,
-} from '../../redux/actions/actions_account';
 import { Actions } from 'react-native-router-flux'
 
 class LandingMain extends React.Component {
@@ -39,12 +35,10 @@ class LandingMain extends React.Component {
         if (Platform.OS === 'android') {
             this.props.androidStyleLoad()
         }
-        this.props.accountLogout()
         console.log(this.props)
     }
 
     render() {
-        // Initializing Props from ./redux/reducers/stylesReducer.js
         const { loading } = this.props;
 
         return (
@@ -67,16 +61,13 @@ class LandingMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style,account }) {
+function mapStateToProps({ style }) {
     return {
-        style,
-        account
+        style
     };
 }
 
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
-    accountLogin,
-    accountLogout,
 })(LandingMain);

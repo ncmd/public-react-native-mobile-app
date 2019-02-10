@@ -22,9 +22,40 @@ import {
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
 import firebase from 'react-native-firebase';
+import validate from 'validate.js'
 
-const successImageUri = 'https://cdn.pixabay.com/photo/2015/06/09/16/12/icon-803718_1280.png';
+const constraints = {
+    phone: {
+        format: {
+            pattern: /^[\+]?[0-9]{3}[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{5}$/im,
+            message: 'example: +18003334444',
+        },
+        presence: {
+            message: "Cannot be blank."
+        },
+    }
+}
 
+const validator = (field, value) => {
+    // Creates an object based on the field name and field value
+    // e.g. let object = {email: 'email@example.com'}
+    let object = {}
+    object[field] = value
+
+    let constraint = constraints[field]
+    console.log(object, constraint)
+
+    // Validate against the constraint and hold the error messages
+    const result = validate(object, { [field]: constraint })
+    console.log(object, constraint, result)
+
+    // If there is an error message, return it!
+    if (result) {
+        // Return only the field error message if there are multiple
+        return result[field][0]
+    }
+    return null
+}
 
 class SignupStep2 extends React.Component {
     constructor() {
@@ -59,6 +90,7 @@ class SignupStep2 extends React.Component {
                     codeInput: '',
                     phoneNumber: '+1',
                     confirmResult: null,
+                    phoneNumberError: "",
                 });
             }
         });
@@ -67,6 +99,7 @@ class SignupStep2 extends React.Component {
     componentWillUnmount() {
         if (this.unsubscribe) this.unsubscribe();
     }
+
 
     sendVerificationEmail() {
         var user = firebase.auth().currentUser;
@@ -111,21 +144,41 @@ class SignupStep2 extends React.Component {
         firebase.auth().signOut();
     }
 
+    onChangePhoneNumber(phonenumber) {
+        let phoneNumberError = validator('phone', phonenumber)
+        this.setState({
+            phoneNumberError: phoneNumberError,
+            phoneNumber: phonenumber
+        })
+    }
+
     renderPhoneNumberInput() {
         const { phoneNumber } = this.state;
 
         return (
-            <View style={{ padding: 25 }}>
-                <Text>Enter phone number:</Text>
-                <TextInput
-                    autoFocus
-                    style={{ height: 40, marginTop: 15, marginBottom: 15 }}
-                    onChangeText={value => this.setState({ phoneNumber: value })}
-                    placeholder={'Phone number ... '}
-                    value={phoneNumber}
-                />
-                <Button title="Sign In" color="green" onPress={this.signIn} />
+            <View >
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Phone Number</Text>
+                    <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.renderMessage()}</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                        <View style={{ padding: 25 }}>
+                            <TextInput
+                                autoFocus
+                                onChangeText={(phonenumber) => this.onChangePhoneNumber(phonenumber)}
+                                placeholder={'+18003334444'}
+                                placeholderTextColor="grey"
+                                value={phoneNumber}
+                                keyboardType='number-pad' style={{ height: 50, marginLeft: 10, marginRight: 10, marginTop: 15, marginBottom: 15, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
+                            />
+                            <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.state.phoneNumberError}</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Button onPress={() => this.signIn()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                </View>
             </View>
+
         );
     }
 
@@ -143,47 +196,44 @@ class SignupStep2 extends React.Component {
         const { codeInput } = this.state;
 
         return (
-            <View style={{ marginTop: 25, padding: 25 }}>
-                <Text>Enter verification code below:</Text>
-                <TextInput
-                    autoFocus
-                    style={{ height: 40, marginTop: 15, marginBottom: 15 }}
-                    onChangeText={value => this.setState({ codeInput: value })}
-                    placeholder={'Code ... '}
-                    value={codeInput}
-                />
-                <Button title="Confirm Code" color="#841584" onPress={this.confirmCode} />
+            <View >
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Verification Code</Text>
+                    <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.renderMessage()}</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                        <View style={{ marginTop: 25, padding: 25 }}>
+                            <Text>Enter verification code below:</Text>
+                            <TextInput
+                                autoFocus
+                                maxLength={6}
+                                placeholderTextColor="grey"
+                                keyboardType='number-pad' style={{ height: 50, marginTop: 15, marginBottom: 15, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
+                                onChangeText={value => this.setState({ codeInput: value })}
+                                placeholder={'000000'}
+                                value={codeInput}
+                            />
+                        </View>
+                    </View>
+                </View>
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Button onPress={() => this.confirmCode()} title="Verify" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                    <Button onPress={() => this.signIn()} title="Send new code" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
+                </View>
             </View>
+
         );
     }
+
 
     renderIos() {
         const { user, confirmResult } = this.state;
         return (
-            <View style={{ flex: 1 }}>
-
-                {!user && !confirmResult && this.renderPhoneNumberInput()}
-
-                {this.renderMessage()}
-
-                {!user && confirmResult && this.renderVerificationCodeInput()}
-
-                {user && (
-                    <View
-                        style={{
-                            padding: 15,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            backgroundColor: '#77dd77',
-                            flex: 1,
-                        }}
-                    >
-                        <Image source={{ uri: successImageUri }} style={{ width: 100, height: 100, marginBottom: 25 }} />
-                        <Text style={{ fontSize: 25 }}>Signed In!</Text>
-                        <Text>{JSON.stringify(user)}</Text>
-                        <Button title="Sign Out" color="red" onPress={this.signOut} />
-                    </View>
-                )}
+            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+                <HeaderBase />
+                <KeyboardAvoidingView behavior="padding" style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }} enabled>
+                    {!user && !confirmResult && this.renderPhoneNumberInput()}
+                    {!user && confirmResult && this.renderVerificationCodeInput()}
+                </KeyboardAvoidingView>
             </View>
         );
     }
@@ -191,34 +241,13 @@ class SignupStep2 extends React.Component {
     renderAndroid() {
         const { user, confirmResult } = this.state;
         return (
-            <View style={{ flex: 1 }}>
-
+            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+                <HeaderBase />
                 {!user && !confirmResult && this.renderPhoneNumberInput()}
-
-                {this.renderMessage()}
-
                 {!user && confirmResult && this.renderVerificationCodeInput()}
-
-                {user && (
-                    <View
-                        style={{
-                            padding: 15,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            backgroundColor: '#77dd77',
-                            flex: 1,
-                        }}
-                    >
-                        <Image source={{ uri: successImageUri }} style={{ width: 100, height: 100, marginBottom: 25 }} />
-                        <Text style={{ fontSize: 25 }}>Signed In!</Text>
-                        <Text>{JSON.stringify(user)}</Text>
-                        <Button title="Sign Out" color="red" onPress={this.signOut} />
-                    </View>
-                )}
             </View>
         );
     }
-
 
     // renderIos() {
     //     const { user, confirmResult } = this.state;
@@ -227,10 +256,13 @@ class SignupStep2 extends React.Component {
     //             <HeaderBase />
     //             <KeyboardAvoidingView behavior="padding" style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }} enabled>
     //                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
-    //                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Verification code</Text>
-    //                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We sent a code to your email address</Text>
+    //                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Phone Number</Text>
+    //                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Please include Country Code Number</Text>
     //                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-    //                         <TextInput maxLength={6} onChangeText={(code) => this.setState({ code })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="000000" placeholderTextColor="grey" keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+    //                         {/* <TextInput maxLength={6} onChangeText={(code) => this.setState({ code })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="+18001234" placeholderTextColor="grey" keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput> */}
+    //                         {!user && !confirmResult && this.renderPhoneNumberInput()}
+    //                         {this.renderMessage()}
+    //                         {!user && confirmResult && this.renderVerificationCodeInput()}
     //                     </View>
     //                 </View>
     //                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -241,6 +273,40 @@ class SignupStep2 extends React.Component {
     //         </View>
     //     );
     // }
+
+    // renderAndroid() {
+    //     const { user, confirmResult } = this.state;
+    //     return (
+    //         <View style={{ flex: 1 }}>
+
+    //             {!user && !confirmResult && this.renderPhoneNumberInput()}
+
+    //             {this.renderMessage()}
+
+    //             {!user && confirmResult && this.renderVerificationCodeInput()}
+
+    //             {user && (
+    //                 <View
+    //                     style={{
+    //                         padding: 15,
+    //                         justifyContent: 'center',
+    //                         alignItems: 'center',
+    //                         backgroundColor: '#77dd77',
+    //                         flex: 1,
+    //                     }}
+    //                 >
+    //                     <Image source={{ uri: successImageUri }} style={{ width: 100, height: 100, marginBottom: 25 }} />
+    //                     <Text style={{ fontSize: 25 }}>Signed In!</Text>
+    //                     <Text>{JSON.stringify(user)}</Text>
+    //                     <Button title="Sign Out" color="red" onPress={this.signOut} />
+    //                 </View>
+    //             )}
+    //         </View>
+    //     );
+    // }
+
+
+
 
     // renderAndroid() {
     //     const { user, confirmResult } = this.state;
