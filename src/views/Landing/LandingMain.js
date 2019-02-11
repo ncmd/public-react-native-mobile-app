@@ -61,9 +61,10 @@ class LandingMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style }) {
+function mapStateToProps({ style,signup }) {
     return {
-        style
+        style,
+        signup
     };
 }
 

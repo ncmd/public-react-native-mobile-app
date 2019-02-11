@@ -22,7 +22,10 @@ import {
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
 import firebase from 'react-native-firebase';
-import validate from 'validate.js'
+import validate from 'validate.js' 
+import {
+    setSignupPhoneNumber,
+} from '../../redux/actions/actions_signup';
 
 const constraints = {
     phone: {
@@ -43,11 +46,11 @@ const validator = (field, value) => {
     object[field] = value
 
     let constraint = constraints[field]
-    console.log(object, constraint)
+    // console.log(object, constraint)
 
     // Validate against the constraint and hold the error messages
     const result = validate(object, { [field]: constraint })
-    console.log(object, constraint, result)
+    // console.log(object, constraint, result)
 
     // If there is an error message, return it!
     if (result) {
@@ -114,7 +117,7 @@ class SignupStep2 extends React.Component {
     signIn = () => {
         const { phoneNumber } = this.state;
         this.setState({ message: 'Sending code ...' });
-
+        this.props.setSignupPhoneNumber(phoneNumber)
         if (Platform.OS === 'ios') {
             firebase.auth().signInWithPhoneNumber(phoneNumber)
                 .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
@@ -135,6 +138,7 @@ class SignupStep2 extends React.Component {
             confirmResult.confirm(codeInput)
                 .then((user) => {
                     this.setState({ message: 'Code Confirmed!' });
+                    Actions.signupstep3()
                 })
                 .catch(error => this.setState({ message: `Code Confirm Error: ${error.message}` }));
         }
@@ -145,7 +149,9 @@ class SignupStep2 extends React.Component {
     }
 
     onChangePhoneNumber(phonenumber) {
+        this.props.setSignupPhoneNumber(phonenumber)
         let phoneNumberError = validator('phone', phonenumber)
+        // console.log(this.props.signup)
         this.setState({
             phoneNumberError: phoneNumberError,
             phoneNumber: phonenumber
@@ -153,7 +159,7 @@ class SignupStep2 extends React.Component {
     }
 
     renderPhoneNumberInput() {
-        const { phoneNumber } = this.state;
+        const { phoneNumber,loading } = this.state;
 
         return (
             <View >
@@ -167,7 +173,7 @@ class SignupStep2 extends React.Component {
                                 onChangeText={(phonenumber) => this.onChangePhoneNumber(phonenumber)}
                                 placeholder={'+18003334444'}
                                 placeholderTextColor="grey"
-                                value={phoneNumber}
+                                value={this.state.phoneNumber}
                                 keyboardType='number-pad' style={{ height: 50, marginLeft: 10, marginRight: 10, marginTop: 15, marginBottom: 15, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
                             />
                             <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.state.phoneNumberError}</Text>
@@ -226,9 +232,9 @@ class SignupStep2 extends React.Component {
 
 
     renderIos() {
-        const { user, confirmResult } = this.state;
+        const { user, confirmResult,loading } = this.state;
         return (
-            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+            !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <HeaderBase />
                 <KeyboardAvoidingView behavior="padding" style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }} enabled>
                     {!user && !confirmResult && this.renderPhoneNumberInput()}
@@ -239,9 +245,9 @@ class SignupStep2 extends React.Component {
     }
 
     renderAndroid() {
-        const { user, confirmResult } = this.state;
+        const { user, confirmResult,loading } = this.state;
         return (
-            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+            !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <HeaderBase />
                 {!user && !confirmResult && this.renderPhoneNumberInput()}
                 {!user && confirmResult && this.renderVerificationCodeInput()}
@@ -349,4 +355,5 @@ function mapStateToProps({ style, signup }) {
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
+    setSignupPhoneNumber,
 })(SignupStep2);

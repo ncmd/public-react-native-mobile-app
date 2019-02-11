@@ -1,7 +1,13 @@
 import {
   ACCOUNT_LOGIN,
   ACCOUNT_LOGOUT,
+  SET_ACCOUNT_INFORMATION,
 } from '../types/types_account';
+
+export const setAccountInformation = (thisdata) => dispatch => {
+  let data = thisdata
+  dispatch({ type: SET_ACCOUNT_INFORMATION, payload: data});
+}
 
 export const accountLogin = () => dispatch => {
   dispatch({ type: ACCOUNT_LOGIN });

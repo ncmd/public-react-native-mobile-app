@@ -24,7 +24,7 @@ import {
     accountLogin,
     accountLogout,
 } from '../../redux/actions/actions_account';
-import { setBottomNavigation,deleteUserPinCode } from '../../redux/actions/actions_bottom_navigation';
+import { setBottomNavigation, deleteUserPinCode } from '../../redux/actions/actions_bottom_navigation';
 
 // Reference: https://medium.com/react-native-training/integrate-touch-id-and-face-id-to-your-react-native-app-707e7db17edc
 const optionalConfigObject = {
@@ -80,7 +80,7 @@ class UnlockPinCode extends React.Component {
         this.props.setBottomNavigation("portfolio")
         console.log("UnlockPinCode: this.props.account", this.props.account)
         this.hasSet()
-        
+
     }
 
     hasSet = async () => {
@@ -93,18 +93,18 @@ class UnlockPinCode extends React.Component {
         }
     }
 
-    logout = async () =>  {
-        firebase.auth().signOut().then(function () {
-            Actions.landingmain()
-            // this.props.accountLogout()
-        }).catch(function (error) {
-            // An error happened.
-        });
+    // logout = async () =>  {
+    //     firebase.auth().signOut().then(function () {
+    //         Actions.landingmain()
+    //         this.props.accountLogout()
+    //     }).catch(function (error) {
+    //         // An error happened.
+    //     });
 
-         // Sign-out successful.
-         await deleteUserPinCode()
-        
-    }
+    //      // Sign-out successful.
+    //      await deleteUserPinCode()
+
+    // }
 
     createPinCode() {
         return (
@@ -119,8 +119,8 @@ class UnlockPinCode extends React.Component {
                 stylePinCodeButtonNumber={"#21ce99"}
                 titleChoose={"Create PIN code"}
                 titleConfirm={"Confirm PIN code"}
-                stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: 'white', borderRadius: 10 * 2 }}
-                stylePinCodeTextTitle={{ fontSize: 20, fontWeight: '800', textAlign: 'center' }} />
+                stylePinCodeButtonCircle={{ alignItems: 'center', justifyContent: 'center', width: 15 * 4, height: 15 * 4, borderColor: '#21ce99', borderWidth: 2, backgroundColor: '#0e0d0d', borderRadius: 10 * 2 }}
+                stylePinCodeTextTitle={{ fontSize: 20, fontWeight: systemWeights.regular.fontWeight, textAlign: 'center' }} />
         )
     }
 

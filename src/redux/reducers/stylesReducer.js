@@ -5,8 +5,8 @@ import {
 export default function(state = [{loading: true}], action) {
     switch (action.type) {
         case SET_STYLE:
-            return action.payload;
+            return action.payload
         default:
-            return state;
+            return state
     }
 }

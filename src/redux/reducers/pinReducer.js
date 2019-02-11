@@ -8,6 +8,6 @@ export default function (state = [{ has_pin: false, loading: true }], action) {
         case HAS_PIN:
             return action.payload;
         default:
-            return state;
+            return state
     }
 }

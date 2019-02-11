@@ -14,6 +14,7 @@ import {
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
 import {
+    generatePassword,
     setSignupEmailAddress,
 } from '../../redux/actions/actions_signup';
 import { Actions } from 'react-native-router-flux';
@@ -52,11 +53,11 @@ const validator = (field, value) => {
     object[field] = value
 
     let constraint = constraints[field]
-    console.log(object, constraint)
+    // console.log(object, constraint)
 
     // Validate against the constraint and hold the error messages
     const result = validate(object, { [field]: constraint })
-    console.log(object, constraint, result)
+    // console.log(object, constraint, result)
 
     // If there is an error message, return it!
     if (result) {
@@ -72,15 +73,14 @@ class SignupStep1 extends React.Component {
         this.state = {
             selectedIndex: 0,
             emailaddress: "",
-            emailaddresserror:true,
+            emailAddressValid: true,
             emailError: "",
         }
     }
 
     componentDidMount() {
-        this.setState({
-            emailaddress:this.props.setSignupEmailAddress
-        })
+        this.props.generatePassword()
+        
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
@@ -89,32 +89,47 @@ class SignupStep1 extends React.Component {
         }
     }
 
-    continueButtonAction(){
-        this.onChangeEmailAddress(this.props.setSignupEmailAddress)
-        if (this.state.emailaddresserror === false ){
+    continueButtonAction() {
+        // this.onChangeEmailAddress(this.props.setSignupEmailAddress)
+
+        if (this.state.emailAddressValid === false) {
             this.props.setSignupEmailAddress(this.state.emailaddress)
+            this.signupNewAccount()
+            console.log("continueButtonAction", this.props.signup)
+            this.signOutAccount()
+            
             Actions.signupstep2()
         }
     }
 
+    signOutAccount = () => {
+        firebase.auth().signOut();
+    }
+
     onChangeEmailAddress(email) {
         let emailError = validator('email', email)
-        if (emailError === "" || emailError === null){
-            this.props.setSignupEmailAddress(email)
+        if (emailError === "" || emailError === null) {
             this.setState({
-                emailaddresserror:false,
-                emailError:""
+                emailaddress: email,
+                emailAddressValid: false,
+                emailError: ""
             })
         } else {
             this.setState({
+                emailaddress: email,
                 emailError: emailError,
-                emailaddresserror:true
+                emailAddressValid: true
             })
         }
     }
 
-    signupUser(){
-
+    signupNewAccount() {
+        
+        firebase.auth().createUserWithEmailAndPassword(this.state.emailaddress, this.props.signup[0].password).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        });
     }
 
     renderIos() {
@@ -126,13 +141,13 @@ class SignupStep1 extends React.Component {
                         <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Submit email address</Text>
                         <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll send updates to this inbox.</Text>
                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                            <TextInput autoFocus maxLength={40} onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
-                            <Text style={{color:'white'}}>{this.state.emailError}</Text>
+                            <TextInput autoFocus spellCheck={false} maxLength={40} onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <Text style={{ color: 'white' }}>{this.state.emailError}</Text>
                         </View>
                     </View>
                     <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-end', alignItems: 'center' }}>
                         {/* <Button onPress={() => Actions.signupstep2()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} /> */}
-                        <Button disabledStyle={{backgroundColor: "rgba(48, 45, 45,0.9)"}} disabled={this.state.emailaddresserror} onPress={() => this.continueButtonAction()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                        <Button disabledStyle={{ backgroundColor: "rgba(48, 45, 45,0.9)" }} disabled={this.state.emailAddressValid} onPress={() => this.continueButtonAction()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                         <Text style={{ fontSize: 12, width: "80%", color: 'white', padding: 10, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll never share your email address.</Text>
                     </View>
                 </KeyboardAvoidingView>
@@ -149,12 +164,12 @@ class SignupStep1 extends React.Component {
                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Your email address</Text>
                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll send updates to this inbox.</Text>
                     <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <TextInput autoFocus onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
-                        <Text style={{color:'white'}}>{this.state.emailError}</Text>
+                        <TextInput autoFocus spellCheck={false} onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                        <Text style={{ color: 'white' }}>{this.state.emailError}</Text>
                     </View>
                 </View>
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-end', alignItems: 'center' }}>
-                <Button disabledStyle={{backgroundColor: "rgba(48, 45, 45,0.9)"}}  disabled={this.state.emailaddresserror} onPress={() => this.continueButtonAction()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                    <Button disabledStyle={{ backgroundColor: "rgba(48, 45, 45,0.9)" }} disabled={this.state.emailAddressValid} onPress={() => this.continueButtonAction()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                     <Text style={{ fontSize: 12, width: "80%", color: 'white', padding: 10, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll never share your email address.</Text>
                 </View>
             </View>
@@ -171,7 +186,7 @@ class SignupStep1 extends React.Component {
     }
 }
 
-function mapStateToProps({ style,signup }) {
+function mapStateToProps({ style, signup }) {
     return {
         style,
         signup,
@@ -179,6 +194,7 @@ function mapStateToProps({ style,signup }) {
 }
 
 export default connect(mapStateToProps, {
+    generatePassword,
     androidStyleLoad,
     iosStyleLoad,
     setSignupEmailAddress,

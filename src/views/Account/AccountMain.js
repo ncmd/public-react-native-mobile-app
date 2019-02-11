@@ -134,7 +134,7 @@ class AccountMain extends React.Component {
 
     logoutConfirmation() {
         Alert.alert(
-            "Are you sure you want to log out?",
+            "Confirm Logout",
             'This will remove your PIN code.',
             [
                 { text: 'Yes', onPress: () => this.logout() },
