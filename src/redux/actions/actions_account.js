@@ -10,13 +10,13 @@ export const setAccountInformation = (thisdata) => dispatch => {
 }
 
 export const accountLogin = () => dispatch => {
-  dispatch({ type: ACCOUNT_LOGIN });
-  console.log("accountLogin - this.props.account:",this.props.account)
+  dispatch({ type: ACCOUNT_LOGIN, payload: true });
+  // console.log("accountLogin - this.props.account:",this.props.account)
 }
 
 export const accountLogout = () => dispatch => {
-    dispatch({ type: ACCOUNT_LOGOUT });
-    console.log("accountLogout - this.props.account:",this.props.account)
+    dispatch({ type: ACCOUNT_LOGOUT, payload: false });
+    // console.log("accountLogout - this.props.account:",this.props.account)
 }
 
 // export const setAccount = (email, accountid, plan) => async dispatch => {

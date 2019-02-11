@@ -1,0 +1,3 @@
+- (p0) monthly subscription
+- $7/month no advertisements
+- Free with advertisements

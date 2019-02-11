@@ -124,8 +124,6 @@ class UnlockPinCode extends React.Component {
         )
     }
 
-
-
     render() {
         // Initializing Props from ./redux/reducers/stylesReducer.js
         const { loading } = this.props;
@@ -158,7 +156,6 @@ class UnlockPinCode extends React.Component {
                             :
                             this.createPinCode()
                         }
-
                     </View>
                 </ImageBackground>
             </View>

@@ -40,11 +40,12 @@ matrix:
       install:
         # using yarn instead of npm install because project would not build properly in travis
         - pwd
-        - yarn install
+        - npm install
         # required to use react-native 
         - npm install -g react-native-cli
         # Adds missing main.jsbundle file when react-native project is created
         - react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
+        - ls ./ios/
       script:
         - pwd
         - cd ./ios/

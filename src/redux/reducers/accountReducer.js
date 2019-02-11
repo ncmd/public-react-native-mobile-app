@@ -16,12 +16,12 @@ export default function (state = [{ email: "", phone: "", loggedIn: false, loadi
         case ACCOUNT_LOGIN:
             return {
                 ...state[0],
-                loggedIn: true
+                loggedIn: action.payload
             }
         case ACCOUNT_LOGOUT:
             return {
                 ...state[0],
-                loggedIn: false
+                loggedIn:  action.payload
             }
         default:
             return state;

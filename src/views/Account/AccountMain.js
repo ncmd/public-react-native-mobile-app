@@ -78,9 +78,10 @@ class AccountMain extends React.Component {
     }
 
     logout = async () => {
+        this.props.accountLogout()
         console.log("Logout")
         firebase.auth().signOut().then(function () {
-            this.props.accountLogout()
+            
         }).catch(function (error) {
             // An error happened.
         });

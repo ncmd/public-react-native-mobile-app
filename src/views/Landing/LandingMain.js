@@ -19,10 +19,16 @@ import {
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
 import { Actions } from 'react-native-router-flux'
+import {
+    accountLogin,
+    accountLogout,
+} from '../../redux/actions/actions_account';
+import firebase from 'react-native-firebase';
 
 class LandingMain extends React.Component {
     constructor() {
         super()
+        this.unsubscriber = null
         this.state = {
             selectedIndex: 0,
         }
@@ -35,7 +41,25 @@ class LandingMain extends React.Component {
         if (Platform.OS === 'android') {
             this.props.androidStyleLoad()
         }
-        console.log(this.props)
+        // this.props.accountLogin()
+        // this.props.accountLogout()
+    }
+
+    componentDidMount(){
+        this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+            console.log("componentDidMount user:", user)
+            if (user !== null) {
+                this.props.accountLogin()
+                console.log("LandingMain this.props.account this.props.account[0].loggedIn:", this.props.account.loggedIn)
+                // this.setState({ isUserLogin:true });
+                
+                
+            } else {
+                // this.setState({ isUserLogin:false });
+                // this.props.accountLogout()
+                console.log("Router this.props.account this.props.account[0].loggedIn:",  this.props.account.loggedIn)
+            }
+        });
     }
 
     render() {
@@ -61,14 +85,17 @@ class LandingMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style,signup }) {
+function mapStateToProps({ style,signup,account }) {
     return {
         style,
-        signup
+        signup,
+        account,
     };
 }
 
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
+    accountLogin,
+    accountLogout,
 })(LandingMain);
