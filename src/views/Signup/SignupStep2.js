@@ -6,36 +6,42 @@ import {
     Text,
     View,
     Platform,
-    TouchableHighlight,
-    FlatList,
-    ScrollView,
-    StatusBar,
 } from 'react-native';
-import { Button } from 'react-native-elements';
-import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
-import { systemWeights, robotoWeights, sanFranciscoWeights } from 'react-native-typography'
+import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { connect } from 'react-redux';
 import {
     androidStyleLoad,
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
-import { Actions } from 'react-native-router-flux';
-import HeaderBase from '../../components/Header/HeaderBase';
-import firebase from 'react-native-firebase';
-import validate from 'validate.js' 
 import {
     setSignupPhoneNumber,
 } from '../../redux/actions/actions_signup';
+import { Actions } from 'react-native-router-flux';
+import HeaderBase from '../../components/Header/HeaderBase';
+import validate from 'validate.js'
+import firebase from 'react-native-firebase';
 
 const constraints = {
-    phone: {
+    email: {
         format: {
-            pattern: /^[\+]?[0-9]{3}[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{5}$/im,
-            message: 'example: +18003334444',
+            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            message: 'example: example@gmail.com',
         },
         presence: {
             message: "Cannot be blank."
         },
+        email: {
+            message: 'address does not exist!'
+        }
+    },
+    password: {
+        presence: {
+            message: "Cannot be blank."
+        },
+        length: {
+            minimum: 6,
+            message: 'must be at least 6 characters.'
+        }
     }
 }
 
@@ -65,275 +71,184 @@ class SignupStep2 extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
-            code: "",
-            user: null,
-            message: '',
-            codeInput: '',
-            phoneNumber: '+1',
-            confirmResult: null,
+            emailaddress: "",
+            emailaddresserror: true,
+            emailError: "",
+            password: "",
+            passwordError: "",
+            passwordValid: false,
+            emailAddressValid: true,
+            AccountError: ""
         }
     }
 
     componentDidMount() {
+        console.log(this.props.signup)
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
         if (Platform.OS === 'android') {
             this.props.androidStyleLoad()
         }
-
-        this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ user: user.toJSON() });
-            } else {
-                // User has been signed out, reset the state
-                this.setState({
-                    user: null,
-                    message: '',
-                    codeInput: '',
-                    phoneNumber: '+1',
-                    confirmResult: null,
-                    phoneNumberError: "",
-                });
-            }
-        });
     }
 
-    componentWillUnmount() {
-        if (this.unsubscribe) this.unsubscribe();
+    continueButtonAction() {
+        if (this.state.emailaddresserror === false) {
+            Actions.signupstep3()
+        }
     }
 
+    onChangeEmailAddress(email) {
+        let emailError = validator('email', email)
+        if (emailError === "" || emailError === null) {
+            this.setState({
+                emailaddress: email,
+                emailAddressValid: false,
+                emailError: ""
+            })
+        } else {
+            this.setState({
+                emailaddress: email,
+                emailError: emailError,
+                emailAddressValid: true
+            })
+        }
+    }
 
-    sendVerificationEmail() {
+    // signupNewAccount() {
+    //     firebase.auth().createUserWithEmailAndPassword(this.state.emailaddress, this.state.password).catch((error) => {
+    //         // Handle Errors here.
+    //         var errorCode = error.code;
+    //         var errorMessage = error.message;
+    //         this.setState({
+    //             AccountError: errorMessage
+    //         })
+    //     }, () => {
+    //         signOut = () => {
+    //             firebase.auth.signOut();
+    //         }
+    //     });
+    // }
+
+    updateAccountInformation() {
         var user = firebase.auth().currentUser;
+        user.updateEmail(
+           "cchong.vise@gmail.com"
+        ).then( () => {
+            // Update successful.
+            console.log("Update Account Info Successful")
+            Actions.signupstep3()
 
-        user.sendEmailVerification().then(function () {
-            // Email sent.
-        }).catch(function (error) {
+        }).catch((error) => {
             // An error happened.
+            console.log("Update Account Info FAILED!",error)
         });
+        // Actions.signupstep4()
     }
 
-    signIn = () => {
-        const { phoneNumber } = this.state;
-        this.setState({ message: 'Sending code ...' });
-        this.props.setSignupPhoneNumber(phoneNumber)
-        if (Platform.OS === 'ios') {
-            firebase.auth().signInWithPhoneNumber(phoneNumber)
-                .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
-                .catch(error => console.log(error));
-        }
-        if (Platform.OS === 'android') {
-            firebase.auth().signInWithPhoneNumber(phoneNumber)
-                .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
-                .catch(error => this.setState({ message: `Sign In With Phone Number Error: ${error.message}` }));
-        }
-
-    };
-
-    confirmCode = () => {
-        const { codeInput, confirmResult } = this.state;
-
-        if (confirmResult && codeInput.length) {
-            confirmResult.confirm(codeInput)
-                .then((user) => {
-                    this.setState({ message: 'Code Confirmed!' });
-                    Actions.signupstep3()
+    onChangePassword(password) {
+        console.log(this.props.signup)
+        this.setState({
+            password: password
+        }, () => {
+            let passwordError = validator('password', password)
+            console.log(passwordError)
+            if (passwordError === undefined || passwordError === null) {
+                this.setState({
+                    passwordError: "",
+                    passwordValid: false,
                 })
-                .catch(error => this.setState({ message: `Code Confirm Error: ${error.message}` }));
-        }
-    };
+            } else {
+                this.setState({
+                    passwordError: passwordError,
+                    passwordValid: true
+                })
+                console.log(passwordError)
+            }
+        })
+
+    }
 
     signOut = () => {
         firebase.auth().signOut();
     }
 
-    onChangePhoneNumber(phonenumber) {
-        this.props.setSignupPhoneNumber(phonenumber)
-        let phoneNumberError = validator('phone', phonenumber)
-        // console.log(this.props.signup)
-        this.setState({
-            phoneNumberError: phoneNumberError,
-            phoneNumber: phonenumber
-        })
+    setUserPassword(password) {
+        console.log("this.props.signup:", this.props.signup)
+        let passwordError = validator('password', password)
+        if (passwordError === "" || passwordError === null) {
+
+
+            var user = firebase.auth().currentUser;
+            user.updatePassword(password).then(() => {
+                Actions.signupstep3()
+                // Update successful.
+                console.log("Password Changed!")
+
+                var credential = firebase.auth.EmailAuthProvider.credential(this.props.signup[0].email, this.props.signup[0].password);
+                firebase.auth.currentUser.linkAndRetrieveDataWithCredential(credential).then(function (usercred) {
+                    var user = usercred.user;
+                    console.log("Account linking success", user);
+                }, function (error) {
+                    console.log("Account linking error", error);
+                });
+            }).catch((error) => {
+                this.setState({
+                    passwordError: error.message
+                })
+                // An error happened.
+            });
+        }
     }
-
-    renderPhoneNumberInput() {
-        const { phoneNumber,loading } = this.state;
-
-        return (
-            <View >
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Phone Number</Text>
-                    <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.renderMessage()}</Text>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <View style={{ padding: 25 }}>
-                            <TextInput
-                                autoFocus
-                                onChangeText={(phonenumber) => this.onChangePhoneNumber(phonenumber)}
-                                placeholder={'+18003334444'}
-                                placeholderTextColor="grey"
-                                value={this.state.phoneNumber}
-                                keyboardType='number-pad' style={{ height: 50, marginLeft: 10, marginRight: 10, marginTop: 15, marginBottom: 15, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
-                            />
-                            <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.state.phoneNumberError}</Text>
-                        </View>
-                    </View>
-                </View>
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Button onPress={() => this.signIn()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
-                </View>
-            </View>
-
-        );
-    }
-
-    renderMessage() {
-        const { message } = this.state;
-
-        if (!message.length) return null;
-
-        return (
-            <Text style={{ padding: 5, backgroundColor: '#000', color: '#fff' }}>{message}</Text>
-        );
-    }
-
-    renderVerificationCodeInput() {
-        const { codeInput } = this.state;
-
-        return (
-            <View >
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Verification Code</Text>
-                    <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.renderMessage()}</Text>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <View style={{ marginTop: 25, padding: 25 }}>
-                            <Text>Enter verification code below:</Text>
-                            <TextInput
-                                autoFocus
-                                maxLength={6}
-                                placeholderTextColor="grey"
-                                keyboardType='number-pad' style={{ height: 50, marginTop: 15, marginBottom: 15, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
-                                onChangeText={value => this.setState({ codeInput: value })}
-                                placeholder={'000000'}
-                                value={codeInput}
-                            />
-                        </View>
-                    </View>
-                </View>
-                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Button onPress={() => this.confirmCode()} title="Verify" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
-                    <Button onPress={() => this.signIn()} title="Send new code" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
-                </View>
-            </View>
-
-        );
-    }
-
 
     renderIos() {
-        const { user, confirmResult,loading } = this.state;
         return (
-            !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <HeaderBase />
                 <KeyboardAvoidingView behavior="padding" style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }} enabled>
-                    {!user && !confirmResult && this.renderPhoneNumberInput()}
-                    {!user && confirmResult && this.renderVerificationCodeInput()}
+                    <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Link Email Address</Text>
+                        <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Setting up your account.</Text>
+                        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                            <TextInput autoFocus spellCheck={false} onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <Text style={{ color: 'white' }}>{this.state.emailError}</Text>
+                        </View>
+                        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                            <Text style={{ color: 'white' }}>{this.state.AccountError}</Text>
+                        </View>
+                    </View>
+                    <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-end', alignItems: 'center' }}>
+                        <Button disabledStyle={{ backgroundColor: "rgba(48, 45, 45,0.9)" }} disabled={this.state.passwordValid} onPress={() => this.updateAccountInformation()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                        <Text style={{ fontSize: 12, width: "80%", color: 'white', padding: 10, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll never share your email address.</Text>
+                    </View>
                 </KeyboardAvoidingView>
             </View>
-        );
+        )
+
     }
 
     renderAndroid() {
-        const { user, confirmResult,loading } = this.state;
         return (
-            !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
+            <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <HeaderBase />
-                {!user && !confirmResult && this.renderPhoneNumberInput()}
-                {!user && confirmResult && this.renderVerificationCodeInput()}
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '60%', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Set Password</Text>
+                    <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>You can change this password in Account settings.</Text>
+                    <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                        <TextInput autoFocus spellCheck={false} onChangeText={(emailaddress) => this.onChangeEmailAddress(emailaddress)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                        <Text style={{ color: 'white' }}>{this.state.emailError}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                        <Text style={{ color: 'white' }}>{this.state.AccountError}</Text>
+                    </View>
+                </View>
+                <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <Button disabledStyle={{ backgroundColor: "rgba(48, 45, 45,0.9)" }} disabled={this.state.passwordValid} onPress={() => this.updateAccountInformation()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                    <Text style={{ fontSize: 12, width: "80%", color: 'white', padding: 10, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We’ll never share your email address.</Text>
+                </View>
             </View>
-        );
+        )
     }
-
-    // renderIos() {
-    //     const { user, confirmResult } = this.state;
-    //     return (
-    //         <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
-    //             <HeaderBase />
-    //             <KeyboardAvoidingView behavior="padding" style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }} enabled>
-    //                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
-    //                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Phone Number</Text>
-    //                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Please include Country Code Number</Text>
-    //                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-    //                         {/* <TextInput maxLength={6} onChangeText={(code) => this.setState({ code })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="+18001234" placeholderTextColor="grey" keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput> */}
-    //                         {!user && !confirmResult && this.renderPhoneNumberInput()}
-    //                         {this.renderMessage()}
-    //                         {!user && confirmResult && this.renderVerificationCodeInput()}
-    //                     </View>
-    //                 </View>
-    //                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
-    //                     <Button onPress={() => Actions.signupstep3()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
-    //                     <Button title="Send new code" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
-    //                 </View>
-    //             </KeyboardAvoidingView>
-    //         </View>
-    //     );
-    // }
-
-    // renderAndroid() {
-    //     const { user, confirmResult } = this.state;
-    //     return (
-    //         <View style={{ flex: 1 }}>
-
-    //             {!user && !confirmResult && this.renderPhoneNumberInput()}
-
-    //             {this.renderMessage()}
-
-    //             {!user && confirmResult && this.renderVerificationCodeInput()}
-
-    //             {user && (
-    //                 <View
-    //                     style={{
-    //                         padding: 15,
-    //                         justifyContent: 'center',
-    //                         alignItems: 'center',
-    //                         backgroundColor: '#77dd77',
-    //                         flex: 1,
-    //                     }}
-    //                 >
-    //                     <Image source={{ uri: successImageUri }} style={{ width: 100, height: 100, marginBottom: 25 }} />
-    //                     <Text style={{ fontSize: 25 }}>Signed In!</Text>
-    //                     <Text>{JSON.stringify(user)}</Text>
-    //                     <Button title="Sign Out" color="red" onPress={this.signOut} />
-    //                 </View>
-    //             )}
-    //         </View>
-    //     );
-    // }
-
-
-
-
-    // renderAndroid() {
-    //     const { user, confirmResult } = this.state;
-    //     return (
-    //         <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
-    //             <HeaderBase />
-    //             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
-    //                 <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Verification code</Text>
-    //                 <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>We sent a code to your email address</Text>
-    //                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-    //                     <TextInput maxLength={6} onChangeText={(code) => this.setState({ code })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="000000" placeholderTextColor="grey" keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
-    //                 </View>
-    //             </View>
-    //             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
-    //                 <Button onPress={() => Actions.signupstep3()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
-    //                 <Button title="Send new code" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
-    //             </View>
-    //         </View>
-    //     );
-    // }
-
 
     render() {
         if (Platform.OS === 'ios') {
@@ -342,13 +257,13 @@ class SignupStep2 extends React.Component {
         if (Platform.OS === 'android') {
             return this.renderAndroid()
         }
-
     }
 }
 
 function mapStateToProps({ style, signup }) {
     return {
-        style, signup
+        style,
+        signup,
     };
 }
 
