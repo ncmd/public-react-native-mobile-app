@@ -98,33 +98,6 @@ class PortfolioPerformance extends React.Component {
 
     componentDidMount() {
 
-        // var thiswidth = Dimensions.get('window').width;
-        // this.setState({
-        //     deviceWidth: thiswidth
-        // })
-
-        // setInterval(() => {
-
-        //     // toggle between true/false
-        //     // if true
-
-        //     // if false
-        //     if (this.state.stockTimePickerValuesToggle === false) {
-        //         this.setState({
-        //             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,0.1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
-        //             stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
-        //         })
-        //     } else {
-        //         this.setState({
-        //             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y'],
-        //             stockTimePickerValuesToggle: !this.state.stockTimePickerValuesToggle
-        //         })
-        //     }
-        // },
-        //     // Define blinking time in milliseconds
-        //     1000
-        // );
-
         // When socket opens
         this.socket.onopen = () => {
             // Check if Socket Open

@@ -20,8 +20,10 @@ import { ButtonGroup, Button } from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
-import NavigationBase from '../../components/Navigation/NavigationBase'
+import NavigationBase from '../../components/Navigation/NavigationBase';
+import StockVotes from './StockVotes';
 // const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
+
 
 const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365]
 
@@ -227,11 +229,11 @@ class StockView extends React.Component {
             return (
                 <View>
                     <LineChart
-                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        style={{ height: 100, backgroundColor: "#0e0d0d" }}
                         data={dayStockData}
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
-                        contentInset={{ top: 20, bottom: 20 }}
+                        contentInset={{ top: 20, bottom: 20, left:10, right:10 }}
                         curve={shape.curveLinear}
                     >
                         <ShadowUP />
@@ -244,11 +246,11 @@ class StockView extends React.Component {
             return (
                 <View>
                     <LineChart
-                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        style={{ height: 100, backgroundColor: "#0e0d0d" }}
                         data={dayStockData}
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
-                        contentInset={{ top: 20, bottom: 20 }}
+                        contentInset={{ top: 20, bottom: 20, left:10, right:10 }}
                     >
                         <ShadowDOWN />
                         <HorizontalLine />
@@ -311,6 +313,7 @@ class StockView extends React.Component {
                             {this.renderStockChart(this.state.selectedIndex)}
                             {this.renderTimeSelectorButtonGroup()}
                         </View>
+                        <StockVotes/>
                     </ScrollView>
                 </View>
                 <View style={{ flex: 0, flexDirection: 'row', backgroundColor: "#0e0d0d" }}>
