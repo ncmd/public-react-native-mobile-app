@@ -22,6 +22,11 @@ import { systemWeights } from 'react-native-typography'
 import { ButtonGroup, Button, ListItem } from 'react-native-elements';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
+import { connect } from 'react-redux';
+import {
+    androidStyleLoad,
+    iosStyleLoad,
+} from '../../redux/actions/actions_styles';
 
 class StockVotes extends React.Component {
     constructor() {
@@ -164,55 +169,52 @@ class StockVotes extends React.Component {
                     onRequestClose={() => {
                         Alert.alert('Modal has been closed.');
                     }}>
-                    <View style={{ marginTop: 22, flex: 1, flexDirection: 'column', justifyContent: 'flex-start' }}>
-                        <Button
-                            title={"Close"}
-                            style={{ padding: 5 }}
-                            onPress={() => {
-                                this.setModalVisible(!this.state.modalVisible);
-                            }}>
-                        </Button>
-                        <Text style={{padding:5}}>Shareholder Approver Meeting</Text>
-                        <Text style={{padding:5}}>Posted on January 5, 2019</Text>
-                        <Text style={{padding:5}}>Description</Text>
-                        <Text style={{padding:5}}>We the shareholders are glad that you're alive and well and we want to wish you some form of a 'Happy Birthday' but not in the traditional form of song and cake.  Instead, we wish you some percentage of a happy birthday based on how well we think you're doing at being the world's only publicly traded person. This will be a regular vote to determine how much support you have from your shareholder community: A yes is a vote of confidence that KmikeyM is a ship on the right course. A no vote is a warning that you're off the mark and we expect some changes.</Text>
-                        <View style={{ backgroundColor: 'transparent', flex: 1, flexDirection: 'row' }}>
-                            <View style={{ width: '50%', backgroundColor: 'transparent', padding: 5 }}>
-                                <Text>Yes - 200000</Text>
-                                <Table borderStyle={{ borderColor: 'transparent' }}>
-                                    <Row data={state.tableHead} style={styles.head} textStyle={styles.text} />
-                                    {
-                                        state.tableData.map((rowData, index) => (
-                                            <TableWrapper key={index} style={styles.row}>
-                                                {
-                                                    rowData.map((cellData, cellIndex) => (
-                                                        <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text} />
-                                                    ))
-                                                }
-                                            </TableWrapper>
-                                        ))
-                                    }
-                                </Table>
-                            </View>
-                            <View style={{ width: '50%', backgroundColor: 'transparent', padding: 5 }}>
-                                <Text>No - 200000</Text>
-                                <Table borderStyle={{ borderColor: 'transparent' }}>
-                                    <Row data={state.tableHead} style={styles.head} textStyle={styles.text} />
-                                    {
-                                        state.tableData.map((rowData, index) => (
-                                            <TableWrapper key={index} style={styles.row}>
-                                                {
-                                                    rowData.map((cellData, cellIndex) => (
-                                                        <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text} />
-                                                    ))
-                                                }
-                                            </TableWrapper>
-                                        ))
-                                    }
-                                </Table>
+                    <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
+                        <View style={{ marginTop: 22, flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
+                            <Button onPress={() => this.setModalVisible(!this.state.modalVisible)} title="Close" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                            <Text style={{ padding: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>Shareholder Approver Meeting</Text>
+                            <Text style={{ padding: 5 }}>Posted on January 5, 2019</Text>
+                            <Text style={{ padding: 5 }}>We the shareholders are glad that you're alive and well and we want to wish you some form of a 'Happy Birthday' but not in the traditional form of song and cake.  Instead, we wish you some percentage of a happy birthday based on how well we think you're doing at being the world's only publicly traded person. This will be a regular vote to determine how much support you have from your shareholder community: A yes is a vote of confidence that KmikeyM is a ship on the right course. A no vote is a warning that you're off the mark and we expect some changes.</Text>
+                            <Text style={{ padding: 5 }}>A Yes vote means I should be allowed to see any superhero movie I want.</Text>
+                            <Text style={{ padding: 5 }}>A No vote means I will not be allowed to see Marvel and DC movies under the same terms as the January 2017 vote. </Text>
+                            <View style={{ backgroundColor: 'transparent', flex: 1, flexDirection: 'row' }}>
+                                <View style={{ width: '50%', backgroundColor: 'transparent', padding: 5 }}>
+                                    <Text style={{ fontSize: 20, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>Yes - 200000</Text>
+                                    <Table borderStyle={{ borderColor: 'transparent' }}>
+                                        <Row data={state.tableHead} style={styles.head} textStyle={styles.text} />
+                                        {
+                                            state.tableData.map((rowData, index) => (
+                                                <TableWrapper key={index} style={styles.row}>
+                                                    {
+                                                        rowData.map((cellData, cellIndex) => (
+                                                            <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text} />
+                                                        ))
+                                                    }
+                                                </TableWrapper>
+                                            ))
+                                        }
+                                    </Table>
+                                </View>
+                                <View style={{ width: '50%', backgroundColor: 'transparent', padding: 5 }}>
+                                    <Text style={{ fontSize: 20, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>No - 200000</Text>
+                                    <Table borderStyle={{ borderColor: 'transparent' }}>
+                                        <Row data={state.tableHead} style={styles.head} textStyle={styles.text} />
+                                        {
+                                            state.tableData.map((rowData, index) => (
+                                                <TableWrapper key={index} style={styles.row}>
+                                                    {
+                                                        rowData.map((cellData, cellIndex) => (
+                                                            <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text} />
+                                                        ))
+                                                    }
+                                                </TableWrapper>
+                                            ))
+                                        }
+                                    </Table>
+                                </View>
                             </View>
                         </View>
-                    </View>
+                    </ScrollView>
                 </Modal>
                 <FlatList
                     data={this.state.list}
@@ -229,13 +231,22 @@ class StockVotes extends React.Component {
     }
 }
 
+function mapStateToProps({ style }) {
+    return {
+        style
+    };
+}
+
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    head: { height: 40, backgroundColor: '#808B97' },
-    text: { margin: 6 },
+    head: { height: 30, backgroundColor: '#808B97' },
+    text: { margin: 2 },
     row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
     btn: { width: 58, height: 18, backgroundColor: '#78B7BB', borderRadius: 2 },
     btnText: { textAlign: 'center', color: '#fff' }
 });
 
-export default StockVotes;
+export default connect(mapStateToProps, {
+    androidStyleLoad,
+    iosStyleLoad,
+})(StockVotes);

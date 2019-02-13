@@ -22,7 +22,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
 import firebase from 'react-native-firebase';
-import validate from 'validate.js' 
+import validate from 'validate.js'
 import {
     setSignupPhoneNumber,
 } from '../../redux/actions/actions_signup';
@@ -69,8 +69,9 @@ class SignupStep1 extends React.Component {
             user: null,
             message: '',
             codeInput: '',
-            phoneNumber: '+1',
+            phoneNumber: '',
             confirmResult: null,
+            phoneNumberValid: true,
         }
     }
 
@@ -91,7 +92,7 @@ class SignupStep1 extends React.Component {
                     user: null,
                     message: '',
                     codeInput: '',
-                    phoneNumber: '+1',
+                    phoneNumber: '',
                     confirmResult: null,
                     phoneNumberError: "",
                 });
@@ -117,16 +118,16 @@ class SignupStep1 extends React.Component {
     signIn = () => {
         const { phoneNumber } = this.state;
         this.setState({ message: 'Sending code ...' });
-        this.props.setSignupPhoneNumber(phoneNumber)
+        this.props.setSignupPhoneNumber("+1"+phoneNumber)
         if (Platform.OS === 'ios') {
-            firebase.auth().signInWithPhoneNumber(phoneNumber)
+            firebase.auth().signInWithPhoneNumber("+1"+phoneNumber)
                 .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
-                .catch(error => console.log(error));
+                .catch(error => this.setState({message: "Phone Number format is incorrect or not a valid phone number."}));
         }
         if (Platform.OS === 'android') {
-            firebase.auth().signInWithPhoneNumber(phoneNumber)
+            firebase.auth().signInWithPhoneNumber("+1"+phoneNumber)
                 .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
-                .catch(error => this.setState({ message: `Sign In With Phone Number Error: ${error.message}` }));
+                .catch(error => this.setState({ message: "Phone Number format is incorrect or not a valid phone number." }));
         }
 
     };
@@ -149,39 +150,54 @@ class SignupStep1 extends React.Component {
     }
 
     onChangePhoneNumber(phonenumber) {
-        this.props.setSignupPhoneNumber(phonenumber)
-        let phoneNumberError = validator('phone', phonenumber)
-        // console.log(this.props.signup)
+        this.props.setSignupPhoneNumber("+1"+phonenumber)
         this.setState({
-            phoneNumberError: phoneNumberError,
             phoneNumber: phonenumber
+        }, () => {
+            let phoneNumberError = validator('phone', "+1"+phonenumber)
+            if (phoneNumberError === undefined || phoneNumberError === null) {
+                this.setState({
+                    phoneNumberError: "",
+                    phoneNumberValid: false,
+                })
+            } else {
+                this.setState({
+                    phoneNumberError: phoneNumberError,
+                    phoneNumberValid: true
+                })
+                console.log(phoneNumberError)
+            }
         })
     }
 
     renderPhoneNumberInput() {
-        const { phoneNumber,loading } = this.state;
+        const { phoneNumber, loading } = this.state;
 
         return (
             <View >
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Phone Number</Text>
                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.renderMessage()}</Text>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <View style={{ padding: 25 }}>
+                    <View style={{ flex:1,flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ width:"100%", flex:1 ,flexDirection:"row", alignItems:"center"}}>
+                            <Text style={{ textAlign:"center",color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>+1</Text>
                             <TextInput
                                 autoFocus
+                                maxLength={10}
                                 onChangeText={(phonenumber) => this.onChangePhoneNumber(phonenumber)}
-                                placeholder={'+18003334444'}
+                                placeholder={'8003334444'}
                                 placeholderTextColor="grey"
                                 value={this.state.phoneNumber}
-                                keyboardType='number-pad' style={{ height: 50, marginLeft: 10, marginRight: 10, marginTop: 15, marginBottom: 15, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
+                                keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
                             />
+                        </View>
+                        <View style={{ width:"100%"}}>
                             <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.state.phoneNumberError}</Text>
                         </View>
                     </View>
                 </View>
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Button onPress={() => this.signIn()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
+                    <Button disabledStyle={{ backgroundColor: "rgba(48, 45, 45,0.9)" }} disabled={this.state.phoneNumberValid} onPress={() => this.signIn()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                 </View>
             </View>
 
@@ -230,7 +246,7 @@ class SignupStep1 extends React.Component {
     }
 
     renderIos() {
-        const { user, confirmResult,loading } = this.state;
+        const { user, confirmResult, loading } = this.state;
         return (
             !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <HeaderBase />
@@ -243,7 +259,7 @@ class SignupStep1 extends React.Component {
     }
 
     renderAndroid() {
-        const { user, confirmResult,loading } = this.state;
+        const { user, confirmResult, loading } = this.state;
         return (
             !loading && <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <HeaderBase />

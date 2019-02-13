@@ -14,7 +14,7 @@ import {
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
 import {
-    setSignupPhoneNumber,
+    setSignupEmailAddress,
 } from '../../redux/actions/actions_signup';
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
@@ -133,15 +133,16 @@ class SignupStep2 extends React.Component {
     updateAccountInformation() {
         var user = firebase.auth().currentUser;
         user.updateEmail(
-           "cchong.vise@gmail.com"
-        ).then( () => {
+            this.state.emailaddress
+        ).then(() => {
             // Update successful.
             console.log("Update Account Info Successful")
+            this.props.setSignupEmailAddress(this.state.emailaddress)
             Actions.signupstep3()
 
         }).catch((error) => {
             // An error happened.
-            console.log("Update Account Info FAILED!",error)
+            console.log("Update Account Info FAILED!", error)
         });
         // Actions.signupstep4()
     }
@@ -270,5 +271,5 @@ function mapStateToProps({ style, signup }) {
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
-    setSignupPhoneNumber,
+    setSignupEmailAddress,
 })(SignupStep2);

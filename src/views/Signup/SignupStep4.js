@@ -22,6 +22,7 @@ import HeaderBase from '../../components/Header/HeaderBase';
 import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
 import { systemWeights} from 'react-native-typography'
 import { Actions } from 'react-native-router-flux';
+import * as firestore_users from '../../firestore/firestore_users';
 
 class SignupStep4 extends React.Component {
     constructor() {
@@ -46,9 +47,14 @@ class SignupStep4 extends React.Component {
     }
 
     hasSet = async() => {
+        const { signup } = this.props
+
         const res = await hasUserSetPinCode()
         console.log(res)
         if (res == true){
+            // Create User document in Firestore Database
+            firestore_users.createNewUser(signup[0].email, signup[0].phone)
+            // Push user to Base App View
             Actions.basemain()
         }
       }

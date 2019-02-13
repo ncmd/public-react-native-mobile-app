@@ -10,7 +10,7 @@ import {
     FlatList,
     ScrollView,
 } from 'react-native';
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/HeaderStockView'
 
 class StockOrder extends React.Component {
     constructor() {

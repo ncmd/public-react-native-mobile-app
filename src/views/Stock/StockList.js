@@ -10,7 +10,7 @@ import {
     ScrollView,
     Dimensions,
 } from 'react-native';
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/HeaderStockView'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 import { Circle, G, Line, Rect, Text as SVGText } from 'react-native-svg'

@@ -9,6 +9,7 @@ import {
 import { systemWeights } from 'react-native-typography'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MIcon from 'react-native-vector-icons/MaterialIcons';
 
 class Header extends React.Component {
 
@@ -29,11 +30,11 @@ class Header extends React.Component {
     renderWatch(){
         if (this.state.watch === true){
             return(
-                <MCIicon name="eye" style={{ fontSize: 35, color: '#21ce99', marginRight: 25 }} onPress={() => this.clickWatch()}></MCIicon>
+                <MIcon name="check-circle" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>
             )
         }else {
             return(
-                <SLIicon name="eye" style={{ fontSize: 35, color: 'white', marginRight: 25}} onPress={() => this.clickWatch()}></SLIicon>
+                <MIcon name="add-circle-outline" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>
             )
         }
     }
