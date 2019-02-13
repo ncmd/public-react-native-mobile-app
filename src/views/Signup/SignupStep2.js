@@ -20,6 +20,9 @@ import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
 import validate from 'validate.js'
 import firebase from 'react-native-firebase';
+import {
+    accountLogout
+} from '../../redux/actions/actions_account';
 
 const constraints = {
     email: {
@@ -115,21 +118,6 @@ class SignupStep2 extends React.Component {
         }
     }
 
-    // signupNewAccount() {
-    //     firebase.auth().createUserWithEmailAndPassword(this.state.emailaddress, this.state.password).catch((error) => {
-    //         // Handle Errors here.
-    //         var errorCode = error.code;
-    //         var errorMessage = error.message;
-    //         this.setState({
-    //             AccountError: errorMessage
-    //         })
-    //     }, () => {
-    //         signOut = () => {
-    //             firebase.auth.signOut();
-    //         }
-    //     });
-    // }
-
     updateAccountInformation() {
         var user = firebase.auth().currentUser;
         user.updateEmail(
@@ -142,64 +130,11 @@ class SignupStep2 extends React.Component {
 
         }).catch((error) => {
             // An error happened.
-            console.log("Update Account Info FAILED!", error)
+            this.setState({
+                AccountError: error.message
+            })
+            console.log("Update Account Info FAILED!", error.message)
         });
-        // Actions.signupstep4()
-    }
-
-    onChangePassword(password) {
-        console.log(this.props.signup)
-        this.setState({
-            password: password
-        }, () => {
-            let passwordError = validator('password', password)
-            console.log(passwordError)
-            if (passwordError === undefined || passwordError === null) {
-                this.setState({
-                    passwordError: "",
-                    passwordValid: false,
-                })
-            } else {
-                this.setState({
-                    passwordError: passwordError,
-                    passwordValid: true
-                })
-                console.log(passwordError)
-            }
-        })
-
-    }
-
-    signOut = () => {
-        firebase.auth().signOut();
-    }
-
-    setUserPassword(password) {
-        console.log("this.props.signup:", this.props.signup)
-        let passwordError = validator('password', password)
-        if (passwordError === "" || passwordError === null) {
-
-
-            var user = firebase.auth().currentUser;
-            user.updatePassword(password).then(() => {
-                Actions.signupstep3()
-                // Update successful.
-                console.log("Password Changed!")
-
-                var credential = firebase.auth.EmailAuthProvider.credential(this.props.signup[0].email, this.props.signup[0].password);
-                firebase.auth.currentUser.linkAndRetrieveDataWithCredential(credential).then(function (usercred) {
-                    var user = usercred.user;
-                    console.log("Account linking success", user);
-                }, function (error) {
-                    console.log("Account linking error", error);
-                });
-            }).catch((error) => {
-                this.setState({
-                    passwordError: error.message
-                })
-                // An error happened.
-            });
-        }
     }
 
     renderIos() {
@@ -261,10 +196,11 @@ class SignupStep2 extends React.Component {
     }
 }
 
-function mapStateToProps({ style, signup }) {
+function mapStateToProps({ style, signup,account }) {
     return {
         style,
         signup,
+        account,
     };
 }
 

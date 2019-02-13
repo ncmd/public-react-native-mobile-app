@@ -23,6 +23,9 @@ import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
 import { systemWeights} from 'react-native-typography'
 import { Actions } from 'react-native-router-flux';
 import * as firestore_users from '../../firestore/firestore_users';
+import {
+    accountLogout
+} from '../../redux/actions/actions_account';
 
 class SignupStep4 extends React.Component {
     constructor() {
@@ -55,7 +58,8 @@ class SignupStep4 extends React.Component {
             // Create User document in Firestore Database
             firestore_users.createNewUser(signup[0].email, signup[0].phone)
             // Push user to Base App View
-            Actions.basemain()
+            this.props.accountLogout()
+            Actions.landingmain()
         }
       }
 
@@ -80,14 +84,16 @@ class SignupStep4 extends React.Component {
     }
 }
 
-function mapStateToProps({ style,signup }) {
+function mapStateToProps({ style,signup,account }) {
     return {
         style,
         signup,
+        account,
     };
 }
 
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
+    accountLogout,
 })(SignupStep4);

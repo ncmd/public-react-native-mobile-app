@@ -20,6 +20,9 @@ import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
 import validate from 'validate.js'
 import firebase from 'react-native-firebase';
+import {
+    accountLogout
+} from '../../redux/actions/actions_account';
 
 const constraints = {
     email: {
@@ -215,10 +218,11 @@ class SignupStep3 extends React.Component {
     }
 }
 
-function mapStateToProps({ style, signup }) {
+function mapStateToProps({ style, signup,account }) {
     return {
         style,
         signup,
+        account,
     };
 }
 

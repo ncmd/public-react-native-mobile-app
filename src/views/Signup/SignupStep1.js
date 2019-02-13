@@ -26,6 +26,9 @@ import validate from 'validate.js'
 import {
     setSignupPhoneNumber,
 } from '../../redux/actions/actions_signup';
+import {
+    accountLogout
+} from '../../redux/actions/actions_account';
 
 const constraints = {
     phone: {
@@ -118,14 +121,14 @@ class SignupStep1 extends React.Component {
     signIn = () => {
         const { phoneNumber } = this.state;
         this.setState({ message: 'Sending code ...' });
-        this.props.setSignupPhoneNumber("+1"+phoneNumber)
+        this.props.setSignupPhoneNumber("+1" + phoneNumber)
         if (Platform.OS === 'ios') {
-            firebase.auth().signInWithPhoneNumber("+1"+phoneNumber)
+            firebase.auth().signInWithPhoneNumber("+1" + phoneNumber)
                 .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
-                .catch(error => this.setState({message: "Phone Number format is incorrect or not a valid phone number."}));
+                .catch(error => this.setState({ message: "Phone Number format is incorrect or not a valid phone number." }));
         }
         if (Platform.OS === 'android') {
-            firebase.auth().signInWithPhoneNumber("+1"+phoneNumber)
+            firebase.auth().signInWithPhoneNumber("+1" + phoneNumber)
                 .then(confirmResult => this.setState({ confirmResult, message: 'Code has been sent!' }))
                 .catch(error => this.setState({ message: "Phone Number format is incorrect or not a valid phone number." }));
         }
@@ -150,11 +153,11 @@ class SignupStep1 extends React.Component {
     }
 
     onChangePhoneNumber(phonenumber) {
-        this.props.setSignupPhoneNumber("+1"+phonenumber)
+        this.props.setSignupPhoneNumber("+1" + phonenumber)
         this.setState({
             phoneNumber: phonenumber
         }, () => {
-            let phoneNumberError = validator('phone', "+1"+phonenumber)
+            let phoneNumberError = validator('phone', "+1" + phonenumber)
             if (phoneNumberError === undefined || phoneNumberError === null) {
                 this.setState({
                     phoneNumberError: "",
@@ -178,9 +181,9 @@ class SignupStep1 extends React.Component {
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '70%', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Enter Phone Number</Text>
                     <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.renderMessage()}</Text>
-                    <View style={{ flex:1,flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={{ width:"100%", flex:1 ,flexDirection:"row", alignItems:"center"}}>
-                            <Text style={{ textAlign:"center",color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>+1</Text>
+                    <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ width: "100%", flex: 1, flexDirection: "row", alignItems: "center" }}>
+                            <Text style={{ textAlign: "center", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>+1</Text>
                             <TextInput
                                 autoFocus
                                 maxLength={10}
@@ -191,7 +194,7 @@ class SignupStep1 extends React.Component {
                                 keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
                             />
                         </View>
-                        <View style={{ width:"100%"}}>
+                        <View style={{ width: "100%" }}>
                             <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>{this.state.phoneNumberError}</Text>
                         </View>
                     </View>
@@ -280,9 +283,9 @@ class SignupStep1 extends React.Component {
     }
 }
 
-function mapStateToProps({ style, signup }) {
+function mapStateToProps({ style, signup, account }) {
     return {
-        style, signup
+        style, signup, account
     };
 }
 
