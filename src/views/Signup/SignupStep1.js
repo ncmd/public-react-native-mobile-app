@@ -86,25 +86,25 @@ class SignupStep1 extends React.Component {
             this.props.androidStyleLoad()
         }
 
-        this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ user: user.toJSON() });
-            } else {
-                // User has been signed out, reset the state
-                this.setState({
-                    user: null,
-                    message: '',
-                    codeInput: '',
-                    phoneNumber: '',
-                    confirmResult: null,
-                    phoneNumberError: "",
-                });
-            }
-        });
+        // this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+        //     if (user) {
+        //         this.setState({ user: user.toJSON() });
+        //     } else {
+        //         // User has been signed out, reset the state
+        //         this.setState({
+        //             user: null,
+        //             message: '',
+        //             codeInput: '',
+        //             phoneNumber: '',
+        //             confirmResult: null,
+        //             phoneNumberError: "",
+        //         });
+        //     }
+        // });
     }
 
     componentWillUnmount() {
-        if (this.unsubscribe) this.unsubscribe();
+        // if (this.unsubscribe) this.unsubscribe();
     }
 
 
