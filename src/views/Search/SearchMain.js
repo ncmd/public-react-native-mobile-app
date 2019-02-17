@@ -186,8 +186,10 @@ class SearchMain extends React.Component {
 
     renderStockView() {
         const { search } = this.state;
+        const { loading} = this.props;
+
         return (
-            <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled >
+            !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled >
                 <HeaderBase />
                 <SearchBar
                     placeholder="Search..."
