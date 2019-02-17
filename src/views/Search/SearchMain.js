@@ -164,8 +164,9 @@ class SearchMain extends React.Component {
     // onPress={() => Actions.stockview()}
     // checkBox={{checked: this.state.list[index].favorite, checkedIcon:<MIcon name="check-circle" style={{ fontSize: 20, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>, uncheckedIcon:<SLIicon name="plus" style={{ fontSize: 20, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></SLIicon>}}
 
-    actionStockView(stockid){
-        this.props.getStock(stockid)
+
+    actionStockView = async (stockid) => {
+        await this.props.getStock(stockid)
         console.log("SearchMain this.props.stock:",this.props.stock)
         Actions.stockview() 
     }
