@@ -43,6 +43,7 @@ class SignupStep4 extends React.Component {
 
     componentDidMount() {
         // this.props.accountLogout()
+        console.log("Step 4 componentDidMount")
 
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
@@ -58,22 +59,22 @@ class SignupStep4 extends React.Component {
 
     hasSet = async () => {
         firebase.auth().signOut().then(function () {
-            
+
         }).catch(function (error) {
             // An error happened.
         });
-        const { signup } = this.props
 
         const res = await hasUserSetPinCode()
-        console.log(res)
+        console.log("hasSet res:", res)
         if (res == true) {
-            // Create User document in Firestore Database
-            await this.props.createNewUser(signup[0].email, signup[0].phone)
+            // Create User document in Firestore Database 
             this.props.accountLogout()
         }
     }
 
     promptUserAccountCreated() {
+        const { signup } = this.props
+        this.props.createNewUser(signup[0].email, signup[0].phone)
         Alert.alert(
             "Welcome to Loyal!",
             'You can now login to you\'re account!',

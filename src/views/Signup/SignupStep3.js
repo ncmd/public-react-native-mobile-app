@@ -148,8 +148,6 @@ class SignupStep3 extends React.Component {
         if (passwordError === "" || passwordError === null) {
             var user = firebase.auth().currentUser;
             user.updatePassword(password).then(() => {
-                
-                
                 Actions.signupstep4()
                 // this.props.accountLogout()
                 // Update successful.
