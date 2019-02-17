@@ -23,7 +23,17 @@ import MIcon from 'react-native-vector-icons/MaterialIcons';
 import NavigationBase from '../../components/Navigation/NavigationBase'
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MIicon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import {
+    androidStyleLoad,
+    iosStyleLoad,
+} from '../../redux/actions/actions_styles';
+import {
+    getStocksAll,
+} from '../../redux/actions/actions_stocks';
+import {
+    getStock,
+} from '../../redux/actions/actions_stock';
+import { connect } from 'react-redux';
 
 class SearchMain extends React.Component {
     constructor() {
@@ -115,8 +125,9 @@ class SearchMain extends React.Component {
         }
     }
 
-    componentDidMount() {
-
+    async componentDidMount() {
+        await this.props.getStocksAll()
+        await console.log(this.props.stocks)  
     }
 
     updateSearch = search => {
@@ -148,18 +159,25 @@ class SearchMain extends React.Component {
 
         }
     }
-
-
-    keyExtractor = (item, index) => index
+    // Used for Flatlist - https://facebook.github.io/react-native/docs/flatlist
+    keyExtractor = (item, index) => item.id
     // onPress={() => Actions.stockview()}
     // checkBox={{checked: this.state.list[index].favorite, checkedIcon:<MIcon name="check-circle" style={{ fontSize: 20, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>, uncheckedIcon:<SLIicon name="plus" style={{ fontSize: 20, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></SLIicon>}}
+
+    actionStockView(stockid){
+        this.props.getStock(stockid)
+        console.log("SearchMain this.props.stock:",this.props.stock)
+        Actions.stockview() 
+    }
+
     renderItem = ({ item, index }) => (
         <ListItem
-            key={item.name}
-            title={item.name}
+            onPress={() => this.actionStockView(item.id)}
+            key={item.id}
+            title={item.ticker}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
-            subtitle={item.subtitle}
+            subtitle={item.fullName}
             subtitleStyle={{ paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}
             rightElement={this.renderWatch(index)}
             bottomDivider={true}
@@ -178,14 +196,14 @@ class SearchMain extends React.Component {
                     containerStyle={{ backgroundColor: "#0e0d0d" }}
                 />
                 <FlatList
-                    data={this.state.list}
-                    extraData={this.state}
+                    data={this.props.stocks}
+                    extraData={this.props.stocks}
+                    keyExtractor={this.keyExtractor}
                     renderItem={this.renderItem}
                 />
             </KeyboardAvoidingView >
         )
     }
-
     render() {
         return (
             this.renderStockView()
@@ -193,4 +211,17 @@ class SearchMain extends React.Component {
     }
 }
 
-export default SearchMain;
+function mapStateToProps({ style, account, stocks,stock }) {
+    return {
+        style,
+        account,
+        stocks,stock
+    };
+}
+
+export default connect(mapStateToProps, {
+    androidStyleLoad,
+    iosStyleLoad,
+    getStocksAll,
+    getStock,
+})(SearchMain);

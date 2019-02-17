@@ -10,6 +10,7 @@ import {
     FlatList,
     ScrollView,
     StatusBar,
+    Alert,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { sanFranciscoWeights } from 'react-native-typography'
@@ -18,11 +19,15 @@ import {
     androidStyleLoad,
     iosStyleLoad,
 } from '../../redux/actions/actions_styles';
+
+import {
+    createNewUser,
+} from '../../redux/actions/actions_users';
 import HeaderBase from '../../components/Header/HeaderBase';
 import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
-import { systemWeights} from 'react-native-typography'
+import { systemWeights } from 'react-native-typography'
 import { Actions } from 'react-native-router-flux';
-import * as firestore_users from '../../firestore/firestore_users';
+import firebase from 'react-native-firebase';
 import {
     accountLogout
 } from '../../redux/actions/actions_account';
@@ -32,11 +37,13 @@ class SignupStep4 extends React.Component {
         super()
         this.state = {
             selectedIndex: 0,
-            pincode:"",
+            pincode: "",
         }
     }
 
     componentDidMount() {
+        // this.props.accountLogout()
+
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
@@ -45,29 +52,43 @@ class SignupStep4 extends React.Component {
         }
     }
 
-    storePincode(pincode){
-        this.setState({pincode:pincode})
+    storePincode(pincode) {
+        this.setState({ pincode: pincode })
     }
 
-    hasSet = async() => {
+    hasSet = async () => {
+        firebase.auth().signOut().then(function () {
+            
+        }).catch(function (error) {
+            // An error happened.
+        });
         const { signup } = this.props
 
         const res = await hasUserSetPinCode()
         console.log(res)
-        if (res == true){
+        if (res == true) {
             // Create User document in Firestore Database
-            firestore_users.createNewUser(signup[0].email, signup[0].phone)
-            // Push user to Base App View
+            await this.props.createNewUser(signup[0].email, signup[0].phone)
             this.props.accountLogout()
-            Actions.landingmain()
         }
-      }
+    }
+
+    promptUserAccountCreated() {
+        Alert.alert(
+            "Welcome to Loyal!",
+            'You can now login to you\'re account!',
+            [
+                { text: 'Login', onPress: () => Actions.reset('landingmain') },
+            ],
+            { cancelable: false }
+        )
+    }
 
     render() {
         return (
             <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '100%' }}>
                 <PINCode status={'choose'}
-                    finishProcess={() => this.hasSet()}
+                    finishProcess={() => this.promptUserAccountCreated()}
                     stylePinCodeColorTitle="white"
                     subtitleChoose={' '}
                     stylePinCodeDeleteButtonColorShowUnderlay="white"
@@ -84,7 +105,7 @@ class SignupStep4 extends React.Component {
     }
 }
 
-function mapStateToProps({ style,signup,account }) {
+function mapStateToProps({ style, signup, account }) {
     return {
         style,
         signup,
@@ -96,4 +117,5 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     accountLogout,
+    createNewUser,
 })(SignupStep4);

@@ -230,13 +230,13 @@ class PortfolioPerformance extends React.Component {
                     <View>
                         <View>
                             <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                <NumberFormat
+                                CCDCDAQ <NumberFormat
                                     style={{ color: 'red' }}
                                     value={this.state.investmentTotal}
                                     displayType={'text'}
                                     thousandSeparator={true}
                                     prefix={''}
-                                    renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>${value}</Text>}
+                                    renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>${this.state.investmentTotal+this.state.stockData[this.state.stockData.length - 1]}</Text>}
                                 />
                             </Text>
                             {this.renderStockPriceDifference()}

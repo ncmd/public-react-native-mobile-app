@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import stylesReducer from './stylesReducer';
 import bottomNavigationReducer from './bottomNavigationReducer';
-import stockslistReducer from './stockslistReducer';
+import stocksReducer from './stocksReducer';
+import stockReducer from './stockReducer';
+import stockOrderReducer from './stockOrderReducer';
 import signupReducer from './signupReducer';
 import accountReducer from './accountReducer';
 import pinReducer from './pinReducer';
@@ -22,7 +24,9 @@ const rootReducer = combineReducers({
   account: accountReducer,
   style: stylesReducer,
   bottomnavigation: bottomNavigationReducer,
-  stockslist: stockslistReducer,
+  stocks: stocksReducer,
+  stock: stockReducer,
+  stockOrder: stockOrderReducer,
   signup: signupReducer,
 })
 

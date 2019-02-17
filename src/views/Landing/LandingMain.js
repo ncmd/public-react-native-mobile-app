@@ -48,20 +48,20 @@ class LandingMain extends React.Component {
     }
 
     componentDidMount(){
-        this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
-            console.log("componentDidMount user:", user)
-            if (user !== null) {
-                this.props.accountLogin()
-                console.log("LandingMain this.props.account this.props.account[0].loggedIn:", this.props.account.loggedIn)
-                // this.setState({ isUserLogin:true });
+        // this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+        //     console.log("componentDidMount user:", user)
+        //     if (user !== null) {
+        //         // this.props.accountLogin()
+        //         console.log("LandingMain this.props.account this.props.account[0].loggedIn:", this.props.account.loggedIn)
+        //         // this.setState({ isUserLogin:true });
                 
                 
-            } else {
-                // this.setState({ isUserLogin:false });
-                // this.props.accountLogout()
-                console.log("Router this.props.account this.props.account[0].loggedIn:",  this.props.account.loggedIn)
-            }
-        });
+        //     } else {
+        //         // this.setState({ isUserLogin:false });
+        //         // this.props.accountLogout()
+        //         console.log("Router this.props.account this.props.account[0].loggedIn:",  this.props.account.loggedIn)
+        //     }
+        // });
     }
 
     render() {

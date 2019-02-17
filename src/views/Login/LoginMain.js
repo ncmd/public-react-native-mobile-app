@@ -124,22 +124,17 @@ class LoginMain extends React.Component {
     }
 
     signInUser(emailaddress, password) {
+        console.log()
         firebase.auth().signInWithEmailAndPassword(emailaddress, password).catch((error) => {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             this.setState({ loginError: "Email address or password is not valid.", forgotpassword: false })
             // ...
-        }).then(
-            this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
-                this.setState({ user });
-            }, () => {
-                if (this.state.user !== null) {
-                    this.props.accountLogin()
-                    this.props.setBottomNavigation("portfolio")
-                    Actions.basemain()
-                }
-            })
+        }).then(() => {
+            console.log("signInUser button")
+            this.props.accountLogin()
+        }
         );
     }
 
@@ -209,11 +204,11 @@ class LoginMain extends React.Component {
                         <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Log in to Loyal</Text>
                         <Text style={{ marginTop: 15, padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>A <Text style={{ fontStyle: 'italic', color: this.props.style[0].TextFontColorPrimary }}>distruptive</Text> trading app.</Text>
                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                            <TextInput spellCheck={false} autoFocus onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
-                            <Text  style={{ color: 'white' }}> {this.state.emailError ? this.state.emailError : null}</Text>
+                            <TextInput spellCheck={false} autoFocus onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete={false} autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "left", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <Text style={{ color: 'white' }}> {this.state.emailError ? this.state.emailError : null}</Text>
                         </View>
                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                            <TextInput onChangeText={(password) => this.setState({ password })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ paddingLeft: 10, paddingRight: 10, textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <TextInput onChangeText={(password) => this.setState({ password })} autoComplete={false} autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ paddingLeft: 10, paddingRight: 10, textAlign: "left", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
                         </View>
                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
                             <Text style={{ color: 'white' }}>{this.state.loginError ? this.state.loginError : null}{this.state.resetError ? this.state.resetError : null}</Text>
@@ -237,10 +232,10 @@ class LoginMain extends React.Component {
                     <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Log in to Loyal</Text>
                     <Text style={{ marginTop: 15, padding: 10, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>A <Text style={{ fontStyle: 'italic', color: this.props.style[0].TextFontColorPrimary }}>distruptive</Text> trading app.</Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <TextInput spellCheck={false} autoFocus onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                        <TextInput spellCheck={false} autoFocus onChangeText={(emailaddress) => this.setState({ emailaddress })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Email address" placeholderTextColor="grey" keyboardType='email-address' style={{ textAlign: "left", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                        <TextInput onChangeText={(password) => this.setState({ password })} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                    <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
+                        <TextInput onChangeText={(password) => this.setState({ password })} autoComplete={false} autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ textAlign: "left", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
                     </View>
                     <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
                         <Text style={{ color: 'white' }}>{this.state.loginError ? this.state.loginError : null}{this.state.resetError ? this.state.resetError : null}</Text>

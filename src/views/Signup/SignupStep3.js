@@ -148,7 +148,10 @@ class SignupStep3 extends React.Component {
         if (passwordError === "" || passwordError === null) {
             var user = firebase.auth().currentUser;
             user.updatePassword(password).then(() => {
+                
+                
                 Actions.signupstep4()
+                // this.props.accountLogout()
                 // Update successful.
                 console.log("Password Changed!")
             }).catch((error) => {
@@ -169,7 +172,7 @@ class SignupStep3 extends React.Component {
                         <Text style={{ color: 'white', fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Set Password</Text>
                         <Text style={{ padding: 20, color: 'white', fontSize: 14, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>You can change this password in Account settings.</Text>
                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
-                            <TextInput autoFocus spellCheck={false} onChangeText={(password) => this.onChangePassword(password)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey"secureTextEntry={true} keyboardType='default' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
+                            <TextInput autoFocus spellCheck={false} onChangeText={(password) => this.onChangePassword(password)} autoComplete="none" autoCapitalize="none" multiline={false} placeholder="Password" placeholderTextColor="grey" secureTextEntry={true} keyboardType='default' style={{ textAlign: "center", color: "#21ce99", width: "100%", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}></TextInput>
                             <Text style={{ color: 'white' }}>{this.state.passwordError}</Text>
                         </View>
                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 50 }}>
@@ -230,4 +233,5 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     setSignupPhoneNumber,
+    accountLogout,
 })(SignupStep3);

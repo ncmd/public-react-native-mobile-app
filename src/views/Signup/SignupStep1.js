@@ -191,7 +191,7 @@ class SignupStep1 extends React.Component {
                                 placeholder={'8003334444'}
                                 placeholderTextColor="grey"
                                 value={this.state.phoneNumber}
-                                keyboardType='number-pad' style={{ textAlign: "center", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
+                                keyboardType='number-pad' style={{ textAlign: "left", color: "#21ce99", fontSize: 20, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}
                             />
                         </View>
                         <View style={{ width: "100%" }}>

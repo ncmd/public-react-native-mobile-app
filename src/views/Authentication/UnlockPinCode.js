@@ -66,9 +66,11 @@ class UnlockPinCode extends React.Component {
 
     constructor() {
         super()
+        this.unsubscribe = null;
         this.state = {
             pincode: "",
-            hasCode: false
+            hasCode: false,
+            user:null
         };
     }
 
@@ -80,6 +82,14 @@ class UnlockPinCode extends React.Component {
         this.props.setBottomNavigation("portfolio")
         console.log("UnlockPinCode: this.props.account", this.props.account)
         this.hasSet()
+
+        this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+            this.setState({ user });
+        }, () => {
+            if (this.state.user === null) {
+                this.props.accountLogout()
+            }
+        })
         
     }
 
@@ -124,6 +134,8 @@ class UnlockPinCode extends React.Component {
         )
     }
 
+
+
     render() {
         // Initializing Props from ./redux/reducers/stylesReducer.js
         const { loading } = this.props;
@@ -142,7 +154,7 @@ class UnlockPinCode extends React.Component {
                             ?
                             <PINCode status={'enter'}
                                 storePin={(code) => this.storePincode(code)}
-                                touchIDDisabled={false}
+                                touchIDDisabled={true}
                                 finishProcess={() => Actions.basemain()}
                                 stylePinCodeColorTitle="white"
                                 subtitleChoose={' '}

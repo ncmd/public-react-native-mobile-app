@@ -7,9 +7,7 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './redux/reducers';
 import Router from './Router'
-import epicMiddleware from '../src/rxjs/epics/rootEpic';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-
+import epicMiddleware from './rxjs/epics/rootEpic';
 
 const persistConfig = {
     key: 'root',

@@ -76,21 +76,32 @@ class AccountMain extends React.Component {
             ]
         }
     }
-
+    
     logout = async () => {
-        this.props.accountLogout()
-        console.log("Logout")
-        firebase.auth().signOut().then(function () {
-            
-        }).catch(function (error) {
-            // An error happened.
-        });
-        
-        await deleteUserPinCode()
-        Actions.reset('landingmain')
-        // console.log("AccountMain this.props.account:", this.props.account)
-        // Sign-out successful.
+        try {
+            await firebase.auth().signOut();
+            await deleteUserPinCode()
+            this.props.accountLogout()
+            Actions.reset('landingmain')
+        } catch (e) {
+            console.log(e);
+        }
     }
+
+    // logout = async () => {
+    //     console.log("Logout")
+    //     await firebase.auth().signOut().then(function () {
+    //         this.props.accountLogout()
+            
+    //     }).catch(function (error) {
+    //         // An error happened.
+    //     });
+        
+    //     await deleteUserPinCode()
+    //     Actions.reset('landingmain')
+    //     // console.log("AccountMain this.props.account:", this.props.account)
+    //     // Sign-out successful.
+    // }
 
     componentDidMount() {
 
@@ -135,8 +146,8 @@ class AccountMain extends React.Component {
 
     logoutConfirmation() {
         Alert.alert(
-            "Confirm Logout",
-            'This will remove your PIN code.',
+            "Confirm log out",
+            'This will also remove your PIN code.',
             [
                 { text: 'Yes', onPress: () => this.logout() },
                 {
