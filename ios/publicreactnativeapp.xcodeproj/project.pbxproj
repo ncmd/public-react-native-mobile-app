@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -53,6 +52,8 @@
 		9BA5397274F941F8A6EF6F65 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8859CABB766B45F1AE41464B /* libRNFirebase.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B09271CCEDC9470E88D917B0 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F35BA9C4F4144DDAE2AA63E /* MaterialCommunityIcons.ttf */; };
+		B7320F57221BDC7E0046904D /* publicreactnativeappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7320F56221BDC7E0046904D /* publicreactnativeappUITests.swift */; };
+		B7320F8C221BDD480046904D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7320F8B221BDD480046904D /* SnapshotHelper.swift */; };
 		C069B58743EC416E8D8703F7 /* libTouchID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DA4E48A672487EA2A51DAC /* libTouchID.a */; };
 		CC25DEEE22054B94AD16C0E5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E9DBFCD2F71465BABCD19E2 /* FontAwesome.ttf */; };
 		CE8A85A3220A673A004A0EB8 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8A859B220A673A004A0EB8 /* FirebaseCore.framework */; };
@@ -328,6 +329,41 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		B7320F59221BDC7E0046904D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = publicreactnativeapp;
+		};
+		B7CE3BC4221BE6B600D9E6DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		B7D5E84B221BE7840006D37F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		B7D5E879221BE78B0006D37F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		B7D5E87B221BEA3B0006D37F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
+			remoteInfo = React;
+		};
 		CE0F98DB2203BFF500B320A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -459,6 +495,10 @@
 		9F1ECB8E5EFC4F1A9F70648C /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; };
 		9F35BA9C4F4144DDAE2AA63E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		B7320F54221BDC7D0046904D /* publicreactnativeappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = publicreactnativeappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7320F56221BDC7E0046904D /* publicreactnativeappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicreactnativeappUITests.swift; sourceTree = "<group>"; };
+		B7320F58221BDC7E0046904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7320F8B221BDD480046904D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		C2FE57E4A9AE4D26B7D11BFC /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		CC7B06E2388348F58EAC9084 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		CE8A859B220A673A004A0EB8 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Firebase/Analytics/FirebaseCore.framework; sourceTree = "<group>"; };
@@ -564,6 +604,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7320F51221BDC7D0046904D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +841,7 @@
 				13B07FAE1A68108700A75B9A /* publicreactnativeapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* publicreactnativeappTests */,
+				B7320F55221BDC7E0046904D /* publicreactnativeappUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				0D54488FA61E46C08035D253 /* Resources */,
@@ -811,6 +859,7 @@
 				00E356EE1AD99517003FC87E /* publicreactnativeappTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* publicreactnativeapp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* publicreactnativeapp-tvOSTests.xctest */,
+				B7320F54221BDC7D0046904D /* publicreactnativeappUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -822,6 +871,16 @@
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B7320F55221BDC7E0046904D /* publicreactnativeappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7320F8B221BDD480046904D /* SnapshotHelper.swift */,
+				B7320F56221BDC7E0046904D /* publicreactnativeappUITests.swift */,
+				B7320F58221BDC7E0046904D /* Info.plist */,
+			);
+			path = publicreactnativeappUITests;
 			sourceTree = "<group>";
 		};
 		CE0F98B52203BFF400B320A8 /* Recovered References */ = {
@@ -895,6 +954,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B7D5E87C221BEA3B0006D37F /* PBXTargetDependency */,
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
 			name = publicreactnativeappTests;
@@ -914,6 +974,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B7D5E87A221BE78B0006D37F /* PBXTargetDependency */,
 			);
 			name = publicreactnativeapp;
 			productName = "Hello World";
@@ -949,6 +1010,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B7CE3BC5221BE6B600D9E6DA /* PBXTargetDependency */,
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
 			name = "publicreactnativeapp-tvOSTests";
@@ -956,12 +1018,32 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* publicreactnativeapp-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B7320F53221BDC7D0046904D /* publicreactnativeappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7320F8A221BDC7E0046904D /* Build configuration list for PBXNativeTarget "publicreactnativeappUITests" */;
+			buildPhases = (
+				B7320F50221BDC7D0046904D /* Sources */,
+				B7320F51221BDC7D0046904D /* Frameworks */,
+				B7320F52221BDC7D0046904D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7D5E84C221BE7840006D37F /* PBXTargetDependency */,
+				B7320F5A221BDC7E0046904D /* PBXTargetDependency */,
+			);
+			name = publicreactnativeappUITests;
+			productName = publicreactnativeappUITests;
+			productReference = B7320F54221BDC7D0046904D /* publicreactnativeappUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -986,6 +1068,12 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
+					};
+					B7320F53221BDC7D0046904D = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 9S2JY9AX68;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 				};
 			};
@@ -1076,6 +1164,7 @@
 				00E356ED1AD99517003FC87E /* publicreactnativeappTests */,
 				2D02E47A1E0B4A5D006451C7 /* publicreactnativeapp-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* publicreactnativeapp-tvOSTests */,
+				B7320F53221BDC7D0046904D /* publicreactnativeappUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1447,6 +1536,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7320F52221BDC7D0046904D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1515,6 +1611,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7320F50221BDC7D0046904D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7320F57221BDC7E0046904D /* publicreactnativeappUITests.swift in Sources */,
+				B7320F8C221BDD480046904D /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1527,6 +1632,31 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* publicreactnativeapp-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		B7320F5A221BDC7E0046904D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* publicreactnativeapp */;
+			targetProxy = B7320F59221BDC7E0046904D /* PBXContainerItemProxy */;
+		};
+		B7CE3BC5221BE6B600D9E6DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = React;
+			targetProxy = B7CE3BC4221BE6B600D9E6DA /* PBXContainerItemProxy */;
+		};
+		B7D5E84C221BE7840006D37F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = React;
+			targetProxy = B7D5E84B221BE7840006D37F /* PBXContainerItemProxy */;
+		};
+		B7D5E87A221BE78B0006D37F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = React;
+			targetProxy = B7D5E879221BE78B0006D37F /* PBXContainerItemProxy */;
+		};
+		B7D5E87C221BEA3B0006D37F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = React;
+			targetProxy = B7D5E87B221BEA3B0006D37F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1624,7 +1754,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 9S2JY9AX68;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1664,7 +1794,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 9S2JY9AX68;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1970,6 +2100,63 @@
 			};
 			name = Release;
 		};
+		B7320F5B221BDC7E0046904D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9S2JY9AX68;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = publicreactnativeappUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncmd.publicreactnativeapp.publicreactnativeappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = publicreactnativeapp;
+			};
+			name = Debug;
+		};
+		B7320F5C221BDC7E0046904D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9S2JY9AX68;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = publicreactnativeappUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncmd.publicreactnativeapp.publicreactnativeappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = publicreactnativeapp;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2014,6 +2201,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7320F8A221BDC7E0046904D /* Build configuration list for PBXNativeTarget "publicreactnativeappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7320F5B221BDC7E0046904D /* Debug */,
+				B7320F5C221BDC7E0046904D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

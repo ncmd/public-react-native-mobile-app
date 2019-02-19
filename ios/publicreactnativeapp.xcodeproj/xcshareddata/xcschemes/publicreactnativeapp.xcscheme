@@ -48,6 +48,20 @@
                ReferencedContainer = "container:publicreactnativeapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B7320F53221BDC7D0046904D"
+               BuildableName = "publicreactnativeappUITests.xctest"
+               BlueprintName = "publicreactnativeappUITests"
+               ReferencedContainer = "container:publicreactnativeapp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -63,6 +77,16 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "publicreactnativeappTests.xctest"
                BlueprintName = "publicreactnativeappTests"
+               ReferencedContainer = "container:publicreactnativeapp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B7320F53221BDC7D0046904D"
+               BuildableName = "publicreactnativeappUITests.xctest"
+               BlueprintName = "publicreactnativeappUITests"
                ReferencedContainer = "container:publicreactnativeapp.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -15,6 +15,16 @@ platform :ios do
       )
   end
 
+  lane :localsnapshot do
+    snapshot(
+      project: 'publicreactnativeapp.xcodeproj',
+      scheme: 'publicreactnativeapp',
+      devices: ['iPhone 6s Plus'],
+      output_simulator_logs: true,
+      clear_previous_screenshots: true
+  )
+  end
+
   lane :localdeploy do
     sync_code_signing(
       type: "appstore",
