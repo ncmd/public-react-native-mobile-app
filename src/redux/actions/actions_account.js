@@ -2,11 +2,29 @@ import {
   ACCOUNT_LOGIN,
   ACCOUNT_LOGOUT,
   SET_ACCOUNT_INFORMATION,
+  LOAD_ACCOUNT_INFORMATION,
 } from '../types/types_account';
+import firebase from 'react-native-firebase';
+
+export const loadAccountInformation = (accountid) => async dispatch => {
+  console.log("loadAccountInformation----")
+  let data = []
+  let ref = firebase.firestore().collection('accounts').doc(accountid);
+  await ref.get().then(function (doc) {
+    // dispatch({ 
+    //   type: LOAD_ACCOUNT_INFORMATION, 
+    //   emailAddress: doc.data().emailAddress, 
+    //   phoneNumber: doc.data().phoneNumber, 
+    //   firebaseUid: doc.data().firebaseUid, 
+    //   orders: doc.data().orders, 
+    //   });
+  });
+
+}
 
 export const setAccountInformation = (thisdata) => dispatch => {
   let data = thisdata
-  dispatch({ type: SET_ACCOUNT_INFORMATION, payload: data});
+  dispatch({ type: SET_ACCOUNT_INFORMATION, payload: data });
 }
 
 export const accountLogin = () => dispatch => {
@@ -15,9 +33,25 @@ export const accountLogin = () => dispatch => {
 }
 
 export const accountLogout = () => dispatch => {
-    dispatch({ type: ACCOUNT_LOGOUT, payload: false });
-    // console.log("accountLogout - this.props.account:",this.props.account)
+  dispatch({ type: ACCOUNT_LOGOUT, payload: false });
+  // console.log("accountLogout - this.props.account:",this.props.account)
 }
+export const createNewAccount = (emailaddress, phonenumber, firebaseuid) => async dispatch => {
+  console.log("Creating Account", emailaddress, phonenumber)
+  let ref = await firebase.firestore().collection('accounts').doc(firebaseuid);
+  ref.set({
+    emailAddress: emailaddress,
+    phoneNumber: phonenumber,
+    firebaseUid: firebaseuid,
+    orders: []
+  })
+}
+
+export const accountWatchStock = (stockid) => async dispatch => {
+  console.log("Watching stock")
+  
+}
+
 
 // export const setAccount = (email, accountid, plan) => async dispatch => {
 //   // console.log(email,accountid,plan)

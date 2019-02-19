@@ -31,9 +31,15 @@ import {
     getStocksAll,
 } from '../../redux/actions/actions_stocks';
 import {
+    stockWatchlistGet,
+    stockWatchlistAdd,
+} from '../../redux/actions/actions_stock_watchlist';
+import {
     getStock,
 } from '../../redux/actions/actions_stock';
 import { connect } from 'react-redux';
+import firebase from 'react-native-firebase';
+
 
 class SearchMain extends React.Component {
     constructor() {
@@ -127,7 +133,9 @@ class SearchMain extends React.Component {
 
     async componentDidMount() {
         await this.props.getStocksAll()
-        await console.log(this.props.stocks)  
+        await console.log(this.props.stocks)
+        await this.props.stockWatchlistGet()
+        await console.log(this.props.stockWatchlist)
     }
 
     updateSearch = search => {
@@ -145,30 +153,46 @@ class SearchMain extends React.Component {
         })
     }
 
-    renderWatch(index) {
-        if (this.state.list[index].favorite == true) {
-            console.log(this.state.list[index].favorite)
-            return (
-                <MIcon name="check-circle" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>
-            )
-        } else if (this.state.list[index].favorite == false) {
-            console.log(this.state.list[index].favorite)
-            return (
-                <MIcon name="add-circle-outline" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>
-            )
+    renderWatch(stockid, stockticker, stockprice) {
+        var user = firebase.auth().currentUser;
+        return (
+            <MIcon name="add-circle-outline" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.props.stockWatchlistAdd(stockid, stockticker, stockprice, user.uid)}></MIcon>
+        )
 
-        }
+        // var user = firebase.auth().currentUser;
+        // var check = false
+        // console.log("User:", user)
+        // console.log("renderWatch:", this.props.stockWatchlist.length, this.props.stockWatchlist)
+        // if (this.props.stockWatchlist.length > 0) {
+        //     this.props.stockWatchlist.map((stock) => {
+        //         if (stockid === stock.watchlistStockId) {
+        //             console.log("Found Match!!!", stock.watchlistStockId, stockid)
+        //             check = true
+
+        //         } else {
+        //             check = false
+        //             console.log("No Match!!!", stockid)
+
+        //         }
+        //     })
+        // }
+        // if (check === true) {
+        //     return (
+        //         <MIcon name="check-circle" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.props.stockWatchlistAdd(stockid, user.uid)}></MIcon>
+        //     )
+        // } else {
+        // return (
+        //     <MIcon name="add-circle-outline" style={{ fontSize: 25, color: '#21ce99' }} onPress={() => this.props.stockWatchlistAdd(stockid, user.uid)}></MIcon>
+        // )
+        // }
     }
     // Used for Flatlist - https://facebook.github.io/react-native/docs/flatlist
-    keyExtractor = (item, index) => item.id
-    // onPress={() => Actions.stockview()}
-    // checkBox={{checked: this.state.list[index].favorite, checkedIcon:<MIcon name="check-circle" style={{ fontSize: 20, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></MIcon>, uncheckedIcon:<SLIicon name="plus" style={{ fontSize: 20, color: '#21ce99' }} onPress={() => this.favoriteStock(index)}></SLIicon>}}
-
+    keyExtractor = (item, index) => item.watchlistStockId
 
     actionStockView = async (stockid) => {
         await this.props.getStock(stockid)
-        console.log("SearchMain this.props.stock:",this.props.stock)
-        Actions.stockview() 
+        console.log("SearchMain this.props.stock:", this.props.stock)
+        Actions.stockview()
     }
 
     renderItem = ({ item, index }) => (
@@ -180,14 +204,14 @@ class SearchMain extends React.Component {
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             subtitle={item.fullName}
             subtitleStyle={{ paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}
-            rightElement={this.renderWatch(index)}
+            rightElement={this.renderWatch(item.id, item.ticker, item.price)}
             bottomDivider={true}
         />
     )
 
     renderStockView() {
         const { search } = this.state;
-        const { loading} = this.props;
+        const { loading } = this.props;
 
         return (
             !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled >
@@ -214,11 +238,13 @@ class SearchMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style, account, stocks,stock }) {
+function mapStateToProps({ style, account, stocks, stock, stockWatchlist }) {
     return {
         style,
         account,
-        stocks,stock
+        stocks,
+        stock,
+        stockWatchlist,
     };
 }
 
@@ -227,4 +253,6 @@ export default connect(mapStateToProps, {
     iosStyleLoad,
     getStocksAll,
     getStock,
+    stockWatchlistGet,
+    stockWatchlistAdd
 })(SearchMain);

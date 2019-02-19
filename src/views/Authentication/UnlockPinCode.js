@@ -90,8 +90,18 @@ class UnlockPinCode extends React.Component {
                 this.props.accountLogout()
             }
         })
-        
     }
+
+    componentWillUnmount() {
+        // console.log("UNMOUNT:", this.unsubscriber, this.props.account)
+        if (this.unsubscriber) {
+            this.unsubscriber();
+            // this.props.accountLogout
+        }
+    }
+
+
+
 
     hasSet = async () => {
         const res = await hasUserSetPinCode()

@@ -20,6 +20,13 @@ import {
 import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { Actions } from 'react-native-router-flux'
+import {
+    stockOrderBuy,
+} from '../../redux/actions/actions_stock_order';
+import {
+    loadAccountInformation,
+} from '../../redux/actions/actions_account';
+import firebase from 'react-native-firebase';
 
 class StockOrder extends React.Component {
     constructor() {
@@ -49,6 +56,10 @@ class StockOrder extends React.Component {
     }
 
     componentDidMount() {
+        var user = firebase.auth().currentUser;
+        console.log("User:",user)
+        this.props.loadAccountInformation(user.uid)
+        console.log("StockOrder - this.props.account",this.props.account)
         // When socket opens
         this.socket.onopen = () => {
             // Check if Socket Open
@@ -89,12 +100,22 @@ class StockOrder extends React.Component {
         })
     }
 
+    stockOrderSubmit = async () => {
+    // stockOrderSubmit(){
+        var user = firebase.auth().currentUser;
+        console.log("User:",user)
+        // stockOrderBuy = (userid,price,quantity,ticker)
+        await this.props.stockOrderBuy(user.uid,this.state.stockData[this.state.stockData.length - 1],this.state.stockShareQuantity,this.props.stock[0].ticker)
+        Actions.reset('stockorderinvoice')
+
+    }
+
     stockOrderReview() {
         Alert.alert(
             "Order Summary",
-            'You are purchasing ' + this.state.stockShareQuantity + ' shares of _stock_name_ totaling to ' + this.state.stockShareOrderValue,
+            'You are purchasing ' + this.state.stockShareQuantity + ' shares of ' + this.props.stock[0].ticker + ' totaling to ' + this.state.stockShareOrderValue,
             [
-                { text: 'Submit', onPress: () => Actions.reset('stockorderinvoice')},
+                { text: 'Submit', onPress: () => this.stockOrderSubmit() },
                 {
                     text: 'Cancel',
                     onPress: () => console.log('Cancel Pressed'),
@@ -113,20 +134,20 @@ class StockOrder extends React.Component {
                 <View style={{ flex: 1 }}></View>
                 <View style={{ flex: 1 }}>
                     <View style={{ padding: 13, flex: 0, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                        <Text style={{ width: "50%", fontSize: 10, paddingLeft: 10, color: "#21ce99", fontWeight: systemWeights.bold.fontWeight }}>SHARES OF _TICKER_</Text>
+                        <Text style={{ width: "50%", fontSize: 10, paddingLeft: 10, color: "#21ce99", fontWeight: systemWeights.bold.fontWeight }}>SHARES OF {this.props.stock[0].ticker}</Text>
                         <TextInput maxLength={3} multiline={false} autoFocus placeholder="0" placeholderTextColor="grey" keyboardType='number-pad' style={{ fontWeight: systemWeights.bold.fontWeight, color: "white", width: "50%", fontSize: 25, textAlign: "right", paddingRight: 10 }}
                             onChangeText={(quantity) => this.onChangeStockShareQuantity(quantity)}>{this.state.stockShareQuantity}
                         </TextInput>
                     </View>
                     <View style={{ padding: 13, flex: 0, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Text style={{ width: "50%", fontSize: 10, color: "#21ce99", paddingLeft: 10, fontWeight: systemWeights.bold.fontWeight }}>MARKET PRICE</Text>
-                        <Text style={{ width: "50%", fontSize: 15, color: "white", textAlign: "right", paddingRight: 10, fontWeight: systemWeights.bold.fontWeight }}>${this.state.stockData[this.state.stockData.length-1]}</Text>
+                        <Text style={{ width: "50%", fontSize: 15, color: "white", textAlign: "right", paddingRight: 10, fontWeight: systemWeights.bold.fontWeight }}>${this.state.stockData[this.state.stockData.length - 1]}</Text>
                     </View>
                     <View style={{ padding: 13, flex: 0, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Text style={{ width: "50%", fontSize: 10, color: "#21ce99", paddingLeft: 10, fontWeight: systemWeights.bold.fontWeight }}>ESTIMATED COST</Text>
                         <NumberFormat
                             style={{ color: 'red' }}
-                            value={this.state.stockShareQuantity * this.state.stockData[this.state.stockData.length-1]}
+                            value={this.state.stockShareQuantity * this.state.stockData[this.state.stockData.length - 1]}
                             onValueChange={value => this.setState({ stockShareOrderValue: value.formattedValue })}
                             displayType={'text'}
                             thousandSeparator={true}
@@ -145,13 +166,15 @@ class StockOrder extends React.Component {
     }
 }
 
-function mapStateToProps({ style, stock }) {
+function mapStateToProps({ style, stock, account }) {
     return {
-        style,
+        style, stock, account
     };
 }
 
 export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
+    stockOrderBuy,
+    loadAccountInformation,
 })(StockOrder);

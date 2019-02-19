@@ -1,1 +1,1 @@
-export const STOCK_ORDER = 'stock_order';
+export const STOCK_ORDER_BUY = 'stock_order_buy';

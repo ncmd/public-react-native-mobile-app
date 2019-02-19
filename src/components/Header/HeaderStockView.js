@@ -58,7 +58,7 @@ class Header extends React.Component {
                         <Text style={styles.textStylePrice}>${this.props.headerPrice}</Text>
                         <Text style={styles.textStyleTicker}>{this.props.headerTicker}</Text>
                     </View>
-                    <View style={{ width: "100%", flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end', position: 'absolute' }}>
+                    <View style={{ width: "90%", flex: 0, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end', position: 'absolute' }}>
                         {this.renderWatch()}
                     </View>
                 </View>
@@ -74,8 +74,8 @@ const ios_styles = StyleSheet.create({
         backgroundColor: '#0e0d0d',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 70,
-        paddingTop: 35,
+        height: 60,
+        paddingTop: 17,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
@@ -83,12 +83,12 @@ const ios_styles = StyleSheet.create({
         position: 'relative'
     },
     textStylePrice: {
-        fontSize: 20,
+        fontSize: 15,
         color: '#FFFFFF',
-        fontWeight: systemWeights.bold.fontWeight
+        fontWeight: systemWeights.regular.fontWeight
     },
     textStyleTicker: {
-        fontSize: 15,
+        fontSize: 11,
         color: '#FFFFFF',
         fontWeight: systemWeights.regular.fontWeight
     }

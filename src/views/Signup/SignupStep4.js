@@ -21,8 +21,8 @@ import {
 } from '../../redux/actions/actions_styles';
 
 import {
-    createNewUser,
-} from '../../redux/actions/actions_users';
+    createNewAccount,
+} from '../../redux/actions/actions_account';
 import HeaderBase from '../../components/Header/HeaderBase';
 import PINCode, { hasUserSetPinCode } from '@haskkor/react-native-pincode'
 import { systemWeights } from 'react-native-typography'
@@ -72,9 +72,10 @@ class SignupStep4 extends React.Component {
         }
     }
 
-    promptUserAccountCreated() {
+    promptUserAccountCreated = async () => {
         const { signup } = this.props
-        this.props.createNewUser(signup[0].email, signup[0].phone)
+        var user = await firebase.auth().currentUser;
+        this.props.createNewAccount(signup[0].email, signup[0].phone, user.uid)
         Alert.alert(
             "Welcome to Loyal!",
             'You can now login to you\'re account!',
@@ -118,5 +119,5 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     accountLogout,
-    createNewUser,
+    createNewAccount,
 })(SignupStep4);

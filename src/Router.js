@@ -53,8 +53,8 @@ class RouterComponent extends React.Component {
                 
             } else {
                 // this.setState({ isUserLogin:false });
-                this.props.accountLogout()
-                // console.log("Router this.props.account this.props.account[0].loggedIn:",  this.props.account.loggedIn)
+                // this.props.accountLogout()
+                console.log("Router this.props.account this.props.account.loggedIn:",  this.props.account.loggedIn)
             }
         });
     }

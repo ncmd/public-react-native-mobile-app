@@ -85,6 +85,9 @@ class AccountMain extends React.Component {
             Actions.reset('landingmain')
         } catch (e) {
             console.log(e);
+            await deleteUserPinCode()
+            this.props.accountLogout()
+            Actions.reset('landingmain')
         }
     }
 

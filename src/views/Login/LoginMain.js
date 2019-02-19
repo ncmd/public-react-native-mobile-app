@@ -21,6 +21,7 @@ import {
 } from '../../redux/actions/actions_styles';
 import {
     accountLogin,
+    loadAccountInformation,
 } from '../../redux/actions/actions_account';
 import { Actions } from 'react-native-router-flux';
 import HeaderBase from '../../components/Header/HeaderBase';
@@ -123,17 +124,22 @@ class LoginMain extends React.Component {
         })
     }
 
-    signInUser(emailaddress, password) {
+    signInUser = async (emailaddress, password) => {
         console.log()
-        firebase.auth().signInWithEmailAndPassword(emailaddress, password).catch((error) => {
+        await firebase.auth().signInWithEmailAndPassword(emailaddress, password).catch((error) => {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             this.setState({ loginError: "Email address or password is not valid.", forgotpassword: false })
             // ...
-        }).then(() => {
+        }).then( async () => {
             console.log("signInUser button")
+            var user = await firebase.auth().currentUser;
+            console.log("User:", user.uid)
+            // this.props.loadAccountInformation()
+            // this.props.loadAccountInformation()
             this.props.accountLogin()
+            console.log("LoginMain - this.props.account:", this.props.account)
         }
         );
     }
@@ -273,4 +279,5 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     setBottomNavigation,
+    loadAccountInformation,
 })(LoginMain);

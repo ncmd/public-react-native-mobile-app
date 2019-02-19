@@ -4,6 +4,8 @@ import bottomNavigationReducer from './bottomNavigationReducer';
 import stocksReducer from './stocksReducer';
 import stockReducer from './stockReducer';
 import stockOrderReducer from './stockOrderReducer';
+import stockWatchlistReducer from './stockWatchlistReducer';
+import stockPositionsReducer from './stockPositionsReducer';
 import signupReducer from './signupReducer';
 import accountReducer from './accountReducer';
 import pinReducer from './pinReducer';
@@ -27,6 +29,8 @@ const rootReducer = combineReducers({
   stocks: stocksReducer,
   stock: stockReducer,
   stockOrder: stockOrderReducer,
+  stockWatchlist: stockWatchlistReducer,
+  stockPositions: stockPositionsReducer,
   signup: signupReducer,
 })
 

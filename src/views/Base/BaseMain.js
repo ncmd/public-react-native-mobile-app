@@ -24,6 +24,17 @@ import NavigationBase from '../../components/Navigation/NavigationBase';
 import PortfolioMain from '../../views/Portfolio/PortfolioMain';
 import SearchMain from '../../views/Search/SearchMain';
 import AccountMain from '../../views/Account/AccountMain';
+import {
+    accountLogin,
+    loadAccountInformation,
+} from '../../redux/actions/actions_account';
+import firebase from 'react-native-firebase';
+import {
+    stockWatchlistGet,
+} from '../../redux/actions/actions_stock_watchlist';
+import {
+    stockPositionsGet,
+} from '../../redux/actions/actions_stock_positions';
 
 class BaseMain extends React.Component {
     constructor() {
@@ -33,7 +44,16 @@ class BaseMain extends React.Component {
         }
     }
 
-    componentWillMount() {
+    async componentWillMount() {
+        var user = firebase.auth().currentUser;
+        console.log("User:", user)
+        await this.props.loadAccountInformation(user.uid)
+        await console.log("BaseMain this.props.account:", this.props.account)
+        await this.props.stockWatchlistGet(user.uid)
+        await this.props.stockPositionsGet(user.uid)
+        await console.log("BaseMain this.props.stockWatchlist:", this.props.stockWatchlist)
+        await console.log("BaseMain this.props.stockPositions:", this.props.stockPositions)
+        
         if (Platform.OS === 'ios') {
             this.props.iosStyleLoad()
         }
@@ -56,7 +76,7 @@ class BaseMain extends React.Component {
                 <AccountMain />
             )
         } else {
-            return(
+            return (
                 <PortfolioMain />
             )
         }
@@ -77,9 +97,13 @@ class BaseMain extends React.Component {
     }
 }
 
-function mapStateToProps({ style, bottomnavigation }) {
+function mapStateToProps({ style, bottomnavigation, account, stockWatchlist, stockPositions }) {
     return {
-        style, bottomnavigation
+        style,
+        bottomnavigation,
+        account,
+        stockWatchlist,
+        stockPositions,
     };
 }
 
@@ -87,4 +111,7 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     setBottomNavigation,
+    loadAccountInformation,
+    stockWatchlistGet,
+    stockPositionsGet,
 })(BaseMain);
