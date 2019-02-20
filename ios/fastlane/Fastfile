@@ -18,11 +18,47 @@ platform :ios do
   lane :localsnapshot do
     snapshot(
       project: 'publicreactnativeapp.xcodeproj',
-      scheme: 'publicreactnativeapp',
+      scheme: 'publicreactnativeappUITests',
       devices: ['iPhone 6s Plus'],
+      languages: ["en-US"],
       output_simulator_logs: true,
-      clear_previous_screenshots: true
+      clear_previous_screenshots: true,
+      output_directory: "./screenshots",
+      number_of_retries: 0,
+      concurrent_simulators: false,
   )
+  end
+
+  lane :localdeliver do
+    current_build_number = get_build_number(xcodeproj: "publicreactnativeapp.xcodeproj")
+    deliver(
+      build_number: current_build_number,
+      precheck_include_in_app_purchases: false,
+      submission_information: {
+        add_id_info_limits_tracking: true,
+        add_id_info_serves_ads: false,
+        add_id_info_tracks_action: true,
+        add_id_info_tracks_install: true,
+        add_id_info_uses_idfa: true,
+        content_rights_has_rights: true,
+        content_rights_contains_third_party_content: true,
+        export_compliance_platform: 'ios',
+        export_compliance_compliance_required: false,
+        export_compliance_encryption_updated: false,
+        export_compliance_app_type: nil,
+        export_compliance_uses_encryption: false,
+        export_compliance_is_exempt: false,
+        export_compliance_contains_third_party_cryptography: false,
+        export_compliance_contains_proprietary_cryptography: false,
+        export_compliance_available_on_french_store: false
+      },
+      submit_for_review: true,
+      automatic_release: true,
+      force: true, # Skip HTMl report verification
+      skip_metadata: false,
+      skip_screenshots: false,
+      skip_binary_upload: false
+    )
   end
 
   lane :localdeploy do

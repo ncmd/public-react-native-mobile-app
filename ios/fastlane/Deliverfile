@@ -1,3 +1,36 @@
 # The Deliverfile allows you to store various App Store Connect metadata
 # For more information, check out the docs
 # https://docs.fastlane.tools/actions/deliver/
+
+app_identifier "com.ncmd.publicreactnativeapp"
+ipa "publicreactnativeapp.ipa"
+submit_for_review false
+screenshots_path "fastlane/screenshots/"
+metadata_path "fastlane/metadata/"
+app_rating_config_path "fastlane/rating_config.json"
+ 
+app_review_information(
+  first_name: "Charles",
+  last_name: "Chong",
+  phone_number: "+16269915827",
+  email_address: "cavalrytacticsinc@gmail.com",
+  notes: "Main reviewer"
+)
+ 
+name(
+  'en-US' => "publicreactnativeapp"
+)
+ 
+support_url(
+  'en-US' => "https://cavalrytactics.com/support"
+)
+ 
+keywords(
+  'en-US' => "ipo",
+)
+ 
+platform 'ios'
+copyright "2019 Cavalry Tactics, Inc."
+ 
+primary_category 'MZGenre.SocialNetworking'
+secondary_category 'MZGenre.Finance'
