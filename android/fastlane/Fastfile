@@ -12,6 +12,21 @@ platform :android do
     gradle(task: "test")
   end
 
+  desc "Local Screengrab"
+  lane :localscreengrab do
+    gradle(
+      task: 'clean'
+    )
+    build_android_app(
+      task: 'assemble',
+      build_type: 'Debug'
+    )
+    build_android_app(
+      task: 'assemble',
+      build_type: 'AndroidTest'
+    )
+  end
+
   desc "Local Build App"
   lane :localdeploy do
     # Build APK
