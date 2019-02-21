@@ -35,11 +35,11 @@ class publicreactnativeappUITests: XCTestCase {
       sleep(3)
       app.buttons["landingsignup"].tap()
       sleep(3)
-      snapshot("02landingsignup")
+      snapshot("02LandingSignup")
       app.buttons["signupback"].tap()
       sleep(3)
       app.buttons["landinglogin"].tap()
-      snapshot("03landinglogin")
+      snapshot("03LandingLogin")
     }
 
 }
