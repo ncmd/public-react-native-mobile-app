@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::Storage::GitStorage - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Interface
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-configure">::configure</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_user_config">#add_user_config</a>
+    
+    <li ><a href="#method-i-branch_exists-3F">#branch_exists?</a>
+    
+    <li ><a href="#method-i-checkout_branch">#checkout_branch</a>
+    
+    <li ><a href="#method-i-delete_files">#delete_files</a>
+    
+    <li ><a href="#method-i-download">#download</a>
+    
+    <li ><a href="#method-i-generate_commit_message">#generate_commit_message</a>
+    
+    <li ><a href="#method-i-generate_matchfile_content">#generate_matchfile_content</a>
+    
+    <li ><a href="#method-i-git_push">#git_push</a>
+    
+    <li ><a href="#method-i-human_readable_description">#human_readable_description</a>
+    
+    <li ><a href="#method-i-upload_files">#upload_files</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::Storage::GitStorage">
+  <h1 id="class-Match::Storage::GitStorage" class="class">
+    class Match::Storage::GitStorage
+  </h1>
+
+  <section class="description">
+    
+<p>Store the code signing identities in a git repo</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-branch" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">branch</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-clone_branch_directly" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">clone_branch_directly</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-git_full_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">git_full_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-git_url" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">git_url</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>User provided values</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-git_user_email" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">git_user_email</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-shallow_clone" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">shallow_clone</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-skip_docs" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">skip_docs</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">git_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_url</span>],
+    <span class="ruby-identifier">shallow_clone</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:shallow_clone</span>],
+    <span class="ruby-identifier">skip_docs</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:skip_docs</span>],
+    <span class="ruby-identifier">branch</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_branch</span>],
+    <span class="ruby-identifier">git_full_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_full_name</span>],
+    <span class="ruby-identifier">git_user_email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_user_email</span>],
+    <span class="ruby-identifier">clone_branch_directly</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:clone_branch_directly</span>]
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(type: nil, platform: nil, git_url: nil, shallow_clone: nil, skip_docs: false, branch: "master", git_full_name: nil, git_user_email: nil, clone_branch_directly: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">git_url</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">shallow_clone</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">skip_docs</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+               <span class="ruby-identifier">branch</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;master&quot;</span>,
+               <span class="ruby-identifier">git_full_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">git_user_email</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">clone_branch_directly</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_url</span> = <span class="ruby-identifier">git_url</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">shallow_clone</span> = <span class="ruby-identifier">shallow_clone</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">skip_docs</span> = <span class="ruby-identifier">skip_docs</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">branch</span> = <span class="ruby-identifier">branch</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_full_name</span> = <span class="ruby-identifier">git_full_name</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_user_email</span> = <span class="ruby-identifier">git_user_email</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone_branch_directly</span> = <span class="ruby-identifier">clone_branch_directly</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">type</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span> = <span class="ruby-identifier">platform</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-delete_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_files</span><span
+            class="method-args">(files_to_delete: [], custom_message: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_files-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_files</span>(<span class="ruby-identifier">files_to_delete</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">custom_message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># No specific list given, e.g. this happens on `fastlane match nuke`</span>
+  <span class="ruby-comment"># We just want to run `git add -A` to commit everything</span>
+  <span class="ruby-identifier">git_push</span>(<span class="ruby-identifier">commands</span><span class="ruby-operator">:</span> [<span class="ruby-string">&quot;git add -A&quot;</span>], <span class="ruby-identifier">commit_message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custom_message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download</span>
+  <span class="ruby-comment"># Check if we already have a functional working_directory</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@working_directory</span>
+
+  <span class="ruby-comment"># No existing working directory, creating a new one now</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;git clone #{self.git_url.shellescape} #{self.working_directory.shellescape}&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">shallow_clone</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; --depth 1 --no-single-branch&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone_branch_directly</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; -b #{self.branch.shellescape} --single-branch&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Cloning remote git repo...&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">branch</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone_branch_directly</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If cloning the repo takes too long, you can use the `clone_branch_directly` option in match.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># GIT_TERMINAL_PROMPT will fail the `git clone` command if user credentials are missing</span>
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">with_env_values</span>(<span class="ruby-string">&#39;GIT_TERMINAL_PROMPT&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;0&#39;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>,
+                                          <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+                                      <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Error cloning certificates repo, please make sure you have read access to the repository you want to use&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">branch</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone_branch_directly</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;You passed &#39;#{self.branch}&#39; as branch in combination with the `clone_branch_directly` flag. Please remove `clone_branch_directly` flag on the first run for _match_ to create the branch.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Run the following command manually to make sure you&#39;re properly authenticated:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Error cloning certificates git repo, please make sure you have access to the repository - see instructions above&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">add_user_config</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_full_name</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_user_email</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Error cloning repo, make sure you have access to it &#39;#{self.git_url}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">checkout_branch</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">branch</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;master&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_commit_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_commit_message</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate the commit message based on the user&#39;s parameters</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_commit_message-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_commit_message</span>
+  [
+    <span class="ruby-string">&quot;[fastlane]&quot;</span>,
+    <span class="ruby-string">&quot;Updated&quot;</span>,
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">type</span>,
+    <span class="ruby-string">&quot;and platform&quot;</span>,
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_matchfile_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_matchfile_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_matchfile_content-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_matchfile_content</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Please create a new, private git repository to store the certificates and profiles there&quot;</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;URL of the Git Repo: &quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;git_url(\&quot;#{url}\&quot;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-human_readable_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">human_readable_description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="human_readable_description-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">human_readable_description</span>
+  <span class="ruby-node">&quot;Git Repo [#{self.git_url}]&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_files</span><span
+            class="method-args">(files_to_upload: [], custom_message: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload_files-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_files</span>(<span class="ruby-identifier">files_to_upload</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">custom_message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">commands</span> = <span class="ruby-identifier">files_to_upload</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;git add #{current_file.shellescape}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">git_push</span>(<span class="ruby-identifier">commands</span><span class="ruby-operator">:</span> <span class="ruby-identifier">commands</span>, <span class="ruby-identifier">commit_message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custom_message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_user_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_user_config</span><span
+            class="method-args">(user_name, user_email)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_user_config-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_user_config</span>(<span class="ruby-identifier">user_name</span>, <span class="ruby-identifier">user_email</span>)
+  <span class="ruby-comment"># Add git config if needed</span>
+  <span class="ruby-identifier">commands</span> = []
+  <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;git config user.name \&quot;#{user_name}\&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user_name</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;git config user.email \&quot;#{user_email}\&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user_email</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Add git user config to local git repo...&quot;</span>)
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">command</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>,
+                                            <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+                                            <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-branch_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">branch_exists?</span><span
+            class="method-args">(branch)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a specific branch exists in the git repo</p>
+          
+          
+
+          
+          <div class="method-source-code" id="branch_exists-3F-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">branch_exists?</span>(<span class="ruby-identifier">branch</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;git --no-pager branch --list origin/#{branch.shellescape} --no-color -r&quot;</span>,
+                                          <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+                                          <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-identifier">result</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-checkout_branch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">checkout_branch</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create and checkout an specific branch in the git repo</p>
+          
+          
+
+          
+          <div class="method-source-code" id="checkout_branch-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkout_branch</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>
+
+  <span class="ruby-identifier">commands</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">branch_exists?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">branch</span>)
+    <span class="ruby-comment"># Checkout the branch if it already exists</span>
+    <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;git checkout #{self.branch.shellescape}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># If a new branch is being created, we create it as an &#39;orphan&#39; to not inherit changes from the master branch.</span>
+    <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;git checkout --orphan #{self.branch.shellescape}&quot;</span>
+    <span class="ruby-comment"># We also need to reset the working directory to not transfer any uncommitted changes to the new branch.</span>
+    <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;git reset --hard&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Checking out branch #{self.branch}...&quot;</span>)
+
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">command</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>,
+                                            <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+                                            <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-git_push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_push</span><span
+            class="method-args">(commands: [], commit_message: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="git_push-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/git_storage.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">git_push</span>(<span class="ruby-identifier">commands</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">commit_message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">commit_message</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">generate_commit_message</span>
+  <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;git commit -m #{commit_message.shellescape}&quot;</span>
+  <span class="ruby-identifier">commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;git push origin #{self.branch.shellescape}&quot;</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Pushing changes to remote git repo...&quot;</span>)
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">with_env_values</span>(<span class="ruby-string">&#39;GIT_TERMINAL_PROMPT&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;0&#39;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">command</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>,
+                                          <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+                                      <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear_changes</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Couldn&#39;t commit or push changes back to git...&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

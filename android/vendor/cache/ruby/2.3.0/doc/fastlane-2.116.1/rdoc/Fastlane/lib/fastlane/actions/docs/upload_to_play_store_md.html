@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>upload_to_play_store - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Command+line+tool+for+updating+Android+apps+and+their+metadata+on+the+Google+Play+Store">Command line tool for updating Android apps and their metadata on the Google Play Store</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Setup">Setup</a>
+    <li><a href="#label-Migrating+Google+credential+format+-28from+.p12+key+file+to+.json-29">Migrating Google credential format (from .p12 key file to .json)</a>
+    <li><a href="#label-Quick+Start">Quick Start</a>
+    <li><a href="#label-Available+Commands">Available Commands</a>
+    <li><a href="#label-Uploading+an+APK">Uploading an APK</a>
+    <li><a href="#label-Uploading+an+AAB">Uploading an AAB</a>
+    <li><a href="#label-Images+and+Screenshots">Images and Screenshots</a>
+    <li><a href="#label-Changelogs+-28What-27s+new-29">Changelogs (What&#39;s new)</a>
+    <li><a href="#label-Track+Promotion">Track Promotion</a>
+    <li><a href="#label-Retrieve+Track+Version+Codes">Retrieve Track Version Codes</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/upload_to_play_store.md">
+<p align="center">
+  <img src="/img/actions/supply.png" width="250">
+</p>
+<h6 id="label-Command+line+tool+for+updating+Android+apps+and+their+metadata+on+the+Google+Play+Store">Command line tool for updating Android apps and their metadata on the Google Play Store<span><a href="#label-Command+line+tool+for+updating+Android+apps+and+their+metadata+on+the+Google+Play+Store">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p><em>supply</em> uploads app metadata, screenshots, binaries, and app
+bundles to Google Play. You can also select tracks for builds and promote
+builds to production.</p>
+<hr>
+<p align="center">
+    <a href="#features">Features</a> &bull;
+    <a href="#setup">Setup</a> &bull;
+    <a href="#quick-start">Quick Start</a> &bull;
+    <a href="#available-commands">Commands</a> &bull;
+    <a href="#uploading-an-apk">Uploading an APK</a> &bull;
+    <a href="#uploading-an-aab">Uploading an AAB</a> &bull;
+    <a href="#images-and-screenshots">Images</a>
+</p><hr>
+
+<h2 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update existing Android applications on Google Play via the command line</p>
+</li><li>
+<p>Upload new builds (APKs and AABs)</p>
+</li><li>
+<p>Retrieve and edit metadata, such as title and description, for multiple
+languages</p>
+</li><li>
+<p>Upload the app icon, promo graphics and screenshots for multiple languages</p>
+</li><li>
+<p>Have a local copy of the metadata in your git repository</p>
+</li><li>
+<p>Retrieve version code numbers from existing Google Play tracks</p>
+</li></ul>
+
+<h2 id="label-Setup">Setup<span><a href="#label-Setup">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Setup consists of setting up your Google Developers Service Account</p>
+
+<p>{!docs/includes/google-credentials.md!}</p>
+
+<h3 id="label-Migrating+Google+credential+format+-28from+.p12+key+file+to+.json-29">Migrating Google credential format (from .p12 key file to .json)<span><a href="#label-Migrating+Google+credential+format+-28from+.p12+key+file+to+.json-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>In previous versions of supply, credentials to your Play Console were
+stored as <code>.p12</code> files. Since version 0.4.0, supply now supports
+the recommended <code>.json</code> key Service Account credential files. If
+you wish to upgrade:</p>
+<ul><li>
+<p>follow the &lt;a href=“#setup”&gt;Setup&lt;/a&gt; procedure once again to
+make sure you create the appropriate JSON file</p>
+</li><li>
+<p>update your fastlane configuration or your command line invocation to use
+the appropriate argument if necessary.  Note that you don&#39;t need to
+take note nor pass the <code>issuer</code> argument anymore.</p>
+</li></ul>
+
+<p>The previous p12 configuration is still currently supported.</p>
+
+<h2 id="label-Quick+Start">Quick Start<span><a href="#label-Quick+Start">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>cd [your_project_folder]</code></p>
+</li><li>
+<p><code>fastlane supply init</code></p>
+</li><li>
+<p>Make changes to the downloaded metadata, add images, screenshots and/or an
+APK</p>
+</li><li>
+<p><code>fastlane supply</code></p>
+</li></ul>
+
+<h2 id="label-Available+Commands">Available Commands<span><a href="#label-Available+Commands">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>fastlane supply</code>: update an app with metadata, a build, images
+and screenshots</p>
+</li><li>
+<p><code>fastlane supply init</code>: download metadata for an existing app to
+a local directory</p>
+</li><li>
+<p><code>fastlane action supply</code>: show information on available
+commands, arguments and environment variables</p>
+</li></ul>
+
+<p>You can either run <em>supply</em> on its own and use it interactively, or
+you can pass arguments or specify environment variables for all the options
+to skip the questions.</p>
+
+<h2 id="label-Uploading+an+APK">Uploading an APK<span><a href="#label-Uploading+an+APK">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To upload a new binary to Google Play, simply run</p>
+
+<pre>fastlane supply --apk path/to/app.apk</pre>
+
+<p>This will also upload app metadata if you previously ran <code>fastlane
+supply init</code>.</p>
+
+<p>To gradually roll out a new build use</p>
+
+<pre>fastlane supply --apk path/app.apk --track rollout --rollout 0.5</pre>
+
+<p>Expansion files (obbs) found under the same directory as your APK will also
+be uploaded together with your APK as long as:</p>
+<ul><li>
+<p>they are identified as type &#39;main&#39; or &#39;patch&#39; (by
+containing &#39;main&#39; or &#39;patch&#39; in their file name)</p>
+</li><li>
+<p>you have at most one of each type</p>
+</li></ul>
+
+<h2 id="label-Uploading+an+AAB">Uploading an AAB<span><a href="#label-Uploading+an+AAB">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To upload a new <a
+href="https://developer.android.com/guide/app-bundle/">Android application
+bundle</a> to Google Play, simply run</p>
+
+<pre>fastlane supply --aab path/to/app.aab</pre>
+
+<p>This will also upload app metadata if you previously ran <code>fastlane
+supply init</code>.</p>
+
+<p>To gradually roll out a new build use</p>
+
+<pre>fastlane supply --aab path/app.aab --track rollout --rollout 0.5</pre>
+
+<h2 id="label-Images+and+Screenshots">Images and Screenshots<span><a href="#label-Images+and+Screenshots">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>After running <code>fastlane supply init</code>, you will have a metadata
+directory. This directory contains one or more locale directories (e.g.
+en-US, en-GB, etc.), and inside this directory are text files such as
+<code>title.txt</code> and <code>short_description.txt</code>.</p>
+
+<p>Inside of a given locale directory is a folder called <code>images</code>.
+Here you can supply images with the following file names (extension can be
+png, jpg or jpeg):</p>
+<ul><li>
+<p><code>featureGraphic</code></p>
+</li><li>
+<p><code>icon</code></p>
+</li><li>
+<p><code>promoGraphic</code></p>
+</li><li>
+<p><code>tvBanner</code></p>
+</li></ul>
+
+<p>You can also supply screenshots by creating directories within the
+<code>images</code> directory with the following names, containing PNGs or
+JPEGs (image names are irrelevant):</p>
+<ul><li>
+<p><code>phoneScreenshots/</code></p>
+</li><li>
+<p><code>sevenInchScreenshots/</code> (7-inch tablets)</p>
+</li><li>
+<p><code>tenInchScreenshots/</code> (10-inch tablets)</p>
+</li><li>
+<p><code>tvScreenshots/</code></p>
+</li><li>
+<p><code>wearScreenshots/</code></p>
+</li></ul>
+
+<p>Note that these will replace the current images and screenshots on the play
+store listing, not add to them.</p>
+
+<h2 id="label-Changelogs+-28What-27s+new-29">Changelogs (What&#39;s new)<span><a href="#label-Changelogs+-28What-27s+new-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can add changelog files under the <code>changelogs/</code> directory
+for each locale. The filename should exactly match the <a
+href="https://developer.android.com/studio/publish/versioning#appversioning">version
+code</a> of the APK that it represents. <code>fastlane supply init</code>
+will populate changelog files from existing data on Google Play if no
+<code>metadata/</code> directory exists when it is run.</p>
+
+<pre class="ruby"><span class="ruby-identifier">└──</span> <span class="ruby-identifier">fastlane</span>
+    <span class="ruby-identifier">└──</span> <span class="ruby-identifier">metadata</span>
+        <span class="ruby-identifier">└──</span> <span class="ruby-identifier">android</span>
+            <span class="ruby-identifier">├──</span> <span class="ruby-identifier">en</span><span class="ruby-operator">-</span><span class="ruby-constant">US</span>
+            <span class="ruby-identifier">│</span>   <span class="ruby-identifier">└──</span> <span class="ruby-identifier">changelogs</span>
+            <span class="ruby-identifier">│</span>       <span class="ruby-identifier">├──</span> <span class="ruby-value">100000</span>.<span class="ruby-identifier">txt</span>
+            <span class="ruby-identifier">│</span>       <span class="ruby-identifier">└──</span> <span class="ruby-value">100100</span>.<span class="ruby-identifier">txt</span>
+            <span class="ruby-identifier">└──</span> <span class="ruby-identifier">fr</span><span class="ruby-operator">-</span><span class="ruby-constant">FR</span>
+                <span class="ruby-identifier">└──</span> <span class="ruby-identifier">changelogs</span>
+                    <span class="ruby-identifier">└──</span> <span class="ruby-value">100100</span>.<span class="ruby-identifier">txt</span>
+</pre>
+
+<h2 id="label-Track+Promotion">Track Promotion<span><a href="#label-Track+Promotion">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A common Play publishing scenario might involve uploading an APK version to
+a test track, testing it, and finally promoting that version to production.</p>
+
+<p>This can be done using the <code>--track_promote_to</code> parameter. The
+<code>--track_promote_to</code> parameter works with the
+<code>--track</code> parameter to command the Play API to promote existing
+Play track APK version(s) (those active on the track identified by the
+<code>--track</code> param value) to a new track
+(<code>--track_promote_to</code> value).</p>
+
+<h2 id="label-Retrieve+Track+Version+Codes">Retrieve Track Version Codes<span><a href="#label-Retrieve+Track+Version+Codes">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Before performing a new APK upload you may want to check existing track
+version codes, or you may simply want to provide an informational lane that
+displays the currently promoted version codes for the production track. You
+can use the <code>google_play_track_version_codes</code> action to retrieve
+existing version codes for a package and track. For more information, see
+<code>fastlane action google_play_track_version_codes</code> help output.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

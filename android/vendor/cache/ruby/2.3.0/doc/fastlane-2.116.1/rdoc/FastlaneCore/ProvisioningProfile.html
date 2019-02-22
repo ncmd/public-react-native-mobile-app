@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::ProvisioningProfile - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-decode">::decode</a>
+    
+    <li ><a href="#method-c-install">::install</a>
+    
+    <li ><a href="#method-c-mac-3F">::mac?</a>
+    
+    <li ><a href="#method-c-name">::name</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-c-profile_filename">::profile_filename</a>
+    
+    <li ><a href="#method-c-profiles_path">::profiles_path</a>
+    
+    <li ><a href="#method-c-uuid">::uuid</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::ProvisioningProfile">
+  <h1 id="class-FastlaneCore::ProvisioningProfile" class="class">
+    class FastlaneCore::ProvisioningProfile
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-install" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">install</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Installs a provisioning profile for Xcode to use</p>
+          
+          
+
+          
+          <div class="method-source-code" id="install-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">install</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Installing provisioning profile...&quot;</span>)
+  <span class="ruby-identifier">destination</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">profiles_path</span>, <span class="ruby-identifier">profile_filename</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">destination</span>
+    <span class="ruby-comment"># copy to Xcode provisioning profile directory</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">copy</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">destination</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">destination</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Failed installation of provisioning profile at location: &#39;#{destination}&#39;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">destination</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;Platform&quot;</span>, []).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;OSX&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The Name of the given provisioning profile</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;Name&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Hash) The hash with the data of the provisioning profile @example</p>
+
+<pre>{&quot;AppIDName&quot;=&gt;&quot;My App Name&quot;,
+ &quot;ApplicationIdentifierPrefix&quot;=&gt;[&quot;5A997XSAAA&quot;],
+ &quot;CreationDate&quot;=&gt;#&lt;DateTime: 2015-05-24T20:38:03+00:00 ((2457167j,74283s,0n),+0s,2299161j)&gt;,
+ &quot;DeveloperCertificates&quot;=&gt;[#&lt;StringIO:0x007f944b9666f8&gt;],
+ &quot;Entitlements&quot;=&gt;
+  {&quot;keychain-access-groups&quot;=&gt;[&quot;5A997XSAAA.*&quot;],
+   &quot;get-task-allow&quot;=&gt;false,
+   &quot;application-identifier&quot;=&gt;&quot;5A997XAAA.net.sunapps.192&quot;,
+   &quot;com.apple.developer.team-identifier&quot;=&gt;&quot;5A997XAAAA&quot;,
+   &quot;aps-environment&quot;=&gt;&quot;production&quot;,
+   &quot;beta-reports-active&quot;=&gt;true},
+ &quot;ExpirationDate&quot;=&gt;#&lt;DateTime: 2015-11-25T22:45:50+00:00 ((2457352j,81950s,0n),+0s,2299161j)&gt;,
+ &quot;Name&quot;=&gt;&quot;net.sunapps.192 AppStore&quot;,
+ &quot;TeamIdentifier&quot;=&gt;[&quot;5A997XSAAA&quot;],
+ &quot;TeamName&quot;=&gt;&quot;SunApps GmbH&quot;,
+ &quot;TimeToLive&quot;=&gt;185,
+ &quot;UUID&quot;=&gt;&quot;1752e382-53bd-4910-a393-aaa7de0005ad&quot;,
+ &quot;Version&quot;=&gt;1}</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;plist&#39;</span>
+
+  <span class="ruby-identifier">plist</span> = <span class="ruby-constant">Plist</span>.<span class="ruby-identifier">parse_xml</span>(<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>))
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">plist</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>
+    <span class="ruby-identifier">plist</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-node">&quot;Error parsing provisioning profile at path &#39;#{path}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-profile_filename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile_filename</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="profile_filename-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">profile_filename</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">basename</span> = <span class="ruby-identifier">uuid</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>)
+    <span class="ruby-identifier">basename</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.provisionprofile&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">basename</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.mobileprovision&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-profiles_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profiles_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="profiles_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">profiles_path</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;~&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/Library/MobileDevice/Provisioning Profiles/&quot;</span>
+  <span class="ruby-comment"># If the directory doesn&#39;t exist, create it first</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-uuid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uuid</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The UUID of the given provisioning profile</p>
+          
+          
+
+          
+          <div class="method-source-code" id="uuid-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uuid</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;UUID&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decode</span><span
+            class="method-args">(path, keychain_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decode-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/provisioning_profile.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decode</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;tmpdir&#39;</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>(<span class="ruby-string">&#39;fastlane&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">err</span> = <span class="ruby-node">&quot;#{dir}/cms.err&quot;</span>
+    <span class="ruby-comment"># we want to prevent the error output to mix up with the standard output because of</span>
+    <span class="ruby-comment"># /dev/null: https://github.com/fastlane/fastlane/issues/6387</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">keychain_path</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">decoded</span> = <span class="ruby-node">%x`security cms -D -i &quot;#{path}&quot; 2&gt; #{err}`</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">decoded</span> = <span class="ruby-node">%x`security cms -D -i &quot;#{path}&quot; -k &quot;#{keychain_path.shellescape}&quot; 2&gt; #{err}`</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># `security` only works on Mac, fallback to `openssl`</span>
+      <span class="ruby-comment"># via https://stackoverflow.com/a/14379814/252627</span>
+      <span class="ruby-identifier">decoded</span> = <span class="ruby-node">%x`openssl smime -inform der -verify -noverify -in #{path} 2&gt; #{err}`</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Failure to decode #{path}. Exit: #{$?.exitstatus}: #{File.read(err)}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">exitstatus</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">decoded</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

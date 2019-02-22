@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::EnsureXcodeVersionAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-return_value">::return_value</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::EnsureXcodeVersionAction">
+  <h1 id="class-Fastlane::Actions::EnsureXcodeVersionAction" class="class">
+    class Fastlane::Actions::EnsureXcodeVersionAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span>
+  [<span class="ruby-string">&quot;JaviSoto&quot;</span>, <span class="ruby-string">&quot;KrauseFx&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:version</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_ENSURE_XCODE_VERSION&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Xcode version to verify that is selected&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:building</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Documentation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Ensure the right version of Xcode is used&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  [
+    <span class="ruby-string">&quot;If building your app requires a specific version of Xcode, you can invoke this command before using gym.&quot;</span>,
+    <span class="ruby-string">&quot;For example, to ensure that a beta version of Xcode is not accidentally selected to build, which would make uploading to TestFlight fail.&quot;</span>,
+    <span class="ruby-string">&quot;You can either manually provide a specific version using `version: ` or you make use of the `.xcode-version` file.&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;ensure_xcode_version(version: &quot;7.2&quot;)&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  [<span class="ruby-value">:ios</span>, <span class="ruby-value">:mac</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;FL_ENSURE_XCODE_VERSION&#39;</span>, <span class="ruby-string">&#39;Xcode version to verify that is selected&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-return_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">return_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="return_value-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">return_value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ensure_xcode_version.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">verify_gem!</span>(<span class="ruby-string">&#39;xcode-install&#39;</span>)
+  <span class="ruby-identifier">required_version</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:version</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">required_version</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># The user didn&#39;t provide an Xcode version, let&#39;s see</span>
+    <span class="ruby-comment"># if the current project has a `.xcode-version` file</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># The code below can be improved to also consider</span>
+    <span class="ruby-comment"># the directory of the Xcode project</span>
+    <span class="ruby-identifier">xcode_version_paths</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-string">&quot;.xcode-version&quot;</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">xcode_version_paths</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Loading required version from #{xcode_version_paths.first}&quot;</span>)
+      <span class="ruby-identifier">required_version</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">xcode_version_paths</span>.<span class="ruby-identifier">first</span>).<span class="ruby-identifier">strip</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No version: provided when calling the `ensure_xcode_version` action&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">selected_version</span> = <span class="ruby-identifier">sh</span>(<span class="ruby-string">&quot;xcversion selected&quot;</span>).<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^Xcode (.*)$/</span>)[<span class="ruby-value">1</span>]
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">selected_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">selected_version</span>)
+    <span class="ruby-identifier">required_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">required_version</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Invalid version number provided, make sure it&#39;s valid: #{ex}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">selected_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">required_version</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Selected Xcode version is correct: #{selected_version}&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Selected Xcode version is not correct: #{selected_version}. You expected #{required_version}.&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;To correct this, use: `xcode_select(version: #{required_version})`.&quot;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Selected Xcode version doesn&#39;t match your requirement.\nExpected: Xcode #{required_version}\nActual: Xcode #{selected_version}\n&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

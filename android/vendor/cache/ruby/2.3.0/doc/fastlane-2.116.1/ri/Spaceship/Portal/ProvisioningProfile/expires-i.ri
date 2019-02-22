@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"expires:ETI"3Spaceship::Portal::ProvisioningProfile#expires;TI"RW;T:publico:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[I"=@return (DateTime) The date and time of when the profile;To:RDoc::Markup::Verbatim;	[I"expires.
+;T:@format0o;
+;	[I"@example;To;;	[I"O#<DateTime: 2015-11-25T22:45:50+00:00 ((2457352j,81950s,0n),+0s,2299161j)>;T;0:
+@fileI";spaceship/lib/spaceship/portal/provisioning_profile.rb;T:0@omit_headings_from_table_of_contents_below0F@I"+Spaceship::Portal::ProvisioningProfile;TcRDoc::NormalClass0

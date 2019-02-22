@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"dev_push_enabled:ETI",Spaceship::Portal::App#dev_push_enabled;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"-@return (Bool) Development Push Enabled?;T:
+@fileI"*spaceship/lib/spaceship/portal/app.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::App;TcRDoc::NormalClass0

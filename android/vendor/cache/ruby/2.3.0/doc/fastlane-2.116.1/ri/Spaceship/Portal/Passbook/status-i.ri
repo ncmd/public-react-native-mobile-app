@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"status:ETI"'Spaceship::Portal::Passbook#status;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"-@return (String) Status of the passbook ;TI"@example;To:RDoc::Markup::Verbatim;	[I""current";T:@format0:
+@fileI"/spaceship/lib/spaceship/portal/passbook.rb;T:0@omit_headings_from_table_of_contents_below0F@I" Spaceship::Portal::Passbook;TcRDoc::NormalClass0

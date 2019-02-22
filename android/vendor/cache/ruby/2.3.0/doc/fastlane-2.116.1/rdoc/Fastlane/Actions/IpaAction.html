@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::IpaAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-author">::author</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-deprecated_notes">::deprecated_notes</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-fill_in_default_values">::fill_in_default_values</a>
+    
+    <li ><a href="#method-c-find_dsym_file">::find_dsym_file</a>
+    
+    <li ><a href="#method-c-find_ipa_file">::find_ipa_file</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-params_to_build_args">::params_to_build_args</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::IpaAction">
+  <h1 id="class-Fastlane::Actions::IpaAction" class="class">
+    class Fastlane::Actions::IpaAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">author</span>
+  <span class="ruby-string">&quot;joshdholtz&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:workspace</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_WORKSPACE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;WORKSPACE Workspace (.xcworkspace) file to use to build app (automatically detected in current directory)&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:project</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_PROJECT&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Project (.xcodeproj) file to use to build app (automatically detected in current directory, overridden by --workspace option, if passed)&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:configuration</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_CONFIGURATION&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Configuration used to build&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:scheme</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_SCHEME&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Scheme used to build app&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:clean</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_CLEAN&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Clean project before building&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:archive</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_ARCHIVE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Archive project after building&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:destination</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_DESTINATION&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Build destination. Defaults to current directory&quot;</span>,
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:embed</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_EMBED&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Sign .ipa file with .mobileprovision&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:identity</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_IDENTITY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Identity to be used along with --embed&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:sdk</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_SDK&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Use SDK as the name or path of the base SDK when building the project&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:ipa</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_IPA&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Specify the name of the .ipa file to generate (including file extension)&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:xcconfig</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_XCCONFIG&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Use an extra XCCONFIG file to build the app&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:xcargs</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IPA_XCARGS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Pass additional arguments to xcodebuild when building the app. Be sure to quote multiple args&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-value">:shell_string</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:deprecated</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-deprecated_notes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecated_notes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deprecated_notes-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">deprecated_notes</span>
+  [
+    <span class="ruby-string">&quot;You are using legacy `shenzhen` to build your app, which will be removed soon!&quot;</span>,
+    <span class="ruby-string">&quot;It is recommended to upgrade to _gym_.&quot;</span>,
+    <span class="ruby-string">&quot;To do so, just replace `ipa(...)` with `gym(...)` in your Fastfile.&quot;</span>,
+    <span class="ruby-string">&quot;To make code signing work, follow [https://docs.fastlane.tools/codesigning/xcode-project/](https://docs.fastlane.tools/codesigning/xcode-project/).&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Easily build and sign your app using shenzhen&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;ipa(
+      workspace: &quot;MyApp.xcworkspace&quot;,
+      configuration: &quot;Debug&quot;,
+      scheme: &quot;MyApp&quot;,
+      # (optionals)
+      clean: true,                     # This means &quot;Do Clean&quot;. Cleans project before building (the default if not specified).
+      destination: &quot;path/to/dir&quot;,      # Destination directory. Defaults to current directory.
+      ipa: &quot;my-app.ipa&quot;,               # specify the name of the .ipa file to generate (including file extension)
+      xcargs: &quot;MY_ADHOC=0&quot;,            # pass additional arguments to xcodebuild when building the app.
+      embed: &quot;my.mobileprovision&quot;,     # Sign .ipa file with .mobileprovision
+      identity: &quot;MyIdentity&quot;,          # Identity to be used along with --embed
+      sdk: &quot;10.0&quot;,                     # use SDK as the name or path of the base SDK when building the project.
+      archive: true                    # this means &quot;Do Archive&quot;. Archive project after building (the default if not specified).
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fill_in_default_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fill_in_default_values</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fill_in_default_values-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fill_in_default_values</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">embed</span> = <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">SIGH_PROFILE_PATH</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SIGH_PROFILE_PATH&quot;</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:embed</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">embed</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">embed</span>
+  <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find_dsym_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_dsym_file</span><span
+            class="method-args">(dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_dsym_file-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find_dsym_file</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-comment"># Finds last modified .dSYM.zip in the destination directory</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-string">&#39;*.dSYM.zip&#39;</span>)].<span class="ruby-identifier">sort</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">b</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">a</span>) }.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find_ipa_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_ipa_file</span><span
+            class="method-args">(dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_ipa_file-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find_ipa_file</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-comment"># Finds last modified .ipa in the destination directory</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-string">&#39;*.ipa&#39;</span>)].<span class="ruby-identifier">sort</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">b</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">a</span>) }.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;IPA_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;The path to the newly generated ipa file&#39;</span>],
+    [<span class="ruby-string">&#39;DSYM_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;The path to the dsym file&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-params_to_build_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">params_to_build_args</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="params_to_build_args-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">params_to_build_args</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">config</span>.<span class="ruby-identifier">values</span>
+
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> }
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">fill_in_default_values</span>(<span class="ruby-identifier">params</span>)
+
+  <span class="ruby-comment"># Maps nice developer param names to Shenzhen&#39;s `ipa build` arguments</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ARGS_MAP</span>[<span class="ruby-identifier">k</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-value">:clean</span>
+        <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;--clean&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;--no-clean&#39;</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-value">:archive</span>
+        <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;--archive&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;--no-archive&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">value</span> = (<span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;\&quot;#{v}\&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+        <span class="ruby-node">&quot;#{ARGS_MAP[k]} #{value}&quot;</span>.<span class="ruby-identifier">strip</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/ipa.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">verify_gem!</span>(<span class="ruby-string">&#39;krausefx-shenzhen&#39;</span>)
+
+  <span class="ruby-comment"># The output directory of the IPA and dSYM</span>
+  <span class="ruby-identifier">absolute_dest_directory</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-comment"># Used to get the final path of the IPA and dSYM</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dest</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:destination</span>]
+    <span class="ruby-identifier">absolute_dest_directory</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">dest</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># The args we will build with</span>
+  <span class="ruby-comment"># Maps nice developer build parameters to Shenzhen args</span>
+  <span class="ruby-identifier">build_args</span> = <span class="ruby-identifier">params_to_build_args</span>(<span class="ruby-identifier">params</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:scheme</span>]
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;You haven&#39;t specified a scheme. This might cause problems. If you can&#39;t see any output, please pass a `scheme`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># If no dest directory given, default to current directory</span>
+  <span class="ruby-identifier">absolute_dest_directory</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">IPA_OUTPUT_PATH</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">absolute_dest_directory</span>, <span class="ruby-string">&#39;test.ipa&#39;</span>)
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYM_OUTPUT_PATH</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">absolute_dest_directory</span>, <span class="ruby-string">&#39;test.app.dSYM.zip&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">build_args</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Joins args into space delimited string</span>
+  <span class="ruby-identifier">build_args</span> = <span class="ruby-identifier">build_args</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+
+  <span class="ruby-identifier">core_command</span> = <span class="ruby-node">&quot;krausefx-ipa build #{build_args} --verbose | xcpretty&quot;</span>
+  <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;set -o pipefail &amp;&amp; #{core_command}&quot;</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">command</span>)
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">command</span>)
+
+    <span class="ruby-comment"># Finds absolute path of IPA and dSYM</span>
+    <span class="ruby-identifier">absolute_ipa_path</span> = <span class="ruby-identifier">find_ipa_file</span>(<span class="ruby-identifier">absolute_dest_directory</span>)
+    <span class="ruby-identifier">absolute_dsym_path</span> = <span class="ruby-identifier">find_dsym_file</span>(<span class="ruby-identifier">absolute_dest_directory</span>)
+
+    <span class="ruby-comment"># Sets shared values to use after this action is performed</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">IPA_OUTPUT_PATH</span>] = <span class="ruby-identifier">absolute_ipa_path</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYM_OUTPUT_PATH</span>] = <span class="ruby-identifier">absolute_dsym_path</span>
+    <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">IPA_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">absolute_ipa_path</span> <span class="ruby-comment"># for deliver</span>
+    <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYM_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">absolute_dsym_path</span>
+
+    <span class="ruby-identifier">deprecation_warning</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    [
+      <span class="ruby-string">&quot;-------------------------------------------------------&quot;</span>,
+      <span class="ruby-string">&quot;Original Error:&quot;</span>,
+      <span class="ruby-string">&quot; =&gt; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>,
+      <span class="ruby-string">&quot;A build error occurred. You are using legacy `shenzhen` for building&quot;</span>,
+      <span class="ruby-string">&quot;it is recommended to upgrade to _gym_: &quot;</span>,
+      <span class="ruby-string">&quot;https://docs.fastlane.tools/actions/gym/&quot;</span>,
+      <span class="ruby-identifier">core_command</span>,
+      <span class="ruby-string">&quot;-------------------------------------------------------&quot;</span>
+    ].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">txt</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">txt</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Raise a custom exception, as the the normal one is useless for the user</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;A build error occurred, this is usually related to code signing. Take a look at the error above&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

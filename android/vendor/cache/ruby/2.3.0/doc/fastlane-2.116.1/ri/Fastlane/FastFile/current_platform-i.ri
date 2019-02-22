@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"current_platform:ETI"(Fastlane::FastFile#current_platform;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"Hthe platform in which we're currently in when parsing the Fastfile ;TI"BThis is used to identify the platform in which the lane is in;T:
+@fileI"'fastlane/lib/fastlane/fast_file.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Fastlane::FastFile;TcRDoc::NormalClass0

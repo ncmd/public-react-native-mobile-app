@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Snapshot::LatestOsVersion - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-ios_version">::ios_version</a>
+    
+    <li ><a href="#method-c-version">::version</a>
+    
+    <li ><a href="#method-c-version_for_os">::version_for_os</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Snapshot::LatestOsVersion">
+  <h1 id="class-Snapshot::LatestOsVersion" class="class">
+    class Snapshot::LatestOsVersion
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-ios_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_version-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/latest_os_version.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ios_version</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SNAPSHOT_IOS_VERSION&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;SNAPSHOT_IOS_VERSION&quot;</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version</span>(<span class="ruby-string">&quot;iOS&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version</span><span
+            class="method-args">(os)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/latest_os_version.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version</span>(<span class="ruby-identifier">os</span>)
+  <span class="ruby-ivar">@versions</span>[<span class="ruby-identifier">os</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">version_for_os</span>(<span class="ruby-identifier">os</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-version_for_os" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version_for_os</span><span
+            class="method-args">(os)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="version_for_os-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/latest_os_version.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_for_os</span>(<span class="ruby-identifier">os</span>)
+  <span class="ruby-comment"># We do all this, because we would get all kind of crap output generated by xcodebuild</span>
+  <span class="ruby-comment"># so we need to ignore stderror</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">popen3</span>(<span class="ruby-string">&#39;xcodebuild -version -sdk&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>, <span class="ruby-identifier">wait_thr</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">read</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">matched</span> = <span class="ruby-identifier">output</span>.<span class="ruby-identifier">match</span>(<span class="ruby-node">/#{os} ([\d\.]+) \(.*/</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">matched</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not determine installed #{os} SDK version. Try running the _xcodebuild_ command manually to ensure it works.&quot;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">matched</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">matched</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not determine installed #{os} SDK version. Please pass it via the environment variable &#39;SNAPSHOT_IOS_VERSION&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

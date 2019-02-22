@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-fastlane+danger+Device+Grid">fastlane danger Device Grid</a>
+    <li><a href="#label-Requirements">Requirements</a>
+    <li><a href="#label-Getting+started">Getting started</a>
+    <li><a href="#label-Install+fastlane+and+danger">Install fastlane and danger</a>
+    <li><a href="#label-Setup+fastlane">Setup <em>fastlane</em></a>
+    <li><a href="#label-Setup+danger">Setup <code>danger</code></a>
+    <li><a href="#label-Configure+danger">Configure <code>danger</code></a>
+    <li><a href="#label-Try+it">Try it</a>
+    <li><a href="#label-Make+use+of+deep+linking">Make use of deep linking</a>
+    <li><a href="#label-Make+use+of+NSUserDefaults">Make use of <code>NSUserDefaults</code></a>
+    <li><a href="#label-Generate+appetize+stream-2C+without+the+grid">Generate <code>appetize</code> stream, without the grid</a>
+    <li><a href="#label-Manual+way+using+appetize_viewing_url_generator">Manual way using <code>appetize_viewing_url_generator</code></a>
+    <li><a href="#label-Disclaimer">Disclaimer</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/device_grid/README.md">
+
+<h1 id="label-fastlane+danger+Device+Grid">fastlane danger Device Grid<span><a href="#label-fastlane+danger+Device+Grid">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Ever dream of testing your app straight from a pull request? Well now you
+can! With <a href="https://fastlane.tools">fastlane</a>, <a
+href="https://github.com/danger/danger">danger</a> and <a
+href="https://appetize.io/">appetize.io</a>, you can stream your latest
+changes right from the browser.</p>
+
+<p>No more manually installing and testing your app just to review a PR.</p>
+
+<p><img src="assets/GridExampleScreenshot.png"></p>
+
+<p><a
+href="https://github.com/Themoji/ios/pull/12#issuecomment-215836315">View
+Example Pull Request</a></p>
+
+<h2 id="label-Requirements">Requirements<span><a href="#label-Requirements">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://fastlane.tools">fastlane</a></p>
+</li><li>
+<p><a href="https://github.com/danger/danger">danger</a></p>
+</li><li>
+<p><a href="https://appetize.io/">appetize.io</a> account</p>
+</li><li>
+<p>A Continuous Integration system</p>
+</li></ul>
+
+<h2 id="label-Getting+started">Getting started<span><a href="#label-Getting+started">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Install+fastlane+and+danger">Install fastlane and danger<span><a href="#label-Install+fastlane+and+danger">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Create a <code>Gemfile</code> in your project&#39;s directory with the
+following content</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;fastlane&quot;</span>
+<span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;danger&quot;</span>
+<span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;danger-device_grid&quot;</span>
+</pre>
+
+<p>and run</p>
+
+<pre class="ruby"><span class="ruby-identifier">bundle</span> <span class="ruby-identifier">install</span>
+</pre>
+
+<h3 id="label-Setup+fastlane">Setup <em>fastlane</em><span><a href="#label-Setup+fastlane">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Skip this step if you&#39;re already using <em>fastlane</em> (which you
+should)</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">init</span>
+</pre>
+
+<h3 id="label-Setup+danger">Setup <code>danger</code><span><a href="#label-Setup+danger">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">danger</span> <span class="ruby-identifier">init</span>
+</pre>
+
+<p>Follow the <code>danger</code> guide to authenticate with GitHub</p>
+
+<h3 id="label-Configure+danger">Configure <code>danger</code><span><a href="#label-Configure+danger">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Edit <code>Dangerfile</code> and replace the content with</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Running fastlane to generate and upload an ipa file...&quot;</span>)
+
+<span class="ruby-identifier">options</span> = {
+  <span class="ruby-identifier">xcodebuild</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">workspace</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;YourApp.xcworkspace&quot;</span>,
+      <span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;YourScheme&quot;</span>
+    }
+}
+
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane&#39;</span>
+<span class="ruby-identifier">result</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">OneOff</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;build_and_upload_to_appetize&quot;</span>,
+                          <span class="ruby-identifier">parameters</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>)
+
+<span class="ruby-identifier">device_grid</span>.<span class="ruby-identifier">run</span>(
+  <span class="ruby-identifier">public_key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>,
+  <span class="ruby-identifier">languages</span><span class="ruby-operator">:</span> [<span class="ruby-string">&quot;en&quot;</span>, <span class="ruby-string">&quot;de&quot;</span>],
+  <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> [<span class="ruby-string">&quot;iphone5s&quot;</span>, <span class="ruby-string">&quot;iphone6splus&quot;</span>, <span class="ruby-string">&quot;ipadair&quot;</span>]
+)
+</pre>
+
+<p>Make sure to fill in your actual workspace and scheme, or use the
+<code>project</code> parameter <code>project:
+&quot;YourApp.xcworkspace&quot;</code>.</p>
+
+<h3 id="label-Try+it">Try it<span><a href="#label-Try+it">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Push everything to GitHub in its own branch and create a PR to trigger your
+CI system.</p>
+
+<h3 id="label-Make+use+of+deep+linking">Make use of deep linking<span><a href="#label-Make+use+of+deep+linking">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>When you submit a PR you usually know what part of your app should be
+reviewed. Make it easier for everyone by providing a deep link, launching
+the app at the right point. To do so, use emojis (what else):</p>
+
+<p>Add this to the bottom of your PR-body:</p>
+
+<pre>:link: com.krausefx.app://bacons/show/937</pre>
+
+<h3 id="label-Make+use+of+NSUserDefaults">Make use of <code>NSUserDefaults</code><span><a href="#label-Make+use+of+NSUserDefaults">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To do a runtime check if if the app is running on <code>Appetize</code>,
+just use:</p>
+
+<pre>[[NSUserDefaults standardUserDefaults] objectForKey:@&quot;isAppetize&quot;]</pre>
+
+<h3 id="label-Generate+appetize+stream-2C+without+the+grid">Generate <code>appetize</code> stream, without the grid<span><a href="#label-Generate+appetize+stream-2C+without+the+grid">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Add the following to your <code>Fastfile</code> to build and upload your
+app to <code>appetize</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Build your app and upload it to Appetize to stream it in your browser&quot;</span>
+<span class="ruby-identifier">lane</span> :<span class="ruby-identifier">upload_to_appetize</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">build_and_upload_to_appetize</span>(
+    <span class="ruby-identifier">xcodebuild</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">workspace</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;YourApp.xcworkspace&quot;</span>,
+      <span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;YourScheme&quot;</span>
+    }
+  )
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Run the newly created lane using</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">upload_to_appetize</span>
+</pre>
+
+<h3 id="label-Manual+way+using+appetize_viewing_url_generator">Manual way using <code>appetize_viewing_url_generator</code><span><a href="#label-Manual+way+using+appetize_viewing_url_generator">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you want even more control over the way your app is built, you can also
+manually generate your <code>.app</code> and then upload it to
+<code>appetize</code>.</p>
+
+<p>Use the <code>appetize</code> action together with
+<code>appetize_viewing_url_generator</code>. Make sure to build with the
+<code>iphonesimulator</code> SDK, since <code>appetize</code> runs iOS
+simulators to stream your application.</p>
+
+<pre class="ruby"><span class="ruby-identifier">tmp_path</span> = <span class="ruby-string">&quot;/tmp/fastlane_build&quot;</span>
+<span class="ruby-identifier">xcodebuild</span>(
+  <span class="ruby-identifier">workspace</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Themoji.xcworkspace&quot;</span>,
+  <span class="ruby-identifier">sdk</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;iphonesimulator&quot;</span>,
+  <span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Themoji&quot;</span>,
+  <span class="ruby-identifier">derivedDataPath</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tmp_path</span>
+)
+
+<span class="ruby-identifier">app_path</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp_path</span>, <span class="ruby-string">&quot;**&quot;</span>, <span class="ruby-string">&quot;*.app&quot;</span>)].<span class="ruby-identifier">last</span>
+<span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Couldn&#39;t find app&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app_path</span>
+
+<span class="ruby-identifier">zipped_bundle</span> = <span class="ruby-identifier">zip</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_path</span>, <span class="ruby-identifier">output_path</span><span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp_path</span>, <span class="ruby-string">&quot;Result.zip&quot;</span>))
+
+<span class="ruby-identifier">appetize</span>(
+  <span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">zipped_bundle</span>,
+  <span class="ruby-identifier">api_token</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;yourapitoken&#39;</span> <span class="ruby-comment"># get it from https://appetize.io/docs#request-api-token</span>
+)
+
+<span class="ruby-identifier">url</span> = <span class="ruby-identifier">appetize_viewing_url_generator</span>(<span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;75&quot;</span>, <span class="ruby-identifier">color</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;black&quot;</span>, <span class="ruby-identifier">public_key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;123123&quot;</span>)
+<span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Generated URL: #{url}&quot;</span>)
+</pre>
+
+<h4 id="label-Disclaimer">Disclaimer<span><a href="#label-Disclaimer">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>All product names, logos, and brands are property of their respective
+owners.<br> The used device frames were provided by Facebook via the <a
+href="https://facebook.github.io/design/devices.html">Facebook Design
+Resources</a>. <em>fastlane</em> is in no way affiliated with Facebook.</p>
+
+<blockquote>
+<p>While Facebook has redrawn and shares these assets for the benefit of the
+design community, Facebook does not own any of the underlying product or
+user interface designs. By accessing these assets, you agree to obtain all
+necessary permissions from the underlying rights holders and/or adhere to
+any applicable brand use guidelines before using them. Facebook disclaims
+all express or implied warranties with respect to these assets, including
+non-infringement of intellectual property rights.</p>
+</blockquote>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

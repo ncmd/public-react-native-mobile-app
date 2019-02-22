@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::CocoapodsAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-call_error_callback">::call_error_callback</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::CocoapodsAction">
+  <h1 id="class-Fastlane::Actions::CocoapodsAction" class="class">
+    class Fastlane::Actions::CocoapodsAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span>
+  [<span class="ruby-string">&quot;KrauseFx&quot;</span>, <span class="ruby-string">&quot;tadpol&quot;</span>, <span class="ruby-string">&quot;birmacher&quot;</span>, <span class="ruby-string">&quot;Liquidsoul&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:repo_update</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_REPO_UPDATE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Add `--repo-update` flag to `pod install` command&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:silent</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_SILENT&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Execute command without logging output&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:verbose</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_VERBOSE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Show more debugging information&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:ansi</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_ANSI&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Show output with ANSI codes&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:use_bundle_exec</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_USE_BUNDLE_EXEC&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Use bundle exec when there is a Gemfile presented&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:podfile</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_PODFILE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Explicitly specify the path to the Cocoapods&#39; Podfile. You can either set it to the Podfile&#39;s path or to the folder containing the Podfile file&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Could not find Podfile&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:error_callback</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;A callback invoked with the command output if there is a non-zero exit status&#39;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-value">:string_callback</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:try_repo_update_on_error</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_TRY_REPO_UPDATE_ON_ERROR&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Retry with --repo-update if action was finished with error&#39;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Boolean</span>),
+
+    <span class="ruby-comment"># Deprecated</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:clean</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_CLEAN&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;(Option removed from cocoapods) Remove SCM directories&quot;</span>,
+                                 <span class="ruby-identifier">deprecated</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:integrate</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_COCOAPODS_INTEGRATE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;(Option removed from cocoapods) Integrate the Pods libraries into the Xcode project(s)&quot;</span>,
+                                 <span class="ruby-identifier">deprecated</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  ]
+  <span class="ruby-comment"># Please don&#39;t add a version parameter to the `cocoapods` action. If you need to specify a version when running</span>
+  <span class="ruby-comment"># `cocoapods`, please start using a Gemfile and lock the version there</span>
+  <span class="ruby-comment"># More information https://docs.fastlane.tools/getting-started/ios/setup/#use-a-gemfile</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-call_error_callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_error_callback</span><span
+            class="method-args">(params, result)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call_error_callback-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">call_error_callback</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:error_callback</span>]
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">params</span>[<span class="ruby-value">:error_callback</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">shell_error!</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:building</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Runs `pod install` for the project&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  <span class="ruby-string">&quot;If you use [CocoaPods](http://cocoapods.org) you can use the `cocoapods` integration to run `pod install` before building your app.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;cocoapods&#39;</span>,
+    <span class="ruby-string">&#39;cocoapods(
+      clean: true,
+      podfile: &quot;./CustomPodfile&quot;
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  [<span class="ruby-value">:ios</span>, <span class="ruby-value">:mac</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/cocoapods.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">verify_gem!</span>(<span class="ruby-string">&#39;cocoapods&#39;</span>)
+  <span class="ruby-identifier">cmd</span> = []
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:podfile</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:podfile</span>].<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;Podfile&#39;</span>)
+      <span class="ruby-identifier">podfile_folder</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:podfile</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">podfile_folder</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:podfile</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-node">&quot;cd &#39;#{podfile_folder}&#39; &amp;&amp;&quot;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&#39;bundle exec&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:use_bundle_exec</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">shell_out_should_use_bundle_exec?</span>
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&#39;pod install&#39;</span>]
+
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--no-clean&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:clean</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--no-integrate&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:integrate</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--repo-update&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:repo_update</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--silent&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:silent</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--verbose&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:verbose</span>]
+  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--no-ansi&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ansi</span>]
+
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>), <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:repo_update</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:try_repo_update_on_error</span>]
+      <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--repo-update&#39;</span>
+      <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>), <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">retry_result</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">call_error_callback</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">retry_result</span>)
+      })
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">call_error_callback</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">result</span>)
+    <span class="ruby-keyword">end</span>
+  })
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

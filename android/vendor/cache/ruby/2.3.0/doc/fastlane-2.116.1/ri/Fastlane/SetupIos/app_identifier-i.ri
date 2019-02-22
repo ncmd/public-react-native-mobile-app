@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"app_identifier:ETI"&Fastlane::SetupIos#app_identifier;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"&App Identifier of the current app;T:
+@fileI"-fastlane/lib/fastlane/setup/setup_ios.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Fastlane::SetupIos;TcRDoc::NormalClass0

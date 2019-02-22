@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::SwiftLaneManager - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="LaneManagerBase.html">Fastlane::LaneManagerBase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-build_runner-21">::build_runner!</a>
+    
+    <li ><a href="#method-c-collect_tool_paths_for_replacement">::collect_tool_paths_for_replacement</a>
+    
+    <li ><a href="#method-c-cruise_lane">::cruise_lane</a>
+    
+    <li ><a href="#method-c-cruise_swift_lane_in_thread">::cruise_swift_lane_in_thread</a>
+    
+    <li ><a href="#method-c-display_lanes">::display_lanes</a>
+    
+    <li ><a href="#method-c-ensure_runner_built-21">::ensure_runner_built!</a>
+    
+    <li ><a href="#method-c-ensure_runner_up_to_date_fastlane-21">::ensure_runner_up_to_date_fastlane!</a>
+    
+    <li ><a href="#method-c-first_time_setup">::first_time_setup</a>
+    
+    <li ><a href="#method-c-link_user_configs_to_project">::link_user_configs_to_project</a>
+    
+    <li ><a href="#method-c-runner_project">::runner_project</a>
+    
+    <li ><a href="#method-c-start_socket_thread">::start_socket_thread</a>
+    
+    <li ><a href="#method-c-swap_paths_in_target">::swap_paths_in_target</a>
+    
+    <li ><a href="#method-c-target_for_fastlane_runner_project">::target_for_fastlane_runner_project</a>
+    
+    <li ><a href="#method-c-target_source_file_refs">::target_source_file_refs</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::SwiftLaneManager">
+  <h1 id="class-Fastlane::SwiftLaneManager" class="class">
+    class Fastlane::SwiftLaneManager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-build_runner-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_runner!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_runner-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_runner!</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Building FastlaneSwiftRunner&quot;</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane_core&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;gym&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;gym/generators/build_command_generator&#39;</span>
+
+  <span class="ruby-identifier">project_options</span> = {
+      <span class="ruby-identifier">project</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift_runner_project_path</span>,
+      <span class="ruby-identifier">skip_archive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    }
+  <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Gym</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">project_options</span>)
+  <span class="ruby-identifier">build_command</span> = <span class="ruby-constant">Gym</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildCommandGenerator</span>.<span class="ruby-identifier">generate</span>
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(
+    <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build_command</span>,
+    <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-operator">!</span><span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:silent</span>]
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-collect_tool_paths_for_replacement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_tool_paths_for_replacement</span><span
+            class="method-args">(all_user_tool_file_paths: nil, look_for_new_configs: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find all the config files we care about (Deliverfile, Gymfile, etc), and
+build tuples of what file we&#39;ll look for in the Xcode project, and what
+file paths we&#39;ll need to swap (since we have to inject the user&#39;s
+configs)</p>
+
+<p>Return a mapping of what file paths we&#39;re looking =&gt; new file pathes
+we&#39;ll need to inject</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collect_tool_paths_for_replacement-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">collect_tool_paths_for_replacement</span>(<span class="ruby-identifier">all_user_tool_file_paths</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">look_for_new_configs</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">new_user_tool_file_paths</span> = <span class="ruby-identifier">all_user_tool_file_paths</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user_config</span>, <span class="ruby-identifier">preinstalled_config_relative_path</span>, <span class="ruby-identifier">user_config_relative_path</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">look_for_new_configs</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">user_config</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">user_config</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Now strip out the fastlane-relative path and leave us with xcodeproj relative paths</span>
+  <span class="ruby-identifier">new_user_tool_file_paths</span> = <span class="ruby-identifier">new_user_tool_file_paths</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user_config</span>, <span class="ruby-identifier">preinstalled_config_relative_path</span>, <span class="ruby-identifier">user_config_relative_path</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">look_for_new_configs</span>
+      [<span class="ruby-identifier">preinstalled_config_relative_path</span>, <span class="ruby-identifier">user_config_relative_path</span>]
+    <span class="ruby-keyword">else</span>
+      [<span class="ruby-identifier">user_config_relative_path</span>, <span class="ruby-identifier">preinstalled_config_relative_path</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">new_user_tool_file_paths</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-cruise_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cruise_lane</span><span
+            class="method-args">(lane, parameters = nil, env = nil, disable_runner_upgrades: false, swift_server_port: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param lane_name The name of the lane to execute @param parameters [Hash]
+The parameters passed from the command line to the lane @param env Dot Env
+Information</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cruise_lane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cruise_lane</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">env</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">disable_runner_upgrades</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">swift_server_port</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;lane must be a string&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;parameters must be a hash&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-comment"># Sets environment variable and lane context for lane name</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_LANE_NAME&quot;</span>] = <span class="ruby-identifier">lane</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">LANE_NAME</span>] = <span class="ruby-identifier">lane</span>
+
+  <span class="ruby-comment"># xcodeproj has a bug in certain versions that causes it to change directories</span>
+  <span class="ruby-comment"># and not return to the original working directory</span>
+  <span class="ruby-comment"># https://github.com/CocoaPods/Xcodeproj/issues/426</span>
+  <span class="ruby-comment"># Setting this environment variable causes xcodeproj to work around the problem</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FORK_XCODE_WRITING&quot;</span>] = <span class="ruby-string">&quot;true&quot;</span>
+
+  <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span><span class="ruby-operator">::</span><span class="ruby-constant">DotenvHelper</span>.<span class="ruby-identifier">load_dot_env</span>(<span class="ruby-identifier">env</span>)
+
+  <span class="ruby-identifier">started</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">display_upgraded_message</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">disable_runner_upgrades</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;disable_runner_upgrades is true, not attempting to update the FastlaneRunner project&quot;</span>.<span class="ruby-identifier">yellow</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">ci?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Running in CI, not attempting to update the FastlaneRunner project&quot;</span>.<span class="ruby-identifier">yellow</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">display_upgraded_message</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ensure_runner_up_to_date_fastlane!</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ensure_runner_built!</span>
+    <span class="ruby-identifier">swift_server_port</span> <span class="ruby-operator">||=</span> <span class="ruby-value">2000</span>
+    <span class="ruby-identifier">socket_thread</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_socket_thread</span>(<span class="ruby-identifier">port</span><span class="ruby-operator">:</span> <span class="ruby-identifier">swift_server_port</span>)
+    <span class="ruby-identifier">sleep</span>(<span class="ruby-value">0.250</span>) <span class="ruby-keyword">while</span> <span class="ruby-identifier">socket_thread</span>[<span class="ruby-value">:ready</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># wait on socket_thread to be in ready state, then start the runner thread</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cruise_swift_lane_in_thread</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span>, <span class="ruby-identifier">swift_server_port</span>)
+
+    <span class="ruby-identifier">socket_thread</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span> <span class="ruby-comment"># rubocop:disable Lint/RescueException</span>
+    <span class="ruby-identifier">e</span> = <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># If we have a thread exception, drop that in the exception</span>
+  <span class="ruby-comment"># won&#39;t ever have a situation where e is non-nil, and socket_thread[:exception] is also non-nil</span>
+  <span class="ruby-identifier">e</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">socket_thread</span>[<span class="ruby-value">:exception</span>]
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">print_lane_context</span>
+
+    <span class="ruby-comment"># We also catch Exception, since the implemented action might send a SystemExit signal</span>
+    <span class="ruby-comment"># (or similar). We still want to catch that, since we want properly finish running fastlane</span>
+    <span class="ruby-comment"># Tested with `xcake`, which throws a `Xcake::Informative` object</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">StandardError</span>) <span class="ruby-comment"># we don&#39;t want to print things like &#39;system exit&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">skip_message</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-comment"># if socket_thread is nil, we were probably debugging, or something else weird happened</span>
+  <span class="ruby-identifier">exit_reason</span> = <span class="ruby-value">:cancelled</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">socket_thread</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-comment"># normal exit means we have a reason</span>
+  <span class="ruby-identifier">exit_reason</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">socket_thread</span>[<span class="ruby-value">:exit_reason</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">exit_reason</span> <span class="ruby-operator">==</span> <span class="ruby-value">:cancelled</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">skip_message</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">duration</span> = ((<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">started</span>) <span class="ruby-operator">/</span> <span class="ruby-value">60.0</span>).<span class="ruby-identifier">round</span>
+
+  <span class="ruby-identifier">finish_fastlane</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">e</span>, <span class="ruby-identifier">skip_message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">skip_message</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">display_upgraded_message</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;We updated your FastlaneRunner project during this run to make it compatible with your current version of fastlane.&quot;</span>.<span class="ruby-identifier">yellow</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Please make sure to check the changes into source control.&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-cruise_swift_lane_in_thread" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cruise_swift_lane_in_thread</span><span
+            class="method-args">(lane, parameters = nil, swift_server_port)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cruise_swift_lane_in_thread-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cruise_swift_lane_in_thread</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">swift_server_port</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">parameters</span> = {}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">parameter_string</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">parameter_string</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; #{key} #{value}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-identifier">parameter_string</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot; logMode verbose&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">parameter_string</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; swiftServerPort #{swift_server_port}&quot;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-node">%Q(#{FastlaneCore::FastlaneFolder.swift_runner_path} lane #{lane}#{parameter_string} &gt; /dev/null)</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-display_lanes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_lanes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="display_lanes-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">display_lanes</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ensure_runner_built!</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-node">%Q(#{FastlaneCore::FastlaneFolder.swift_runner_path} lanes)</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-ensure_runner_built-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_runner_built!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_runner_built-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ensure_runner_built!</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Checking for new user-provided tool configuration files&quot;</span>)
+  <span class="ruby-comment"># if self.link_user_configs_to_project returns true, that means we need to rebuild the runner</span>
+  <span class="ruby-identifier">runner_needs_building</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">link_user_configs_to_project</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift_runner_built?</span>
+    <span class="ruby-identifier">runner_last_modified_age</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift_runner_path</span>).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">fastfile_last_modified_age</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">fastfile_path</span>).<span class="ruby-identifier">to_i</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">runner_last_modified_age</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">fastfile_last_modified_age</span>
+      <span class="ruby-comment"># It&#39;s older than the Fastfile, so build it again</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Found changes to user&#39;s Fastfile.swift, setting re-build runner flag&quot;</span>)
+      <span class="ruby-identifier">runner_needs_building</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Runner isn&#39;t built yet, so build it</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;No runner found, setting re-build runner flag&quot;</span>)
+    <span class="ruby-identifier">runner_needs_building</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">runner_needs_building</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_runner!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-ensure_runner_up_to_date_fastlane-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_runner_up_to_date_fastlane!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>do we have the latest FastlaneSwiftRunner code from the current version of
+fastlane?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_runner_up_to_date_fastlane-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ensure_runner_up_to_date_fastlane!</span>
+  <span class="ruby-identifier">upgraded</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">upgrader</span> = <span class="ruby-constant">SwiftRunnerUpgrader</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">upgrade_needed</span> = <span class="ruby-identifier">upgrader</span>.<span class="ruby-identifier">upgrade_if_needed!</span>(<span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">upgrade_needed</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;It looks like your `FastlaneSwiftRunner` project is not up-to-date&quot;</span>.<span class="ruby-identifier">green</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you don&#39;t update it, fastlane could fail&quot;</span>.<span class="ruby-identifier">green</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;We can try to automatically update it for you, usually this works 🎈 🐐&quot;</span>.<span class="ruby-identifier">green</span>)
+    <span class="ruby-identifier">user_wants_upgrade</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Should we try to upgrade just your `FastlaneSwiftRunner` project?&quot;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Ok, if things break, you can try to run this lane again and you&#39;ll be prompted to upgrade another time&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user_wants_upgrade</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_wants_upgrade</span>
+      <span class="ruby-identifier">upgraded</span> = <span class="ruby-identifier">upgrader</span>.<span class="ruby-identifier">upgrade_if_needed!</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Updated your FastlaneSwiftRunner project with the newest runner code&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">upgraded</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_runner!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">upgraded</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">upgraded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-first_time_setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_time_setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="first_time_setup-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">first_time_setup</span>
+  <span class="ruby-identifier">setup_message</span> = [<span class="ruby-string">&quot;fastlane is now configured to use a swift-based Fastfile (Fastfile.swift) 🦅&quot;</span>]
+  <span class="ruby-identifier">setup_message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;To edit your new Fastfile.swift, type: `open #{FastlaneCore::FastlaneFolder.swift_runner_project_path}`&quot;</span>
+
+  <span class="ruby-comment"># Go through and link up whatever we generated during `fastlane init swift` so the user can edit them easily</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">link_user_configs_to_project</span>(<span class="ruby-identifier">updated_message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">setup_message</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-link_user_configs_to_project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">link_user_configs_to_project</span><span
+            class="method-args">(updated_message: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="link_user_configs_to_project-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">link_user_configs_to_project</span>(<span class="ruby-identifier">updated_message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">tool_files_folder</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>
+
+  <span class="ruby-comment"># All the tools that could have &lt;tool name&gt;file.swift their paths, and where we expect to find the user&#39;s tool files.</span>
+  <span class="ruby-identifier">all_user_tool_file_paths</span> = <span class="ruby-constant">TOOL_CONFIG_FILES</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tool_name</span><span class="ruby-operator">|</span>
+    [
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tool_files_folder</span>, <span class="ruby-node">&quot;#{tool_name}.swift&quot;</span>),
+      <span class="ruby-node">&quot;../#{tool_name}.swift&quot;</span>,
+      <span class="ruby-node">&quot;../../#{tool_name}.swift&quot;</span>
+    ]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Tool files the user now provides</span>
+  <span class="ruby-identifier">new_user_tool_file_paths</span> = <span class="ruby-identifier">collect_tool_paths_for_replacement</span>(<span class="ruby-identifier">all_user_tool_file_paths</span><span class="ruby-operator">:</span> <span class="ruby-identifier">all_user_tool_file_paths</span>, <span class="ruby-identifier">look_for_new_configs</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+
+  <span class="ruby-comment"># Tool files we provide AND the user doesn&#39;t provide</span>
+  <span class="ruby-identifier">user_tool_files_possibly_removed</span> = <span class="ruby-identifier">collect_tool_paths_for_replacement</span>(<span class="ruby-identifier">all_user_tool_file_paths</span><span class="ruby-operator">:</span> <span class="ruby-identifier">all_user_tool_file_paths</span>, <span class="ruby-identifier">look_for_new_configs</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">fastlane_runner_project</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">runner_project</span>
+  <span class="ruby-identifier">runner_target</span> = <span class="ruby-identifier">target_for_fastlane_runner_project</span>(<span class="ruby-identifier">runner_project</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fastlane_runner_project</span>)
+  <span class="ruby-identifier">target_file_refs</span> = <span class="ruby-identifier">target_source_file_refs</span>(<span class="ruby-identifier">target</span><span class="ruby-operator">:</span> <span class="ruby-identifier">runner_target</span>)
+
+  <span class="ruby-comment"># Swap in all new user supplied configs into the project</span>
+  <span class="ruby-identifier">project_modified</span> = <span class="ruby-identifier">swap_paths_in_target</span>(
+    <span class="ruby-identifier">target</span><span class="ruby-operator">:</span> <span class="ruby-identifier">runner_target</span>,
+    <span class="ruby-identifier">file_refs_to_swap</span><span class="ruby-operator">:</span> <span class="ruby-identifier">target_file_refs</span>,
+    <span class="ruby-identifier">expected_path_to_replacement_path_tuples</span><span class="ruby-operator">:</span> <span class="ruby-identifier">new_user_tool_file_paths</span>
+  )
+
+  <span class="ruby-comment"># Swap out any configs the user has removed, inserting fastlane defaults</span>
+  <span class="ruby-identifier">project_modified</span> = <span class="ruby-identifier">swap_paths_in_target</span>(
+    <span class="ruby-identifier">target</span><span class="ruby-operator">:</span> <span class="ruby-identifier">runner_target</span>,
+    <span class="ruby-identifier">file_refs_to_swap</span><span class="ruby-operator">:</span> <span class="ruby-identifier">target_file_refs</span>,
+    <span class="ruby-identifier">expected_path_to_replacement_path_tuples</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_tool_files_possibly_removed</span>
+  ) <span class="ruby-operator">||</span> <span class="ruby-identifier">project_modified</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">project_modified</span>
+    <span class="ruby-identifier">fastlane_runner_project</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">updated_message</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;Updated #{FastlaneCore::FastlaneFolder.swift_runner_project_path}&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-identifier">updated_message</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;FastlaneSwiftRunner project is up-to-date&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">project_modified</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-runner_project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runner_project</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>open and return the swift project</p>
+          
+          
+
+          
+          <div class="method-source-code" id="runner_project-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">runner_project</span>
+  <span class="ruby-identifier">runner_project_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift_runner_project_path</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;xcodeproj&#39;</span>
+  <span class="ruby-identifier">project</span> = <span class="ruby-constant">Xcodeproj</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">runner_project_path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">project</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start_socket_thread" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_socket_thread</span><span
+            class="method-args">(port: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_socket_thread-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_socket_thread</span>(<span class="ruby-identifier">port</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane/server/socket_server&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane/server/socket_server_action_command_executor&#39;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">command_executor</span> = <span class="ruby-constant">SocketServerActionCommandExecutor</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">server</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">SocketServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">command_executor</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command_executor</span>, <span class="ruby-identifier">port</span><span class="ruby-operator">:</span> <span class="ruby-identifier">port</span>)
+    <span class="ruby-identifier">server</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-swap_paths_in_target" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">swap_paths_in_target</span><span
+            class="method-args">(target: nil, file_refs_to_swap: nil, expected_path_to_replacement_path_tuples: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="swap_paths_in_target-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">swap_paths_in_target</span>(<span class="ruby-identifier">target</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">file_refs_to_swap</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">expected_path_to_replacement_path_tuples</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">made_project_updates</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">file_refs_to_swap</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file_ref</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">expected_path_to_replacement_path_tuples</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">preinstalled_config_relative_path</span>, <span class="ruby-identifier">user_config_relative_path</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">file_ref</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">preinstalled_config_relative_path</span>
+
+      <span class="ruby-identifier">file_ref</span>.<span class="ruby-identifier">path</span> = <span class="ruby-identifier">user_config_relative_path</span>
+      <span class="ruby-identifier">made_project_updates</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">made_project_updates</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-target_for_fastlane_runner_project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">target_for_fastlane_runner_project</span><span
+            class="method-args">(runner_project: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the FastlaneRunner build target</p>
+          
+          
+
+          
+          <div class="method-source-code" id="target_for_fastlane_runner_project-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">target_for_fastlane_runner_project</span>(<span class="ruby-identifier">runner_project</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">fastlane_runner_array</span> = <span class="ruby-identifier">runner_project</span>.<span class="ruby-identifier">targets</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">target</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;FastlaneRunner&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># get runner target</span>
+  <span class="ruby-identifier">runner_target</span> = <span class="ruby-identifier">fastlane_runner_array</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">runner_target</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-target_source_file_refs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">target_source_file_refs</span><span
+            class="method-args">(target: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="target_source_file_refs-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_lane_manager.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">target_source_file_refs</span>(<span class="ruby-identifier">target</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">target</span>.<span class="ruby-identifier">source_build_phase</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:file_ref</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

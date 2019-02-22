@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::PortalClient - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Client.html">Spaceship::Client</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-hostname">::hostname</a>
+    
+    <li ><a href="#method-i-app_groups">#app_groups</a>
+    
+    <li ><a href="#method-i-apps">#apps</a>
+    
+    <li ><a href="#method-i-associate_cloud_containers_with_app">#associate_cloud_containers_with_app</a>
+    
+    <li ><a href="#method-i-associate_groups_with_app">#associate_groups_with_app</a>
+    
+    <li ><a href="#method-i-associate_merchants_with_app">#associate_merchants_with_app</a>
+    
+    <li ><a href="#method-i-certificates">#certificates</a>
+    
+    <li ><a href="#method-i-cloud_containers">#cloud_containers</a>
+    
+    <li ><a href="#method-i-create_app-21">#create_app!</a>
+    
+    <li ><a href="#method-i-create_app_group-21">#create_app_group!</a>
+    
+    <li ><a href="#method-i-create_certificate-21">#create_certificate!</a>
+    
+    <li ><a href="#method-i-create_cloud_container-21">#create_cloud_container!</a>
+    
+    <li ><a href="#method-i-create_device-21">#create_device!</a>
+    
+    <li ><a href="#method-i-create_key-21">#create_key!</a>
+    
+    <li ><a href="#method-i-create_merchant-21">#create_merchant!</a>
+    
+    <li ><a href="#method-i-create_passbook-21">#create_passbook!</a>
+    
+    <li ><a href="#method-i-create_provisioning_profile-21">#create_provisioning_profile!</a>
+    
+    <li ><a href="#method-i-create_website_push-21">#create_website_push!</a>
+    
+    <li ><a href="#method-i-csrf_cache">#csrf_cache</a>
+    
+    <li ><a href="#method-i-delete_app-21">#delete_app!</a>
+    
+    <li ><a href="#method-i-delete_app_group-21">#delete_app_group!</a>
+    
+    <li ><a href="#method-i-delete_merchant-21">#delete_merchant!</a>
+    
+    <li ><a href="#method-i-delete_passbook-21">#delete_passbook!</a>
+    
+    <li ><a href="#method-i-delete_provisioning_profile-21">#delete_provisioning_profile!</a>
+    
+    <li ><a href="#method-i-delete_website_push-21">#delete_website_push!</a>
+    
+    <li ><a href="#method-i-details_for_app">#details_for_app</a>
+    
+    <li ><a href="#method-i-devices">#devices</a>
+    
+    <li ><a href="#method-i-devices_by_class">#devices_by_class</a>
+    
+    <li ><a href="#method-i-disable_device-21">#disable_device!</a>
+    
+    <li ><a href="#method-i-download_certificate">#download_certificate</a>
+    
+    <li ><a href="#method-i-download_key">#download_key</a>
+    
+    <li ><a href="#method-i-download_provisioning_profile">#download_provisioning_profile</a>
+    
+    <li ><a href="#method-i-enable_device-21">#enable_device!</a>
+    
+    <li ><a href="#method-i-ensure_csrf">#ensure_csrf</a>
+    
+    <li ><a href="#method-i-fetch_csrf_token_for_keys">#fetch_csrf_token_for_keys</a>
+    
+    <li ><a href="#method-i-fetch_csrf_token_for_provisioning">#fetch_csrf_token_for_provisioning</a>
+    
+    <li ><a href="#method-i-get_key">#get_key</a>
+    
+    <li ><a href="#method-i-in_house-3F">#in_house?</a>
+    
+    <li ><a href="#method-i-list_keys">#list_keys</a>
+    
+    <li ><a href="#method-i-merchants">#merchants</a>
+    
+    <li ><a href="#method-i-passbooks">#passbooks</a>
+    
+    <li ><a href="#method-i-platform_slug">#platform_slug</a>
+    
+    <li ><a href="#method-i-provisioning_profile_details">#provisioning_profile_details</a>
+    
+    <li ><a href="#method-i-provisioning_profiles">#provisioning_profiles</a>
+    
+    <li ><a href="#method-i-provisioning_profiles_via_xcode_api">#provisioning_profiles_via_xcode_api</a>
+    
+    <li ><a href="#method-i-repair_provisioning_profile-21">#repair_provisioning_profile!</a>
+    
+    <li ><a href="#method-i-revoke_certificate-21">#revoke_certificate!</a>
+    
+    <li ><a href="#method-i-revoke_key-21">#revoke_key!</a>
+    
+    <li ><a href="#method-i-select_team">#select_team</a>
+    
+    <li ><a href="#method-i-send_login_request">#send_login_request</a>
+    
+    <li ><a href="#method-i-team_id">#team_id</a>
+    
+    <li ><a href="#method-i-team_id-3D">#team_id=</a>
+    
+    <li ><a href="#method-i-team_information">#team_information</a>
+    
+    <li ><a href="#method-i-team_invite">#team_invite</a>
+    
+    <li ><a href="#method-i-team_invited">#team_invited</a>
+    
+    <li ><a href="#method-i-team_members">#team_members</a>
+    
+    <li ><a href="#method-i-team_remove_member-21">#team_remove_member!</a>
+    
+    <li ><a href="#method-i-team_set_role">#team_set_role</a>
+    
+    <li ><a href="#method-i-teams">#teams</a>
+    
+    <li ><a href="#method-i-update_app_name-21">#update_app_name!</a>
+    
+    <li ><a href="#method-i-update_service_for_app">#update_service_for_app</a>
+    
+    <li ><a href="#method-i-valid_name_for">#valid_name_for</a>
+    
+    <li ><a href="#method-i-website_push">#website_push</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::PortalClient">
+  <h1 id="class-Spaceship::PortalClient" class="class">
+    class Spaceship::PortalClient
+  </h1>
+
+  <section class="description">
+    
+<p>rubocop:disable Metrics/ClassLength</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="PROTOCOL_VERSION">PROTOCOL_VERSION
+        
+        <dd><p>@!group Init and Login</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-hostname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hostname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hostname-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hostname</span>
+  <span class="ruby-node">&quot;https://developer.apple.com/services-account/#{PROTOCOL_VERSION}/&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app_groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_groups</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group <a href="Portal/App.html">App</a> Groups</p>
+          
+          
+
+          
+          <div class="method-source-code" id="app_groups-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_groups</span>
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/ios/identifiers/listApplicationGroups.action&#39;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;applicationGroupList&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-apps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apps</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Apps</p>
+          
+          
+
+          
+          <div class="method-source-code" id="apps-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apps</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/listAppIds.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;appIds&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-associate_cloud_containers_with_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">associate_cloud_containers_with_app</span><span
+            class="method-args">(app, containers)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="associate_cloud_containers_with_app-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">associate_cloud_containers_with_app</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">containers</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">CloudContainer</span>)
+
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/ios/identifiers/assignCloudContainerToAppId.action&#39;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+      <span class="ruby-identifier">cloudContainers</span><span class="ruby-operator">:</span> <span class="ruby-identifier">containers</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:cloud_container</span>)
+  })
+
+  <span class="ruby-identifier">details_for_app</span>(<span class="ruby-identifier">app</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-associate_groups_with_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">associate_groups_with_app</span><span
+            class="method-args">(app, groups)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="associate_groups_with_app-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">associate_groups_with_app</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">groups</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">AppGroup</span>)
+
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/ios/identifiers/assignApplicationGroupToAppId.action&#39;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+    <span class="ruby-identifier">displayId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+    <span class="ruby-identifier">applicationGroups</span><span class="ruby-operator">:</span> <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:app_group_id</span>)
+  })
+
+  <span class="ruby-identifier">details_for_app</span>(<span class="ruby-identifier">app</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-associate_merchants_with_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">associate_merchants_with_app</span><span
+            class="method-args">(app, merchants, mac)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="associate_merchants_with_app-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">associate_merchants_with_app</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">merchants</span>, <span class="ruby-identifier">mac</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Merchant</span>)
+
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/assignOMCToAppId.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+    <span class="ruby-identifier">omcIds</span><span class="ruby-operator">:</span> <span class="ruby-identifier">merchants</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:merchant_id</span>)
+  })
+
+  <span class="ruby-identifier">details_for_app</span>(<span class="ruby-identifier">app</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-certificates" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">certificates</span><span
+            class="method-args">(types, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Certificates</p>
+          
+          
+
+          
+          <div class="method-source-code" id="certificates-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 564</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">certificates</span>(<span class="ruby-identifier">types</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/certificate/listCertRequests.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">types</span><span class="ruby-operator">:</span> <span class="ruby-identifier">types</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>),
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;certRequestStatusCode=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;certRequests&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cloud_containers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cloud_containers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Cloud Containers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cloud_containers-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 395</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cloud_containers</span>
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/cloudContainer/listCloudContainers.action&#39;</span>, {
+        <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+        <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+        <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+        <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;cloudContainerList&#39;</span>)
+
+    <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">CloudContainer</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span>
+
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_app-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_app!</span><span
+            class="method-args">(type, name, bundle_id, mac: false, enable_services: {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_app-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_app!</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">bundle_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">enable_services</span><span class="ruby-operator">:</span> {})
+  <span class="ruby-comment"># We moved the ensure_csrf to the top of this method</span>
+  <span class="ruby-comment"># as we got some users with issues around creating new apps</span>
+  <span class="ruby-comment"># https://github.com/fastlane/fastlane/issues/5813</span>
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>)
+
+  <span class="ruby-identifier">ident_params</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_sym</span>
+                 <span class="ruby-keyword">when</span> <span class="ruby-value">:explicit</span>
+                   {
+                     <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;explicit&#39;</span>,
+                     <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+                     <span class="ruby-identifier">inAppPurchase</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;on&#39;</span>,
+                     <span class="ruby-identifier">gameCenter</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;on&#39;</span>
+                   }
+                 <span class="ruby-keyword">when</span> <span class="ruby-value">:wildcard</span>
+                   {
+                     <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;wildcard&#39;</span>,
+                     <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>
+                   }
+                 <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">params</span> = {
+    <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">valid_name_for</span>(<span class="ruby-identifier">name</span>),
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  }
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">ident_params</span>)
+  <span class="ruby-identifier">enable_services</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">v</span>.<span class="ruby-identifier">service_id</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/addAppId.action&quot;</span>, <span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;appId&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_app_group-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_app_group!</span><span
+            class="method-args">(name, group_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_app_group-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_app_group!</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">group_id</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">AppGroup</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/ios/identifiers/addApplicationGroup.action&#39;</span>, {
+    <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">valid_name_for</span>(<span class="ruby-identifier">name</span>),
+    <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_id</span>,
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;applicationGroup&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_certificate-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_certificate!</span><span
+            class="method-args">(type, csr, app_id = nil, mac = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_certificate-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 577</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_certificate!</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">csr</span>, <span class="ruby-identifier">app_id</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mac</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/certificate/submitCertificateRequest.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>,
+    <span class="ruby-identifier">csrContent</span><span class="ruby-operator">:</span> <span class="ruby-identifier">csr</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span> <span class="ruby-comment"># optional</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;certRequest&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_cloud_container-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_cloud_container!</span><span
+            class="method-args">(name, identifier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_cloud_container-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_cloud_container!</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">identifier</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">CloudContainer</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/cloudContainer/addCloudContainer.action&#39;</span>, {
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">valid_name_for</span>(<span class="ruby-identifier">name</span>),
+      <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">identifier</span>,
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;cloudContainer&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_device-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_device!</span><span
+            class="method-args">(device_name, device_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_device-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 524</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_device!</span>(<span class="ruby-identifier">device_name</span>, <span class="ruby-identifier">device_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Device</span>)
+
+  <span class="ruby-identifier">req</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/device/addDevices.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">deviceClasses</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;mac&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;iphone&#39;</span>,
+    <span class="ruby-identifier">deviceNumbers</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_id</span>,
+    <span class="ruby-identifier">deviceNames</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_name</span>,
+    <span class="ruby-identifier">register</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;single&#39;</span>
+  })
+
+  <span class="ruby-identifier">devices</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">req</span>, <span class="ruby-string">&#39;devices&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">validation_messages</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">req</span>, <span class="ruby-string">&#39;validationMessages&#39;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">message</span><span class="ruby-operator">|</span> <span class="ruby-identifier">message</span>[<span class="ruby-string">&quot;validationUserMessage&quot;</span>] }.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">uniq</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">validation_messages</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;\n&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">validation_messages</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;Couldn&#39;t register new device, got this: #{parse_response(req)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_key-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_key!</span><span
+            class="method-args">(name: nil, service_configs: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_key-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 765</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_key!</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">service_configs</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">fetch_csrf_token_for_keys</span>
+
+  <span class="ruby-identifier">params</span> = {
+    <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+    <span class="ruby-identifier">serviceConfigurations</span><span class="ruby-operator">:</span> <span class="ruby-identifier">service_configs</span>,
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  }
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/auth/key/create&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">to_json</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># response contains a list of keys with 1 item</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-string">&#39;keys&#39;</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_merchant-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_merchant!</span><span
+            class="method-args">(name, bundle_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_merchant-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 333</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_merchant!</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">bundle_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Merchant</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/addOMC.action&quot;</span>, {
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+      <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;omcId&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_passbook-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_passbook!</span><span
+            class="method-args">(name, bundle_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_passbook-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_passbook!</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">bundle_id</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Passbook</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&quot;account/ios/identifiers/addPassTypeId.action&quot;</span>, {
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+      <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;passTypeId&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_provisioning_profile-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_provisioning_profile!</span><span
+            class="method-args">(name, distribution_method, app_id, certificate_ids, device_ids, mac: false, sub_platform: nil, template_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_provisioning_profile-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 669</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_provisioning_profile!</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">distribution_method</span>, <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">certificate_ids</span>, <span class="ruby-identifier">device_ids</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">sub_platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">fetch_csrf_token_for_provisioning</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">params</span> = {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">provisioningProfileName</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>,
+    <span class="ruby-identifier">distributionType</span><span class="ruby-operator">:</span> <span class="ruby-identifier">distribution_method</span>,
+    <span class="ruby-identifier">certificateIds</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_ids</span>,
+    <span class="ruby-identifier">deviceIds</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_ids</span>
+  }
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:subPlatform</span>] = <span class="ruby-identifier">sub_platform</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sub_platform</span>
+
+  <span class="ruby-comment"># if `template_name` is nil, Default entitlements will be used</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:template</span>] = <span class="ruby-identifier">template_name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">template_name</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/createProvisioningProfile.action&quot;</span>, <span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;provisioningProfile&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_website_push-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_website_push!</span><span
+            class="method-args">(name, bundle_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_website_push-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_website_push!</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">bundle_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsitePush</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/addWebsitePushId.action&quot;</span>, {
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+      <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;websitePushId&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_app-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_app!</span><span
+            class="method-args">(app_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_app-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_app!</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/deleteAppId.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_app_group-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_app_group!</span><span
+            class="method-args">(app_group_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_app_group-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_app_group!</span>(<span class="ruby-identifier">app_group_id</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">AppGroup</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/ios/identifiers/deleteApplicationGroup.action&#39;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">applicationGroup</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_group_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_merchant-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_merchant!</span><span
+            class="method-args">(merchant_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_merchant-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_merchant!</span>(<span class="ruby-identifier">merchant_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Merchant</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/deleteOMC.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">omcId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">merchant_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_passbook-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_passbook!</span><span
+            class="method-args">(passbook_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_passbook-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_passbook!</span>(<span class="ruby-identifier">passbook_id</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Passbook</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&quot;account/ios/identifiers/deletePassTypeId.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">passTypeId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">passbook_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_provisioning_profile-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_provisioning_profile!</span><span
+            class="method-args">(profile_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_provisioning_profile-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 708</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_provisioning_profile!</span>(<span class="ruby-identifier">profile_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">fetch_csrf_token_for_provisioning</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/deleteProvisioningProfile.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">provisioningProfileId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">profile_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_website_push-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_website_push!</span><span
+            class="method-args">(website_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_website_push-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_website_push!</span>(<span class="ruby-identifier">website_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">WebsitePush</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/deleteWebsitePushId.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">websitePushId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">website_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-details_for_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details_for_app</span><span
+            class="method-args">(app)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details_for_app-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">details_for_app</span>(<span class="ruby-identifier">app</span>)
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(app.mac?)}/identifiers/getAppIdDetail.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;appId&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-devices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">devices</span><span
+            class="method-args">(mac: false, include_disabled: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Devices</p>
+          
+          
+
+          
+          <div class="method-source-code" id="devices-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 493</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">devices</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">include_disabled</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/device/listDevices.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>,
+      <span class="ruby-identifier">includeRemovedDevices</span><span class="ruby-operator">:</span> <span class="ruby-identifier">include_disabled</span>
+    })
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;devices&#39;</span>)
+
+    <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Device</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span>
+
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-devices_by_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">devices_by_class</span><span
+            class="method-args">(device_class, include_disabled: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="devices_by_class-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 510</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">devices_by_class</span>(<span class="ruby-identifier">device_class</span>, <span class="ruby-identifier">include_disabled</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/ios/device/listDevices.action&#39;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>,
+      <span class="ruby-identifier">deviceClasses</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_class</span>,
+      <span class="ruby-identifier">includeRemovedDevices</span><span class="ruby-operator">:</span> <span class="ruby-identifier">include_disabled</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;devices&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-disable_device-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">disable_device!</span><span
+            class="method-args">(device_id, device_udid, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="disable_device-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 544</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">disable_device!</span>(<span class="ruby-identifier">device_id</span>, <span class="ruby-identifier">device_udid</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;https://developer.apple.com/services-account/#{PROTOCOL_VERSION}/account/#{platform_slug(mac)}/device/deleteDevice.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">deviceId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_id</span>
+  })
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_certificate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_certificate</span><span
+            class="method-args">(certificate_id, type, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_certificate-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 589</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_certificate</span>(<span class="ruby-identifier">certificate_id</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  { <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_id</span> }.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{k} must not be nil&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> }
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/certificate/downloadCertificateContent.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">certificateId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_id</span>,
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>
+  })
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">success?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Apple Inc&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;Couldn&#39;t download certificate, got this instead: #{a}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_key</span><span
+            class="method-args">(id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_key-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 760</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_key</span>(<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&#39;account/auth/key/download&#39;</span>, { <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>, <span class="ruby-identifier">keyId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span> })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_provisioning_profile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_provisioning_profile</span><span
+            class="method-args">(profile_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_provisioning_profile-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 691</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_provisioning_profile</span>(<span class="ruby-identifier">profile_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">fetch_csrf_token_for_provisioning</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/downloadProfileContent&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">provisioningProfileId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">profile_id</span>
+  })
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">success?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;DOCTYPE plist PUBLIC&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;Couldn&#39;t download provisioning profile, got this instead: #{a}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enable_device-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enable_device!</span><span
+            class="method-args">(device_id, device_udid, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="enable_device-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 551</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enable_device!</span>(<span class="ruby-identifier">device_id</span>, <span class="ruby-identifier">device_udid</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">req</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;https://developer.apple.com/services-account/#{PROTOCOL_VERSION}/account/#{platform_slug(mac)}/device/enableDevice.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">displayId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_id</span>,
+      <span class="ruby-identifier">deviceNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_udid</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">req</span>, <span class="ruby-string">&#39;device&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_key</span><span
+            class="method-args">(id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_key-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 754</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_key</span>(<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/auth/key/get&#39;</span>, { <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>, <span class="ruby-identifier">keyId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span> })
+  <span class="ruby-comment"># response contains a list of keys with 1 item</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-string">&#39;keys&#39;</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_house-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_house?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the current session from an Enterprise In House account?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in_house-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_house?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@in_house</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@in_house</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@in_house</span> = (<span class="ruby-identifier">team_information</span>[<span class="ruby-string">&#39;type&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;In-House&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Keys</p>
+          
+          
+
+          
+          <div class="method-source-code" id="list_keys-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 742</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_keys</span>
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/auth/key/list&#39;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-string">&#39;keys&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merchants" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merchants</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Merchant</p>
+          
+          
+
+          
+          <div class="method-source-code" id="merchants-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merchants</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/listOMCs.action&quot;</span>, {
+        <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+        <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+        <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+        <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;identifierList&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-passbooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">passbooks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Passbook</p>
+          
+          
+
+          
+          <div class="method-source-code" id="passbooks-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">passbooks</span>
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&quot;account/ios/identifiers/listPassTypeIds.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;passTypeIdList&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-provisioning_profile_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">provisioning_profile_details</span><span
+            class="method-args">(provisioning_profile_id: nil, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="provisioning_profile_details-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 661</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">provisioning_profile_details</span>(<span class="ruby-identifier">provisioning_profile_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/getProvisioningProfile.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">provisioningProfileId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">provisioning_profile_id</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;provisioningProfile&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-provisioning_profiles" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">provisioning_profiles</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Provisioning Profiles</p>
+          
+          
+
+          
+          <div class="method-source-code" id="provisioning_profiles-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 620</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">provisioning_profiles</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/listProvisioningProfiles.action&quot;</span>, {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+      <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+      <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>,
+      <span class="ruby-identifier">includeInactiveProfiles</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+      <span class="ruby-identifier">onlyCountLists</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    })
+
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">req</span>, <span class="ruby-string">&#39;provisioningProfiles&#39;</span>)
+
+    <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span>
+
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-provisioning_profiles_via_xcode_api" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">provisioning_profiles_via_xcode_api</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this endpoint is used by Xcode to fetch provisioning profiles. The response
+is an xml plist but has the added benefit of containing the appId of each
+provisioning profile.</p>
+
+<p>Use this method over `provisioning_profiles` if possible because no
+secondary API calls are necessary to populate the ProvisioningProfile data
+model.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="provisioning_profiles_via_xcode_api-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 644</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">provisioning_profiles_via_xcode_api</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">req</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;https://developerservices2.apple.com/services/#{PROTOCOL_VERSION}/#{platform_slug(mac)}/listProvisioningProfiles.action&quot;</span>)
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">params</span> = {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">includeInactiveProfiles</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+      <span class="ruby-identifier">onlyCountLists</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">req</span>, <span class="ruby-string">&#39;provisioningProfiles&#39;</span>)
+
+  <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-repair_provisioning_profile-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">repair_provisioning_profile!</span><span
+            class="method-args">(profile_id, name, distribution_method, app_id, certificate_ids, device_ids, mac: false, sub_platform: nil, template_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="repair_provisioning_profile-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 717</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">repair_provisioning_profile!</span>(<span class="ruby-identifier">profile_id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">distribution_method</span>, <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">certificate_ids</span>, <span class="ruby-identifier">device_ids</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">sub_platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">fetch_csrf_token_for_provisioning</span>
+
+  <span class="ruby-identifier">params</span> = {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">provisioningProfileId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">profile_id</span>,
+      <span class="ruby-identifier">provisioningProfileName</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+      <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>,
+      <span class="ruby-identifier">distributionType</span><span class="ruby-operator">:</span> <span class="ruby-identifier">distribution_method</span>,
+      <span class="ruby-identifier">certificateIds</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_ids</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>),
+      <span class="ruby-identifier">deviceIds</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_ids</span>
+  }
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:subPlatform</span>] = <span class="ruby-identifier">sub_platform</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sub_platform</span>
+  <span class="ruby-comment"># if `template_name` is nil, Default entitlements will be used</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:template</span>] = <span class="ruby-identifier">template_name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">template_name</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/regenProvisioningProfile.action&quot;</span>, <span class="ruby-identifier">params</span>)
+
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;provisioningProfile&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-revoke_certificate-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revoke_certificate!</span><span
+            class="method-args">(certificate_id, type, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="revoke_certificate-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 605</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revoke_certificate!</span>(<span class="ruby-identifier">certificate_id</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/certificate/revokeCertificate.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">certificateId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_id</span>,
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;certRequests&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-revoke_key-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revoke_key!</span><span
+            class="method-args">(id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="revoke_key-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 783</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revoke_key!</span>(<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">fetch_csrf_token_for_keys</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/auth/key/revoke&#39;</span>, { <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>, <span class="ruby-identifier">keyId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span> })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select_team" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_team</span><span
+            class="method-args">(team_id: nil, team_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Shows a team selection for the user in the terminal. This should not be
+called on CI systems</p>
+
+<p>@param <a href="PortalClient.html#method-i-team_id">#team_id</a> (String)
+(optional): The ID of a Developer <a href="Portal.html">Portal</a> team
+@param team_name (String) (optional): The name of a Developer <a
+href="Portal.html">Portal</a> team</p>
+          
+          
+
+          
+          <div class="method-source-code" id="select_team-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_team</span>(<span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@current_team_id</span> = <span class="ruby-keyword">self</span>.<span class="ruby-constant">UI</span>.<span class="ruby-identifier">select_team</span>(<span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>, <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_login_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_login_request</span><span
+            class="method-args">(user, password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send_login_request-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_login_request</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">send_shared_login_request</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;myacinfo&quot;</span>)
+
+  <span class="ruby-comment"># When the user has 2 step enabled, we might have to call this method again</span>
+  <span class="ruby-comment"># This only occurs when the user doesn&#39;t have a team on App Store Connect</span>
+  <span class="ruby-comment"># For 2 step verification we use the App Store Connect back-end</span>
+  <span class="ruby-comment"># which is enough to get the DES... cookie, however we don&#39;t get a valid</span>
+  <span class="ruby-comment"># myacinfo cookie at that point. That means, after getting the DES... cookie</span>
+  <span class="ruby-comment"># we have to send the login request again. This will then get us a valid myacinfo</span>
+  <span class="ruby-comment"># cookie, additionally to the DES... cookie</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">send_shared_login_request</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) The currently selected Team ID</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_id-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_id</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@current_team_id</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@current_team_id</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">teams</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;The current user is in #{teams.count} teams. Pass a team ID or call `select_team` to choose a team. Using the first one for now.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">teams</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;User &#39;#{user}&#39; does not have access to any teams with an active membership&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@current_team_id</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">teams</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;teamId&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_id-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_id=</span><span
+            class="method-args">(team_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set a new team ID which will be used from now on</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_id-3D-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_id=</span>(<span class="ruby-identifier">team_id</span>)
+  <span class="ruby-ivar">@current_team_id</span> = <span class="ruby-identifier">team_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_information</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Hash) Fetches all information of the currently used team</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_information-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_information</span>
+  <span class="ruby-identifier">teams</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>[<span class="ruby-string">&#39;teamId&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">team_id</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_invite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_invite</span><span
+            class="method-args">(email, role)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="team_invite-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 474</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_invite</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">role</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Persons</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/services-account/#{PROTOCOL_VERSION}/account/sendInvites&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = {
+      <span class="ruby-identifier">invites</span><span class="ruby-operator">:</span> [
+        { <span class="ruby-identifier">recipientEmail</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>, <span class="ruby-identifier">recipientRole</span><span class="ruby-operator">:</span> <span class="ruby-identifier">role</span> }
+      ],
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+    }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_invited" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_invited</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="team_invited-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_invited</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/services-account/#{PROTOCOL_VERSION}/account/getInvites&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+    }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_members" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_members</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Team</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_members-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 425</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_members</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/services-account/#{PROTOCOL_VERSION}/account/getTeamMembers&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>
+    }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_remove_member-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_remove_member!</span><span
+            class="method-args">(team_member_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="team_remove_member-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 461</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_remove_member!</span>(<span class="ruby-identifier">team_member_id</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Persons</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/services-account/#{PROTOCOL_VERSION}/account/removeTeamMembers&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">teamMemberIds</span><span class="ruby-operator">:</span> [<span class="ruby-identifier">team_member_id</span>]
+    }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_set_role" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_set_role</span><span
+            class="method-args">(team_member_id, role)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="team_set_role-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_set_role</span>(<span class="ruby-identifier">team_member_id</span>, <span class="ruby-identifier">role</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Persons</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/services-account/#{PROTOCOL_VERSION}/account/setTeamMemberRoles&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = {
+      <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">role</span>,
+      <span class="ruby-identifier">teamMemberIds</span><span class="ruby-operator">:</span> [<span class="ruby-identifier">team_member_id</span>]
+    }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teams" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teams</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) A list of all available teams</p>
+          
+          
+
+          
+          <div class="method-source-code" id="teams-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teams</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@teams</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@teams</span>
+  <span class="ruby-identifier">req</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&quot;account/listTeams.action&quot;</span>)
+  <span class="ruby-ivar">@teams</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">req</span>, <span class="ruby-string">&#39;teams&#39;</span>).<span class="ruby-identifier">sort_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">team</span><span class="ruby-operator">|</span>
+    [
+      <span class="ruby-identifier">team</span>[<span class="ruby-string">&#39;name&#39;</span>],
+      <span class="ruby-identifier">team</span>[<span class="ruby-string">&#39;teamId&#39;</span>]
+    ]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_app_name-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_app_name!</span><span
+            class="method-args">(app_id, name, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_app_name-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_app_name!</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>)
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/updateAppIdName.action&quot;</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">appIdId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>,
+    <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">valid_name_for</span>(<span class="ruby-identifier">name</span>)
+  })
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;appId&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_service_for_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_service_for_app</span><span
+            class="method-args">(app, service)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_service_for_app-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_service_for_app</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">service</span>)
+  <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>)
+
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-identifier">service</span>.<span class="ruby-identifier">service_uri</span>, {
+    <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+    <span class="ruby-identifier">displayId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+    <span class="ruby-identifier">featureType</span><span class="ruby-operator">:</span> <span class="ruby-identifier">service</span>.<span class="ruby-identifier">service_id</span>,
+    <span class="ruby-identifier">featureValue</span><span class="ruby-operator">:</span> <span class="ruby-identifier">service</span>.<span class="ruby-identifier">value</span>
+  })
+
+  <span class="ruby-identifier">details_for_app</span>(<span class="ruby-identifier">app</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_name_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_name_for</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_name_for-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_name_for</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">latinized</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_slug</span>.<span class="ruby-identifier">transliterate</span>
+  <span class="ruby-identifier">latinized</span> = <span class="ruby-identifier">latinized</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^0-9A-Za-z\d\s]/</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-comment"># remove non-valid characters</span>
+  <span class="ruby-comment"># Check if the input string was modified, since it might be empty now</span>
+  <span class="ruby-comment"># (if it only contained non-latin symbols) or the duplicate of another app</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">latinized</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">input</span>
+    <span class="ruby-identifier">latinized</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; &quot;</span>
+    <span class="ruby-identifier">latinized</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">latinized</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-website_push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">website_push</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Website Push</p>
+          
+          
+
+          
+          <div class="method-source-code" id="website_push-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">website_push</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">paging</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page_number</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/identifiers/listWebsitePushIds.action&quot;</span>, {
+        <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+        <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_number</span>,
+        <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-identifier">page_size</span>,
+        <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+    })
+    <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;websitePushIdList&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-csrf_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">csrf_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This is a cache of entity type (App, <a
+href="Portal/AppGroup.html">AppGroup</a>, <a
+href="Portal/Certificate.html">Certificate</a>, <a
+href="Portal/Device.html">Device</a>) to csrf_tokens</p>
+          
+          
+
+          
+          <div class="method-source-code" id="csrf_cache-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 792</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">csrf_cache</span>
+  <span class="ruby-ivar">@csrf_cache</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_csrf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_csrf</span><span
+            class="method-args">(klass) { |: all| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ensures that there are csrf tokens for the appropriate entity type Relies
+on store_csrf_tokens to set csrf_tokens to the appropriate value then
+stores that in the correct place in cache This method also takes a block,
+if you want to send a custom request, instead of calling `.all` on the
+given klass. This is used for provisioning profiles.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_csrf-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 801</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_csrf</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-identifier">klass</span>]
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span> = <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-identifier">klass</span>]
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-comment"># If we directly create a new resource (e.g. app) without querying anything before</span>
+  <span class="ruby-comment"># we don&#39;t have a valid csrf token, that&#39;s why we have to do at least one request</span>
+  <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">yield</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">all</span>
+
+  <span class="ruby-identifier">csrf_cache</span>[<span class="ruby-identifier">klass</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">csrf_tokens</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_csrf_token_for_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_csrf_token_for_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_csrf_token_for_keys-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 834</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_csrf_token_for_keys</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-string">&#39;account/auth/key/list&#39;</span>, {
+     <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+     <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>,
+     <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>,
+     <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+   })
+
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-string">&#39;keys&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_csrf_token_for_provisioning" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_csrf_token_for_provisioning</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We need a custom way to fetch the csrf token for the provisioning profile
+requests, since we use a separate API endpoint (host of Xcode API) to fetch
+the provisioning profiles All we do is fetch one profile (if exists) to get
+a valid csrf token with its time stamp This method is being called from all
+requests that modify, create or downloading provisioning profiles. Source
+<a
+href="https://github.com/fastlane/fastlane/issues/5903">github.com/fastlane/fastlane/issues/5903</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_csrf_token_for_provisioning-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 822</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_csrf_token_for_provisioning</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-node">&quot;account/#{platform_slug(mac)}/profile/listProvisioningProfiles.action&quot;</span>, {
+     <span class="ruby-identifier">teamId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+     <span class="ruby-identifier">pageNumber</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>,
+     <span class="ruby-identifier">pageSize</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>,
+     <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;name=asc&#39;</span>
+   })
+
+  <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-string">&#39;provisioningProfiles&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-platform_slug" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">platform_slug</span><span
+            class="method-args">(mac)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="platform_slug-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/portal_client.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">platform_slug</span>(<span class="ruby-identifier">mac</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac</span>
+    <span class="ruby-string">&#39;mac&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&#39;ios&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

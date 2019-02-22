@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::TestParser - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-ensure_file_valid-21">#ensure_file_valid!</a>
+    
+    <li ><a href="#method-i-parse_content">#parse_content</a>
+    
+    <li ><a href="#method-i-unfold_tests">#unfold_tests</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::TestParser">
+  <h1 id="class-FastlaneCore::TestParser" class="class">
+    class FastlaneCore::TestParser
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-data" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">data</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-file_content" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">file_content</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-raw_json" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">raw_json</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/test_parser.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;File not found at path &#39;#{path}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">file_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_json</span> = <span class="ruby-constant">Plist</span>.<span class="ruby-identifier">parse_xml</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">file_content</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_json</span>[<span class="ruby-string">&quot;FormatVersion&quot;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">zero?</span> <span class="ruby-comment"># maybe that&#39;s a useless plist file</span>
+
+  <span class="ruby-identifier">ensure_file_valid!</span>
+  <span class="ruby-identifier">parse_content</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ensure_file_valid-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_file_valid!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_file_valid-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/test_parser.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_file_valid!</span>
+  <span class="ruby-identifier">format_version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_json</span>[<span class="ruby-string">&quot;FormatVersion&quot;</span>]
+  <span class="ruby-identifier">supported_versions</span> = [<span class="ruby-string">&quot;1.1&quot;</span>, <span class="ruby-string">&quot;1.2&quot;</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Format version &#39;#{format_version}&#39; is not supported, must be #{supported_versions.join(&#39;, &#39;)}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">supported_versions</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">format_version</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert the Hashes and Arrays in something more useful</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_content-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/test_parser.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_content</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_json</span>[<span class="ruby-string">&quot;TestableSummaries&quot;</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">testable_summary</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">summary_row</span> = {
+      <span class="ruby-identifier">project_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">testable_summary</span>[<span class="ruby-string">&quot;ProjectPath&quot;</span>],
+      <span class="ruby-identifier">target_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">testable_summary</span>[<span class="ruby-string">&quot;TargetName&quot;</span>],
+      <span class="ruby-identifier">test_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">testable_summary</span>[<span class="ruby-string">&quot;TestName&quot;</span>],
+      <span class="ruby-identifier">duration</span><span class="ruby-operator">:</span> <span class="ruby-identifier">testable_summary</span>[<span class="ruby-string">&quot;Tests&quot;</span>].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">current_test</span><span class="ruby-operator">|</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;Duration&quot;</span>] }.<span class="ruby-identifier">inject</span>(<span class="ruby-value">:+</span>),
+      <span class="ruby-identifier">tests</span><span class="ruby-operator">:</span> <span class="ruby-identifier">unfold_tests</span>(<span class="ruby-identifier">testable_summary</span>[<span class="ruby-string">&quot;Tests&quot;</span>]).<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_test</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">current_row</span> = {
+          <span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;TestIdentifier&quot;</span>],
+          <span class="ruby-identifier">test_group</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;TestIdentifier&quot;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>)[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;.&quot;</span>),
+          <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;TestName&quot;</span>],
+          <span class="ruby-identifier">object_class</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;TestObjectClass&quot;</span>],
+          <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;TestStatus&quot;</span>],
+          <span class="ruby-identifier">guid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;TestSummaryGUID&quot;</span>],
+          <span class="ruby-identifier">duration</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;Duration&quot;</span>]
+        }
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;FailureSummaries&quot;</span>]
+          <span class="ruby-identifier">current_row</span>[<span class="ruby-value">:failures</span>] = <span class="ruby-identifier">current_test</span>[<span class="ruby-string">&quot;FailureSummaries&quot;</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_failure</span><span class="ruby-operator">|</span>
+            {
+              <span class="ruby-identifier">file_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_failure</span>[<span class="ruby-string">&#39;FileName&#39;</span>],
+              <span class="ruby-identifier">line_number</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_failure</span>[<span class="ruby-string">&#39;LineNumber&#39;</span>],
+              <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_failure</span>[<span class="ruby-string">&#39;Message&#39;</span>],
+              <span class="ruby-identifier">performance_failure</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_failure</span>[<span class="ruby-string">&#39;PerformanceFailure&#39;</span>],
+              <span class="ruby-identifier">failure_message</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{current_failure[&#39;Message&#39;]} (#{current_failure[&#39;FileName&#39;]}:#{current_failure[&#39;LineNumber&#39;]})&quot;</span>
+            }
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">current_row</span>
+      <span class="ruby-keyword">end</span>
+    }
+    <span class="ruby-identifier">summary_row</span>[<span class="ruby-value">:number_of_tests</span>] = <span class="ruby-identifier">summary_row</span>[<span class="ruby-value">:tests</span>].<span class="ruby-identifier">count</span>
+    <span class="ruby-identifier">summary_row</span>[<span class="ruby-value">:number_of_failures</span>] = <span class="ruby-identifier">summary_row</span>[<span class="ruby-value">:tests</span>].<span class="ruby-identifier">find_all</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">a</span>[<span class="ruby-value">:failures</span>] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> }.<span class="ruby-identifier">count</span>
+    <span class="ruby-identifier">summary_row</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">:run_destination_name</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_json</span>[<span class="ruby-string">&quot;RunDestination&quot;</span>][<span class="ruby-string">&quot;Name&quot;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unfold_tests" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unfold_tests</span><span
+            class="method-args">(data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts the raw plist test structure into something that&#39;s easier to
+enumerate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unfold_tests-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/test_parser.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unfold_tests</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-comment"># `data` looks like this</span>
+  <span class="ruby-comment"># =&gt; [{&quot;Subtests&quot;=&gt;</span>
+  <span class="ruby-comment">#  [{&quot;Subtests&quot;=&gt;</span>
+  <span class="ruby-comment">#     [{&quot;Subtests&quot;=&gt;</span>
+  <span class="ruby-comment">#        [{&quot;Duration&quot;=&gt;0.4,</span>
+  <span class="ruby-comment">#          &quot;TestIdentifier&quot;=&gt;&quot;Unit/testExample()&quot;,</span>
+  <span class="ruby-comment">#          &quot;TestName&quot;=&gt;&quot;testExample()&quot;,</span>
+  <span class="ruby-comment">#          &quot;TestObjectClass&quot;=&gt;&quot;IDESchemeActionTestSummary&quot;,</span>
+  <span class="ruby-comment">#          &quot;TestStatus&quot;=&gt;&quot;Success&quot;,</span>
+  <span class="ruby-comment">#          &quot;TestSummaryGUID&quot;=&gt;&quot;4A24BFED-03E6-4FBE-BC5E-2D80023C06B4&quot;},</span>
+  <span class="ruby-comment">#         {&quot;FailureSummaries&quot;=&gt;</span>
+  <span class="ruby-comment">#           [{&quot;FileName&quot;=&gt;&quot;/Users/krausefx/Developer/themoji/Unit/Unit.swift&quot;,</span>
+  <span class="ruby-comment">#             &quot;LineNumber&quot;=&gt;34,</span>
+  <span class="ruby-comment">#             &quot;Message&quot;=&gt;&quot;XCTAssertTrue failed - &quot;,</span>
+  <span class="ruby-comment">#             &quot;PerformanceFailure&quot;=&gt;false}],</span>
+  <span class="ruby-comment">#          &quot;TestIdentifier&quot;=&gt;&quot;Unit/testExample2()&quot;,</span>
+
+  <span class="ruby-identifier">tests</span> = []
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_hash</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_hash</span>[<span class="ruby-string">&quot;Subtests&quot;</span>]
+      <span class="ruby-identifier">tests</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">unfold_tests</span>(<span class="ruby-identifier">current_hash</span>[<span class="ruby-string">&quot;Subtests&quot;</span>])
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_hash</span>[<span class="ruby-string">&quot;TestStatus&quot;</span>]
+      <span class="ruby-identifier">tests</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_hash</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tests</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

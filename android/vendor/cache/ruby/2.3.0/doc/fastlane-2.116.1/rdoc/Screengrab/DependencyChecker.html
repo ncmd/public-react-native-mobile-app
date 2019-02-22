@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Screengrab::DependencyChecker - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-check">::check</a>
+    
+    <li ><a href="#method-c-check_aapt">::check_aapt</a>
+    
+    <li ><a href="#method-c-check_adb">::check_adb</a>
+    
+    <li ><a href="#method-c-raise_missing_adb">::raise_missing_adb</a>
+    
+    <li ><a href="#method-c-warn_if_command_path_not_relative_to_android_home">::warn_if_command_path_not_relative_to_android_home</a>
+    
+    <li ><a href="#method-c-warn_missing_aapt">::warn_missing_aapt</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Screengrab::DependencyChecker">
+  <h1 id="class-Screengrab::DependencyChecker" class="class">
+    class Screengrab::DependencyChecker
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-check" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check</span><span
+            class="method-args">(android_env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check-source">
+            <pre><span class="ruby-comment"># File screengrab/lib/screengrab/dependency_checker.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check</span>(<span class="ruby-identifier">android_env</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-identifier">check_adb</span>(<span class="ruby-identifier">android_env</span>)
+  <span class="ruby-identifier">check_aapt</span>(<span class="ruby-identifier">android_env</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-check_aapt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_aapt</span><span
+            class="method-args">(android_env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_aapt-source">
+            <pre><span class="ruby-comment"># File screengrab/lib/screengrab/dependency_checker.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_aapt</span>(<span class="ruby-identifier">android_env</span>)
+  <span class="ruby-identifier">android_home</span> = <span class="ruby-identifier">android_env</span>.<span class="ruby-identifier">android_home</span>
+  <span class="ruby-identifier">aapt_path</span> = <span class="ruby-identifier">android_env</span>.<span class="ruby-identifier">aapt_path</span>
+
+  <span class="ruby-identifier">warn_if_command_path_not_relative_to_android_home</span>(<span class="ruby-string">&#39;aapt&#39;</span>, <span class="ruby-identifier">android_home</span>, <span class="ruby-identifier">aapt_path</span>)
+  <span class="ruby-comment"># aapt is not required in order to function, so we&#39;ll only warn if we can&#39;t find it.</span>
+  <span class="ruby-identifier">warn_missing_aapt</span>(<span class="ruby-identifier">android_home</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">aapt_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-check_adb" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_adb</span><span
+            class="method-args">(android_env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_adb-source">
+            <pre><span class="ruby-comment"># File screengrab/lib/screengrab/dependency_checker.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_adb</span>(<span class="ruby-identifier">android_env</span>)
+  <span class="ruby-identifier">android_home</span> = <span class="ruby-identifier">android_env</span>.<span class="ruby-identifier">android_home</span>
+  <span class="ruby-identifier">adb_path</span> = <span class="ruby-identifier">android_env</span>.<span class="ruby-identifier">adb_path</span>
+
+  <span class="ruby-identifier">warn_if_command_path_not_relative_to_android_home</span>(<span class="ruby-string">&#39;adb&#39;</span>, <span class="ruby-identifier">android_home</span>, <span class="ruby-identifier">adb_path</span>)
+  <span class="ruby-comment"># adb is required to function, so we&#39;ll quit noisily if we couldn&#39;t find it</span>
+  <span class="ruby-identifier">raise_missing_adb</span>(<span class="ruby-identifier">android_home</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">adb_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-raise_missing_adb" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_missing_adb</span><span
+            class="method-args">(android_home)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raise_missing_adb-source">
+            <pre><span class="ruby-comment"># File screengrab/lib/screengrab/dependency_checker.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raise_missing_adb</span>(<span class="ruby-identifier">android_home</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">android_home</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;The `adb` command could not be found relative to your provided ANDROID_HOME at #{android_home}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please ensure that the Android SDK is installed and the platform-tools directory is present&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;The `adb` command could not be found on your PATH&#39;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;Please ensure that the Android SDK is installed and the platform-tools directory is present and on your PATH&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&#39;adb command not found&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-warn_if_command_path_not_relative_to_android_home" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn_if_command_path_not_relative_to_android_home</span><span
+            class="method-args">(cmd_name, android_home, cmd_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="warn_if_command_path_not_relative_to_android_home-source">
+            <pre><span class="ruby-comment"># File screengrab/lib/screengrab/dependency_checker.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">warn_if_command_path_not_relative_to_android_home</span>(<span class="ruby-identifier">cmd_name</span>, <span class="ruby-identifier">android_home</span>, <span class="ruby-identifier">cmd_path</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">android_home</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cmd_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cmd_path</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">android_home</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Using `#{cmd_name}` found at #{cmd_path} which is not within the specified ANDROID_HOME at #{android_home}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-warn_missing_aapt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn_missing_aapt</span><span
+            class="method-args">(android_home)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="warn_missing_aapt-source">
+            <pre><span class="ruby-comment"># File screengrab/lib/screengrab/dependency_checker.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">warn_missing_aapt</span>(<span class="ruby-identifier">android_home</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">android_home</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;The `aapt` command could not be found relative to your provided ANDROID_HOME at #{android_home}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Please ensure that the Android SDK is installed and you have the build tools downloaded&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;The `aapt` command could not be found on your PATH&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Please ensure that the Android SDK is installed and you have the build tools downloaded and present on your PATH&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

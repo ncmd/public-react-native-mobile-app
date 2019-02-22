@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::PluginInfoCollector - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-author_valid-3F">#author_valid?</a>
+    
+    <li ><a href="#method-i-collect_author">#collect_author</a>
+    
+    <li ><a href="#method-i-collect_details">#collect_details</a>
+    
+    <li ><a href="#method-i-collect_email">#collect_email</a>
+    
+    <li ><a href="#method-i-collect_info">#collect_info</a>
+    
+    <li ><a href="#method-i-collect_plugin_name">#collect_plugin_name</a>
+    
+    <li ><a href="#method-i-collect_summary">#collect_summary</a>
+    
+    <li ><a href="#method-i-detect_author">#detect_author</a>
+    
+    <li ><a href="#method-i-detect_email">#detect_email</a>
+    
+    <li ><a href="#method-i-fix_plugin_name">#fix_plugin_name</a>
+    
+    <li ><a href="#method-i-gem_name_taken-3F">#gem_name_taken?</a>
+    
+    <li ><a href="#method-i-plugin_name_valid-3F">#plugin_name_valid?</a>
+    
+    <li ><a href="#method-i-summary_valid-3F">#summary_valid?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::PluginInfoCollector">
+  <h1 id="class-Fastlane::PluginInfoCollector" class="class">
+    class Fastlane::PluginInfoCollector
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(ui = PluginGeneratorUI.new)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ui</span> = <span class="ruby-constant">PluginGeneratorUI</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-ivar">@ui</span> = <span class="ruby-identifier">ui</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-author_valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author_valid?</span><span
+            class="method-args">(author)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="author_valid-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">author_valid?</span>(<span class="ruby-identifier">author</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">author</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_author</span><span
+            class="method-args">(initial_author = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_author</span>(<span class="ruby-identifier">initial_author</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">initial_author</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">author_valid?</span>(<span class="ruby-identifier">initial_author</span>)
+  <span class="ruby-identifier">author</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">author</span> = <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;What is the plugin author&#39;s name?&quot;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">author_valid?</span>(<span class="ruby-identifier">author</span>)
+
+    <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&#39;An author name is required.&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">author</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Summary</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collect_details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_details</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Please enter a detailed description of this fastlane plugin:&quot;</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_email" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_email</span><span
+            class="method-args">(initial_email = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_email-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_email</span>(<span class="ruby-identifier">initial_email</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">initial_email</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;What is the plugin author&#39;s email address?&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_info</span><span
+            class="method-args">(initial_name = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_info-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_info</span>(<span class="ruby-identifier">initial_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">plugin_name</span> = <span class="ruby-identifier">collect_plugin_name</span>(<span class="ruby-identifier">initial_name</span>)
+  <span class="ruby-identifier">author</span> = <span class="ruby-identifier">collect_author</span>(<span class="ruby-identifier">detect_author</span>)
+  <span class="ruby-identifier">email</span> = <span class="ruby-identifier">collect_email</span>(<span class="ruby-identifier">detect_email</span>)
+  <span class="ruby-identifier">summary</span> = <span class="ruby-identifier">collect_summary</span>
+  <span class="ruby-identifier">details</span> = <span class="ruby-identifier">collect_details</span>
+
+  <span class="ruby-constant">PluginInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">plugin_name</span>, <span class="ruby-identifier">author</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">summary</span>, <span class="ruby-identifier">details</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_plugin_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_plugin_name</span><span
+            class="method-args">(initial_name = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Plugin name</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collect_plugin_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_plugin_name</span>(<span class="ruby-identifier">initial_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">plugin_name</span> = <span class="ruby-identifier">initial_name</span>
+  <span class="ruby-identifier">first_try</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">first_try</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">plugin_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">plugin_name</span> = <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;What would you like to be the name of your plugin?&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">first_try</span> = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">plugin_name_valid?</span>(<span class="ruby-identifier">plugin_name</span>)
+      <span class="ruby-identifier">fixed_name</span> = <span class="ruby-identifier">fix_plugin_name</span>(<span class="ruby-identifier">plugin_name</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">plugin_name_valid?</span>(<span class="ruby-identifier">fixed_name</span>)
+        <span class="ruby-identifier">plugin_name</span> = <span class="ruby-identifier">fixed_name</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-node">&quot;\nWould &#39;#{fixed_name}&#39; be okay to use for your plugin name?&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">plugin_name_valid?</span>(<span class="ruby-identifier">plugin_name</span>)
+
+    <span class="ruby-identifier">gem_name</span> = <span class="ruby-constant">PluginManager</span>.<span class="ruby-identifier">to_gem_name</span>(<span class="ruby-identifier">plugin_name</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">gem_name_taken?</span>(<span class="ruby-identifier">gem_name</span>)
+      <span class="ruby-comment"># Gem name is already taken on RubyGems</span>
+      <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;\nThe gem name &#39;#{gem_name}&#39; is already taken on RubyGems, please choose a different plugin name.&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># That&#39;s a naming error</span>
+      <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\nPlugin names can only contain lower case letters, numbers, and underscores&quot;</span>)
+      <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;and should not contain &#39;fastlane&#39; or &#39;plugin&#39;.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">plugin_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_summary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Summary</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collect_summary-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_summary</span>
+  <span class="ruby-identifier">summary</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">summary</span> = <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Please enter a short summary of this fastlane plugin:&quot;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">summary_valid?</span>(<span class="ruby-identifier">summary</span>)
+
+    <span class="ruby-ivar">@ui</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&#39;A summary is required.&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">summary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detect_author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detect_author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Author</p>
+          
+          
+
+          
+          <div class="method-source-code" id="detect_author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detect_author</span>
+  <span class="ruby-identifier">git_name</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-string">&#39;git config --get user.name&#39;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>).<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">git_name</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">git_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detect_email" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detect_email</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Email</p>
+          
+          
+
+          
+          <div class="method-source-code" id="detect_email-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detect_email</span>
+  <span class="ruby-identifier">git_email</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-string">&#39;git config --get user.email&#39;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>).<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">git_email</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">git_email</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fix_plugin_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fix_plugin_name</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Applies a series of replacement rules to turn the requested plugin name
+into one that is acceptable, returning that suggestion</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fix_plugin_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fix_plugin_name</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-identifier">fixes</span> = {
+    <span class="ruby-regexp">/[\- ]/</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;_&#39;</span>, <span class="ruby-comment"># dashes and spaces become underscores</span>
+    <span class="ruby-regexp">/[^a-z0-9_]/</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-comment"># anything other than lower case letters, numbers and underscores is removed</span>
+    <span class="ruby-regexp">/fastlane[_]?/</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-comment"># &#39;fastlane&#39; or &#39;fastlane_&#39; is removed</span>
+    <span class="ruby-regexp">/plugin[_]?/</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-comment"># &#39;plugin&#39; or &#39;plugin_&#39; is removed</span>
+  }
+  <span class="ruby-identifier">fixes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">regex</span>, <span class="ruby-identifier">replacement</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">regex</span>, <span class="ruby-identifier">replacement</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gem_name_taken-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gem_name_taken?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the gem name is still free on RubyGems</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gem_name_taken-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gem_name_taken?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;open-uri&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json&#39;</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;https://rubygems.org/api/v1/gems/#{name}.json&quot;</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">open</span>(<span class="ruby-identifier">url</span>).<span class="ruby-identifier">read</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;version&#39;</span>]
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-plugin_name_valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin_name_valid?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="plugin_name_valid-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugin_name_valid?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-comment"># Only lower case letters, numbers and underscores allowed</span>
+  <span class="ruby-regexp">/^[a-z0-9_]+$/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-comment"># Does not contain the words &#39;fastlane&#39; or &#39;plugin&#39; since those will become</span>
+    <span class="ruby-comment"># part of the gem name</span>
+    [<span class="ruby-regexp">/fastlane/</span>, <span class="ruby-regexp">/plugin/</span>].<span class="ruby-identifier">none?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">regex</span><span class="ruby-operator">|</span> <span class="ruby-identifier">regex</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">name</span> } <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-comment"># Gem name isn&#39;t taken on RubyGems yet</span>
+    <span class="ruby-operator">!</span><span class="ruby-identifier">gem_name_taken?</span>(<span class="ruby-constant">PluginManager</span>.<span class="ruby-identifier">to_gem_name</span>(<span class="ruby-identifier">name</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-summary_valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">summary_valid?</span><span
+            class="method-args">(summary)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="summary_valid-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/plugins/plugin_info_collector.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">summary_valid?</span>(<span class="ruby-identifier">summary</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">summary</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

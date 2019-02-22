@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>SnapshotHelperXcode8.swift - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page snapshot/lib/assets/SnapshotHelperXcode8.swift">
+
+<p>// //  SnapshotHelperXcode8.swift //  Example // //  Created by Felix
+Krause on 10/8/15. //</p>
+
+<p>// —————————————————– // IMPORTANT: When modifying this file, make sure to 
+//            increment the version number at the very //            bottom
+of the file to notify users about //            the new
+SnapshotHelperXcode8.swift // —————————————————–</p>
+
+<p>import Foundation import XCTest</p>
+
+<p>var deviceLanguage = “” var locale = “”</p>
+
+<p>@available(*, deprecated, message: “use setupSnapshot: instead”) func
+setLanguage(_ app: XCUIApplication) {</p>
+
+<pre class="ruby"><span class="ruby-identifier">setupSnapshot</span>(<span class="ruby-identifier">app</span>)
+</pre>
+
+<p>}</p>
+
+<p>func setupSnapshot(_ app: XCUIApplication) {</p>
+
+<pre class="ruby"><span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">setupSnapshot</span>(<span class="ruby-identifier">app</span>)
+</pre>
+
+<p>}</p>
+
+<p>func snapshot(_ name: <a href="../../../String.html">String</a>,
+waitForLoadingIndicator: Bool = true) {</p>
+
+<pre class="ruby"><span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">snapshot</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">waitForLoadingIndicator</span><span class="ruby-operator">:</span> <span class="ruby-identifier">waitForLoadingIndicator</span>)
+</pre>
+
+<p>}</p>
+
+<p>open class Snapshot: NSObject {</p>
+
+<pre>open class func setupSnapshot(_ app: XCUIApplication) {
+    setLanguage(app)
+    setLocale(app)
+    setLaunchArguments(app)
+}
+
+class func setLanguage(_ app: XCUIApplication) {
+    guard let prefix = pathPrefix() else {
+        return
+    }
+
+    let path = prefix.appendingPathComponent(&quot;language.txt&quot;)
+
+    do {
+        let trimCharacterSet = CharacterSet.whitespacesAndNewlines
+        deviceLanguage = try String(contentsOf: path, encoding: .utf8).trimmingCharacters(in: trimCharacterSet)
+        app.launchArguments += [&quot;-AppleLanguages&quot;, &quot;(\(deviceLanguage))&quot;]
+    } catch {
+        print(&quot;Couldn&#39;t detect/set language...&quot;)
+    }
+}
+
+class func setLocale(_ app: XCUIApplication) {
+    guard let prefix = pathPrefix() else {
+        return
+    }
+
+    let path = prefix.appendingPathComponent(&quot;locale.txt&quot;)
+
+    do {
+        let trimCharacterSet = CharacterSet.whitespacesAndNewlines
+        locale = try String(contentsOf: path, encoding: .utf8).trimmingCharacters(in: trimCharacterSet)
+    } catch {
+        print(&quot;Couldn&#39;t detect/set locale...&quot;)
+    }
+    if locale.isEmpty {
+        locale = Locale(identifier: deviceLanguage).identifier
+    }
+    app.launchArguments += [&quot;-AppleLocale&quot;, &quot;\&quot;\(locale)\&quot;&quot;]
+}
+
+class func setLaunchArguments(_ app: XCUIApplication) {
+    guard let prefix = pathPrefix() else {
+        return
+    }
+
+    let path = prefix.appendingPathComponent(&quot;snapshot-launch_arguments.txt&quot;)
+    app.launchArguments += [&quot;-FASTLANE_SNAPSHOT&quot;, &quot;YES&quot;, &quot;-ui_testing&quot;]
+
+    do {
+        let launchArguments = try String(contentsOf: path, encoding: String.Encoding.utf8)
+        let regex = try NSRegularExpression(pattern: &quot;(\\\&quot;.+?\\\&quot;|\\S+)&quot;, options: [])
+        let matches = regex.matches(in: launchArguments, options: [], range: NSRange(location:0, length:launchArguments.characters.count))
+        let results = matches.map { result -&gt; String in
+            (launchArguments as NSString).substring(with: result.range)
+        }
+        app.launchArguments += results
+    } catch {
+        print(&quot;Couldn&#39;t detect/set launch_arguments...&quot;)
+    }
+}
+
+open class func snapshot(_ name: String, waitForLoadingIndicator: Bool = true) {
+    if waitForLoadingIndicator {
+        waitForLoadingIndicatorToDisappear()
+    }
+
+    print(&quot;snapshot: \(name)&quot;) // more information about this, check out https://docs.fastlane.tools/actions/snapshot/#how-does-it-work
+
+    sleep(1) // Waiting for the animation to be finished (kind of)
+
+    #if os(tvOS)
+        XCUIApplication().childrenMatchingType(.Browser).count
+    #elseif os(OSX)
+        XCUIApplication().typeKey(XCUIKeyboardKeySecondaryFn, modifierFlags: [])
+    #else
+        XCUIDevice.shared().orientation = .unknown
+    #endif
+}
+
+class func waitForLoadingIndicatorToDisappear() {
+    #if os(tvOS)
+        return
+    #endif
+
+    let query = XCUIApplication().statusBars.children(matching: .other).element(boundBy: 1).children(matching: .other)
+
+    while (0..&lt;query.count).map({ query.element(boundBy: $0) }).contains(where: { $0.isLoadingIndicator }) {
+        sleep(1)
+        print(&quot;Waiting for loading indicator to disappear...&quot;)
+    }
+}
+
+class func pathPrefix() -&gt; URL? {
+    let homeDir: URL
+    // on OSX config is stored in /Users/&lt;username&gt;/Library
+    // and on iOS/tvOS/WatchOS it&#39;s in simulator&#39;s home dir
+    #if os(OSX)
+        guard let user = ProcessInfo().environment[&quot;USER&quot;] else {
+            print(&quot;Couldn&#39;t find Snapshot configuration files - can&#39;t detect current user &quot;)
+            return nil
+        }
+
+        guard let usersDir = FileManager.default.urls(for: .userDirectory, in: .localDomainMask).first else {
+            print(&quot;Couldn&#39;t find Snapshot configuration files - can&#39;t detect `Users` dir&quot;)
+            return nil
+        }
+
+        homeDir = usersDir.appendingPathComponent(user)
+    #else
+        guard let simulatorHostHome = ProcessInfo().environment[&quot;SIMULATOR_HOST_HOME&quot;] else {
+            print(&quot;Couldn&#39;t find simulator home location. Please, check SIMULATOR_HOST_HOME env variable.&quot;)
+            return nil
+        }
+        guard let homeDirUrl = URL(string: simulatorHostHome) else {
+            print(&quot;Can&#39;t prepare environment. Simulator home location is inaccessible. Does \(simulatorHostHome) exist?&quot;)
+            return nil
+        }
+        homeDir = URL(fileURLWithPath: homeDirUrl.path)
+    #endif
+    return homeDir.appendingPathComponent(&quot;Library/Caches/tools.fastlane&quot;)
+}</pre>
+
+<p>}</p>
+
+<p>extension XCUIElement {</p>
+
+<pre>var isLoadingIndicator: Bool {
+    let whiteListedLoaders = [&quot;GeofenceLocationTrackingOn&quot;, &quot;StandardLocationTrackingOn&quot;]
+    if whiteListedLoaders.contains(self.identifier) {
+        return false
+    }
+    return self.frame.size == CGSize(width: 10, height: 20)
+}</pre>
+
+<p>}</p>
+
+<p>// Please don&#39;t remove the lines below // They are used to detect
+outdated configuration files // SnapshotHelperXcode8Version [1.4]</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::TransporterExecutor - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-additional_upload_parameters">#additional_upload_parameters</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-parse_line">#parse_line</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::TransporterExecutor">
+  <h1 id="class-FastlaneCore::TransporterExecutor" class="class">
+    class FastlaneCore::TransporterExecutor
+  </h1>
+
+  <section class="description">
+    
+<p>Base class for executing the iTMSTransporter</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ERROR_REGEX">ERROR_REGEX
+        
+        <dd>
+        
+      
+        <dt id="OUTPUT_REGEX">OUTPUT_REGEX
+        
+        <dd>
+        
+      
+        <dt id="RETURN_VALUE_REGEX">RETURN_VALUE_REGEX
+        
+        <dd>
+        
+      
+        <dt id="SKIP_ERRORS">SKIP_ERRORS
+        
+        <dd>
+        
+      
+        <dt id="WARNING_REGEX">WARNING_REGEX
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(command, hide_output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">hide_output</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">command</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-ivar">@errors</span> = []
+  <span class="ruby-ivar">@warnings</span> = []
+  <span class="ruby-ivar">@all_lines</span> = []
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hide_output</span>
+    <span class="ruby-comment"># Show a one time message instead</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Waiting for App Store Connect transporter to be finished.&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;iTunes Transporter progress... this might take a few minutes...&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">exit_status</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlanePty</span>.<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">command_stdout</span>, <span class="ruby-identifier">command_stdin</span>, <span class="ruby-identifier">pid</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">command_stdout</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@all_lines</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+          <span class="ruby-identifier">parse_line</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">hide_output</span>) <span class="ruby-comment"># this is where the parsing happens</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-comment"># FastlanePty adds exit_status on to StandardError so every error will have a status code</span>
+    <span class="ruby-identifier">exit_status</span> = <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">exit_status</span>
+    <span class="ruby-ivar">@errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exit_status</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-ivar">@errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;The call to the iTMSTransporter completed with a non-zero exit status: #{exit_status}. This indicates a failure.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@warnings</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-ivar">@warnings</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;app-specific&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TransporterRequiresApplicationSpecificPasswordError</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@all_lines</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Print out the last 15 lines, this is key for non-verbose mode</span>
+    <span class="ruby-ivar">@all_lines</span>.<span class="ruby-identifier">last</span>(<span class="ruby-value">15</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;[iTMSTransporter] #{line}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;iTunes Transporter output above ^&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># this is to handle GitHub issue #1896, which occurs when an</span>
+  <span class="ruby-comment">#  iTMSTransporter file transfer fails; iTMSTransporter will log an error</span>
+  <span class="ruby-comment">#  but will then retry; if that retry is successful, we will see the error</span>
+  <span class="ruby-comment">#  logged, but since the status code is zero, we want to return success</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">exit_status</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Although errors occurred during execution of iTMSTransporter, it returned success status.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">exit_status</span>.<span class="ruby-identifier">zero?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-additional_upload_parameters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">additional_upload_parameters</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="additional_upload_parameters-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">additional_upload_parameters</span>
+  <span class="ruby-comment"># Workaround because the traditional transporter broke on 1st March 2018</span>
+  <span class="ruby-comment"># More information https://github.com/fastlane/fastlane/issues/11958</span>
+  <span class="ruby-comment"># As there was no communication from Apple, we don&#39;t know if this is a temporary</span>
+  <span class="ruby-comment"># server outage, or something they changed without giving a heads-up</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS&quot;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS&quot;</span>] = <span class="ruby-string">&quot;-t DAV&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_line</span><span
+            class="method-args">(line, hide_output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_line-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_line</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">hide_output</span>)
+  <span class="ruby-comment"># Taken from https://github.com/sshaw/itunes_store_transporter/blob/master/lib/itunes/store/transporter/output_parser.rb</span>
+
+  <span class="ruby-identifier">output_done</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">re</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">union</span>(<span class="ruby-constant">SKIP_ERRORS</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">re</span>)
+    <span class="ruby-comment"># Those lines will not be handled like errors or warnings</span>
+
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">ERROR_REGEX</span>
+    <span class="ruby-ivar">@errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">$1</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;[Transporter Error Output]: #{$1}&quot;</span>)
+
+    <span class="ruby-comment"># Check if it&#39;s a login error</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Your Apple ID or password was entered incorrectly&quot;</span>) <span class="ruby-operator">||</span>
+       <span class="ruby-node">$1</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;This Apple ID has been locked for security reasons&quot;</span>)
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+        <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AccountManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>).<span class="ruby-identifier">invalid_credentials</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please run this tool again to apply the new password&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Redundant Binary Upload. There already exists a binary upload with build&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">$1</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You have to change the build number of your app to upload your ipa file&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">output_done</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">WARNING_REGEX</span>
+    <span class="ruby-ivar">@warnings</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">$1</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;[Transporter Warning Output]: #{$1}&quot;</span>)
+    <span class="ruby-identifier">output_done</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RETURN_VALUE_REGEX</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Transporter transfer failed.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-ivar">@warnings</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-node">&quot;Return status of iTunes Transporter was #{$1}: #{@errors.join(&#39;\n&#39;)}&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;iTunes Transporter successfully finished its job&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hide_output</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">OUTPUT_REGEX</span>
+    <span class="ruby-comment"># General logging for debug purposes</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">output_done</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;[Transporter]: #{$1}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

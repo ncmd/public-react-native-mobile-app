@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"bundle_id:ETI"-Spaceship::Portal::WebsitePush#bundle_id;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"L@return (String) The bundle_id (website identifier) of website push id ;TI"@example;To:RDoc::Markup::Verbatim;	[I""web.com.krausefx.app";T:@format0:
+@fileI"3spaceship/lib/spaceship/portal/website_push.rb;T:0@omit_headings_from_table_of_contents_below0F@I"#Spaceship::Portal::WebsitePush;TcRDoc::NormalClass0

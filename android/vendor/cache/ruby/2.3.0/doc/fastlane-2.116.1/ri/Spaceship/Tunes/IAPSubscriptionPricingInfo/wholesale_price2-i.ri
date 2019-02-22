@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"wholesale_price2:ETI"BSpaceship::Tunes::IAPSubscriptionPricingInfo#wholesale_price2;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"L@return (Number) net proceedings for the developer after the first year;T:
+@fileI"Cspaceship/lib/spaceship/tunes/iap_subscription_pricing_info.rb;T:0@omit_headings_from_table_of_contents_below0F@I"1Spaceship::Tunes::IAPSubscriptionPricingInfo;TcRDoc::NormalClass0

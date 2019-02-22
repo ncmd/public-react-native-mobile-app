@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"merchant_id:ETI",Spaceship::Portal::Merchant#merchant_id;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"R@return (String) The identifier of this merchant, provided by the Dev Portal ;TI"@example;To:RDoc::Markup::Verbatim;	[I""LM1UX73BAC";T:@format0:
+@fileI"/spaceship/lib/spaceship/portal/merchant.rb;T:0@omit_headings_from_table_of_contents_below0F@I" Spaceship::Portal::Merchant;TcRDoc::NormalClass0

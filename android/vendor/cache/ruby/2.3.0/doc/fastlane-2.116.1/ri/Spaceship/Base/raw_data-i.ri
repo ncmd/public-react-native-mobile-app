@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"raw_data:ETI"Spaceship::Base#raw_data;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@@return (Hash/Array) Holds the raw data we got from Apple's;To:RDoc::Markup::Verbatim;	[I"server to use it later;T:@format0:
+@fileI"$spaceship/lib/spaceship/base.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Base;TcRDoc::NormalClass0

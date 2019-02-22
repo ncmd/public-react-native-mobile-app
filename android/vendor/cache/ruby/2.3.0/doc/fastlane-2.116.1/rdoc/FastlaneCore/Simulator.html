@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::Simulator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-clear_cache">::clear_cache</a>
+    
+    <li ><a href="#method-c-copy_logarchive">::copy_logarchive</a>
+    
+    <li ><a href="#method-c-copy_logfile">::copy_logfile</a>
+    
+    <li ><a href="#method-c-copy_logs">::copy_logs</a>
+    
+    <li ><a href="#method-c-delete_all">::delete_all</a>
+    
+    <li ><a href="#method-c-delete_all_by_version">::delete_all_by_version</a>
+    
+    <li ><a href="#method-c-launch">::launch</a>
+    
+    <li ><a href="#method-c-reset">::reset</a>
+    
+    <li ><a href="#method-c-reset_all">::reset_all</a>
+    
+    <li ><a href="#method-c-reset_all_by_version">::reset_all_by_version</a>
+    
+    <li ><a href="#method-c-uninstall_app">::uninstall_app</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::Simulator">
+  <h1 id="class-FastlaneCore::Simulator" class="class">
+    class FastlaneCore::Simulator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">DeviceManager</span>.<span class="ruby-identifier">simulators</span>(<span class="ruby-string">&#39;iOS&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear_cache-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_cache</span>
+  <span class="ruby-ivar">@devices</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-copy_logs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_logs</span><span
+            class="method-args">(device, log_identity, logs_destination_dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_logs-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_logs</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">log_identity</span>, <span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-identifier">logs_destination_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-identifier">os_version</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;sw_vers -productVersion&#39;</span>, <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">host_computer_supports_logarchives</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">os_version</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;10.12.0&#39;</span>)
+  <span class="ruby-identifier">device_supports_logarchives</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">device</span>.<span class="ruby-identifier">os_version</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;10.0&#39;</span>)
+
+  <span class="ruby-identifier">are_logarchives_supported</span> = <span class="ruby-identifier">device_supports_logarchives</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">host_computer_supports_logarchives</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">are_logarchives_supported</span>
+    <span class="ruby-identifier">copy_logarchive</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">log_identity</span>, <span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">copy_logfile</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">log_identity</span>, <span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-delete_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete all simulators of this type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_all-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:delete</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-delete_all_by_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_all_by_version</span><span
+            class="method-args">(os_version: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_all_by_version-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_all_by_version</span>(<span class="ruby-identifier">os_version</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">os_version</span>
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">device</span><span class="ruby-operator">|</span> <span class="ruby-identifier">device</span>.<span class="ruby-identifier">os_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">os_version</span> }.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:delete</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-launch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">launch</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="launch-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">launch</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">device</span>.<span class="ruby-identifier">is_simulator</span>
+
+  <span class="ruby-identifier">simulator_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_path</span>, <span class="ruby-string">&#39;Applications&#39;</span>, <span class="ruby-string">&#39;Simulator.app&#39;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Launching #{simulator_path} for device: #{device.name} (#{device.udid})&quot;</span>)
+
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;open -a #{simulator_path} --args -CurrentDeviceUDID #{device.udid}&quot;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">(udid: nil, name: nil, os_version: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reset simulator by UDID or name and OS version Latter is useful when
+combined with -destination option of xcodebuild</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>(<span class="ruby-identifier">udid</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">os_version</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">match</span> = <span class="ruby-identifier">all</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">device</span><span class="ruby-operator">|</span> <span class="ruby-identifier">device</span>.<span class="ruby-identifier">udid</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">udid</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">device</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">device</span>.<span class="ruby-identifier">os_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">os_version</span> }
+  <span class="ruby-identifier">match</span>.<span class="ruby-identifier">reset</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reset all simulators of this type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_all-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_all</span>
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:reset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_all_by_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_all_by_version</span><span
+            class="method-args">(os_version: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_all_by_version-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_all_by_version</span>(<span class="ruby-identifier">os_version</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">os_version</span>
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">device</span><span class="ruby-operator">|</span> <span class="ruby-identifier">device</span>.<span class="ruby-identifier">os_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">os_version</span> }.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:reset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-uninstall_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uninstall_app</span><span
+            class="method-args">(app_identifier, device_type, device_udid)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uninstall_app-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uninstall_app</span>(<span class="ruby-identifier">app_identifier</span>, <span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">device_udid</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Uninstalling app &#39;#{app_identifier}&#39; from #{device_type}...&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Launch Simulator #{device_type}&quot;</span>)
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;xcrun instruments -w #{device_udid} &amp;&gt; /dev/null&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Uninstall application #{app_identifier}&quot;</span>)
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;xcrun simctl uninstall #{device_udid} #{app_identifier} &amp;&gt; /dev/null&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-copy_logarchive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_logarchive</span><span
+            class="method-args">(device, log_identity, logs_destination_dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_logarchive-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_logarchive</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">log_identity</span>, <span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;shellwords&#39;</span>
+
+  <span class="ruby-identifier">logarchive_dst</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">logs_destination_dir</span>, <span class="ruby-node">&quot;system_logs-#{log_identity}.logarchive&quot;</span>).<span class="ruby-identifier">shellescape</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">logarchive_dst</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-identifier">logarchive_dst</span>))
+  <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;xcrun simctl spawn #{device.udid} log collect --output #{logarchive_dst} 2&gt;/dev/null&quot;</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>, <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-copy_logfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_logfile</span><span
+            class="method-args">(device, log_identity, logs_destination_dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_logfile-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/device_manager.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_logfile</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">log_identity</span>, <span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-identifier">logfile_src</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-node">&quot;~/Library/Logs/CoreSimulator/#{device.udid}/system.log&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">logfile_src</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">logs_destination_dir</span>)
+  <span class="ruby-identifier">logfile_dst</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">logs_destination_dir</span>, <span class="ruby-node">&quot;system-#{log_identity}.log&quot;</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_f</span>(<span class="ruby-identifier">logfile_dst</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">logfile_src</span>, <span class="ruby-identifier">logfile_dst</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Copying file &#39;#{logfile_src}&#39; to &#39;#{logfile_dst}&#39;...&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CredentialsManager::AppfileConfig - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-already_printed_debug_information">::already_printed_debug_information</a>
+    
+    <li ><a href="#method-c-default_path">::default_path</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-try_fetch_value">::try_fetch_value</a>
+    
+    <li ><a href="#method-i-app_identifier">#app_identifier</a>
+    
+    <li ><a href="#method-i-apple_dev_portal_id">#apple_dev_portal_id</a>
+    
+    <li ><a href="#method-i-apple_id">#apple_id</a>
+    
+    <li ><a href="#method-i-data">#data</a>
+    
+    <li ><a href="#method-i-fallback_to_default_values">#fallback_to_default_values</a>
+    
+    <li ><a href="#method-i-for_lane">#for_lane</a>
+    
+    <li ><a href="#method-i-for_platform">#for_platform</a>
+    
+    <li ><a href="#method-i-issuer">#issuer</a>
+    
+    <li ><a href="#method-i-itc_team_id">#itc_team_id</a>
+    
+    <li ><a href="#method-i-itc_team_name">#itc_team_name</a>
+    
+    <li ><a href="#method-i-itunes_connect_id">#itunes_connect_id</a>
+    
+    <li ><a href="#method-i-json_key_data_raw">#json_key_data_raw</a>
+    
+    <li ><a href="#method-i-json_key_file">#json_key_file</a>
+    
+    <li ><a href="#method-i-keyfile">#keyfile</a>
+    
+    <li ><a href="#method-i-package_name">#package_name</a>
+    
+    <li ><a href="#method-i-print_debug_information">#print_debug_information</a>
+    
+    <li ><a href="#method-i-setter">#setter</a>
+    
+    <li ><a href="#method-i-team_id">#team_id</a>
+    
+    <li ><a href="#method-i-team_name">#team_name</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CredentialsManager::AppfileConfig">
+  <h1 id="class-CredentialsManager::AppfileConfig" class="class">
+    class CredentialsManager::AppfileConfig
+  </h1>
+
+  <section class="description">
+    
+<p>Access the content of the app file (e.g. app identifier and Apple ID)</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-already_printed_debug_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">already_printed_debug_information</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="already_printed_debug_information-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">already_printed_debug_information</span>
+  <span class="ruby-ivar">@already_printed_debug_information</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_path-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_path</span>
+  [<span class="ruby-string">&quot;./fastlane/Appfile&quot;</span>, <span class="ruby-string">&quot;./.fastlane/Appfile&quot;</span>, <span class="ruby-string">&quot;./Appfile&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">current</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">current</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find Appfile at path &#39;#{path}&#39;&quot;</span>.<span class="ruby-identifier">red</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">default_path</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-comment"># it might not exist, we still want to use the default values</span>
+    <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;..&#39;</span>, <span class="ruby-identifier">path</span>)) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;utf-8&quot;</span>)
+
+      <span class="ruby-comment"># From https://github.com/orta/danger/blob/master/lib/danger/danger_core/dangerfile.rb</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">tr!</span>(<span class="ruby-string">&#39;“”‘’‛&#39;</span>, <span class="ruby-string">%Q(&quot;&quot;&#39;&#39;&#39;)</span>)
+        <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Your #{File.basename(path)} has had smart quotes sanitised. &quot;</span>                   <span class="ruby-string">&#39;To avoid issues in the future, you should not use &#39;</span>                   <span class="ruby-string">&#39;TextEdit for editing it. If you are not using TextEdit, &#39;</span>                   <span class="ruby-string">&#39;you should turn off smart quotes in your editor of choice.&#39;</span>.<span class="ruby-identifier">red</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># rubocop:disable Security/Eval</span>
+      <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">content</span>)
+      <span class="ruby-comment"># rubocop:enable Security/Eval</span>
+
+      <span class="ruby-identifier">print_debug_information</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">full_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">fallback_to_default_values</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-try_fetch_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_fetch_value</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_fetch_value-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-comment"># We need to load the file every time we call this method</span>
+  <span class="ruby-comment"># to support the `for_lane` keyword</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">data</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_identifier</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>iOS</p>
+          
+          
+
+          
+          <div class="method-source-code" id="app_identifier-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_identifier</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:app_identifier</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-apple_dev_portal_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apple_dev_portal_id</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="apple_dev_portal_id-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apple_dev_portal_id</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:apple_dev_portal_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-apple_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apple_id</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="apple_id-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apple_id</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:apple_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="data-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-ivar">@data</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fallback_to_default_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fallback_to_default_values</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fallback_to_default_values-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fallback_to_default_values</span>
+  <span class="ruby-identifier">data</span>[<span class="ruby-value">:apple_id</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_USER&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_USER&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_USERNAME&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-for_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">for_lane</span><span
+            class="method-args">(lane_name) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Override Appfile configuration for a specific lane.</p>
+
+<p>lane_name  - Symbol representing a lane name. (Can be either :name,
+&#39;name&#39; or &#39;platform name&#39;) block - Block to execute to
+override configuration values.</p>
+
+<p>Discussion If received lane name does not match the lane name available as
+environment variable, no changes will</p>
+
+<pre>be applied.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="for_lane-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">for_lane</span>(<span class="ruby-identifier">lane_name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">lane_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># That&#39;s the legacy syntax &#39;platform name&#39;</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;You use deprecated syntax &#39;#{lane_name}&#39; in your Appfile.&quot;</span>.<span class="ruby-identifier">yellow</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Please follow the Appfile guide: https://docs.fastlane.tools/advanced/#appfile&quot;</span>.<span class="ruby-identifier">yellow</span>)
+    <span class="ruby-identifier">platform</span>, <span class="ruby-identifier">lane_name</span> = <span class="ruby-identifier">lane_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PLATFORM_NAME&quot;</span>]
+    <span class="ruby-comment"># the lane name will be verified below</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_LANE_NAME&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">lane_name</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-for_platform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">for_platform</span><span
+            class="method-args">(platform_name) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Override Appfile configuration for a specific platform.</p>
+
+<p>platform_name  - Symbol representing a platform name. block - Block to
+execute to override configuration values.</p>
+
+<p>Discussion If received platform name does not match the platform name
+available as environment variable, no changes will</p>
+
+<pre>be applied.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="for_platform-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">for_platform</span>(<span class="ruby-identifier">platform_name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PLATFORM_NAME&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">platform_name</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-issuer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">issuer</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="issuer-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">issuer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Appfile: DEPRECATED issuer: use json_key_file instead&quot;</span>.<span class="ruby-identifier">red</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:issuer</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-itc_team_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">itc_team_id</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>App Store Connect</p>
+          
+          
+
+          
+          <div class="method-source-code" id="itc_team_id-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">itc_team_id</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:itc_team_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-itc_team_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">itc_team_name</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="itc_team_name-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">itc_team_name</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:itc_team_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-itunes_connect_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">itunes_connect_id</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="itunes_connect_id-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">itunes_connect_id</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:itunes_connect_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_key_data_raw" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_key_data_raw</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_key_data_raw-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json_key_data_raw</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:json_key_data_raw</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_key_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_key_file</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Android</p>
+          
+          
+
+          
+          <div class="method-source-code" id="json_key_file-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json_key_file</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:json_key_file</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keyfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keyfile</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="keyfile-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keyfile</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Appfile: DEPRECATED keyfile: use json_key_file instead&quot;</span>.<span class="ruby-identifier">red</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:keyfile</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-package_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">package_name</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="package_name-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">package_name</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:package_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-print_debug_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_debug_information</span><span
+            class="method-args">(path: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_debug_information-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_debug_information</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">already_printed_debug_information</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">already_printed_debug_information</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">data</span>]
+  <span class="ruby-comment"># self.class.already_printed_debug_information is a hash, we use to detect if we already printed this data</span>
+  <span class="ruby-comment"># this is necessary, as on the course of a fastlane run, the values might change, e.g. when using</span>
+  <span class="ruby-comment"># the `for_lane` keyword.</span>
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Successfully loaded Appfile at path &#39;#{path}&#39;&quot;</span>.<span class="ruby-identifier">yellow</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;- #{key.to_s.cyan}: &#39;#{value.to_s.green}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;-------&quot;</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">already_printed_debug_information</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">data</span>] = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_id</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Developer Portal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_id-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_id</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:team_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_name</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="team_name-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_name</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">setter</span>(<span class="ruby-value">:team_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setter</span><span
+            class="method-args">(key, *args) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setter-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/appfile_config.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setter</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">data</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

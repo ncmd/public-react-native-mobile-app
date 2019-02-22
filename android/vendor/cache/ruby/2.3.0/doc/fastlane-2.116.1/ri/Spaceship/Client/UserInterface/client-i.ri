@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"client:ETI",Spaceship::Client::UserInterface#client;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"7Access the client this UserInterface object is for;T:
+@fileI""spaceship/lib/spaceship/ui.rb;T:0@omit_headings_from_table_of_contents_below0F@I"%Spaceship::Client::UserInterface;TcRDoc::NormalClass0

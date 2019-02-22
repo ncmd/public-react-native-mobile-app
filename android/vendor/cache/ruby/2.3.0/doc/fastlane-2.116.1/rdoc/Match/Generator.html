@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::Generator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-generate_certificate">::generate_certificate</a>
+    
+    <li ><a href="#method-c-generate_provisioning_profile">::generate_provisioning_profile</a>
+    
+    <li ><a href="#method-c-profile_type_name">::profile_type_name</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::Generator">
+  <h1 id="class-Match::Generator" class="class">
+    class Match::Generator
+  </h1>
+
+  <section class="description">
+    
+<p>Generate missing resources</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-generate_certificate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_certificate</span><span
+            class="method-args">(params, cert_type, working_directory)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_certificate-source">
+            <pre><span class="ruby-comment"># File match/lib/match/generator.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_certificate</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">cert_type</span>, <span class="ruby-identifier">working_directory</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;cert/runner&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;cert/options&#39;</span>
+
+  <span class="ruby-identifier">output_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">working_directory</span>, <span class="ruby-string">&quot;certs&quot;</span>, <span class="ruby-identifier">cert_type</span>.<span class="ruby-identifier">to_s</span>)
+
+  <span class="ruby-identifier">arguments</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Cert</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, {
+    <span class="ruby-identifier">development</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;development&quot;</span>,
+    <span class="ruby-identifier">output_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_path</span>,
+    <span class="ruby-identifier">force</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-comment"># we don&#39;t need a certificate without its private key, we only care about a new certificate</span>
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>],
+    <span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_id</span>],
+    <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_name</span>],
+    <span class="ruby-identifier">keychain_path</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">keychain_path</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>]),
+    <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_password</span>]
+  })
+
+  <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span> = <span class="ruby-identifier">arguments</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">cert_path</span> = <span class="ruby-constant">Cert</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">launch</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;You already have a current&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Could not create a new certificate as you reached the maximum number of certificates for this account. You can use the `fastlane match nuke` command to revoke your existing certificates. More information https://docs.fastlane.tools/actions/match/&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># We don&#39;t care about the signing request</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">working_directory</span>, <span class="ruby-string">&quot;**&quot;</span>, <span class="ruby-string">&quot;*.certSigningRequest&quot;</span>)].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">path</span>) }
+
+  <span class="ruby-comment"># we need to return the path</span>
+  <span class="ruby-comment"># Inside this directory, there is the `.p12` file and the `.cer` file with the same name, but different extension</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">cert_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generate_provisioning_profile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_provisioning_profile</span><span
+            class="method-args">(params: nil, prov_type: nil, certificate_id: nil, app_identifier: nil, working_directory: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) The UUID of the newly generated profile</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_provisioning_profile-source">
+            <pre><span class="ruby-comment"># File match/lib/match/generator.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_provisioning_profile</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">prov_type</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;sigh/manager&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;sigh/options&#39;</span>
+
+  <span class="ruby-identifier">prov_type</span> = <span class="ruby-constant">Match</span>.<span class="ruby-identifier">profile_type_sym</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>])
+
+  <span class="ruby-identifier">names</span> = [<span class="ruby-string">&quot;match&quot;</span>, <span class="ruby-identifier">profile_type_name</span>(<span class="ruby-identifier">prov_type</span>), <span class="ruby-identifier">app_identifier</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:ios</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-comment"># For ios we do not include the platform for backwards compatibility</span>
+    <span class="ruby-identifier">names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">profile_name</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+
+  <span class="ruby-identifier">values</span> = {
+    <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+    <span class="ruby-identifier">output_path</span><span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">working_directory</span>, <span class="ruby-string">&quot;profiles&quot;</span>, <span class="ruby-identifier">prov_type</span>.<span class="ruby-identifier">to_s</span>),
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>],
+    <span class="ruby-identifier">force</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-identifier">cert_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_id</span>,
+    <span class="ruby-identifier">provisioning_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">profile_name</span>,
+    <span class="ruby-identifier">ignore_profiles_with_different_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_id</span>],
+    <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_name</span>],
+    <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:template_name</span>]
+  }
+
+  <span class="ruby-identifier">values</span>[<span class="ruby-value">:platform</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>]
+  <span class="ruby-identifier">values</span>[<span class="ruby-value">:adhoc</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prov_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:adhoc</span>
+  <span class="ruby-identifier">values</span>[<span class="ruby-value">:development</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prov_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:development</span>
+
+  <span class="ruby-identifier">arguments</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">values</span>)
+
+  <span class="ruby-constant">Sigh</span>.<span class="ruby-identifier">config</span> = <span class="ruby-identifier">arguments</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Manager</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-profile_type_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile_type_name</span><span
+            class="method-args">(type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return the name of the provisioning profile type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="profile_type_name-source">
+            <pre><span class="ruby-comment"># File match/lib/match/generator.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">profile_type_name</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Development&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:development</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;AdHoc&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:adhoc</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;AppStore&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:appstore</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;InHouse&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:enterprise</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Unknown&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

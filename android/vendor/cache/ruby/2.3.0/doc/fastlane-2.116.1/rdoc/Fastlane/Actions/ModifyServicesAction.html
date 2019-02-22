@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::ModifyServicesAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-allowed_services_description">::allowed_services_description</a>
+    
+    <li ><a href="#method-c-author">::author</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+    <li ><a href="#method-c-service_object">::service_object</a>
+    
+    <li ><a href="#method-c-services_mapping">::services_mapping</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::ModifyServicesAction">
+  <h1 id="class-Fastlane::Actions::ModifyServicesAction" class="class">
+    class Fastlane::Actions::ModifyServicesAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-allowed_services_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">allowed_services_description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="allowed_services_description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">allowed_services_description</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">DeveloperCenter</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_SERVICES</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;#{k}: (#{v.join(&#39;|&#39;)})(:on|:off)(true|false)&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">author</span>
+  <span class="ruby-string">&quot;bhimsenpadalkar&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce&#39;</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:apple_dev_portal_id</span>)
+  <span class="ruby-identifier">user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:apple_id</span>)
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:username</span>,
+                                 <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-u&quot;</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCE_USERNAME&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Your Apple ID Username&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>,
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:app_identifier</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCE_APP_IDENTIFIER&quot;</span>,
+                                 <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-a&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;App Identifier (Bundle ID, e.g. com.krausefx.app)&quot;</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:app_identifier</span>),
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:services</span>,
+                                 <span class="ruby-identifier">display_in_shell</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCE_ENABLE_SERVICES&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Array with Spaceship App Services (e.g. #{allowed_services_description})&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Hash</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> {},
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-identifier">allowed_keys</span> = <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">DeveloperCenter</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_SERVICES</span>.<span class="ruby-identifier">keys</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;enable_services has to be of type Hash&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+                                   <span class="ruby-identifier">value</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                                     <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;The key: &#39;#{key}&#39; is not supported in `enable_services&#39; - following keys are available: [#{allowed_keys.join(&#39;,&#39;)}]&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">allowed_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>)
+                                   <span class="ruby-keyword">end</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:team_id</span>,
+                                 <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-b&quot;</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCE_TEAM_ID&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The ID of your Developer Portal team if you&#39;re in multiple teams&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:team_id</span>),
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_TEAM_ID&quot;</span>] = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:team_name</span>,
+                                 <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-l&quot;</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCE_TEAM_NAME&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The name of your Developer Portal team if you&#39;re in multiple teams&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:team_name</span>),
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_TEAM_NAME&quot;</span>] = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>
+                                 <span class="ruby-keyword">end</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:misc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&#39;Modifies the services of the app created on Developer Portal&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  [
+    <span class="ruby-node">&quot;The options are the same as `:enable_services` in the [produce action](https://docs.fastlane.tools/actions/produce/#parameters_1)&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;modify_services(
+      username: &quot;test.account@gmail.com&quot;,
+      app_identifier: &quot;com.someorg.app&quot;,
+      services: {
+        push_notification: &quot;on&quot;,
+        associated_domains: &quot;off&quot;,
+        wallet: :on,
+        apple_pay: :off,
+        data_protection: true,
+        multipath: false
+      })&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce&#39;</span>
+
+  <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-identifier">params</span>
+
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/service&#39;</span>
+    <span class="ruby-identifier">services</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:services</span>]
+
+    <span class="ruby-identifier">enabled_services</span> = <span class="ruby-identifier">services</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;on&#39;</span> }.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>, <span class="ruby-string">&#39;on&#39;</span>] }.<span class="ruby-identifier">to_h</span>
+    <span class="ruby-identifier">disabled_services</span> = <span class="ruby-identifier">services</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;on&#39;</span> }.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>, <span class="ruby-string">&#39;off&#39;</span>] }.<span class="ruby-identifier">to_h</span>
+
+    <span class="ruby-identifier">enabled_services_object</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">service_object</span>
+    <span class="ruby-identifier">enabled_services</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">enabled_services_object</span>.<span class="ruby-identifier">__hash__</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">enabled_services_object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{k}=&quot;</span>, <span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">enable</span>(<span class="ruby-identifier">enabled_services_object</span>, <span class="ruby-keyword">nil</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_services</span>.<span class="ruby-identifier">empty?</span>
+
+    <span class="ruby-identifier">disabled_services_object</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">service_object</span>
+    <span class="ruby-identifier">disabled_services</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">disabled_services_object</span>.<span class="ruby-identifier">__hash__</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">disabled_services_object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{k}=&quot;</span>, <span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">disable</span>(<span class="ruby-identifier">disabled_services_object</span>, <span class="ruby-keyword">nil</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">disabled_services</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-service_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">service_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="service_object-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">service_object</span>
+  <span class="ruby-identifier">service_object</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">service_object</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">module_eval</span> { <span class="ruby-identifier">attr_accessor</span> <span class="ruby-value">:__hash__</span> }
+  <span class="ruby-identifier">service_object</span>.<span class="ruby-identifier">__hash__</span> = {}
+  <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">DeveloperCenter</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_SERVICES</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">service</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">services_mapping</span>[<span class="ruby-identifier">service</span>]
+    <span class="ruby-identifier">service_object</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">module_eval</span> { <span class="ruby-identifier">attr_accessor</span> <span class="ruby-value">:&quot;#{name}&quot;</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">service_object</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-services_mapping" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">services_mapping</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="services_mapping-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/modify_services.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">services_mapping</span>
+  {
+      <span class="ruby-identifier">access_wifi</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;access_wifi&#39;</span>,
+      <span class="ruby-identifier">app_group</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;app_group&#39;</span>,
+      <span class="ruby-identifier">apple_pay</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;apple_pay&#39;</span>,
+      <span class="ruby-identifier">associated_domains</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;associated_domains&#39;</span>,
+      <span class="ruby-identifier">auto_fill_credential</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;auto_fill_credential&#39;</span>,
+      <span class="ruby-identifier">data_protection</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;data_protection&#39;</span>,
+      <span class="ruby-identifier">game_center</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;game_center&#39;</span>,
+      <span class="ruby-identifier">health_kit</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;healthkit&#39;</span>,
+      <span class="ruby-identifier">home_kit</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;homekit&#39;</span>,
+      <span class="ruby-identifier">hotspot</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;hotspot&#39;</span>,
+      <span class="ruby-identifier">icloud</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;icloud&#39;</span>,
+      <span class="ruby-identifier">in_app_purchase</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;in_app_purchase&#39;</span>,
+      <span class="ruby-identifier">inter_app_audio</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;inter_app_audio&#39;</span>,
+      <span class="ruby-identifier">multipath</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;multipath&#39;</span>,
+      <span class="ruby-identifier">network_extension</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;network_extension&#39;</span>,
+      <span class="ruby-identifier">nfc_tag_reading</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;nfc_tag_reading&#39;</span>,
+      <span class="ruby-identifier">personal_vpn</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;personal_vpn&#39;</span>,
+      <span class="ruby-identifier">passbook</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;passbook&#39;</span>,
+      <span class="ruby-identifier">push_notification</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;push_notification&#39;</span>,
+      <span class="ruby-identifier">siri_kit</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;sirikit&#39;</span>,
+      <span class="ruby-identifier">vpn_configuration</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;vpn_conf&#39;</span>,
+      <span class="ruby-identifier">wallet</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;wallet&#39;</span>,
+      <span class="ruby-identifier">wireless_accessory</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;wireless_conf&#39;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

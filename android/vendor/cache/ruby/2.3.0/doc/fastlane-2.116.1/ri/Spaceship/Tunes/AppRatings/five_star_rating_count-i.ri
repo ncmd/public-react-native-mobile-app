@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"five_star_rating_count:ETI"8Spaceship::Tunes::AppRatings#five_star_rating_count;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"A@return (Integer) total number of five star ratings recevied;T:
+@fileI"1spaceship/lib/spaceship/tunes/app_ratings.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppRatings;TcRDoc::NormalClass0

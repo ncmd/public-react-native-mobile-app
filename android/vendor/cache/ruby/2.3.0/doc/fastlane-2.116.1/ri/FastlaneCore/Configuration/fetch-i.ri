@@ -1,0 +1,4 @@
+U:RDoc::AnyMethod[iI"
+fetch:EFI"&FastlaneCore::Configuration#fetch;TF:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"hReturns the value for a certain key. fastlane_core tries to fetch the value from different sources ;TI"aif 'ask' is true and the value is not present, the user will be prompted to provide a value ;TI"0rubocop:disable Metrics/PerceivedComplexity;T:
+@fileI"Cfastlane_core/lib/fastlane_core/configuration/configuration.rb;T:0@omit_headings_from_table_of_contents_below000[[I"[];Fo;;	[o;
+;	[I"<Aliases `[key]` to `fetch(key)` because Ruby can do it.;T;@;0I"(key, ask: true);T@FI"Configuration;TcRDoc::NormalClass00

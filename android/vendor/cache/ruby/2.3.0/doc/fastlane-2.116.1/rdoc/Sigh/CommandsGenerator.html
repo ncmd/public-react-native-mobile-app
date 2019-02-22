@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sigh::CommandsGenerator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Commander::Methods</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-i-multiple_values_option_proc">#multiple_values_option_proc</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sigh::CommandsGenerator">
+  <h1 id="class-Sigh::CommandsGenerator" class="class">
+    class Sigh::CommandsGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File sigh/lib/sigh/commands_generator.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-multiple_values_option_proc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multiple_values_option_proc</span><span
+            class="method-args">(command, name) { |value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="multiple_values_option_proc-source">
+            <pre><span class="ruby-comment"># File sigh/lib/sigh/commands_generator.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multiple_values_option_proc</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">option</span> = <span class="ruby-identifier">command</span>.<span class="ruby-identifier">proxy_options</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> } <span class="ruby-operator">||</span> []
+    <span class="ruby-identifier">values</span> = <span class="ruby-identifier">option</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> []
+    <span class="ruby-identifier">values</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+
+    <span class="ruby-identifier">command</span>.<span class="ruby-identifier">proxy_options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">option</span>)
+    <span class="ruby-identifier">command</span>.<span class="ruby-identifier">proxy_options</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">values</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File sigh/lib/sigh/commands_generator.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:name</span>, <span class="ruby-string">&#39;sigh&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:version</span>, <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:description</span>, <span class="ruby-string">&#39;CLI for \sigh\ - Because you would rather spend your time building stuff than fighting provisioning&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Author&#39;</span>, <span class="ruby-string">&#39;Felix Krause &lt;sigh@krausefx.com&gt;&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Website&#39;</span>, <span class="ruby-string">&#39;https://fastlane.tools&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Documentation&#39;</span>, <span class="ruby-string">&#39;https://docs.fastlane.tools/actions/sigh/&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help_formatter</span>, <span class="ruby-value">:compact</span>
+
+  <span class="ruby-identifier">global_option</span>(<span class="ruby-string">&#39;--verbose&#39;</span>) { <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose</span> = <span class="ruby-keyword">true</span> }
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:renew</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane sigh renew&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Renews the certificate (in case it expired) and outputs the path to the generated file&#39;</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">user_input</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>
+
+      <span class="ruby-comment"># The user might run sigh using</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment">#   sigh development</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment">#   sigh adhoc -u user@krausefx.com</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment"># When the user runs this, it will use :development</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment">#   sigh development --adhoc</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;development&quot;</span>
+        <span class="ruby-identifier">user_input</span>[<span class="ruby-value">:development</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">user_input</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:adhoc</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;adhoc&quot;</span>
+        <span class="ruby-identifier">user_input</span>[<span class="ruby-value">:adhoc</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">user_input</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:development</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-constant">Sigh</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">user_input</span>)
+
+      <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Manager</span>.<span class="ruby-identifier">start</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:download_all</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane sigh download_all&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Downloads all valid provisioning profiles&#39;</span>
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--download_xcode_profiles&#39;</span>, <span class="ruby-string">&#39;Only works with `fastlane sigh download_all` command: Also download Xcode managed provisioning profiles&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Below is some custom code to get an extra flag that&#39;s only available</span>
+      <span class="ruby-comment"># for the `fastlane sigh download_all` command and not for the `sigh` action</span>
+      <span class="ruby-identifier">user_hash</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>
+      <span class="ruby-identifier">download_xcode_profiles</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">download_xcode_profiles</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">download_xcode_profiles</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">user_hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:download_xcode_profiles</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">Sigh</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">user_hash</span>)
+      <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Manager</span>.<span class="ruby-identifier">download_all</span>(<span class="ruby-identifier">download_xcode_profiles</span><span class="ruby-operator">:</span> <span class="ruby-identifier">download_xcode_profiles</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:repair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane sigh repair&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Repairs all expired or invalid provisioning profiles&#39;</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Sigh</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;sigh/repair&#39;</span>
+      <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Repair</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">repair_all</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:resign</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane sigh resign&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Resigns an existing ipa file with the given provisioning profile&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-i&#39;</span>, <span class="ruby-string">&#39;--signing_identity STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;The signing identity to use. Must match the one defined in the provisioning profile.&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-x&#39;</span>, <span class="ruby-string">&#39;--version_number STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Version number to force binary and all nested binaries to use. Changes both CFBundleShortVersionString and CFBundleVersion.&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-p&#39;</span>, <span class="ruby-string">&#39;--provisioning_profile PATH&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;(or BUNDLE_ID=PATH) The path to the provisioning profile which should be used. &#39;</span>                  <span class="ruby-string">&#39;Can be provided multiple times if the application contains nested applications and app extensions, which need their own provisioning profile. &#39;</span>                  <span class="ruby-string">&#39;The path may be prefixed with a identifier in order to determine which provisioning profile should be used on which app.&#39;</span>,
+             <span class="ruby-operator">&amp;</span><span class="ruby-identifier">multiple_values_option_proc</span>(<span class="ruby-identifier">c</span>, <span class="ruby-string">&quot;provisioning_profile&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">2</span>) }))
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-d&#39;</span>, <span class="ruby-string">&#39;--display_name STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Display name to use&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-e&#39;</span>, <span class="ruby-string">&#39;--entitlements PATH&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;The path to the entitlements file to use.&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--short_version STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Short version string to force binary and all nested binaries to use (CFBundleShortVersionString).&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--bundle_version STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Bundle version to force binary and all nested binaries to use (CFBundleVersion).&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--use_app_entitlements&#39;</span>, <span class="ruby-string">&#39;Extract app bundle codesigning entitlements and combine with entitlements from new provisionin profile.&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-g&#39;</span>, <span class="ruby-string">&#39;--new_bundle_id STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;New application bundle ID (CFBundleIdentifier)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--keychain_path STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Path to the keychain that /usr/bin/codesign should use&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Resign</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:manage</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane sigh manage&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Manage installed provisioning profiles on your system.&#39;</span>
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-f&#39;</span>, <span class="ruby-string">&#39;--force&#39;</span>, <span class="ruby-string">&#39;Force remove all expired provisioning profiles. Required on CI.&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-e&#39;</span>, <span class="ruby-string">&#39;--clean_expired&#39;</span>, <span class="ruby-string">&#39;Remove all expired provisioning profiles.&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-p&#39;</span>, <span class="ruby-string">&#39;--clean_pattern STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Remove any provisioning profiles that matches the regular expression.&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Remove all &quot;iOS Team Provisioning&quot; provisioning profiles&#39;</span>, <span class="ruby-string">&#39;fastlane sigh manage -p &quot;iOS\ ?Team Provisioning Profile&quot;&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalManage</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">default_command</span>(<span class="ruby-value">:renew</span>)
+
+  <span class="ruby-identifier">run!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

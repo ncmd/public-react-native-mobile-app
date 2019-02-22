@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::UpdateChecker - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-ensure_rubygems_source">::ensure_rubygems_source</a>
+    
+    <li ><a href="#method-c-fetch_latest">::fetch_latest</a>
+    
+    <li ><a href="#method-c-generate_fetch_url">::generate_fetch_url</a>
+    
+    <li ><a href="#method-c-server_results">::server_results</a>
+    
+    <li ><a href="#method-c-show_update_message">::show_update_message</a>
+    
+    <li ><a href="#method-c-show_update_status">::show_update_status</a>
+    
+    <li ><a href="#method-c-start_looking_for_update">::start_looking_for_update</a>
+    
+    <li ><a href="#method-c-update_available-3F">::update_available?</a>
+    
+    <li ><a href="#method-c-update_command">::update_command</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::UpdateChecker">
+  <h1 id="class-FastlaneCore::UpdateChecker" class="class">
+    class FastlaneCore::UpdateChecker
+  </h1>
+
+  <section class="description">
+    
+<p>Verifies, the user runs the latest version of this gem</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-start_time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">start_time</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-ensure_rubygems_source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_rubygems_source</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check if RubyGems is set as a gem source on some machines that might not be
+the case and then users can&#39;t find the update when running the
+specified command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_rubygems_source-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ensure_rubygems_source</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">contained_fastlane?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-value">%x`gem sources`</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;https://rubygems.org&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;RubyGems is not listed as your Gem source&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You can run `gem sources` to see all your sources&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please run the following command to fix this:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-string">&quot;gem sources --add https://rubygems.org&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fetch_latest" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_latest</span><span
+            class="method-args">(gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_latest-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fetch_latest</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">Excon</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">generate_fetch_url</span>(<span class="ruby-identifier">gem_name</span>)).<span class="ruby-identifier">body</span>)[<span class="ruby-string">&quot;version&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generate_fetch_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_fetch_url</span><span
+            class="method-args">(gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_fetch_url-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_fetch_url</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-node">&quot;https://rubygems.org/api/v1/gems/#{gem_name}.json&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-server_results" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">server_results</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="server_results-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">server_results</span>
+  <span class="ruby-ivar">@results</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-show_update_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_update_message</span><span
+            class="method-args">(gem_name, current_version)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show a message to the user to update to a new version of fastlane (or a
+sub-gem) Use this method, as this will detect the current Ruby environment
+and show an appropriate message to the user</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show_update_message-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_update_message</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current_version</span>)
+  <span class="ruby-identifier">available</span> = <span class="ruby-identifier">server_results</span>[<span class="ruby-identifier">gem_name</span>]
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&#39;#######################################################################&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">available</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;# #{gem_name} #{available} is available. You are on #{current_version}.&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;# An update for #{gem_name} is available. You are on #{current_version}.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;# You should use the latest version.&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;# Please update using `#{self.update_command(gem_name: gem_name)}`.&quot;</span>)
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;# To see what&#39;s new, open https://github.com/fastlane/#{gem_name}/releases.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_HIDE_CHANGELOG&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">bundler?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">contained_fastlane?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">5</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># We want to show this message from time to time, if the user doesn&#39;t use bundler, nor bundled fastlane</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&#39;#######################################################################&#39;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;# Run `sudo gem cleanup` from time to time to speed up fastlane&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&#39;#######################################################################&#39;</span>)
+  <span class="ruby-constant">Changelog</span>.<span class="ruby-identifier">show_changes</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current_version</span>, <span class="ruby-identifier">update_gem_command</span><span class="ruby-operator">:</span> <span class="ruby-constant">UpdateChecker</span>.<span class="ruby-identifier">update_command</span>(<span class="ruby-identifier">gem_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">gem_name</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_HIDE_CHANGELOG&quot;</span>)
+
+  <span class="ruby-identifier">ensure_rubygems_source</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-show_update_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_update_status</span><span
+            class="method-args">(gem_name, current_version)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_update_status-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_update_status</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current_version</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">update_available?</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current_version</span>)
+    <span class="ruby-identifier">show_update_message</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current_version</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start_looking_for_update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_looking_for_update</span><span
+            class="method-args">(gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_looking_for_update-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_looking_for_update</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_SKIP_UPDATE_CHECK&quot;</span>)
+
+  <span class="ruby-ivar">@start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">server_results</span>[<span class="ruby-identifier">gem_name</span>] = <span class="ruby-identifier">fetch_latest</span>(<span class="ruby-identifier">gem_name</span>)
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-comment"># we don&#39;t want to show a stack trace if something goes wrong</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-update_available-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_available?</span><span
+            class="method-args">(gem_name, current_version)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_available-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_available?</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current_version</span>)
+  <span class="ruby-identifier">latest</span> = <span class="ruby-identifier">server_results</span>[<span class="ruby-identifier">gem_name</span>]
+  <span class="ruby-keyword">return</span> (<span class="ruby-identifier">latest</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">latest</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">current_version</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-update_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_command</span><span
+            class="method-args">(gem_name: "fastlane")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The command that the user should use to update their mac</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_command-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/update_checker/update_checker.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_command</span>(<span class="ruby-identifier">gem_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;fastlane&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">bundler?</span>
+    <span class="ruby-node">&quot;bundle update #{gem_name.downcase}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">contained_fastlane?</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">homebrew?</span>
+    <span class="ruby-string">&quot;fastlane update_fastlane&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac_app?</span>
+    <span class="ruby-string">&quot;the Fabric app. Launch the app and navigate to the fastlane tab to get the most recent version.&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;sudo gem install #{gem_name.downcase}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

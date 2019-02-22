@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Commander::Runner - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-action_completed">#action_completed</a>
+    
+    <li ><a href="#method-i-display_user_error-21">#display_user_error!</a>
+    
+    <li ><a href="#method-i-handle_ssl_error-21">#handle_ssl_error!</a>
+    
+    <li ><a href="#method-i-handle_tls_error-21">#handle_tls_error!</a>
+    
+    <li ><a href="#method-i-handle_unknown_error-21">#handle_unknown_error!</a>
+    
+    <li ><a href="#method-i-reraise_formatted-21">#reraise_formatted!</a>
+    
+    <li ><a href="#method-i-rescue_connection_failed_error">#rescue_connection_failed_error</a>
+    
+    <li ><a href="#method-i-rescue_fastlane_error">#rescue_fastlane_error</a>
+    
+    <li ><a href="#method-i-rescue_file_error">#rescue_file_error</a>
+    
+    <li ><a href="#method-i-rescue_unknown_error">#rescue_unknown_error</a>
+    
+    <li ><a href="#method-i-run-21">#run!</a>
+    
+    <li ><a href="#method-i-show_github_issues">#show_github_issues</a>
+    
+    <li ><a href="#method-i-suggest_ruby_reinstall">#suggest_ruby_reinstall</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Commander::Runner">
+  <h1 id="class-Commander::Runner" class="class">
+    class Commander::Runner
+  </h1>
+
+  <section class="description">
+    
+<p>This class override the run method with our custom stack trace handling In
+particular we want to distinguish between user_error! and crash! (one with,
+one without stack trace)</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-collector" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">collector</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Code taken from <a
+href="https://github.com/commander-rb/commander/blob/master/lib/commander/runner.rb#L50">github.com/commander-rb/commander/blob/master/lib/commander/runner.rb#L50</a></p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-action_completed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action_completed</span><span
+            class="method-args">(action_name, status: nil, exception: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="action_completed-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">action_completed</span>(<span class="ruby-identifier">action_name</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># https://github.com/fastlane/fastlane/issues/11913</span>
+  <span class="ruby-comment"># if exception.nil? || exception.fastlane_should_report_metrics?</span>
+  <span class="ruby-comment">#   action_completion_context = FastlaneCore::ActionCompletionContext.context_for_action_name(action_name, args: ARGV, status: status)</span>
+  <span class="ruby-comment">#   FastlaneCore.session.action_completed(completion_context: action_completion_context)</span>
+  <span class="ruby-comment"># end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_user_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_user_error!</span><span
+            class="method-args">(e, message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="display_user_error-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_user_error!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-comment"># with stack trace</span>
+    <span class="ruby-identifier">reraise_formatted!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># without stack trace</span>
+    <span class="ruby-identifier">action_completed</span>(<span class="ruby-ivar">@program</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">USER_ERROR</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>)
+    <span class="ruby-identifier">abort</span>(<span class="ruby-node">&quot;\n[!] #{message}&quot;</span>.<span class="ruby-identifier">red</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_ssl_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_ssl_error!</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_ssl_error-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_ssl_error!</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-comment"># SSL errors are very common when the Ruby or OpenSSL installation is somehow broken</span>
+  <span class="ruby-comment"># We want to show a nice error message to the user here</span>
+  <span class="ruby-comment"># We have over 20 GitHub issues just for this one error:</span>
+  <span class="ruby-comment">#   https://github.com/fastlane/fastlane/search?q=errno%3D0+state%3DSSLv3+read+server&amp;type=Issues</span>
+  <span class="ruby-identifier">suggest_ruby_reinstall</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">display_user_error!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_tls_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_tls_error!</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_tls_error-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_tls_error!</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-comment"># Apple has upgraded its App Store Connect servers to require TLS 1.2, but</span>
+  <span class="ruby-comment"># system Ruby 2.0 does not support it. We want to suggest that users upgrade</span>
+  <span class="ruby-comment"># their Ruby version</span>
+  <span class="ruby-identifier">suggest_ruby_reinstall</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">display_user_error!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_unknown_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_unknown_error!</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_unknown_error-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_unknown_error!</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-comment"># Some spaceship exception classes implement #preferred_error_info in order to share error info</span>
+  <span class="ruby-comment"># that we&#39;d rather display instead of crashing with a stack trace. However, fastlane_core and</span>
+  <span class="ruby-comment"># spaceship can not know about each other&#39;s classes! To make this information passing work, we</span>
+  <span class="ruby-comment"># use a bit of Ruby duck-typing to check whether the unknown exception type implements the right</span>
+  <span class="ruby-comment"># method. If so, we&#39;ll present any returned error info in the manner of a user_error!</span>
+  <span class="ruby-identifier">error_info</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:preferred_error_info</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">preferred_error_info</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">should_show_github_issues</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:show_github_issues</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">show_github_issues</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_info</span>
+    <span class="ruby-identifier">error_info</span> = <span class="ruby-identifier">error_info</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\t&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+
+    <span class="ruby-identifier">show_github_issues</span>(<span class="ruby-identifier">error_info</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_show_github_issues</span>
+
+    <span class="ruby-identifier">display_user_error!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">error_info</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Pass the error instead of a message so that the inspector can do extra work to simplify the query</span>
+    <span class="ruby-identifier">show_github_issues</span>(<span class="ruby-identifier">e</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_show_github_issues</span>
+
+    <span class="ruby-comment"># From https://stackoverflow.com/a/4789702/445598</span>
+    <span class="ruby-comment"># We do this to make the actual error message red and therefore more visible</span>
+    <span class="ruby-identifier">reraise_formatted!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reraise_formatted-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reraise_formatted!</span><span
+            class="method-args">(e, message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reraise_formatted-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reraise_formatted!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">backtrace</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_HIDE_BACKTRACE&quot;</span>) <span class="ruby-operator">?</span> [] <span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>, <span class="ruby-node">&quot;[!] #{message}&quot;</span>.<span class="ruby-identifier">red</span>, <span class="ruby-identifier">backtrace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rescue_connection_failed_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rescue_connection_failed_error</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rescue_connection_failed_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rescue_connection_failed_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;Connection reset by peer - SSL_connect&#39;</span>)
+    <span class="ruby-identifier">handle_tls_error!</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">handle_unknown_error!</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rescue_fastlane_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rescue_fastlane_error</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rescue_fastlane_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rescue_fastlane_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">action_completed</span>(<span class="ruby-ivar">@program</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">USER_ERROR</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>)
+
+  <span class="ruby-identifier">show_github_issues</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">show_github_issues</span>
+  <span class="ruby-identifier">display_user_error!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rescue_file_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rescue_file_error</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rescue_file_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rescue_file_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-comment"># We&#39;re also printing the new-lines, as otherwise the message is not very visible in-between the error and the stack trace</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Error accessing file, this might be due to fastlane&#39;s directory handling&quot;</span>)
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Check out https://docs.fastlane.tools/advanced/#directory-behavior for more details&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rescue_unknown_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rescue_unknown_error</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rescue_unknown_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rescue_unknown_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">action_completed</span>(<span class="ruby-ivar">@program</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">FAILED</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>)
+
+  <span class="ruby-identifier">handle_unknown_error!</span>(<span class="ruby-identifier">e</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run!</span>
+  <span class="ruby-identifier">require_program</span>(<span class="ruby-value">:version</span>, <span class="ruby-value">:description</span>)
+  <span class="ruby-identifier">trap</span>(<span class="ruby-string">&#39;INT&#39;</span>) { <span class="ruby-identifier">abort</span>(<span class="ruby-identifier">program</span>(<span class="ruby-value">:int_message</span>)) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">program</span>(<span class="ruby-value">:int_message</span>)
+  <span class="ruby-identifier">trap</span>(<span class="ruby-string">&#39;INT&#39;</span>) { <span class="ruby-identifier">program</span>(<span class="ruby-value">:int_block</span>).<span class="ruby-identifier">call</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">program</span>(<span class="ruby-value">:int_block</span>)
+  <span class="ruby-identifier">global_option</span>(<span class="ruby-string">&#39;-h&#39;</span>, <span class="ruby-string">&#39;--help&#39;</span>, <span class="ruby-string">&#39;Display help documentation&#39;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@args</span> <span class="ruby-operator">-</span> <span class="ruby-node">%w(-h --help)</span>
+    <span class="ruby-identifier">command</span>(<span class="ruby-value">:help</span>).<span class="ruby-identifier">run</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">global_option</span>(<span class="ruby-string">&#39;-v&#39;</span>, <span class="ruby-string">&#39;--version&#39;</span>, <span class="ruby-string">&#39;Display version information&#39;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">say</span>(<span class="ruby-identifier">version</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parse_global_options</span>
+  <span class="ruby-identifier">remove_global_options</span>(<span class="ruby-identifier">options</span>, <span class="ruby-ivar">@args</span>)
+
+  <span class="ruby-identifier">xcode_outdated</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_at_least?</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">MINIMUM_XCODE_RELEASE</span>)
+      <span class="ruby-identifier">xcode_outdated</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-comment"># We don&#39;t care about exceptions here</span>
+    <span class="ruby-comment"># We&#39;ll land here if the user doesn&#39;t have Xcode at all for example</span>
+    <span class="ruby-comment"># which is fine for someone who uses fastlane just for Android project</span>
+    <span class="ruby-comment"># What we *do* care about is when someone links an old version of Xcode</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">xcode_outdated</span>
+      <span class="ruby-comment"># We have to raise that error within this `begin` block to show a nice user error without a stack trace</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;fastlane requires a minimum version of Xcode #{Fastlane::MINIMUM_XCODE_RELEASE}, please upgrade and make sure to use `sudo xcode-select -s /Applications/Xcode.app`&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">is_swift</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift?</span>
+    <span class="ruby-identifier">fastlane_client_language</span> = <span class="ruby-identifier">is_swift</span> <span class="ruby-operator">?</span> <span class="ruby-value">:swift</span> <span class="ruby-operator">:</span> <span class="ruby-value">:ruby</span>
+    <span class="ruby-identifier">action_launch_context</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionLaunchContext</span>.<span class="ruby-identifier">context_for_action_name</span>(<span class="ruby-ivar">@program</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">fastlane_client_language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fastlane_client_language</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">:</span> <span class="ruby-constant">ARGV</span>)
+    <span class="ruby-constant">FastlaneCore</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">action_launched</span>(<span class="ruby-identifier">launch_context</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action_launch_context</span>)
+
+    <span class="ruby-identifier">return_value</span> = <span class="ruby-identifier">run_active_command</span>
+
+    <span class="ruby-identifier">action_completed</span>(<span class="ruby-ivar">@program</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">SUCCESS</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">return_value</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Commander</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidCommandError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-comment"># calling `abort` makes it likely that tests stop without failing, so</span>
+    <span class="ruby-comment"># we&#39;ll disable that during tests.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">abort</span>(<span class="ruby-node">&quot;#{e}. Use --help for more information&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-comment"># We catch it so that the stack trace is hidden by default when using ctrl + c</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">action_completed</span>(<span class="ruby-ivar">@program</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERRUPTED</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>)
+      <span class="ruby-identifier">abort</span>(<span class="ruby-string">&quot;\nCancelled... use --verbose to show the stack trace&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span>          <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span>,
+    <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidArgument</span>,
+    <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingArgument</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-comment"># calling `abort` makes it likely that tests stop without failing, so</span>
+    <span class="ruby-comment"># we&#39;ll disable that during tests.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">active_command</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;help&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@default_command</span> <span class="ruby-operator">==</span> <span class="ruby-value">:help</span> <span class="ruby-comment"># need to access directly via @</span>
+        <span class="ruby-comment"># This is a special case, for example for pilot</span>
+        <span class="ruby-comment"># when the user runs `fastlane pilot -u user@google.com`</span>
+        <span class="ruby-comment"># This would be confusing, as the user probably wanted to use `pilot list`</span>
+        <span class="ruby-comment"># or some other command. Because `-u` isn&#39;t available for the `pilot --help`</span>
+        <span class="ruby-comment"># command it would show this very confusing error message otherwise</span>
+        <span class="ruby-identifier">abort</span>(<span class="ruby-node">&quot;Please ensure to use one of the available commands (#{self.commands.keys.join(&#39;, &#39;)})&quot;</span>.<span class="ruby-identifier">red</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># This would print something like</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-comment">#   invalid option: -u</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">abort</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneCommonException</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># these are exceptions that we dont count as crashes</span>
+    <span class="ruby-identifier">display_user_error!</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># user_error!</span>
+    <span class="ruby-identifier">rescue_fastlane_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">rescue_file_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLError</span>, <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># SSL issues are very common</span>
+    <span class="ruby-identifier">handle_ssl_error!</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionFailed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">rescue_connection_failed_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># high chance this is actually FastlaneCore::Interface::FastlaneCrash, but can be anything else</span>
+    <span class="ruby-identifier">rescue_unknown_error</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-constant">FastlaneCore</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">finalize_session</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_github_issues" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_github_issues</span><span
+            class="method-args">(message_or_error)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_github_issues-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_github_issues</span>(<span class="ruby-identifier">message_or_error</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_HIDE_GITHUB_ISSUES&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;gh_inspector&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane_core/ui/github_issue_inspector_reporter&#39;</span>
+
+  <span class="ruby-identifier">inspector</span> = <span class="ruby-constant">GhInspector</span><span class="ruby-operator">::</span><span class="ruby-constant">Inspector</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;fastlane&quot;</span>, <span class="ruby-string">&quot;fastlane&quot;</span>, <span class="ruby-identifier">verbose</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">InspectorReporter</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">message_or_error</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">inspector</span>.<span class="ruby-identifier">search_query</span>(<span class="ruby-identifier">message_or_error</span>, <span class="ruby-identifier">delegate</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">inspector</span>.<span class="ruby-identifier">search_exception</span>(<span class="ruby-identifier">message_or_error</span>, <span class="ruby-identifier">delegate</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error finding relevant GitHub issues: #{ex}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-suggest_ruby_reinstall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suggest_ruby_reinstall</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="suggest_ruby_reinstall-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">suggest_ruby_reinstall</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">ui</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;-----------------------------------------------------------------------&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;SSL errors can be caused by various components on your local machine.&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">RUBY_VERSION</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;2.1&#39;</span>)
+    <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Apple has recently changed their servers to require TLS 1.2, which may&quot;</span>)
+    <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;not be available to your system installed Ruby (#{RUBY_VERSION})&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;The best solution is to use the self-contained fastlane version.&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Which ships with a bundled OpenSSL,ruby and all gems - so you don&#39;t depend on system libraries&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot; - Use Homebrew&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;    - update brew with `brew update`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;    - install fastlane using:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;      - `brew cask install fastlane`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot; - Use One-Click-Installer:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;    - download fastlane at https://download.fastlane.tools&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;    - extract the archive and double click the `install`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;-----------------------------------------------------------&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;for more details on ways to install fastlane please refer the documentation:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;-----------------------------------------------------------&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;        🚀       https://docs.fastlane.tools          🚀   &quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;-----------------------------------------------------------&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You can also install a new version of Ruby&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;- Make sure OpenSSL is installed with Homebrew: `brew update &amp;&amp; brew upgrade openssl`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;- If you use system Ruby:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;  - Run `brew update &amp;&amp; brew install ruby`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;- If you use rbenv with ruby-build:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;  - Run `brew update &amp;&amp; brew upgrade ruby-build &amp;&amp; rbenv install 2.3.1`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;  - Run `rbenv global 2.3.1` to make it the new global default Ruby version&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;- If you use rvm:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;  - First run `rvm osx-ssl-certs update all`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;  - Then run `rvm reinstall ruby-2.3.1 --with-openssl-dir=/usr/local`&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;If that doesn&#39;t fix your issue, please google for the following error message:&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;  &#39;#{e}&#39;&quot;</span>)
+  <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;-----------------------------------------------------------------------&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::ConfigItem - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-auto_convert_value">#auto_convert_value</a>
+    
+    <li ><a href="#method-i-data_type">#data_type</a>
+    
+    <li ><a href="#method-i-deprecated_description">#deprecated_description</a>
+    
+    <li ><a href="#method-i-doc_default_value">#doc_default_value</a>
+    
+    <li ><a href="#method-i-ensure_boolean_type_passes_validation">#ensure_boolean_type_passes_validation</a>
+    
+    <li ><a href="#method-i-ensure_generic_type_passes_validation">#ensure_generic_type_passes_validation</a>
+    
+    <li ><a href="#method-i-help_default_value">#help_default_value</a>
+    
+    <li ><a href="#method-i-is_string">#is_string</a>
+    
+    <li ><a href="#method-i-string-3F">#string?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-update_code_gen_default_value_if_able-21">#update_code_gen_default_value_if_able!</a>
+    
+    <li ><a href="#method-i-valid-3F">#valid?</a>
+    
+    <li ><a href="#method-i-verify-21">#verify!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::ConfigItem">
+  <h1 id="class-FastlaneCore::ConfigItem" class="class">
+    class FastlaneCore::ConfigItem
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-allow_shell_conversion" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">allow_shell_conversion</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>Set if the variable is to be converted to a shell-escaped <a
+href="../String.html">String</a> when provided as a <a
+href="../Hash.html">Hash</a> or <a href="../Array.html">Array</a></p>
+</dd></dl>
+
+<p>Allows items expected to be strings used in shell arguments to be
+alternatively provided as a <a href="../Hash.html">Hash</a> or <a
+href="../Array.html">Array</a> for better readability and auto-escaped for
+us.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-code_gen_default_value" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">code_gen_default_value</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>the value which is used during Swift code generation</p>
+
+<pre>if the default_value reads from ENV or a file, or from local credentials, we need
+to provide a different default or it might be included in our autogenerated Swift
+as a built-in default for the fastlane gem. This is because when we generate the
+Swift API at deployment time, it fetches the default_value from the config_items</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-code_gen_sensitive" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">code_gen_sensitive</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>Set if the default value should never be used during code generation for
+Swift</p>
+</dd></dl>
+
+<pre>We generate the Swift API at deployment time, and if there is a value that should never be
+included in the Fastlane.swift or other autogenerated classes, we need to strip it out.
+This includes things like API keys that could be read from ENV[]</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-conflict_block" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">conflict_block</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>An optional block which is called when options conflict happens</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-conflicting_options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">conflicting_options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Array.html">Array</a>
+<dd>
+<p>array of conflicting option keys(@param key). This allows to resolve
+conflicts intelligently</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-default_value" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_value</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>the value which is used if there was no given values and no environment
+values</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-default_value_dynamic" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_value_dynamic</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>Set if the default value is generated dynamically</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-deprecated" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">deprecated</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../String.html">String</a>
+<dd>
+<p>Set if the option is deprecated. A deprecated option should be optional and
+is made optional if the parameter isn&#39;t set, and fails otherwise</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-description" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">description</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../String.html">String</a>
+<dd>
+<p>A description shown to the user</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-display_in_shell" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">display_in_shell</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>Set if the variable can be used from shell</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-env_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">env_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../String.html">String</a>
+<dd>
+<p>the name of the environment variable, which is only used if no other values
+were found</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-key" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">key</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt>Symbol
+<dd>
+<p>the key which is used as command parameters or key in the fastlane tools</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-optional" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">optional</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>is false by default. If set to true, also string values will not be asked
+to the user</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sensitive" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sensitive</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>Set if the variable is sensitive, such as a password or API token, to
+prevent echoing when prompted for the parameter</p>
+</dd></dl>
+
+<p>If a default value exists, it won&#39;t be used during code generation as
+default values can read from environment variables.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-short_option" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">short_option</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../String.html">String</a>
+<dd>
+<p>A string of length 1 which is used for the command parameters (e.g. -f)</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-skip_type_validation" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">skip_type_validation</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <dl class="rdoc-list label-list"><dt><a href="../Fastlane/Boolean.html">Boolean</a>
+<dd>
+<p>is false by default. If set to true, type of the parameter will not be
+validated.</p>
+</dd></dl>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-verify_block" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">verify_block</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>An optional block which is called when a new value is set.</p>
+
+<pre>Check value is valid. This could be type checks or if a folder/file exists
+You have to raise a specific exception if something goes wrong. Use `user_error!` for the message: UI.user_error!(&quot;your message&quot;)</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(key: nil, env_name: nil, description: nil, short_option: nil, default_value: nil, default_value_dynamic: false, verify_block: nil, is_string: true, type: nil, skip_type_validation: false, optional: nil, conflicting_options: nil, conflict_block: nil, deprecated: nil, sensitive: nil, code_gen_sensitive: false, code_gen_default_value: nil, display_in_shell: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new option @param key (Symbol) the key which is used as command
+parameters or key in the fastlane tools @param <a
+href="ConfigItem.html#attribute-i-env_name">#env_name</a> (String) the name
+of the environment variable, which is only used if no other values were
+found @param description (String) A description shown to the user @param <a
+href="ConfigItem.html#attribute-i-short_option">#short_option</a> (String)
+A string of length 1 which is used for the command parameters (e.g. -f)
+@param <a
+href="ConfigItem.html#attribute-i-default_value">#default_value</a> the
+value which is used if there was no given values and no environment values
+@param <a
+href="ConfigItem.html#attribute-i-default_value_dynamic">#default_value_dynamic</a>
+(Boolean) Set if the default value is generated dynamically @param <a
+href="ConfigItem.html#attribute-i-verify_block">#verify_block</a> an
+optional block which is called when a new value is set.</p>
+
+<pre>Check value is valid. This could be type checks or if a folder/file exists
+You have to raise a specific exception if something goes wrong. Append .red after the string</pre>
+
+<p>@param <a href="ConfigItem.html#method-i-is_string">#is_string</a>
+*DEPRECATED: Use `type` instead* (Boolean) is that parameter a string?
+Defaults to true. If it&#39;s true, the type string will be verified.
+@param type (Class) the data type of this config item. Takes precedence
+over `is_string`. Use `:shell_string` to allow types `String`, `Hash` and
+`Array` that will be converted to shell-escaped strings @param <a
+href="ConfigItem.html#attribute-i-skip_type_validation">#skip_type_validation</a>
+(Boolean) is false by default. If set to true, type of the parameter will
+not be validated. @param optional (Boolean) is false by default. If set to
+true, also string values will not be asked to the user @param <a
+href="ConfigItem.html#attribute-i-conflicting_options">#conflicting_options</a>
+([]) array of conflicting option keys(@param key). This allows to resolve
+conflicts intelligently @param <a
+href="ConfigItem.html#attribute-i-conflict_block">#conflict_block</a> an
+optional block which is called when options conflict happens @param
+deprecated (Boolean|String) Set if the option is deprecated. A deprecated
+option should be optional and is made optional if the parameter isn&#39;t
+set, and fails otherwise @param sensitive (Boolean) Set if the variable is
+sensitive, such as a password or API token, to prevent echoing when
+prompted for the parameter @param <a
+href="ConfigItem.html#attribute-i-display_in_shell">#display_in_shell</a>
+(Boolean) Set if the variable can be used from shell rubocop:disable
+Metrics/ParameterLists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+               <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+               <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">skip_type_validation</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+               <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">conflict_block</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">deprecated</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+               <span class="ruby-identifier">code_gen_default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">display_in_shell</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;key must be a symbol&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Symbol</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;env_name must be a String&quot;</span>) <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">env_name</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">short_option</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;short_option for key :#{key} must of type String&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">short_option</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;short_option for key :#{key} must be a string of length 1&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">short_option</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">description</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Do not let descriptions end with a &#39;.&#39;, since it&#39;s used for user inputs as well for key :#{key}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">description</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">conflicting_options</span>
+    <span class="ruby-identifier">conflicting_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">conflicting_option_key</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Conflicting option key must be a symbol&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">conflicting_option_key</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Symbol</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">deprecated</span>
+    <span class="ruby-comment"># deprecated options are automatically optional</span>
+    <span class="ruby-identifier">optional</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">optional</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;Deprecated option must be optional&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">optional</span>
+
+    <span class="ruby-comment"># deprecated options are marked deprecated in their description</span>
+    <span class="ruby-identifier">description</span> = <span class="ruby-identifier">deprecated_description</span>(<span class="ruby-identifier">description</span>, <span class="ruby-identifier">deprecated</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">optional</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">optional</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sensitive</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-ivar">@key</span> = <span class="ruby-identifier">key</span>
+  <span class="ruby-ivar">@env_name</span> = <span class="ruby-identifier">env_name</span>
+  <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">description</span>
+  <span class="ruby-ivar">@short_option</span> = <span class="ruby-identifier">short_option</span>
+  <span class="ruby-ivar">@default_value</span> = <span class="ruby-identifier">default_value</span>
+  <span class="ruby-ivar">@default_value_dynamic</span> = <span class="ruby-identifier">default_value_dynamic</span>
+  <span class="ruby-ivar">@verify_block</span> = <span class="ruby-identifier">verify_block</span>
+  <span class="ruby-ivar">@is_string</span> = <span class="ruby-identifier">is_string</span>
+  <span class="ruby-ivar">@data_type</span> = <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@data_type</span> = <span class="ruby-constant">String</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:shell_string</span>
+  <span class="ruby-ivar">@optional</span> = <span class="ruby-identifier">optional</span>
+  <span class="ruby-ivar">@conflicting_options</span> = <span class="ruby-identifier">conflicting_options</span>
+  <span class="ruby-ivar">@conflict_block</span> = <span class="ruby-identifier">conflict_block</span>
+  <span class="ruby-ivar">@deprecated</span> = <span class="ruby-identifier">deprecated</span>
+  <span class="ruby-ivar">@sensitive</span> = <span class="ruby-identifier">sensitive</span>
+  <span class="ruby-ivar">@code_gen_sensitive</span> = <span class="ruby-identifier">code_gen_sensitive</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">sensitive</span>
+  <span class="ruby-ivar">@allow_shell_conversion</span> = (<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:shell_string</span>)
+  <span class="ruby-ivar">@display_in_shell</span> = <span class="ruby-identifier">display_in_shell</span>
+  <span class="ruby-ivar">@skip_type_validation</span> = <span class="ruby-identifier">skip_type_validation</span> <span class="ruby-comment"># sometimes we allow multiple types which causes type validation failures, e.g.: export_options in gym</span>
+
+  <span class="ruby-ivar">@code_gen_default_value</span> = <span class="ruby-identifier">code_gen_default_value</span>
+
+  <span class="ruby-identifier">update_code_gen_default_value_if_able!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-auto_convert_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_convert_value</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an updated value type (if necessary)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="auto_convert_value-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auto_convert_value</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Integer</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Float</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">allow_shell_conversion</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">shelljoin</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{k.to_s.shellescape}=#{v.shellescape}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">String</span>
+    <span class="ruby-comment"># Special treatment if the user specified true, false or YES, NO</span>
+    <span class="ruby-comment"># There is no boolean type, so we just do it here</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-node">%w(YES yes true TRUE)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-node">%w(NO no false FALSE)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span> <span class="ruby-comment"># fallback to not doing anything</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-data_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines the defined data type of this <a
+href="ConfigItem.html">ConfigItem</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="data_type-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_type</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@data_type</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Symbol</span>)
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@data_type</span>
+    <span class="ruby-ivar">@data_type</span>
+  <span class="ruby-keyword">else</span>
+    (<span class="ruby-ivar">@is_string</span> <span class="ruby-operator">?</span> <span class="ruby-constant">String</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deprecated_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecated_description</span><span
+            class="method-args">(initial_description, deprecated)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deprecated_description-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecated_description</span>(<span class="ruby-identifier">initial_description</span>, <span class="ruby-identifier">deprecated</span>)
+  <span class="ruby-identifier">has_description</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">initial_description</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">description</span> = <span class="ruby-string">&quot;**DEPRECATED!**&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">deprecated</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">description</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{deprecated}&quot;</span>
+    <span class="ruby-identifier">description</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; -&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">has_description</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">description</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{initial_description}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">has_description</span>
+
+  <span class="ruby-identifier">description</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-doc_default_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doc_default_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="doc_default_value-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doc_default_value</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;[*](#parameters-legend-dynamic)&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value_dynamic</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;`&#39;&#39;`&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;`:#{self.default_value}`&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Symbol</span>)
+
+  <span class="ruby-node">&quot;`#{self.default_value}`&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_boolean_type_passes_validation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_boolean_type_passes_validation</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_boolean_type_passes_validation-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_boolean_type_passes_validation</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@skip_type_validation</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># We need to explicity test against Fastlane::Boolean, TrueClass/FalseClass</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">FalseClass</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">TrueClass</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;&#39;#{self.key}&#39; value must be either `true` or `false`! Found #{value.class} instead.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_generic_type_passes_validation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_generic_type_passes_validation</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_generic_type_passes_validation-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_generic_type_passes_validation</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@skip_type_validation</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:string_callback</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-identifier">data_type</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;&#39;#{self.key}&#39; value must be a #{data_type}! Found #{value.class} instead.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-help_default_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help_default_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="help_default_value-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">help_default_value</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;#{self.default_value} *&quot;</span>.<span class="ruby-identifier">strip</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value_dynamic</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&#39;&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;:#{self.default_value}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Symbol</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>it&#39;s preferred to use self.string? In most cases, except in
+commander_generator.rb, cause… reasons</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_string-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_string</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@is_string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces the attr_accessor, but maintains the same interface</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string?</span>
+  <span class="ruby-identifier">data_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">String</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  [<span class="ruby-ivar">@key</span>, <span class="ruby-ivar">@description</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;: &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_code_gen_default_value_if_able-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_code_gen_default_value_if_able!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>if <a
+href="ConfigItem.html#attribute-i-code_gen_default_value">#code_gen_default_value</a>
+is nil, use the default value if it isn&#39;t a `code_gen_sensitive` value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_code_gen_default_value_if_able-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_code_gen_default_value_if_able!</span>
+  <span class="ruby-comment"># we don&#39;t support default values for procs</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@data_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:string_callback</span>
+    <span class="ruby-ivar">@code_gen_default_value</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@code_gen_default_value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@code_gen_sensitive</span>
+
+      <span class="ruby-ivar">@code_gen_default_value</span> = <span class="ruby-ivar">@default_value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid?</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make sure, the value is valid (based on the verify block) Raises an
+exception if the value is invalid</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-comment"># we also allow nil values, which do not have to be verified.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-comment"># Verify that value is the type that we&#39;re expecting, if we are expecting a type</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Boolean</span>
+    <span class="ruby-identifier">ensure_boolean_type_passes_validation</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ensure_generic_type_passes_validation</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@verify_block</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@verify_block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error setting value &#39;#{value}&#39; for option &#39;#{@key}&#39;&quot;</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify!</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/configuration/config_item.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify!</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"f_retail_price:ETI"@Spaceship::Tunes::IAPSubscriptionPricingInfo#f_retail_price;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"<@return (String) formatted customer price, e.g. "$0.00";T:
+@fileI"Cspaceship/lib/spaceship/tunes/iap_subscription_pricing_info.rb;T:0@omit_headings_from_table_of_contents_below0F@I"1Spaceship::Tunes::IAPSubscriptionPricingInfo;TcRDoc::NormalClass0

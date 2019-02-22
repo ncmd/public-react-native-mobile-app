@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Snapshot::SimulatorLauncherBase - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_media">#add_media</a>
+    
+    <li ><a href="#method-i-copy_simulator_logs">#copy_simulator_logs</a>
+    
+    <li ><a href="#method-i-erase_simulator">#erase_simulator</a>
+    
+    <li ><a href="#method-i-localize_simulator">#localize_simulator</a>
+    
+    <li ><a href="#method-i-prepare_directories_for_launch">#prepare_directories_for_launch</a>
+    
+    <li ><a href="#method-i-prepare_for_launch">#prepare_for_launch</a>
+    
+    <li ><a href="#method-i-prepare_simulators_for_launch">#prepare_simulators_for_launch</a>
+    
+    <li ><a href="#method-i-uninstall_app">#uninstall_app</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Snapshot::SimulatorLauncherBase">
+  <h1 id="class-Snapshot::SimulatorLauncherBase" class="class">
+    class Snapshot::SimulatorLauncherBase
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-collected_errors" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">collected_errors</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-current_number_of_retries_due_to_failing_simulator" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">current_number_of_retries_due_to_failing_simulator</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The number of times we failed on launching the simulator… sigh</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-launcher_config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">launcher_config</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(launcher_configuration: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">launcher_configuration</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@launcher_config</span> = <span class="ruby-identifier">launcher_configuration</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_media" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_media</span><span
+            class="method-args">(device_types, media_type, paths)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>pass an array of device types</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_media-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_media</span>(<span class="ruby-identifier">device_types</span>, <span class="ruby-identifier">media_type</span>, <span class="ruby-identifier">paths</span>)
+  <span class="ruby-identifier">media_type</span> = <span class="ruby-identifier">media_type</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">device_types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device_type</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Adding #{media_type}s to #{device_type}...&quot;</span>)
+    <span class="ruby-identifier">device_udid</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">device_udid</span>(<span class="ruby-identifier">device_type</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Launch Simulator #{device_type}&quot;</span>)
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;xcrun instruments -w #{device_udid} &amp;&gt; /dev/null&quot;</span>)
+
+    <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Adding &#39;#{path}&#39;&quot;</span>)
+
+      <span class="ruby-comment"># Attempting addmedia since addphoto and addvideo are deprecated</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;xcrun simctl addmedia #{device_udid} #{path.shellescape} &amp;&gt; /dev/null&quot;</span>)
+
+      <span class="ruby-comment"># Run legacy addphoto and addvideo if addmedia isn&#39;t found</span>
+      <span class="ruby-comment"># Output will be empty strin gif it was a success</span>
+      <span class="ruby-comment"># Output will contain &quot;usage: simctl&quot; if command not found</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;usage: simctl&#39;</span>)
+        <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;xcrun simctl add#{media_type} #{device_udid} #{path.shellescape} &amp;&gt; /dev/null&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_simulator_logs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_simulator_logs</span><span
+            class="method-args">(device_names, language, locale, launch_arguments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_simulator_logs-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_simulator_logs</span>(<span class="ruby-identifier">device_names</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_arguments</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">output_simulator_logs</span>
+
+  <span class="ruby-identifier">detected_language</span> = <span class="ruby-identifier">locale</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">language</span>
+  <span class="ruby-identifier">language_folder</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">output_directory</span>, <span class="ruby-identifier">detected_language</span>)
+
+  <span class="ruby-identifier">device_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">device</span> = <span class="ruby-constant">TestCommandGeneratorBase</span>.<span class="ruby-identifier">find_device</span>(<span class="ruby-identifier">device_name</span>)
+    <span class="ruby-identifier">components</span> = [<span class="ruby-identifier">launch_arguments</span>].<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-node">&quot;Collecting system logs #{device_name} - #{language}&quot;</span>)
+    <span class="ruby-identifier">log_identity</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">components</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;-&quot;</span>))
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">copy_logs</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">log_identity</span>, <span class="ruby-identifier">language_folder</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-erase_simulator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">erase_simulator</span><span
+            class="method-args">(device_type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="erase_simulator-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">erase_simulator</span>(<span class="ruby-identifier">device_type</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Erasing #{device_type}...&quot;</span>)
+  <span class="ruby-identifier">device_udid</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">device_udid</span>(<span class="ruby-identifier">device_type</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Erasing #{device_type}...&quot;</span>)
+
+  <span class="ruby-node">%x`xcrun simctl erase #{device_udid} &amp;&gt; /dev/null`</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-localize_simulator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">localize_simulator</span><span
+            class="method-args">(device_type, language, locale)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="localize_simulator-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">localize_simulator</span>(<span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>)
+  <span class="ruby-identifier">device_udid</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">device_udid</span>(<span class="ruby-identifier">device_type</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_udid</span>
+    <span class="ruby-identifier">locale</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">language</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>)
+    <span class="ruby-identifier">plist</span> = {
+      <span class="ruby-constant">AppleLocale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>,
+      <span class="ruby-constant">AppleLanguages</span><span class="ruby-operator">:</span> [<span class="ruby-identifier">language</span>]
+    }
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Localizing #{device_type} (AppleLocale=#{locale} AppleLanguages=[#{language}])&quot;</span>)
+    <span class="ruby-identifier">plist_path</span> = <span class="ruby-node">&quot;#{ENV[&#39;HOME&#39;]}/Library/Developer/CoreSimulator/Devices/#{device_udid}/data/Library/Preferences/.GlobalPreferences.plist&quot;</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">plist_path</span>, <span class="ruby-constant">Plist</span><span class="ruby-operator">::</span><span class="ruby-constant">Emit</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">plist</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare_directories_for_launch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_directories_for_launch</span><span
+            class="method-args">(language: nil, locale: nil, launch_arguments: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_directories_for_launch-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_directories_for_launch</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">launch_arguments</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">screenshots_path</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">derived_data_path</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">screenshots_path</span>, <span class="ruby-string">&quot;Logs&quot;</span>))
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">screenshots_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">clean</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">screenshots_path</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">CACHE_DIR</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">SCREENSHOTS_DIR</span>)
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">CACHE_DIR</span>, <span class="ruby-string">&quot;language.txt&quot;</span>), <span class="ruby-identifier">language</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">CACHE_DIR</span>, <span class="ruby-string">&quot;locale.txt&quot;</span>), <span class="ruby-identifier">locale</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">CACHE_DIR</span>, <span class="ruby-string">&quot;snapshot-launch_arguments.txt&quot;</span>), <span class="ruby-identifier">launch_arguments</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare_for_launch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_for_launch</span><span
+            class="method-args">(device_types, language, locale, launch_arguments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_for_launch-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_for_launch</span>(<span class="ruby-identifier">device_types</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_arguments</span>)
+  <span class="ruby-identifier">prepare_directories_for_launch</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_arguments</span><span class="ruby-operator">:</span> <span class="ruby-identifier">launch_arguments</span>)
+  <span class="ruby-identifier">prepare_simulators_for_launch</span>(<span class="ruby-identifier">device_types</span>, <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare_simulators_for_launch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_simulators_for_launch</span><span
+            class="method-args">(device_types, language: nil, locale: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_simulators_for_launch-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_simulators_for_launch</span>(<span class="ruby-identifier">device_types</span>, <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># Kill and shutdown all currently running simulators so that the following settings</span>
+  <span class="ruby-comment"># changes will be picked up when they are started again.</span>
+  <span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">kill_simulator</span> <span class="ruby-comment"># because of https://github.com/fastlane/fastlane/issues/2533</span>
+  <span class="ruby-value">%x`xcrun simctl shutdown booted &amp;&gt; /dev/null`</span>
+
+  <span class="ruby-constant">Fixes</span><span class="ruby-operator">::</span><span class="ruby-constant">SimulatorZoomFix</span>.<span class="ruby-identifier">patch</span>
+  <span class="ruby-constant">Fixes</span><span class="ruby-operator">::</span><span class="ruby-constant">HardwareKeyboardFix</span>.<span class="ruby-identifier">patch</span>
+
+  <span class="ruby-identifier">device_types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">erase_simulator</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">localize_simulator</span>
+      <span class="ruby-identifier">erase_simulator</span>(<span class="ruby-identifier">type</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">localize_simulator</span>
+        <span class="ruby-identifier">localize_simulator</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">reinstall_app</span>
+      <span class="ruby-comment"># no need to reinstall if device has been erased</span>
+      <span class="ruby-identifier">uninstall_app</span>(<span class="ruby-identifier">type</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uninstall_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uninstall_app</span><span
+            class="method-args">(device_type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uninstall_app-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher_base.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uninstall_app</span>(<span class="ruby-identifier">device_type</span>)
+  <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">app_identifier</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;App Identifier: &quot;</span>)
+  <span class="ruby-identifier">device_udid</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">device_udid</span>(<span class="ruby-identifier">device_type</span>)
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">uninstall_app</span>(<span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">app_identifier</span>, <span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">device_udid</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

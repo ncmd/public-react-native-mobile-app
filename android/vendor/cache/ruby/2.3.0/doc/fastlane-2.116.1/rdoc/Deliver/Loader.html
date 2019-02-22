@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Deliver::Loader - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-language_folders">::language_folders</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Deliver::Loader">
+  <h1 id="module-Deliver::Loader" class="module">
+    module Deliver::Loader
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="APPLE_TV_DIR_NAME">APPLE_TV_DIR_NAME
+        
+        <dd><p>The directory &#39;appleTV&#39; and `iMessage` are special folders that
+will cause our screenshot gathering code to iterate through it as well
+searching for language folders.</p>
+        
+      
+        <dt id="DEFAULT_DIR_NAME">DEFAULT_DIR_NAME
+        
+        <dd>
+        
+      
+        <dt id="EXCEPTION_DIRECTORIES">EXCEPTION_DIRECTORIES
+        
+        <dd>
+        
+      
+        <dt id="FRAMEIT_FONTS_DIR_NAME">FRAMEIT_FONTS_DIR_NAME
+        
+        <dd>
+        
+      
+        <dt id="IMESSAGE_DIR_NAME">IMESSAGE_DIR_NAME
+        
+        <dd>
+        
+      
+        <dt id="META_DIR_NAMES">META_DIR_NAMES
+        
+        <dd>
+        
+      
+        <dt id="SPECIAL_DIR_NAMES">SPECIAL_DIR_NAMES
+        
+        <dd>
+        
+      
+        <dt id="SUPPLY_DIR_NAME">SUPPLY_DIR_NAME
+        
+        <dd><p>Some exception directories may exist from other actions that should not be
+iterated through</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-language_folders" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">language_folders</span><span
+            class="method-args">(root, ignore_validation)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="language_folders-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/loader.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">language_folders</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">ignore_validation</span>)
+  <span class="ruby-identifier">folders</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-string">&#39;*&#39;</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+    <span class="ruby-identifier">available_languages</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Languages</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_LANGUAGES</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">available_languages</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">available_languages</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">allowed_directory_names_with_case</span> = (<span class="ruby-identifier">available_languages</span> <span class="ruby-operator">+</span> <span class="ruby-constant">SPECIAL_DIR_NAMES</span>)
+  <span class="ruby-identifier">allowed_directory_names</span> = <span class="ruby-identifier">allowed_directory_names_with_case</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:downcase</span>).<span class="ruby-identifier">freeze</span>
+
+  <span class="ruby-identifier">selected_folders</span> = <span class="ruby-identifier">folders</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">allowed_directory_names</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">downcase</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sort</span>
+
+  <span class="ruby-comment"># Gets list of folders that are not supported languages</span>
+  <span class="ruby-identifier">rejected_folders</span> = <span class="ruby-identifier">folders</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">normalized_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">downcase</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">allowed_directory_names</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">normalized_path</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">EXCEPTION_DIRECTORIES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">normalized_path</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sort</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ignore_validation</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">rejected_folders</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">rejected_folders</span> = <span class="ruby-identifier">rejected_folders</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">path</span>) }
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Unsupported directory name(s) for screenshots/metadata in &#39;#{root}&#39;: #{rejected_folders.join(&#39;, &#39;)}&quot;</span>                         <span class="ruby-node">&quot;\nValid directory names are: #{allowed_directory_names_with_case}&quot;</span>                         <span class="ruby-string">&quot;\n\nEnable &#39;ignore_language_directory_validation&#39; to prevent this validation from happening&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">selected_folders</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

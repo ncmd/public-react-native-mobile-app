@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::TestfairyAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-parse_response">::parse_response</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+    <li ><a href="#method-c-upload_build">::upload_build</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::TestfairyAction">
+  <h1 id="class-Fastlane::Actions::TestfairyAction" class="class">
+    class Fastlane::Actions::TestfairyAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span>
+  [<span class="ruby-string">&quot;taka0125&quot;</span>, <span class="ruby-string">&quot;tcurdt&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-comment"># required</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:api_key</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_API_KEY&quot;</span>, <span class="ruby-comment"># The name of the environment variable</span>
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;API Key for TestFairy&quot;</span>, <span class="ruby-comment"># a short description of this parameter</span>
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No API key for TestFairy given, pass using `api_key: &#39;key&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:ipa</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;TESTFAIRY_IPA_PATH&#39;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Path to your IPA file for iOS&#39;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">IPA_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> [<span class="ruby-value">:apk</span>],
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find ipa file at path &#39;#{value}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:apk</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;TESTFAIRY_APK_PATH&#39;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Path to your APK file for Android&#39;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">GRADLE_APK_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> [<span class="ruby-value">:ipa</span>],
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find apk file at path &#39;#{value}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-comment"># optional</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:symbols_file</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_SYMBOLS_FILE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Symbols mapping file&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYM_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find dSYM file at path &#39;#{value}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:upload_url</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_UPLOAD_URL&quot;</span>, <span class="ruby-comment"># The name of the environment variable</span>
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;API URL for TestFairy&quot;</span>, <span class="ruby-comment"># a short description of this parameter</span>
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;https://upload.testfairy.com&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:testers_groups</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Array</span>,
+                                 <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;-g&#39;</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_TESTERS_GROUPS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Array of tester groups to be notified&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> []), <span class="ruby-comment"># the default value is an empty list</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:metrics</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Array</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_METRICS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Array of metrics to record (cpu,memory,network,phone_signal,gps,battery,mic,wifi)&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> []),
+    <span class="ruby-comment"># max-duration</span>
+    <span class="ruby-comment"># video</span>
+    <span class="ruby-comment"># video-quality</span>
+    <span class="ruby-comment"># video-rate</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:comment</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_COMMENT&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Additional release notes for this upload. This text will be added to email notifications&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;No comment provided&#39;</span>), <span class="ruby-comment"># the default value if the user didn&#39;t provide one</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:auto_update</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_AUTO_UPDATE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Allows an easy upgrade of all users to the current version. To enable set to &#39;on&#39;&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;off&#39;</span>),
+    <span class="ruby-comment"># not well documented</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:notify</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_NOTIFY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Send email to testers&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;off&#39;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:options</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Array</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_OPTIONS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Array of options (shake,video_only_wifi,anonymous)&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> []),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:timeout</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_TESTFAIRY_TIMEOUT&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Request timeout in seconds&quot;</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Integer</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:beta</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&#39;Upload a new build to [TestFairy](https://www.testfairy.com/)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  <span class="ruby-string">&quot;You can retrieve your API key on [your settings page](https://free.testfairy.com/settings/)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;testfairy(
+      api_key: &quot;...&quot;,
+      ipa: &quot;./ipa_file.ipa&quot;,
+      comment: &quot;Build #{lane_context[SharedValues::BUILD_NUMBER]}&quot;,
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  [<span class="ruby-value">:ios</span>, <span class="ruby-value">:android</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;TESTFAIRY_BUILD_URL&#39;</span>, <span class="ruby-string">&#39;URL of the newly uploaded build&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&#39;Starting with ipa upload to TestFairy...&#39;</span>)
+
+  <span class="ruby-identifier">metrics_to_client</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">metrics</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">metrics</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">metric</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">metric</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:cpu</span>, <span class="ruby-value">:memory</span>, <span class="ruby-value">:network</span>, <span class="ruby-value">:gps</span>, <span class="ruby-value">:battery</span>, <span class="ruby-value">:mic</span>, <span class="ruby-value">:wifi</span>
+        <span class="ruby-identifier">metric</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:phone_signal</span>
+        <span class="ruby-string">&#39;phone-signal&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Unknown metric: #{metric}&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options_to_client</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:shake</span>, <span class="ruby-value">:anonymous</span>
+        <span class="ruby-identifier">option</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:video_only_wifi</span>
+        <span class="ruby-string">&#39;video-only-wifi&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Unknown option: #{option}&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Rejecting key `upload_url` and `timeout` as we don&#39;t need it in options</span>
+  <span class="ruby-identifier">client_options</span> = <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">params</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    [<span class="ruby-value">:upload_url</span>, <span class="ruby-value">:timeout</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:api_key</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:ipa</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:apk</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:symbols_file</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:testers_groups</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:metrics</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">metrics_to_client</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">value</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:comment</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:auto_update</span>
+      [<span class="ruby-string">&#39;auto-update&#39;</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:notify</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:options</span>
+      [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options_to_client</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">value</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Unknown parameter: #{key}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>]
+
+  <span class="ruby-identifier">path</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:ipa</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:apk</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No ipa or apk were given&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_build</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:upload_url</span>], <span class="ruby-identifier">path</span>, <span class="ruby-identifier">client_options</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:timeout</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Build URL: #{Actions.lane_context[SharedValues::TESTFAIRY_BUILD_URL]}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Build successfully uploaded to TestFairy.&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Error when trying to upload ipa to TestFairy&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-upload_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_build</span><span
+            class="method-args">(upload_url, ipa, options, timeout)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload_build-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_build</span>(<span class="ruby-identifier">upload_url</span>, <span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">timeout</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;faraday&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;faraday_middleware&#39;</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Uploading to #{upload_url}...&quot;</span>)
+
+  <span class="ruby-identifier">connection</span> = <span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">upload_url</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">builder</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">request</span>(<span class="ruby-value">:multipart</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">request</span>(<span class="ruby-value">:url_encoded</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">request</span>(<span class="ruby-value">:retry</span>, <span class="ruby-identifier">max</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>, <span class="ruby-identifier">interval</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">response</span>(<span class="ruby-value">:json</span>, <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-regexp">/\bjson$/</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">use</span>(<span class="ruby-constant">FaradayMiddleware</span><span class="ruby-operator">::</span><span class="ruby-constant">FollowRedirects</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">adapter</span>(<span class="ruby-value">:net_http</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:file</span>] = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ipa</span>, <span class="ruby-string">&#39;application/octet-stream&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ipa</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">ipa</span>)
+
+  <span class="ruby-identifier">symbols_file</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:symbols_file</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">symbols_file</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:symbols_file</span>] = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">symbols_file</span>, <span class="ruby-string">&#39;application/octet-stream&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">post</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">timeout</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;/api/upload/&quot;</span>)
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">options</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeoutError</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;Uploading build to TestFairy timed out ⏳&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-parse_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_response</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Documentation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_response-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/testfairy.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;status&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;status&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;ok&#39;</span>
+    <span class="ruby-identifier">build_url</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;build_url&#39;</span>]
+
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">TESTFAIRY_BUILD_URL</span>] = <span class="ruby-identifier">build_url</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error uploading to TestFairy: #{response.body}&quot;</span>)
+
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

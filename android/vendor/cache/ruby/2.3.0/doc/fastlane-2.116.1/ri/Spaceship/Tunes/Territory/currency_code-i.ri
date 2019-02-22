@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"currency_code:ETI".Spaceship::Tunes::Territory#currency_code;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"]@return (String) The ISO 3166-1 alpha-3 currency code (e.g. "USD" for the United States);T:
+@fileI"/spaceship/lib/spaceship/tunes/territory.rb;T:0@omit_headings_from_table_of_contents_below0F@I" Spaceship::Tunes::Territory;TcRDoc::NormalClass0

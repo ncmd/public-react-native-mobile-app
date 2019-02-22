@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI" add_id_info_limits_tracking:ETI"@Spaceship::Tunes::AppSubmission#add_id_info_limits_tracking;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"N@deprecated Setted automatically by <tt>add_id_info_uses_idfa</tt> usage ;TI"8@return (Boolean) Ad ID Info - Limits ads tracking ;TI"C<b>DEPRECATED:</b> Use <tt>add_id_info_uses_idfa</tt> instead.;T:
+@fileI"4spaceship/lib/spaceship/tunes/app_submission.rb;T:0@omit_headings_from_table_of_contents_below0F@I"$Spaceship::Tunes::AppSubmission;TcRDoc::NormalClass0

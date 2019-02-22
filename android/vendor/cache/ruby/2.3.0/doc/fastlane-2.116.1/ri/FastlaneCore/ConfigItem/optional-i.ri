@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"optional:ETI"&FastlaneCore::ConfigItem#optional;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::List:
+@type:
+LABEL:@items[o:RDoc::Markup::ListItem:@label[I"Boolean;T;	[o:RDoc::Markup::Paragraph;	[I"Zis false by default. If set to true, also string values will not be asked to the user;T:
+@fileI"Afastlane_core/lib/fastlane_core/configuration/config_item.rb;T:0@omit_headings_from_table_of_contents_below0F@I"FastlaneCore::ConfigItem;TcRDoc::NormalClass0

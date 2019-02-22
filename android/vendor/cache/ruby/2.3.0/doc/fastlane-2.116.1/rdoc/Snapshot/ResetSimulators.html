@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Snapshot::ResetSimulators - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-clear_everything-21">::clear_everything!</a>
+    
+    <li ><a href="#method-c-create">::create</a>
+    
+    <li ><a href="#method-c-device_line_usable-3F">::device_line_usable?</a>
+    
+    <li ><a href="#method-c-devices">::devices</a>
+    
+    <li ><a href="#method-c-filter_runtimes">::filter_runtimes</a>
+    
+    <li ><a href="#method-c-make_phone_watch_pair">::make_phone_watch_pair</a>
+    
+    <li ><a href="#method-c-runtimes">::runtimes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Snapshot::ResetSimulators">
+  <h1 id="class-Snapshot::ResetSimulators" class="class">
+    class Snapshot::ResetSimulators
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-clear_everything-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_everything!</span><span
+            class="method-args">(ios_versions, force = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear_everything-21-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear_everything!</span>(<span class="ruby-identifier">ios_versions</span>, <span class="ruby-identifier">force</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-comment"># !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+  <span class="ruby-comment"># !! Warning: This script will remove all your existing simulators !!</span>
+  <span class="ruby-comment"># !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+
+  <span class="ruby-identifier">sure</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;SNAPSHOT_FORCE_DELETE&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">force</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">sure</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Are you sure? All your simulators will be DELETED and new ones will be created! (You can use `SNAPSHOT_FORCE_DELETE` to skip this confirmation)&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sure</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please make sure to pass the `--force` option to reset simulators when running in non-interactive mode&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">interactive?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">abort_with_message!</span>(<span class="ruby-string">&quot;User cancelled action&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sure</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ios_versions</span>
+    <span class="ruby-identifier">ios_versions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">version</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">delete_all_by_version</span>(<span class="ruby-identifier">os_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">version</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">SimulatorTV</span>.<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">SimulatorWatch</span>.<span class="ruby-identifier">delete_all</span>
+
+  <span class="ruby-identifier">all_runtime_type</span> = <span class="ruby-identifier">runtimes</span>
+  <span class="ruby-comment"># == Runtimes ==</span>
+  <span class="ruby-comment"># iOS 9.3 (9.3 - 13E233) (com.apple.CoreSimulator.SimRuntime.iOS-9-3)</span>
+  <span class="ruby-comment"># iOS 10.0 (10.0 - 14A345) (com.apple.CoreSimulator.SimRuntime.iOS-10-0)</span>
+  <span class="ruby-comment"># iOS 10.1 (10.1 - 14B72) (com.apple.CoreSimulator.SimRuntime.iOS-10-1)</span>
+  <span class="ruby-comment"># iOS 10.2 (10.2 - 14C89) (com.apple.CoreSimulator.SimRuntime.iOS-10-2)</span>
+  <span class="ruby-comment"># tvOS 10.1 (10.1 - 14U591) (com.apple.CoreSimulator.SimRuntime.tvOS-10-1)</span>
+  <span class="ruby-comment"># watchOS 3.1 (3.1 - 14S471a) (com.apple.CoreSimulator.SimRuntime.watchOS-3-1)</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># Xcode 9 changed the format</span>
+  <span class="ruby-comment"># == Runtimes ==</span>
+  <span class="ruby-comment"># iOS 11.0 (11.0 - 15A5361a) - com.apple.CoreSimulator.SimRuntime.iOS-11-0</span>
+  <span class="ruby-comment"># tvOS 11.0 (11.0 - 15J5368a) - com.apple.CoreSimulator.SimRuntime.tvOS-11-0</span>
+  <span class="ruby-comment"># watchOS 4.0 (4.0 - 15R5363a) - com.apple.CoreSimulator.SimRuntime.watchOS-4-0</span>
+  <span class="ruby-identifier">ios_versions_ids</span> = <span class="ruby-identifier">filter_runtimes</span>(<span class="ruby-identifier">all_runtime_type</span>, <span class="ruby-string">&#39;iOS&#39;</span>, <span class="ruby-identifier">ios_versions</span>)
+  <span class="ruby-identifier">tv_version_ids</span> = <span class="ruby-identifier">filter_runtimes</span>(<span class="ruby-identifier">all_runtime_type</span>, <span class="ruby-string">&#39;tvOS&#39;</span>)
+  <span class="ruby-identifier">watch_versions_ids</span> = <span class="ruby-identifier">filter_runtimes</span>(<span class="ruby-identifier">all_runtime_type</span>, <span class="ruby-string">&#39;watchOS&#39;</span>)
+
+  <span class="ruby-identifier">all_device_types</span> = <span class="ruby-value">%x`xcrun simctl list devicetypes`</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/(.*)\s\((.*)\)/</span>)
+  <span class="ruby-comment"># == Device Types ==</span>
+  <span class="ruby-comment"># iPhone 4s (com.apple.CoreSimulator.SimDeviceType.iPhone-4s)</span>
+  <span class="ruby-comment"># iPhone 5 (com.apple.CoreSimulator.SimDeviceType.iPhone-5)</span>
+  <span class="ruby-comment"># iPhone 5s (com.apple.CoreSimulator.SimDeviceType.iPhone-5s)</span>
+  <span class="ruby-comment"># iPhone 6 (com.apple.CoreSimulator.SimDeviceType.iPhone-6)</span>
+  <span class="ruby-identifier">all_device_types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device_type</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_type</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Watch&quot;</span>)
+      <span class="ruby-identifier">create</span>(<span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">watch_versions_ids</span>, <span class="ruby-string">&#39;watchOS&#39;</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">device_type</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;TV&quot;</span>)
+      <span class="ruby-identifier">create</span>(<span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">tv_version_ids</span>, <span class="ruby-string">&#39;tvOS&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">create</span>(<span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">ios_versions_ids</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">make_phone_watch_pair</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(device_type, os_versions, os_name = 'iOS')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">device_type</span>, <span class="ruby-identifier">os_versions</span>, <span class="ruby-identifier">os_name</span> = <span class="ruby-string">&#39;iOS&#39;</span>)
+  <span class="ruby-identifier">os_versions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">os_version</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Creating #{device_type[0]} for #{os_name} version #{os_version[0]}&quot;</span>)
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;xcrun simctl create &#39;#{device_type[0]}&#39; #{device_type[1]} #{os_version[1]}&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-node">%x`#{command}`</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-device_line_usable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">device_line_usable?</span><span
+            class="method-args">(line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="device_line_usable-3F-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">device_line_usable?</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">line</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;unavailable&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-devices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">devices</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="devices-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">devices</span>
+  <span class="ruby-identifier">all_devices</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-string">&#39;xcrun simctl list devices&#39;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+  <span class="ruby-comment"># == Devices ==</span>
+  <span class="ruby-comment"># -- iOS 9.0 --</span>
+  <span class="ruby-comment">#   iPhone 4s (32246EBC-33B0-47F9-B7BB-5C23C550DF29) (Shutdown)</span>
+  <span class="ruby-comment">#   iPhone 5 (4B56C101-6B95-43D1-9485-3FBA0E127FFA) (Shutdown)</span>
+  <span class="ruby-comment">#   iPhone 5s (6379C204-E82A-4FBD-8A22-6A01C7791D62) (Shutdown)</span>
+  <span class="ruby-comment"># -- Unavailable: com.apple.CoreSimulator.SimRuntime.iOS-8-4 --</span>
+  <span class="ruby-comment">#   iPhone 4s (FE9D6F85-1C51-4FE6-8597-FCAB5286B869) (Shutdown) (unavailable, runtime profile not found)</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">all_devices</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s+(.+?)\s\(([\w\-]+)\).*/</span>) <span class="ruby-operator">||</span> []).<span class="ruby-identifier">to_a</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">parsed</span><span class="ruby-operator">|</span> <span class="ruby-identifier">parsed</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> } <span class="ruby-comment"># we don&#39;t care about those headers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-filter_runtimes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filter_runtimes</span><span
+            class="method-args">(all_runtimes, os = 'iOS', versions = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="filter_runtimes-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filter_runtimes</span>(<span class="ruby-identifier">all_runtimes</span>, <span class="ruby-identifier">os</span> = <span class="ruby-string">&#39;iOS&#39;</span>, <span class="ruby-identifier">versions</span> = [])
+  <span class="ruby-identifier">all_runtimes</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-node">/^#{os}/</span>] }.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>[<span class="ruby-node">/#{versions.join(&quot;|&quot;)}$/</span>] }.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-make_phone_watch_pair" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_phone_watch_pair</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_phone_watch_pair-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">make_phone_watch_pair</span>
+  <span class="ruby-identifier">phones</span> = []
+  <span class="ruby-identifier">watches</span> = []
+  <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">full_line</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">id</span> = <span class="ruby-identifier">device</span>
+    <span class="ruby-identifier">phones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;iPhone 6&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">device_line_usable?</span>(<span class="ruby-identifier">full_line</span>)
+    <span class="ruby-identifier">watches</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;mm&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">device_line_usable?</span>(<span class="ruby-identifier">full_line</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">phones</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">watches</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Creating device pair of #{phones.last} and #{watches.last}&quot;</span>)
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-node">&quot;xcrun simctl pair #{watches.last} #{phones.last}&quot;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-runtimes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runtimes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="runtimes-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reset_simulators.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">runtimes</span>
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-string">&#39;xcrun simctl list runtimes&#39;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>).<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/(.*)\s\(\d.*(com\.apple[^)\s]*)/</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::XcodeServerGetAssetsAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-return_type">::return_type</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::XcodeServerGetAssetsAction">
+  <h1 id="class-Fastlane::Actions::XcodeServerGetAssetsAction" class="class">
+    class Fastlane::Actions::XcodeServerGetAssetsAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span>
+  [<span class="ruby-string">&quot;czechboy0&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:host</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_HOST&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;IP Address/Hostname of Xcode Server&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:bot_name</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_BOT_NAME&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Name of the Bot to pull assets from&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:integration_number</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_INTEGRATION_NUMBER&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Optionally you can override which integration&#39;s assets should be downloaded. If not provided, the latest integration is used&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:username</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_USERNAME&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Username for your Xcode Server&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:password</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_PASSWORD&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Password for your Xcode Server&quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:target_folder</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_TARGET_FOLDER&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Relative path to a folder into which to download assets&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;./xcs_assets&#39;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:keep_all_assets</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_KEEP_ALL_ASSETS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Whether to keep all assets or let the script delete everything except for the .xcarchive&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:trust_self_signed_certs</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_XCODE_SERVER_GET_ASSETS_TRUST_SELF_SIGNED_CERTS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Whether to trust self-signed certs on your Xcode Server&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:testing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Documentation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Downloads Xcode Bot assets like the `.xcarchive` and logs&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  [
+    <span class="ruby-string">&quot;This action downloads assets from your Xcode Server Bot (works with Xcode Server using Xcode 6 and 7. By default, this action downloads all assets, unzips them and deletes everything except for the `.xcarchive`.&quot;</span>,
+    <span class="ruby-string">&quot;If you&#39;d like to keep all downloaded assets, pass `keep_all_assets: true`.&quot;</span>,
+    <span class="ruby-string">&quot;This action returns the path to the downloaded assets folder and puts into shared values the paths to the asset folder and to the `.xcarchive` inside it.&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;xcode_server_get_assets(
+      host: &quot;10.99.0.59&quot;, # Specify Xcode Server\s Host or IP Address
+      bot_name: &quot;release-1.3.4&quot; # Specify the particular Bot
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  [<span class="ruby-value">:ios</span>, <span class="ruby-value">:mac</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;XCODE_SERVER_GET_ASSETS_PATH&#39;</span>, <span class="ruby-string">&#39;Absolute path to the downloaded assets folder&#39;</span>],
+    [<span class="ruby-string">&#39;XCODE_SERVER_GET_ASSETS_ARCHIVE_PATH&#39;</span>, <span class="ruby-string">&#39;Absolute path to the downloaded xcarchive file&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-return_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">return_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="return_type-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">return_type</span>
+  <span class="ruby-value">:array_of_strings</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/xcode_server_get_assets.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">host</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:host</span>]
+  <span class="ruby-identifier">bot_name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:bot_name</span>]
+  <span class="ruby-identifier">integration_number_override</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:integration_number</span>]
+  <span class="ruby-identifier">target_folder</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:target_folder</span>]
+  <span class="ruby-identifier">keep_all_assets</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:keep_all_assets</span>]
+  <span class="ruby-identifier">username</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>]
+  <span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>]
+  <span class="ruby-identifier">trust_self_signed_certs</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:trust_self_signed_certs</span>]
+
+  <span class="ruby-comment"># setup (not)trusting self signed certificates.</span>
+  <span class="ruby-comment"># it&#39;s normal to have a self signed certificate on your Xcode Server</span>
+  <span class="ruby-constant">Excon</span>.<span class="ruby-identifier">defaults</span>[<span class="ruby-value">:ssl_verify_peer</span>] = <span class="ruby-operator">!</span><span class="ruby-identifier">trust_self_signed_certs</span> <span class="ruby-comment"># for self-signed certificates</span>
+
+  <span class="ruby-comment"># create Xcode Server config</span>
+  <span class="ruby-identifier">xcs</span> = <span class="ruby-constant">XcodeServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-identifier">bots</span> = <span class="ruby-identifier">xcs</span>.<span class="ruby-identifier">fetch_all_bots</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Fetched #{bots.count} Bots from Xcode Server at #{host}.&quot;</span>)
+
+  <span class="ruby-comment"># pull out names</span>
+  <span class="ruby-identifier">bot_names</span> = <span class="ruby-identifier">bots</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">bot</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bot</span>[<span class="ruby-string">&#39;name&#39;</span>] }
+
+  <span class="ruby-comment"># match the bot name with a found bot, otherwise fail</span>
+  <span class="ruby-identifier">found_bots</span> = <span class="ruby-identifier">bots</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">bot</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bot</span>[<span class="ruby-string">&#39;name&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">bot_name</span> }
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Failed to find a Bot with name #{bot_name} on server #{host}, only available Bots: #{bot_names}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">found_bots</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">bot</span> = <span class="ruby-identifier">found_bots</span>[<span class="ruby-value">0</span>]
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Found Bot with name #{bot_name} with id #{bot[&#39;_id&#39;]}.&quot;</span>)
+
+  <span class="ruby-comment"># we have our bot, get finished integrations, sorted from newest to oldest</span>
+  <span class="ruby-identifier">integrations</span> = <span class="ruby-identifier">xcs</span>.<span class="ruby-identifier">fetch_integrations</span>(<span class="ruby-identifier">bot</span>[<span class="ruby-string">&#39;_id&#39;</span>]).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>[<span class="ruby-string">&#39;currentStep&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;completed&#39;</span> }
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Failed to find any completed integration for Bot \&quot;#{bot_name}\&quot;&quot;</span>) <span class="ruby-keyword">if</span> (<span class="ruby-identifier">integrations</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-comment"># if no integration number is specified, pick the newest one (this is sorted from newest to oldest)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">integration_number_override</span>
+    <span class="ruby-identifier">integration</span> = <span class="ruby-identifier">integrations</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>[<span class="ruby-string">&#39;number&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">integration_number_override</span> }
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Specified integration number #{integration_number_override} does not exist.&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">integration</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">integration</span> = <span class="ruby-identifier">integrations</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># consider: only taking the last successful one? or allow failing tests? warnings?</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Using integration #{integration[&#39;number&#39;]}.&quot;</span>)
+
+  <span class="ruby-comment"># fetch assets for this integration</span>
+  <span class="ruby-identifier">assets_path</span> = <span class="ruby-identifier">xcs</span>.<span class="ruby-identifier">fetch_assets</span>(<span class="ruby-identifier">integration</span>[<span class="ruby-string">&#39;_id&#39;</span>], <span class="ruby-identifier">target_folder</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Failed to fetch assets for integration #{integration[&#39;number&#39;]}.&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">assets_path</span>
+
+  <span class="ruby-identifier">asset_entries</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">assets_path</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">assets_path</span>, <span class="ruby-identifier">i</span>) }
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully downloaded #{asset_entries.count} assets to file #{assets_path}!&quot;</span>)
+
+  <span class="ruby-comment"># now find the archive and unzip it</span>
+  <span class="ruby-identifier">zipped_archive_path</span> = <span class="ruby-identifier">asset_entries</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;xcarchive.zip&#39;</span>) }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">zipped_archive_path</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Found an archive in the assets folder...&quot;</span>)
+
+    <span class="ruby-identifier">archive_file_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">zipped_archive_path</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">zipped_archive_path</span>))
+    <span class="ruby-identifier">archive_dir_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">zipped_archive_path</span>)
+    <span class="ruby-identifier">archive_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">archive_dir_path</span>, <span class="ruby-identifier">archive_file_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">archive_path</span>)
+      <span class="ruby-comment"># we already have the archive, skip</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Archive #{archive_path} already exists, not unzipping again...&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># unzip the archive</span>
+      <span class="ruby-identifier">sh</span>(<span class="ruby-node">&quot;unzip -q \&quot;#{zipped_archive_path}\&quot; -d \&quot;#{archive_dir_path}\&quot;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># reload asset entries to also contain the xcarchive file</span>
+    <span class="ruby-identifier">asset_entries</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">assets_path</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">assets_path</span>, <span class="ruby-identifier">i</span>) }
+
+    <span class="ruby-comment"># optionally delete everything except for the archive</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keep_all_assets</span>
+      <span class="ruby-identifier">files_to_delete</span> = <span class="ruby-identifier">asset_entries</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">i</span>) <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;.xcarchive&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>[<span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-string">&quot;..&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">i</span>))
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">files_to_delete</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">i</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">XCODE_SERVER_GET_ASSETS_ARCHIVE_PATH</span>] = <span class="ruby-identifier">archive_path</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">XCODE_SERVER_GET_ASSETS_PATH</span>] = <span class="ruby-identifier">assets_path</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">assets_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

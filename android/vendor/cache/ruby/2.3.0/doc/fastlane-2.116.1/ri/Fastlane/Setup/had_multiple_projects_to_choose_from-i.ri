@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI")had_multiple_projects_to_choose_from:ETI"9Fastlane::Setup#had_multiple_projects_to_choose_from;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I".remember if there were multiple projects ;TI"-if so, we set it as part of the Fastfile;T:
+@fileI")fastlane/lib/fastlane/setup/setup.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Fastlane::Setup;TcRDoc::NormalClass0

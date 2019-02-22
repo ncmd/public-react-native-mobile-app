@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::ItunesTransporter - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-hide_transporter_output">::hide_transporter_output</a>
+    
+    <li ><a href="#method-c-hide_transporter_output-3F">::hide_transporter_output?</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-download">#download</a>
+    
+    <li ><a href="#method-i-handle_error">#handle_error</a>
+    
+    <li ><a href="#method-i-handle_two_step_failure">#handle_two_step_failure</a>
+    
+    <li ><a href="#method-i-load_password_for_transporter">#load_password_for_transporter</a>
+    
+    <li ><a href="#method-i-upload">#upload</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::ItunesTransporter">
+  <h1 id="class-FastlaneCore::ItunesTransporter" class="class">
+    class FastlaneCore::ItunesTransporter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="TWO_FACTOR_ENV_VARIABLE">TWO_FACTOR_ENV_VARIABLE
+        
+        <dd>
+        
+      
+        <dt id="TWO_STEP_HOST_PREFIX">TWO_STEP_HOST_PREFIX
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-hide_transporter_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hide_transporter_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This will be called from the Deliverfile, and disables the logging of the
+transporter output</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hide_transporter_output-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hide_transporter_output</span>
+  <span class="ruby-ivar">@hide_transporter_output</span> = <span class="ruby-operator">!</span><span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hide_transporter_output-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hide_transporter_output?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hide_transporter_output-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hide_transporter_output?</span>
+  <span class="ruby-ivar">@hide_transporter_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(user = nil, password = nil, use_shell_script = false, provider_short_name = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new instance of the iTunesTransporter. If no username or password
+given, it will be taken from the #{CredentialsManager::AccountManager}
+@param use_shell_script if true, forces use of the iTMSTransporter shell
+script.</p>
+
+<pre>if false, allows a direct call to the iTMSTransporter Java app (preferred).
+see: https://github.com/fastlane/fastlane/pull/4003</pre>
+
+<p>@param provider_short_name The provider short name to be given to the
+iTMSTransporter to identify the</p>
+
+<pre>correct team for this work. The provider short name is usually your Developer
+Portal team ID, but in certain cases it is different!
+see: https://github.com/fastlane/fastlane/issues/1524#issuecomment-196370628
+for more information about how to use the iTMSTransporter to list your provider
+short names</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">user</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">use_shell_script</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">provider_short_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># Xcode 6.x doesn&#39;t have the same iTMSTransporter Java setup as later Xcode versions, so</span>
+  <span class="ruby-comment"># we can&#39;t default to using the newer direct Java invocation strategy for those versions.</span>
+  <span class="ruby-identifier">use_shell_script</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">is_mac?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_version</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;6.&#39;</span>)
+  <span class="ruby-identifier">use_shell_script</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">windows?</span>
+  <span class="ruby-identifier">use_shell_script</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Feature</span>.<span class="ruby-identifier">enabled?</span>(<span class="ruby-string">&#39;FASTLANE_ITUNES_TRANSPORTER_USE_SHELL_SCRIPT&#39;</span>)
+
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">password</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">load_password_for_transporter</span>
+
+  <span class="ruby-ivar">@transporter_executor</span> = <span class="ruby-identifier">use_shell_script</span> <span class="ruby-operator">?</span> <span class="ruby-constant">ShellScriptTransporterExecutor</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">:</span> <span class="ruby-constant">JavaTransporterExecutor</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@provider_short_name</span> = <span class="ruby-identifier">provider_short_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download</span><span
+            class="method-args">(app_id, dir = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Downloads the latest version of the app metadata package from iTC. @param
+app_id [Integer] The unique App ID @param dir [String] the path in which
+the package file should be stored @return (Bool) True if everything worked
+fine @raise [Deliver::TransporterTransferError] when something went wrong</p>
+
+<pre>when transferring</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="download-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">dir</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">dir</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;/tmp&quot;</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Going to download app metadata from App Store Connect&quot;</span>)
+  <span class="ruby-identifier">command</span> = <span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">build_download_command</span>(<span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>, <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">dir</span>, <span class="ruby-ivar">@provider_short_name</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">build_download_command</span>(<span class="ruby-ivar">@user</span>, <span class="ruby-string">&#39;YourPassword&#39;</span>, <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">dir</span>, <span class="ruby-ivar">@provider_short_name</span>))
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span>, <span class="ruby-constant">ItunesTransporter</span>.<span class="ruby-identifier">hide_transporter_output?</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">TransporterRequiresApplicationSpecificPasswordError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">handle_two_step_failure</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">download</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-identifier">itmsp_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-node">&quot;#{app_id}.itmsp&quot;</span>)
+  <span class="ruby-identifier">successful</span> = <span class="ruby-identifier">result</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">itmsp_path</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">successful</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;✅ Successfully downloaded the latest package from App Store Connect to #{itmsp_path}&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">handle_error</span>(<span class="ruby-ivar">@password</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">successful</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload</span><span
+            class="method-args">(app_id, dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads the modified package back to App Store Connect @param app_id
+[Integer] The unique App ID @param dir [String] the path in which the
+package file is located @return (Bool) True if everything worked fine
+@raise [Deliver::TransporterTransferError] when something went wrong</p>
+
+<pre>when transferring</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="upload-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 377</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">dir</span>)
+  <span class="ruby-identifier">actual_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-node">&quot;#{app_id}.itmsp&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Going to upload updated app to App Store Connect&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;This might take a few minutes. Please don&#39;t interrupt the script.&quot;</span>)
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">build_upload_command</span>(<span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>, <span class="ruby-identifier">actual_dir</span>, <span class="ruby-ivar">@provider_short_name</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">build_upload_command</span>(<span class="ruby-ivar">@user</span>, <span class="ruby-string">&#39;YourPassword&#39;</span>, <span class="ruby-identifier">actual_dir</span>, <span class="ruby-ivar">@provider_short_name</span>))
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span>, <span class="ruby-constant">ItunesTransporter</span>.<span class="ruby-identifier">hide_transporter_output?</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">TransporterRequiresApplicationSpecificPasswordError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">handle_two_step_failure</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Successfully uploaded package to App Store Connect. It might take a few minutes until it&#39;s visible online.&quot;</span>)
+
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">actual_dir</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span> <span class="ruby-comment"># we don&#39;t need the package any more, since the upload was successful</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">handle_error</span>(<span class="ruby-ivar">@password</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-handle_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_error</span><span
+            class="method-args">(password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 462</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_error</span>(<span class="ruby-identifier">password</span>)
+  <span class="ruby-ivar">@transporter_executor</span>.<span class="ruby-identifier">handle_error</span>(<span class="ruby-identifier">password</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_two_step_failure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_two_step_failure</span><span
+            class="method-args">(ex)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Tells the user how to get an application specific password</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_two_step_failure-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 428</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_two_step_failure</span>(<span class="ruby-identifier">ex</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-constant">TWO_FACTOR_ENV_VARIABLE</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Password provided, however we already used it</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Application specific password you provided using&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;environment variable #{TWO_FACTOR_ENV_VARIABLE}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;is invalid, please make sure it&#39;s correct&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Invalid application specific password provided&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AccountManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>,
+                                           <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-constant">TWO_STEP_HOST_PREFIX</span>,
+                                             <span class="ruby-identifier">note</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;application-specific&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">password</span>(<span class="ruby-identifier">ask_if_missing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># user already entered one.. delete the old one</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Application specific password seems wrong&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please make sure to follow the instructions&quot;</span>)
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">remove_from_keychain</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Your account has 2 step verification enabled&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please go to https://appleid.apple.com/account/manage&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;and generate an application specific password for&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;the iTunes Transporter, which is used to upload builds&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;To set the application specific password on a CI machine using&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;an environment variable, you can set the&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;#{TWO_FACTOR_ENV_VARIABLE} variable&quot;</span>)
+  <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">password</span>(<span class="ruby-identifier">ask_if_missing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-comment"># to ask the user for the missing value</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_password_for_transporter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_password_for_transporter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the password to be used with the transporter</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_password_for_transporter-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/itunes_transporter.rb, line 409</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_password_for_transporter</span>
+  <span class="ruby-comment"># 3 different sources for the password</span>
+  <span class="ruby-comment">#   1) ENV variable for application specific password</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-constant">TWO_FACTOR_ENV_VARIABLE</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Fetching password for transporter from environment variable named `#{TWO_FACTOR_ENV_VARIABLE}`&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-constant">TWO_FACTOR_ENV_VARIABLE</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#   2) TWO_STEP_HOST_PREFIX from keychain</span>
+  <span class="ruby-identifier">account_manager</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AccountManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>,
+                                                         <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-constant">TWO_STEP_HOST_PREFIX</span>,
+                                                           <span class="ruby-identifier">note</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;application-specific&quot;</span>)
+  <span class="ruby-identifier">password</span> = <span class="ruby-identifier">account_manager</span>.<span class="ruby-identifier">password</span>(<span class="ruby-identifier">ask_if_missing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">password</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-comment">#   3) standard iTC password</span>
+  <span class="ruby-identifier">account_manager</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AccountManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">account_manager</span>.<span class="ruby-identifier">password</span>(<span class="ruby-identifier">ask_if_missing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::MailgunAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-author">::author</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-handle_params_transition">::handle_params_transition</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-mail_template">::mail_template</a>
+    
+    <li ><a href="#method-c-mailgunit">::mailgunit</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::MailgunAction">
+  <h1 id="class-Fastlane::Actions::MailgunAction" class="class">
+    class Fastlane::Actions::MailgunAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">author</span>
+  <span class="ruby-string">&quot;thiagolioy&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-comment"># This is here just for while due to the transition, not needed anymore</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:mailgun_sandbox_domain</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_SANDBOX_POSTMASTER&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun sandbox domain postmaster for your mail. Please use postmaster instead&quot;</span>),
+    <span class="ruby-comment"># This is here just for while due to the transition, should use postmaster instead</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:mailgun_sandbox_postmaster</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_SANDBOX_POSTMASTER&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun sandbox domain postmaster for your mail. Please use postmaster instead&quot;</span>),
+    <span class="ruby-comment"># This is here just for while due to the transition, should use apikey instead</span>
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:mailgun_apikey</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_APIKEY&quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun apikey for your mail. Please use postmaster instead&quot;</span>),
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:postmaster</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_SANDBOX_POSTMASTER&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun sandbox domain postmaster for your mail&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:apikey</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_APIKEY&quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun apikey for your mail&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:to</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_TO&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Destination of your mail&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:from</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_FROM&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun sender name&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mailgun Sandbox&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:message</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_MESSAGE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Message of your mail&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:subject</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_SUBJECT&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Subject of your mail&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;fastlane build&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:success</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_SUCCESS&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Was this build successful? (true/false)&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:app_link</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_APP_LINK&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;App Release link&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:ci_build_link</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_CI_BUILD_LINK&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;CI Build Link&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:template_path</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_TEMPLATE_PATH&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mail HTML template&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:reply_to</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_REPLY_TO&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mail Reply to&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:attachment</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_ATTACHMENT&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mail Attachment filenames, either an array or just one string&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:custom_placeholders</span>,
+                                 <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-p&quot;</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MAILGUN_CUSTOM_PLACEHOLDERS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Placeholders for template given as a hash&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> {},
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Hash</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:notifications</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Send a success/error message to an email group&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;mailgun(
+      to: &quot;fastlane@krausefx.com&quot;,
+      success: true,
+      message: &quot;This is the mail\s content&quot;
+    )&#39;</span>,
+    <span class="ruby-string">&#39;mailgun(
+      postmaster: &quot;MY_POSTMASTER&quot;,
+      apikey: &quot;MY_API_KEY&quot;,
+      to: &quot;DESTINATION_EMAIL&quot;,
+      from: &quot;EMAIL_FROM_NAME&quot;,
+      reply_to: &quot;EMAIL_REPLY_TO&quot;,
+      success: true,
+      message: &quot;Mail Body&quot;,
+      app_link: &quot;http://www.myapplink.com&quot;,
+      ci_build_link: &quot;http://www.mycibuildlink.com&quot;,
+      template_path: &quot;HTML_TEMPLATE_PATH&quot;,
+      custom_placeholders: {
+        :var1 =&gt; 123,
+        :var2 =&gt; &quot;string&quot;
+      },
+      attachment: &quot;dirname/filename.ext&quot;
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-handle_params_transition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_params_transition</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_params_transition-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">handle_params_transition</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:postmaster</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:mailgun_sandbox_postmaster</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:mailgun_sandbox_postmaster</span>]
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;\nUsing :mailgun_sandbox_postmaster is deprecated, please change to :postmaster&quot;</span>.<span class="ruby-identifier">yellow</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:mailgun_sandbox_postmaster</span>]
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:apikey</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:mailgun_apikey</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:mailgun_apikey</span>]
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;\nUsing :mailgun_apikey is deprecated, please change to :apikey&quot;</span>.<span class="ruby-identifier">yellow</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:mailgun_apikey</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mail_template" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mail_template</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mail_template-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mail_template</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">hash</span> = {
+    <span class="ruby-identifier">author</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">git_author_email</span>,
+    <span class="ruby-identifier">last_commit</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">last_git_commit_message</span>,
+    <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:message</span>],
+    <span class="ruby-identifier">app_link</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_link</span>]
+  }
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:success</span>]
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:ci_build_link</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ci_build_link</span>]
+
+  <span class="ruby-comment"># concatenate with custom placeholders passed by user</span>
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:custom_placeholders</span>])
+
+  <span class="ruby-comment"># grabs module</span>
+  <span class="ruby-identifier">eth</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ErbTemplateHelper</span>
+
+  <span class="ruby-comment"># create html from template</span>
+  <span class="ruby-identifier">html_template_path</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:template_path</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">html_template_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">html_template_path</span>)
+    <span class="ruby-identifier">html_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load_from_path</span>(<span class="ruby-identifier">html_template_path</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">html_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;mailgun_html_template&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">html_template</span>, <span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mailgunit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mailgunit</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mailgunit-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mailgunit</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">sandbox_domain</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:postmaster</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;@&quot;</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">params</span> = {
+    <span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{options[:from]} &lt;#{options[:postmaster]}&gt;&quot;</span>,
+    <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">options</span>[<span class="ruby-value">:to</span>]).<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:subject</span>],
+    <span class="ruby-identifier">html</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mail_template</span>(<span class="ruby-identifier">options</span>)
+  }
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:reply_to</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">params</span>.<span class="ruby-identifier">store</span>(<span class="ruby-value">:&quot;h:Reply-To&quot;</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:reply_to</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:attachment</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">attachment_filenames</span> = [<span class="ruby-operator">*</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:attachment</span>]]
+    <span class="ruby-identifier">attachments</span> = <span class="ruby-identifier">attachment_filenames</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;rb&#39;</span>) }
+    <span class="ruby-identifier">params</span>.<span class="ruby-identifier">store</span>(<span class="ruby-value">:attachment</span>, <span class="ruby-identifier">attachments</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-node">&quot;https://api:#{options[:apikey]}@api.mailgun.net/v3/#{sandbox_domain}/messages&quot;</span>, <span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">mail_template</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/mailgun.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">verify_gem!</span>(<span class="ruby-string">&#39;rest-client&#39;</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rest-client&#39;</span>
+  <span class="ruby-identifier">handle_params_transition</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">mailgunit</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

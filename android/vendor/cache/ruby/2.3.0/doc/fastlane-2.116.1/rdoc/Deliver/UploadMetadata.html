@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Deliver::UploadMetadata - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-assign_defaults">#assign_defaults</a>
+    
+    <li ><a href="#method-i-detect_languages">#detect_languages</a>
+    
+    <li ><a href="#method-i-load_from_filesystem">#load_from_filesystem</a>
+    
+    <li ><a href="#method-i-normalize_language_keys">#normalize_language_keys</a>
+    
+    <li ><a href="#method-i-set_app_rating">#set_app_rating</a>
+    
+    <li ><a href="#method-i-set_review_information">#set_review_information</a>
+    
+    <li ><a href="#method-i-set_trade_representative_contact_information">#set_trade_representative_contact_information</a>
+    
+    <li ><a href="#method-i-upload">#upload</a>
+    
+    <li ><a href="#method-i-upload_individual_item">#upload_individual_item</a>
+    
+    <li ><a href="#method-i-verify_available_languages-21">#verify_available_languages!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Deliver::UploadMetadata">
+  <h1 id="class-Deliver::UploadMetadata" class="class">
+    class Deliver::UploadMetadata
+  </h1>
+
+  <section class="description">
+    
+<p>upload description, rating, etc.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ALL_META_SUB_DIRS">ALL_META_SUB_DIRS
+        
+        <dd>
+        
+      
+        <dt id="LOCALISED_APP_VALUES">LOCALISED_APP_VALUES
+        
+        <dd><p>Localised app details values</p>
+        
+      
+        <dt id="LOCALISED_LIVE_VALUES">LOCALISED_LIVE_VALUES
+        
+        <dd><p>Localized app details values, that are editable in live state</p>
+        
+      
+        <dt id="LOCALISED_VERSION_VALUES">LOCALISED_VERSION_VALUES
+        
+        <dd><p>All the localised values attached to the version</p>
+        
+      
+        <dt id="NON_LOCALISED_APP_VALUES">NON_LOCALISED_APP_VALUES
+        
+        <dd><p>Non localized app details values</p>
+        
+      
+        <dt id="NON_LOCALISED_LIVE_VALUES">NON_LOCALISED_LIVE_VALUES
+        
+        <dd><p>Non localized app details values, that are editable in live state</p>
+        
+      
+        <dt id="NON_LOCALISED_VERSION_VALUES">NON_LOCALISED_VERSION_VALUES
+        
+        <dd><p>Everything attached to the version but not being localised</p>
+        
+      
+        <dt id="REVIEW_INFORMATION_DIR">REVIEW_INFORMATION_DIR
+        
+        <dd><p>Directory name it contains review information</p>
+        
+      
+        <dt id="REVIEW_INFORMATION_VALUES">REVIEW_INFORMATION_VALUES
+        
+        <dd><p>Review information values</p>
+        
+      
+        <dt id="TRADE_REPRESENTATIVE_CONTACT_INFORMATION_DIR">TRADE_REPRESENTATIVE_CONTACT_INFORMATION_DIR
+        
+        <dd><p>Directory name it contains trade representative contact information</p>
+        
+      
+        <dt id="TRADE_REPRESENTATIVE_CONTACT_INFORMATION_VALUES">TRADE_REPRESENTATIVE_CONTACT_INFORMATION_VALUES
+        
+        <dd><p>Trade Representative Contact Information values</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assign_defaults" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assign_defaults</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the user is using the &#39;default&#39; language, then assign values
+where they are needed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assign_defaults-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assign_defaults</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-comment"># Normalizes languages keys from symbols to strings</span>
+  <span class="ruby-identifier">normalize_language_keys</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-comment"># Build a complete list of the required languages</span>
+  <span class="ruby-identifier">enabled_languages</span> = <span class="ruby-identifier">detect_languages</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-comment"># Get all languages used in existing settings</span>
+  (<span class="ruby-constant">LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">enabled_languages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">language</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">language</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Check folder list (an empty folder signifies a language is required)</span>
+  <span class="ruby-identifier">ignore_validation</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ignore_language_directory_validation</span>]
+  <span class="ruby-constant">Loader</span>.<span class="ruby-identifier">language_folders</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-identifier">ignore_validation</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lang_folder</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">lang_folder</span>) <span class="ruby-comment"># We don&#39;t want to read txt as they are non localised</span>
+    <span class="ruby-identifier">language</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">lang_folder</span>)
+    <span class="ruby-identifier">enabled_languages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">language</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">language</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;default&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Detected languages: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">to_s</span>)
+
+  (<span class="ruby-constant">LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+    <span class="ruby-identifier">default</span> = <span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;default&quot;</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">current</span>[<span class="ruby-identifier">language</span>]
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+
+      <span class="ruby-identifier">current</span>[<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">default</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;default&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detect_languages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detect_languages</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="detect_languages-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detect_languages</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-comment"># Build a complete list of the required languages</span>
+  <span class="ruby-identifier">enabled_languages</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:languages</span>] <span class="ruby-operator">||</span> []
+
+  <span class="ruby-comment"># Get all languages used in existing settings</span>
+  (<span class="ruby-constant">LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">enabled_languages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">language</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">language</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Check folder list (an empty folder signifies a language is required)</span>
+  <span class="ruby-identifier">ignore_validation</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ignore_language_directory_validation</span>]
+  <span class="ruby-constant">Loader</span>.<span class="ruby-identifier">language_folders</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-identifier">ignore_validation</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lang_folder</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">lang_folder</span>) <span class="ruby-comment"># We don&#39;t want to read txt as they are non localised</span>
+
+    <span class="ruby-identifier">language</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">lang_folder</span>)
+    <span class="ruby-identifier">enabled_languages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">language</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">language</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Mapping to strings because :default symbol can be passed in</span>
+  <span class="ruby-identifier">enabled_languages</span>
+    .<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+    .<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_from_filesystem" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_from_filesystem</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads the metadata files and stores them into the options object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_from_filesystem-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 283</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_from_filesystem</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_metadata</span>]
+
+  <span class="ruby-comment"># Load localised data</span>
+  <span class="ruby-identifier">ignore_validation</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ignore_language_directory_validation</span>]
+  <span class="ruby-constant">Loader</span>.<span class="ruby-identifier">language_folders</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-identifier">ignore_validation</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lang_folder</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">language</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">lang_folder</span>)
+    (<span class="ruby-constant">LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">lang_folder</span>, <span class="ruby-node">&quot;#{key}.txt&quot;</span>)
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Loading &#39;#{path}&#39;...&quot;</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||=</span> {}
+      <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>][<span class="ruby-identifier">language</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Load non localised data</span>
+  (<span class="ruby-constant">NON_LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">NON_LOCALISED_APP_VALUES</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-node">&quot;#{key}.txt&quot;</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Loading &#39;#{path}&#39;...&quot;</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Load trade representative contact information</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:trade_representative_contact_information</span>] <span class="ruby-operator">||=</span> {}
+  <span class="ruby-constant">TRADE_REPRESENTATIVE_CONTACT_INFORMATION_VALUES</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-constant">TRADE_REPRESENTATIVE_CONTACT_INFORMATION_DIR</span>, <span class="ruby-node">&quot;#{option_name}.txt&quot;</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:trade_representative_contact_information</span>][<span class="ruby-identifier">option_name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Loading &#39;#{path}&#39;...&quot;</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:trade_representative_contact_information</span>][<span class="ruby-identifier">option_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Load review information</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_review_information</span>] <span class="ruby-operator">||=</span> {}
+  <span class="ruby-constant">REVIEW_INFORMATION_VALUES</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-constant">REVIEW_INFORMATION_DIR</span>, <span class="ruby-node">&quot;#{option_name}.txt&quot;</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_review_information</span>][<span class="ruby-identifier">option_name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Loading &#39;#{path}&#39;...&quot;</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_review_information</span>][<span class="ruby-identifier">option_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make sure to call `load_from_filesystem` before calling upload</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_metadata</span>]
+  <span class="ruby-comment"># it is not possible to create new languages, because</span>
+  <span class="ruby-comment"># :keywords is not write-able on published versions</span>
+  <span class="ruby-comment"># therefore skip it.</span>
+  <span class="ruby-identifier">verify_available_languages!</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:edit_live</span>]
+
+  <span class="ruby-identifier">app</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>]
+
+  <span class="ruby-identifier">details</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">details</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:edit_live</span>]
+    <span class="ruby-comment"># not all values are editable when using live_version</span>
+    <span class="ruby-identifier">v</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">live_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>])
+    <span class="ruby-identifier">localised_options</span> = <span class="ruby-constant">LOCALISED_LIVE_VALUES</span>
+    <span class="ruby-identifier">non_localised_options</span> = <span class="ruby-constant">NON_LOCALISED_LIVE_VALUES</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Couldn&#39;t find live version, editing the current version on App Store Connect instead&quot;</span>)
+      <span class="ruby-identifier">v</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>])
+      <span class="ruby-comment"># we don&#39;t want to update the localised_options and non_localised_options</span>
+      <span class="ruby-comment"># as we also check for `options[:edit_live]` at other areas in the code</span>
+      <span class="ruby-comment"># by not touching those 2 variables, deliver is more consistent with what the option says</span>
+      <span class="ruby-comment"># in the documentation</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">v</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>])
+    <span class="ruby-identifier">localised_options</span> = (<span class="ruby-constant">LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>)
+    <span class="ruby-identifier">non_localised_options</span> = (<span class="ruby-constant">NON_LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">NON_LOCALISED_APP_VALUES</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">individual</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:individual_metadata_items</span>] <span class="ruby-operator">||</span> []
+  <span class="ruby-identifier">localised_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error with provided &#39;#{key}&#39;. Must be a hash, the key being the language.&quot;</span>)
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">strip_value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">individual</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-identifier">upload_individual_item</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">v</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">strip_value</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>)[<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">strip_value</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">LOCALISED_VERSION_VALUES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-identifier">details</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>)[<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">strip_value</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">non_localised_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">current</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">NON_LOCALISED_VERSION_VALUES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">details</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">current</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">NON_LOCALISED_APP_VALUES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">release_on_approval</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:automatic_release</span>]
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">auto_release_date</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:auto_release_date</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:auto_release_date</span>].<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">toggle_phased_release</span>(<span class="ruby-identifier">enabled</span><span class="ruby-operator">:</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:phased_release</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:phased_release</span>].<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">set_trade_representative_contact_information</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">set_review_information</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">set_app_rating</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">show_loading_indicator</span>(<span class="ruby-string">&quot;Uploading metadata to App Store Connect&quot;</span>)
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">hide_loading_indicator</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">details</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully uploaded set of metadata to App Store Connect&quot;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TunesClient</span><span class="ruby-operator">::</span><span class="ruby-constant">ITunesConnectError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-comment"># This makes sure that we log invalid app names as user errors</span>
+    <span class="ruby-comment"># If another string needs to be checked here we should</span>
+    <span class="ruby-comment"># figure out a more generic way to handle these cases.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;App Name cannot be longer than 50 characters&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;The app name you entered is already being used&#39;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Error in app name.  Try using &#39;individual_metadata_items&#39; to identify the problem language.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_individual_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_individual_item</span><span
+            class="method-args">(app, version, language, key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads metadata individually by language to help identify exactly which
+items have issues</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_individual_item-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_individual_item</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">details</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">details</span>
+  <span class="ruby-identifier">version</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>)[<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">LOCALISED_VERSION_VALUES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">details</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>)[<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">show_loading_indicator</span>(<span class="ruby-node">&quot;Uploading #{language} #{key} to App Store Connect&quot;</span>)
+  <span class="ruby-identifier">version</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">hide_loading_indicator</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">details</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully uploaded #{language} #{key} to App Store Connect&quot;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TunesClient</span><span class="ruby-operator">::</span><span class="ruby-constant">ITunesConnectError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error in #{language} #{key}: \n#{value}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>) <span class="ruby-comment"># Don&#39;t use user_error to allow all values to get checked</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_available_languages-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_available_languages!</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Makes sure all languages we need are actually created</p>
+          
+          
+
+          
+          <div class="method-source-code" id="verify_available_languages-21-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_available_languages!</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_metadata</span>]
+
+  <span class="ruby-comment"># Collect all languages we need</span>
+  <span class="ruby-comment"># We only care about languages from user provided values</span>
+  <span class="ruby-comment"># as the other languages are on iTC already anyway</span>
+  <span class="ruby-identifier">v</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>].<span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>])
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find a version to edit for app &#39;#{options[:app].name}&#39;, the app metadata is read-only currently&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">v</span>
+
+  <span class="ruby-identifier">enabled_languages</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:languages</span>] <span class="ruby-operator">||</span> []
+  <span class="ruby-constant">LOCALISED_VERSION_VALUES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">language</span> = <span class="ruby-identifier">language</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">enabled_languages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">language</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">language</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Reject &quot;default&quot; language from getting enabled</span>
+  <span class="ruby-comment"># because &quot;default&quot; is not an iTC language</span>
+  <span class="ruby-identifier">enabled_languages</span> = <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lang</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;default&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">uniq</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">create_languages</span>(<span class="ruby-identifier">enabled_languages</span>)
+    <span class="ruby-identifier">lng_text</span> = <span class="ruby-string">&quot;language&quot;</span>
+    <span class="ruby-identifier">lng_text</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;s&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">enabled_languages</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">show_loading_indicator</span>(<span class="ruby-node">&quot;Activating #{lng_text} #{enabled_languages.join(&#39;, &#39;)}...&quot;</span>)
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">hide_loading_indicator</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-normalize_language_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_language_keys</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Normalizes languages keys from symbols to strings</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_language_keys-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_language_keys</span>(<span class="ruby-identifier">options</span>)
+  (<span class="ruby-constant">LOCALISED_VERSION_VALUES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">LOCALISED_APP_VALUES</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">current</span>[<span class="ruby-identifier">language</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">current</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">language</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_app_rating" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_app_rating</span><span
+            class="method-args">(v, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_app_rating-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_app_rating</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_rating_config_path</span>]
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json&#39;</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:app_rating_config_path</span>]))
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Error parsing JSON file at path &#39;#{options[:app_rating_config_path]}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Setting the app&#39;s age rating...&quot;</span>)
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">update_rating</span>(<span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_review_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_review_information</span><span
+            class="method-args">(v, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_review_information-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_review_information</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_review_information</span>]
+  <span class="ruby-identifier">info</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_review_information</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;`app_review_information` must be a hash&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+  <span class="ruby-constant">REVIEW_INFORMATION_VALUES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">option_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">info</span>[<span class="ruby-identifier">option_name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chomp</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">info</span>[<span class="ruby-identifier">option_name</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">review_user_needed</span> = (<span class="ruby-identifier">v</span>.<span class="ruby-identifier">review_demo_user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chomp</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">review_demo_password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chomp</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_trade_representative_contact_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_trade_representative_contact_information</span><span
+            class="method-args">(v, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_trade_representative_contact_information-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/upload_metadata.rb, line 348</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_trade_representative_contact_information</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:trade_representative_contact_information</span>]
+  <span class="ruby-identifier">info</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:trade_representative_contact_information</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;`trade_representative_contact_information` must be a hash&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+  <span class="ruby-constant">TRADE_REPRESENTATIVE_CONTACT_INFORMATION_VALUES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">option_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">info</span>[<span class="ruby-identifier">option_name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chomp</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">info</span>[<span class="ruby-identifier">option_name</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

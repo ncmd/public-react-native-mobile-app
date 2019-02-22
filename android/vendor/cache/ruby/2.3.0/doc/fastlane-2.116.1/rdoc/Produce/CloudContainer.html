@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Produce::CloudContainer - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-app_exists-3F">#app_exists?</a>
+    
+    <li ><a href="#method-i-app_identifier">#app_identifier</a>
+    
+    <li ><a href="#method-i-associate">#associate</a>
+    
+    <li ><a href="#method-i-container_exists-3F">#container_exists?</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Produce::CloudContainer">
+  <h1 id="class-Produce::CloudContainer" class="class">
+    class Produce::CloudContainer
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_exists?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_exists-3F-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/cloud_container.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_exists?</span>
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_identifier</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-app_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_identifier</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_identifier-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/cloud_container.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_identifier</span>
+  <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-associate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">associate</span><span
+            class="method-args">(_options, args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="associate-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/cloud_container.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">associate</span>(<span class="ruby-identifier">_options</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">login</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">app_exists?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;[DevCenter] App &#39;#{Produce.config[:app_identifier]}&#39; does not exist, nothing to associate with the containers&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_identifier</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Something went wrong when fetching the app - it&#39;s not listed in the apps list&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-identifier">new_containers</span> = []
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Validating containers before association&quot;</span>)
+
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">container_identifier</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">container_exists?</span>(<span class="ruby-identifier">container_identifier</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;[DevCenter] iCloud Container &#39;#{container_identifier}&#39; does not exist, please create it first, skipping for now&quot;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">new_containers</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">cloud_container</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">container_identifier</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Finalising association with #{new_containers.count} containers&quot;</span>)
+    <span class="ruby-identifier">app</span>.<span class="ruby-identifier">associate_cloud_containers</span>(<span class="ruby-identifier">new_containers</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Done!&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-container_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">container_exists?</span><span
+            class="method-args">(identifier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="container_exists-3F-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/cloud_container.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">container_exists?</span>(<span class="ruby-identifier">identifier</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">cloud_container</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">identifier</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(options, _args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/cloud_container.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">_args</span>)
+  <span class="ruby-identifier">login</span>
+
+  <span class="ruby-identifier">container_identifier</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">container_identifier</span> <span class="ruby-operator">||</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;iCloud Container identifier: &quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">container_exists?</span>(<span class="ruby-identifier">container_identifier</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;[DevCenter] iCloud Container &#39;#{options.container_name} (#{options.container_identifier})&#39; already exists, nothing to do on the Dev Center&quot;</span>)
+    <span class="ruby-comment"># Nothing to do here</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">container_name</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">container_name</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">container_identifier</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-string">&#39; &#39;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Creating new iCloud Container &#39;#{container_name}&#39; with identifier &#39;#{container_identifier}&#39; on the Apple Dev Center&quot;</span>)
+
+    <span class="ruby-identifier">container</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">cloud_container</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">container_identifier</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">container_name</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">container</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">container_name</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Your container name includes non-ASCII characters, which are not supported by the Apple Developer Portal.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;To fix this a unique (internal) name &#39;#{container.name}&#39; has been created for you.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Created iCloud Container #{container.cloud_container}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Something went wrong when creating the new iCloud Container - it&#39;s not listed in the iCloud Container list&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">container_exists?</span>(<span class="ruby-identifier">container_identifier</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Finished creating new iCloud Container &#39;#{container_name}&#39; on the Dev Center&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/cloud_container.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Starting login with user &#39;#{Produce.config[:username]}&#39;&quot;</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">login</span>(<span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:username</span>], <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">select_team</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Successfully logged in&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

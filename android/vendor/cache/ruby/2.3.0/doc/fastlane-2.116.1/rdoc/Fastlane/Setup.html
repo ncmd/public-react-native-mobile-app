@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Setup - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-i-add_or_update_gemfile">#add_or_update_gemfile</a>
+    
+    <li ><a href="#method-i-append_lane">#append_lane</a>
+    
+    <li ><a href="#method-i-append_team">#append_team</a>
+    
+    <li ><a href="#method-i-appfile_template_content">#appfile_template_content</a>
+    
+    <li ><a href="#method-i-continue_with_enter">#continue_with_enter</a>
+    
+    <li ><a href="#method-i-ensure_gemfile_valid-21">#ensure_gemfile_valid!</a>
+    
+    <li ><a href="#method-i-explain_concepts">#explain_concepts</a>
+    
+    <li ><a href="#method-i-fastfile_template_content">#fastfile_template_content</a>
+    
+    <li ><a href="#method-i-finish_up">#finish_up</a>
+    
+    <li ><a href="#method-i-gemfile_exists-3F">#gemfile_exists?</a>
+    
+    <li ><a href="#method-i-gemfile_path">#gemfile_path</a>
+    
+    <li ><a href="#method-i-setup_gemfile-21">#setup_gemfile!</a>
+    
+    <li ><a href="#method-i-setup_swift_support">#setup_swift_support</a>
+    
+    <li ><a href="#method-i-show_analytics_note">#show_analytics_note</a>
+    
+    <li ><a href="#method-i-suggest_next_steps">#suggest_next_steps</a>
+    
+    <li ><a href="#method-i-welcome_to_fastlane">#welcome_to_fastlane</a>
+    
+    <li ><a href="#method-i-write_fastfile-21">#write_fastfile!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Setup">
+  <h1 id="class-Fastlane::Setup" class="class">
+    class Fastlane::Setup
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-appfile_content" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">appfile_content</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Appfile</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-fastfile_content" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">fastfile_content</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The current content of the generated Fastfile</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-had_multiple_projects_to_choose_from" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">had_multiple_projects_to_choose_from</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>remember if there were multiple projects if so, we set it as part of the
+Fastfile</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-is_swift_fastfile" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_swift_fastfile</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Is the current `setup` using a swift based configuration file</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-lane_to_mention" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lane_to_mention</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>This is the lane that we tell the user to run to try the new fastlane setup
+This needs to be setup by each setup</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>:ios or :android</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-preferred_setup_method" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">preferred_setup_method</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Used for :manual sometimes</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-project_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">project_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Path to the xcodeproj or xcworkspace</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-user" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">user</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>For iOS projects that&#39;s the Apple ID email</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(is_swift_fastfile: nil, user: nil, project_path: nil, had_multiple_projects_to_choose_from: nil, preferred_setup_method: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:enable Metrics/BlockNesting</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">project_path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">had_multiple_projects_to_choose_from</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">preferred_setup_method</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span> = <span class="ruby-identifier">is_swift_fastfile</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project_path</span> = <span class="ruby-identifier">project_path</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">had_multiple_projects_to_choose_from</span> = <span class="ruby-identifier">had_multiple_projects_to_choose_from</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">preferred_setup_method</span> = <span class="ruby-identifier">preferred_setup_method</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">(user: nil, is_swift_fastfile: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Start the setup process rubocop:disable Metrics/BlockNesting</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">setup?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane/lane_list&#39;</span>
+    <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">LaneList</span>.<span class="ruby-identifier">output</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">fastfile_path</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;------------------&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;fastlane is already set up at path `#{FastlaneCore::FastlaneFolder.path}`, see the available lanes above&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+    <span class="ruby-identifier">setup_ios</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">setup_ios</span>.<span class="ruby-identifier">add_or_update_gemfile</span>(<span class="ruby-identifier">update_gemfile_if_needed</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">setup_ios</span>.<span class="ruby-identifier">suggest_next_steps</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># this is used by e.g. configuration.rb to not show warnings when running produce</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_ONBOARDING_IN_PROCESS&quot;</span>] = <span class="ruby-value">1</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">spinner</span> = <span class="ruby-constant">TTY</span><span class="ruby-operator">::</span><span class="ruby-constant">Spinner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;[:spinner] Looking for iOS and Android projects in current directory...&quot;</span>, <span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:dots</span>)
+  <span class="ruby-identifier">spinner</span>.<span class="ruby-identifier">auto_spin</span>
+
+  <span class="ruby-identifier">ios_projects</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;**/*.xcodeproj&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;**/*.xcworkspace&quot;</span>]
+  <span class="ruby-identifier">ios_projects</span>.<span class="ruby-identifier">delete_if</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">gem_path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">gem_path</span>) }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ios_projects</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;fastlane/swift/FastlaneSwiftRunner/FastlaneSwiftRunner.xcodeproj&quot;</span>) }
+  <span class="ruby-identifier">android_projects</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;**/*.gradle&quot;</span>]
+
+  <span class="ruby-identifier">spinner</span>.<span class="ruby-identifier">success</span>
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">create_folder!</span>
+
+  <span class="ruby-comment"># Currently we prefer iOS app projects, as the `init` process is</span>
+  <span class="ruby-comment"># more intelligent and does more things. The user can easily add</span>
+  <span class="ruby-comment"># the `:android` platform to the resulting Fastfile</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ios_projects</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">current_directory</span> = <span class="ruby-identifier">ios_projects</span>.<span class="ruby-identifier">find_all</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_project_path</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">current_project_path</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">Separator</span>).<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">chosen_project</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">had_multiple_projects_to_choose_from</span> = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_directory</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">chosen_project</span> = <span class="ruby-identifier">current_directory</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_directory</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_directory</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+        <span class="ruby-comment"># This is a common case (e.g. with CocoaPods), where the project has an xcodeproj and an xcworkspace file</span>
+        <span class="ruby-identifier">extensions</span> = [<span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">current_directory</span>[<span class="ruby-value">0</span>]), <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">current_directory</span>[<span class="ruby-value">1</span>])]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;.xcodeproj&quot;</span>, <span class="ruby-string">&quot;.xcworkspace&quot;</span>].<span class="ruby-identifier">sort</span>
+          <span class="ruby-comment"># Yep, that&#39;s this kind of setup</span>
+          <span class="ruby-identifier">chosen_project</span> = <span class="ruby-identifier">current_directory</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.xcworkspace&quot;</span>) }
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">chosen_project</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;Multiple iOS projects found in current directory&quot;</span>, <span class="ruby-identifier">current_directory</span>)
+      <span class="ruby-identifier">had_multiple_projects_to_choose_from</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;It looks like there is no iOS project in the current directory, though we did find one in a sub-directory&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please `cd` into the directory of the intended Xcode project you wish to use.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please `cd` into the directory of the intended Xcode project you wish to use and run `fastlane init` again&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">chosen_project</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Pods.xcodeproj&quot;</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-node">&quot;Found &#39;#{chosen_project}&#39;, which usually isn&#39;t normally what you want. Make sure to switch to the directory containing your intended Xcode project. Would you still like to continue with #{chosen_project}?&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Make sure to `cd` into the directory containing the Xcode project you intend to use and then use `fastlane init` again&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Detected an iOS/macOS project in the current directory: &#39;#{chosen_project}&#39;&quot;</span>)
+
+    <span class="ruby-constant">SetupIos</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-identifier">is_swift_fastfile</span>,
+      <span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>,
+      <span class="ruby-identifier">project_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">chosen_project</span>,
+      <span class="ruby-identifier">had_multiple_projects_to_choose_from</span><span class="ruby-operator">:</span> <span class="ruby-identifier">had_multiple_projects_to_choose_from</span>
+    ).<span class="ruby-identifier">setup_ios</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">android_projects</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Detected an Android project in the current directory...&quot;</span>)
+    <span class="ruby-constant">SetupAndroid</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">setup_android</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;No iOS or Android projects were found in directory &#39;#{Dir.pwd}&#39;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Make sure to `cd` into the directory containing your iOS or Android app&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Alternatively, would you like to manually setup a fastlane config in the current directory instead?&quot;</span>)
+      <span class="ruby-constant">SetupIos</span>.<span class="ruby-identifier">new</span>(
+        <span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-identifier">is_swift_fastfile</span>,
+        <span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>,
+        <span class="ruby-identifier">project_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">chosen_project</span>,
+        <span class="ruby-identifier">had_multiple_projects_to_choose_from</span><span class="ruby-operator">:</span> <span class="ruby-identifier">had_multiple_projects_to_choose_from</span>,
+        <span class="ruby-identifier">preferred_setup_method</span><span class="ruby-operator">:</span> <span class="ruby-value">:ios_manual</span>
+      ).<span class="ruby-identifier">setup_ios</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Make sure to `cd` into the directory containing your project and then use `fastlane init` again&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_or_update_gemfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_or_update_gemfile</span><span
+            class="method-args">(update_gemfile_if_needed: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method is responsible for ensuring there is a working <a
+href="../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>,
+and that `fastlane` is defined as a dependency while also having `rubygems`
+as a gem source</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_or_update_gemfile-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_or_update_gemfile</span>(<span class="ruby-identifier">update_gemfile_if_needed</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">gemfile_exists?</span>
+    <span class="ruby-identifier">ensure_gemfile_valid!</span>(<span class="ruby-identifier">update_gemfile_if_needed</span><span class="ruby-operator">:</span> <span class="ruby-identifier">update_gemfile_if_needed</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">update_gemfile_if_needed</span> <span class="ruby-operator">||</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;It is recommended to run fastlane with a Gemfile set up, do you want fastlane to create one for you?&quot;</span>)
+      <span class="ruby-identifier">setup_gemfile!</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">gemfile_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-append_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_lane</span><span
+            class="method-args">(lane)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Append a lane to the current Fastfile template we&#39;re generating</p>
+          
+          
+
+          
+          <div class="method-source-code" id="append_lane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_lane</span>(<span class="ruby-identifier">lane</span>)
+  <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">compact!</span> <span class="ruby-comment"># remove nil values</span>
+
+  <span class="ruby-identifier">new_lines</span> = <span class="ruby-string">&quot;\n\n&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">new_lines</span> = <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;lane() {&quot;</span>) <span class="ruby-comment"># the first lane we don&#39;t want new lines</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[LANES]]&quot;</span>, <span class="ruby-node">&quot;#{new_lines}\t#{lane.join(&quot;\n\t&quot;)}[[LANES]]&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_lines</span> = <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;lane :&quot;</span>) <span class="ruby-comment"># the first lane we don&#39;t want new lines</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[LANES]]&quot;</span>, <span class="ruby-node">&quot;#{new_lines}  #{lane.join(&quot;\n  &quot;)}[[LANES]]&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-append_team" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_team</span><span
+            class="method-args">(team)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Append a team to the Appfile</p>
+          
+          
+
+          
+          <div class="method-source-code" id="append_team-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_team</span>(<span class="ruby-identifier">team</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[TEAMS]]&quot;</span>, <span class="ruby-node">&quot;#{team}\n[[TEAMS]]&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-appfile_template_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">appfile_template_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="appfile_template_content-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">appfile_template_content</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ios</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{Fastlane::ROOT}/lib/assets/AppfileTemplate.swift&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{Fastlane::ROOT}/lib/assets/AppfileTemplate&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{Fastlane::ROOT}/lib/assets/AppfileTemplateAndroid&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-continue_with_enter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">continue_with_enter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="continue_with_enter-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">continue_with_enter</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Continue by pressing Enter ⏎&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_gemfile_valid-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_gemfile_valid!</span><span
+            class="method-args">(update_gemfile_if_needed: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_gemfile_valid-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_gemfile_valid!</span>(<span class="ruby-identifier">update_gemfile_if_needed</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">gemfile_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">gemfile_path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">gemfile_content</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;https://rubygems.org&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You have a local Gemfile, but RubyGems isn&#39;t defined as source&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Please update your Gemfile at path `#{gemfile_path}` to include&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;source \&quot;https://rubygems.org\&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Update your Gemfile, and run `bundle update` afterwards&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">gemfile_content</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;fastlane&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">update_gemfile_if_needed</span>
+      <span class="ruby-identifier">gemfile_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\ngem \&quot;fastlane\&quot;&quot;</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Adding `fastlane` to your existing Gemfile at path &#39;#{gemfile_path}&#39;&quot;</span>)
+
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">gemfile_path</span>, <span class="ruby-identifier">gemfile_content</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You have a local Gemfile, but it doesn&#39;t include \&quot;fastlane\&quot; as a dependency&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please add `gem \&quot;fastlane\&quot;` to your Gemfile&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-explain_concepts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">explain_concepts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="explain_concepts-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">explain_concepts</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;fastlane lanes&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;fastlane uses a &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;`Fastfile`&quot;</span>.<span class="ruby-identifier">yellow</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; to store the automation configuration&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Within that, you&#39;ll see different &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;lanes&quot;</span>.<span class="ruby-identifier">yellow</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Each is there to automate a different task, like screenshots, code signing, or pushing new releases&quot;</span>)
+  <span class="ruby-identifier">continue_with_enter</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;How to customize your Fastfile&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Use a text editor of your choice to open the newly created Fastfile and take a look&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;You can now edit the available lanes and actions to customize the setup to fit your needs&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;To get a list of all the available actions, open &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;https://docs.fastlane.tools/actions&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-identifier">continue_with_enter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fastfile_template_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fastfile_template_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fastfile_template_content-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fastfile_template_content</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{Fastlane::ROOT}/lib/assets/DefaultFastfileTemplate.swift&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{Fastlane::ROOT}/lib/assets/DefaultFastfileTemplate&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-finish_up" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finish_up</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="finish_up-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finish_up</span>
+  <span class="ruby-identifier">write_fastfile!</span>
+  <span class="ruby-identifier">setup_swift_support</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_swift_fastfile</span>
+  <span class="ruby-identifier">show_analytics_note</span>
+  <span class="ruby-identifier">explain_concepts</span>
+  <span class="ruby-identifier">suggest_next_steps</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gemfile_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gemfile_exists?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a
+href="../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+related code:</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gemfile_exists-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gemfile_exists?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">gemfile_path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gemfile_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gemfile_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gemfile_path-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gemfile_path</span>
+  <span class="ruby-string">&quot;Gemfile&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_gemfile-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_gemfile!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_gemfile-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_gemfile!</span>
+  <span class="ruby-comment"># No Gemfile yet</span>
+  <span class="ruby-identifier">gemfile_content</span> = []
+  <span class="ruby-identifier">gemfile_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;source \&quot;https://rubygems.org\&quot;&quot;</span>
+  <span class="ruby-identifier">gemfile_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">gemfile_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;gem &quot;fastlane&quot;&#39;</span>
+  <span class="ruby-identifier">gemfile_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">gemfile_path</span>, <span class="ruby-identifier">gemfile_content</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Installing dependencies for you...&quot;</span>)
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(
+    <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;bundle update&quot;</span>,
+    <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+    <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error_output</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Something went wrong when running `bundle update` for you&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Please take a look at your Gemfile at path `#{gemfile_path}`&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;and make sure you can run `bundle update` on your machine.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_swift_support" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_swift_support</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_swift_support-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_swift_support</span>
+  <span class="ruby-identifier">runner_source_resources</span> = <span class="ruby-node">&quot;#{Fastlane::ROOT}/swift/.&quot;</span>
+  <span class="ruby-identifier">destination_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;swift&#39;</span>, <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>(<span class="ruby-identifier">runner_source_resources</span>, <span class="ruby-identifier">destination_path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Copied Swift fastlane runner project to &#39;#{destination_path}&#39;.&quot;</span>)
+
+  <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">SwiftLaneManager</span>.<span class="ruby-identifier">first_time_setup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_analytics_note" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_analytics_note</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_analytics_note-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_analytics_note</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;fastlane will collect the number of errors for each action to detect integration issues&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;No sensitive/private information will be uploaded, more information: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;https://docs.fastlane.tools/#metrics&quot;</span>.<span class="ruby-identifier">cyan</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-suggest_next_steps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suggest_next_steps</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="suggest_next_steps-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">suggest_next_steps</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Where to go from here?&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:android</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;📸  Learn more about how to automatically generate localized Google Play screenshots:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/getting-started/android/screenshots/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;👩‍✈️  Learn more about distribution to beta testing services:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/getting-started/android/beta-deployment/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;🚀  Learn more about how to automate the Google Play release process:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/getting-started/android/release-deployment/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;📸  Learn more about how to automatically generate localized App Store screenshots:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/getting-started/ios/screenshots/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;👩‍✈️  Learn more about distribution to beta testing services:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/getting-started/ios/beta-deployment/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;🚀  Learn more about how to automate the App Store release process:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/getting-started/ios/appstore-deployment/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;👩‍⚕️  Learn more about how to setup code signing with fastlane&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://docs.fastlane.tools/codesigning/getting-started/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># we crash here, so that this never happens when a new setup method is added</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_to_mention</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;To try your new fastlane setup, just enter and run&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-node">&quot;fastlane #{self.lane_to_mention}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-welcome_to_fastlane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">welcome_to_fastlane</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helpers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="welcome_to_fastlane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_to_fastlane</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Welcome to fastlane 🚀&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;fastlane can help you with all kinds of automation for your mobile app&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;We recommend automating one task first, and then gradually automating more over time&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_fastfile-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_fastfile!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_fastfile-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_fastfile!</span>
+  <span class="ruby-comment"># Write the Fastfile</span>
+  <span class="ruby-identifier">fastfile_file_name</span> = <span class="ruby-string">&quot;Fastfile&quot;</span>
+  <span class="ruby-identifier">fastfile_file_name</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;.swift&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+
+  <span class="ruby-identifier">fastfile_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">fastfile_file_name</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[LANES]]&quot;</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-comment"># since we always keep it until writing out</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">fastfile_path</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span>) <span class="ruby-comment"># remove trailing spaces before platform ends</span>
+
+  <span class="ruby-identifier">appfile_file_name</span> = <span class="ruby-string">&quot;Appfile&quot;</span>
+  <span class="ruby-identifier">appfile_file_name</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;.swift&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+  <span class="ruby-identifier">appfile_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">appfile_file_name</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[TEAMS]]&quot;</span>, <span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">appfile_path</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>)
+
+  <span class="ruby-identifier">add_or_update_gemfile</span>(<span class="ruby-identifier">update_gemfile_if_needed</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;✅  Successfully generated fastlane configuration&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Generated Fastfile at path `#{fastfile_path}`&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Generated Appfile at path `#{appfile_path}`&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Gemfile and Gemfile.lock at path `#{gemfile_path}`&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Please check the newly generated configuration files into git along with your project&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;This way everyone in your team can benefit from your fastlane setup&quot;</span>)
+  <span class="ruby-identifier">continue_with_enter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

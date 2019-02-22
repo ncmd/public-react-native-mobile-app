@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>resign.sh - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page sigh/lib/assets/resign.sh">
+
+<p>#!/bin/bash # shellcheck disable=SC2155</p>
+
+<p># Copyright © 2011 Float Mobile Learning # <a
+href="http://www.floatlearning.com">www.floatlearning.com</a>/ # Extension
+Copyright © 2013 Weptun Gmbh # <a
+href="http://www.weptun.de">www.weptun.de</a> # # Extended by Ronan O
+Ciosoig January 2012 # # Extended by Patrick Blitz, April 2013 # # Extended
+by John Turnipseed and Matthew Nespor, November 2014 # <a
+href="http://nanonation.net">nanonation.net</a>/ # # Extended by Nicolas
+Bachschmidt, October 2015 # # Permission is hereby granted, free of charge,
+to any person obtaining # a copy of this software and associated
+documentation files (the “Software”), # to deal in the Software without
+restriction, including without limitation # the rights to use, copy,
+modify, merge, publish, distribute, sublicense, # and/or sell copies of the
+Software, and to permit persons to whom the # Software is furnished to do
+so, subject to the following conditions: # # The above copyright notice and
+this permission notice shall be included # in all copies or substantial
+portions of the Software. # # THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT
+WARRANTY OF ANY KIND, EXPRESS # OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE WARRANTIES OF # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. # IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY # CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+THE # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. # # Please let
+us know about any improvements you make to this script! # ./floatsign
+source “iPhone Distribution: Name” -p “path/to/profile” [-d “display name”]
+[-e entitlements] [-k keychain] [-b “BundleIdentifier”] outputIpa # # #
+Modifed 26th January 2012 # # new features January 2012: # 1. change the
+app display name # # new features April 2013 # 1. specify the target
+bundleId on the command line # 2. correctly handles entitlements for
+keychain-enabled resigning # # new features November 2014 # 1. now re-signs
+embedded iOS frameworks, if present, prior to re-signing the application
+itself # 2. extracts the team-identifier from provisioning profile and uses
+it to update previous entitlements # 3. fixed bug in packaging if -e flag
+is used # 4. renamed &#39;temp&#39; directory and made it a variable so it
+can be easily modified # 5. various code formatting and logging adjustments
+# # new features October 2015 # 1. now re-signs nested applications and app
+extensions, if present, prior to re-signing the application itself # 2.
+enables the -p option to be used more than once # 3. ensures the
+provisioning profile&#39;s bundle-identifier matches the app&#39;s bundle
+identifier # 4. extracts the entitlements from the provisioning profile #
+5. copy the entitlements as archived-expanded-entitlements.xcent inside the
+app bundle (because Xcode does too) # # new features November 2018 # 1.
+only create the archived-expanded-entitlements.xcent file if the version of
+Xcode &lt; 9.3 as Xcode 10 does not create it. # # new features January
+2019 # 1. fixed bug where the com.apple.icloud-container-environment
+entitlement was being assigned an incorrect value #</p>
+
+<p># Logging functions</p>
+
+<p>log() {</p>
+
+<pre># Make sure it returns 0 code even when verose mode is off (test 1)
+# To use like [[ condition ]] &amp;&amp; log &quot;x&quot; &amp;&amp; something
+if [[ -n &quot;$VERBOSE&quot; ]]; then echo -e &quot;$@&quot;; else test 1; fi</pre>
+
+<p>}</p>
+
+<p>error() {</p>
+
+<pre>echo &quot;$@&quot; &gt;&amp;2
+exit 1</pre>
+
+<p>}</p>
+
+<p>warning() {</p>
+
+<pre>echo &quot;$@&quot; &gt;&amp;2</pre>
+
+<p>}</p>
+
+<p>function checkStatus {</p>
+
+<pre># shellcheck disable=SC2181
+if [ $? -ne 0 ]; then
+    error &quot;Encountered an error, aborting!&quot;
+fi</pre>
+
+<p>}</p>
+
+<p>usage() {</p>
+
+<pre>echo -e &quot;Usage: $(basename &quot;$0&quot;) source identity -p|--provisioning provisioning&quot; &gt;&amp;2
+echo -e &quot;\t\t[-e|--entitlements entitlements]&quot; &gt;&amp;2
+echo -e &quot;\t\t[-k|--keychain keychain]&quot; &gt;&amp;2
+echo -e &quot;\t\t[-d|--display-name displayName]&quot; &gt;&amp;2
+echo -e &quot;\t\t[-n|--version-number version]&quot; &gt;&amp;2
+echo -e &quot;\t\t[--short-version shortVersion]&quot; &gt;&amp;2
+echo -e &quot;\t\t[--bundle-version bundleVersion]&quot; &gt;&amp;2
+echo -e &quot;\t\t[-b|--bundle-id bundleId]&quot; &gt;&amp;2
+echo -e &quot;\t\t[--use-app-entitlements]&quot; &gt;&amp;2
+echo -e &quot;\t\toutputIpa&quot; &gt;&amp;2
+echo &quot;Usage: $(basename &quot;$0&quot;) -h|--help&quot; &gt;&amp;2
+echo &quot;Options:&quot; &gt;&amp;2
+echo -e &quot;\t-p, --provisioning provisioning\t\tProvisioning profile option, may be provided multiple times.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\tYou can specify provisioning profile file name.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\t-p xxx.mobileprovision&quot; &gt;&amp;2
+echo &quot;&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\tAlternatively you may provide multiple provisioning profiles if the application contains&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\tnested applications or app extensions, which need their own provisioning&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\tprofile. You can do so by providing -p option multiple times specifying&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\told bundle identifier and new provisioning profile for that bundle id joined with &#39;=&#39;.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\t-p com.main-app=main-app.mobileprovision&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\t-p com.nested-app=nested-app.mobileprovision&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\t-p com.nested-extension=nested-extension.mobileprovision&quot; &gt;&amp;2
+echo &quot;&quot; &gt;&amp;2
+echo -e &quot;\t-e, --entitlements entitlements\t\tSpecify entitlements file path for code signing.&quot; &gt;&amp;2
+echo -e &quot;\t-k, --keychain keychain\t\t\tSpecify keychain for code signing.&quot; &gt;&amp;2
+echo -e &quot;\t-d, --display-name displayName\t\tSpecify new display name.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tWarning: will apply for all nested apps and extensions.&quot; &gt;&amp;2
+echo -e &quot;\t-n, --version-number version\t\tSpecify new version number.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tWill set CFBundleShortVersionString and CFBundleVersion values in Info.plist.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tWill apply for all nested apps and extensions.&quot; &gt;&amp;2
+echo -e &quot;\t    --short-version shortVersion\tSpecify new short version string (CFBundleShortVersionString).&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tWill apply for all nested apps and extensions.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tCan&#39;t use together with &#39;-n, --version-number&#39; option.&quot; &gt;&amp;2
+echo -e &quot;\t    --bundle-version bundleVersion\tSpecify new bundle version (CFBundleVersion) number.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tWill apply for all nested apps and extensions.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tCan&#39;t use together with &#39;-n, --version-number&#39; option.&quot; &gt;&amp;2
+echo -e &quot;\t-b, --bundle-id bundleId\t\tSpecify new bundle identifier (CFBundleIdentifier).&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tWarning: will NOT apply for nested apps and extensions.&quot; &gt;&amp;2
+echo -e &quot;\t    --use-app-entitlements\t\tExtract app bundle codesigning entitlements and combine with entitlements from new provisionin profile.&quot; &gt;&amp;2
+echo -e &quot;\t\t\t\t\t\t\tCan&#39;t use together with &#39;-e, --entitlements&#39; option.&quot; &gt;&amp;2
+echo -e &quot;\t--keychain-path path\t\t\tSpecify the path to a keychain that /usr/bin/codesign should use.&quot; &gt;&amp;2
+echo -e &quot;\t-v, --verbose\t\t\t\tVerbose output.&quot; &gt;&amp;2
+echo -e &quot;\t-h, --help\t\t\t\tDisplay help message.&quot; &gt;&amp;2
+exit 2</pre>
+
+<p>}</p>
+
+<p>if [ $# -lt 3 ]; then</p>
+
+<pre class="ruby"><span class="ruby-identifier">usage</span>
+</pre>
+
+<p>fi</p>
+
+<p>ORIGINAL_FILE=“$1” CERTIFICATE=“$2” ENTITLEMENTS= BUNDLE_IDENTIFIER=“”
+DISPLAY_NAME=“” KEYCHAIN=“” VERSION_NUMBER=“” SHORT_VERSION=
+BUNDLE_VERSION= KEYCHAIN_PATH= RAW_PROVISIONS=() PROVISIONS_BY_ID=()
+DEFAULT_PROVISION=“” TEMP_DIR=“_floatsignTemp” USE_APP_ENTITLEMENTS=“”
+XCODE_VERSION=“$(xcodebuild -version | grep ”Xcode“ | /usr/bin/cut -f 2 -d
+&#39; &#39;)”</p>
+
+<p># List of plist keys used for reference to and from nested apps and
+extensions NESTED_APP_REFERENCE_KEYS=(“:WKCompanionAppBundleIdentifier”
+“:NSExtension:NSExtensionAttributes:WKAppBundleIdentifier”)</p>
+
+<p># options start index shift 2</p>
+
+<p># Parse args while [ “$1” != “” ]; do</p>
+
+<pre>case $1 in
+    -p | --provisioning )
+        shift
+        RAW_PROVISIONS+=(&quot;$1&quot;)
+        ;;
+    -e | --entitlements )
+        shift
+        ENTITLEMENTS=&quot;$1&quot;
+        ;;
+    -d | --display-name )
+        shift
+        DISPLAY_NAME=&quot;$1&quot;
+        ;;
+    -b | --bundle-id )
+        shift
+        BUNDLE_IDENTIFIER=&quot;$1&quot;
+        ;;
+    -k | --keychain )
+        shift
+        KEYCHAIN=&quot;$1&quot;
+        ;;
+    -n | --version-number )
+        shift
+        VERSION_NUMBER=&quot;$1&quot;
+        ;;
+    --short-version )
+        shift
+        SHORT_VERSION=&quot;$1&quot;
+        ;;
+    --bundle-version )
+        shift
+        BUNDLE_VERSION=&quot;$1&quot;
+        ;;
+    --use-app-entitlements )
+        USE_APP_ENTITLEMENTS=&quot;YES&quot;
+        ;;
+    --keychain-path )
+        shift
+        KEYCHAIN_PATH=&quot;$1&quot;
+        ;;
+    -v | --verbose )
+        VERBOSE=&quot;--verbose&quot;
+        ;;
+    -h | --help )
+        usage
+        ;;
+      )
+        [[ -n &quot;$NEW_FILE&quot; ]] &amp;&amp; error &quot;Multiple output file names specified!&quot;
+        [[ -z &quot;$NEW_FILE&quot; ]] &amp;&amp; NEW_FILE=&quot;$1&quot;
+        ;;
+esac
+
+# Next arg
+shift</pre>
+
+<p>done</p>
+
+<p>KEYCHAIN_FLAG= if [ -n “$KEYCHAIN_PATH” ]; then</p>
+
+<pre class="ruby"><span class="ruby-constant">KEYCHAIN_FLAG</span>=<span class="ruby-string">&quot;--keychain $KEYCHAIN_PATH&quot;</span>
+</pre>
+
+<p>fi</p>
+
+<p># Log the options for provision in “${<a href="@">RAW_PROVISIONS</a>}”; do</p>
+
+<pre>if [[ &quot;$provision&quot; =~ .+=.+ ]]; then
+    log &quot;Specified provisioning profile: &#39;${provision#*=}&#39; for bundle identifier: &#39;${provision%%=*}&#39;&quot;
+else
+    log &quot;Specified provisioning profile: &#39;$provision&#39;&quot;
+fi</pre>
+
+<p>done</p>
+
+<p>log “Original file: &#39;$ORIGINAL_FILE&#39;” log “Certificate:
+&#39;$CERTIFICATE&#39;”</p>
+<dl class="rdoc-list label-list"><dt>[ -n “${DISPLAY_NAME}” ]
+<dd>
+<p>&amp;&amp; log “Specified display name: &#39;$DISPLAY_NAME&#39;”</p>
+</dd><dt>[ -n “${ENTITLEMENTS}” ]
+<dd>
+<p>&amp;&amp; log “Specified signing entitlements: &#39;$ENTITLEMENTS&#39;”</p>
+</dd><dt>[ -n “${BUNDLE_IDENTIFIER}” ]
+<dd>
+<p>&amp;&amp; log “Specified bundle identifier: &#39;$BUNDLE_IDENTIFIER&#39;”</p>
+</dd><dt>[ -n “${KEYCHAIN}” ]
+<dd>
+<p>&amp;&amp; log “Specified keychain to use: &#39;$KEYCHAIN&#39;”</p>
+</dd><dt>[ -n “${VERSION_NUMBER}” ]
+<dd>
+<p>&amp;&amp; log “Specified version number to use: &#39;$VERSION_NUMBER&#39;”</p>
+</dd><dt>[ -n “${SHORT_VERSION}” ]
+<dd>
+<p>&amp;&amp; log “Specified short version to use: &#39;$SHORT_VERSION&#39;”</p>
+</dd><dt>[ -n “${BUNDLE_VERSION}” ]
+<dd>
+<p>&amp;&amp; log “Specified bundle version to use: &#39;$BUNDLE_VERSION&#39;”</p>
+</dd><dt>[ -n “${KEYCHAIN_FLAG}” ]
+<dd>
+<p>&amp;&amp; log “Specified keychain to use: &#39;$KEYCHAIN_PATH&#39;”</p>
+</dd><dt>[ -n “${NEW_FILE}” ]
+<dd>
+<p>&amp;&amp; log “Output file name: &#39;$NEW_FILE&#39;”</p>
+</dd><dt>[ -n “${USE_APP_ENTITLEMENTS}” ]
+<dd>
+<p>&amp;&amp; log “Extract app entitlements: YES”</p>
+</dd></dl>
+
+<p># Check that version number option is not clashing with short or bundle
+version options</p>
+<dl class="rdoc-list label-list"><dt>[ -n “$VERSION_NUMBER” &amp;&amp; (-n “$SHORT_VERSION” || -n “$BUNDLE_VERSION”) ]
+<dd>
+<p>&amp;&amp; error “versionNumber option cannot be used in combination with
+shortVersion or bundleVersion options”</p>
+</dd></dl>
+
+<p># Check that –use-app-entitlements and -e, –entitlements are not used at
+the same time</p>
+<dl class="rdoc-list label-list"><dt>[ -n “${USE_APP_ENTITLEMENTS}” &amp;&amp; -n ${ENTITLEMENTS} ]
+<dd>
+<p>&amp;&amp; error “–use-app-entitlements option cannot be used in
+combination with -e, –entitlements option.”</p>
+</dd></dl>
+
+<p># Check output file name if [ -z “$NEW_FILE” ]; then</p>
+
+<pre class="ruby"><span class="ruby-identifier">error</span> <span class="ruby-string">&quot;Output file name required&quot;</span>
+</pre>
+
+<p>fi</p>
+
+<p>if [[ “${#<a href="*">RAW_PROVISIONS</a>}” == “0” ]]; then</p>
+
+<pre class="ruby"><span class="ruby-identifier">error</span> <span class="ruby-string">&quot;-p &#39;xxxx.mobileprovision&#39; argument is required&quot;</span>
+</pre>
+
+<p>fi</p>
+
+<p># Check for and remove the temporary directory if it already exists if [ -d
+“$TEMP_DIR” ]; then</p>
+
+<pre>log &quot;Removing previous temporary directory: &#39;$TEMP_DIR&#39;&quot;
+rm -Rf &quot;$TEMP_DIR&quot;</pre>
+
+<p>fi</p>
+
+<p>filename=$(basename “$ORIGINAL_FILE”) extension=“${filename##*.}”
+filename=“${filename%.*}”</p>
+
+<p># Check if the supplied file is an ipa or an app file if [ “${extension}” =
+“ipa” ]; then</p>
+
+<pre># Unzip the old ipa quietly
+unzip -q &quot;$ORIGINAL_FILE&quot; -d $TEMP_DIR
+checkStatus</pre>
+
+<p>elif [ “${extension}” = “app” ]; then</p>
+
+<pre># Copy the app file into an ipa-like structure
+mkdir -p &quot;$TEMP_DIR/Payload&quot;
+cp -Rf &quot;${ORIGINAL_FILE}&quot; &quot;$TEMP_DIR/Payload/${filename}.app&quot;
+checkStatus</pre>
+
+<p>else</p>
+
+<pre class="ruby"><span class="ruby-identifier">error</span> <span class="ruby-string">&quot;Error: Only can resign .app files and .ipa files.&quot;</span>
+</pre>
+
+<p>fi</p>
+
+<p># check the keychain if [ “${KEYCHAIN}” != “” ]; then</p>
+
+<pre>security list-keychains -s &quot;$KEYCHAIN&quot;
+security unlock &quot;$KEYCHAIN&quot;
+security default-keychain -s &quot;$KEYCHAIN&quot;</pre>
+
+<p>fi</p>
+
+<p># Set the app name # In Payload directory may be another file except .app
+file, such as StoreKit folder. # Search the first .app file within the
+Payload directory # shellcheck disable=SC2010 APP_NAME=$(ls
+“$TEMP_DIR/Payload/” | grep “.app$” | head -1)</p>
+
+<p># Make sure that PATH includes the location of the PlistBuddy helper tool
+as its location is not standard export PATH=$PATH:/usr/libexec</p>
+
+<p># Test whether two bundle identifiers match # The first one may contain the
+wildcard character &#39;*&#39;, in which case pattern matching will be used
+unless the third parameter is “STRICT” function does_bundle_id_match {</p>
+
+<pre># shellcheck disable=SC2049
+if [[ &quot;$1&quot; == &quot;$2&quot; ]]; then
+    return 0
+elif [[ &quot;$3&quot; != STRICT &amp;&amp; &quot;$1&quot; =~ \* ]]; then
+    local PATTERN0=&quot;${1//\./\\.}&quot;       # com.example.*     -&gt; com\.example\.*
+    local PATTERN1=&quot;${PATTERN0//\  .*}&quot; # com\.example\.*   -&gt; com\.example\..*
+    if [[ &quot;$2&quot; =~ ^$PATTERN1$ ]]; then
+        return 0
+    fi
+fi
+
+return 1</pre>
+
+<p>}</p>
+
+<p># Find the provisioning profile for a given bundle identifier function
+provision_for_bundle_id {</p>
+
+<pre>for ARG in &quot;${PROVISIONS_BY_ID[@]}&quot;; do
+    if does_bundle_id_match &quot;${ARG%%=*}&quot; &quot;$1&quot; &quot;$2&quot;; then
+        echo &quot;${ARG#*=}&quot;
+        break
+    fi
+done</pre>
+
+<p>}</p>
+
+<p># Find the bundle identifier contained inside a provisioning profile
+function bundle_id_for_provison {</p>
+
+<pre>local FULL_BUNDLE_ID=$(PlistBuddy -c &#39;Print :Entitlements:application-identifier&#39; /dev/stdin &lt;&lt;&lt; &quot;$(security cms -D -i &quot;$1&quot;)&quot;)
+checkStatus
+echo &quot;${FULL_BUNDLE_ID#*.}&quot;</pre>
+
+<p>}</p>
+
+<p># Add given provisioning profile and bundle identifier to the search list
+function add_provision_for_bundle_id {</p>
+
+<pre>local PROVISION=&quot;$1&quot;
+local BUNDLE_ID=&quot;$2&quot;
+
+local CURRENT_PROVISION=$(provision_for_bundle_id &quot;$BUNDLE_ID&quot; STRICT)
+
+if [[ &quot;$CURRENT_PROVISION&quot; != &quot;&quot; &amp;&amp; &quot;$CURRENT_PROVISION&quot; != &quot;$PROVISION&quot; ]]; then
+    error &quot;Conflicting provisioning profiles &#39;$PROVISION&#39; and &#39;$CURRENT_PROVISION&#39; for bundle identifier &#39;$BUNDLE_ID&#39;.&quot;
+fi
+
+PROVISIONS_BY_ID+=(&quot;$BUNDLE_ID=$PROVISION&quot;)</pre>
+
+<p>}</p>
+
+<p># Add given provisioning profile to the search list function add_provision
+{</p>
+
+<pre>local PROVISION=&quot;$1&quot;
+
+if [[ &quot;$1&quot; =~ .+=.+ ]]; then
+    PROVISION=&quot;${1#*=}&quot;
+    add_provision_for_bundle_id &quot;$PROVISION&quot; &quot;${1%%=*}&quot;
+elif [[ &quot;$DEFAULT_PROVISION&quot; == &quot;&quot; ]]; then
+    DEFAULT_PROVISION=&quot;$PROVISION&quot;
+fi
+
+if [[ ! -e &quot;$PROVISION&quot; ]]; then
+    error &quot;Provisioning profile &#39;$PROVISION&#39; file does not exist&quot;
+fi
+
+local BUNDLE_ID=$(bundle_id_for_provison &quot;$PROVISION&quot;)
+add_provision_for_bundle_id &quot;$PROVISION&quot; &quot;$BUNDLE_ID&quot;</pre>
+
+<p>}</p>
+
+<p># Load bundle identifiers from provisioning profiles for ARG in “${<a
+href="@">RAW_PROVISIONS</a>}”; do</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_provision</span> <span class="ruby-string">&quot;$ARG&quot;</span>
+</pre>
+
+<p>done</p>
+
+<p># Resign the given application function resign {</p>
+
+<pre>local APP_PATH=&quot;$1&quot;
+local NESTED=&quot;$2&quot;
+local BUNDLE_IDENTIFIER=&quot;$BUNDLE_IDENTIFIER&quot;
+local NEW_PROVISION=&quot;$NEW_PROVISION&quot;
+local APP_IDENTIFIER_PREFIX=&quot;&quot;
+local TEAM_IDENTIFIER=&quot;&quot;
+
+if [[ &quot;$NESTED&quot; == NESTED ]]; then
+    # Ignore bundle identifier for nested applications
+    BUNDLE_IDENTIFIER=&quot;&quot;
+fi
+
+# Make sure that the Info.plist file is where we expect it
+if [ ! -e &quot;$APP_PATH/Info.plist&quot; ]; then
+    error &quot;Expected file does not exist: &#39;$APP_PATH/Info.plist&#39;&quot;
+fi
+
+# Make a copy of old Info.plist, it will come handy later to extract some old values
+cp -f &quot;$APP_PATH/Info.plist&quot; &quot;$TEMP_DIR/oldInfo.plist&quot;
+
+# Read in current values from the app
+local CURRENT_NAME=$(PlistBuddy -c &quot;Print :CFBundleDisplayName&quot; &quot;$APP_PATH/Info.plist&quot;)
+local CURRENT_BUNDLE_IDENTIFIER=$(PlistBuddy -c &quot;Print :CFBundleIdentifier&quot; &quot;$APP_PATH/Info.plist&quot;)
+local NEW_PROVISION=$(provision_for_bundle_id &quot;${BUNDLE_IDENTIFIER:-$CURRENT_BUNDLE_IDENTIFIER}&quot;)
+
+if [[ &quot;$NEW_PROVISION&quot; == &quot;&quot; &amp;&amp; &quot;$NESTED&quot; != NESTED ]]; then
+    NEW_PROVISION=&quot;$DEFAULT_PROVISION&quot;
+fi
+
+if [[ &quot;$NEW_PROVISION&quot; == &quot;&quot; ]]; then
+    if [[ &quot;$NESTED&quot; == NESTED ]]; then
+        warning &quot;No provisioning profile for nested application: &#39;$APP_PATH&#39; with bundle identifier &#39;${BUNDLE_IDENTIFIER:-$CURRENT_BUNDLE_IDENTIFIER}&#39;&quot;
+    else
+        warning &quot;No provisioning profile for application: &#39;$APP_PATH&#39; with bundle identifier &#39;${BUNDLE_IDENTIFIER:-$CURRENT_BUNDLE_IDENTIFIER}&#39;&quot;
+    fi
+    error &quot;Use the -p option (example: -p com.example.app=xxxx.mobileprovision)&quot;
+fi
+
+local PROVISION_BUNDLE_IDENTIFIER=$(bundle_id_for_provison &quot;$NEW_PROVISION&quot;)
+
+# Use provisioning profile&#39;s bundle identifier
+if [ &quot;$BUNDLE_IDENTIFIER&quot; == &quot;&quot; ]; then
+    # shellcheck disable=SC2049
+    if [[ &quot;$PROVISION_BUNDLE_IDENTIFIER&quot; =~ \* ]]; then
+        log &quot;Bundle Identifier contains a *, using the current bundle identifier&quot;
+        BUNDLE_IDENTIFIER=&quot;$CURRENT_BUNDLE_IDENTIFIER&quot;
+    else
+        BUNDLE_IDENTIFIER=&quot;$PROVISION_BUNDLE_IDENTIFIER&quot;
+    fi
+fi
+
+if ! does_bundle_id_match &quot;$PROVISION_BUNDLE_IDENTIFIER&quot; &quot;$BUNDLE_IDENTIFIER&quot;; then
+    error &quot;Bundle Identifier &#39;$PROVISION_BUNDLE_IDENTIFIER&#39; in provisioning profile &#39;$NEW_PROVISION&#39; does not match the Bundle Identifier &#39;$BUNDLE_IDENTIFIER&#39; for application &#39;$APP_PATH&#39;.&quot;
+fi
+
+log &quot;Current bundle identifier is: &#39;$CURRENT_BUNDLE_IDENTIFIER&#39;&quot;
+log &quot;New bundle identifier will be: &#39;$BUNDLE_IDENTIFIER&#39;&quot;
+
+# Update the CFBundleDisplayName property in the Info.plist if a new name has been provided
+if [ &quot;${DISPLAY_NAME}&quot; != &quot;&quot; ]; then
+    if [ &quot;${DISPLAY_NAME}&quot; != &quot;${CURRENT_NAME}&quot; ]; then
+        log &quot;Changing display name from &#39;$CURRENT_NAME&#39; to &#39;$DISPLAY_NAME&#39;&quot;
+        PlistBuddy -c &quot;Set :CFBundleDisplayName $DISPLAY_NAME&quot; &quot;$APP_PATH/Info.plist&quot;
+    fi
+fi
+
+# Replace the embedded mobile provisioning profile
+log &quot;Validating the new provisioning profile: $NEW_PROVISION&quot;
+security cms -D -i &quot;$NEW_PROVISION&quot; &gt; &quot;$TEMP_DIR/profile.plist&quot;
+checkStatus
+
+APP_IDENTIFIER_PREFIX=$(PlistBuddy -c &quot;Print :Entitlements:application-identifier&quot; &quot;$TEMP_DIR/profile.plist&quot; | grep -E &#39;^[A-Z0-9]*&#39; -o | tr -d &#39;\n&#39;)
+if [ &quot;$APP_IDENTIFIER_PREFIX&quot; == &quot;&quot; ];
+then
+    APP_IDENTIFIER_PREFIX=$(PlistBuddy -c &quot;Print :ApplicationIdentifierPrefix:0&quot; &quot;$TEMP_DIR/profile.plist&quot;)
+    if [ &quot;$APP_IDENTIFIER_PREFIX&quot; == &quot;&quot; ]; then
+        error &quot;Failed to extract any app identifier prefix from &#39;$NEW_PROVISION&#39;&quot;
+    else
+        warning &quot;WARNING: extracted an app identifier prefix &#39;$APP_IDENTIFIER_PREFIX&#39; from &#39;$NEW_PROVISION&#39;, but it was not found in the profile&#39;s entitlements&quot;
+    fi
+else
+    log &quot;Profile app identifier prefix is &#39;$APP_IDENTIFIER_PREFIX&#39;&quot;
+fi
+
+# Set new app identifer prefix if such entry exists in plist file
+PlistBuddy -c &quot;Set :AppIdentifierPrefix $APP_IDENTIFIER_PREFIX.&quot; &quot;$APP_PATH/Info.plist&quot; 2&gt;/dev/null
+
+TEAM_IDENTIFIER=$(PlistBuddy -c &quot;Print :Entitlements:com.apple.developer.team-identifier&quot; &quot;$TEMP_DIR/profile.plist&quot; | tr -d &#39;\n&#39;)
+if [ &quot;$TEAM_IDENTIFIER&quot; == &quot;&quot; ]; then
+    TEAM_IDENTIFIER=$(PlistBuddy -c &quot;Print :TeamIdentifier:0&quot; &quot;$TEMP_DIR/profile.plist&quot;)
+    if [ &quot;$TEAM_IDENTIFIER&quot; == &quot;&quot; ]; then
+        warning &quot;Failed to extract team identifier from &#39;$NEW_PROVISION&#39;, resigned ipa may fail on iOS 8 and higher&quot;
+    else
+        warning &quot;WARNING: extracted a team identifier &#39;$TEAM_IDENTIFIER&#39; from &#39;$NEW_PROVISION&#39;, but it was not found in the profile&#39;s entitlements, resigned ipa may fail on iOS 8 and higher&quot;
+    fi
+else
+    log &quot;Profile team identifier is &#39;$TEAM_IDENTIFIER&#39;&quot;
+fi
+
+# Make a copy of old embedded provisioning profile for further use
+cp -f &quot;$APP_PATH/embedded.mobileprovision&quot; &quot;$TEMP_DIR/old-embedded.mobileprovision&quot;
+
+# Replace embedded provisioning profile with new file
+cp -f &quot;$NEW_PROVISION&quot; &quot;$APP_PATH/embedded.mobileprovision&quot;
+
+#if the current bundle identifier is different from the new one in the provisioning profile, then change it.
+if [ &quot;$CURRENT_BUNDLE_IDENTIFIER&quot; != &quot;$BUNDLE_IDENTIFIER&quot; ]; then
+    log &quot;Updating the bundle identifier from &#39;$CURRENT_BUNDLE_IDENTIFIER&#39; to &#39;$BUNDLE_IDENTIFIER&#39;&quot;
+    PlistBuddy -c &quot;Set :CFBundleIdentifier $BUNDLE_IDENTIFIER&quot; &quot;$APP_PATH/Info.plist&quot;
+    checkStatus
+fi
+
+# Update the version number properties in the Info.plist if a version number has been provided
+if [ &quot;$VERSION_NUMBER&quot; != &quot;&quot; ]; then
+    CURRENT_VERSION_NUMBER=$(PlistBuddy -c &quot;Print :CFBundleVersion&quot; &quot;$APP_PATH/Info.plist&quot;)
+    if [ &quot;$VERSION_NUMBER&quot; != &quot;$CURRENT_VERSION_NUMBER&quot; ]; then
+        log &quot;Updating the version from &#39;$CURRENT_VERSION_NUMBER&#39; to &#39;$VERSION_NUMBER&#39;&quot;
+        PlistBuddy -c &quot;Set :CFBundleVersion $VERSION_NUMBER&quot; &quot;$APP_PATH/Info.plist&quot;
+        PlistBuddy -c &quot;Set :CFBundleShortVersionString $VERSION_NUMBER&quot; &quot;$APP_PATH/Info.plist&quot;
+    fi
+fi
+
+# Update short version string in the Info.plist if provided
+if [[ -n &quot;$SHORT_VERSION&quot; ]]; then
+    CURRENT_VALUE=&quot;$(PlistBuddy -c &quot;Print :CFBundleShortVersionString&quot; &quot;$APP_PATH/Info.plist&quot;)&quot;
+    # Even if the old value is same - just update, less code, less debugging
+    log &quot;Updating the short version string (CFBundleShortVersionString) from &#39;$CURRENT_VALUE&#39; to &#39;$SHORT_VERSION&#39;&quot;
+    PlistBuddy -c &quot;Set :CFBundleShortVersionString $SHORT_VERSION&quot; &quot;$APP_PATH/Info.plist&quot;
+fi
+
+# Update bundle version in the Info.plist if provided
+if [[ -n &quot;$BUNDLE_VERSION&quot; ]]; then
+    CURRENT_VALUE=&quot;$(PlistBuddy -c &quot;Print :CFBundleVersion&quot; &quot;$APP_PATH/Info.plist&quot;)&quot;
+    # Even if the old value is same - just update, less code, less debugging
+    log &quot;Updating the bundle version (CFBundleVersion) from &#39;$CURRENT_VALUE&#39; to &#39;$BUNDLE_VERSION&#39;&quot;
+    PlistBuddy -c &quot;Set :CFBundleVersion $BUNDLE_VERSION&quot; &quot;$APP_PATH/Info.plist&quot;
+fi
+
+# Check for and resign any embedded frameworks (new feature for iOS 8 and above apps)
+FRAMEWORKS_DIR=&quot;$APP_PATH/Frameworks&quot;
+if [ -d &quot;$FRAMEWORKS_DIR&quot; ]; then
+    if [ &quot;$TEAM_IDENTIFIER&quot; == &quot;&quot; ]; then
+        error &quot;ERROR: embedded frameworks detected, re-signing iOS 8 (or higher) applications wihout a team identifier in the certificate/profile does not work&quot;
+    fi
+
+    log &quot;Resigning embedded frameworks using certificate: &#39;$CERTIFICATE&#39;&quot;
+    for framework in &quot;$FRAMEWORKS_DIR&quot;  
+    do
+        if [[ &quot;$framework&quot; == *.framework || &quot;$framework&quot; == *.dylib ]]; then
+            log &quot;Resigning &#39;$framework&#39;&quot;
+            # Must not qote KEYCHAIN_FLAG because it needs to be unwrapped and passed to codesign with spaces
+            # shellcheck disable=SC2086
+            /usr/bin/codesign ${VERBOSE} ${KEYCHAIN_FLAG} -f -s &quot;$CERTIFICATE&quot; &quot;$framework&quot;
+            checkStatus
+        else
+            log &quot;Ignoring non-framework: $framework&quot;
+        fi
+    done
+fi
+
+# Check for and update bundle identifiers for extensions and associated nested apps
+log &quot;Fixing nested app and extension references&quot;
+for key in &quot;${NESTED_APP_REFERENCE_KEYS[@]}&quot;; do
+    # Check if Info.plist has a reference to another app or extension
+    REF_BUNDLE_ID=$(PlistBuddy -c &quot;Print ${key}&quot; &quot;$APP_PATH/Info.plist&quot; 2&gt;/dev/null)
+    if [ -n &quot;$REF_BUNDLE_ID&quot; ]; then
+        # Found a reference bundle id, now get the corresponding provisioning profile for this bundle id
+        REF_PROVISION=$(provision_for_bundle_id &quot;$REF_BUNDLE_ID&quot;)
+        # Map to the new bundle id
+        NEW_REF_BUNDLE_ID=$(bundle_id_for_provison &quot;$REF_PROVISION&quot;)
+        # Change if not the same and if doesn&#39;t contain wildcard
+        # shellcheck disable=SC2049
+        if [[ &quot;$REF_BUNDLE_ID&quot; != &quot;$NEW_REF_BUNDLE_ID&quot; ]] &amp;&amp; ! [[ &quot;$NEW_REF_BUNDLE_ID&quot; =~ \* ]]; then
+            log &quot;Updating nested app or extension reference for ${key} key from ${REF_BUNDLE_ID} to ${NEW_REF_BUNDLE_ID}&quot;
+            PlistBuddy -c &quot;Set ${key} $NEW_REF_BUNDLE_ID&quot; &quot;$APP_PATH/Info.plist&quot;
+        fi
+    fi
+done
+
+if [ &quot;$ENTITLEMENTS&quot; != &quot;&quot; ]; then
+    if [ -n &quot;$APP_IDENTIFIER_PREFIX&quot; ]; then
+        # sanity check the &#39;application-identifier&#39; is present in the provided entitlements and matches the provisioning profile value
+        ENTITLEMENTS_APP_ID_PREFIX=$(PlistBuddy -c &quot;Print :application-identifier&quot; &quot;$ENTITLEMENTS&quot; | grep -E &#39;^[A-Z0-9]*&#39; -o | tr -d &#39;\n&#39;)
+        if [ &quot;$ENTITLEMENTS_APP_ID_PREFIX&quot; == &quot;&quot; ]; then
+            error &quot;Provided entitlements file is missing a value for the required &#39;application-identifier&#39; key&quot;
+        elif [ &quot;$ENTITLEMENTS_APP_ID_PREFIX&quot; != &quot;$APP_IDENTIFIER_PREFIX&quot; ]; then
+            error &quot;Provided entitlements file&#39;s app identifier prefix value &#39;$ENTITLEMENTS_APP_ID_PREFIX&#39; does not match the provided provisioning profile&#39;s value &#39;$APP_IDENTIFIER_PREFIX&#39;&quot;
+        fi
+    fi
+
+    if [ -n &quot;$TEAM_IDENTIFIER&quot; ]; then
+        # sanity check the &#39;com.apple.developer.team-identifier&#39; is present in the provided entitlements and matches the provisioning profile value
+        ENTITLEMENTS_TEAM_IDENTIFIER=$(PlistBuddy -c &quot;Print :com.apple.developer.team-identifier&quot; &quot;$ENTITLEMENTS&quot; | tr -d &#39;\n&#39;)
+        if [ &quot;$ENTITLEMENTS_TEAM_IDENTIFIER&quot; == &quot;&quot; ]; then
+            error &quot;Provided entitlements file is missing a value for the required &#39;com.apple.developer.team-identifier&#39; key&quot;
+        elif [ &quot;$ENTITLEMENTS_TEAM_IDENTIFIER&quot; != &quot;$TEAM_IDENTIFIER&quot; ]; then
+            error &quot;Provided entitlements file&#39;s &#39;com.apple.developer.team-identifier&#39; &#39;$ENTITLEMENTS_TEAM_IDENTIFIER&#39; does not match the provided provisioning profile&#39;s value &#39;$TEAM_IDENTIFIER&#39;&quot;
+        fi
+    fi
+
+    log &quot;Resigning application using certificate: &#39;$CERTIFICATE&#39;&quot;
+    log &quot;and entitlements: $ENTITLEMENTS&quot;
+    cp -f &quot;$ENTITLEMENTS&quot; &quot;$APP_PATH/archived-expanded-entitlements.xcent&quot;
+    /usr/bin/codesign ${VERBOSE} -f -s &quot;$CERTIFICATE&quot; --entitlements &quot;$ENTITLEMENTS&quot; &quot;$APP_PATH&quot;
+    checkStatus
+elif  [[ -n &quot;${USE_APP_ENTITLEMENTS}&quot; ]]; then
+    # Extract entitlements from provisioning profile and from the app binary
+    # then combine them together
+
+    log &quot;Extracting entitlements from provisioning profile&quot;
+    PROFILE_ENTITLEMENTS=&quot;$TEMP_DIR/profileEntitlements&quot;
+    PlistBuddy -x -c &quot;Print Entitlements&quot; &quot;$TEMP_DIR/profile.plist&quot; &gt; &quot;$PROFILE_ENTITLEMENTS&quot;
+    checkStatus
+
+    log &quot;Extracting entitlements from the app&quot;
+    APP_ENTITLEMENTS=&quot;$TEMP_DIR/appEntitlements&quot;
+    /usr/bin/codesign -d --entitlements :&quot;$APP_ENTITLEMENTS&quot; &quot;$APP_PATH&quot;
+    checkStatus
+
+    log &quot;\nApp entitlements for ${APP_PATH}:&quot;
+    log &quot;$(cat &quot;$APP_ENTITLEMENTS&quot;)&quot;
+
+    log &quot;Patching profile entitlements with values from app entitlements&quot;
+    PATCHED_ENTITLEMENTS=&quot;$TEMP_DIR/patchedEntitlements&quot;
+    # Start with using what comes in provisioning profile entitlements before patching
+    cp -f &quot;$PROFILE_ENTITLEMENTS&quot; &quot;$PATCHED_ENTITLEMENTS&quot;
+
+    log &quot;Removing blacklisted keys from patched profile&quot;
+    # See https://github.com/facebook/buck/issues/798 and https://github.com/facebook/buck/pull/802/files
+
+    # Update in https://github.com/facebook/buck/commit/99c0fbc3ab5ecf04d186913374f660683deccdef
+    # Update in https://github.com/facebook/buck/commit/36db188da9f6acbb9df419dc1904315ab00c4e19
+
+    # Buck changes referenced above are not self-explanatory and do not seem exhaustive or up-to-date
+    # Comments below explain the rules applied to each key in order to make realignment with future Xcode export logic easier
+    BLACKLISTED_KEYS=(\
+        # PP list identifiers inconsistent with app-defined ones and this key does not seem to appear in IPA entitlements, so ignore it
+        &quot;com.apple.developer.icloud-container-development-container-identifiers&quot; \
+        # This key has an invalid generic value in PP (actual value is set by Xcode during export), see dedicated processing a few blocks below
+        &quot;com.apple.developer.icloud-container-environment&quot; \
+        # PP list identifiers inconsistent with app-defined ones, must use App entitlements value
+        &quot;com.apple.developer.icloud-container-identifiers&quot; \
+        # PP enable all available services and not app-defined ones, must use App entitlements value
+        &quot;com.apple.developer.icloud-services&quot; \
+        # Was already blacklisted in previous version, but has someone ever seen this key in a PP?
+        &quot;com.apple.developer.restricted-resource-mode&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.nfc.readersession.formats&quot; \
+        # PP list a single TeamID.* identifier and not app-defined ones, must use App entitlements value
+        &quot;com.apple.developer.pass-type-identifiers&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.siri&quot; \
+        # PP list identifiers inconsistent with app-defined ones, must use App entitlements value
+        &quot;com.apple.developer.ubiquity-container-identifiers&quot; \
+        # PP define a generic TeamID.* identifier and not the app-defined one, must use App entitlements value
+        &quot;com.apple.developer.ubiquity-kvstore-identifier&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;inter-app-audio&quot; \
+        # PP define a generic TeamID.* identifier and not the app-defined one, must use App entitlements value
+        &quot;keychain-access-groups&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.homekit&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.healthkit&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.healthkit.access&quot; \
+        # PP list identifiers inconsistent with app-defined ones, must use App entitlements value
+        &quot;com.apple.developer.in-app-payments&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.networking.vpn.api&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.networking.HotspotConfiguration&quot; \
+        # PP list all available extensions and not app-defined ones, must use App entitlements value
+        &quot;com.apple.developer.networking.networkextension&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.networking.multipath&quot; \
+        # PP enable all domains via a non-AppStore-compliant &#39;*&#39; value, must use App entitlements value
+        &quot;com.apple.developer.associated-domains&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.developer.default-data-protection&quot; \
+        # PP seem to list the same groups as the App, but use App entitlements value to be sure
+        &quot;com.apple.security.application-groups&quot; \
+        # Was already blacklisted in previous version, seems to be an artifact from an old Xcode release
+        &quot;com.apple.developer.maps&quot; \
+        # If actually used by the App, this value will be set in its entitlements
+        &quot;com.apple.external-accessory.wireless-configuration&quot;
+    )
+
+    # Blacklisted keys must not be included into new profile, so remove them from patched profile
+    for KEY in &quot;${BLACKLISTED_KEYS[@]}&quot;; do
+        log &quot;Removing blacklisted key: $KEY&quot;
+        PlistBuddy -c &quot;Delete $KEY&quot; &quot;$PATCHED_ENTITLEMENTS&quot; 2&gt;/dev/null
+    done
+
+    # Get the old and new app identifier (prefix)
+    APP_ID_KEY=&quot;application-identifier&quot;
+    # Extract just the identifier from the value
+    # Use the fact that we are after some identifer, which is always at the start of the string
+    OLD_APP_ID=$(PlistBuddy -c &quot;Print $APP_ID_KEY&quot; &quot;$APP_ENTITLEMENTS&quot; | grep -E &#39;^[A-Z0-9]*&#39; -o | tr -d &#39;\n&#39;)
+    NEW_APP_ID=$(PlistBuddy -c &quot;Print $APP_ID_KEY&quot; &quot;$PROFILE_ENTITLEMENTS&quot; | grep -E &#39;^[A-Z0-9]*&#39; -o | tr -d &#39;\n&#39;)
+
+    # Get the old and the new team ID
+    # Old team ID is not part of app entitlements, have to get it from old embedded provisioning profile
+    security cms -D -i &quot;$TEMP_DIR/old-embedded.mobileprovision&quot; &gt; &quot;$TEMP_DIR/old-embedded-profile.plist&quot;
+    OLD_TEAM_ID=$(PlistBuddy -c &quot;Print :TeamIdentifier:0&quot; &quot;$TEMP_DIR/old-embedded-profile.plist&quot;)
+    # New team ID is part of profile entitlements
+    NEW_TEAM_ID=$(PlistBuddy -c &quot;Print com.apple.developer.team-identifier&quot; &quot;$PROFILE_ENTITLEMENTS&quot; | grep -E &#39;^[A-Z0-9]*&#39; -o | tr -d &#39;\n&#39;)
+
+    # List of rules for transferring entitlements from app to profile plist
+    # The format for each enty is &quot;KEY[|ID_TYPE]&quot;
+    # Where KEY is the plist key, e.g. &quot;keychain-access-groups&quot;
+    # and ID_TYPE is optional part separated by &#39;|&#39; that specifies what value to patch:
+    # TEAM_ID - patch the TeamIdentifierPrefix
+    # APP_ID - patch the AppIdentifierPrefix
+    # Patching means replacing old value from app entitlements with new value from provisioning profile
+    # For example, for KEY=keychain-access-groups the ID_TYPE=APP_ID
+    # Which means that old app ID prefix in keychain-access-groups will be replaced with new app ID prefix
+    # There can be only one ID_TYPE specified
+    # If entitlements use more than one ID type for single entitlement, then this way of resigning will not work
+    # instead an entitlements file must be provided explicitly
+    ENTITLEMENTS_TRANSFER_RULES=(\
+        &quot;com.apple.developer.associated-domains&quot; \
+        &quot;com.apple.developer.default-data-protection&quot; \
+        &quot;com.apple.developer.healthkit&quot; \
+        &quot;com.apple.developer.healthkit.access&quot; \
+        &quot;com.apple.developer.homekit&quot; \
+        &quot;com.apple.developer.icloud-container-environment&quot; \
+        &quot;com.apple.developer.icloud-container-identifiers&quot; \
+        &quot;com.apple.developer.icloud-services&quot; \
+        &quot;com.apple.developer.in-app-payments&quot; \
+        &quot;com.apple.developer.networking.HotspotConfiguration&quot; \
+        &quot;com.apple.developer.networking.multipath&quot; \
+        &quot;com.apple.developer.networking.networkextension&quot; \
+        &quot;com.apple.developer.networking.vpn.api&quot; \
+        &quot;com.apple.developer.nfc.readersession.formats&quot; \
+        &quot;com.apple.developer.pass-type-identifiers|TEAM_ID&quot; \
+        &quot;com.apple.developer.siri&quot; \
+        &quot;com.apple.developer.ubiquity-container-identifiers&quot; \
+        &quot;com.apple.developer.ubiquity-kvstore-identifier|TEAM_ID&quot; \
+        &quot;com.apple.external-accessory.wireless-configuration&quot; \
+        &quot;com.apple.security.application-groups&quot; \
+        &quot;inter-app-audio&quot; \
+        &quot;keychain-access-groups|APP_ID&quot;)
+
+    # Loop over all the entitlement keys that need to be transferred from app entitlements
+    for RULE in &quot;${ENTITLEMENTS_TRANSFER_RULES[@]}&quot;; do
+        KEY=$(echo &quot;$RULE&quot; | cut -d&#39;|&#39; -f1)
+        ID_TYPE=$(echo &quot;$RULE&quot; | cut -d&#39;|&#39; -f2)
+
+        # Get the entry from app&#39;s entitlements
+        # Read it with PlistBuddy as XML, then strip the header and &lt;plist&gt;&lt;/plist&gt; part
+        ENTITLEMENTS_VALUE=&quot;$(PlistBuddy -x -c &quot;Print $KEY&quot; &quot;$APP_ENTITLEMENTS&quot; 2&gt;/dev/null | sed -e &#39;s,.*&lt;plist[^&gt;]*&gt;\(.*\)&lt;/plist&gt;,\1,g&#39;)&quot;
+        if [[ -z &quot;$ENTITLEMENTS_VALUE&quot; ]]; then
+            log &quot;No value for &#39;$KEY&#39;&quot;
+            continue
+        fi
+
+        if [[ &quot;$KEY&quot; == &quot;com.apple.developer.icloud-container-environment&quot; ]]; then
+            # Add specific iCloud Environment key to patched entitlements
+            # This value is set by Xcode during export (manually selected for Development and AdHoc, automatically set to Production for Store)
+            # Would need an additional dedicated option to specify the iCloud environment to be used (Development or Production)
+            # For now, we assume Production is to be used when signing with a Distribution certificate, Development if not
+            local certificate_name=$CERTIFICATE
+            local sha1_pattern=&#39;[0-9A-F]{40}&#39;
+
+            if [[ &quot;$CERTIFICATE&quot; =~ $sha1_pattern ]]; then
+                log &quot;Certificate $CERTIFICATE matches a SHA1 pattern&quot;
+                local certificate_matches=&quot;$( security find-identity -v -p codesigning | grep -m 1 &quot;$CERTIFICATE&quot; )&quot;
+                if [ -n &quot;$certificate_matches&quot; ]; then
+                    certificate_name=&quot;$( sed -E s/[^\&quot;]+\&quot;\([^\&quot;]+\)\&quot;.*/\\1/ &lt;&lt;&lt; $certificate_matches )&quot;
+                    log &quot;Certificate name: $certificate_name&quot;
+                fi
+            fi
+
+            if [[ &quot;$certificate_name&quot; =~ &quot;Distribution:&quot; ]]; then
+                ICLOUD_ENV=&quot;Production&quot;
+            else
+                ICLOUD_ENV=&quot;Development&quot;
+            fi
+            log &quot;Overriding value for $KEY&quot;
+            log &quot;Old value: $ENTITLEMENTS_VALUE&quot;
+            log &quot;New value: $ICLOUD_ENV&quot;
+            ENTITLEMENTS_VALUE=&quot;$ICLOUD_ENV&quot;
+        fi
+
+        log &quot;App entitlements value for key &#39;$KEY&#39;:&quot;
+        log &quot;$ENTITLEMENTS_VALUE&quot;
+
+        # Remove the entry for current key from profisioning profile entitlements (if exists)
+        PlistBuddy -c &quot;Delete $KEY&quot; &quot;$PATCHED_ENTITLEMENTS&quot; 2&gt;/dev/null
+
+        # Add new entry to patched entitlements
+        # plutil needs dots in the key path to be escaped (e.g. com\.apple\.security\.application-groups)
+        # otherwise it interprets they key path as nested keys
+        # TODO: Should be able to replace with echo ${KEY//\./\\\\.} and remove shellcheck disable directive
+        # shellcheck disable=SC2001
+        PLUTIL_KEY=$(echo &quot;$KEY&quot; | sed &#39;s/\./\\\./g&#39;)
+        plutil -insert &quot;$PLUTIL_KEY&quot; -xml &quot;$ENTITLEMENTS_VALUE&quot; &quot;$PATCHED_ENTITLEMENTS&quot;
+
+        # Patch the ID value if specified
+        if [[ &quot;$ID_TYPE&quot; == &quot;APP_ID&quot; ]]; then
+            # Replace old value with new value in patched entitlements
+            log &quot;Replacing old app identifier prefix &#39;$OLD_APP_ID&#39; with new value &#39;$NEW_APP_ID&#39;&quot;
+            sed -i .bak &quot;s/$OLD_APP_ID/$NEW_APP_ID/g&quot; &quot;$PATCHED_ENTITLEMENTS&quot;
+        elif [[ &quot;$ID_TYPE&quot; == &quot;TEAM_ID&quot; ]]; then
+            # Replace old team identifier with new value
+            log &quot;Replacing old team ID &#39;$OLD_TEAM_ID&#39; with new team ID: &#39;$NEW_TEAM_ID&#39;&quot;
+            sed -i .bak &quot;s/$OLD_TEAM_ID/$NEW_TEAM_ID/g&quot; &quot;$PATCHED_ENTITLEMENTS&quot;
+        else
+            continue
+        fi
+    done
+
+    # Replace old bundle ID with new bundle ID in patched entitlements
+    # Read old bundle ID from the old Info.plist which was saved for this purpose
+    OLD_BUNDLE_ID=&quot;$(PlistBuddy -c &quot;Print :CFBundleIdentifier&quot; &quot;$TEMP_DIR/oldInfo.plist&quot;)&quot;
+    NEW_BUNDLE_ID=&quot;$(bundle_id_for_provison &quot;$NEW_PROVISION&quot;)&quot;
+    log &quot;Replacing old bundle ID &#39;$OLD_BUNDLE_ID&#39; with new bundle ID &#39;$NEW_BUNDLE_ID&#39; in patched entitlements&quot;
+    # Note: ideally we&#39;d match against the opening &lt;string&gt; tag too, but this isn&#39;t possible
+    # because $OLD_BUNDLE_ID and $NEW_BUNDLE_ID do not include the team ID prefix which is
+    # present in the entitlements file.
+    # e.g. &lt;string&gt;AB1GP98Q19.com.example.foo&lt;/string&gt;
+    #         vs
+    #      com.example.foo
+    sed -i .bak &quot;s!${OLD_BUNDLE_ID}&lt;/string&gt;!${NEW_BUNDLE_ID}&lt;/string&gt;!g&quot; &quot;$PATCHED_ENTITLEMENTS&quot;
+
+    log &quot;Resigning application using certificate: &#39;$CERTIFICATE&#39;&quot;
+    log &quot;and patched entitlements:&quot;
+    log &quot;$(cat &quot;$PATCHED_ENTITLEMENTS&quot;)&quot;
+    cp -f &quot;$PATCHED_ENTITLEMENTS&quot; &quot;$APP_PATH/archived-expanded-entitlements.xcent&quot;
+    /usr/bin/codesign ${VERBOSE} -f -s &quot;$CERTIFICATE&quot; --entitlements &quot;$PATCHED_ENTITLEMENTS&quot; &quot;$APP_PATH&quot;
+    checkStatus
+else
+    log &quot;Extracting entitlements from provisioning profile&quot;
+    PlistBuddy -x -c &quot;Print Entitlements&quot; &quot;$TEMP_DIR/profile.plist&quot; &gt; &quot;$TEMP_DIR/newEntitlements&quot;
+    checkStatus
+    log &quot;Resigning application using certificate: &#39;$CERTIFICATE&#39;&quot;
+    log &quot;and entitlements from provisioning profile: $NEW_PROVISION&quot;
+    if [[ &quot;${XCODE_VERSION/.*/}&quot; -lt 10 ]]; then
+        log &quot;Creating an archived-expanded-entitlements.xcent file for Xcode 9 builds or earlier&quot;
+        cp -- &quot;$TEMP_DIR/newEntitlements&quot; &quot;$APP_PATH/archived-expanded-entitlements.xcent&quot;
+    fi
+    # Must not qote KEYCHAIN_FLAG because it needs to be unwrapped and passed to codesign with spaces
+    # shellcheck disable=SC2086
+    /usr/bin/codesign ${VERBOSE} ${KEYCHAIN_FLAG} -f -s &quot;$CERTIFICATE&quot; --entitlements &quot;$TEMP_DIR/newEntitlements&quot; &quot;$APP_PATH&quot;
+    checkStatus
+fi
+
+# Remove the temporary files if they were created before generating ipa
+rm -f &quot;$TEMP_DIR/newEntitlements&quot;
+rm -f &quot;$PROFILE_ENTITLEMENTS&quot;
+rm -f &quot;$APP_ENTITLEMENTS&quot;
+rm -f &quot;$PATCHED_ENTITLEMENTS&quot;
+rm -f &quot;$PATCHED_ENTITLEMENTS.bak&quot;
+rm -f &quot;$TEMP_DIR/old-embedded-profile.plist&quot;
+rm -f &quot;$TEMP_DIR/profile.plist&quot;
+rm -f &quot;$TEMP_DIR/old-embedded.mobileprovision&quot;
+rm -f &quot;$TEMP_DIR/oldInfo.plist&quot;</pre>
+
+<p>}</p>
+
+<p># Sign nested applications and app extensions while IFS= read -d &#39;&#39;
+-r app; do</p>
+
+<pre>log &quot;Resigning nested application: &#39;$app&#39;&quot;
+resign &quot;$app&quot; NESTED</pre>
+
+<p>done &lt; &lt;(find “$TEMP_DIR/Payload/$APP_NAME” -d -mindepth 1 ( -name
+“*.app” -or -name “*.appex” ) -print0)</p>
+
+<p># Resign the application resign “$TEMP_DIR/Payload/$APP_NAME”</p>
+
+<p># Repackage quietly log “Repackaging as $NEW_FILE”</p>
+
+<p># Zip up the contents of the “$TEMP_DIR” folder # Navigate to the temporary
+directory (sending the output to null) # Zip all the contents, saving the
+zip file in the above directory # Navigate back to the orignating directory
+(sending the output to null) pushd “$TEMP_DIR” &gt; /dev/null # TODO: Fix
+shellcheck warning and remove directive # shellcheck disable=SC2035 zip
+-qry “../$TEMP_DIR.ipa” * popd &gt; /dev/null</p>
+
+<p># Move the resulting ipa to the target destination mv “$TEMP_DIR.ipa”
+“$NEW_FILE”</p>
+
+<p># Remove the temp directory rm -rf “$TEMP_DIR”</p>
+
+<p>log “Process complete”</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

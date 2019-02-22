@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::EnvironmentPrinter - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-anonymized_path">::anonymized_path</a>
+    
+    <li ><a href="#method-c-copy_to_clipboard">::copy_to_clipboard</a>
+    
+    <li ><a href="#method-c-gems_to_check">::gems_to_check</a>
+    
+    <li ><a href="#method-c-get">::get</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-print_date">::print_date</a>
+    
+    <li ><a href="#method-c-print_fastlane_files">::print_fastlane_files</a>
+    
+    <li ><a href="#method-c-print_loaded_fastlane_gems">::print_loaded_fastlane_gems</a>
+    
+    <li ><a href="#method-c-print_loaded_gems">::print_loaded_gems</a>
+    
+    <li ><a href="#method-c-print_loaded_plugins">::print_loaded_plugins</a>
+    
+    <li ><a href="#method-c-print_system_environment">::print_system_environment</a>
+    
+    <li ><a href="#method-c-print_system_locale">::print_system_locale</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::EnvironmentPrinter">
+  <h1 id="class-Fastlane::EnvironmentPrinter" class="class">
+    class Fastlane::EnvironmentPrinter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-anonymized_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">anonymized_path</span><span
+            class="method-args">(path, home = ENV['HOME'])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="anonymized_path-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">anonymized_path</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">home</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;HOME&#39;</span>])
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">home</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">%r{^#{home}(?=/(.*)|$)}</span>, <span class="ruby-string">&#39;~\2&#39;</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-copy_to_clipboard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_to_clipboard</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Copy a given string into the clipboard Make sure to ask the user first, as
+some people don&#39;t use a clipboard manager, so they might lose something
+important</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy_to_clipboard-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">copy_to_clipboard</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;open3&#39;</span>
+  <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">popen3</span>(<span class="ruby-string">&#39;pbcopy&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">input</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">string</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gems_to_check" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gems_to_check</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We have this as a separate method, as this has to be handled slightly
+differently, depending on how fastlane is being called</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gems_to_check-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gems_to_check</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">contained_fastlane?</span>
+    <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">loaded_specs</span>.<span class="ruby-identifier">values</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Generating fastlane environment output, this might take a few seconds...&quot;</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;fastlane/markdown_table_formatter&quot;</span>
+  <span class="ruby-identifier">env_output</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_system_environment</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_system_locale</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_fastlane_files</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_loaded_fastlane_gems</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_loaded_plugins</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_loaded_gems</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">print_date</span>
+
+  <span class="ruby-comment"># Adding title</span>
+  <span class="ruby-identifier">status</span> = (<span class="ruby-identifier">env_output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;🚫&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&quot;🚫&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;✅&quot;</span>)
+  <span class="ruby-identifier">env_header</span> = <span class="ruby-node">&quot;&lt;details&gt;&lt;summary&gt;#{status} fastlane environment #{status}&lt;/summary&gt;\n\n&quot;</span>
+  <span class="ruby-identifier">env_tail</span> = <span class="ruby-string">&quot;&lt;/details&gt;&quot;</span>
+  <span class="ruby-identifier">final_output</span> = <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">captured_output?</span>
+    <span class="ruby-identifier">final_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;### Captured Output\n\n&quot;</span>
+    <span class="ruby-identifier">final_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Command Used: `#{ARGV.join(&#39; &#39;)}`\n&quot;</span>
+    <span class="ruby-identifier">final_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;details&gt;&lt;summary&gt;Output/Log&lt;/summary&gt;\n\n```\n\n#{FastlaneCore::Globals.captured_output}\n\n```\n\n&lt;/details&gt;\n\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">final_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">env_header</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">env_output</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">env_tail</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  <span class="ruby-identifier">env_info</span> = <span class="ruby-identifier">get</span>
+
+  <span class="ruby-comment"># Remove sensitive option values</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">sensitive_strings</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sensitive_element</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">env_info</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-identifier">sensitive_element</span>, <span class="ruby-node">&quot;#########&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">env_info</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Take notice that this output may contain sensitive information, or simply information that you don&#39;t want to make public.&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">interactive?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;🙄  Wow, that&#39;s a lot of markdown text... should fastlane put it into your clipboard, so you can easily paste it on GitHub?&quot;</span>)
+    <span class="ruby-identifier">copy_to_clipboard</span>(<span class="ruby-identifier">env_info</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully copied markdown into your clipboard 🎨&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Open https://github.com/fastlane/fastlane/issues/new to submit a new issue ✅&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_date</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_date-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_date</span>
+  <span class="ruby-identifier">date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%Y-%m-%d&quot;</span>)
+  <span class="ruby-node">&quot;\n*generated on:* **#{date}**\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_fastlane_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_fastlane_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_fastlane_files-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_fastlane_files</span>
+  <span class="ruby-identifier">env_output</span> = <span class="ruby-node">&quot;### fastlane files:\n\n&quot;</span>
+
+  <span class="ruby-identifier">fastlane_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">fastfile_path</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fastlane_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">fastlane_path</span>)
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;details&gt;&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;summary&gt;`#{fastlane_path}`&lt;/summary&gt;\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;```ruby\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">fastlane_path</span>, <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;utf-8&quot;</span>)
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-string">&quot;\n```\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;/details&gt;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;**No Fastfile found**\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+
+  <span class="ruby-identifier">appfile_path</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">default_path</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">appfile_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">appfile_path</span>)
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;details&gt;&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;summary&gt;`#{appfile_path}`&lt;/summary&gt;\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;```ruby\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">appfile_path</span>, <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;utf-8&quot;</span>)
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-string">&quot;\n```\n&quot;</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;/details&gt;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;**No Appfile found**\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+  <span class="ruby-identifier">env_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_loaded_fastlane_gems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_loaded_fastlane_gems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_loaded_fastlane_gems-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_loaded_fastlane_gems</span>
+  <span class="ruby-comment"># fastlanes internal gems</span>
+  <span class="ruby-identifier">env_output</span> = <span class="ruby-node">&quot;### fastlane gems\n\n&quot;</span>
+  <span class="ruby-identifier">table</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;| Gem | Version | Update-Status |\n&quot;</span>
+  <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;|-----|---------|------------|\n&quot;</span>
+  <span class="ruby-identifier">fastlane_tools</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">TOOLS</span> <span class="ruby-operator">+</span> [<span class="ruby-value">:fastlane_core</span>, <span class="ruby-value">:credentials_manager</span>]
+
+  <span class="ruby-identifier">gems_to_check</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_gem</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;N/A&quot;</span>
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fastlane_tools</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_gem</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">latest_version</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UpdateChecker</span>.<span class="ruby-identifier">fetch_latest</span>(<span class="ruby-identifier">current_gem</span>.<span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">current_gem</span>.<span class="ruby-identifier">version</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">latest_version</span>)
+        <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;✅ Up-To-Date&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;🚫 Update available&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;💥 Check failed&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;| #{current_gem.name} | #{current_gem.version} | #{update_status} |\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">rendered_table</span> = <span class="ruby-constant">MarkdownTableFormatter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">table</span>)
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rendered_table</span>.<span class="ruby-identifier">to_md</span>
+
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">env_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_loaded_gems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_loaded_gems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_loaded_gems-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_loaded_gems</span>
+  <span class="ruby-identifier">env_output</span> = <span class="ruby-string">&quot;&lt;details&gt;&quot;</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;summary&gt;&lt;b&gt;Loaded gems&lt;/b&gt;&lt;/summary&gt;\n\n&quot;</span>
+
+  <span class="ruby-identifier">table</span> = <span class="ruby-string">&quot;| Gem | Version |\n&quot;</span>
+  <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;|-----|---------|\n&quot;</span>
+  <span class="ruby-identifier">gems_to_check</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_gem</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">TOOLS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_gem</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>)
+      <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;| #{current_gem.name} | #{current_gem.version} |\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rendered_table</span> = <span class="ruby-constant">MarkdownTableFormatter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">table</span>)
+
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rendered_table</span>.<span class="ruby-identifier">to_md</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;/details&gt;\n\n&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">env_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_loaded_plugins" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_loaded_plugins</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_loaded_plugins-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_loaded_plugins</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_ENV_PRINTER&quot;</span>] = <span class="ruby-string">&quot;enabled&quot;</span>
+  <span class="ruby-identifier">env_output</span> =  <span class="ruby-node">&quot;### Loaded fastlane plugins:\n&quot;</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">plugin_manager</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">PluginManager</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">plugin_manager</span>.<span class="ruby-identifier">load_plugins</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">plugin_manager</span>.<span class="ruby-identifier">available_plugins</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;**No plugins Loaded**\n&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">table</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;| Plugin | Version | Update-Status |\n&quot;</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;|--------|---------|\n&quot;</span>
+    <span class="ruby-identifier">plugin_manager</span>.<span class="ruby-identifier">available_plugins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">installed_version</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCollector</span>.<span class="ruby-identifier">determine_version</span>(<span class="ruby-identifier">plugin</span>)
+        <span class="ruby-identifier">latest_version</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UpdateChecker</span>.<span class="ruby-identifier">fetch_latest</span>(<span class="ruby-identifier">plugin</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">installed_version</span>) <span class="ruby-operator">==</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">latest_version</span>)
+          <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;✅ Up-To-Date&quot;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;🚫 Update available&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">rescue</span>
+        <span class="ruby-identifier">update_status</span> = <span class="ruby-string">&quot;💥 Check failed&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;| #{plugin} | #{installed_version} | #{update_status} |\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">rendered_table</span> = <span class="ruby-constant">MarkdownTableFormatter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">table</span>)
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rendered_table</span>.<span class="ruby-identifier">to_md</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+  <span class="ruby-identifier">env_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_system_environment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_system_environment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_system_environment-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_system_environment</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;openssl&quot;</span>
+
+  <span class="ruby-identifier">env_output</span> = <span class="ruby-node">&quot;### Stack\n\n&quot;</span>
+  <span class="ruby-identifier">product</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">build</span> = <span class="ruby-string">&quot;Unknown&quot;</span>
+  <span class="ruby-identifier">os_version</span> = <span class="ruby-string">&quot;UNKNOWN&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+    <span class="ruby-identifier">product</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">build</span> = <span class="ruby-value">%x`sw_vers`</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">strip</span> }
+    <span class="ruby-identifier">os_version</span> = <span class="ruby-identifier">version</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">linux?</span>
+    <span class="ruby-comment"># this should work on pretty much all linux distros</span>
+    <span class="ruby-identifier">os_version</span> = <span class="ruby-value">%x`uname -a`</span>.<span class="ruby-identifier">strip</span>
+    <span class="ruby-identifier">version</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">build</span> = <span class="ruby-value">%x`uname -r`</span>.<span class="ruby-identifier">strip</span>
+    <span class="ruby-identifier">product</span> = <span class="ruby-value">%x`cat /etc/issue.net`</span>.<span class="ruby-identifier">strip</span>
+
+    <span class="ruby-identifier">distro_guesser</span> = {
+      <span class="ruby-identifier">fedora</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/etc/fedora-release&quot;</span>,
+      <span class="ruby-identifier">debian_based</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/etc/debian_version&quot;</span>,
+      <span class="ruby-identifier">suse</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/etc/SUSE-release&quot;</span>,
+      <span class="ruby-identifier">mandrake</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/etc/mandrake-release&quot;</span>
+    }
+
+    <span class="ruby-identifier">distro_guesser</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dist</span>, <span class="ruby-identifier">vers</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">os_version</span> = <span class="ruby-node">&quot;#{dist} &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">vers</span>).<span class="ruby-identifier">strip</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">vers</span>)
+      <span class="ruby-identifier">version</span> = <span class="ruby-identifier">os_version</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">table_content</span> = {
+    <span class="ruby-string">&quot;fastlane&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>,
+    <span class="ruby-string">&quot;OS&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">os_version</span>,
+    <span class="ruby-string">&quot;Ruby&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">RUBY_VERSION</span>,
+    <span class="ruby-string">&quot;Bundler?&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">bundler?</span>,
+    <span class="ruby-string">&quot;Git&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">%x`git --version`</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">first</span>,
+    <span class="ruby-string">&quot;Installation Source&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">anonymized_path</span>(<span class="ruby-identifier">$PROGRAM_NAME</span>),
+    <span class="ruby-string">&quot;Host&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{product} #{version} (#{build})&quot;</span>,
+    <span class="ruby-string">&quot;Ruby Lib Dir&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">anonymized_path</span>(<span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;libdir&#39;</span>]),
+    <span class="ruby-string">&quot;OpenSSL Version&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">OPENSSL_VERSION</span>,
+    <span class="ruby-string">&quot;Is contained&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">contained_fastlane?</span>.<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-string">&quot;Is homebrew&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">homebrew?</span>.<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-string">&quot;Is installed via Fabric.app&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac_app?</span>.<span class="ruby-identifier">to_s</span>
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+    <span class="ruby-identifier">table_content</span>[<span class="ruby-string">&quot;Xcode Path&quot;</span>] = <span class="ruby-identifier">anonymized_path</span>(<span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_path</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">table_content</span>[<span class="ruby-string">&quot;Xcode Version&quot;</span>] = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_version</span>
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Could not get Xcode Version&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">table</span> = [<span class="ruby-string">&quot;| Key | Value |&quot;</span>]
+  <span class="ruby-identifier">table</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">table_content</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;| #{k} | #{v} |&quot;</span> }
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">rendered_table</span> = <span class="ruby-constant">MarkdownTableFormatter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">table</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rendered_table</span>.<span class="ruby-identifier">to_md</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Error rendering markdown table using the following text:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">table</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+    <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">table</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+  <span class="ruby-identifier">env_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_system_locale" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_system_locale</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_system_locale-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/environment_printer.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_system_locale</span>
+  <span class="ruby-identifier">env_output</span> = <span class="ruby-node">&quot;### System Locale\n\n&quot;</span>
+  <span class="ruby-identifier">found_one</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">env_table</span> = <span class="ruby-string">&quot;&quot;</span>
+  [<span class="ruby-string">&quot;LANG&quot;</span>, <span class="ruby-string">&quot;LC_ALL&quot;</span>, <span class="ruby-string">&quot;LANGUAGE&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">env_icon</span> = <span class="ruby-string">&quot;🚫&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">e</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">e</span>].<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>)
+      <span class="ruby-identifier">env_icon</span> = <span class="ruby-string">&quot;✅&quot;</span>
+      <span class="ruby-identifier">found_one</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">e</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">env_icon</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">env_table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;| #{e} | #{ENV[e]} | #{env_icon} |\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">found_one</span>
+    <span class="ruby-identifier">table</span> = <span class="ruby-string">&quot;| Error |\n&quot;</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;|-----|\n&quot;</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;| No Locale with UTF8 found 🚫|\n&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">table</span> = <span class="ruby-string">&quot;| Variable | Value |  |\n&quot;</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;|-----|---------|----|\n&quot;</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">env_table</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rendered_table</span> = <span class="ruby-constant">MarkdownTableFormatter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">table</span>)
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rendered_table</span>.<span class="ruby-identifier">to_md</span>
+  <span class="ruby-identifier">env_output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

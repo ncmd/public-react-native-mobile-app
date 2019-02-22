@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Produce::CommandsGenerator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Commander::Methods</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Produce::CommandsGenerator">
+  <h1 id="class-Produce::CommandsGenerator" class="class">
+    class Produce::CommandsGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/commands_generator.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File produce/lib/produce/commands_generator.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:name</span>, <span class="ruby-string">&#39;produce&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:version</span>, <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:description</span>, <span class="ruby-string">&#39;CLI for \produce\&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Author&#39;</span>, <span class="ruby-string">&#39;Felix Krause &lt;produce@krausefx.com&gt;&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Website&#39;</span>, <span class="ruby-string">&#39;https://fastlane.tools&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Documentation&#39;</span>, <span class="ruby-string">&#39;https://docs.fastlane.tools/actions/produce/&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help_formatter</span>, <span class="ruby-value">:compact</span>
+
+  <span class="ruby-identifier">global_option</span>(<span class="ruby-string">&#39;--verbose&#39;</span>) { <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose</span> = <span class="ruby-keyword">true</span> }
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:create</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce create&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Creates a new app on App Store Connect and the Apple Developer Portal&#39;</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+
+      <span class="ruby-identifier">puts</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Manager</span>.<span class="ruby-identifier">start_producing</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:enable_services</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce enable_services -a APP_IDENTIFIER SERVICE1, SERVICE2, ...&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Enable specific Application Services for a specific app on the Apple Developer Portal&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Enable HealthKit, HomeKit and Passbook&#39;</span>, <span class="ruby-string">&#39;fastlane produce enable_services -a com.example.app --healthkit --homekit --passbook&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--access-wifi&#39;</span>, <span class="ruby-string">&#39;Enable Access WiFi&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--app-group&#39;</span>, <span class="ruby-string">&#39;Enable App Groups&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--apple-pay&#39;</span>, <span class="ruby-string">&#39;Enable Apple Pay&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--auto-fill-credential&#39;</span>, <span class="ruby-string">&#39;Enable AutoFill Credential&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--associated-domains&#39;</span>, <span class="ruby-string">&#39;Enable Associated Domains&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--data-protection STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Enable Data Protection, suitable values are &quot;complete&quot;, &quot;unlessopen&quot; and &quot;untilfirstauth&quot;&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--game-center&#39;</span>, <span class="ruby-string">&#39;Enable Game Center&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--healthkit&#39;</span>, <span class="ruby-string">&#39;Enable HealthKit&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--homekit&#39;</span>, <span class="ruby-string">&#39;Enable HomeKit&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--hotspot&#39;</span>, <span class="ruby-string">&#39;Enable Hotspot&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--icloud STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Enable iCloud, suitable values are &quot;legacy&quot; and &quot;cloudkit&quot;&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--in-app-purchase&#39;</span>, <span class="ruby-string">&#39;Enable In-App Purchase&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--inter-app-audio&#39;</span>, <span class="ruby-string">&#39;Enable Inter-App-Audio&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--multipath&#39;</span>, <span class="ruby-string">&#39;Enable Multipath&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--network-extension&#39;</span>, <span class="ruby-string">&#39;Enable Network Extensions&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--nfc-tag-reading&#39;</span>, <span class="ruby-string">&#39;Enable NFC Tag Reading&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--personal-vpn&#39;</span>, <span class="ruby-string">&#39;Enable Personal VPN&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--passbook&#39;</span>, <span class="ruby-string">&#39;Enable Passbook (deprecated)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--push-notification&#39;</span>, <span class="ruby-string">&#39;Enable Push notification (only enables the service, does not configure certificates)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--sirikit&#39;</span>, <span class="ruby-string">&#39;Enable SiriKit&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--vpn-conf&#39;</span>, <span class="ruby-string">&#39;Enable VPN Configuration (deprecated)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--wallet&#39;</span>, <span class="ruby-string">&#39;Enable Wallet&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--wireless-conf&#39;</span>, <span class="ruby-string">&#39;Enable Wireless Accessory Configuration&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Filter the options so that we can still build the configuration</span>
+      <span class="ruby-identifier">allowed_keys</span> = <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:key</span>)
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">allowed_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) })
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/service&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">enable</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:disable_services</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce disable_services -a APP_IDENTIFIER SERVICE1, SERVICE2, ...&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Disable specific Application Services for a specific app on the Apple Developer Portal&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Disable HealthKit&#39;</span>, <span class="ruby-string">&#39;fastlane produce disable_services -a com.example.app --healthkit&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--access-wifi&#39;</span>, <span class="ruby-string">&#39;Disable Access WiFi&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--app-group&#39;</span>, <span class="ruby-string">&#39;Disable App Groups&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--apple-pay&#39;</span>, <span class="ruby-string">&#39;Disable Apple Pay&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--auto-fill-credential&#39;</span>, <span class="ruby-string">&#39;Disable AutoFill Credential&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--associated-domains&#39;</span>, <span class="ruby-string">&#39;Disable Associated Domains&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--data-protection&#39;</span>, <span class="ruby-string">&#39;Disable Data Protection&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--game-center&#39;</span>, <span class="ruby-string">&#39;Disable Game Center&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--healthkit&#39;</span>, <span class="ruby-string">&#39;Disable HealthKit&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--homekit&#39;</span>, <span class="ruby-string">&#39;Disable HomeKit&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--hotspot&#39;</span>, <span class="ruby-string">&#39;Disable Hotspot&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--icloud&#39;</span>, <span class="ruby-string">&#39;Disable iCloud&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--in-app-purchase&#39;</span>, <span class="ruby-string">&#39;Disable In-App Purchase&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--inter-app-audio&#39;</span>, <span class="ruby-string">&#39;Disable Inter-App-Audio&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--multipath&#39;</span>, <span class="ruby-string">&#39;Disable Multipath&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--network-extension&#39;</span>, <span class="ruby-string">&#39;Disable Network Extensions&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--nfc-tag-reading&#39;</span>, <span class="ruby-string">&#39;Disable NFC Tag Reading&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--personal-vpn&#39;</span>, <span class="ruby-string">&#39;Disable Personal VPN&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--passbook&#39;</span>, <span class="ruby-string">&#39;Disable Passbook (deprecated)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--push-notification&#39;</span>, <span class="ruby-string">&#39;Disable Push notifications&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--sirikit&#39;</span>, <span class="ruby-string">&#39;Disable SiriKit&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--vpn-conf&#39;</span>, <span class="ruby-string">&#39;Disable VPN Configuration (deprecated)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--wallet&#39;</span>, <span class="ruby-string">&#39;Disable Wallet&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;--wireless-conf&#39;</span>, <span class="ruby-string">&#39;Disable Wireless Accessory Configuration&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Filter the options so that we can still build the configuration</span>
+      <span class="ruby-identifier">allowed_keys</span> = <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:key</span>)
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">allowed_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) })
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/service&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">disable</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:group</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce group&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Ensure that a specific App Group exists&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Create group&#39;</span>, <span class="ruby-string">&#39;fastlane produce group -g group.example.app -n &quot;Example App Group&quot;&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-n&#39;</span>, <span class="ruby-string">&#39;--group_name STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Name for the group that is created (PRODUCE_GROUP_NAME)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-g&#39;</span>, <span class="ruby-string">&#39;--group_identifier STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Group identifier for the group (PRODUCE_GROUP_IDENTIFIER)&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">allowed_keys</span> = <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:key</span>)
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">allowed_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) })
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/group&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:associate_group</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce associate_group -a APP_IDENTIFIER GROUP_IDENTIFIER1, GROUP_IDENTIFIER2, ...&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Associate with a group, which is created if needed or simply located otherwise&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Associate with group&#39;</span>, <span class="ruby-string">&#39;fastlane produce associate-group -a com.example.app group.example.com&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/group&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">associate</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:cloud_container</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce cloud_container&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Ensure that a specific iCloud Container exists&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Create iCloud Container&#39;</span>, <span class="ruby-string">&#39;fastlane produce cloud_container -g iCloud.com.example.app -n &quot;Example iCloud Container&quot;&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-n&#39;</span>, <span class="ruby-string">&#39;--container_name STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Name for the iCloud Container that is created (PRODUCE_CLOUD_CONTAINER_NAME)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-g&#39;</span>, <span class="ruby-string">&#39;--container_identifier STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Identifier for the iCloud Container (PRODUCE_CLOUD_CONTAINER_IDENTIFIER&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">allowed_keys</span> = <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:key</span>)
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">allowed_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) })
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/cloud_container&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">CloudContainer</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:associate_cloud_container</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce associate_cloud_container -a APP_IDENTIFIER CONTAINER_IDENTIFIER1, CONTAINER_IDENTIFIER2, ...&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Associate with a iCloud Container, which is created if needed or simply located otherwise&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Associate with iCloud Container&#39;</span>, <span class="ruby-string">&#39;fastlane produce associate_cloud_container -a com.example.app iCloud.com.example.com&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/cloud_container&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">CloudContainer</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">associate</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:merchant</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce merchant&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Ensure that a specific Merchant exists&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Create merchant&#39;</span>, <span class="ruby-string">&#39;fastlane produce merchant -o merchant.com.example.production -r &quot;Example Merchant Production&quot;&#39;</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-r&#39;</span>, <span class="ruby-string">&#39;--merchant_name STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Name for the merchant that is created (PRODUCE_MERCHANT_NAME)&#39;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;-o&#39;</span>, <span class="ruby-string">&#39;--merchant_identifier STRING&#39;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&#39;Merchant identifier for the merchant (PRODUCE_MERCHANT_IDENTIFIER)&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">extra_options</span> = [<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:merchant_name</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>), <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:merchant_identifier</span>)]
+      <span class="ruby-identifier">all_options</span> = <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">extra_options</span>
+      <span class="ruby-identifier">allowed_keys</span> = <span class="ruby-identifier">all_options</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:key</span>)
+
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">all_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">allowed_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) })
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/merchant&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Merchant</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:associate_merchant</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane produce associate_merchant -a APP_IDENTIFIER MERCHANT_IDENTIFIER1, MERCHANT_IDENTIFIER2, ...&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Associate with a merchant for use with Apple Pay. Apple Pay will be enabled for this app.&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">example</span>(<span class="ruby-string">&#39;Associate with merchant&#39;</span>, <span class="ruby-string">&#39;fastlane produce associate_merchant -a com.example.app merchant.com.example.production&#39;</span>)
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce/merchant&#39;</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Merchant</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">associate</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">default_command</span>(<span class="ruby-value">:create</span>)
+
+  <span class="ruby-identifier">run!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

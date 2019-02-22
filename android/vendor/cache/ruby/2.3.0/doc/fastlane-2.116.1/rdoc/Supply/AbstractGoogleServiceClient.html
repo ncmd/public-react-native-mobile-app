@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Supply::AbstractGoogleServiceClient - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-make_from_config">::make_from_config</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-service_account_authentication">::service_account_authentication</a>
+    
+    <li ><a href="#method-i-call_google_api">#call_google_api</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Supply::AbstractGoogleServiceClient">
+  <h1 id="class-Supply::AbstractGoogleServiceClient" class="class">
+    class Supply::AbstractGoogleServiceClient
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="SCOPE">SCOPE
+        
+        <dd>
+        
+      
+        <dt id="SERVICE">SERVICE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-client" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">client</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Connecting with Google</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-make_from_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_from_config</span><span
+            class="method-args">(params: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_from_config-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/client.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">make_from_config</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">params</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Supply</span>.<span class="ruby-identifier">config</span>
+  <span class="ruby-identifier">service_account_data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">service_account_authentication</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">service_account_json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">service_account_data</span>, <span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(service_account_json: nil, params: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes the service and its auth_client using the specified information
+@param service_account_json: The raw service account Json data</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/client.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">service_account_json</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">auth_client</span> = <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Auth</span><span class="ruby-operator">::</span><span class="ruby-constant">ServiceAccountCredentials</span>.<span class="ruby-identifier">make_creds</span>(<span class="ruby-identifier">json_key_io</span><span class="ruby-operator">:</span> <span class="ruby-identifier">service_account_json</span>, <span class="ruby-identifier">scope</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">SCOPE</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Fetching a new access token from Google...&quot;</span>)
+
+  <span class="ruby-identifier">auth_client</span>.<span class="ruby-identifier">fetch_access_token!</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;DEBUG&quot;</span>)
+    <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">DEBUG</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientOptions</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">application_name</span> = <span class="ruby-string">&quot;fastlane (supply client)&quot;</span>
+  <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientOptions</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">application_version</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+  <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientOptions</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">read_timeout_sec</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:timeout</span>]
+  <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientOptions</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">open_timeout_sec</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:timeout</span>]
+  <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientOptions</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">send_timeout_sec</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:timeout</span>]
+  <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestOptions</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">retries</span> = <span class="ruby-value">5</span>
+
+  <span class="ruby-identifier">service</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">SERVICE</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">service</span>.<span class="ruby-identifier">authorization</span> = <span class="ruby-identifier">auth_client</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:root_url</span>]
+    <span class="ruby-comment"># Google&#39;s client expects the root_url string to end with &quot;/&quot;.</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:root_url</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:root_url</span>].<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;/&#39;</span>)
+    <span class="ruby-identifier">service</span>.<span class="ruby-identifier">root_url</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:root_url</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">client</span> = <span class="ruby-identifier">service</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-service_account_authentication" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">service_account_authentication</span><span
+            class="method-args">(params: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Supply.html">Supply</a> authentication file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="service_account_authentication-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/client.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">service_account_authentication</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key_data</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">interactive?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;To not be asked about this value, you can specify it using &#39;json_key&#39;&quot;</span>)
+      <span class="ruby-identifier">json_key_path</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;The service account json file used to authenticate with Google: &quot;</span>)
+      <span class="ruby-identifier">json_key_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">json_key_path</span>)
+
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find service account json file at path &#39;#{json_key_path}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">json_key_path</span>)
+      <span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key</span>] = <span class="ruby-identifier">json_key_path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Could not load Google authentication. Make sure it has been added as an environment variable in &#39;json_key&#39; or &#39;json_key_data&#39;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key</span>]
+    <span class="ruby-identifier">service_account_json</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key</span>]))
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key_data</span>]
+    <span class="ruby-identifier">service_account_json</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:json_key_data</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">service_account_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call_google_api" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_google_api</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call_google_api-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/client.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call_google_api</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Apis</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Google Api Error: #{e.message}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

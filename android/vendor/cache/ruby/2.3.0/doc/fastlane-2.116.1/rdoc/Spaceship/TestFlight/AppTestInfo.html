@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::TestFlight::AppTestInfo - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Base.html">Spaceship::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-find">::find</a>
+    
+    <li ><a href="#method-i-beta_review_info-3D">#beta_review_info=</a>
+    
+    <li ><a href="#method-i-save_for_app-21">#save_for_app!</a>
+    
+    <li ><a href="#method-i-test_info-3D">#test_info=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::TestFlight::AppTestInfo">
+  <h1 id="class-Spaceship::TestFlight::AppTestInfo" class="class">
+    class Spaceship::TestFlight::AppTestInfo
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-beta_review_info" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">beta_review_info</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-test_info" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">test_info</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="AppTestInfo.html">AppTestInfo</a> wraps a <a
+href="AppTestInfo.html#attribute-i-test_info">#test_info</a> and <a
+href="AppTestInfo.html#attribute-i-beta_review_info">#beta_review_info</a>
+in the format required to manage <a
+href="AppTestInfo.html#attribute-i-test_info">#test_info</a> for an
+application. Note that this structure, although looking similar to build <a
+href="AppTestInfo.html#attribute-i-test_info">#test_info</a> is test
+information about the application</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/app_test_info.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raw_app_test_info</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_app_test_info</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">raw_app_test_info</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-beta_review_info-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">beta_review_info=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="beta_review_info-3D-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/app_test_info.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">beta_review_info=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">set</span>([<span class="ruby-string">&#39;betaReviewInfo&#39;</span>], <span class="ruby-identifier">value</span>.<span class="ruby-identifier">raw_data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save_for_app-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_for_app!</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>saves the changes to the <a href="../Portal/App.html">App</a> Test Info
+object to <a href="../TestFlight.html">TestFlight</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="save_for_app-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/app_test_info.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_for_app!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">put_app_test_info</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">app_test_info</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_info-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_info=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_info-3D-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/app_test_info.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_info=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">set</span>([<span class="ruby-string">&#39;details&#39;</span>], <span class="ruby-identifier">value</span>.<span class="ruby-identifier">raw_data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

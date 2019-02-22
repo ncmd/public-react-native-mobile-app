@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Spaceship::Tunes::AppStatus - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-get_from_string">::get_from_string</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Spaceship::Tunes::AppStatus">
+  <h1 id="module-Spaceship::Tunes::AppStatus" class="module">
+    module Spaceship::Tunes::AppStatus
+  </h1>
+
+  <section class="description">
+    
+<p>Defines the different states of the app</p>
+
+<p>As specified by Apple: <a
+href="https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/ChangingAppStatus.html">developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/ChangingAppStatus.html</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEVELOPER_REJECTED">DEVELOPER_REJECTED
+        
+        <dd><p>Developer rejected this version/binary</p>
+        
+      
+        <dt id="DEVELOPER_REMOVED_FROM_SALE">DEVELOPER_REMOVED_FROM_SALE
+        
+        <dd><p>The developer took the app from the <a href="../Portal/App.html">App</a>
+Store</p>
+        
+      
+        <dt id="IN_REVIEW">IN_REVIEW
+        
+        <dd><p>Currently in Review</p>
+        
+      
+        <dt id="METADATA_REJECTED">METADATA_REJECTED
+        
+        <dd><p>WAITING_FOR_EXPORT_COMPLIANCE = “Waiting For Export Compliance”</p>
+        
+      
+        <dt id="PENDING_CONTRACT">PENDING_CONTRACT
+        
+        <dd><p>You have to renew your Apple account to keep using <a
+href="../Portal/App.html">App</a> Store Connect</p>
+        
+      
+        <dt id="PENDING_DEVELOPER_RELEASE">PENDING_DEVELOPER_RELEASE
+        
+        <dd>
+        
+      
+        <dt id="PREPARE_FOR_SUBMISSION">PREPARE_FOR_SUBMISSION
+        
+        <dd><p>You can edit this version, upload new binaries and more</p>
+        
+      
+        <dt id="PROCESSING_FOR_APP_STORE">PROCESSING_FOR_APP_STORE
+        
+        <dd>
+        
+      
+        <dt id="READY_FOR_SALE">READY_FOR_SALE
+        
+        <dd><p><a href="../Portal/App.html">App</a> is currently live in the <a
+href="../Portal/App.html">App</a> Store</p>
+        
+      
+        <dt id="REJECTED">REJECTED
+        
+        <dd><p><a href="../Portal/App.html">App</a> rejected for whatever reason</p>
+        
+      
+        <dt id="REMOVED_FROM_SALE">REMOVED_FROM_SALE
+        
+        <dd>
+        
+      
+        <dt id="UPLOAD_RECEIVED">UPLOAD_RECEIVED
+        
+        <dd>
+        
+      
+        <dt id="WAITING_FOR_REVIEW">WAITING_FOR_REVIEW
+        
+        <dd><p>Waiting for Apple&#39;s Review</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-get_from_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_from_string</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the app status matching based on a string (given by <a
+href="../Portal/App.html">App</a> Store Connect)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_from_string-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_status.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_from_string</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">mapping</span> = {
+    <span class="ruby-string">&#39;readyForSale&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READY_FOR_SALE</span>,
+    <span class="ruby-string">&#39;prepareForUpload&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">PREPARE_FOR_SUBMISSION</span>,
+    <span class="ruby-string">&#39;devRejected&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">DEVELOPER_REJECTED</span>,
+    <span class="ruby-string">&#39;pendingContract&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">PENDING_CONTRACT</span>,
+    <span class="ruby-string">&#39;developerRemovedFromSale&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">DEVELOPER_REMOVED_FROM_SALE</span>,
+    <span class="ruby-string">&#39;waitingForReview&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">WAITING_FOR_REVIEW</span>,
+    <span class="ruby-string">&#39;inReview&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">IN_REVIEW</span>,
+    <span class="ruby-string">&#39;rejected&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">REJECTED</span>,
+    <span class="ruby-string">&#39;pendingDeveloperRelease&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">PENDING_DEVELOPER_RELEASE</span>,
+    <span class="ruby-string">&#39;metadataRejected&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">METADATA_REJECTED</span>,
+    <span class="ruby-string">&#39;removedFromSale&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">REMOVED_FROM_SALE</span>
+  }
+
+  <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">v</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

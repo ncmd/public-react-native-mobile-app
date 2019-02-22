@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::HockeyAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-author">::author</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-connection">::connection</a>
+    
+    <li ><a href="#method-c-create_and_update_build">::create_and_update_build</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+    <li ><a href="#method-c-upload">::upload</a>
+    
+    <li ><a href="#method-c-upload_build">::upload_build</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::HockeyAction">
+  <h1 id="class-Fastlane::Actions::HockeyAction" class="class">
+    class Fastlane::Actions::HockeyAction
+  </h1>
+
+  <section class="description">
+    
+<p>rubocop:disable Metrics/ClassLength</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">author</span>
+  [<span class="ruby-string">&quot;KrauseFx&quot;</span>, <span class="ruby-string">&quot;modzelewski&quot;</span>, <span class="ruby-string">&quot;lacostej&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:apk</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_APK&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Path to your APK file&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">GRADLE_APK_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find apk file at path &#39;#{value}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>,
+                                 <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> [<span class="ruby-value">:ipa</span>],
+                                 <span class="ruby-identifier">conflict_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;You can&#39;t use &#39;apk&#39; and &#39;#{value.key}&#39; options in one run&quot;</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:api_token</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_API_TOKEN&quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;API Token for Hockey Access&quot;</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No API token for Hockey given, pass using `api_token: &#39;token&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:ipa</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_IPA&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Path to your IPA file. Optional if you use the _gym_ or _xcodebuild_ action. For Mac zip the .app. For Android provide path to .apk file. In addition you could use this to upload .msi, .zip, .pkg, etc if you use the &#39;create_update&#39; mechanism&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">IPA_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find ipa file at path &#39;#{value}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>,
+                                 <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> [<span class="ruby-value">:apk</span>],
+                                 <span class="ruby-identifier">conflict_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;You can&#39;t use &#39;ipa&#39; and &#39;#{value.key}&#39; options in one run&quot;</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:dsym</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_DSYM&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Path to your symbols file. For iOS and Mac provide path to app.dSYM.zip. For Android provide path to mappings.txt file&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYM_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-comment"># validation is done in the action</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:create_update</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_CREATE_UPDATE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Set true if you want to create then update your app as opposed to just upload it.&quot;</span>                                          <span class="ruby-string">&quot; You will need the &#39;public_identifier&#39;, &#39;bundle_version&#39; and &#39;bundle_short_version&#39;&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-comment"># validation is done in the action</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:notes</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_NOTES&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Beta Notes&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">FL_CHANGELOG</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;No changelog given&quot;</span>,
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:notify</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_NOTIFY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Notify testers? \&quot;1\&quot; for yes&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;1&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:status</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_STATUS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Download status: \&quot;1\&quot; = No user can download; \&quot;2\&quot; = Available for download (only possible with full-access token)&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;2&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:create_status</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_CREATE_STATUS&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Download status for initial version creation when create_update is true: \&quot;1\&quot; = No user can download; \&quot;2\&quot; = Available for download (only possible with full-access token)&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;2&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:notes_type</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_NOTES_TYPE&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Notes type for your :notes, \&quot;0\&quot; = Textile, \&quot;1\&quot; = Markdown (default)&quot;</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;1&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:release_type</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_RELEASE_TYPE&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Release type of the app: \&quot;0\&quot; = Beta (default), \&quot;1\&quot; = Store, \&quot;2\&quot; = Alpha, \&quot;3\&quot; = Enterprise&quot;</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;0&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:mandatory</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_MANDATORY&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Set to \&quot;1\&quot; to make this update mandatory&quot;</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;0&quot;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:teams</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_TEAMS&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Comma separated list of team ID numbers to which this build will be restricted&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:users</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_USERS&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Comma separated list of user ID numbers to which this build will be restricted&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:tags</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_TAGS&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Comma separated list of tags which will receive access to the build&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:bundle_short_version</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_BUNDLE_SHORT_VERSION&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The bundle_short_version of your application, required when using `create_update`&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:bundle_version</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_BUNDLE_VERSION&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The bundle_version of your application, required when using `create_update`&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:public_identifier</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_PUBLIC_IDENTIFIER&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;App id of the app you are targeting, usually you won&#39;t need this value. Required, if `upload_dsym_only` set to `true`&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:commit_sha</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_COMMIT_SHA&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The Git commit SHA for this build&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:repository_url</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_REPOSITORY_URL&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The URL of your source repository&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:build_server_url</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_BUILD_SERVER_URL&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The URL of the build job on your build server&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:upload_dsym_only</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_UPLOAD_DSYM_ONLY&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Flag to upload only the dSYM file to hockey app&quot;</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:owner_id</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_OWNER_ID&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;ID for the owner of the app&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:strategy</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_STRATEGY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Strategy: &#39;add&#39; = to add the build as a new build even if it has the same build number (default); &#39;replace&#39; = to replace a build with the same build number&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;add&quot;</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Invalid value &#39;#{value}&#39; for key &#39;strategy&#39;. Allowed values are &#39;add&#39;, &#39;replace&#39;.&quot;</span>) <span class="ruby-keyword">unless</span> [<span class="ruby-string">&#39;add&#39;</span>, <span class="ruby-string">&#39;replace&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:timeout</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_TIMEOUT&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Request timeout in seconds&quot;</span>,
+                                <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Integer</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:bypass_cdn</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_BYPASS_CDN&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Flag to bypass Hockey CDN when it uploads successfully but reports error&quot;</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:dsa_signature</span>,
+                                <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_HOCKEY_DSA_SIGNATURE&quot;</span>,
+                                <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;DSA signature for sparkle updates for macOS&quot;</span>,
+                                <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 383</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:beta</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-connection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">connection</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="connection-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">connection</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;faraday&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;faraday_middleware&#39;</span>
+
+  <span class="ruby-identifier">base_url</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:bypass_cdn</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&quot;https://rink.hockeyapp.net&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;https://upload.hockeyapp.net&quot;</span>
+  <span class="ruby-identifier">foptions</span> = {
+    <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">base_url</span>
+  }
+  <span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">foptions</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">builder</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">request</span>(<span class="ruby-value">:multipart</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">request</span>(<span class="ruby-value">:url_encoded</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">response</span>(<span class="ruby-value">:json</span>, <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-regexp">/\bjson$/</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">use</span>(<span class="ruby-constant">FaradayMiddleware</span><span class="ruby-operator">::</span><span class="ruby-constant">FollowRedirects</span>)
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">adapter</span>(<span class="ruby-value">:net_http</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create_and_update_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_and_update_build</span><span
+            class="method-args">(api_token, ipa, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uses <a
+href="https://support.hockeyapp.net/kb/api/api-versions#create-version">support.hockeyapp.net/kb/api/api-versions#create-version</a>
+and <a
+href="https://support.hockeyapp.net/kb/api/api-versions#update-version">support.hockeyapp.net/kb/api/api-versions#update-version</a>
+to upload a build</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_and_update_build-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_and_update_build</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">options</span>)
+  [<span class="ruby-value">:public_identifier</span>, <span class="ruby-value">:bundle_short_version</span>, <span class="ruby-value">:bundle_version</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;To use the &#39;create_update&#39; upload mechanism you need to pass the &#39;#{key.to_sym}&#39; option.&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># https://support.hockeyapp.net/discussions/problems/33355-is-uploadhockeyappnet-available-for-general-use</span>
+  <span class="ruby-comment"># GET requests are cached on CDN, so bypass it</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:bypass_cdn</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">connection</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">connection</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:ipa</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:apk</span>)
+  <span class="ruby-identifier">app_id</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:public_identifier</span>)
+
+  <span class="ruby-identifier">ipaio</span> = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ipa</span>, <span class="ruby-string">&#39;application/octet-stream&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ipa</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">ipa</span>)
+  <span class="ruby-identifier">dsym</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:dsym</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dsym</span>
+    <span class="ruby-identifier">dsym_io</span> = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dsym</span>, <span class="ruby-string">&#39;application/octet-stream&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">dsym</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dsym</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># https://support.hockeyapp.net/discussions/problems/83559</span>
+  <span class="ruby-comment"># Should not set status to &quot;2&quot; (downloadable) until after the app is uploaded, so allow the caller</span>
+  <span class="ruby-comment"># to specify a different status for the `create` step</span>
+  <span class="ruby-identifier">update_status</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:status</span>]
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:status</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:create_status</span>]
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">get</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/api/2/apps/#{app_id}/app_versions/new&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;X-HockeyAppToken&#39;</span>] = <span class="ruby-identifier">api_token</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">200</span><span class="ruby-operator">...</span><span class="ruby-value">300</span>
+    <span class="ruby-identifier">app_version_id</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;id&#39;</span>]
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;successfully created version with id #{app_version_id}&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Error trying to create app version:  #{response.status} - #{response.body}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>] = <span class="ruby-identifier">ipaio</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dsym</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:dsym</span>] = <span class="ruby-identifier">dsym_io</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:status</span>] = <span class="ruby-identifier">update_status</span>
+
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">put</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:timeout</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/api/2/apps/#{app_id}/app_versions/#{app_version_id}&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;X-HockeyAppToken&#39;</span>] = <span class="ruby-identifier">api_token</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Upload a new build to [HockeyApp](https://hockeyapp.net/)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  [
+    <span class="ruby-string">&quot;Symbols will also be uploaded automatically if a `app.dSYM.zip` file is found next to `app.ipa`. In case it is located in a different place you can specify the path explicitly in the `:dsym` parameter.&quot;</span>,
+    <span class="ruby-node">&quot;More information about the available options can be found in the [HockeyApp Docs](http://support.hockeyapp.net/kb/api/api-versions#upload-version).&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;hockey(
+      api_token: &quot;...&quot;,
+      ipa: &quot;./app.ipa&quot;,
+      notes: &quot;Changelog&quot;
+    )&#39;</span>,
+    <span class="ruby-string">&#39;hockey(
+      api_token: &quot;...&quot;,
+      create_update: true,
+      public_identifier: &quot;....&quot;,
+      bundle_short_version: &quot;1.0.2&quot;,
+      bundle_version: &quot;1.0.2.145&quot;,
+      ipa: &quot;./my.msi&quot;,
+      notes: &quot;Changelog&quot;
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;HOCKEY_DOWNLOAD_LINK&#39;</span>, <span class="ruby-string">&#39;The newly generated download link for this build&#39;</span>],
+    [<span class="ruby-string">&#39;HOCKEY_BUILD_INFORMATION&#39;</span>, <span class="ruby-string">&#39;contains all keys/values from the HockeyApp API, like :title, :bundle_identifier&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">build_file</span> = [
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>],
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:apk</span>]
+  ].<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span> }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:dsym</span>]
+    <span class="ruby-identifier">dsym_filename</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:dsym</span>]
+  <span class="ruby-keyword">else</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">build_file</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You have to provide a build file (params &#39;apk&#39; or &#39;ipa&#39;)&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.ipa&quot;</span>)
+      <span class="ruby-identifier">dsym_path</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;.ipa&#39;</span>, <span class="ruby-string">&#39;.app.dSYM.zip&#39;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dsym_path</span>)
+        <span class="ruby-identifier">dsym_filename</span> = <span class="ruby-identifier">dsym_path</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Symbols not found on path #{File.expand_path(dsym_path)}. Crashes won&#39;t be symbolicated properly&quot;</span>)
+        <span class="ruby-identifier">dsym_filename</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Symbols on path &#39;#{File.expand_path(dsym_filename)}&#39; not found&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">dsym_filename</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dsym_filename</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:upload_dsym_only</span>]
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&#39;Starting with dSYM upload to HockeyApp... this could take some time.&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&#39;Starting with file(s) upload to HockeyApp... this could take some time.&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">values</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">values</span>
+  <span class="ruby-identifier">values</span>[<span class="ruby-value">:dsym_filename</span>] = <span class="ruby-identifier">dsym_filename</span>
+  <span class="ruby-identifier">values</span>[<span class="ruby-value">:notes_type</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:notes_type</span>]
+
+  <span class="ruby-identifier">api_token</span> = <span class="ruby-identifier">values</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:api_token</span>)
+
+  <span class="ruby-identifier">values</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> }
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">values</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-identifier">ipa_filename</span> = <span class="ruby-identifier">build_file</span>
+  <span class="ruby-identifier">ipa_filename</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:upload_dsym_only</span>]
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">ipa_filename</span>, <span class="ruby-identifier">values</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">200</span><span class="ruby-operator">...</span><span class="ruby-value">300</span>
+    <span class="ruby-identifier">url</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;public_url&#39;</span>]
+
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">HOCKEY_DOWNLOAD_LINK</span>] = <span class="ruby-identifier">url</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">HOCKEY_BUILD_INFORMATION</span>] = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Public Download URL: #{url}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&#39;Build successfully uploaded to HockeyApp!&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;App could not be created&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Hockey has an issue processing this app. Please confirm that an app in Hockey matches this IPA&#39;s bundle ID or that you are using the correct API upload token. If error persists, please provide the :public_identifier option from the HockeyApp website. More information https://github.com/fastlane/fastlane/issues/400&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Error when trying to upload file(s) to HockeyApp: #{response.status} - #{response.body}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-upload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload</span><span
+            class="method-args">(api_token, ipa, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">create_update</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:create_update</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">create_update</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_and_update_build</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_build</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-upload_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_build</span><span
+            class="method-args">(api_token, ipa, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uses <a
+href="https://support.hockeyapp.net/kb/api/api-versions#upload-version">support.hockeyapp.net/kb/api/api-versions#upload-version</a>
+if a `public_identifier` was specified otherwise <a
+href="https://support.hockeyapp.net/kb/api/api-apps#upload-app">support.hockeyapp.net/kb/api/api-apps#upload-app</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_build-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/hockey.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_build</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">connection</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">connection</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>] = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ipa</span>, <span class="ruby-string">&#39;application/octet-stream&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ipa</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">ipa</span>)
+
+  <span class="ruby-identifier">dsym_filename</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:dsym_filename</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dsym_filename</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:dsym</span>] = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dsym_filename</span>, <span class="ruby-string">&#39;application/octet-stream&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">post</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:timeout</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:public_identifier</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;/api/2/apps/upload&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;/api/2/apps/#{options.delete(:public_identifier)}/app_versions/upload&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;X-HockeyAppToken&#39;</span>] = <span class="ruby-identifier">api_token</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

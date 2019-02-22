@@ -116,6 +116,8 @@ matrix:
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/my-release-key.keystore -d
         - travis_retry npm install -g yarn
+        - adb shell settings put global hidden_api_policy_pre_p_apps 1
+        - adb shell settings put global hidden_api_policy_p_apps 1
       install:
         - yarn install
         - npm install

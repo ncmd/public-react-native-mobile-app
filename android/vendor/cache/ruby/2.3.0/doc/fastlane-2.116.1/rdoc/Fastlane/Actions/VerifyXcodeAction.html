@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::VerifyXcodeAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+    <li ><a href="#method-c-show_and_raise_error">::show_and_raise_error</a>
+    
+    <li ><a href="#method-c-verify">::verify</a>
+    
+    <li ><a href="#method-c-verify_codesign">::verify_codesign</a>
+    
+    <li ><a href="#method-c-verify_gatekeeper">::verify_gatekeeper</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::VerifyXcodeAction">
+  <h1 id="class-Fastlane::Actions::VerifyXcodeAction" class="class">
+    class Fastlane::Actions::VerifyXcodeAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span>
+  [<span class="ruby-string">&quot;KrauseFx&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:xcode_path</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_VERIFY_XCODE_XCODE_PATH&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The path to the Xcode installation to test&quot;</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../../&#39;</span>, <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_path</span>),
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find Xcode at path &#39;#{value}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">value</span>)
+                                 <span class="ruby-keyword">end</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:building</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Documentation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Verifies that the Xcode installation is properly signed by Apple&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  <span class="ruby-string">&quot;This action was implemented after the recent Xcode attack to make sure you&#39;re not using a [hacked Xcode installation](http://researchcenter.paloaltonetworks.com/2015/09/novel-malware-xcodeghost-modifies-xcode-infects-apple-ios-apps-and-hits-app-store/).&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;verify_xcode&#39;</span>,
+    <span class="ruby-string">&#39;verify_xcode(xcode_path: &quot;/Applications/Xcode.app&quot;)&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  [<span class="ruby-value">:ios</span>, <span class="ruby-value">:mac</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Verifying your Xcode installation at path &#39;#{params[:xcode_path]}&#39;...&quot;</span>)
+
+  <span class="ruby-comment"># Check 1/2</span>
+  <span class="ruby-identifier">verify_codesign</span>(<span class="ruby-identifier">params</span>)
+
+  <span class="ruby-comment"># Check 2/2</span>
+  <span class="ruby-comment"># More information https://developer.apple.com/news/?id=09222015a</span>
+  <span class="ruby-identifier">verify_gatekeeper</span>(<span class="ruby-identifier">params</span>)
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-show_and_raise_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_and_raise_error</span><span
+            class="method-args">(error, xcode_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_and_raise_error-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_and_raise_error</span>(<span class="ruby-identifier">error</span>, <span class="ruby-identifier">xcode_path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Attention: Your Xcode Installation could not be verified.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;If you believe that your Xcode is valid, please submit an issue on GitHub&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">error</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;The following information couldn&#39;t be found:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">error</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;The Xcode installation at path &#39;#{xcode_path}&#39; could not be verified.&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-verify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify</span><span
+            class="method-args">(command: nil, must_includes: nil, params: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verify</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">must_includes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">command</span>)
+
+  <span class="ruby-identifier">errors</span> = []
+  <span class="ruby-identifier">must_includes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current</span>)
+    <span class="ruby-identifier">errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">show_and_raise_error</span>(<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>), <span class="ruby-identifier">params</span>[<span class="ruby-value">:xcode_path</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-verify_codesign" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_codesign</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_codesign-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verify_codesign</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Verifying Xcode was signed by Apple Inc.&quot;</span>)
+
+  <span class="ruby-identifier">codesign_output</span> = <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-node">&quot;codesign --display --verbose=4 #{params[:xcode_path].shellescape}&quot;</span>)
+
+  <span class="ruby-comment"># If the returned codesign info contains all entries for any one of these sets, we&#39;ll consider it valid</span>
+  <span class="ruby-identifier">accepted_codesign_detail_sets</span> = [
+    [ <span class="ruby-comment"># Found on App Store installed Xcode installations</span>
+      <span class="ruby-string">&quot;Identifier=com.apple.dt.Xcode&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Mac OS Application Signing&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Worldwide Developer Relations Certification Authority&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Root CA&quot;</span>,
+      <span class="ruby-string">&quot;TeamIdentifier=59GAB85EFG&quot;</span>
+    ],
+    [ <span class="ruby-comment"># Found on Xcode installations (pre-Xcode 8) downloaded from developer.apple.com</span>
+      <span class="ruby-string">&quot;Identifier=com.apple.dt.Xcode&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Software Signing&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Code Signing Certification Authority&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Root CA&quot;</span>,
+      <span class="ruby-string">&quot;TeamIdentifier=not set&quot;</span>
+    ],
+    [ <span class="ruby-comment"># Found on Xcode installations (post-Xcode 8) downloaded from developer.apple.com</span>
+      <span class="ruby-string">&quot;Identifier=com.apple.dt.Xcode&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Software Signing&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Code Signing Certification Authority&quot;</span>,
+      <span class="ruby-string">&quot;Authority=Apple Root CA&quot;</span>,
+      <span class="ruby-string">&quot;TeamIdentifier=59GAB85EFG&quot;</span>
+    ]
+  ]
+
+  <span class="ruby-comment"># Map the accepted details sets into an equal number of sets collecting the details for which</span>
+  <span class="ruby-comment"># the output of codesign did not have matches</span>
+  <span class="ruby-identifier">missing_details_sets</span> = <span class="ruby-identifier">accepted_codesign_detail_sets</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">accepted_details_set</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">accepted_details_set</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">detail</span><span class="ruby-operator">|</span> <span class="ruby-identifier">codesign_output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">detail</span>) }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># If any of the sets is empty, it means that all details were matched, and the check is successful</span>
+  <span class="ruby-identifier">show_and_raise_error</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:xcode_path</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">missing_details_sets</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:empty?</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully verified the code signature ✅&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-verify_gatekeeper" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_gatekeeper</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_gatekeeper-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/verify_xcode.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verify_gatekeeper</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Verifying Xcode using GateKeeper...&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;This will take up to a few minutes, now is a great time to go for a coffee ☕...&quot;</span>)
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;/usr/sbin/spctl --assess --verbose #{params[:xcode_path].shellescape}&quot;</span>
+  <span class="ruby-identifier">must_includes</span> = [<span class="ruby-string">&#39;accepted&#39;</span>]
+
+  <span class="ruby-identifier">output</span> = <span class="ruby-identifier">verify</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>, <span class="ruby-identifier">must_includes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">must_includes</span>, <span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;source=Mac App Store&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;source=Apple&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;source=Apple System&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully verified Xcode installation at path &#39;#{params[:xcode_path]}&#39; 🎧&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">show_and_raise_error</span>(<span class="ruby-node">&quot;Invalid Download Source of Xcode: #{output}&quot;</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:xcode_path</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

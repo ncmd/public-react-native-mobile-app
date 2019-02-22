@@ -1,0 +1,3 @@
+U:RDoc::Attr[iI"review_user_needed:ETI"4Spaceship::Tunes::AppVersion#review_user_needed;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"E@return (Boolean) The checkbox that indiciates if a demo account;To:RDoc::Markup::Verbatim;	[I"Eis needed. Is set automatically depending on if a user and pass
+;TI"are set;T:@format0:
+@fileI"1spaceship/lib/spaceship/tunes/app_version.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppVersion;TcRDoc::NormalClass0

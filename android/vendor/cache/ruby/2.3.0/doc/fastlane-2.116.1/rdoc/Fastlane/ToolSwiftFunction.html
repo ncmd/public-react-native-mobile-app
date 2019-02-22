@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::ToolSwiftFunction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="SwiftFunction.html">Fastlane::SwiftFunction</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-class_name">#class_name</a>
+    
+    <li ><a href="#method-i-parameters">#parameters</a>
+    
+    <li ><a href="#method-i-protocol_name">#protocol_name</a>
+    
+    <li ><a href="#method-i-swift_default_implementations">#swift_default_implementations</a>
+    
+    <li ><a href="#method-i-swift_vars">#swift_vars</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::ToolSwiftFunction">
+  <h1 id="class-Fastlane::ToolSwiftFunction" class="class">
+    class Fastlane::ToolSwiftFunction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-class_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">class_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="class_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_function.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">class_name</span>
+  <span class="ruby-identifier">function_name</span> = <span class="ruby-identifier">camel_case_lower</span>(<span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">function_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">function_name</span>.<span class="ruby-identifier">capitalize</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;file&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parameters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parameters</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parameters-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_function.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parameters</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@param_names</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">param_names_and_types</span> = <span class="ruby-ivar">@param_names</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">param_default_values</span>, <span class="ruby-identifier">param_optionality_values</span>, <span class="ruby-identifier">param_type_overrides</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span>, <span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">optional</span>, <span class="ruby-identifier">param_type_override</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">param</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>, <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-identifier">optional</span>, <span class="ruby-identifier">param_type_override</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param_type_override</span>)
+
+    <span class="ruby-identifier">param</span> = <span class="ruby-identifier">camel_case_lower</span>(<span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>)
+    <span class="ruby-identifier">param</span> = <span class="ruby-identifier">sanitize_reserved_word</span>(<span class="ruby-identifier">word</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>)
+    <span class="ruby-identifier">static_var_for_parameter_name</span> = <span class="ruby-identifier">param</span>
+
+    <span class="ruby-node">&quot;#{param}: #{type} = #{self.class_name.downcase}.#{static_var_for_parameter_name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">param_names_and_types</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-protocol_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">protocol_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="protocol_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_function.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">protocol_name</span>
+  <span class="ruby-identifier">function_name</span> = <span class="ruby-identifier">camel_case_lower</span>(<span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">function_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">function_name</span>.<span class="ruby-identifier">capitalize</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;fileProtocol&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-swift_default_implementations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">swift_default_implementations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="swift_default_implementations-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_function.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">swift_default_implementations</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@param_names</span>
+    <span class="ruby-keyword">return</span> []
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">swift_implementations</span> = <span class="ruby-ivar">@param_names</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">param_default_values</span>, <span class="ruby-identifier">param_optionality_values</span>, <span class="ruby-identifier">param_type_overrides</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span>, <span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">optional</span>, <span class="ruby-identifier">param_type_override</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">param</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>, <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-identifier">optional</span>, <span class="ruby-identifier">param_type_override</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param_type_override</span>)
+    <span class="ruby-identifier">param</span> = <span class="ruby-identifier">camel_case_lower</span>(<span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>)
+    <span class="ruby-identifier">param</span> = <span class="ruby-identifier">sanitize_reserved_word</span>(<span class="ruby-identifier">word</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>)
+    <span class="ruby-identifier">var_for_parameter_name</span> = <span class="ruby-identifier">param</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Bool&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;[String]&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Int&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">default_value</span> = <span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">default_value</span> = <span class="ruby-node">&quot;\&quot;#{default_value}\&quot;&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># if we don&#39;t have a default value, but the param is options, just set a default value to nil</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">optional</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">default_value</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">default_value</span> = <span class="ruby-string">&quot;nil&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># if we don&#39;t have a default value still, we need to assign them based on type</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;String&quot;</span>
+      <span class="ruby-identifier">default_value</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;\&quot;\&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Bool&quot;</span>
+      <span class="ruby-identifier">default_value</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;false&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;[String]&quot;</span>
+      <span class="ruby-identifier">default_value</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;[]&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-node">&quot;  var #{var_for_parameter_name}: #{type} { return #{default_value} }&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">swift_implementations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-swift_vars" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">swift_vars</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="swift_vars-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_function.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">swift_vars</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@param_names</span>
+    <span class="ruby-keyword">return</span> []
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">swift_vars</span> = <span class="ruby-ivar">@param_names</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">param_default_values</span>, <span class="ruby-identifier">param_optionality_values</span>, <span class="ruby-identifier">param_type_overrides</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span>, <span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">optional</span>, <span class="ruby-identifier">param_type_override</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">param</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>, <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-identifier">optional</span>, <span class="ruby-identifier">param_type_override</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param_type_override</span>)
+
+    <span class="ruby-identifier">param</span> = <span class="ruby-identifier">camel_case_lower</span>(<span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>)
+    <span class="ruby-identifier">param</span> = <span class="ruby-identifier">sanitize_reserved_word</span>(<span class="ruby-identifier">word</span><span class="ruby-operator">:</span> <span class="ruby-identifier">param</span>)
+    <span class="ruby-identifier">static_var_for_parameter_name</span> = <span class="ruby-identifier">param</span>
+    <span class="ruby-node">&quot;  var #{static_var_for_parameter_name}: #{type} { get }&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">swift_vars</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

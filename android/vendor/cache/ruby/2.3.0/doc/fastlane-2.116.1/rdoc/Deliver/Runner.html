@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Deliver::Runner - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-precheck_app">#precheck_app</a>
+    
+    <li ><a href="#method-i-prepare_app_icons">#prepare_app_icons</a>
+    
+    <li ><a href="#method-i-reject_version_if_possible">#reject_version_if_possible</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-submit_for_review">#submit_for_review</a>
+    
+    <li ><a href="#method-i-upload_binary">#upload_binary</a>
+    
+    <li ><a href="#method-i-upload_metadata">#upload_metadata</a>
+    
+    <li ><a href="#method-i-validate_html">#validate_html</a>
+    
+    <li ><a href="#method-i-verify_version">#verify_version</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Deliver::Runner">
+  <h1 id="class-Deliver::Runner" class="class">
+    class Deliver::Runner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options, skip_auto_detection = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">skip_auto_detection</span> = {})
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+
+  <span class="ruby-identifier">login</span>
+
+  <span class="ruby-constant">Deliver</span><span class="ruby-operator">::</span><span class="ruby-constant">DetectValues</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">options</span>, <span class="ruby-identifier">skip_auto_detection</span>)
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">print_values</span>(<span class="ruby-identifier">config</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> [<span class="ruby-value">:app</span>], <span class="ruby-identifier">mask_keys</span><span class="ruby-operator">:</span> [<span class="ruby-string">&#39;app_review_information.demo_password&#39;</span>], <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;deliver #{Fastlane::VERSION} Summary&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Login to App Store Connect (#{options[:username]})&quot;</span>)
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">login</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>])
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">select_team</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Login successful&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-precheck_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">precheck_app</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make sure we pass precheck before uploading</p>
+          
+          
+
+          
+          <div class="method-source-code" id="precheck_app-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">precheck_app</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:run_precheck_before_submit</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Running precheck before submitting to review, if you&#39;d like to disable this check you can set run_precheck_before_submit to false&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:submit_for_review</span>]
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Making sure we pass precheck 👮‍♀️ 👮 before we submit  🛫&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Running precheck 👮‍♀️ 👮&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">precheck_options</span> = {
+    <span class="ruby-identifier">default_rule_level</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:precheck_default_rule_level</span>],
+    <span class="ruby-identifier">include_in_app_purchases</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:precheck_include_in_app_purchases</span>],
+    <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_identifier</span>],
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>]
+  }
+
+  <span class="ruby-identifier">precheck_config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Precheck</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">precheck_options</span>)
+  <span class="ruby-constant">Precheck</span>.<span class="ruby-identifier">config</span> = <span class="ruby-identifier">precheck_config</span>
+
+  <span class="ruby-identifier">precheck_success</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">precheck_success</span> = <span class="ruby-constant">Precheck</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;fastlane precheck just tried to inspect your app&#39;s metadata for App Store guideline violations and ran into a problem. We&#39;re not sure what the problem was, but precheck failed to finished. You can run it in verbose mode if you want to see the whole error. We&#39;ll have a fix out soon 🚀&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">inspect</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">precheck_success</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare_app_icons" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_app_icons</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If <a href=":app_icon">options</a>/<a
+href=":apple_watch_app_icon">options</a> is supplied value/path will be
+used. If it is unset files (app_icon/watch_icon) exists in the
+fastlane/metadata/ folder, those will be used</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_app_icons-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_app_icons</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>]
+
+  <span class="ruby-identifier">default_app_icon_path</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-string">&quot;app_icon.{png,jpg}&quot;</span>)].<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_app_icon_path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_app_icon_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">default_app_icon_path</span>)
+
+  <span class="ruby-identifier">default_watch_icon_path</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:metadata_path</span>], <span class="ruby-string">&quot;watch_icon.{png,jpg}&quot;</span>)].<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:apple_watch_app_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_watch_icon_path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_watch_icon_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">default_watch_icon_path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reject_version_if_possible" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reject_version_if_possible</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reject_version_if_possible-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reject_version_if_possible</span>
+  <span class="ruby-identifier">app</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">reject_version_if_possible!</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully rejected previous version!&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">verify_version</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_version</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_app_version_update</span>]
+  <span class="ruby-identifier">upload_metadata</span>
+
+  <span class="ruby-identifier">has_binary</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pkg</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_binary_upload</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:build_number</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">has_binary</span>
+    <span class="ruby-identifier">upload_binary</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Finished the upload to App Store Connect&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_binary_upload</span>]
+
+  <span class="ruby-identifier">reject_version_if_possible</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:reject_if_possible</span>]
+
+  <span class="ruby-identifier">precheck_success</span> = <span class="ruby-identifier">precheck_app</span>
+  <span class="ruby-identifier">submit_for_review</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:submit_for_review</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">precheck_success</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-submit_for_review" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">submit_for_review</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="submit_for_review-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_for_review</span>
+  <span class="ruby-constant">SubmitForReview</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">submit!</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_binary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Upload the binary to App Store Connect</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_binary-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_binary</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Uploading binary to App Store Connect&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>]
+    <span class="ruby-identifier">package_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaUploadPackageBuilder</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(
+      <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>].<span class="ruby-identifier">apple_id</span>,
+      <span class="ruby-identifier">ipa_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:ipa</span>],
+      <span class="ruby-identifier">package_path</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/tmp&quot;</span>,
+      <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>]
+    )
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pkg</span>]
+    <span class="ruby-identifier">package_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PkgUploadPackageBuilder</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(
+      <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>].<span class="ruby-identifier">apple_id</span>,
+      <span class="ruby-identifier">pkg_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pkg</span>],
+      <span class="ruby-identifier">package_path</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/tmp&quot;</span>,
+      <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>]
+    )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">transporter</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ItunesTransporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>], <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">false</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:itc_provider</span>])
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">transporter</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>].<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">package_path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Could not upload binary to App Store Connect. Check out the error above&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_metadata" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_metadata</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Upload all metadata, screenshots, pricing information, etc. to App Store
+Connect</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_metadata-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_metadata</span>
+  <span class="ruby-identifier">upload_metadata</span> = <span class="ruby-constant">UploadMetadata</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">upload_screenshots</span> = <span class="ruby-constant">UploadScreenshots</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-comment"># First, collect all the things for the HTML Report</span>
+  <span class="ruby-identifier">screenshots</span> = <span class="ruby-identifier">upload_screenshots</span>.<span class="ruby-identifier">collect_screenshots</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">upload_metadata</span>.<span class="ruby-identifier">load_from_filesystem</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-comment"># Assign &quot;default&quot; values to all languages</span>
+  <span class="ruby-identifier">upload_metadata</span>.<span class="ruby-identifier">assign_defaults</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-comment"># Handle app icon / watch icon</span>
+  <span class="ruby-identifier">prepare_app_icons</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-comment"># Validate</span>
+  <span class="ruby-identifier">validate_html</span>(<span class="ruby-identifier">screenshots</span>)
+
+  <span class="ruby-comment"># Commit</span>
+  <span class="ruby-identifier">upload_metadata</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">upload_screenshots</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">screenshots</span>)
+  <span class="ruby-constant">UploadPriceTier</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-constant">UploadAssets</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>) <span class="ruby-comment"># e.g. app icon</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make sure the version on App Store Connect matches the one in the ipa If
+not, the new version will automatically be created</p>
+          
+          
+
+          
+          <div class="method-source-code" id="verify_version-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_version</span>
+  <span class="ruby-identifier">app_version</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app_version</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Making sure the latest version on App Store Connect matches &#39;#{app_version}&#39; from the ipa file...&quot;</span>)
+
+  <span class="ruby-identifier">changed</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>].<span class="ruby-identifier">ensure_version!</span>(<span class="ruby-identifier">app_version</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:platform</span>])
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">changed</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully set the version to &#39;#{app_version}&#39;&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;&#39;#{app_version}&#39; is the latest version on App Store Connect&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-validate_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validate_html</span><span
+            class="method-args">(screenshots)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="validate_html-source">
+            <pre><span class="ruby-comment"># File deliver/lib/deliver/runner.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_html</span>(<span class="ruby-identifier">screenshots</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:force</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_metadata</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_screenshots</span>]
+  <span class="ruby-constant">HtmlGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">screenshots</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

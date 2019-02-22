@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Runner - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-action_completed">#action_completed</a>
+    
+    <li ><a href="#method-i-add_lane">#add_lane</a>
+    
+    <li ><a href="#method-i-after_all_blocks">#after_all_blocks</a>
+    
+    <li ><a href="#method-i-after_each_blocks">#after_each_blocks</a>
+    
+    <li ><a href="#method-i-available_lanes">#available_lanes</a>
+    
+    <li ><a href="#method-i-before_all_blocks">#before_all_blocks</a>
+    
+    <li ><a href="#method-i-before_each_blocks">#before_each_blocks</a>
+    
+    <li ><a href="#method-i-class_reference_from_action_alias">#class_reference_from_action_alias</a>
+    
+    <li ><a href="#method-i-class_reference_from_action_name">#class_reference_from_action_name</a>
+    
+    <li ><a href="#method-i-did_finish">#did_finish</a>
+    
+    <li ><a href="#method-i-error_blocks">#error_blocks</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-execute_action">#execute_action</a>
+    
+    <li ><a href="#method-i-execute_flow_block">#execute_flow_block</a>
+    
+    <li ><a href="#method-i-find_alias">#find_alias</a>
+    
+    <li ><a href="#method-i-full_lane_name">#full_lane_name</a>
+    
+    <li ><a href="#method-i-set_after_all">#set_after_all</a>
+    
+    <li ><a href="#method-i-set_after_each">#set_after_each</a>
+    
+    <li ><a href="#method-i-set_before_all">#set_before_all</a>
+    
+    <li ><a href="#method-i-set_before_each">#set_before_each</a>
+    
+    <li ><a href="#method-i-set_error">#set_error</a>
+    
+    <li ><a href="#method-i-trigger_action_by_name">#trigger_action_by_name</a>
+    
+    <li ><a href="#method-i-try_switch_to_lane">#try_switch_to_lane</a>
+    
+    <li ><a href="#method-i-verify_supported_os">#verify_supported_os</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Runner">
+  <h1 id="class-Fastlane::Runner" class="class">
+    class Fastlane::Runner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-current_lane" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">current_lane</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Symbol for the current lane</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-current_platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">current_platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Symbol for the current platform</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-lanes" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lanes</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Hash] All the lanes available, first the platform, then the lane</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-action_completed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action_completed</span><span
+            class="method-args">(action_name, status: nil, exception: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="action_completed-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">action_completed</span>(<span class="ruby-identifier">action_name</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#  https://github.com/fastlane/fastlane/issues/11913</span>
+  <span class="ruby-comment"># if exception.nil? || exception.fastlane_should_report_metrics?</span>
+  <span class="ruby-comment">#   action_completion_context = FastlaneCore::ActionCompletionContext.context_for_action_name(action_name, args: ARGV, status: status)</span>
+  <span class="ruby-comment">#   FastlaneCore.session.action_completed(completion_context: action_completion_context)</span>
+  <span class="ruby-comment"># end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_lane</span><span
+            class="method-args">(lane, override = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param lane [Lane] A lane object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_lane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_lane</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">override</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">lanes</span>[<span class="ruby-identifier">lane</span>.<span class="ruby-identifier">platform</span>] <span class="ruby-operator">||=</span> {}
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">override</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lanes</span>[<span class="ruby-identifier">lane</span>.<span class="ruby-identifier">platform</span>][<span class="ruby-identifier">lane</span>.<span class="ruby-identifier">name</span>]
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Lane &#39;#{lane.name}&#39; was defined multiple times!&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">lanes</span>[<span class="ruby-identifier">lane</span>.<span class="ruby-identifier">platform</span>][<span class="ruby-identifier">lane</span>.<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">lane</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-after_all_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">after_all_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="after_all_blocks-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after_all_blocks</span>
+  <span class="ruby-ivar">@after_all</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-after_each_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">after_each_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="after_each_blocks-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after_each_blocks</span>
+  <span class="ruby-ivar">@after_each</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-available_lanes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_lanes</span><span
+            class="method-args">(filter_platform = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param filter_platform: Filter, to only show the lanes of a given platform
+@return an array of lanes (platform lane_name) to print them out to the
+user</p>
+          
+          
+
+          
+          <div class="method-source-code" id="available_lanes-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_lanes</span>(<span class="ruby-identifier">filter_platform</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">all</span> = []
+  <span class="ruby-identifier">lanes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">platform</span>, <span class="ruby-identifier">platform_lanes</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_platform</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">filter_platform</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">platform</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-comment"># skip actions that don&#39;t match</span>
+
+    <span class="ruby-identifier">platform_lanes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lane_name</span>, <span class="ruby-identifier">lane</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">all</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">lane_name</span>].<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:nil?</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">is_private</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-before_all_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">before_all_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="before_all_blocks-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 356</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">before_all_blocks</span>
+  <span class="ruby-ivar">@before_all</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-before_each_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">before_each_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="before_each_blocks-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 348</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">before_each_blocks</span>
+  <span class="ruby-ivar">@before_each</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-class_reference_from_action_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">class_reference_from_action_alias</span><span
+            class="method-args">(method_sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pass a action alias symbol (e.g. :enable_automatic_code_signing) and this
+method will return a reference to the action class if it exists. In case
+the action with this alias can&#39;t be found this method will return nil.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="class_reference_from_action_alias-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">class_reference_from_action_alias</span>(<span class="ruby-identifier">method_sym</span>)
+  <span class="ruby-identifier">alias_found</span> = <span class="ruby-identifier">find_alias</span>(<span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">alias_found</span>
+
+  <span class="ruby-identifier">class_reference_from_action_name</span>(<span class="ruby-identifier">alias_found</span>.<span class="ruby-identifier">to_sym</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-class_reference_from_action_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">class_reference_from_action_name</span><span
+            class="method-args">(method_sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pass a action symbol (e.g. :deliver or :commit_version_bump) and this
+method will return a reference to the action class if it exists. In case
+the action with this name can&#39;t be found this method will return nil.
+This method is being called by `trigger_action_by_name` to see if a given
+action is available (either built-in or loaded from a plugin) and is also
+being called from the fastlane docs generator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="class_reference_from_action_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">class_reference_from_action_name</span>(<span class="ruby-identifier">method_sym</span>)
+  <span class="ruby-identifier">method_str</span> = <span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;?&quot;</span>) <span class="ruby-comment"># as a `?` could be at the end of the method name</span>
+  <span class="ruby-identifier">class_ref</span> = <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">action_class_ref</span>(<span class="ruby-identifier">method_str</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">class_ref</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:run</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-did_finish" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">did_finish</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="did_finish-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">did_finish</span>
+  <span class="ruby-comment"># to maintain compatibility with other sibling classes that have this API</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="error_blocks-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error_blocks</span>
+  <span class="ruby-ivar">@error_blocks</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(lane, platform = nil, parameters = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This will take care of executing *<strong>one</strong>* lane. That&#39;s
+when the user triggers a lane from the CLI for example This method is
+*<strong>not</strong>* executed when switching a lane @param lane_name The
+name of the lane to execute @param platform The name of the platform to
+execute @param parameters [Hash] The parameters passed from the command
+line to the lane</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">platform</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">parameters</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;No lane given&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_lane</span> = <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_platform</span> = (<span class="ruby-identifier">platform</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">platform</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-identifier">lane_obj</span> = <span class="ruby-identifier">lanes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">current_platform</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">current_lane</span>, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find lane &#39;#{full_lane_name}&#39;. Available lanes: #{available_lanes.join(&#39;, &#39;)}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane_obj</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;You can&#39;t call the private lane &#39;#{lane}&#39; directly&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">lane_obj</span>.<span class="ruby-identifier">is_private</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_LANE_NAME&quot;</span>] = <span class="ruby-identifier">current_lane</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PLATFORM_NAME&quot;</span>] = (<span class="ruby-identifier">current_platform</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">current_platform</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">PLATFORM_NAME</span>] = <span class="ruby-identifier">current_platform</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">LANE_NAME</span>] = <span class="ruby-identifier">full_lane_name</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Driving the lane &#39;#{full_lane_name}&#39; 🚀&quot;</span>)
+
+  <span class="ruby-identifier">return_val</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">path_to_use</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+  <span class="ruby-identifier">parameters</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">path_to_use</span>) <span class="ruby-keyword">do</span> <span class="ruby-comment"># the file is located in the fastlane folder</span>
+      <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">before_all_blocks</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">current_lane</span>, <span class="ruby-identifier">parameters</span>)
+      <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">before_each_blocks</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">current_lane</span>, <span class="ruby-identifier">parameters</span>)
+
+      <span class="ruby-identifier">return_val</span> = <span class="ruby-identifier">lane_obj</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">parameters</span>) <span class="ruby-comment"># by default no parameters</span>
+
+      <span class="ruby-comment"># after blocks are only called if no exception was raised before</span>
+      <span class="ruby-comment"># Call the platform specific after block and then the general one</span>
+      <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">after_each_blocks</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">current_lane</span>, <span class="ruby-identifier">parameters</span>)
+      <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">after_all_blocks</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">current_lane</span>, <span class="ruby-identifier">parameters</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">return_val</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">path_to_use</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># Provide error block exception without color code</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">error_blocks</span>[<span class="ruby-identifier">current_platform</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">current_lane</span>, <span class="ruby-identifier">ex</span>, <span class="ruby-identifier">parameters</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_platform</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">error_blocks</span>[<span class="ruby-identifier">current_platform</span>]
+        <span class="ruby-identifier">error_blocks</span>[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">current_lane</span>, <span class="ruby-identifier">ex</span>, <span class="ruby-identifier">parameters</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_blocks</span>[<span class="ruby-keyword">nil</span>]
+      <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error_block_exception</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;An error occurred while executing the `error` block:&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">error_block_exception</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-comment"># raise the original error message</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute_action</span><span
+            class="method-args">(method_sym, class_ref, arguments, custom_dir: nil, from_action: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="execute_action-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute_action</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">class_ref</span>, <span class="ruby-identifier">arguments</span>, <span class="ruby-identifier">custom_dir</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">from_action</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">custom_dir</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">custom_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+    <span class="ruby-identifier">custom_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;..&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">verify_supported_os</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">class_ref</span>)
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">custom_dir</span>) <span class="ruby-keyword">do</span> <span class="ruby-comment"># go up from the fastlane folder, to the project folder</span>
+      <span class="ruby-comment"># If another action is calling this action, we shouldn&#39;t show it in the summary</span>
+      <span class="ruby-comment"># (see https://github.com/fastlane/fastlane/issues/4546)</span>
+
+      <span class="ruby-identifier">action_name</span> = <span class="ruby-identifier">from_action</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">step_text</span>
+      <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">execute_action</span>(<span class="ruby-identifier">action_name</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-comment"># arguments is an array by default, containing an hash with the actual parameters</span>
+        <span class="ruby-comment"># Since we usually just need the passed hash, we&#39;ll just use the first object if there is only one</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">arguments</span> = <span class="ruby-constant">ConfigurationHelper</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">class_ref</span>, {}) <span class="ruby-comment"># no parameters =&gt; empty hash</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+          <span class="ruby-identifier">arguments</span> = <span class="ruby-constant">ConfigurationHelper</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">class_ref</span>, <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">first</span>) <span class="ruby-comment"># Correct configuration passed</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">available_options</span>
+          <span class="ruby-comment"># This action does not use the new action format</span>
+          <span class="ruby-comment"># Just passing the arguments to this method</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;You have to call the integration like `#{method_sym}(key: \&quot;value\&quot;)`. Run `fastlane action #{method_sym}` for all available keys. Please check out the current documentation on GitHub.&quot;</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Actions</span>.<span class="ruby-identifier">is_deprecated?</span>(<span class="ruby-identifier">class_ref</span>)
+          <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;==========================================&quot;</span>.<span class="ruby-identifier">deprecated</span>)
+          <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;This action (#{method_sym}) is deprecated&quot;</span>.<span class="ruby-identifier">deprecated</span>)
+          <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">deprecated_notes</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">deprecated</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">deprecated_notes</span>
+          <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;==========================================\n&quot;</span>.<span class="ruby-identifier">deprecated</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">runner</span> = <span class="ruby-keyword">self</span> <span class="ruby-comment"># needed to call another action form an action</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">arguments</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># reraise the interruption to avoid logging this as a crash</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneCommonException</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># these are exceptions that we dont count as crashes</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># user_error!</span>
+    <span class="ruby-identifier">action_completed</span>(<span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">USER_ERROR</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># rubocop:disable Lint/RescueException</span>
+    <span class="ruby-comment"># high chance this is actually FastlaneCore::Interface::FastlaneCrash, but can be anything else</span>
+    <span class="ruby-comment"># Catches all exceptions, since some plugins might use system exits to get out</span>
+    <span class="ruby-identifier">action_completed</span>(<span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ActionCompletionStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">FAILED</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute_flow_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute_flow_block</span><span
+            class="method-args">(block, current_platform, lane, parameters)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="execute_flow_block-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">block</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span>)
+  <span class="ruby-comment"># Call the platform specific block and default back to the general one</span>
+  <span class="ruby-identifier">block</span>[<span class="ruby-identifier">current_platform</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>[<span class="ruby-identifier">current_platform</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_platform</span>
+  <span class="ruby-identifier">block</span>[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>[<span class="ruby-keyword">nil</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_alias</span><span
+            class="method-args">(action_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>lookup if an alias exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_alias-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_alias</span>(<span class="ruby-identifier">action_name</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">alias_actions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">alias_actions</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">alias_actions</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">action_name</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-full_lane_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">full_lane_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="full_lane_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">full_lane_name</span>
+  [<span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">current_lane</span>].<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:nil?</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_after_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_after_all</span><span
+            class="method-args">(platform, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_after_all-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 326</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_after_all</span>(<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">after_all_blocks</span>[<span class="ruby-identifier">platform</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You defined multiple `after_all` blocks in your `Fastfile`. The last one being set will be used.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">after_all_blocks</span>[<span class="ruby-identifier">platform</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_after_each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_after_each</span><span
+            class="method-args">(platform, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_after_each-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_after_each</span>(<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">after_each_blocks</span>[<span class="ruby-identifier">platform</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_before_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_before_all</span><span
+            class="method-args">(platform, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_before_all-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_before_all</span>(<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">before_all_blocks</span>[<span class="ruby-identifier">platform</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You defined multiple `before_all` blocks in your `Fastfile`. The last one being set will be used.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">before_all_blocks</span>[<span class="ruby-identifier">platform</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_before_each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_before_each</span><span
+            class="method-args">(platform, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_before_each-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_before_each</span>(<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">before_each_blocks</span>[<span class="ruby-identifier">platform</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_error</span><span
+            class="method-args">(platform, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_error-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 333</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_error</span>(<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">error_blocks</span>[<span class="ruby-identifier">platform</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;You defined multiple `error` blocks in your `Fastfile`. The last one being set will be used.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">error_blocks</span>[<span class="ruby-identifier">platform</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trigger_action_by_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trigger_action_by_name</span><span
+            class="method-args">(method_sym, custom_dir, from_action, *arguments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This is being called from `method_missing` from the Fastfile It&#39;s also
+used when an action is called from another action @param from_action
+Indicates if this action is being trigged by another action.</p>
+
+<pre>If so, it won&#39;t show up in summary.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="trigger_action_by_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trigger_action_by_name</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">custom_dir</span>, <span class="ruby-identifier">from_action</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">arguments</span>)
+  <span class="ruby-comment"># First, check if there is a predefined method in the actions folder</span>
+  <span class="ruby-identifier">class_ref</span> = <span class="ruby-identifier">class_reference_from_action_name</span>(<span class="ruby-identifier">method_sym</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">class_ref</span>
+    <span class="ruby-identifier">class_ref</span> = <span class="ruby-identifier">class_reference_from_action_alias</span>(<span class="ruby-identifier">method_sym</span>)
+    <span class="ruby-comment"># notify action that it has been used by alias</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:alias_used</span>)
+      <span class="ruby-identifier">orig_action</span> = <span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">arguments</span> = [{}] <span class="ruby-keyword">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">alias_used</span>(<span class="ruby-identifier">orig_action</span>, <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">first</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># It&#39;s important to *not* have this code inside the rescue block</span>
+  <span class="ruby-comment"># otherwise all NameErrors will be caught and the error message is</span>
+  <span class="ruby-comment"># confusing</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">try_switch_to_lane</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">arguments</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LaneNotAvailableError</span>
+    <span class="ruby-comment"># We don&#39;t actually handle this here yet</span>
+    <span class="ruby-comment"># We just try to use a user configured lane first</span>
+    <span class="ruby-comment"># and only if there is none, we&#39;re gonna check for the</span>
+    <span class="ruby-comment"># built-in actions</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:run</span>)
+      <span class="ruby-comment"># Action is available, now execute it</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">execute_action</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">class_ref</span>, <span class="ruby-identifier">arguments</span>, <span class="ruby-identifier">custom_dir</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custom_dir</span>, <span class="ruby-identifier">from_action</span><span class="ruby-operator">:</span> <span class="ruby-identifier">from_action</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Action &#39;#{method_sym}&#39; of class &#39;#{class_name}&#39; was found, but has no `run` method.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># No lane, no action, let&#39;s at least show the correct error message</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Fastlane</span>.<span class="ruby-identifier">plugin_manager</span>.<span class="ruby-identifier">plugin_is_added_as_dependency?</span>(<span class="ruby-constant">PluginManager</span>.<span class="ruby-identifier">plugin_prefix</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-comment"># That&#39;s a plugin, but for some reason we can&#39;t find it</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Plugin &#39;#{method_sym}&#39; was not properly loaded, make sure to follow the plugin docs for troubleshooting: #{PluginManager::TROUBLESHOOTING_URL}&quot;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Actions</span>.<span class="ruby-identifier">formerly_bundled_actions</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-comment"># This was a formerly bundled action which is now a plugin.</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">caller</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;The action &#39;#{method_sym}&#39; is no longer bundled with fastlane. You can install it using `fastlane add_plugin #{method_sym}`&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># So there is no plugin under that name, so just show the error message generated by the lane switch</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">caller</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find action, lane or variable &#39;#{method_sym}&#39;. Check out the documentation for more details: https://docs.fastlane.tools/actions&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try_switch_to_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_switch_to_lane</span><span
+            class="method-args">(new_lane, parameters)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_switch_to_lane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try_switch_to_lane</span>(<span class="ruby-identifier">new_lane</span>, <span class="ruby-identifier">parameters</span>)
+  <span class="ruby-identifier">block</span> = <span class="ruby-identifier">lanes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">current_platform</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">new_lane</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">block</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">lanes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-keyword">nil</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">new_lane</span>, <span class="ruby-keyword">nil</span>) <span class="ruby-comment"># fallback to general lane for multiple platforms</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">original_full</span> = <span class="ruby-identifier">full_lane_name</span>
+    <span class="ruby-identifier">original_lane</span> = <span class="ruby-identifier">current_lane</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Parameters for a lane must always be a hash&quot;</span>) <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+    <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">before_each_blocks</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">new_lane</span>, <span class="ruby-identifier">parameters</span>)
+
+    <span class="ruby-identifier">pretty</span> = [<span class="ruby-identifier">new_lane</span>]
+    <span class="ruby-identifier">pretty</span> = [<span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">new_lane</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_platform</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">execute_action</span>(<span class="ruby-node">&quot;Switch to #{pretty.join(&#39; &#39;)} lane&quot;</span>) {} <span class="ruby-comment"># log the action</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Cruising over to lane &#39;#{pretty.join(&#39; &#39;)}&#39; 🚖&quot;</span>)
+
+    <span class="ruby-comment"># Actually switch lane now</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_lane</span> = <span class="ruby-identifier">new_lane</span>
+
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> {}) <span class="ruby-comment"># to always pass a hash</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_lane</span> = <span class="ruby-identifier">original_lane</span>
+
+    <span class="ruby-comment"># after blocks are only called if no exception was raised before</span>
+    <span class="ruby-comment"># Call the platform specific after block and then the general one</span>
+    <span class="ruby-identifier">execute_flow_block</span>(<span class="ruby-identifier">after_each_blocks</span>, <span class="ruby-identifier">current_platform</span>, <span class="ruby-identifier">new_lane</span>, <span class="ruby-identifier">parameters</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Cruising back to lane &#39;#{original_full}&#39; 🚘&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">LaneNotAvailableError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Lane not found&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_supported_os" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_supported_os</span><span
+            class="method-args">(name, class_ref)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_supported_os-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/runner.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_supported_os</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">class_ref</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:is_supported?</span>)
+    <span class="ruby-comment"># This value is filled in based on the executed platform block. Might be nil when lane is in root of Fastfile</span>
+    <span class="ruby-identifier">platform</span> = <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">PLATFORM_NAME</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Action &#39;#{name}&#39; isn&#39;t known to support operating system &#39;#{platform}&#39;.&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

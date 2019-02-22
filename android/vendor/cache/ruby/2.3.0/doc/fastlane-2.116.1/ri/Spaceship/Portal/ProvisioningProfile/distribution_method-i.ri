@@ -1,0 +1,10 @@
+U:RDoc::Attr[iI"distribution_method:ETI"?Spaceship::Portal::ProvisioningProfile#distribution_method;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"I@return (String) The profile distribution type. You probably want to;To:RDoc::Markup::Verbatim;	[I"Kuse the class type to detect the profile type instead of this string.
+;T:@format0o;
+;	[I"@example AppStore Profile;To;;	[I""store"
+;T;0o;
+;	[I"@example AdHoc Profile;To;;	[I""adhoc"
+;T;0o;
+;	[I"!@example Development Profile;To;;	[I""limited"
+;T;0o;
+;	[I"&@example Mac Developer ID Profile;To;;	[I""direct";T;0:
+@fileI";spaceship/lib/spaceship/portal/provisioning_profile.rb;T:0@omit_headings_from_table_of_contents_below0F@*I"+Spaceship::Portal::ProvisioningProfile;TcRDoc::NormalClass0

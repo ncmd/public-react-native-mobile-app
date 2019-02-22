@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>build_ios_app - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-What-27s+gym-3F">What&#39;s gym?</a>
+    <li><a href="#label-Before+gym">Before <em>gym</em></a>
+    <li><a href="#label-With+gym">With <em>gym</em></a>
+    <li><a href="#label-Why+gym-3F">Why <em>gym</em>?</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Gymfile">Gymfile</a>
+    <li><a href="#label-Export+options">Export options</a>
+    <li><a href="#label-Setup+code+signing">Setup code signing</a>
+    <li><a href="#label-Automating+the+whole+process">Automating the whole process</a>
+    <li><a href="#label-How+does+it+work-3F">How does it work?</a>
+    <li><a href="#label-Xcode+7+and+above">Xcode 7 and above</a>
+    <li><a href="#label-Use+-27ProvisionQL-27+for+advanced+Quick+Look+in+Finder">Use &#39;ProvisionQL&#39; for advanced Quick Look in Finder</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/build_ios_app.md">
+<p align="center">
+  <img src="/img/actions/gym.png" width="250">
+</p><hr>
+<p align="center">
+    <a href="#whats-gym">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#tips">Tips</a>
+</p><hr>
+<h5 align="center"><em>gym</em> is part of <a href="https://fastlane.tools">fastlane</a>: The easiest way to automate beta deployments and releases for your iOS and Android apps.</h5>
+<h1 id="label-What-27s+gym-3F">What&#39;s gym?<span><a href="#label-What-27s+gym-3F">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>gym</em> builds and packages iOS apps for you. It takes care of all the
+heavy lifting and makes it super easy to generate a signed <code>ipa</code>
+or <code>app</code> file 💪</p>
+
+<p><em>gym</em> is a replacement for <a
+href="https://github.com/nomad/shenzhen">shenzhen</a>.</p>
+
+<h3 id="label-Before+gym">Before <em>gym</em><span><a href="#label-Before+gym">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>xcodebuild clean archive -archivePath build/MyApp \
+                         -scheme MyApp
+xcodebuild -exportArchive \
+           -exportFormat ipa \
+           -archivePath &quot;build/MyApp.xcarchive&quot; \
+           -exportPath &quot;build/MyApp.ipa&quot; \
+           -exportProvisioningProfile &quot;ProvisioningProfileName&quot;</pre>
+
+<h3 id="label-With+gym">With <em>gym</em><span><a href="#label-With+gym">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">gym</span>
+</pre>
+
+<h3 id="label-Why+gym-3F">Why <em>gym</em>?<span><a href="#label-Why+gym-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><em>gym</em> uses the latest APIs to build and sign your application which
+results in much faster build times.</p>
+
+<p>| | <a href="../../../../../Gym.html">Gym</a> Features | |———-|—————-| 🚀 |
+<em>gym</em> builds 30% faster than other build tools like <a
+href="https://github.com/nomad/shenzhen">shenzhen</a> 🏁 | Beautiful inline
+build output 📖 | Helps you resolve common build errors like code signing
+issues 🚠 | Sensible defaults: Automatically detect the project, its schemes
+and more 🔗 | Works perfectly with <a
+href="https://fastlane.tools">fastlane</a> and other tools 📦 |
+Automatically generates an <code>ipa</code> and a compressed
+<code>dSYM</code> file 🚅 | Don&#39;t remember any complicated build
+commands, just <em>gym</em> 🔧 | Easy and dynamic configuration using
+parameters and environment variables 💾 | Store common build settings in a
+<code>Gymfile</code> 📤 | All archives are stored and accessible in the
+Xcode Organizer 💻 | Supports both iOS and Mac applications</p>
+
+<p><img src="/img/actions/gymScreenshot.png"></p>
+<hr>
+
+<p><img src="/img/actions/gym.gif"></p>
+
+<h1 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">gym</span>
+</pre>
+
+<p>That&#39;s all you need to build your application. If you want more
+control, here are some available parameters:</p>
+
+<pre>fastlane gym --workspace &quot;Example.xcworkspace&quot; --scheme &quot;AppName&quot; --clean</pre>
+
+<p>If you need to use a different Xcode installation, use
+<code>xcode-select</code> or define <code>DEVELOPER_DIR</code>:</p>
+
+<pre>DEVELOPER_DIR=&quot;/Applications/Xcode6.2.app&quot; fastlane gym</pre>
+
+<p>For a list of all available parameters use</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">gym</span>
+</pre>
+
+<p>If you run into any issues, use the <code>verbose</code> mode to get more
+information</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">gym</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">verbose</span>
+</pre>
+
+<p>Set the right export method if you&#39;re not uploading to App Store or
+TestFlight:</p>
+
+<pre>fastlane gym --export_method ad-hoc</pre>
+
+<p>To pass boolean parameters make sure to use <em>gym</em> like this:</p>
+
+<pre>fastlane gym --include_bitcode true --include_symbols false</pre>
+
+<p>To access the raw <code>xcodebuild</code> output open
+<code>~/Library/Logs/gym</code></p>
+
+<h1 id="label-Gymfile">Gymfile<span><a href="#label-Gymfile">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Since you might want to manually trigger a new build but don&#39;t want to
+specify all the parameters every time, you can store your defaults in a so
+called <code>Gymfile</code>.</p>
+
+<p>Run <code>fastlane gym init</code> to create a new configuration file.
+Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scheme</span>(<span class="ruby-string">&quot;Example&quot;</span>)
+
+<span class="ruby-identifier">sdk</span>(<span class="ruby-string">&quot;iphoneos9.0&quot;</span>)
+
+<span class="ruby-identifier">clean</span>(<span class="ruby-keyword">true</span>)
+
+<span class="ruby-identifier">output_directory</span>(<span class="ruby-string">&quot;./build&quot;</span>)    <span class="ruby-comment"># store the ipa in this folder</span>
+<span class="ruby-identifier">output_name</span>(<span class="ruby-string">&quot;MyApp&quot;</span>)           <span class="ruby-comment"># the name of the ipa file</span>
+</pre>
+
+<h2 id="label-Export+options">Export options<span><a href="#label-Export+options">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Since Xcode 7, <em>gym</em> is using new Xcode API which allows us to
+specify export options using <code>plist</code> file. By default
+<em>gym</em> creates this file for you and you are able to modify some
+parameters by using <code>export_method</code>,
+<code>export_team_id</code>, <code>include_symbols</code> or
+<code>include_bitcode</code>. If you want to have more options, like
+creating manifest file for app thinning, you can provide your own
+<code>plist</code> file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">export_options</span>(<span class="ruby-string">&quot;./ExportOptions.plist&quot;</span>)
+</pre>
+
+<p>or you can provide hash of values directly in the <code>Gymfile</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">export_options</span>({
+  <span class="ruby-identifier">method</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;ad-hoc&quot;</span>,
+  <span class="ruby-identifier">manifest</span><span class="ruby-operator">:</span> {
+    <span class="ruby-identifier">appURL</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;https://example.com/My App.ipa&quot;</span>,
+  },
+  <span class="ruby-identifier">thinning</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&lt;thin-for-all-variants&gt;&quot;</span>
+})
+</pre>
+
+<p>Optional: If <em>gym</em> can&#39;t automatically detect the provisioning
+profiles to use, you can pass a mapping of bundle identifiers to
+provisioning profiles:</p>
+
+<pre class="ruby"><span class="ruby-identifier">build_ios_app</span>(
+  <span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Release&quot;</span>,
+  <span class="ruby-identifier">export_options</span><span class="ruby-operator">:</span> {
+    <span class="ruby-identifier">method</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;app-store&quot;</span>,
+    <span class="ruby-identifier">provisioningProfiles</span><span class="ruby-operator">:</span> { 
+      <span class="ruby-string">&quot;com.example.bundleid&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Provisioning Profile Name&quot;</span>,
+      <span class="ruby-string">&quot;com.example.bundleid2&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Provisioning Profile Name 2&quot;</span>
+    }
+  }
+)
+</pre>
+
+<p><strong>Note</strong>: If you use <a
+href="https://fastlane.tools">fastlane</a> with <a
+href="https://fastlane.tools/match">match</a> you don&#39;t need to provide
+those values manually.</p>
+
+<p>For the list of available options run <code>xcodebuild -help</code>.</p>
+
+<h2 id="label-Setup+code+signing">Setup code signing<span><a href="#label-Setup+code+signing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://docs.fastlane.tools/codesigning/getting-started/">More
+information on how to get started with codesigning</a></p>
+</li><li>
+<p><a href="https://docs.fastlane.tools/codesigning/xcode-project/">Docs on
+how to set up your Xcode project</a></p>
+</li></ul>
+
+<h2 id="label-Automating+the+whole+process">Automating the whole process<span><a href="#label-Automating+the+whole+process">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><em>gym</em> works great together with <a
+href="https://fastlane.tools">fastlane</a>, which connects all deployment
+tools into one streamlined workflow.</p>
+
+<p>Using <em>fastlane</em> you can define a configuration like</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">beta</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">scan</span>
+  <span class="ruby-identifier">gym</span>(<span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MyApp&quot;</span>)
+  <span class="ruby-identifier">crashlytics</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># error block is executed when a error occurs</span>
+<span class="ruby-identifier">error</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lane</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">slack</span>(
+    <span class="ruby-comment"># message with short human friendly message</span>
+    <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">to_s</span>, 
+    <span class="ruby-identifier">success</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, 
+    <span class="ruby-comment"># Output containing extended log output</span>
+    <span class="ruby-identifier">payload</span><span class="ruby-operator">:</span> { <span class="ruby-string">&quot;Output&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">error_info</span>.<span class="ruby-identifier">to_s</span> } 
+  )
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>When <em>gym</em> raises an error the <code>error_info</code> property will
+contain the process output in case you want to display the error in 3rd
+party tools such as Slack.</p>
+
+<p>You can then easily switch between the beta provider (e.g.
+<code>testflight</code>, <code>hockey</code>, <code>s3</code> and more).</p>
+
+<h1 id="label-How+does+it+work-3F">How does it work?<span><a href="#label-How+does+it+work-3F">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>gym</em> uses the latest APIs to build and sign your application. The 2
+main components are</p>
+<ul><li>
+<p><code>xcodebuild</code></p>
+</li><li>
+<p><a href="https://github.com/supermarin/xcpretty">xcpretty</a></p>
+</li></ul>
+
+<p>When you run <em>gym</em> without the <code>--silent</code> mode it will
+print out every command it executes.</p>
+
+<p>To build the archive <em>gym</em> uses the following command:</p>
+
+<pre>set -o pipefail &amp;&amp; \
+xcodebuild -scheme &#39;Example&#39; \
+-project &#39;./Example.xcodeproj&#39; \
+-configuration &#39;Release&#39; \
+-destination &#39;generic/platform=iOS&#39; \
+-archivePath &#39;/Users/felixkrause/Library/Developer/Xcode/Archives/2015-08-11/ExampleProductName 2015-08-11 18.15.30.xcarchive&#39; \
+archive | xcpretty</pre>
+
+<p>After building the archive it is being checked by <em>gym</em>. If it&#39;s
+valid, it gets packaged up and signed into an <code>ipa</code> file.</p>
+
+<p><em>gym</em> automatically chooses a different packaging method depending
+on the version of Xcode you&#39;re using.</p>
+
+<h3 id="label-Xcode+7+and+above">Xcode 7 and above<span><a href="#label-Xcode+7+and+above">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>/usr/bin/xcrun path/to/xcbuild-safe.sh -exportArchive \
+-exportOptionsPlist &#39;/tmp/gym_config_1442852529.plist&#39; \
+-archivePath &#39;/Users/fkrause/Library/Developer/Xcode/Archives/2015-09-21/App 2015-09-21 09.21.56.xcarchive&#39; \
+-exportPath &#39;/tmp/1442852529&#39;</pre>
+
+<p><em>gym</em> makes use of the new Xcode 7 API which allows us to specify
+the export options using a <code>plist</code> file. You can find more
+information about the available options by running <code>xcodebuild
+--help</code>.</p>
+
+<p>Using this method there are no workarounds for WatchKit or Swift required,
+as it uses the same technique Xcode uses when exporting your binary.</p>
+
+<p>Note: the <a
+href="https://github.com/fastlane/fastlane/blob/master/gym/lib/assets/wrap_xcodebuild/xcbuild-safe.sh">xcbuild-safe.sh
+script</a> wraps around xcodebuild to workaround some incompatibilities.</p>
+
+<h2 id="label-Use+-27ProvisionQL-27+for+advanced+Quick+Look+in+Finder">Use &#39;ProvisionQL&#39; for advanced Quick Look in Finder<span><a href="#label-Use+-27ProvisionQL-27+for+advanced+Quick+Look+in+Finder">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Install <a
+href="https://github.com/ealeksandrov/ProvisionQL">ProvisionQL</a>.</p>
+
+<p>It will show you <code>ipa</code> files like this: <img
+src="/img/actions/QuickLookScreenshot-App.png"></p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

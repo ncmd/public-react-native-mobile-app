@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"invalid_builds:ETI"0Spaceship::Tunes::BuildTrain#invalid_builds;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"N@return (Array) An array of all invalid builds that are inside this train;T:
+@fileI"1spaceship/lib/spaceship/tunes/build_train.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::BuildTrain;TcRDoc::NormalClass0

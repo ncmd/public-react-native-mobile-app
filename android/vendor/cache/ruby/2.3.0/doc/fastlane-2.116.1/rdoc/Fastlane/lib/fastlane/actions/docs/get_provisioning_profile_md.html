@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>get_provisioning_profile - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Because+you+would+rather+spend+your+time+building+stuff+than+fighting+provisioning">Because you would rather spend your time building stuff than fighting provisioning</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Why+not+let+Xcode+do+the+work-3F">Why not let Xcode do the work?</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Advanced">Advanced</a>
+    <li><a href="#label-Use+with+fastlane">Use with <a href="https://fastlane.tools">fastlane</a></a>
+    <li><a href="#label-Repair">Repair</a>
+    <li><a href="#label-Resign">Resign</a>
+    <li><a href="#label-Manage">Manage</a>
+    <li><a href="#label-Environment+Variables">Environment Variables</a>
+    <li><a href="#label-How+does+it+work-3F">How does it work?</a>
+    <li><a href="#label-How+is+my+password+stored-3F">How is my password stored?</a>
+    <li><a href="#label-Tips">Tips</a>
+    <li><a href="#label-Use+-27ProvisionQL-27+for+advanced+Quick+Look+in+Finder">Use &#39;ProvisionQL&#39; for advanced Quick Look in Finder</a>
+    <li><a href="#label-App+Identifier+couldn-27t+be+found">App Identifier couldn&#39;t be found</a>
+    <li><a href="#label-What+happens+to+my+Xcode+managed+profiles-3F">What happens to my Xcode managed profiles?</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/get_provisioning_profile.md">
+<p align="center">
+  <img src="/img/actions/sigh.png" width="250">
+</p>
+<h6 id="label-Because+you+would+rather+spend+your+time+building+stuff+than+fighting+provisioning">Because you would rather spend your time building stuff than fighting provisioning<span><a href="#label-Because+you+would+rather+spend+your+time+building+stuff+than+fighting+provisioning">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p><em>sigh</em> can create, renew, download and repair provisioning profiles
+(with one command). It supports App Store, Ad Hoc, Development and
+Enterprise profiles and supports nice features, like auto-adding all test
+devices.</p>
+<hr>
+<p align="center">
+    <a href="#features">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#resign">Resign</a> &bull;
+    <a href="#how-does-it-work">How does it work?</a>
+</p><hr>
+
+<h1 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><strong>Download</strong> the latest provisioning profile for your app</p>
+</li><li>
+<p><strong>Renew</strong> a provisioning profile, when it has expired</p>
+</li><li>
+<p><strong>Repair</strong> a provisioning profile, when it is broken</p>
+</li><li>
+<p><strong>Create</strong> a new provisioning profile, if it doesn&#39;t exist
+already</p>
+</li><li>
+<p>Supports <strong>App Store</strong>, <strong>Ad Hoc</strong> and
+<strong>Development</strong> profiles</p>
+</li><li>
+<p>Support for <strong>multiple Apple accounts</strong>, storing your
+credentials securely in the Keychain</p>
+</li><li>
+<p>Support for <strong>multiple Teams</strong></p>
+</li><li>
+<p>Support for <strong>Enterprise Profiles</strong></p>
+</li></ul>
+
+<p>To automate iOS Push profiles you can use <a
+href="https://docs.fastlane.tools/actions/pem/">pem</a>.</p>
+
+<h3 id="label-Why+not+let+Xcode+do+the+work-3F">Why not let Xcode do the work?<span><a href="#label-Why+not+let+Xcode+do+the+work-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><em>sigh</em> can easily be integrated into your CI-server (e.g. Jenkins)</p>
+</li><li>
+<p>Xcode sometimes invalidates <img src="/img/actions/SignErrors.png" /></p>
+</li><li>
+<p>You have control over what happens</p>
+</li><li>
+<p>You still get to have the signing files, which you can then use for your
+build scripts or store in git</p>
+</li></ul>
+
+<p>See <em>sigh</em> in action:</p>
+
+<p><img src="/img/actions/sighRecording.gif"></p>
+
+<h1 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><strong>Note</strong>: It is recommended to use <a
+href="https://docs.fastlane.tools/actions/match/">match</a> according to
+the <a href="https://codesigning.guide">codesigning.guide</a> for
+generating and maintaining your provisioning profiles. Use <em>sigh</em>
+directly only if you want full control over what&#39;s going on and know
+more about codesigning.</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span>
+</pre>
+
+<p>Yes, that&#39;s the whole command!</p>
+
+<p><em>sigh</em> will create, repair and download profiles for the App Store
+by default.</p>
+
+<p>You can pass your bundle identifier and username like this:</p>
+
+<pre>fastlane sigh -a com.krausefx.app -u username</pre>
+
+<p>If you want to generate an <strong>Ad Hoc</strong> profile instead of an
+App Store profile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">adhoc</span>
+</pre>
+
+<p>If you want to generate a <strong>Development</strong> profile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">development</span>
+</pre>
+
+<p>To generate the profile in a specific directory:</p>
+
+<pre>fastlane sigh -o &quot;~/Certificates/&quot;</pre>
+
+<p>To download all your provisioning profiles use</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-identifier">download_all</span>
+</pre>
+
+<p>Optionally, use <code>fastlane sigh download_all
+--download_xcode_profiles</code> to also include the Xcode managed
+provisioning profiles</p>
+
+<p>For a list of available parameters and commands run</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">sigh</span>
+</pre>
+
+<h3 id="label-Advanced">Advanced<span><a href="#label-Advanced">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>By default, <em>sigh</em> will install the downloaded profile on your
+machine. If you just want to generate the profile and skip the
+installation, use the following flag:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">skip_install</span>
+</pre>
+
+<p>To save the provisioning profile under a specific name, use the -q option:</p>
+
+<pre>fastlane sigh -a com.krausefx.app -u username -q &quot;myProfile.mobileprovision&quot;</pre>
+
+<p>If for some reason you don&#39;t want <em>sigh</em> to verify that the code
+signing identity is installed on your local machine:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">skip_certificate_verification</span>
+</pre>
+
+<p>If you need the provisioning profile to be renewed regardless of its state
+use the <code>--force</code> option. This gives you a profile with the
+maximum lifetime. <code>--force</code> will also add all available devices
+to this profile.</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">force</span>
+</pre>
+
+<p>By default, <em>sigh</em> will include all certificates on development
+profiles, and first certificate on other types. If you need to specify
+which certificate to use you can either use the environment variable
+<code>SIGH_CERTIFICATE</code>, or pass the name or expiry date of the
+certificate as argument:</p>
+
+<pre>fastlane sigh -c &quot;SunApps GmbH&quot;</pre>
+
+<p>For a list of available parameters and commands run</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">sigh</span>
+</pre>
+
+<h3 id="label-Use+with+fastlane">Use with <a href="https://fastlane.tools">fastlane</a><span><a href="#label-Use+with+fastlane">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><em>sigh</em> becomes really interesting when used in <a
+href="https://fastlane.tools">fastlane</a> in combination with <a
+href="https://docs.fastlane.tools/actions/cert/">cert</a>.</p>
+
+<p>Update your <code>Fastfile</code> to contain the following code:</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">beta</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">cert</span>
+  <span class="ruby-identifier">sigh</span>(<span class="ruby-identifier">force</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><code>force: true</code> will make sure to re-generate the provisioning
+profile on each run. This will result in <em>sigh</em> always using the
+correct signing certificate, which is installed on the local machine.</p>
+
+<h1 id="label-Repair">Repair<span><a href="#label-Repair">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>sigh</em> can automatically repair all your existing provisioning
+profiles which are expired or just invalid.</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-identifier">repair</span>
+</pre>
+
+<h1 id="label-Resign">Resign<span><a href="#label-Resign">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>If you generated your <code>ipa</code> file but want to apply a different
+code signing onto the ipa file, you can use <code>sigh resign</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-identifier">resign</span>
+</pre>
+
+<p><em>sigh</em> will find the ipa file and the provisioning profile for you
+if they are located in the current folder.</p>
+
+<p>You can pass more information using the command line:</p>
+
+<pre>fastlane sigh resign ./path/app.ipa --signing_identity &quot;iPhone Distribution: Felix Krause&quot; -p &quot;my.mobileprovision&quot;</pre>
+
+<h1 id="label-Manage">Manage<span><a href="#label-Manage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>With <code>sigh manage</code> you can list all provisioning profiles
+installed locally.</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-identifier">manage</span>
+</pre>
+
+<p>Delete all expired provisioning profiles</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">sigh</span> <span class="ruby-identifier">manage</span> <span class="ruby-operator">-</span><span class="ruby-identifier">e</span>
+</pre>
+
+<p>Or delete all <code>iOS Team Provisioning Profile</code> by using a regular
+expression</p>
+
+<pre>fastlane sigh manage -p &quot;iOS\ ?Team Provisioning Profile:&quot;</pre>
+
+<h2 id="label-Environment+Variables">Environment Variables<span><a href="#label-Environment+Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Run <code>fastlane action sigh</code> to get a list of all available
+environment variables.</p>
+
+<p>If you&#39;re using <a
+href="https://docs.fastlane.tools/actions/cert/">cert</a> in combination
+with <a href="https://fastlane.tools">fastlane</a> the signing certificate
+will automatically be selected for you. (make sure to run <em>cert</em>
+before <em>sigh</em>)</p>
+
+<h1 id="label-How+does+it+work-3F">How does it work?<span><a href="#label-How+does+it+work-3F">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>sigh</em> will access the <code>iOS Dev Center</code> to download,
+renew or generate the <code>.mobileprovision</code> file. It uses <a
+href="https://spaceship.airforce">spaceship</a> to communicate with
+Apple&#39;s web services.</p>
+
+<h2 id="label-How+is+my+password+stored-3F">How is my password stored?<span><a href="#label-How+is+my+password+stored-3F">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><em>sigh</em> uses the <a
+href="https://github.com/fastlane/fastlane/tree/master/credentials_manager">CredentialsManager</a>
+from <em>fastlane</em>.</p>
+
+<h1 id="label-Tips">Tips<span><a href="#label-Tips">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Use+-27ProvisionQL-27+for+advanced+Quick+Look+in+Finder">Use &#39;ProvisionQL&#39; for advanced Quick Look in Finder<span><a href="#label-Use+-27ProvisionQL-27+for+advanced+Quick+Look+in+Finder">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Install <a
+href="https://github.com/ealeksandrov/ProvisionQL">ProvisionQL</a>.</p>
+
+<p>It will show you <code>mobileprovision</code> files like this: <img
+src="/img/actions/QuickLookScreenshot-Provision.png"></p>
+
+<h2 id="label-App+Identifier+couldn-27t+be+found">App Identifier couldn&#39;t be found<span><a href="#label-App+Identifier+couldn-27t+be+found">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>If you also want to create a new App Identifier on the Apple Developer
+Portal, check out <a
+href="https://docs.fastlane.tools/actions/produce/">produce</a>, which does
+exactly that.</p>
+
+<h2 id="label-What+happens+to+my+Xcode+managed+profiles-3F">What happens to my Xcode managed profiles?<span><a href="#label-What+happens+to+my+Xcode+managed+profiles-3F">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><em>sigh</em> will never touch or use the profiles which are created and
+managed by Xcode. Instead <em>sigh</em> will manage its own set of
+provisioning profiles.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"app_icon_preview_url:ETI"7Spaceship::Tunes::Application#app_icon_preview_url;TI"RW;T:privateo:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[I"a@return (String) The URL to a low resolution app icon of this app (340x340px). Might be nil ;TI"@example;To:RDoc::Markup::Verbatim;	[I"ƒ"https://is1-ssl.mzstatic.com/image/thumb/Purple7/v4/cd/a3/e2/cda3e2ac-4034-c6af-ee0c-3e4d9a0bafaa/pr_source.png/340x340bb-80.png"
+;T:@format0o;
+;	[I"@example;To;;	[I"nil;T;0:
+@fileI"1spaceship/lib/spaceship/tunes/application.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Spaceship::Tunes::Application;TcRDoc::NormalClass0

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Cert::Runner - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-certificate_type">#certificate_type</a>
+    
+    <li ><a href="#method-i-certificates">#certificates</a>
+    
+    <li ><a href="#method-i-create_certificate">#create_certificate</a>
+    
+    <li ><a href="#method-i-expired_certs">#expired_certs</a>
+    
+    <li ><a href="#method-i-find_existing_cert">#find_existing_cert</a>
+    
+    <li ><a href="#method-i-launch">#launch</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-revoke_expired_certs-21">#revoke_expired_certs!</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-store_certificate">#store_certificate</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Cert::Runner">
+  <h1 id="class-Cert::Runner" class="class">
+    class Cert::Runner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-certificate_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">certificate_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The kind of certificate we&#39;re interested in</p>
+          
+          
+
+          
+          <div class="method-source-code" id="certificate_type-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">certificate_type</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;ios&#39;</span>, <span class="ruby-string">&#39;tvos&#39;</span>
+    <span class="ruby-identifier">cert_type</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">production</span>
+    <span class="ruby-identifier">cert_type</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">in_house</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">in_house?</span>
+    <span class="ruby-identifier">cert_type</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">development</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:development</span>]
+
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;macos&#39;</span>
+    <span class="ruby-identifier">cert_type</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">mac_app_distribution</span>
+    <span class="ruby-identifier">cert_type</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">mac_development</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:development</span>]
+
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">cert_type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-certificates" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">certificates</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>All certificates of this type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="certificates-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">certificates</span>
+  <span class="ruby-identifier">certificate_type</span>.<span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_certificate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_certificate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_certificate-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_certificate</span>
+  <span class="ruby-comment"># Create a new certificate signing request</span>
+  <span class="ruby-identifier">csr</span>, <span class="ruby-identifier">pkey</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">create_certificate_signing_request</span>
+
+  <span class="ruby-comment"># Use the signing request to create a new distribution certificate</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">certificate</span> = <span class="ruby-identifier">certificate_type</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">csr</span><span class="ruby-operator">:</span> <span class="ruby-identifier">csr</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">type_name</span> = (<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:development</span>] <span class="ruby-operator">?</span> <span class="ruby-string">&quot;Development&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;Distribution&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;You already have a current&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not create another #{type_name} certificate, reached the maximum number of available #{type_name} certificates.&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;You are not allowed to perform this operation.&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">type_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Distribution&quot;</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You do not have permission to create this certificate. Only Team Admins can create Distribution certificates\n 🔍 See https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/ManagingYourTeam/ManagingYourTeam.html for more information.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Store all that onto the filesystem</span>
+
+  <span class="ruby-identifier">request_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:output_path</span>], <span class="ruby-node">&quot;#{certificate.id}.certSigningRequest&quot;</span>))
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">request_path</span>, <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">to_pem</span>)
+
+  <span class="ruby-identifier">private_key_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:output_path</span>], <span class="ruby-node">&quot;#{certificate.id}.p12&quot;</span>))
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">private_key_path</span>, <span class="ruby-identifier">pkey</span>)
+
+  <span class="ruby-identifier">cert_path</span> = <span class="ruby-identifier">store_certificate</span>(<span class="ruby-identifier">certificate</span>, <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:filename</span>])
+
+  <span class="ruby-comment"># Import all the things into the Keychain</span>
+  <span class="ruby-identifier">keychain</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:keychain_path</span>])
+  <span class="ruby-identifier">password</span> = <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:keychain_password</span>]
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">KeychainImporter</span>.<span class="ruby-identifier">import_file</span>(<span class="ruby-identifier">private_key_path</span>, <span class="ruby-identifier">keychain</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">KeychainImporter</span>.<span class="ruby-identifier">import_file</span>(<span class="ruby-identifier">cert_path</span>, <span class="ruby-identifier">keychain</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+
+  <span class="ruby-comment"># Environment variables for the fastlane action</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_CERTIFICATE_ID&quot;</span>] = <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_FILE_PATH&quot;</span>] = <span class="ruby-identifier">cert_path</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully generated #{certificate.id} which was imported to the local machine.&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">cert_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expired_certs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expired_certs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="expired_certs-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expired_certs</span>
+  <span class="ruby-identifier">certificates</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">certificate</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">expires</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">utc</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_existing_cert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_existing_cert</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_existing_cert-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_existing_cert</span>
+  <span class="ruby-identifier">certificates</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">certificate</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">can_download</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">store_certificate</span>(<span class="ruby-identifier">certificate</span>, <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:filename</span>])
+    <span class="ruby-identifier">private_key_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:output_path</span>], <span class="ruby-node">&quot;#{certificate.id}.p12&quot;</span>))
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CertChecker</span>.<span class="ruby-identifier">installed?</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-comment"># This certificate is installed on the local machine</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_CERTIFICATE_ID&quot;</span>] = <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">id</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_FILE_PATH&quot;</span>] = <span class="ruby-identifier">path</span>
+
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Found the certificate #{certificate.id} (#{certificate.name}) which is installed on the local machine. Using this one.&quot;</span>)
+
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">private_key_path</span>)
+      <span class="ruby-identifier">keychain</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:keychain_path</span>])
+      <span class="ruby-identifier">password</span> = <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:keychain_password</span>]
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">KeychainImporter</span>.<span class="ruby-identifier">import_file</span>(<span class="ruby-identifier">private_key_path</span>, <span class="ruby-identifier">keychain</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">KeychainImporter</span>.<span class="ruby-identifier">import_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_CERTIFICATE_ID&quot;</span>] = <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">id</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_FILE_PATH&quot;</span>] = <span class="ruby-identifier">path</span>
+
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Found the cached certificate #{certificate.id} (#{certificate.name}). Using this one.&quot;</span>)
+
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Certificate #{certificate.id} (#{certificate.name}) can&#39;t be found on your local computer&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">path</span>) <span class="ruby-comment"># as apparently this certificate is pretty useless without a private key</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Couldn&#39;t find an existing certificate... creating a new one&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-launch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">launch</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="launch-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">launch</span>
+  <span class="ruby-identifier">run</span>
+
+  <span class="ruby-identifier">installed</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CertChecker</span>.<span class="ruby-identifier">installed?</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_FILE_PATH&quot;</span>])
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Verifying the certificate is properly installed locally...&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Could not find the newly generated certificate installed&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">installed</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully installed certificate #{ENV[&#39;CER_CERTIFICATE_ID&#39;]}&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;CER_FILE_PATH&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Starting login with user &#39;#{Cert.config[:username]}&#39;&quot;</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">login</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:username</span>], <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">select_team</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Successfully logged in&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-revoke_expired_certs-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revoke_expired_certs!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Command method for the :revoke_expired sub-command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="revoke_expired_certs-21-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revoke_expired_certs!</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">print_values</span>(<span class="ruby-identifier">config</span><span class="ruby-operator">:</span> <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> [<span class="ruby-value">:output_path</span>], <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Summary for cert #{Fastlane::VERSION}&quot;</span>)
+
+  <span class="ruby-identifier">login</span>
+
+  <span class="ruby-identifier">to_revoke</span> = <span class="ruby-identifier">expired_certs</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">to_revoke</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;No expired certificates were found to revoke! 👍&quot;</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">revoke_count</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">to_revoke</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">certificate</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;#{certificate.id} #{certificate.name} has expired, revoking...&quot;</span>)
+      <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">revoke!</span>
+      <span class="ruby-identifier">revoke_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;An error occurred while revoking #{certificate.id} #{certificate.name}&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;#{e.message}\n#{e.backtrace.join(&quot;\n&quot;)}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;#{revoke_count} expired certificate#{&#39;s&#39; if revoke_count != 1} #{revoke_count == 1 ? &#39;has&#39; : &#39;have&#39;} been revoked! 👍&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:output_path</span>])
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">print_values</span>(<span class="ruby-identifier">config</span><span class="ruby-operator">:</span> <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> [<span class="ruby-value">:output_path</span>], <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Summary for cert #{Fastlane::VERSION}&quot;</span>)
+
+  <span class="ruby-identifier">login</span>
+
+  <span class="ruby-identifier">should_create</span> = <span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:force</span>]
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">should_create</span>
+    <span class="ruby-identifier">cert_path</span> = <span class="ruby-identifier">find_existing_cert</span>
+    <span class="ruby-identifier">should_create</span> = <span class="ruby-identifier">cert_path</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">should_create</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">create_certificate</span> <span class="ruby-comment"># no certificate here, creating a new one</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-comment"># success</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Something went wrong when trying to create a new certificate...&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_certificate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_certificate</span><span
+            class="method-args">(certificate, filename = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_certificate-source">
+            <pre><span class="ruby-comment"># File cert/lib/cert/runner.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_certificate</span>(<span class="ruby-identifier">certificate</span>, <span class="ruby-identifier">filename</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">cert_name</span> = <span class="ruby-identifier">filename</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">cert_name</span> = <span class="ruby-node">&quot;#{cert_name}.cer&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">cert_name</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;.cer&quot;</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Cert</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:output_path</span>], <span class="ruby-identifier">cert_name</span>))
+  <span class="ruby-identifier">raw_data</span> = <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">download_raw</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">raw_data</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

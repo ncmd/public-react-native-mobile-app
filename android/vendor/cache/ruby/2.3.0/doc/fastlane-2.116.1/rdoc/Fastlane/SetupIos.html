@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::SetupIos - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Setup.html">Fastlane::Setup</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-apple_xcode_project_versioning_enabled">#apple_xcode_project_versioning_enabled</a>
+    
+    <li ><a href="#method-i-ask_for_bundle_identifier">#ask_for_bundle_identifier</a>
+    
+    <li ><a href="#method-i-ask_for_credentials">#ask_for_credentials</a>
+    
+    <li ><a href="#method-i-create_app_online-21">#create_app_online!</a>
+    
+    <li ><a href="#method-i-find_and_setup_xcode_project">#find_and_setup_xcode_project</a>
+    
+    <li class="calls-super" ><a href="#method-i-finish_up">#finish_up</a>
+    
+    <li ><a href="#method-i-increment_build_number_if_applicable">#increment_build_number_if_applicable</a>
+    
+    <li ><a href="#method-i-ios_app_store">#ios_app_store</a>
+    
+    <li ><a href="#method-i-ios_manual">#ios_manual</a>
+    
+    <li ><a href="#method-i-ios_screenshots">#ios_screenshots</a>
+    
+    <li ><a href="#method-i-ios_testflight">#ios_testflight</a>
+    
+    <li ><a href="#method-i-project_prefix">#project_prefix</a>
+    
+    <li ><a href="#method-i-setup_ios">#setup_ios</a>
+    
+    <li ><a href="#method-i-show_information_about_version_bumps">#show_information_about_version_bumps</a>
+    
+    <li ><a href="#method-i-verify_app_exists_adp-21">#verify_app_exists_adp!</a>
+    
+    <li ><a href="#method-i-verify_app_exists_itc-21">#verify_app_exists_itc!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::SetupIos">
+  <h1 id="class-Fastlane::SetupIos" class="class">
+    class Fastlane::SetupIos
+  </h1>
+
+  <section class="description">
+    
+<p>rubocop:disable Metrics/ClassLength</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-adp_team_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">adp_team_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-app_exists_on_itc" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app_exists_on_itc</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-app_identifier" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app_identifier</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>App Identifier of the current app</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-automatic_versioning_enabled" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">automatic_versioning_enabled</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-itc_team_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">itc_team_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>If the current setup requires a login, this is where we&#39;ll store the
+team ID</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-project" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">project</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Reference to the iOS project `project.rb`</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-scheme" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">scheme</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Scheme of the Xcode project</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-apple_xcode_project_versioning_enabled" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apple_xcode_project_versioning_enabled</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="apple_xcode_project_versioning_enabled-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apple_xcode_project_versioning_enabled</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">automatic_versioning_enabled</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">paths</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">project_paths</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">GetBuildNumberAction</span>.<span class="ruby-identifier">run</span>({
+    <span class="ruby-identifier">project</span><span class="ruby-operator">:</span> <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">first</span>, <span class="ruby-comment"># most of the times, there will only be one project in there</span>
+    <span class="ruby-identifier">hide_error_when_versioning_disabled</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+  })
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">automatic_versioning_enabled</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">automatic_versioning_enabled</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ask_for_bundle_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_for_bundle_identifier</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ask_for_bundle_identifier-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_for_bundle_identifier</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Bundle identifier of your app: &quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ask_for_credentials" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_for_credentials</span><span
+            class="method-args">(itc: true, adp: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ask_for_credentials-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_for_credentials</span>(<span class="ruby-identifier">itc</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">adp</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Login with your Apple ID&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;To use App Store Connect and Apple Developer Portal features as part of fastlane,&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;we will ask you for your Apple ID username and password&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;This is necessary for certain fastlane features, for example:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;- Create and manage your provisioning profiles on the Developer Portal&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;- Upload and manage TestFlight and App Store builds on App Store Connect&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;- Manage your App Store Connect app metadata and screenshots&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Your Apple ID credentials will only be stored in your Keychain, on your local machine&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;For more information, check out&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\thttps://github.com/fastlane/fastlane/tree/master/credentials_manager&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Please enter your Apple ID developer credentials&quot;</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Apple ID Username:&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Logging in...&quot;</span>)
+
+  <span class="ruby-comment"># Disable the warning texts and information that&#39;s not relevant during onboarding</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_HIDE_LOGIN_INFORMATION&quot;</span>] = <span class="ruby-value">1</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_HIDE_TEAM_INFORMATION&quot;</span>] = <span class="ruby-value">1</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">itc</span>
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">login</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>)
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">select_team</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">itc_team_id</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">team_id</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append_team</span>(<span class="ruby-node">&quot;var itcTeam: String? { return \&quot;#{self.itc_team_id}\&quot; } // App Store Connect Team ID&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append_team</span>(<span class="ruby-node">&quot;itc_team_id(\&quot;#{self.itc_team_id}\&quot;) # App Store Connect Team ID&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">adp</span>
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span>.<span class="ruby-identifier">login</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>)
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span>.<span class="ruby-identifier">select_team</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adp_team_id</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">team_id</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append_team</span>(<span class="ruby-node">&quot;var teamID: String { return \&quot;#{self.adp_team_id}\&quot; } // Apple Developer Portal Team ID&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append_team</span>(<span class="ruby-node">&quot;team_id(\&quot;#{self.adp_team_id}\&quot;) # Developer Portal Team ID&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;✅  Logging in with your Apple ID was successful&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_app_online-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_app_online!</span><span
+            class="method-args">(mode: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_app_online-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 457</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_app_online!</span>(<span class="ruby-identifier">mode</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># mode is either :adp or :itc</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;produce&#39;</span>
+  <span class="ruby-identifier">produce_options</span> = {
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>,
+    <span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adp_team_id</span>,
+    <span class="ruby-identifier">itc_team_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">itc_team_id</span>,
+    <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;ios&quot;</span>,
+    <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>
+  }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:adp</span>
+    <span class="ruby-identifier">produce_options</span>[<span class="ruby-value">:skip_itc</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">produce_options</span>[<span class="ruby-value">:skip_devcenter</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># The retrying system allows people to correct invalid inputs</span>
+  <span class="ruby-comment"># e.g. the app&#39;s name is already taken</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Creating config in the loop so user will be reprompted</span>
+    <span class="ruby-comment"># for app name if app name is taken or too long</span>
+    <span class="ruby-constant">Produce</span>.<span class="ruby-identifier">config</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>,
+      <span class="ruby-identifier">produce_options</span>
+    )
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">Produce</span><span class="ruby-operator">::</span><span class="ruby-constant">Manager</span>.<span class="ruby-identifier">start_producing</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;✅  Successfully created app&quot;</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-comment"># success</span>
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-comment"># show the user facing error, and inform them of what went wrong</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">BasicPreferredInfoError</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">UnexpectedResponse</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">preferred_error_info</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;It looks like something went wrong when we tried to create your app on the Apple Developer Portal&quot;</span>)
+      <span class="ruby-keyword">unless</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Would you like to try again (y)? If you enter (n), fastlane will fall back to the manual setup&quot;</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_and_setup_xcode_project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_and_setup_xcode_project</span><span
+            class="method-args">(ask_for_scheme: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Every installation setup that needs an Xcode project should call this
+method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_and_setup_xcode_project-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_and_setup_xcode_project</span>(<span class="ruby-identifier">ask_for_scheme</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Parsing your local Xcode project to find the available schemes and the app identifier&quot;</span>)
+  <span class="ruby-identifier">config</span> = {} <span class="ruby-comment"># this is needed as the first method call will store information in there</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project_path</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;xcworkspace&quot;</span>)
+    <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project_path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project_path</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">detect_projects</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ask_for_scheme</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">scheme</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">select_scheme</span>(<span class="ruby-identifier">preferred_to_include</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">project_name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">default_app_identifier</span> <span class="ruby-comment"># These two vars need to be accessed in order to be set</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">ask_for_bundle_identifier</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-finish_up" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finish_up</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Setup.html#method-i-finish_up">Fastlane::Setup#finish_up</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="finish_up-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 406</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finish_up</span>
+  <span class="ruby-comment"># iOS specific things first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">&quot;# app_identifier&quot;</span>, <span class="ruby-string">&quot;app_identifier&quot;</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[APP_IDENTIFIER]]&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">&quot;# apple_id&quot;</span>, <span class="ruby-string">&quot;apple_id&quot;</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;[[APPLE_ID]]&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">automatic_versioning_enabled</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@method_to_use</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:ios_manual</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_information_about_version_bumps</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-increment_build_number_if_applicable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">increment_build_number_if_applicable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="increment_build_number_if_applicable-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 439</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">increment_build_number_if_applicable</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">automatic_versioning_enabled</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">project_paths</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">project_path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">project_paths</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-comment"># Convert the absolute path to a relative path</span>
+  <span class="ruby-identifier">project_path_name</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">project_path</span>)
+  <span class="ruby-identifier">current_path_name</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;.&quot;</span>))
+
+  <span class="ruby-identifier">relative_project_path</span> = <span class="ruby-identifier">project_path_name</span>.<span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">current_path_name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;\tincrementBuildNumber(xcodeproj: \&quot;#{relative_project_path}\&quot;)&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;  increment_build_number(xcodeproj: \&quot;#{relative_project_path}\&quot;)&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_app_store" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_app_store</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_app_store-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_app_store</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Setting up fastlane for iOS App Store distribution&quot;</span>)
+  <span class="ruby-identifier">find_and_setup_xcode_project</span>
+  <span class="ruby-identifier">apple_xcode_project_versioning_enabled</span>
+  <span class="ruby-identifier">ask_for_credentials</span>(<span class="ruby-identifier">adp</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">itc</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">verify_app_exists_adp!</span>
+  <span class="ruby-identifier">verify_app_exists_itc!</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_exists_on_itc</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Manage app metadata?&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Would you like to have fastlane manage your app&#39;s metadata?&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you enable this feature, fastlane will download your existing metadata and screenshots.&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;This way, you&#39;ll be able to edit your app&#39;s metadata in local `.txt` files.&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;After editing the local `.txt` files, just run fastlane and all changes will be pushed up.&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you don&#39;t want to use this feature, you can still use fastlane to upload and distribute new builds to the App Store&quot;</span>)
+    <span class="ruby-identifier">include_metadata</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Would you like fastlane to manage your app&#39;s metadata?&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_metadata</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;deliver&#39;</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;deliver/setup&#39;</span>
+
+      <span class="ruby-identifier">deliver_options</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(
+        <span class="ruby-constant">Deliver</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>,
+        {
+          <span class="ruby-identifier">run_precheck_before_submit</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-comment"># precheck doesn&#39;t need to run during init</span>
+          <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>,
+          <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>,
+          <span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">itc_team_id</span>
+        }
+      )
+
+      <span class="ruby-constant">Deliver</span><span class="ruby-operator">::</span><span class="ruby-constant">DetectValues</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run!</span>(<span class="ruby-identifier">deliver_options</span>, {}) <span class="ruby-comment"># needed to fetch the app details</span>
+      <span class="ruby-constant">Deliver</span><span class="ruby-operator">::</span><span class="ruby-constant">Setup</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">deliver_options</span>, <span class="ruby-identifier">is_swift</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">lane</span> = [<span class="ruby-string">&quot;func releaseLane() {&quot;</span>,
+            <span class="ruby-string">&quot;desc(\&quot;Push a new release build to the App Store\&quot;)&quot;</span>,
+            <span class="ruby-identifier">increment_build_number_if_applicable</span>,
+            <span class="ruby-node">&quot;\tbuildApp(#{project_prefix}scheme: \&quot;#{self.scheme}\&quot;)&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_metadata</span>
+      <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\tuploadToAppStore(username: \&quot;#{self.user}\&quot;, app: \&quot;#{self.app_identifier}\&quot;)&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\tuploadToAppStore(username: \&quot;#{self.user}\&quot;, app: \&quot;#{self.app_identifier}\&quot;, skipScreenshots: true, skipMetadata: true)&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">lane</span> = [<span class="ruby-string">&quot;desc \&quot;Push a new release build to the App Store\&quot;&quot;</span>,
+            <span class="ruby-string">&quot;lane :release do&quot;</span>,
+            <span class="ruby-identifier">increment_build_number_if_applicable</span>,
+            <span class="ruby-node">&quot;  build_app(#{project_prefix}scheme: \&quot;#{self.scheme}\&quot;)&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_metadata</span>
+      <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;  upload_to_app_store&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;  upload_to_app_store(skip_metadata: true, skip_screenshots: true)&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;end&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">append_lane</span>(<span class="ruby-identifier">lane</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_to_mention</span> = <span class="ruby-string">&quot;release&quot;</span>
+  <span class="ruby-identifier">finish_up</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_manual" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_manual</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_manual-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_manual</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Setting up fastlane so you can manually configure it&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">append_lane</span>([<span class="ruby-string">&quot;func customLane() {&quot;</span>,
+                 <span class="ruby-string">&quot;desc(\&quot;Description of what the lane does\&quot;)&quot;</span>,
+                 <span class="ruby-string">&quot;\t// add actions here: https://docs.fastlane.tools/actions&quot;</span>,
+                 <span class="ruby-string">&quot;}&quot;</span>])
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_to_mention</span> = <span class="ruby-string">&quot;custom&quot;</span> <span class="ruby-comment"># lane is part of the notation</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">append_lane</span>([<span class="ruby-string">&quot;desc \&quot;Description of what the lane does\&quot;&quot;</span>,
+                 <span class="ruby-string">&quot;lane :custom_lane do&quot;</span>,
+                 <span class="ruby-node">&quot;  # add actions here: https://docs.fastlane.tools/actions&quot;</span>,
+                 <span class="ruby-string">&quot;end&quot;</span>])
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_to_mention</span> = <span class="ruby-string">&quot;custom_lane&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">finish_up</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_screenshots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_screenshots</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_screenshots-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_screenshots</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Setting up fastlane to automate iOS screenshots&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;fastlane uses UI Tests to automate generating localized screenshots of your iOS app&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;fastlane will now create 2 helper files that are needed to get the setup running&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;For more information on how this works and best practices, check out&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\thttps://docs.fastlane.tools/getting-started/ios/screenshots/&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-identifier">continue_with_enter</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">find_and_setup_xcode_project</span>(<span class="ruby-identifier">ask_for_scheme</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>) <span class="ruby-comment"># to get the bundle identifier</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-comment"># If this fails, it&#39;s no big deal, since we really just want the bundle identifier</span>
+    <span class="ruby-comment"># so instead, we&#39;ll just ask the user</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;snapshot&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;snapshot/setup&#39;</span>
+
+  <span class="ruby-constant">Snapshot</span><span class="ruby-operator">::</span><span class="ruby-constant">Setup</span>.<span class="ruby-identifier">create</span>(
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>,
+    <span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>,
+    <span class="ruby-identifier">print_instructions_on_failure</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+  )
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you want more details on how to setup automatic screenshots, check out&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;\thttps://docs.fastlane.tools/getting-started/ios/screenshots/#setting-up-snapshot&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-identifier">continue_with_enter</span>
+
+  <span class="ruby-identifier">available_schemes</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">schemes</span>
+  <span class="ruby-identifier">ui_testing_scheme</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;Which is your UI Testing scheme? If you can&#39;t find it in this list, make sure it&#39;s marked as `Shared` in the Xcode scheme list&quot;</span>, <span class="ruby-identifier">available_schemes</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Automatically upload to iTC?&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Would you like fastlane to automatically upload all generated screenshots to App Store Connect&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;after generating them?&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you enable this feature you&#39;ll need to provide your App Store Connect credentials so fastlane can upload the screenshots to App Store Connect&quot;</span>)
+  <span class="ruby-identifier">automatic_upload</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Enable automatic upload of localized screenshots to App Store Connect?&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">automatic_upload</span>
+    <span class="ruby-identifier">ask_for_credentials</span>(<span class="ruby-identifier">adp</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">itc</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">verify_app_exists_itc!</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">lane</span> = [<span class="ruby-string">&quot;func screenshotsLane() {&quot;</span>,
+            <span class="ruby-string">&quot;desc(\&quot;Generate new localized screenshots\&quot;)&quot;</span>,
+            <span class="ruby-node">&quot;\tcaptureScreenshots(#{project_prefix}scheme: \&quot;#{ui_testing_scheme}\&quot;)&quot;</span>]
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">automatic_upload</span>
+      <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\tuploadToAppStore(username: \&quot;#{self.user}\&quot;, app: \&quot;#{self.app_identifier}\&quot;, skipBinaryUpload: true, skipMetadata: true)&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">lane</span> = [<span class="ruby-string">&quot;desc \&quot;Generate new localized screenshots\&quot;&quot;</span>,
+            <span class="ruby-string">&quot;lane :screenshots do&quot;</span>,
+            <span class="ruby-node">&quot;  capture_screenshots(#{project_prefix}scheme: \&quot;#{ui_testing_scheme}\&quot;)&quot;</span>]
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">automatic_upload</span>
+      <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;  upload_to_app_store(skip_binary_upload: true, skip_metadata: true)&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">lane</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;end&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">append_lane</span>(<span class="ruby-identifier">lane</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_to_mention</span> = <span class="ruby-string">&quot;screenshots&quot;</span>
+  <span class="ruby-identifier">finish_up</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_testflight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_testflight</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Different iOS flows</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ios_testflight-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_testflight</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Setting up fastlane for iOS TestFlight distribution&quot;</span>)
+  <span class="ruby-identifier">find_and_setup_xcode_project</span>
+  <span class="ruby-identifier">apple_xcode_project_versioning_enabled</span>
+  <span class="ruby-identifier">ask_for_credentials</span>(<span class="ruby-identifier">adp</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">itc</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">verify_app_exists_adp!</span>
+  <span class="ruby-identifier">verify_app_exists_itc!</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">lane</span> = [<span class="ruby-string">&quot;func betaLane() {&quot;</span>,
+            <span class="ruby-string">&quot;desc(\&quot;Push a new beta build to TestFlight\&quot;)&quot;</span>,
+            <span class="ruby-identifier">increment_build_number_if_applicable</span>,
+            <span class="ruby-node">&quot;\tbuildApp(#{project_prefix}scheme: \&quot;#{self.scheme}\&quot;)&quot;</span>,
+            <span class="ruby-node">&quot;\tuploadToTestflight(username: \&quot;#{self.user}\&quot;)&quot;</span>,
+            <span class="ruby-string">&quot;}&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">lane</span> = [<span class="ruby-string">&quot;desc \&quot;Push a new beta build to TestFlight\&quot;&quot;</span>,
+            <span class="ruby-string">&quot;lane :beta do&quot;</span>,
+            <span class="ruby-identifier">increment_build_number_if_applicable</span>,
+            <span class="ruby-node">&quot;  build_app(#{project_prefix}scheme: \&quot;#{self.scheme}\&quot;)&quot;</span>,
+            <span class="ruby-string">&quot;  upload_to_testflight&quot;</span>,
+            <span class="ruby-string">&quot;end&quot;</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append_lane</span>(<span class="ruby-identifier">lane</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_to_mention</span> = <span class="ruby-string">&quot;beta&quot;</span>
+  <span class="ruby-identifier">finish_up</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project_prefix" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project_prefix</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the `workspace` or `project` key/value pair for gym and snapshot,
+but only if necessary</p>
+
+<pre>(when there are multiple projects in the current directory)</pre>
+
+<p>it&#39;s a prefix, and not a suffix, as Swift cares about the order of
+parameters</p>
+          
+          
+
+          
+          <div class="method-source-code" id="project_prefix-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 429</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project_prefix</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">had_multiple_projects_to_choose_from</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project_path</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.xcworkspace&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;workspace: \&quot;#{self.project_path}\&quot;, &quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;project: \&quot;#{self.project_path}\&quot;, &quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_ios" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_ios</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_ios-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_ios</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;spaceship&#39;</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span> = <span class="ruby-value">:ios</span>
+
+  <span class="ruby-identifier">welcome_to_fastlane</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastfile_content</span> = <span class="ruby-identifier">fastfile_template_content</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">appfile_content</span> = <span class="ruby-identifier">appfile_template_content</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">preferred_setup_method</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">preferred_setup_method</span>)
+
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options</span> = {
+    <span class="ruby-string">&quot;📸  Automate screenshots&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ios_screenshots</span>,
+    <span class="ruby-string">&quot;👩‍✈️  Automate beta distribution to TestFlight&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ios_testflight</span>,
+    <span class="ruby-string">&quot;🚀  Automate App Store distribution&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ios_app_store</span>,
+    <span class="ruby-string">&quot;🛠  Manual setup - manually setup your project to automate your tasks&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ios_manual</span>
+  }
+
+  <span class="ruby-identifier">selected</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;What would you like to use fastlane for?&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">keys</span>)
+  <span class="ruby-ivar">@method_to_use</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">selected</span>]
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-ivar">@method_to_use</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-comment"># If it&#39;s already manual, and it has failed</span>
+    <span class="ruby-comment"># we need to re-raise the exception, as something definitely is wrong</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@method_to_use</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ios_manual</span>
+
+    <span class="ruby-comment"># If we&#39;re here, that means something else failed. We now show the</span>
+    <span class="ruby-comment"># error message and fallback to `:ios_manual`</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;--------------------&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;fastlane init failed&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;--------------------&quot;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">BasicPreferredInfoError</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">UnexpectedResponse</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">preferred_error_info</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Something failed while running `fastlane init`&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Tried using Apple ID with email &#39;#{self.user}&#39;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;You can either retry, or fallback to manual setup which will create a basic Fastfile&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Would you like to fallback to a manual Fastfile?&quot;</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ios_manual</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-ivar">@method_to_use</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># the second time, we&#39;re just failing, and don&#39;t use a `begin` `rescue` block any more</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_information_about_version_bumps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_information_about_version_bumps</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_information_about_version_bumps-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_information_about_version_bumps</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;It looks like your project isn&#39;t set up to do automatic version incrementing&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;To enable fastlane to handle automatic version incrementing for you, please follow this guide:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\thttps://developer.apple.com/library/content/qa/qa1827/_index.html&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Afterwards check out the fastlane docs on how to set up automatic build increments&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;\thttps://docs.fastlane.tools/getting-started/ios/beta-deployment/#best-practices&quot;</span>.<span class="ruby-identifier">cyan</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_app_exists_adp-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_app_exists_adp!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_app_exists_adp-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_app_exists_adp!</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No app identifier provided&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Checking if the app &#39;#{self.app_identifier}&#39; exists in your Apple Developer Portal...&quot;</span>)
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>.<span class="ruby-identifier">find</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;It looks like the app &#39;#{self.app_identifier}&#39; isn&#39;t available on the #{&#39;Apple Developer Portal&#39;.bold.underline}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;for the team ID &#39;#{self.adp_team_id}&#39; on Apple ID &#39;#{self.user}&#39;&quot;</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Do you want fastlane to create the App ID for you on the Apple Developer Portal?&quot;</span>)
+      <span class="ruby-identifier">create_app_online!</span>(<span class="ruby-identifier">mode</span><span class="ruby-operator">:</span> <span class="ruby-value">:adp</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Alright, we won&#39;t create the app for you. Be aware, the build is probably going to fail when you try it&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;✅  Your app &#39;#{self.app_identifier}&#39; is available in your Apple Developer Portal&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_app_exists_itc-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_app_exists_itc!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_app_exists_itc-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/setup/setup_ios.rb, line 387</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_app_exists_itc!</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No app identifier provided&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Checking if the app &#39;#{self.app_identifier}&#39; exists on App Store Connect...&quot;</span>)
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_identifier</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Looks like the app &#39;#{self.app_identifier}&#39; isn&#39;t available on #{&#39;App Store Connect&#39;.bold.underline}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;for the team ID &#39;#{self.itc_team_id}&#39; on Apple ID &#39;#{self.user}&#39;&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Would you like fastlane to create the App on App Store Connect for you?&quot;</span>)
+      <span class="ruby-identifier">create_app_online!</span>(<span class="ruby-identifier">mode</span><span class="ruby-operator">:</span> <span class="ruby-value">:itc</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_exists_on_itc</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Alright, we won&#39;t create the app for you. Be aware, the build is probably going to fail when you try it&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;✅  Your app &#39;#{self.app_identifier}&#39; is available on App Store Connect&quot;</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_exists_on_itc</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::AppIdentifierGuesser - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-android_app_identifier">#android_app_identifier</a>
+    
+    <li ><a href="#method-i-generate_p_hash">#generate_p_hash</a>
+    
+    <li ><a href="#method-i-ios_app_identifier">#ios_app_identifier</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::AppIdentifierGuesser">
+  <h1 id="class-FastlaneCore::AppIdentifierGuesser" class="class">
+    class FastlaneCore::AppIdentifierGuesser
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-app_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-args" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">args</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-gem_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">gem_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-p_hash" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">p_hash</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(args: nil, gem_name: 'fastlane')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/analytics/app_identifier_guesser.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">gem_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;fastlane&#39;</span>)
+  <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">args</span>
+  <span class="ruby-ivar">@gem_name</span> = <span class="ruby-identifier">gem_name</span>
+
+  <span class="ruby-ivar">@app_id</span> = <span class="ruby-identifier">android_app_identifier</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-ivar">@platform</span> = <span class="ruby-keyword">nil</span> <span class="ruby-comment"># since have a state in-between runs</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@app_id</span>
+    <span class="ruby-ivar">@platform</span> = <span class="ruby-value">:android</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@app_id</span> = <span class="ruby-identifier">ios_app_identifier</span>(<span class="ruby-identifier">args</span>)
+    <span class="ruby-ivar">@platform</span> = <span class="ruby-value">:ios</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@app_id</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@p_hash</span> = <span class="ruby-identifier">generate_p_hash</span>(<span class="ruby-ivar">@app_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-android_app_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">android_app_identifier</span><span
+            class="method-args">(args, gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>(optional) Returns the app identifier for the current tool supply and
+screengrab use different param names and env variable patterns so we have
+to special case here example:</p>
+
+<pre>fastlane supply --skip_upload_screenshots -a beta -p com.test.app should return com.test.app
+screengrab -a com.test.app should return com.test.app</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="android_app_identifier-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/analytics/app_identifier_guesser.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">android_app_identifier</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-identifier">app_identifier</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">AndroidPackageNameGuesser</span>.<span class="ruby-identifier">guess_package_name</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">args</span>)
+
+  <span class="ruby-comment"># Add Android prefix to prevent collisions if there is an iOS app with the same identifier</span>
+  <span class="ruby-identifier">app_identifier</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;android_project_#{app_identifier}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span> <span class="ruby-comment"># we don&#39;t want this method to cause a crash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_p_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_p_hash</span><span
+            class="method-args">(app_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>To not count the same projects multiple time for the number of launches
+Learn more at <a
+href="https://docs.fastlane.tools/#metrics">docs.fastlane.tools/#metrics</a>
+Use the `FASTLANE_OPT_OUT_USAGE` variable to opt out The resulting value is
+e.g. ce12f8371df11ef6097a83bdf2303e4357d6f5040acc4f76019489fa5deeae0d</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_p_hash-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/analytics/app_identifier_guesser.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_p_hash</span>(<span class="ruby-identifier">app_id</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app_id</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA256</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;p#{app_id}fastlan3_SAlt&quot;</span>) <span class="ruby-comment"># hashed + salted the bundle identifier</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># we don&#39;t want this method to cause a crash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_app_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_app_identifier</span><span
+            class="method-args">(args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>(optional) Returns the app identifier for the current tool</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ios_app_identifier-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/analytics/app_identifier_guesser.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_app_identifier</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IOSAppIdentifierGuesser</span>.<span class="ruby-identifier">guess_app_identifier</span>(<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span> <span class="ruby-comment"># we don&#39;t want this method to cause a crash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

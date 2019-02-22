@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::Storage::GoogleCloudStorage - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Interface
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-configure">::configure</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-bucket">#bucket</a>
+    
+    <li ><a href="#method-i-delete_files">#delete_files</a>
+    
+    <li ><a href="#method-i-download">#download</a>
+    
+    <li ><a href="#method-i-ensure_bucket_is_selected">#ensure_bucket_is_selected</a>
+    
+    <li ><a href="#method-i-ensure_keys_file_exists">#ensure_keys_file_exists</a>
+    
+    <li ><a href="#method-i-generate_matchfile_content">#generate_matchfile_content</a>
+    
+    <li ><a href="#method-i-human_readable_description">#human_readable_description</a>
+    
+    <li ><a href="#method-i-skip_docs">#skip_docs</a>
+    
+    <li ><a href="#method-i-upload_files">#upload_files</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::Storage::GoogleCloudStorage">
+  <h1 id="class-Match::Storage::GoogleCloudStorage" class="class">
+    class Match::Storage::GoogleCloudStorage
+  </h1>
+
+  <section class="description">
+    
+<p>Store the code signing identities in on Google Cloud <a
+href="../Storage.html">Storage</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_KEYS_FILE_NAME">DEFAULT_KEYS_FILE_NAME
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-bucket_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">bucket_name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-gc_storage" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">gc_storage</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Managed values</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-google_cloud_keys_file" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">google_cloud_keys_file</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-google_cloud_project_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">google_cloud_project_id</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">platform</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>User provided values</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_url</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Looks like you still define a `git_url` somewhere, even though&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;you use Google Cloud Storage. You can remove the `git_url`&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;from your Matchfile and Fastfile&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;The above is just a warning, fastlane will continue as usual now...&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">google_cloud_bucket_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:google_cloud_bucket_name</span>],
+    <span class="ruby-identifier">google_cloud_keys_file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:google_cloud_keys_file</span>],
+    <span class="ruby-identifier">google_cloud_project_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:google_cloud_project_id</span>]
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(type: nil, platform: nil, google_cloud_bucket_name: nil, google_cloud_keys_file: nil, google_cloud_project_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">google_cloud_bucket_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">google_cloud_keys_file</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">google_cloud_project_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">type</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@platform</span> = <span class="ruby-identifier">platform</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform</span>
+  <span class="ruby-ivar">@google_cloud_project_id</span> = <span class="ruby-identifier">google_cloud_project_id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">google_cloud_project_id</span>
+  <span class="ruby-ivar">@bucket_name</span> = <span class="ruby-identifier">google_cloud_bucket_name</span>
+
+  <span class="ruby-ivar">@google_cloud_keys_file</span> = <span class="ruby-identifier">ensure_keys_file_exists</span>(<span class="ruby-identifier">google_cloud_keys_file</span>, <span class="ruby-identifier">google_cloud_project_id</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">google_cloud_keys_file</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Extract the Project ID from the `JSON` file</span>
+    <span class="ruby-comment"># so the user doesn&#39;t have to provide it manually</span>
+    <span class="ruby-identifier">keys_file_content</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">google_cloud_keys_file</span>))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">google_cloud_project_id</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">google_cloud_project_id</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">keys_file_content</span>[<span class="ruby-string">&quot;project_id&quot;</span>]
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;The google_cloud_keys_file&#39;s project ID (&#39;#{keys_file_content[&#39;project_id&#39;]}&#39;) doesn&#39;t match the google_cloud_project_id (&#39;#{google_cloud_project_id}&#39;). This may be the wrong keys file.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@google_cloud_project_id</span> = <span class="ruby-identifier">keys_file_content</span>[<span class="ruby-string">&quot;project_id&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">google_cloud_project_id</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Provided keys file on path #{File.expand_path(self.google_cloud_keys_file)} doesn&#39;t include required value for `project_id`&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Create the Google Cloud Storage client</span>
+  <span class="ruby-comment"># If the JSON auth file is invalid, this line will</span>
+  <span class="ruby-comment"># raise an exception</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gc_storage</span> = <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Cloud</span><span class="ruby-operator">::</span><span class="ruby-constant">Storage</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">credentials</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">google_cloud_keys_file</span>,
+      <span class="ruby-identifier">project_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">google_cloud_project_id</span>
+    )
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t log into your Google Cloud account using the provided JSON file at path &#39;#{File.expand_path(self.google_cloud_keys_file)}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ensure_bucket_is_selected</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-delete_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_files</span><span
+            class="method-args">(files_to_delete: [], custom_message: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_files-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_files</span>(<span class="ruby-identifier">files_to_delete</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">custom_message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">files_to_delete</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">target_path</span> = <span class="ruby-identifier">current_file</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">target_path</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Deleting &#39;#{target_path}&#39; from Google Cloud Storage bucket &#39;#{self.bucket_name}&#39;...&quot;</span>)
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">delete</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download</span>
+  <span class="ruby-comment"># Check if we already have a functional working_directory</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@working_directory</span>
+
+  <span class="ruby-comment"># No existing working directory, creating a new one now</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>
+
+  <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">file_path</span> = <span class="ruby-identifier">current_file</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># e.g. &quot;N8X438SEU2/certs/distribution/XD9G7QCACF.cer&quot;</span>
+    <span class="ruby-identifier">download_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>, <span class="ruby-identifier">file_path</span>)
+
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-identifier">download_path</span>))
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Downloading file from Google Cloud Storage &#39;#{file_path}&#39; on bucket #{self.bucket_name}&quot;</span>)
+    <span class="ruby-identifier">current_file</span>.<span class="ruby-identifier">download</span>(<span class="ruby-identifier">download_path</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Successfully downloaded files from GCS to #{self.working_directory}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_matchfile_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_matchfile_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_matchfile_content-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_matchfile_content</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;bucket_name(\&quot;#{self.bucket_name}\&quot;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-human_readable_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">human_readable_description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="human_readable_description-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">human_readable_description</span>
+  <span class="ruby-node">&quot;Google Cloud Bucket [#{self.google_cloud_project_id}/#{self.bucket_name}]&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-skip_docs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_docs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="skip_docs-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">skip_docs</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_files</span><span
+            class="method-args">(files_to_upload: [], custom_message: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload_files-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_files</span>(<span class="ruby-identifier">files_to_upload</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">custom_message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># `files_to_upload` is an array of files that need to be uploaded to Google Cloud</span>
+  <span class="ruby-comment"># Those doesn&#39;t mean they&#39;re new, it might just be they&#39;re changed</span>
+  <span class="ruby-comment"># Either way, we&#39;ll upload them using the same technique</span>
+
+  <span class="ruby-identifier">files_to_upload</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Go from</span>
+    <span class="ruby-comment">#   &quot;/var/folders/px/bz2kts9n69g8crgv4jpjh6b40000gn/T/d20181026-96528-1av4gge/profiles/development/Development_me.mobileprovision&quot;</span>
+    <span class="ruby-comment"># to</span>
+    <span class="ruby-comment">#   &quot;profiles/development/Development_me.mobileprovision&quot;</span>
+    <span class="ruby-comment">#</span>
+
+    <span class="ruby-comment"># We also have to remove the trailing `/` as Google Cloud doesn&#39;t handle it nicely</span>
+    <span class="ruby-identifier">target_path</span> = <span class="ruby-identifier">current_file</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Uploading &#39;#{target_path}&#39; to Google Cloud Storage...&quot;</span>)
+    <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">create_file</span>(<span class="ruby-identifier">current_file</span>, <span class="ruby-identifier">target_path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bucket" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bucket</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bucket-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bucket</span>
+  <span class="ruby-ivar">@_bucket</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gc_storage</span>.<span class="ruby-identifier">bucket</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">bucket_name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_bucket</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find Google Cloud Storage bucket with name #{self.bucket_name} for the currently used account. Please make sure you have access&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@_bucket</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_bucket_is_selected" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_bucket_is_selected</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_bucket_is_selected-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_bucket_is_selected</span>
+  <span class="ruby-comment"># In case the user didn&#39;t provide a bucket name yet, they will</span>
+  <span class="ruby-comment"># be asked to provide one here</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bucket_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Have a nice selection of the available buckets here</span>
+    <span class="ruby-comment"># This can only happen after we went through auth of Google Cloud</span>
+    <span class="ruby-identifier">available_bucket_identifiers</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gc_storage</span>.<span class="ruby-identifier">buckets</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">available_bucket_identifiers</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@bucket_name</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;What Google Cloud Storage bucket do you want to use? (you can define it using the `google_cloud_bucket_name` key)&quot;</span>, <span class="ruby-identifier">available_bucket_identifiers</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Looks like your Google Cloud account for the project ID &#39;#{self.google_cloud_project_id}&#39; doesn&#39;t&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;have any available storage buckets yet. Please visit the following URL&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://console.cloud.google.com/storage/browser&quot;</span>.<span class="ruby-identifier">cyan</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;and make sure to have the right project selected on top of the page&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;click on &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;Create Bucket&quot;</span>.<span class="ruby-identifier">cyan</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;, choose a name and confirm&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Once you&#39;re finished, please confirm with enter&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_keys_file_exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_keys_file_exists</span><span
+            class="method-args">(google_cloud_keys_file, google_cloud_project_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method will make sure the keys file exists If it&#39;s missing, it
+will help the user set things up</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_keys_file_exists-source">
+            <pre><span class="ruby-comment"># File match/lib/match/storage/google_cloud_storage.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_keys_file_exists</span>(<span class="ruby-identifier">google_cloud_keys_file</span>, <span class="ruby-identifier">google_cloud_project_id</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">google_cloud_keys_file</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">google_cloud_keys_file</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">google_cloud_keys_file</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">DEFAULT_KEYS_FILE_NAME</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">DEFAULT_KEYS_FILE_NAME</span>)
+
+  <span class="ruby-identifier">fastlane_folder_gc_keys_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>, <span class="ruby-constant">DEFAULT_KEYS_FILE_NAME</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">fastlane_folder_gc_keys_path</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">fastlane_folder_gc_keys_path</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">google_cloud_project_id</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Check to see if this system has application default keys installed.</span>
+    <span class="ruby-comment"># These are the default keys that the Google Cloud APIs use when no other keys are specified.</span>
+    <span class="ruby-comment"># Users with the Google Cloud SDK installed can generate them by running...</span>
+    <span class="ruby-comment"># `gcloud auth application-default login`</span>
+    <span class="ruby-comment"># ...and then they&#39;ll be automatically available.</span>
+    <span class="ruby-comment"># The nice thing about these keys is they can be associated with the user&#39;s login in GCP</span>
+    <span class="ruby-comment"># (e.g. my_account@gmail.com), so teams can control access to the certificate bucket</span>
+    <span class="ruby-comment"># using a mailing list of developer logins instead of generating service accounts</span>
+    <span class="ruby-comment"># and keys.</span>
+    <span class="ruby-identifier">application_default_keys</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">application_default_keys</span> = <span class="ruby-constant">Google</span><span class="ruby-operator">::</span><span class="ruby-constant">Auth</span>.<span class="ruby-identifier">get_application_default</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-comment"># This means no application default keys have been installed. That&#39;s perfectly OK,</span>
+      <span class="ruby-comment"># we can continue and ask the user if they want to use a keys file.</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">application_default_keys</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-string">&quot;Do you want to use this system&#39;s Google Cloud application default keys?&quot;</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># User doesn&#39;t seem to have provided a keys file.</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Looks like you don&#39;t have a Google Cloud #{DEFAULT_KEYS_FILE_NAME.cyan} file&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;If you have one, make sure to put it into the &#39;#{Dir.pwd}&#39; directory and call it &#39;#{DEFAULT_KEYS_FILE_NAME.cyan}&#39;&quot;</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">confirm</span>(<span class="ruby-node">&quot;Do you want fastlane to help you to create a #{DEFAULT_KEYS_FILE_NAME} file?&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Process stopped, run fastlane again to start things up again&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;fastlane will help you create a keys file. First, open the following website&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://console.cloud.google.com&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Press enter once you&#39;re logged in&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Now it&#39;s time to generate a new JSON auth file for fastlane to access Google Cloud&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;First, switch to the Google Cloud project you want to use.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you don&#39;t have one yet, create a new one and switch to it&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\thttps://console.cloud.google.com/apis/credentials&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Ensure the right project is selected on top of the page and confirm with enter&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Now create a new JSON auth file by clicking on&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\t 1. Create credentials&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\t 2. Service account key&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\t 3. App Engine default service account&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\t 4. JSON&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;\t\t 5. Create&quot;</span>.<span class="ruby-identifier">cyan</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Confirm with enter once you created and download the JSON file&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Copy the file to the current directory (#{Dir.pwd})&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;and rename it to `#{DEFAULT_KEYS_FILE_NAME.cyan}`&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Confirm with enter&quot;</span>)
+
+  <span class="ruby-keyword">until</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">DEFAULT_KEYS_FILE_NAME</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Make sure to place the file in &#39;#{Dir.pwd.cyan}&#39; and name it &#39;#{DEFAULT_KEYS_FILE_NAME.cyan}&#39;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Confirm with enter&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Please never add the #{DEFAULT_KEYS_FILE_NAME.cyan} file in version control.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Instead please add the file to your .gitignore&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Confirm with enter&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">DEFAULT_KEYS_FILE_NAME</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

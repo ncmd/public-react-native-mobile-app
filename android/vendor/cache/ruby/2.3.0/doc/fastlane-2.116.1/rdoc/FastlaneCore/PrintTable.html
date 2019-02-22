@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::PrintTable - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-collect_rows">::collect_rows</a>
+    
+    <li ><a href="#method-c-colorize_array">::colorize_array</a>
+    
+    <li ><a href="#method-c-print_values">::print_values</a>
+    
+    <li ><a href="#method-c-should_transform-3F">::should_transform?</a>
+    
+    <li ><a href="#method-c-transform_output">::transform_output</a>
+    
+    <li ><a href="#method-c-transform_row">::transform_row</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::PrintTable">
+  <h1 id="class-FastlaneCore::PrintTable" class="class">
+    class FastlaneCore::PrintTable
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-collect_rows" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_rows</span><span
+            class="method-args">(options: nil, hide_keys: [], mask_keys: [], prefix: '', mask: '********')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_rows-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/print_table.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_rows</span>(<span class="ruby-identifier">options</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">mask_keys</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">mask</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;********&#39;</span>)
+  <span class="ruby-identifier">rows</span> = []
+
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">prefixed_key</span> = <span class="ruby-node">&quot;#{prefix}#{key}&quot;</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">hide_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">prefixed_key</span>)
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">mask</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mask_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">prefixed_key</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:key</span>)
+      <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">collect_rows</span>(<span class="ruby-identifier">options</span><span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> <span class="ruby-identifier">hide_keys</span>, <span class="ruby-identifier">mask_keys</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mask_keys</span>, <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{prefix}#{key}.&quot;</span>, <span class="ruby-identifier">mask</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mask</span>))
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">prefixed_key</span>, <span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rows</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-colorize_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">colorize_array</span><span
+            class="method-args">(array, colors)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="colorize_array-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/print_table.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">colorize_array</span>(<span class="ruby-identifier">array</span>, <span class="ruby-identifier">colors</span>)
+  <span class="ruby-identifier">value</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">array</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>  <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">colored_line</span> = <span class="ruby-identifier">l</span>
+    <span class="ruby-identifier">colored_line</span> = <span class="ruby-node">&quot;#{colors.first}#{l}#{colors.last}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">colored_line</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_values</span><span
+            class="method-args">(config: nil, title: nil, hide_keys: [], mask_keys: [], transform: :newline)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method prints out all the user inputs in a nice table. Useful to
+summarize the run You can pass an array to `hide_keys` if you don&#39;t
+want certain elements to show up (symbols or strings) You can pass an array
+to `mask_keys` if you want to mask certain elements (symbols or strings)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="print_values-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/print_table.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_values</span>(<span class="ruby-identifier">config</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">mask_keys</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">transform</span><span class="ruby-operator">:</span> <span class="ruby-value">:newline</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;terminal-table&#39;</span>
+
+  <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>)
+      <span class="ruby-comment"># find sensitive options and mask them by default</span>
+      <span class="ruby-identifier">config</span>.<span class="ruby-identifier">available_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config_item</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">config_item</span>.<span class="ruby-identifier">sensitive</span>
+          <span class="ruby-identifier">mask_keys</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">config_item</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">config</span>.<span class="ruby-identifier">values</span>(<span class="ruby-identifier">ask</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">config</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rows</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">collect_rows</span>(<span class="ruby-identifier">options</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> <span class="ruby-identifier">hide_keys</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>), <span class="ruby-identifier">mask_keys</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mask_keys</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>), <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-identifier">params</span> = {}
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">transform</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:rows</span>] = <span class="ruby-identifier">transform_output</span>(<span class="ruby-identifier">rows</span>, <span class="ruby-identifier">transform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">transform</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:rows</span>] = <span class="ruby-identifier">rows</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>] = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">green</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">title</span>
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-constant">Terminal</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>))
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-should_transform-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_transform?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_transform-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/print_table.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_transform?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">ci?</span> <span class="ruby-operator">||</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FL_SKIP_TABLE_TRANSFORM&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transform_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transform_output</span><span
+            class="method-args">(rows, transform: :newline)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transform_output-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/print_table.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transform_output</span>(<span class="ruby-identifier">rows</span>, <span class="ruby-identifier">transform</span><span class="ruby-operator">:</span> <span class="ruby-value">:newline</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rows</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">should_transform?</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane_core/string_filters&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;tty-screen&#39;</span>
+
+  <span class="ruby-identifier">number_of_cols</span> = <span class="ruby-constant">TTY</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">width</span>
+
+  <span class="ruby-identifier">col_count</span> = <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:length</span>).<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-comment"># -4 per column - as tt adds &quot;| &quot; and &quot; |&quot;</span>
+  <span class="ruby-identifier">terminal_table_padding</span> = <span class="ruby-value">4</span>
+  <span class="ruby-identifier">max_length</span> = <span class="ruby-identifier">number_of_cols</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">col_count</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">terminal_table_padding</span>)
+
+  <span class="ruby-identifier">max_value_length</span> = (<span class="ruby-identifier">max_length</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">col_count</span>) <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">return_array</span> = <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">transform_row</span>(<span class="ruby-identifier">column</span>, <span class="ruby-identifier">transform</span>, <span class="ruby-identifier">max_value_length</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">return_array</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transform_row" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transform_row</span><span
+            class="method-args">(column, transform, max_value_length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transform_row-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/print_table.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transform_row</span>(<span class="ruby-identifier">column</span>, <span class="ruby-identifier">transform</span>, <span class="ruby-identifier">max_value_length</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">column</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">column</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment"># we want to keep the nil and not convert it to a string</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">column</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">transform</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">column</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">transform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:truncate_middle</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">middle_truncate</span>(<span class="ruby-identifier">max_value_length</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">transform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:newline</span>
+    <span class="ruby-comment"># remove all fixed newlines as it may mess up the output</span>
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">max_value_length</span>
+      <span class="ruby-identifier">colors</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\e\[.*?m/</span>)
+      <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-identifier">color</span>, <span class="ruby-string">&#39;&#39;</span>) }
+      <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">wordwrap</span>(<span class="ruby-identifier">max_value_length</span>)
+      <span class="ruby-keyword">return</span>  <span class="ruby-identifier">colorize_array</span>(<span class="ruby-identifier">lines</span>, <span class="ruby-identifier">colors</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">transform</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Unknown transform value &#39;#{transform}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

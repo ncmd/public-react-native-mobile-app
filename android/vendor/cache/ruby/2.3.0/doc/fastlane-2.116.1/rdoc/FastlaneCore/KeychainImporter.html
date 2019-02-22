@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::KeychainImporter - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-import_file">::import_file</a>
+    
+    <li ><a href="#method-c-set_partition_list">::set_partition_list</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::KeychainImporter">
+  <h1 id="class-FastlaneCore::KeychainImporter" class="class">
+    class FastlaneCore::KeychainImporter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-import_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">import_file</span><span
+            class="method-args">(path, keychain_path, keychain_password: "", certificate_password: "", output: FastlaneCore::Globals.verbose?)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="import_file-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/keychain_importer.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">import_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">certificate_password</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">output</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find file &#39;#{path}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;security import #{path.shellescape} -k &#39;#{keychain_path.shellescape}&#39;&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; -P #{certificate_password.shellescape}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; -T /usr/bin/codesign&quot;</span> <span class="ruby-comment"># to not be asked for permission when running a tool like `gym` (before Sierra)</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; -T /usr/bin/security&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; 1&gt; /dev/null&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">output</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">popen3</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>, <span class="ruby-identifier">thrd</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>
+
+    <span class="ruby-comment"># Set partition list only if success since it can be a time consuming process if a lot of keys are installed</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">thrd</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">success?</span>
+      <span class="ruby-identifier">set_partition_list</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">keychain_password</span>, <span class="ruby-identifier">output</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Output verbose if file is already installed since not an error otherwise we will show the whole error</span>
+      <span class="ruby-identifier">err</span> = <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;SecKeychainItemImport&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;The specified item already exists in the keychain&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;&#39;#{File.basename(path)}&#39; is already installed on this machine&quot;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_partition_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_partition_list</span><span
+            class="method-args">(path, keychain_path, keychain_password: "", output: FastlaneCore::Globals.verbose?)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_partition_list-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/keychain_importer.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_partition_list</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">keychain_path</span>, <span class="ruby-identifier">keychain_password</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">output</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>)
+  <span class="ruby-comment"># When security supports partition lists, also add the partition IDs</span>
+  <span class="ruby-comment"># See https://openradar.appspot.com/28524119</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-string">&#39;security -h | grep set-key-partition-list&#39;</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-string">&quot;security set-key-partition-list&quot;</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; -S apple-tool:,apple:&quot;</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; -k #{keychain_password.to_s.shellescape}&quot;</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{keychain_path.shellescape}&quot;</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; 1&gt; /dev/null&quot;</span> <span class="ruby-comment"># always disable stdout. This can be very verbose, and leak potentially sensitive info</span>
+
+    <span class="ruby-comment"># Showing loading indicator as this can take some time if a lot of keys installed</span>
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">show_loading_indicator</span>(<span class="ruby-string">&quot;Setting key partition list... (this can take a minute if there are a lot of keys installed)&quot;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>
+    <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">popen3</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>, <span class="ruby-identifier">thrd</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">thrd</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">success?</span>
+        <span class="ruby-identifier">err</span> = <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+
+        <span class="ruby-comment"># Inform user when no/wrong password was used as its needed to prevent UI permission popup from Xcode when signing</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;SecKeychainItemSetAccessWithPassword&quot;</span>)
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Could not configure imported keychain item (certificate) to prevent UI permission popup when code signing\n&quot;</span>                         <span class="ruby-node">&quot;Check if you supplied the correct `keychain_password` for keychain: `#{keychain_path}`\n&quot;</span>                         <span class="ruby-node">&quot;#{err}&quot;</span>)
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Please look at the following docs to see how to set a keychain password:&quot;</span>)
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot; - https://docs.fastlane.tools/actions/sync_code_signing&quot;</span>)
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot; - https://docs.fastlane.tools/actions/get_certificates&quot;</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">err</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Hiding after Open3 finishes</span>
+    <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">hide_loading_indicator</span>
+
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

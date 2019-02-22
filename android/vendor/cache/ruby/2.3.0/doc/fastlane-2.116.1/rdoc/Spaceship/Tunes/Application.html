@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Tunes::Application - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">TunesBase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-available_bundle_ids">::available_bundle_ids</a>
+    
+    <li ><a href="#method-c-create-21">::create!</a>
+    
+    <li ><a href="#method-c-find">::find</a>
+    
+    <li ><a href="#method-i-all_build_train_numbers">#all_build_train_numbers</a>
+    
+    <li ><a href="#method-i-all_builds_for_train">#all_builds_for_train</a>
+    
+    <li ><a href="#method-i-all_processing_builds">#all_processing_builds</a>
+    
+    <li ><a href="#method-i-analytics">#analytics</a>
+    
+    <li ><a href="#method-i-availability">#availability</a>
+    
+    <li ><a href="#method-i-build_trains">#build_trains</a>
+    
+    <li ><a href="#method-i-builds">#builds</a>
+    
+    <li ><a href="#method-i-cancel_all_testflight_submissions-21">#cancel_all_testflight_submissions!</a>
+    
+    <li ><a href="#method-i-create_submission">#create_submission</a>
+    
+    <li ><a href="#method-i-create_version-21">#create_version!</a>
+    
+    <li ><a href="#method-i-default_external_group">#default_external_group</a>
+    
+    <li ><a href="#method-i-details">#details</a>
+    
+    <li ><a href="#method-i-edit_version">#edit_version</a>
+    
+    <li ><a href="#method-i-ensure_not_a_bundle">#ensure_not_a_bundle</a>
+    
+    <li ><a href="#method-i-ensure_version-21">#ensure_version!</a>
+    
+    <li ><a href="#method-i-in_app_purchases">#in_app_purchases</a>
+    
+    <li ><a href="#method-i-latest_version">#latest_version</a>
+    
+    <li ><a href="#method-i-live_version">#live_version</a>
+    
+    <li ><a href="#method-i-platform">#platform</a>
+    
+    <li ><a href="#method-i-platforms">#platforms</a>
+    
+    <li ><a href="#method-i-price_tier">#price_tier</a>
+    
+    <li ><a href="#method-i-promocodes">#promocodes</a>
+    
+    <li ><a href="#method-i-promocodes_history">#promocodes_history</a>
+    
+    <li ><a href="#method-i-ratings">#ratings</a>
+    
+    <li ><a href="#method-i-reject_version_if_possible-21">#reject_version_if_possible!</a>
+    
+    <li ><a href="#method-i-release-21">#release!</a>
+    
+    <li ><a href="#method-i-release_to_all_users-21">#release_to_all_users!</a>
+    
+    <li ><a href="#method-i-resolution_center">#resolution_center</a>
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-tunes_all_build_trains">#tunes_all_build_trains</a>
+    
+    <li ><a href="#method-i-tunes_all_builds_for_train">#tunes_all_builds_for_train</a>
+    
+    <li ><a href="#method-i-tunes_build_details">#tunes_build_details</a>
+    
+    <li ><a href="#method-i-type">#type</a>
+    
+    <li ><a href="#method-i-update_availability-21">#update_availability!</a>
+    
+    <li ><a href="#method-i-update_price_tier-21">#update_price_tier!</a>
+    
+    <li ><a href="#method-i-url">#url</a>
+    
+    <li ><a href="#method-i-version_set_for_platform">#version_set_for_platform</a>
+    
+    <li ><a href="#method-i-versions_history">#versions_history</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Tunes::Application">
+  <h1 id="class-Spaceship::Tunes::Application" class="class">
+    class Spaceship::Tunes::Application
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-app_icon_preview_url" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app_icon_preview_url</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The URL to a low resolution app icon of this app
+(340x340px). Might be nil @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;https://is1-ssl.mzstatic.com/image/thumb/Purple7/v4/cd/a3/e2/cda3e2ac-4034-c6af-ee0c-3e4d9a0bafaa/pr_source.png/340x340bb-80.png&quot;</span>
+</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-keyword">nil</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-apple_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">apple_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The <a href="../Portal/App.html">App</a> identifier of
+this app, provided by <a href="../Portal/App.html">App</a> Store Connect
+@example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;1013943394&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-bundle_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">bundle_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The <a
+href="Application.html#attribute-i-bundle_id">#bundle_id</a> (app
+identifier) of your app @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;com.krausefx.app&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-issues_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">issues_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) The number of issues provided by <a
+href="../Portal/App.html">App</a> Store Connect</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-last_modified" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">last_modified</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) Last modified</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The name you provided for this app (in the default
+language) @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Spaceship App&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vendor_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vendor_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The Vendor ID provided by <a
+href="../Portal/App.html">App</a> Store Connect @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;1435592086&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-version_sets" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">version_sets</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Array) An array of all versions sets</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) Returns all apps available for this account</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">applications</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">application</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">application</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_bundle_ids" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_bundle_ids</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_bundle_ids-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_bundle_ids</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_available_bundle_ids</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create!</span><span
+            class="method-args">(name: nil, primary_language: nil, version: nil, sku: nil, bundle_id: nil, bundle_id_suffix: nil, company_name: nil, platform: nil, itunes_connect_users: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new application on <a href="../Portal/App.html">App</a> Store
+Connect @param name (String): The name of your app as it will appear on the
+<a href="../Portal/App.html">App</a> Store.</p>
+
+<pre>This can&#39;t be longer than 255 characters.</pre>
+
+<p>@param primary_language (String): If localized app information isn&#39;t
+available in an</p>
+
+<pre>App Store territory, the information from your primary language will be used instead.</pre>
+
+<p>@param version *DEPRECATED: Use `ensure_version!` method instead*</p>
+
+<pre>(String): The version number is shown on the App Store and should match the one you used in Xcode.</pre>
+
+<p>@param sku (String): A unique ID for your app that is not visible on the <a
+href="../Portal/App.html">App</a> Store. @param <a
+href="Application.html#attribute-i-bundle_id">#bundle_id</a> (String): The
+bundle ID must match the one you used in Xcode. It</p>
+
+<pre>can&#39;t be changed after you submit your first build.</pre>
+
+<p>@param company_name (String): The company name or developer name to display
+on the <a href="../Portal/App.html">App</a> Store for your apps. It cannot
+be changed after you create your first app. @param platform (String):
+Platform one of (ios,osx)</p>
+
+<pre class="ruby"><span class="ruby-identifier">should</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">an</span> <span class="ruby-identifier">ios</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">an</span> <span class="ruby-identifier">osx</span> <span class="ruby-identifier">app</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create!</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">primary_language</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">version</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">sku</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">bundle_id_suffix</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">company_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">itunes_connect_users</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;The `version` parameter is deprecated. Use `ensure_version!` method instead&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_application!</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+                 <span class="ruby-identifier">primary_language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">primary_language</span>,
+                              <span class="ruby-identifier">sku</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sku</span>,
+                        <span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+                        <span class="ruby-identifier">bundle_id_suffix</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id_suffix</span>,
+                        <span class="ruby-identifier">company_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">company_name</span>,
+                            <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>,
+                            <span class="ruby-identifier">itunes_connect_users</span><span class="ruby-operator">:</span> <span class="ruby-identifier">itunes_connect_users</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(identifier, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Spaceship::Tunes::Application) Returns the application matching
+the parameter</p>
+
+<pre class="ruby"><span class="ruby-identifier">as</span> <span class="ruby-identifier">either</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">App</span> <span class="ruby-constant">ID</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">bundle</span> <span class="ruby-identifier">identifier</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">identifier</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">app</span><span class="ruby-operator">|</span>
+    ((<span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">app</span>.<span class="ruby-identifier">bundle_id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">bundle_id</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)) <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">app</span>.<span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">mac</span> <span class="ruby-operator">?</span> [<span class="ruby-string">&quot;osx&quot;</span>] <span class="ruby-operator">:</span> [<span class="ruby-string">&quot;ios&quot;</span>, <span class="ruby-string">&quot;appletvos&quot;</span>]).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">platform</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-all_build_train_numbers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_build_train_numbers</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The numbers of all build trains that were uploaded @return [Array] An array
+of train version numbers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all_build_train_numbers-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_build_train_numbers</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_trains</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>).<span class="ruby-identifier">versions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-all_builds_for_train" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_builds_for_train</span><span
+            class="method-args">(train: nil, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receive the build details for a specific build useful if the app is not
+listed in the <a href="../TestFlight.html">TestFlight</a> build list which
+might happen if you don&#39;t use <a
+href="../TestFlight.html">TestFlight</a> This is used to receive dSYM files
+from Apple</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all_builds_for_train-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_builds_for_train</span>(<span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">builds_for_train</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">train_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">train</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-all_processing_builds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_processing_builds</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array] This will return an array of <strong>all</strong>
+processing builds</p>
+
+<pre class="ruby"><span class="ruby-identifier">this</span> <span class="ruby-identifier">include</span> <span class="ruby-identifier">pre</span><span class="ruby-operator">-</span><span class="ruby-identifier">processing</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">standard</span> <span class="ruby-identifier">processing</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="all_processing_builds-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_processing_builds</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">all_processing_builds</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-analytics" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">analytics</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="analytics-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">analytics</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">live_version</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Analytics are only available for live apps.&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">attrs</span> = {}
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:apple_id</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppAnalytics</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-availability" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">availability</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The current availability.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="availability-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">availability</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">availability</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_trains" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_trains</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>TestFlight: A reference to all the build trains @return [Hash] a hash, the
+version number and platform being the key</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_trains-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 300</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_trains</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildTrains</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-builds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">builds</span><span
+            class="method-args">(platform: nil) { |build| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all builds that are already processed for all build trains You can
+either use the return value (array) or pass a block</p>
+          
+          
+
+          
+          <div class="method-source-code" id="builds-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">builds</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">all</span> = <span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">all</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">build</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">build</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cancel_all_testflight_submissions-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cancel_all_testflight_submissions!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Cancels all ongoing <a href="../TestFlight.html">TestFlight</a> beta
+submission for this application</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cancel_all_testflight_submissions-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cancel_all_testflight_submissions!</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">builds</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">build</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">build</span>.<span class="ruby-identifier">cancel_beta_review!</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-comment"># We really don&#39;t care about any errors here</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_submission" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_submission</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Submit for Review</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_submission-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_submission</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">latest_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Could not find a valid version to submit for review&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppSubmission</span>.<span class="ruby-identifier">create</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_version-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_version!</span><span
+            class="method-args">(version_number, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new version of your app Since we have stored the outdated
+raw_data, we need to refresh this object otherwise `edit_version` will
+return nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_version-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_version!</span>(<span class="ruby-identifier">version_number</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Cannot create a new version for this app as there already is an `edit_version` available&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_version!</span>(<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">version_number</span>, <span class="ruby-identifier">platform</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;ios&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+
+  <span class="ruby-comment"># Future: implemented -reload method</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_external_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_external_group</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Testers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_external_group-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_external_group</span>
+  <span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">default_external_group</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">details</span>
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">app_details</span>(<span class="ruby-identifier">apple_id</span>)
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:application</span>] = <span class="ruby-keyword">self</span>
+  <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppDetails</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_version</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Spaceship::Tunes::AppVersion) Receive the version that can fully
+be edited</p>
+          
+          
+
+          
+          <div class="method-source-code" id="edit_version-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersion</span>.<span class="ruby-identifier">find</span>(<span class="ruby-keyword">self</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">false</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_not_a_bundle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_not_a_bundle</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>private to module</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_not_a_bundle-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 442</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_not_a_bundle</span>
+  <span class="ruby-comment"># we only support applications</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;We do not support BUNDLE types right now&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;BUNDLE&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_version-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_version!</span><span
+            class="method-args">(version_number, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Will make sure the current <a
+href="Application.html#method-i-edit_version">#edit_version</a> matches the
+given version number This will either create a new version or change the
+version number from an existing version @return (Bool) Was something
+changed?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_version-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_version!</span>(<span class="ruby-identifier">version_number</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">e</span> = <span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">version_number</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-comment"># Update an existing version</span>
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">version</span> = <span class="ruby-identifier">version_number</span>
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">save!</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">create_version!</span>(<span class="ruby-identifier">version_number</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_app_purchases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_app_purchases</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group <a
+href="Application.html#method-i-in_app_purchases">#in_app_purchases</a></p>
+
+<p>Get base In-App-Purchases object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in_app_purchases-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_app_purchases</span>
+  <span class="ruby-identifier">attrs</span> = {}
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:application</span>] = <span class="ruby-keyword">self</span>
+  <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">IAP</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-latest_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">latest_version</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Spaceship::Tunes::AppVersion) This will return the `edit_version`
+if available</p>
+
+<pre>and fallback to the `live_version`. Use this to just access the latest data</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="latest_version-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">latest_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">edit_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">live_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-live_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">live_version</span><span
+            class="method-args">(platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Spaceship::Tunes::AppVersion) Receive the version that is
+currently live on the</p>
+
+<pre>App Store. You can&#39;t modify all values there, so be careful.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="live_version-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">live_version</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersion</span>.<span class="ruby-identifier">find</span>(<span class="ruby-keyword">self</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-platform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">platform</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>kept for backward compatibility tries to guess the platform of the
+currently submitted apps note that as ITC now supports multiple app types,
+this might break if your app supports more than one</p>
+          
+          
+
+          
+          <div class="method-source-code" id="platform-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">platform</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;The application has no version sets and Spaceship does not know what to do here.&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">version_sets</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">platform</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platforms</span> <span class="ruby-operator">==</span> <span class="ruby-node">%w(ios appletvos)</span>
+    <span class="ruby-string">&#39;ios&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersionCommon</span>.<span class="ruby-identifier">find_platform</span>(<span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&#39;versionSets&#39;</span>])[<span class="ruby-string">&#39;platformString&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-platforms" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">platforms</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="platforms-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">platforms</span>
+  <span class="ruby-identifier">platforms</span> = []
+  <span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">version_set</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">platforms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">version_set</span>.<span class="ruby-identifier">platform</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">platforms</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-price_tier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">price_tier</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The current price tier</p>
+          
+          
+
+          
+          <div class="method-source-code" id="price_tier-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">price_tier</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">price_tier</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-promocodes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">promocodes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Promo codes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="promocodes-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 427</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">promocodes</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">app_promocodes</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>)
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersionPromocodes</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-promocodes_history" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">promocodes_history</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="promocodes_history-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 434</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">promocodes_history</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">app_promocodes_history</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>)
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersionGeneratedPromocodes</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ratings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ratings</span><span
+            class="method-args">(version_id: '', storefront: '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ratings-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ratings</span>(<span class="ruby-identifier">version_id</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">storefront</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_ratings</span>(<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span>, <span class="ruby-identifier">version_id</span>, <span class="ruby-identifier">storefront</span>)
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:application</span>] = <span class="ruby-keyword">self</span>
+  <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppRatings</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reject_version_if_possible-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reject_version_if_possible!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reject_version_if_possible-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reject_version_if_possible!</span>
+  <span class="ruby-identifier">can_reject</span> = <span class="ruby-identifier">edit_version</span>.<span class="ruby-identifier">can_reject_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_reject</span>
+    <span class="ruby-identifier">client</span>.<span class="ruby-identifier">reject!</span>(<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">edit_version</span>.<span class="ruby-identifier">version_id</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">can_reject</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group release</p>
+          
+          
+
+          
+          <div class="method-source-code" id="release-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 385</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release!</span>
+  <span class="ruby-identifier">version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">edit_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Could not find a valid version to release&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">version</span>.<span class="ruby-identifier">release!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_to_all_users-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_to_all_users!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group release to all users</p>
+          
+          
+
+          
+          <div class="method-source-code" id="release_to_all_users-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 397</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_to_all_users!</span>
+  <span class="ruby-identifier">version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">live_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Could not find a valid version to release&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">version</span>.<span class="ruby-identifier">release_to_all_users!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resolution_center" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolution_center</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Hash) Contains the reason for rejection.</p>
+
+<pre>if everything is alright, the result will be
+`{&quot;sectionErrorKeys&quot;=&gt;[], &quot;sectionInfoKeys&quot;=&gt;[], &quot;sectionWarningKeys&quot;=&gt;[], &quot;replyConstraints&quot;=&gt;{&quot;minLength&quot;=&gt;1, &quot;maxLength&quot;=&gt;4000}, &quot;appNotes&quot;=&gt;{&quot;threads&quot;=&gt;[]}, &quot;betaNotes&quot;=&gt;{&quot;threads&quot;=&gt;[]}, &quot;appMessages&quot;=&gt;{&quot;threads&quot;=&gt;[]}}`</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="resolution_center-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolution_center</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_resolution_center</span>(<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group General</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@version_sets</span> = (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&#39;versionSets&#39;</span>] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:application</span>] = <span class="ruby-keyword">self</span>
+    <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">VersionSet</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tunes_all_build_trains" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tunes_all_build_trains</span><span
+            class="method-args">(app_id: nil, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tunes_all_build_trains-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tunes_all_build_trains</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">all_build_trains</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">trains</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-string">&quot;trains&quot;</span>] <span class="ruby-keyword">or</span> []
+  <span class="ruby-identifier">trains</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;application&#39;</span>] = <span class="ruby-keyword">self</span>
+    <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildTrain</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tunes_all_builds_for_train" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tunes_all_builds_for_train</span><span
+            class="method-args">(train: nil, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tunes_all_builds_for_train-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 333</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tunes_all_builds_for_train</span>(<span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">all_builds_for_train</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-identifier">train</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">items</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-string">&quot;items&quot;</span>] <span class="ruby-keyword">or</span> []
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;apple_id&#39;</span>] = <span class="ruby-identifier">apple_id</span>
+    <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tunes_build_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tunes_build_details</span><span
+            class="method-args">(train: nil, build_number: nil, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tunes_build_details-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tunes_build_details</span>(<span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">build_number</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">build_details</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-identifier">train</span>, <span class="ruby-identifier">build_number</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build_number</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">resp</span>[<span class="ruby-string">&#39;apple_id&#39;</span>] = <span class="ruby-identifier">apple_id</span>
+  <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildDetails</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">resp</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;The application has no version sets and Spaceship does not know what to do here.&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">version_sets</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">platform</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">platform</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersionCommon</span>.<span class="ruby-identifier">find_platform</span>(<span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&#39;versionSets&#39;</span>])
+  <span class="ruby-identifier">platform</span>[<span class="ruby-string">&#39;type&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_availability-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_availability!</span><span
+            class="method-args">(availability)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>set the availability. This method doesn&#39;t require `save` to be called</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_availability-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_availability!</span>(<span class="ruby-identifier">availability</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">update_availability!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">availability</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_price_tier-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_price_tier!</span><span
+            class="method-args">(price_tier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>set the price tier. This method doesn&#39;t require `save` to be called</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_price_tier-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_price_tier!</span>(<span class="ruby-identifier">price_tier</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">update_price_tier!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">price_tier</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) An URL to this specific resource. You can enter this URL
+into your browser</p>
+          
+          
+
+          
+          <div class="method-source-code" id="url-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-node">&quot;https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/#{self.apple_id}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-version_set_for_platform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version_set_for_platform</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Getting information</p>
+          
+          
+
+          
+          <div class="method-source-code" id="version_set_for_platform-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">version_set_for_platform</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">version_sets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">version_set</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">version_set</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">version_set</span>.<span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">platform</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-versions_history" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">versions_history</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="versions_history-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/application.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">versions_history</span>
+  <span class="ruby-identifier">ensure_not_a_bundle</span>
+  <span class="ruby-identifier">versions</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">versions_history</span>(<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">versions</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:application</span>] = <span class="ruby-keyword">self</span>
+    <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersionHistory</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

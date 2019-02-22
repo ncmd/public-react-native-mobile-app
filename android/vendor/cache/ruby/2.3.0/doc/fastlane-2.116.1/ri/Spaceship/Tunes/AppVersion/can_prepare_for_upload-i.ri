@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"can_prepare_for_upload:ETI"8Spaceship::Tunes::AppVersion#can_prepare_for_upload;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@return (Bool);T:
+@fileI"1spaceship/lib/spaceship/tunes/app_version.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppVersion;TcRDoc::NormalClass0

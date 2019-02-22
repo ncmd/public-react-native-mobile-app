@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"allow_shell_conversion:ETI"4FastlaneCore::ConfigItem#allow_shell_conversion;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::List:
+@type:
+LABEL:@items[o:RDoc::Markup::ListItem:@label[I"Boolean;T;	[o:RDoc::Markup::Paragraph;	[I"fSet if the variable is to be converted to a shell-escaped String when provided as a Hash or Array;To;;	[I"›Allows items expected to be strings used in shell arguments to be alternatively provided as a Hash or Array for better readability and auto-escaped for us.;T:
+@fileI"Afastlane_core/lib/fastlane_core/configuration/config_item.rb;T:0@omit_headings_from_table_of_contents_below0F@I"FastlaneCore::ConfigItem;TcRDoc::NormalClass0

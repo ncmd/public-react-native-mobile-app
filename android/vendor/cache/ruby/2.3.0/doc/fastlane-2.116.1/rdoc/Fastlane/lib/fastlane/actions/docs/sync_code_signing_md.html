@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>sync_code_signing - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Easily+sync+your+certificates+and+profiles+across+your+team">Easily sync your certificates and profiles across your team</a>
+    <li><a href="#label-Why+match-3F">Why match?</a>
+    <li><a href="#label-Why+not+let+Xcode+handle+all+this-3F">Why not let Xcode handle all this?</a>
+    <li><a href="#label-What+does+match+do+for+you-3F">What does <em>match</em> do for you?</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Setup">Setup</a>
+    <li><a href="#label-Git+Storage">Git Storage</a>
+    <li><a href="#label-Google+Cloud+Storage">Google Cloud Storage</a>
+    <li><a href="#label-Multiple+teams">Multiple teams</a>
+    <li><a href="#label-Git+Storage">Git Storage</a>
+    <li><a href="#label-Google+Cloud+Storage">Google Cloud Storage</a>
+    <li><a href="#label-Run">Run</a>
+    <li><a href="#label-Handle+multiple+targets">Handle multiple targets</a>
+    <li><a href="#label-Handle+multiple+apps+per+developer-2Fdistribution+certificate">Handle multiple apps per developer/distribution certificate</a>
+    <li><a href="#label-Passphrase">Passphrase</a>
+    <li><a href="#label-Migrate+from+Git+Repo+to+Google+Cloud">Migrate from Git Repo to Google Cloud</a>
+    <li><a href="#label-Google+Cloud+access+control">Google Cloud access control</a>
+    <li><a href="#label-Managing+developer+access+via+keys">Managing developer access via keys</a>
+    <li><a href="#label-Managing+developer+acess+via+Google+accounts">Managing developer acess via Google accounts</a>
+    <li><a href="#label-New+machine">New machine</a>
+    <li><a href="#label-Access+Control">Access Control</a>
+    <li><a href="#label-Folder+structure">Folder structure</a>
+    <li><a href="#label-fastlane">fastlane</a>
+    <li><a href="#label-Registering+new+devices">Registering new devices</a>
+    <li><a href="#label-Multiple+Targets">Multiple Targets</a>
+    <li><a href="#label-Templates+-28aka-3A+custom+entitlements-29">Templates (aka: custom entitlements)</a>
+    <li><a href="#label-Setup+Xcode+project">Setup Xcode project</a>
+    <li><a href="#label-To+build+from+the+command+line+using+fastlane">To build from the command line using <a href="https://fastlane.tools">fastlane</a></a>
+    <li><a href="#label-To+build+from+Xcode+manually">To build from Xcode manually</a>
+    <li><a href="#label-Continuous+Integration">Continuous Integration</a>
+    <li><a href="#label-Git+repo+access">Git repo access</a>
+    <li><a href="#label-Git+repo+encryption+password">Git repo encryption password</a>
+    <li><a href="#label-Google+Cloud+Storage+access">Google Cloud Storage access</a>
+    <li><a href="#label-Nuke">Nuke</a>
+    <li><a href="#label-Advanced+Git+Storage+features">Advanced Git Storage features</a>
+    <li><a href="#label-Change+Password">Change Password</a>
+    <li><a href="#label-Manual+Decrypt">Manual Decrypt</a>
+    <li><a href="#label-Export+Distribution+Certificate+and+Private+Key+as+Single+.p12+File">Export Distribution Certificate and Private Key as Single .p12 File</a>
+    <li><a href="#label-Is+this+secure-3F">Is this secure?</a>
+    <li><a href="#label-Git">Git</a>
+    <li><a href="#label-Google+Cloud+Storage">Google Cloud Storage</a>
+    <li><a href="#label-What+could+happen+if+someone+stole+a+private+key-3F">What could happen if someone stole a private key?</a>
+    <li><a href="#label-App+Store+Profiles">App Store Profiles</a>
+    <li><a href="#label-Development+and+Ad+Hoc+Profiles">Development and Ad Hoc Profiles</a>
+    <li><a href="#label-Enterprise+Profiles">Enterprise Profiles</a>
+    <li><a href="#label-To+sum+up">To sum up</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/sync_code_signing.md">
+<p align="center">
+  <img src="/img/actions/match.png" width="250">
+</p>
+<h6 id="label-Easily+sync+your+certificates+and+profiles+across+your+team">Easily sync your certificates and profiles across your team<span><a href="#label-Easily+sync+your+certificates+and+profiles+across+your+team">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p>A new approach to iOS code signing: Share one code signing identity across
+your development team to simplify your codesigning setup and prevent code
+signing issues.</p>
+
+<p><em>match</em> is the implementation of the <a
+href="https://codesigning.guide">codesigning.guide</a> concept.
+<em>match</em> creates all required certificates &amp; provisioning
+profiles and stores them in a separate git repository. Every team member
+with access to the repo can use those credentials for code signing.
+<em>match</em> also automatically repairs broken and expired credentials.
+It&#39;s the easiest way to share signing credentials across teams</p>
+
+<p><a href="https://docs.fastlane.tools/codesigning/getting-started/">More
+information on how to get started with codesigning</a></p>
+<hr>
+<p align="center">
+    <a href="#why-match">Why?</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#is-this-secure">Is this secure?</a>
+</p><hr>
+<h5 align="center"><em>match</em> is part of <a href="https://fastlane.tools">fastlane</a>: The easiest way to automate beta deployments and releases for your iOS and Android apps.</h5>
+<h2 id="label-Why+match-3F">Why match?<span><a href="#label-Why+match-3F">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Before starting to use <em>match</em>, make sure to read the <a
+href="https://codesigning.guide">codesigning.guide</a></p>
+
+<blockquote>
+<p>When deploying an app to the App Store, beta testing service or even
+installing it on a device, most development teams have separate code
+signing identities for every member. This results in dozens of profiles
+including a lot of duplicates.</p>
+
+<p>You have to manually renew and download the latest set of provisioning
+profiles every time you add a new device or a certificate expires.
+Additionally this requires spending a lot of time when setting up a new
+machine that will build your app.</p>
+</blockquote>
+
+<p><strong>A new approach</strong></p>
+
+<blockquote>
+<p>Share one code signing identity across your development team to simplify
+your setup and prevent code signing issues. What if there was a central
+place where your code signing identity and profiles are kept, so anyone in
+the team can access them during the build process?</p>
+</blockquote>
+
+<h3 id="label-Why+not+let+Xcode+handle+all+this-3F">Why not let Xcode handle all this?<span><a href="#label-Why+not+let+Xcode+handle+all+this-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>You have full control over what happens</p>
+</li><li>
+<p>You have access to all the certificates and profiles, which are all
+securely stored in git</p>
+</li><li>
+<p>You share one code signing identity across the team to have fewer
+certificates and profiles</p>
+</li><li>
+<p>Xcode sometimes revokes certificates which breaks your setup causing failed
+builds</p>
+</li><li>
+<p>More predictable builds by settings profiles in an explicit way instead of
+using the <code>Automatic</code> setting</p>
+</li><li>
+<p>It just works™</p>
+</li></ul>
+
+<h3 id="label-What+does+match+do+for+you-3F">What does <em>match</em> do for you?<span><a href="#label-What+does+match+do+for+you-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>| | match | |———-|———| 🔄 | Automatically sync your iOS keys and profiles
+across all your team members using git 📦 | Handle all the heavy lifting of
+creating and storing your certificates and profiles 💻 | Setup codesigning
+on a new machine in under a minute 🎯 | Designed to work with apps with
+multiple targets and bundle identifiers 🔒 | You have full control over your
+files and Git repo, no third party service involved ✨ | Provisioning
+profile will always match the correct certificate 💥 | Easily reset your
+existing profiles and certificates if your current account has expired or
+invalid profiles ♻️ | Automatically renew your provisioning profiles to
+include all your devices using the <code>--force</code> option 👥 | Support
+for multiple Apple accounts and multiple teams ✨ | Tightly integrated with
+<a href="https://fastlane.tools">fastlane</a> to work seamlessly with <a
+href="https://docs.fastlane.tools/actions/gym/">gym</a> and other build
+tools</p>
+
+<p>For more information about the concept, visit <a
+href="https://codesigning.guide">codesigning.guide</a>.</p>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Setup">Setup<span><a href="#label-Setup">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ol><li>
+<p>Create a <strong>new, private Git repo</strong> (e.g. on <a
+href="https://github.com/new">GitHub</a> or <a
+href="https://bitbucket.org/repo/create">BitBucket</a>) and name it
+something like <code>certificates</code>. <strong>Important:</strong> Make
+sure the repository is set to <em>private</em>.</p>
+</li><li>
+<p>Optional: Create a <strong>new, shared Apple Developer Portal
+account</strong>, something like <code>office@company.com</code> that will
+be shared across your team from now on (for more information visit <a
+href="https://codesigning.guide">codesigning.guide</a>)</p>
+</li><li>
+<p>Run the following in your project folder to start using <em>match</em>:</p>
+</li></ol>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">init</span>
+</pre>
+
+<p>&lt;img src=“/img/actions/match_init.gif” width=“550” /&gt;</p>
+
+<p>You&#39;ll be asked if you want to store your code signing identities
+inside a Git repo, or on Google Cloud.</p>
+
+<h4 id="label-Git+Storage">Git Storage<span><a href="#label-Git+Storage">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Use Git Storage to store all code signing identities in a private git repo,
+owned and operated by you. The files will be encrypted using <a
+href="../../../../../OpenSSL.html">OpenSSL</a>.</p>
+
+<p>First, enter the URL to your Git repo. This can be either a
+<code>https://</code> or a <code>git</code> URL. (If your machine is
+currently using SSH to authenticate with GitHub, you&#39;ll want to use a
+<code>git</code> URL, otherwise you may see an authentication error when
+you attempt to use match.) <code>fastlane match init</code> won&#39;t read
+or modify your certificates or profiles yet, and also won&#39;t validate
+your git URL.</p>
+
+<p>This will create a <code>Matchfile</code> in your current directory (or in
+your <code>./fastlane/</code> folder).</p>
+
+<p>Example content (for more advanced setups check out the <a
+href="#fastlane">fastlane section</a>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">git_url</span>(<span class="ruby-string">&quot;https://github.com/fastlane/certificates&quot;</span>)
+
+<span class="ruby-identifier">app_identifier</span>(<span class="ruby-string">&quot;tools.fastlane.app&quot;</span>)
+<span class="ruby-identifier">username</span>(<span class="ruby-string">&quot;user@fastlane.tools&quot;</span>)
+</pre>
+
+<h4 id="label-Google+Cloud+Storage">Google Cloud Storage<span><a href="#label-Google+Cloud+Storage">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Use <a href="https://cloud.google.com/storage/">Google Cloud Storage</a>
+for a fully hosted solution for your code signing identities. Certificates
+are stored on Google Cloud, encrypted using Google managed keys. Everything
+will be stored on your Google account, inside a storage bucket you provide.
+You can also directly access the files using the web console.</p>
+
+<p>This will create a <code>Matchfile</code> in your current directory (or in
+your <code>./fastlane/</code> folder).</p>
+
+<p>Example content (for more advanced setups check out the <a
+href="#fastlane">fastlane section</a>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">google_cloud_bucket_name</span>(<span class="ruby-string">&quot;major-key-certificates&quot;</span>)
+</pre>
+
+<h3 id="label-Multiple+teams">Multiple teams<span><a href="#label-Multiple+teams">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-Git+Storage">Git Storage<span><a href="#label-Git+Storage">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Use one git branch per team. <em>match</em> also supports storing
+certificates of multiple teams in one repo, by using separate git branches.
+If you work in multiple teams, make sure to set the <code>git_branch</code>
+parameter to a unique value per team. From there, <em>match</em> will
+automatically create and use the specified branch for you.</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span>(<span class="ruby-identifier">git_branch</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;team1&quot;</span>, <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;user@team1.com&quot;</span>)
+<span class="ruby-identifier">match</span>(<span class="ruby-identifier">git_branch</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;team2&quot;</span>, <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;user@team2.com&quot;</span>)
+</pre>
+
+<h4 id="label-Google+Cloud+Storage">Google Cloud Storage<span><a href="#label-Google+Cloud+Storage">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>If you use Google Cloud Storage, you don&#39;t need to do anything
+manually. Just use Google Cloud Storage, and the top level folder will be
+the team ID.</p>
+
+<h3 id="label-Run">Run<span><a href="#label-Run">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<blockquote>
+<p>Before running <em>match</em> for the first time, you should consider
+clearing your existing profiles and certificates using the <a
+href="#nuke">match nuke command</a>.</p>
+</blockquote>
+
+<p>After running <code>fastlane match init</code> you can run the following to
+generate new certificates and profiles:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">appstore</span>
+</pre>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">development</span>
+</pre>
+
+<p>&lt;img src=“/img/actions/match_appstore_small.gif” width=“550” /&gt;</p>
+
+<p>This will create a new certificate and provisioning profile (if required)
+and store them in your selected storage. If you previously ran
+<em>match</em> it will automatically install the existing profiles from
+storage.</p>
+
+<p>The provisioning profiles are installed in
+<code>~/Library/MobileDevice/Provisioning Profiles</code> while the
+certificates and private keys are installed in your Keychain.</p>
+
+<p>To get a more detailed output of what <em>match</em> is doing use</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">verbose</span>
+</pre>
+
+<p>For a list of all available options run</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">match</span>
+</pre>
+
+<h4 id="label-Handle+multiple+targets">Handle multiple targets<span><a href="#label-Handle+multiple+targets">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>If you have several targets with different bundle identifiers, supply them
+as a comma-separated list to:</p>
+
+<pre>fastlane match appstore -a tools.fastlane.app,tools.fastlane.app.watchkitapp</pre>
+
+<p>You can make this even easier using <a
+href="https://fastlane.tools">fastlane</a> by creating a
+<code>certificates</code> lane like this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">certificates</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">match</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> [<span class="ruby-string">&quot;com.krausefx.app1&quot;</span>, <span class="ruby-string">&quot;com.krausefx.app2&quot;</span>, <span class="ruby-string">&quot;com.krausefx.app3&quot;</span>])
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Then all your team has to do is <code>fastlane certificates</code> and
+keys, certs and profiles for all targets will be synced.</p>
+
+<h4 id="label-Handle+multiple+apps+per+developer-2Fdistribution+certificate">Handle multiple apps per developer/distribution certificate<span><a href="#label-Handle+multiple+apps+per+developer-2Fdistribution+certificate">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>If you want to use a single developer and/or distribution certificate for
+multiple apps belonging to the same development team, you may use the same
+signing identities repository and branch to store the signing identities
+for your apps:</p>
+
+<p><code>Matchfile</code> example for both App #1 and #2:</p>
+
+<pre class="ruby"><span class="ruby-identifier">git_url</span>(<span class="ruby-string">&quot;https://github.com/example/example-repo.git&quot;</span>)
+<span class="ruby-identifier">git_branch</span>(<span class="ruby-string">&quot;master&quot;</span>)
+</pre>
+
+<p><em>match</em> will reuse certificates and will create separate
+provisioning profiles for each app.</p>
+
+<h4 id="label-Passphrase">Passphrase<span><a href="#label-Passphrase">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><em>Git Repo storage only</em></p>
+
+<p>When running <em>match</em> for the first time on a new machine, it will
+ask you for the passphrase for the Git repository. This is an additional
+layer of security: each of the files will be encrypted using
+<code>openssl</code>. Make sure to remember the password, as you&#39;ll
+need it when you run match on a different machine.</p>
+
+<p>To set the passphrase to decrypt your profiles using an environment
+variable, use <code>MATCH_PASSWORD</code>.</p>
+
+<h4 id="label-Migrate+from+Git+Repo+to+Google+Cloud">Migrate from Git Repo to Google Cloud<span><a href="#label-Migrate+from+Git+Repo+to+Google+Cloud">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>If you&#39;re already using a Git Repo, but would like to switch to using
+Google Cloud Storage, just run the following command to automatically
+migrate all your existing code signing identities and provisioning profiles</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">migrate</span>
+</pre>
+
+<p>After a successful migration you can safely delete your git repo.</p>
+
+<h4 id="label-Google+Cloud+access+control">Google Cloud access control<span><a href="#label-Google+Cloud+access+control">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><em>Google Cloud Storage only</em></p>
+
+<p>There are two cases for reading and writing certificates stored in a Google
+Cloud storage bucket:</p>
+<ol><li>
+<p>Continuous integration jobs. These will authenticate to your Google Cloud
+project via a service account, and use a <code>gc_keys.json</code> file as
+credentials.</p>
+</li><li>
+<p>Developers on a local workstation. In this case, you should choose whether
+everyone on your team will create their own <code>gc_keys.json</code> file,
+or whether you want to manage access to the bucket directly using your
+developers&#39; Google accounts.</p>
+</li></ol>
+
+<p>When running <code>fastlane match init</code> the first time, the setup
+process will give you the option to create your <code>gc_keys.json</code>
+file. This file contains the auth credentials needed to access your Google
+Cloud storage bucket. Make sure to keep that file secret and never add it
+to version control. We recommend adding <code>gc_keys.json</code> to your
+<code>.gitignore</code></p>
+
+<h5 id="label-Managing+developer+access+via+keys">Managing developer access via keys<span><a href="#label-Managing+developer+access+via+keys">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If you want to manage developer access to your certificates via
+authentication keys, every developer should create their own
+<code>gc_keys.json</code> and add the file to all their work machines. This
+will give the admin full control over who has read/write access to the
+given Storage bucket. At the same time it allows your team to revoke a
+single key if a file gets compromised.</p>
+
+<h5 id="label-Managing+developer+acess+via+Google+accounts">Managing developer acess via Google accounts<span><a href="#label-Managing+developer+acess+via+Google+accounts">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If your developers already have Google accounts and access to your Google
+Cloud project, you can also manage access to the storage bucket via <a
+href="https://cloud.google.com/storage/docs/access-control/iam">Cloud
+Identity and Access Management (IAM)</a>. Just <a
+href="https://cloud.google.com/storage/docs/access-control/lists">set
+up</a> individual developer accounts or an entire Google Group containing
+your team as readers and writers on your storage bucket.</p>
+
+<p>You can then specify the Google Cloud project id containing your storage
+bucket in your <code>Matchfile</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">storage_mode</span>(<span class="ruby-string">&quot;google_cloud&quot;</span>)
+<span class="ruby-identifier">google_cloud_bucket_name</span>(<span class="ruby-string">&quot;my-app-certificates&quot;</span>)
+<span class="ruby-identifier">google_cloud_project_id</span>(<span class="ruby-string">&quot;my-app-project&quot;</span>)
+</pre>
+
+<p>This lets developers on your team use <a
+href="https://cloud.google.com/docs/authentication/production">Application
+Default Credentials</a> when accessing your storage bucket. After
+installing the <a href="https://cloud.google.com/sdk/">Google Cloud
+SDK</a>, they only need to run the following command once:
+<code>no-highlight gcloud auth application-default login </code> … and log
+in with their Google account. Then, when they run <code>fastlane
+match</code>, <em>match</em> will use these credentials to read from and
+write to the storage bucket.</p>
+
+<h4 id="label-New+machine">New machine<span><a href="#label-New+machine">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>To set up the certificates and provisioning profiles on a new machine, you
+just run the same command using:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">development</span>
+</pre>
+
+<p>You can also run <em>match</em> in a <code>readonly</code> mode to be sure
+it won&#39;t create any new certificates or profiles.</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">development</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">readonly</span>
+</pre>
+
+<p>We recommend to always use <code>readonly</code> mode when running
+<em>fastlane</em> on CI systems. This can be done using</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">beta</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;appstore&quot;</span>, <span class="ruby-identifier">readonly</span><span class="ruby-operator">:</span> <span class="ruby-identifier">is_ci</span>)
+
+  <span class="ruby-identifier">gym</span>(<span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Release&quot;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h4 id="label-Access+Control">Access Control<span><a href="#label-Access+Control">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>A benefit of using <em>match</em> is that it enables you to give the
+developers of your team access to the code signing certificates without
+having to give everyone access to the Developer Portal:</p>
+<ol><li>
+<p>Run <em>match</em> to store the certificates in a Git repo or Google Cloud
+Storage</p>
+</li><li>
+<p>Grant access to the Git repo / Google Cloud Storage Bucket to your
+developers and give them the passphrase (for git storage)</p>
+</li><li>
+<p>The developers can now run <em>match</em> which will install the latest
+code signing profiles so they can build and sign the application without
+having to have access to the Apple Developer Portal</p>
+</li><li>
+<p>Every time you run <em>match</em> to update the profiles (e.g. add a new
+device), all your developers will automatically get the latest profiles
+when running <em>match</em></p>
+</li></ol>
+
+<p>If you decide to run <em>match</em> without access to the Developer Portal,
+make sure to use the <code>--readonly</code> option so that the commands
+don&#39;t ask you for the password to the Developer Portal.</p>
+
+<p>The advantage of this approach is that no one in your team will revoke a
+certificate by mistake, while having all code signing secrets in one
+location.</p>
+
+<h4 id="label-Folder+structure">Folder structure<span><a href="#label-Folder+structure">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>After running <em>match</em> for the first time, your Git repo or Google
+Cloud bucket will contain 2 directories:</p>
+<ul><li>
+<p>The <code>certs</code> folder contains all certificates with their private
+keys</p>
+</li><li>
+<p>The <code>profiles</code> folder contains all provisioning profiles</p>
+</li></ul>
+
+<p>Additionally, <em>match</em> creates a nice repo <code>README.md</code> for
+you, making it easy to onboard new team members:</p>
+<p align="center">
+  <img src="/img/actions/github_repo.png" width="700" />
+</p>
+<p>In the case of Google Cloud, the top level folder will be the team ID.</p>
+
+<h4 id="label-fastlane">fastlane<span><a href="#label-fastlane">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Add <em>match</em> to your <code>Fastfile</code> to automatically fetch the
+latest code signing certificates with <a
+href="https://fastlane.tools">fastlane</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;appstore&quot;</span>)
+
+<span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;development&quot;</span>)
+
+<span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;adhoc&quot;</span>,
+      <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;tools.fastlane.app&quot;</span>)
+
+<span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;enterprise&quot;</span>,
+      <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;tools.fastlane.app&quot;</span>)
+
+<span class="ruby-comment"># _match_ should be called before building the app with _gym_</span>
+<span class="ruby-identifier">gym</span>
+<span class="ruby-comment"># ...</span>
+</pre>
+
+<h5 id="label-Registering+new+devices">Registering new devices<span><a href="#label-Registering+new+devices">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>By using <em>match</em>, you&#39;ll save a lot of time every time you add
+new device to your Ad Hoc or Development profiles. Use <em>match</em> in
+combination with the <a
+href="https://docs.fastlane.tools/actions#register_devices">register_devices</a>
+action.</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">beta</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">register_devices</span>(<span class="ruby-identifier">devices_file</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;./devices.txt&quot;</span>)
+  <span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;adhoc&quot;</span>, <span class="ruby-identifier">force_for_new_devices</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>By using the <code>force_for_new_devices</code> parameter, <em>match</em>
+will check if the device count has changed since the last time you ran
+<em>match</em>, and automatically re-generate the provisioning profile if
+necessary. You can also use <code>force: true</code> to re-generate the
+provisioning profile on each run.</p>
+
+<p><strong><em>Important:</strong> The <code>force_for_new_devices</code>
+parameter is ignored for App Store provisioning profiles since they
+don&#39;t contain any device information.</em></p>
+
+<p>If you&#39;re not using <em>fastlane</em>, you can also use the
+<code>force_for_new_devices</code> option from the command line:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">adhoc</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">force_for_new_devices</span>
+</pre>
+
+<h5 id="label-Multiple+Targets">Multiple Targets<span><a href="#label-Multiple+Targets">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If your app has multiple targets (e.g. Today Widget or watchOS Extension)</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> [<span class="ruby-string">&quot;tools.fastlane.app&quot;</span>, <span class="ruby-string">&quot;tools.fastlane.app.today_widget&quot;</span>], <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;appstore&quot;</span>)
+</pre>
+
+<p><em>match</em> can use the same one Git repository or Google Cloud Storage
+for all bundle identifiers.</p>
+
+<h5 id="label-Templates+-28aka-3A+custom+entitlements-29">Templates (aka: custom entitlements)<span><a href="#label-Templates+-28aka-3A+custom+entitlements-29">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="../../../../../Match.html">Match</a> can generate profiles that
+contain custom entitlements by passing in the entitlement&#39;s name with
+the <code>template_name</code> parameter.</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;development&quot;</span>,
+      <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Apple Pay Pass Suppression Development&quot;</span>)
+</pre>
+
+<h3 id="label-Setup+Xcode+project">Setup Xcode project<span><a href="#label-Setup+Xcode+project">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><a href="/codesigning/xcode-project/">Docs on how to set up your Xcode
+project</a></p>
+
+<h4 id="label-To+build+from+the+command+line+using+fastlane">To build from the command line using <a href="https://fastlane.tools">fastlane</a><span><a href="#label-To+build+from+the+command+line+using+fastlane">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><em>match</em> automatically pre-fills environment variables with the UUIDs
+of the correct provisioning profiles, ready to be used in your Xcode
+project.</p>
+
+<p>More information about how to setup your Xcode project can be found <a
+href="/codesigning/xcode-project/">here</a></p>
+
+<h4 id="label-To+build+from+Xcode+manually">To build from Xcode manually<span><a href="#label-To+build+from+Xcode+manually">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This is useful when installing your application on your device using the
+Development profile.</p>
+
+<p>You can statically select the right provisioning profile in your Xcode
+project (the name will be <code>match Development
+tools.fastlane.app</code>).</p>
+
+<p><a href="/codesigning/xcode-project/">Docs on how to set up your Xcode
+project</a></p>
+
+<h3 id="label-Continuous+Integration">Continuous Integration<span><a href="#label-Continuous+Integration">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-Git+repo+access">Git repo access<span><a href="#label-Git+repo+access">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>There is one tricky part of setting up a CI system to work with
+<em>match</em>, which is enabling the CI to access the repo. Usually
+you&#39;d just add your CI&#39;s public ssh key as a deploy key to your
+<em>match</em> repo, but since your CI will already likely be using its
+public ssh key to access the codebase repo, <a
+href="https://help.github.com/articles/error-key-already-in-use/">you won’t
+be able to do that</a>.</p>
+
+<p>Some repo hosts might allow you to use the same deploy key for different
+repos, but GitHub will not. If your host does, you don&#39;t need to worry
+about this, just add your CI&#39;s public ssh key as a deploy key for your
+<em>match</em> repo and scroll down to “<em>Encryption password</em>”.</p>
+
+<p>There are a few ways around this:</p>
+<ol><li>
+<p>Create a new account on your repo host with read-only access to your
+<em>match</em> repo. Bitrise have a good description of this <a
+href="http://devcenter.bitrise.io/faq/adding-projects-with-submodules/">here</a>.</p>
+</li><li>
+<p>Some CIs allow you to upload your signing credentials manually, but
+obviously this means that you&#39;ll have to re-upload the
+profiles/keys/certs each time they change.</p>
+</li></ol>
+
+<p>Neither solution is pretty. It&#39;s one of those <em>trade-off</em>
+things. Do you care more about <strong>not</strong> having an extra account
+sitting around, or do you care more about having the :sparkles: of
+auto-syncing of credentials.</p>
+
+<h4 id="label-Git+repo+encryption+password">Git repo encryption password<span><a href="#label-Git+repo+encryption+password">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Once you&#39;ve decided which approach to take, all that&#39;s left to do
+is to set your encryption password as secret environment variable named
+<code>MATCH_PASSWORD</code>. <em>match</em> will pick this up when it&#39;s
+run.</p>
+
+<h4 id="label-Google+Cloud+Storage+access">Google Cloud Storage access<span><a href="#label-Google+Cloud+Storage+access">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Accessing Google Cloud Storage from your CI system requires you to provide
+the <code>gc_keys.json</code> file as part of your build. How you implement
+this is your decision. You can inject that file during build time.</p>
+
+<h3 id="label-Nuke">Nuke<span><a href="#label-Nuke">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you never really cared about code signing and have a messy Apple
+Developer account with a lot of invalid, expired or Xcode managed
+profiles/certificates, you can use the <code>match nuke</code> command to
+revoke your certificates and provisioning profiles. Don&#39;t worry, apps
+that are already available in the App Store / TestFlight will still work.
+Builds distributed via Ad Hoc or Enterprise will be disabled after nuking
+your account, so you&#39;ll have to re-upload a new build. After clearing
+your account you&#39;ll start from a clean state, and you can run
+<em>match</em> to generate your certificates and profiles again.</p>
+
+<p>To revoke all certificates and provisioning profiles for a specific
+environment:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">nuke</span> <span class="ruby-identifier">development</span>
+<span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">nuke</span> <span class="ruby-identifier">distribution</span>
+<span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">nuke</span> <span class="ruby-identifier">enterprise</span>
+</pre>
+
+<p>&lt;img src=“/img/actions/match_nuke.gif” width=“550” /&gt;</p>
+
+<p>You&#39;ll have to confirm a list of profiles / certificates that will be
+deleted.</p>
+
+<h2 id="label-Advanced+Git+Storage+features">Advanced Git Storage features<span><a href="#label-Advanced+Git+Storage+features">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Change+Password">Change Password<span><a href="#label-Change+Password">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To change the password of your repo and therefore decrypting and encrypting
+all files run:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">change_password</span>
+</pre>
+
+<p>You&#39;ll be asked for the new password on all your machines on the next
+run.</p>
+
+<h3 id="label-Manual+Decrypt">Manual Decrypt<span><a href="#label-Manual+Decrypt">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you want to manually decrypt a file you can.</p>
+
+<pre>openssl aes-256-cbc -k &quot;&lt;password&gt;&quot; -in &quot;&lt;fileYouWantToDecryptPath&gt;&quot; -out &quot;&lt;decryptedFilePath&gt;&quot; -a -d</pre>
+
+<h4 id="label-Export+Distribution+Certificate+and+Private+Key+as+Single+.p12+File">Export Distribution Certificate and Private Key as Single .p12 File<span><a href="#label-Export+Distribution+Certificate+and+Private+Key+as+Single+.p12+File">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><em>match</em> stores the certificate (<code>.cer</code>) and the private
+key (<code>.p12</code>) files separately. The following steps will
+repackage the separate certificate and private key into a single
+<code>.p12</code> file.</p>
+
+<p>Decrypt your cert found in
+<code>certs/&lt;type&gt;/&lt;unique-id&gt;.cer</code> as a pem file:</p>
+
+<pre>openssl aes-256-cbc -k &quot;&lt;password&gt;&quot; -in &quot;certs/&lt;type&gt;/&lt;unique-id&gt;.cer&quot; -out &quot;cert.der&quot; -a -d
+openssl x509 -inform der -in cert.der -out cert.pem</pre>
+
+<p>Decrypt your private key found in
+<code>certs/&lt;type&gt;/&lt;unique-id&gt;.p12</code> as a pem file:</p>
+
+<pre>openssl aes-256-cbc -k &quot;&lt;password&gt;&quot; -in &quot;certs/distribution/&lt;unique-id&gt;.p12&quot; -out &quot;key.pem&quot; -a -d</pre>
+
+<p>Generate an encrypted p12 file with the same or new password:</p>
+
+<pre>openssl pkcs12 -export -out &quot;cert.p12&quot; -inkey &quot;key.pem&quot; -in &quot;cert.pem&quot; -password pass:&lt;password&gt;</pre>
+
+<h2 id="label-Is+this+secure-3F">Is this secure?<span><a href="#label-Is+this+secure-3F">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Git">Git<span><a href="#label-Git">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Both your keys and provisioning profiles are encrypted using <a
+href="../../../../../OpenSSL.html">OpenSSL</a> using a passphrase.</p>
+
+<p>Storing your private keys in a Git repo may sound off-putting at first. We
+did an analysis of potential security issues, see section below.</p>
+
+<h3 id="label-Google+Cloud+Storage">Google Cloud Storage<span><a href="#label-Google+Cloud+Storage">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>All your keys and provisioning profiles are encrypted using Google managed
+keys.</p>
+
+<h3 id="label-What+could+happen+if+someone+stole+a+private+key-3F">What could happen if someone stole a private key?<span><a href="#label-What+could+happen+if+someone+stole+a+private+key-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If attackers would have your certificate and provisioning profile, they
+could codesign an application with the same bundle identifier.</p>
+
+<p>What&#39;s the worst that could happen for each of the profile types?</p>
+
+<h4 id="label-App+Store+Profiles">App Store Profiles<span><a href="#label-App+Store+Profiles">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>An App Store profile can&#39;t be used for anything as long as it&#39;s not
+re-signed by Apple. The only way to get an app resigned is to submit an app
+for review which could take anywhere from 24 hours to a few days (checkout
+<a href="http://appreviewtimes.com">appreviewtimes.com</a> for up-to-date
+expectations). Attackers could only submit an app for review, if they also
+got access to your App Store Connect credentials (which are not stored in
+git, but in your local keychain). Additionally you get an email
+notification every time a build gets uploaded to cancel the submission even
+before your app gets into the review stage.</p>
+
+<h4 id="label-Development+and+Ad+Hoc+Profiles">Development and Ad Hoc Profiles<span><a href="#label-Development+and+Ad+Hoc+Profiles">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>In general those profiles are harmless as they can only be used to install
+a signed application on a small subset of devices. To add new devices, the
+attacker would also need your Apple Developer Portal credentials (which are
+not stored in git, but in your local keychain).</p>
+
+<h4 id="label-Enterprise+Profiles">Enterprise Profiles<span><a href="#label-Enterprise+Profiles">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Attackers could use an In-House profile to distribute signed application to
+a potentially unlimited number of devices. All this would run under your
+company name and it could eventually lead to Apple revoking your In-House
+account. However it is very easy to revoke a certificate to remotely break
+the app on all devices.</p>
+
+<p>Because of the potentially dangerous nature of In-House profiles please use
+<em>match</em> with enterprise profiles with caution, ensure your git
+repository is private and use a secure password.</p>
+
+<h4 id="label-To+sum+up">To sum up<span><a href="#label-To+sum+up">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>You have full control over the access list of your Git repo, no third party
+service involved</p>
+</li><li>
+<p>Even if your certificates are leaked, they can&#39;t be used to cause any
+harm without your App Store Connect login credentials</p>
+</li><li>
+<p>Use In-House enterprise profile with <em>match</em> with caution</p>
+</li><li>
+<p>If you use GitHub or Bitbucket we encourage enabling 2 factor
+authentication for all accounts that have access to the certificates repo</p>
+</li><li>
+<p>The complete source code of <em>match</em> is fully open source on <a
+href="https://github.com/fastlane/fastlane/">GitHub</a></p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

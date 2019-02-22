@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"purpose_display_name:ETI"HSpaceship::Portal::ProvisioningProfileTemplate#purpose_display_name;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"F@return (String) Template's purpose name displayed in Dev Portal ;TI"@example;To:RDoc::Markup::Verbatim;	[I"&"Subscription Service iOS (dist)";T:@format0:
+@fileI"Dspaceship/lib/spaceship/portal/provisioning_profile_template.rb;T:0@omit_headings_from_table_of_contents_below0F@I"3Spaceship::Portal::ProvisioningProfileTemplate;TcRDoc::NormalClass0

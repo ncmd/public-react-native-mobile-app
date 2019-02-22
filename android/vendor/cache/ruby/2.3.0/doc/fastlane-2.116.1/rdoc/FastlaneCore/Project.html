@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::Project - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-detect_projects">::detect_projects</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-run_command">::run_command</a>
+    
+    <li ><a href="#method-c-select_project">::select_project</a>
+    
+    <li ><a href="#method-c-xcode_build_settings_retries">::xcode_build_settings_retries</a>
+    
+    <li ><a href="#method-c-xcode_build_settings_timeout">::xcode_build_settings_timeout</a>
+    
+    <li ><a href="#method-i-app_name">#app_name</a>
+    
+    <li ><a href="#method-i-application-3F">#application?</a>
+    
+    <li ><a href="#method-i-automated_scheme_selection-3F">#automated_scheme_selection?</a>
+    
+    <li ><a href="#method-i-build_settings">#build_settings</a>
+    
+    <li ><a href="#method-i-build_xcodebuild_showbuildsettings_command">#build_xcodebuild_showbuildsettings_command</a>
+    
+    <li ><a href="#method-i-command_line_tool-3F">#command_line_tool?</a>
+    
+    <li ><a href="#method-i-configurations">#configurations</a>
+    
+    <li ><a href="#method-i-default_app_identifier">#default_app_identifier</a>
+    
+    <li ><a href="#method-i-default_app_name">#default_app_name</a>
+    
+    <li ><a href="#method-i-default_build_settings">#default_build_settings</a>
+    
+    <li ><a href="#method-i-dynamic_library-3F">#dynamic_library?</a>
+    
+    <li ><a href="#method-i-framework-3F">#framework?</a>
+    
+    <li ><a href="#method-i-ios-3F">#ios?</a>
+    
+    <li ><a href="#method-i-ios_app-3F">#ios_app?</a>
+    
+    <li ><a href="#method-i-ios_framework-3F">#ios_framework?</a>
+    
+    <li ><a href="#method-i-ios_library-3F">#ios_library?</a>
+    
+    <li ><a href="#method-i-ios_tvos_app-3F">#ios_tvos_app?</a>
+    
+    <li ><a href="#method-i-library-3F">#library?</a>
+    
+    <li ><a href="#method-i-mac-3F">#mac?</a>
+    
+    <li ><a href="#method-i-mac_app-3F">#mac_app?</a>
+    
+    <li ><a href="#method-i-mac_framework-3F">#mac_framework?</a>
+    
+    <li ><a href="#method-i-mac_library-3F">#mac_library?</a>
+    
+    <li ><a href="#method-i-produces_archive-3F">#produces_archive?</a>
+    
+    <li ><a href="#method-i-project">#project</a>
+    
+    <li ><a href="#method-i-project_name">#project_name</a>
+    
+    <li ><a href="#method-i-project_paths">#project_paths</a>
+    
+    <li ><a href="#method-i-schemes">#schemes</a>
+    
+    <li ><a href="#method-i-select_scheme">#select_scheme</a>
+    
+    <li ><a href="#method-i-show_scheme_shared_information">#show_scheme_shared_information</a>
+    
+    <li ><a href="#method-i-static_library-3F">#static_library?</a>
+    
+    <li ><a href="#method-i-supported_platforms">#supported_platforms</a>
+    
+    <li ><a href="#method-i-tvos-3F">#tvos?</a>
+    
+    <li ><a href="#method-i-workspace">#workspace</a>
+    
+    <li ><a href="#method-i-workspace-3F">#workspace?</a>
+    
+    <li ><a href="#method-i-xcodebuild_parameters">#xcodebuild_parameters</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::Project">
+  <h1 id="class-FastlaneCore::Project" class="class">
+    class FastlaneCore::Project
+  </h1>
+
+  <section class="description">
+    
+<p>Represents an Xcode project</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-is_workspace" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_workspace</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Is this project a workspace?</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The config object containing the scheme, configuration, etc.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Path to the project/workspace</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-xcodebuild_list_silent" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">xcodebuild_list_silent</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Should the output of xcodebuild commands be silenced?</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-xcodebuild_suppress_stderr" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">xcodebuild_suppress_stderr</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Should we redirect stderr to /dev/null for xcodebuild commands? Gets rid of
+annoying plugin info warnings.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-detect_projects" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detect_projects</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Project.html">Project</a> discovery</p>
+          
+          
+
+          
+          <div class="method-source-code" id="detect_projects-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detect_projects</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You can only pass either a workspace or a project path, not both&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">workspace</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;./*.xcworkspace&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">workspace</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Select Workspace: &quot;</span>)
+      <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>] = <span class="ruby-identifier">choose</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">workspace</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">workspace</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>] = <span class="ruby-identifier">workspace</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">project</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;./*.xcodeproj&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">project</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Select Project: &quot;</span>)
+      <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>] = <span class="ruby-identifier">choose</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">project</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">project</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>] = <span class="ruby-identifier">project</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">select_project</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options, xcodebuild_list_silent: false, xcodebuild_suppress_stderr: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">xcodebuild_list_silent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">xcodebuild_suppress_stderr</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:workspace</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:project</span>])
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_workspace</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:workspace</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcodebuild_list_silent</span> = <span class="ruby-identifier">xcodebuild_list_silent</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcodebuild_suppress_stderr</span> = <span class="ruby-identifier">xcodebuild_suppress_stderr</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find project at path &#39;#{path}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_command</span><span
+            class="method-args">(command, timeout: 0, retries: 0, print: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@internal to module runs the specified command with the specified number of
+retries, killing each run if it times out. the first run times out after
+specified timeout elapses, and each successive run times out after a
+doubling of the previous timeout has elapsed. @raises Timeout::Error if all
+tries result in a timeout @returns the output of the command Note: -
+currently affected by <a
+href="https://github.com/fastlane/fastlane/issues/1504">github.com/fastlane/fastlane/issues/1504</a></p>
+
+<pre>- retry feature added to solve https://github.com/fastlane/fastlane/issues/4059</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="run_command-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">timeout</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">retries</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;timeout&#39;</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">print</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-identifier">total_tries</span> = <span class="ruby-identifier">retries</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">try</span> = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">try_timeout</span> = <span class="ruby-identifier">timeout</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Timeout</span>.<span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">try_timeout</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># Using Helper.backticks didn&#39;t work here. `Timeout` doesn&#39;t time out, and the command hangs forever</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-node">%x`#{command}`</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>
+    <span class="ruby-identifier">try_limit_reached</span> = <span class="ruby-identifier">try</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">total_tries</span>
+
+    <span class="ruby-comment"># Try harder on each iteration</span>
+    <span class="ruby-identifier">next_timeout</span> = <span class="ruby-identifier">try_timeout</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>
+
+    <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Command timed out after #{try_timeout} seconds on try #{try} of #{total_tries}&quot;</span>
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;, trying again with a #{next_timeout} second timeout...&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">try_limit_reached</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-identifier">message</span>)
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">try_limit_reached</span>
+
+    <span class="ruby-identifier">try</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">try_timeout</span> = <span class="ruby-identifier">next_timeout</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-select_project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_project</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select_project-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_project</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Couldn&#39;t automatically detect the project file, please provide a path: &quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.xcworkspace&quot;</span>)
+        <span class="ruby-identifier">config</span>[<span class="ruby-value">:workspace</span>] = <span class="ruby-identifier">path</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.xcodeproj&quot;</span>)
+        <span class="ruby-identifier">config</span>[<span class="ruby-value">:project</span>] = <span class="ruby-identifier">path</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Path must end with either .xcworkspace or .xcodeproj&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Couldn&#39;t find project at path &#39;#{File.expand_path(path)}&#39;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-xcode_build_settings_retries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_build_settings_retries</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@internal to module</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_build_settings_retries-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 396</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_build_settings_retries</span>
+  (<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;FASTLANE_XCODEBUILD_SETTINGS_RETRIES&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">3</span>).<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-xcode_build_settings_timeout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_build_settings_timeout</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@internal to module</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_build_settings_timeout-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 391</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_build_settings_timeout</span>
+  (<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">3</span>).<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_name-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_name</span>
+  <span class="ruby-comment"># WRAPPER_NAME: Example.app</span>
+  <span class="ruby-comment"># WRAPPER_SUFFIX: .app</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;WRAPPER_NAME&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;WRAPPER_SUFFIX&quot;</span>), <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;App&quot;</span> <span class="ruby-comment"># default value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-application-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">application?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="application-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">application?</span>
+  (<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_TYPE&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;com.apple.product-type.application&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_settings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_settings</span><span
+            class="method-args">(key: nil, optional: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the build settings for our project e.g. to properly get the DerivedData
+folder @param [String] The key of which we want the value for (e.g.
+“PRODUCT_NAME”)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_settings-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@build_settings</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_workspace</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find any schemes for Xcode workspace at path &#39;#{self.path}&#39;. Please make sure that the schemes you want to use are marked as `Shared` from Xcode.&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">command</span> = <span class="ruby-identifier">build_xcodebuild_showbuildsettings_command</span>
+
+    <span class="ruby-comment"># Xcode might hang here and retrying fixes the problem, see fastlane#4059</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">timeout</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">xcode_build_settings_timeout</span>
+      <span class="ruby-identifier">retries</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">xcode_build_settings_retries</span>
+      <span class="ruby-ivar">@build_settings</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">run_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">timeout</span><span class="ruby-operator">:</span> <span class="ruby-identifier">timeout</span>, <span class="ruby-identifier">retries</span><span class="ruby-operator">:</span> <span class="ruby-identifier">retries</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcodebuild_list_silent</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@build_settings</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not read build settings. Make sure that the scheme \&quot;#{options[:scheme]}\&quot; is configured for running by going to Product → Scheme → Edit Scheme…, selecting the \&quot;Build\&quot; section, checking the \&quot;Run\&quot; checkbox and closing the scheme window.&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneDependencyCausedException</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;xcodebuild -showBuildSettings timed out after #{retries + 1} retries with a base timeout of #{timeout}.&quot;</span>              <span class="ruby-string">&quot; You can override the base timeout value with the environment variable FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT,&quot;</span>              <span class="ruby-string">&quot; and the number of retries with the environment variable FASTLANE_XCODEBUILD_SETTINGS_RETRIES &quot;</span>.<span class="ruby-identifier">red</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@build_settings</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">sp</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; = &quot;</span>)
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">sp</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; = &quot;</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">optional</span> <span class="ruby-comment"># an optional value, we really don&#39;t care if something goes wrong</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">caller</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\t&quot;</span>))
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not fetch #{key} from project file: #{ex}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_xcodebuild_showbuildsettings_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_xcodebuild_showbuildsettings_command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Raw Access</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_xcodebuild_showbuildsettings_command-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_xcodebuild_showbuildsettings_command</span>
+  <span class="ruby-comment"># We also need to pass the workspace and scheme to this command.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># The &#39;clean&#39; portion of this command was a workaround for an xcodebuild bug with Core Data projects.</span>
+  <span class="ruby-comment"># This xcodebuild bug is fixed in Xcode 8.3 so &#39;clean&#39; it&#39;s not necessary anymore</span>
+  <span class="ruby-comment"># See: https://github.com/fastlane/fastlane/pull/5626</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_at_least?</span>(<span class="ruby-string">&#39;8.3&#39;</span>)
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;xcodebuild -showBuildSettings #{xcodebuild_parameters.join(&#39; &#39;)}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;xcodebuild clean -showBuildSettings #{xcodebuild_parameters.join(&#39; &#39;)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot; 2&gt; /dev/null&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">xcodebuild_suppress_stderr</span>
+  <span class="ruby-identifier">command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_line_tool-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_line_tool?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_line_tool-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_line_tool?</span>
+  (<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_TYPE&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;com.apple.product-type.tool&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-configurations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configurations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all available configurations in an array</p>
+          
+          
+
+          
+          <div class="method-source-code" id="configurations-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configurations</span>
+  <span class="ruby-ivar">@configurations</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">workspace?</span>
+                        <span class="ruby-identifier">workspace</span>
+                          .<span class="ruby-identifier">file_references</span>
+                          .<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:path</span>)
+                          .<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Pods/Pods.xcodeproj&quot;</span>) }
+                          .<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+                            <span class="ruby-comment"># To maintain backwards compatibility, we</span>
+                            <span class="ruby-comment"># silently ignore non-existent projects from</span>
+                            <span class="ruby-comment"># workspaces.</span>
+                            <span class="ruby-keyword">begin</span>
+                              <span class="ruby-constant">Xcodeproj</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">p</span>).<span class="ruby-identifier">build_configurations</span>
+                            <span class="ruby-keyword">rescue</span>
+                              []
+                            <span class="ruby-keyword">end</span>
+                          <span class="ruby-keyword">end</span>
+                          .<span class="ruby-identifier">flatten</span>
+                          .<span class="ruby-identifier">compact</span>
+                          .<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>)
+                      <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">project</span>.<span class="ruby-identifier">build_configurations</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>)
+                      <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_app_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_app_identifier</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns bundle_id and sets the scheme for xcrun</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_app_identifier-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_app_identifier</span>
+  <span class="ruby-identifier">default_build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_BUNDLE_IDENTIFIER&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_app_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_app_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns app name and sets the scheme for xcrun</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_app_name-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_app_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_workspace</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">default_build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_NAME&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">app_name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_build_settings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_build_settings</span><span
+            class="method-args">(key: nil, optional: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the build settings and sets the default scheme to the options hash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_build_settings-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 385</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_workspace</span>
+  <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-identifier">optional</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dynamic_library-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dynamic_library?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dynamic_library-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dynamic_library?</span>
+  (<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_TYPE&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;com.apple.product-type.library.dynamic&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-framework-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">framework?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="framework-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">framework?</span>
+  (<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_TYPE&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;com.apple.product-type.framework&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios?</span>
+  <span class="ruby-identifier">supported_platforms</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:iOS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_app-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_app?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_app-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_app?</span>
+  (<span class="ruby-identifier">application?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PLATFORM_NAME&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;iphoneos&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_framework-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_framework?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_framework-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_framework?</span>
+  (<span class="ruby-identifier">framework?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PLATFORM_NAME&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;iphoneos&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_library-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_library?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_library-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_library?</span>
+  ((<span class="ruby-identifier">static_library?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">dynamic_library?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PLATFORM_NAME&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;iphoneos&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ios_tvos_app-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ios_tvos_app?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ios_tvos_app-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ios_tvos_app?</span>
+  (<span class="ruby-identifier">ios?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">tvos?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-library-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">library?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="library-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">library?</span>
+  (<span class="ruby-identifier">static_library?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">dynamic_library?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac?</span>
+  <span class="ruby-identifier">supported_platforms</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:macOS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac_app-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac_app?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mac_app-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac_app?</span>
+  (<span class="ruby-identifier">application?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PLATFORM_NAME&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;macosx&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac_framework-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac_framework?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mac_framework-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac_framework?</span>
+  (<span class="ruby-identifier">framework?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PLATFORM_NAME&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;macosx&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac_library-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac_library?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mac_library-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac_library?</span>
+  ((<span class="ruby-identifier">dynamic_library?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">static_library?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PLATFORM_NAME&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;macosx&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-produces_archive-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">produces_archive?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="produces_archive-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">produces_archive?</span>
+  <span class="ruby-operator">!</span>(<span class="ruby-identifier">framework?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">static_library?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">dynamic_library?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns the Xcodeproj::Project or nil if it is a workspace</p>
+          
+          
+
+          
+          <div class="method-source-code" id="project-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">workspace?</span>
+  <span class="ruby-ivar">@project</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Xcodeproj</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="project_name-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_workspace</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:workspace</span>], <span class="ruby-string">&quot;.xcworkspace&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:project</span>], <span class="ruby-string">&quot;.xcodeproj&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project_paths</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Array.html">Array</a> of paths to all project files (might be
+multiple, because of workspaces)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="project_paths-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 446</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project_paths</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@_project_paths</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_project_paths</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">workspace?</span>
+    <span class="ruby-comment"># Find the xcodeproj file, as the information isn&#39;t included in the workspace file</span>
+    <span class="ruby-comment"># We have a reference to the workspace, let&#39;s find the xcodeproj file</span>
+    <span class="ruby-comment"># Use Xcodeproj gem here to</span>
+    <span class="ruby-comment"># * parse the contents.xcworkspacedata XML file</span>
+    <span class="ruby-comment"># * handle different types (group:, container: etc.) of file references and their paths</span>
+    <span class="ruby-comment"># for details see https://github.com/CocoaPods/Xcodeproj/blob/e0287156d426ba588c9234bb2a4c824149889860/lib/xcodeproj/workspace/file_reference.rb```</span>
+
+    <span class="ruby-identifier">workspace_dir_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">file_references_paths</span> = <span class="ruby-identifier">workspace</span>.<span class="ruby-identifier">file_references</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fr</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fr</span>.<span class="ruby-identifier">absolute_path</span>(<span class="ruby-identifier">workspace_dir_path</span>) }
+    <span class="ruby-ivar">@_project_paths</span> = <span class="ruby-identifier">file_references_paths</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_match</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Xcode workspaces can contain loose files now, so let&#39;s filter non-xcodeproj files.</span>
+      <span class="ruby-identifier">current_match</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.xcodeproj&quot;</span>)
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_match</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># We&#39;re not interested in a `Pods` project, as it doesn&#39;t contain any relevant information about code signing</span>
+      <span class="ruby-identifier">current_match</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;Pods/Pods.xcodeproj&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@_project_paths</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Return the path as an array</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@_project_paths</span> = [<span class="ruby-identifier">path</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schemes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schemes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all available schemes in an array</p>
+          
+          
+
+          
+          <div class="method-source-code" id="schemes-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schemes</span>
+  <span class="ruby-ivar">@schemes</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">workspace?</span>
+                 <span class="ruby-identifier">workspace</span>.<span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                   <span class="ruby-identifier">v</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Pods/Pods.xcodeproj&quot;</span>)
+                 <span class="ruby-keyword">end</span>.<span class="ruby-identifier">keys</span>
+               <span class="ruby-keyword">else</span>
+                 <span class="ruby-constant">Xcodeproj</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">schemes</span>(<span class="ruby-identifier">path</span>)
+               <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select_scheme" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_scheme</span><span
+            class="method-args">(preferred_to_include: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Let the user select a scheme Use a scheme containing the
+preferred_to_include string when multiple schemes were found</p>
+          
+          
+
+          
+          <div class="method-source-code" id="select_scheme-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_scheme</span>(<span class="ruby-identifier">preferred_to_include</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Verify the scheme is available</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>].<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Couldn&#39;t find specified scheme &#39;#{options[:scheme]}&#39;. Please make sure that the scheme is shared, see https://developer.apple.com/library/content/documentation/IDEs/Conceptual/xcode_guide-continuous_integration/ConfigureBots.html#//apple_ref/doc/uid/TP40013292-CH9-SW3&quot;</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] = <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">preferred</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">preferred_to_include</span>
+      <span class="ruby-identifier">preferred</span> = <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">find_all</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">preferred_to_include</span>.<span class="ruby-identifier">downcase</span>) }
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">preferred_to_include</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">preferred</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] = <span class="ruby-identifier">preferred</span>.<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">automated_scheme_selection?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">project_name</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Using scheme matching project name (#{project_name}).&quot;</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] = <span class="ruby-identifier">project_name</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">ci?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Multiple schemes found but you haven&#39;t specified one.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Since this is a CI, please pass one using the `scheme` option&quot;</span>)
+      <span class="ruby-identifier">show_scheme_shared_information</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Multiple schemes found&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Select Scheme: &quot;</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>] = <span class="ruby-identifier">choose</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">schemes</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">show_scheme_shared_information</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No Schemes found&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_scheme_shared_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_scheme_shared_information</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_scheme_shared_information-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_scheme_shared_information</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Couldn&#39;t find any schemes in this project, make sure that the scheme is shared if you are using a workspace&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Open Xcode, click on `Manage Schemes` and check the `Shared` box for the schemes you want to use&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Afterwards make sure to commit the changes into version control&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-static_library-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">static_library?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="static_library-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">static_library?</span>
+  (<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PRODUCT_TYPE&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;com.apple.product-type.library.static&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-supported_platforms" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">supported_platforms</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="supported_platforms-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">supported_platforms</span>
+  <span class="ruby-identifier">supported_platforms</span> = <span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;SUPPORTED_PLATFORMS&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">supported_platforms</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Could not read the \&quot;SUPPORTED_PLATFORMS\&quot; build setting, assuming that the project supports iOS only.&quot;</span>)
+    <span class="ruby-keyword">return</span> [<span class="ruby-value">:iOS</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">supported_platforms</span>.<span class="ruby-identifier">split</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">platform</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">platform</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;macosx&quot;</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:macOS</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;iphonesimulator&quot;</span>, <span class="ruby-string">&quot;iphoneos&quot;</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:iOS</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;watchsimulator&quot;</span>, <span class="ruby-string">&quot;watchos&quot;</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:watchOS</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;appletvsimulator&quot;</span>, <span class="ruby-string">&quot;appletvos&quot;</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:tvOS</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tvos-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tvos?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tvos-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tvos?</span>
+  <span class="ruby-identifier">supported_platforms</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:tvOS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-workspace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">workspace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns the Xcodeproj::Workspace or nil if it is a project</p>
+          
+          
+
+          
+          <div class="method-source-code" id="workspace-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">workspace</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">workspace?</span>
+  <span class="ruby-ivar">@workspace</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Xcodeproj</span><span class="ruby-operator">::</span><span class="ruby-constant">Workspace</span>.<span class="ruby-identifier">new_from_xcworkspace</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@workspace</span>.<span class="ruby-identifier">load_schemes</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@workspace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-workspace-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">workspace?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="workspace-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">workspace?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_workspace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xcodebuild_parameters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcodebuild_parameters</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xcodebuild_parameters-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 308</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xcodebuild_parameters</span>
+  <span class="ruby-identifier">proj</span> = []
+  <span class="ruby-identifier">proj</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-workspace #{options[:workspace].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:workspace</span>]
+  <span class="ruby-identifier">proj</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-scheme #{options[:scheme].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:scheme</span>]
+  <span class="ruby-identifier">proj</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-project #{options[:project].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:project</span>]
+  <span class="ruby-identifier">proj</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-configuration #{options[:configuration].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:configuration</span>]
+  <span class="ruby-identifier">proj</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-xcconfig #{options[:xcconfig].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:xcconfig</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">proj</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-automated_scheme_selection-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">automated_scheme_selection?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If scheme not specified, do we want the scheme matching project name?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="automated_scheme_selection-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/project.rb, line 477</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">automated_scheme_selection?</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;AUTOMATED_SCHEME_SELECTION&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

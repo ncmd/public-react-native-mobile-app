@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Spaceship::Tunes::IAPType - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-get_from_string">::get_from_string</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Spaceship::Tunes::IAPType">
+  <h1 id="module-Spaceship::Tunes::IAPType" class="module">
+    module Spaceship::Tunes::IAPType
+  </h1>
+
+  <section class="description">
+    
+<p>Defines the different in-app purchase product types</p>
+
+<p>As specified by Apple: <a
+href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/CreatingInAppPurchaseProducts.html">developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/CreatingInAppPurchaseProducts.html</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CONSUMABLE">CONSUMABLE
+        
+        <dd>
+        
+      
+        <dt id="NON_CONSUMABLE">NON_CONSUMABLE
+        
+        <dd>
+        
+      
+        <dt id="NON_RENEW_SUBSCRIPTION">NON_RENEW_SUBSCRIPTION
+        
+        <dd>
+        
+      
+        <dt id="READABLE_AUTO_RENEWABLE_SUBSCRIPTION">READABLE_AUTO_RENEWABLE_SUBSCRIPTION
+        
+        <dd><p>A product that allows users to purchase dynamic content for a set period
+(auto-rene).</p>
+        
+      
+        <dt id="READABLE_CONSUMABLE">READABLE_CONSUMABLE
+        
+        <dd><p>A product that is used once</p>
+        
+      
+        <dt id="READABLE_NON_CONSUMABLE">READABLE_NON_CONSUMABLE
+        
+        <dd><p>A product that is purchased once and does not expire or decrease with use.</p>
+        
+      
+        <dt id="READABLE_NON_RENEWING_SUBSCRIPTION">READABLE_NON_RENEWING_SUBSCRIPTION
+        
+        <dd><p>A product that allows users to purchase a service with a limited duration.</p>
+        
+      
+        <dt id="RECURRING">RECURRING
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-get_from_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_from_string</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the iap type matching based on a string (given by <a
+href="../Portal/App.html">App</a> Store Connect)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_from_string-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/iap_type.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_from_string</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">mapping</span> = {
+    <span class="ruby-string">&#39;ITC.addons.type.consumable&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_CONSUMABLE</span>,
+    <span class="ruby-string">&#39;ITC.addons.type.nonConsumable&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_NON_CONSUMABLE</span>,
+    <span class="ruby-string">&#39;ITC.addons.type.recurring&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_AUTO_RENEWABLE_SUBSCRIPTION</span>,
+    <span class="ruby-string">&#39;ITC.addons.type.subscription&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_NON_RENEWING_SUBSCRIPTION</span>,
+    <span class="ruby-string">&#39;consumable&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_CONSUMABLE</span>,
+    <span class="ruby-string">&#39;nonConsumable&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_NON_CONSUMABLE</span>,
+    <span class="ruby-string">&#39;recurring&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_AUTO_RENEWABLE_SUBSCRIPTION</span>,
+    <span class="ruby-string">&#39;subscription&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">READABLE_NON_RENEWING_SUBSCRIPTION</span>
+  }
+
+  <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">itc_type</span>, <span class="ruby-identifier">readable_type</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">readable_type</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">itc_type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::SwiftFastlaneAPIGenerator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-autogen_version_warning_text">#autogen_version_warning_text</a>
+    
+    <li ><a href="#method-i-determine_api_version">#determine_api_version</a>
+    
+    <li ><a href="#method-i-find_api_version_string">#find_api_version_string</a>
+    
+    <li ><a href="#method-i-generate_default_implementations">#generate_default_implementations</a>
+    
+    <li ><a href="#method-i-generate_lanefile_parsing_functions">#generate_lanefile_parsing_functions</a>
+    
+    <li ><a href="#method-i-generate_lanefile_tool_objects">#generate_lanefile_tool_objects</a>
+    
+    <li ><a href="#method-i-generate_swift">#generate_swift</a>
+    
+    <li ><a href="#method-i-generate_tool_protocol">#generate_tool_protocol</a>
+    
+    <li ><a href="#method-i-ignore_param-3F">#ignore_param?</a>
+    
+    <li ><a href="#method-i-increment_api_version_string">#increment_api_version_string</a>
+    
+    <li ><a href="#method-i-process_action">#process_action</a>
+    
+    <li ><a href="#method-i-write_lanefile">#write_lanefile</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::SwiftFastlaneAPIGenerator">
+  <h1 id="class-Fastlane::SwiftFastlaneAPIGenerator" class="class">
+    class Fastlane::SwiftFastlaneAPIGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_API_VERSION_STRING">DEFAULT_API_VERSION_STRING
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-action_options_to_ignore" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">action_options_to_ignore</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-actions_not_supported" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">actions_not_supported</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-generated_paths" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">generated_paths</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-target_output_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">target_output_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tools_option_files" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tools_option_files</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(target_output_path: "swift")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">target_output_path</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;swift&quot;</span>)
+  <span class="ruby-ivar">@target_output_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">target_output_path</span>)
+  <span class="ruby-ivar">@generated_paths</span> = []
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane/documentation/actions_list&#39;</span>
+  <span class="ruby-constant">Fastlane</span>.<span class="ruby-identifier">load_actions</span>
+  <span class="ruby-comment"># Tools that can be used with &lt;Toolname&gt;file, like Deliverfile, Screengrabfile</span>
+  <span class="ruby-comment"># this is important because we need to generate the proper api for these by creating a protocol</span>
+  <span class="ruby-comment"># with default implementation we can use in the Fastlane.swift API if people want to use</span>
+  <span class="ruby-comment"># &lt;Toolname&gt;file.swift files.</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tools_option_files</span> = <span class="ruby-constant">TOOL_CONFIG_FILES</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">config_file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">config_file</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;file&quot;</span>) }.<span class="ruby-identifier">to_set</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">actions_not_supported</span> = [<span class="ruby-string">&quot;import&quot;</span>, <span class="ruby-string">&quot;import_from_git&quot;</span>].<span class="ruby-identifier">to_set</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">action_options_to_ignore</span> = {
+
+    <span class="ruby-string">&quot;precheck&quot;</span> =<span class="ruby-operator">&gt;</span> [
+      <span class="ruby-string">&quot;negative_apple_sentiment&quot;</span>,
+      <span class="ruby-string">&quot;placeholder_text&quot;</span>,
+      <span class="ruby-string">&quot;other_platforms&quot;</span>,
+      <span class="ruby-string">&quot;future_functionality&quot;</span>,
+      <span class="ruby-string">&quot;test_words&quot;</span>,
+      <span class="ruby-string">&quot;curse_words&quot;</span>,
+      <span class="ruby-string">&quot;custom_text&quot;</span>,
+      <span class="ruby-string">&quot;copyright_date&quot;</span>,
+      <span class="ruby-string">&quot;unreachable_urls&quot;</span>
+    ].<span class="ruby-identifier">to_set</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-autogen_version_warning_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autogen_version_warning_text</span><span
+            class="method-args">(api_version: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autogen_version_warning_text-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autogen_version_warning_text</span>(<span class="ruby-identifier">api_version</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">warning_text_array</span> = []
+  <span class="ruby-identifier">warning_text_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">warning_text_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;// Please don&#39;t remove the lines below&quot;</span>
+  <span class="ruby-identifier">warning_text_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;// They are used to detect outdated files&quot;</span>
+  <span class="ruby-identifier">warning_text_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;// FastlaneRunnerAPIVersion [#{api_version}]&quot;</span>
+  <span class="ruby-identifier">warning_text_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">warning_text_array</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-determine_api_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_api_version</span><span
+            class="method-args">(new_file_content: nil, old_file_content: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>compares the new file content to the old and figures out what api_version
+the new content should be</p>
+          
+          
+
+          
+          <div class="method-source-code" id="determine_api_version-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">determine_api_version</span>(<span class="ruby-identifier">new_file_content</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">old_file_content</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># we know 100% there is a difference, so no need to compare</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">old_file_content</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">new_file_content</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">old_api_version</span> = <span class="ruby-identifier">find_api_version_string</span>(<span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">DEFAULT_API_VERSION_STRING</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_api_version</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">increment_api_version_string</span>(<span class="ruby-identifier">api_version_string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_api_version</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">relevant_old_file_content</span> = <span class="ruby-identifier">old_file_content</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">new_file_content</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">relevant_old_file_content</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">new_file_content</span>
+    <span class="ruby-comment"># no changes at all, just return the same old api version string</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">find_api_version_string</span>(<span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># there are differences, so calculate a new api_version_string</span>
+    <span class="ruby-identifier">old_api_version</span> = <span class="ruby-identifier">find_api_version_string</span>(<span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">DEFAULT_API_VERSION_STRING</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_api_version</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">increment_api_version_string</span>(<span class="ruby-identifier">api_version_string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_api_version</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_api_version_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_api_version_string</span><span
+            class="method-args">(content: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_api_version_string-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_api_version_string</span>(<span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">regex</span> = <span class="ruby-constant">SwiftRunnerUpgrader</span><span class="ruby-operator">::</span><span class="ruby-constant">API_VERSION_REGEX</span>
+  <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">content</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">regex</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">matches</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_default_implementations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_default_implementations</span><span
+            class="method-args">(tool_details: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_default_implementations-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_default_implementations</span>(<span class="ruby-identifier">tool_details</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">files_generated</span> = []
+  <span class="ruby-identifier">tool_details</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tool_detail</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">header</span> = []
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;//&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;//  ** NOTE **&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;//  This file is provided by fastlane and WILL be overwritten in future updates&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;//  If you want to add extra functionality to this project, create a new file in a&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;//  new group so that it won&#39;t be marked for upgrade&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;//&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;class #{tool_detail.swift_class}: #{tool_detail.swift_protocol} {&quot;</span>
+    <span class="ruby-identifier">lanefile_implementation_opening</span> = <span class="ruby-identifier">header</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+    <span class="ruby-identifier">files_generated</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">write_lanefile</span>(
+      <span class="ruby-identifier">lanefile_implementation_opening</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lanefile_implementation_opening</span>,
+      <span class="ruby-identifier">class_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tool_detail</span>.<span class="ruby-identifier">swift_class</span>,
+      <span class="ruby-identifier">tool_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tool_detail</span>.<span class="ruby-identifier">command_line_tool_name</span>
+    )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">files_generated</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_lanefile_parsing_functions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_lanefile_parsing_functions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_lanefile_parsing_functions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 158</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_lanefile_parsing_functions</span>
+      <span class="ruby-identifier">parsing_functions</span> = <span class="ruby-string">&#39;func parseArray(fromString: String, function: String = #function) -&gt; [String] {
+  verbose(message: &quot;parsing an Array from data: \(fromString), from function: \(function)&quot;)
+  let potentialArray: String
+  if fromString.count &lt; 2 {
+    potentialArray = &quot;[\(fromString)]&quot;
+  } else {
+    potentialArray = fromString
+  }
+  let array: [String] = try! JSONSerialization.jsonObject(with: potentialArray.data(using: .utf8)!, options: []) as! [String]
+  return array
+}
+
+func parseDictionary(fromString: String, function: String = #function) -&gt; [String : String] {
+    return parseDictionaryHelper(fromString: fromString, function: function) as! [String: String]
+}
+
+func parseDictionary(fromString: String, function: String = #function) -&gt; [String : Any] {
+    return parseDictionaryHelper(fromString: fromString, function: function)
+}
+
+func parseDictionaryHelper(fromString: String, function: String = #function) -&gt; [String : Any] {
+  verbose(message: &quot;parsing an Array from data: \(fromString), from function: \(function)&quot;)
+  let potentialDictionary: String
+  if fromString.count &lt; 2 {
+    verbose(message: &quot;Dictionary value too small: \(fromString), from function: \(function)&quot;)
+    potentialDictionary = &quot;{}&quot;
+  } else {
+      potentialDictionary = fromString
+  }
+  let dictionary: [String : Any] = try! JSONSerialization.jsonObject(with: potentialDictionary.data(using: .utf8)!, options: []) as! [String : Any]
+  return dictionary
+}
+
+func parseBool(fromString: String, function: String = #function) -&gt; Bool {
+  verbose(message: &quot;parsing a Bool from data: \(fromString), from function: \(function)&quot;)
+  return NSString(string: fromString.trimmingCharacters(in: .punctuationCharacters)).boolValue
+}
+
+func parseInt(fromString: String, function: String = #function) -&gt; Int {
+  verbose(message: &quot;parsing an Int from data: \(fromString), from function: \(function)&quot;)
+  return NSString(string: fromString.trimmingCharacters(in: .punctuationCharacters)).integerValue
+}
+      &#39;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">parsing_functions</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_lanefile_tool_objects" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_lanefile_tool_objects</span><span
+            class="method-args">(classes: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_lanefile_tool_objects-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_lanefile_tool_objects</span>(<span class="ruby-identifier">classes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">objects</span> = <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;let #{filename.downcase}: #{filename} = #{filename}()&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">objects</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_swift" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_swift</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_swift-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_swift</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generated_paths</span> = [] <span class="ruby-comment"># reset generated paths in case we&#39;re called multiple times</span>
+  <span class="ruby-identifier">file_content</span> = []
+  <span class="ruby-identifier">file_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;import Foundation&quot;</span>
+
+  <span class="ruby-identifier">tool_details</span> = []
+  <span class="ruby-constant">ActionsList</span>.<span class="ruby-identifier">all_actions</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">actions_not_supported</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">action_name</span>)
+
+    <span class="ruby-identifier">swift_function</span> = <span class="ruby-identifier">process_action</span>(<span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">swift_function</span>.<span class="ruby-identifier">class_name</span>)
+      <span class="ruby-identifier">tool_details</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">SwiftToolDetail</span>.<span class="ruby-identifier">new</span>(
+        <span class="ruby-identifier">command_line_tool_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">action_name</span>,
+        <span class="ruby-identifier">swift_class</span><span class="ruby-operator">:</span> <span class="ruby-identifier">swift_function</span>.<span class="ruby-identifier">class_name</span>,
+        <span class="ruby-identifier">swift_protocol</span><span class="ruby-operator">:</span> <span class="ruby-identifier">swift_function</span>.<span class="ruby-identifier">protocol_name</span>
+      )
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">swift_function</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">file_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">swift_function</span>.<span class="ruby-identifier">swift_code</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">file_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-comment"># newline because we&#39;re adding an extension</span>
+  <span class="ruby-identifier">file_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;// These are all the parsing functions needed to transform our data into the expected types&quot;</span>
+  <span class="ruby-identifier">file_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">generate_lanefile_parsing_functions</span>
+
+  <span class="ruby-identifier">tool_objects</span> = <span class="ruby-identifier">generate_lanefile_tool_objects</span>(<span class="ruby-identifier">classes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tool_details</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:swift_class</span>))
+  <span class="ruby-identifier">file_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tool_objects</span>
+  <span class="ruby-identifier">new_file_content</span> = <span class="ruby-identifier">file_content</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+  <span class="ruby-identifier">fastlane_swift_api_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@target_output_path</span>, <span class="ruby-string">&quot;Fastlane.swift&quot;</span>)
+  <span class="ruby-identifier">old_file_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">fastlane_swift_api_path</span>)
+
+  <span class="ruby-comment"># compare old file content to potential new file content</span>
+  <span class="ruby-identifier">api_version</span> = <span class="ruby-identifier">determine_api_version</span>(<span class="ruby-identifier">new_file_content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">new_file_content</span>, <span class="ruby-identifier">old_file_content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+  <span class="ruby-identifier">old_api_version</span> = <span class="ruby-identifier">find_api_version_string</span>(<span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+
+  <span class="ruby-comment"># if there is a change, we need to write out the new file</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">api_version</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">old_api_version</span>
+    <span class="ruby-identifier">new_file_content</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">autogen_version_warning_text</span>(<span class="ruby-identifier">api_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">api_version</span>))
+
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">fastlane_swift_api_path</span>, <span class="ruby-identifier">new_file_content</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-identifier">fastlane_swift_api_path</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generated_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fastlane_swift_api_path</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">default_implementations_path</span> = <span class="ruby-identifier">generate_default_implementations</span>(<span class="ruby-identifier">tool_details</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tool_details</span>)
+
+  <span class="ruby-comment"># we might not have any changes, like if it&#39;s a hotpatch</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generated_paths</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">default_implementations_path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_implementations_path</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generated_paths</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_tool_protocol" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_tool_protocol</span><span
+            class="method-args">(tool_swift_function: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_tool_protocol-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_tool_protocol</span>(<span class="ruby-identifier">tool_swift_function</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">protocol_content_array</span> = []
+  <span class="ruby-identifier">protocol_name</span> = <span class="ruby-identifier">tool_swift_function</span>.<span class="ruby-identifier">protocol_name</span>
+
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;protocol #{protocol_name}: class {&quot;</span>
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">tool_swift_function</span>.<span class="ruby-identifier">swift_vars</span>
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;}&quot;</span>
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;extension #{protocol_name} {&quot;</span>
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">tool_swift_function</span>.<span class="ruby-identifier">swift_default_implementations</span>
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;}&quot;</span>
+  <span class="ruby-identifier">protocol_content_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">new_file_content</span> = <span class="ruby-identifier">protocol_content_array</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+  <span class="ruby-identifier">target_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@target_output_path</span>, <span class="ruby-node">&quot;#{protocol_name}.swift&quot;</span>)
+
+  <span class="ruby-identifier">old_file_content</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-comment"># we might have a new file here, unlikely, but possible</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">target_path</span>)
+    <span class="ruby-identifier">old_file_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">target_path</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># compare old file content to potential new file content</span>
+  <span class="ruby-identifier">api_version</span> = <span class="ruby-identifier">determine_api_version</span>(<span class="ruby-identifier">new_file_content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">new_file_content</span>, <span class="ruby-identifier">old_file_content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+  <span class="ruby-identifier">old_api_version</span> = <span class="ruby-identifier">find_api_version_string</span>(<span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">old_file_content</span>)
+
+  <span class="ruby-comment"># we don&#39;t need to write this file out because the file versions are exactly the same</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">api_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">old_api_version</span>
+
+  <span class="ruby-comment"># use api_version to generate the disclaimer</span>
+  <span class="ruby-identifier">api_version_disclaimer</span> = <span class="ruby-identifier">autogen_version_warning_text</span>(<span class="ruby-identifier">api_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">api_version</span>)
+  <span class="ruby-identifier">new_file_content</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">api_version_disclaimer</span>)
+
+  <span class="ruby-identifier">target_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@target_output_path</span>, <span class="ruby-node">&quot;#{protocol_name}.swift&quot;</span>)
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">target_path</span>, <span class="ruby-identifier">new_file_content</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-identifier">target_path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">target_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ignore_param-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ignore_param?</span><span
+            class="method-args">(function_name: nil, param_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ignore_param-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ignore_param?</span>(<span class="ruby-identifier">function_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">param_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">option_set</span> = <span class="ruby-ivar">@action_options_to_ignore</span>[<span class="ruby-identifier">function_name</span>.<span class="ruby-identifier">to_s</span>]
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">option_set</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">option_set</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">param_name</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-increment_api_version_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">increment_api_version_string</span><span
+            class="method-args">(api_version_string: nil, increment_by: :patch)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>expects format to be “X.Y.Z” where each value is a number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="increment_api_version_string-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">increment_api_version_string</span>(<span class="ruby-identifier">api_version_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">increment_by</span><span class="ruby-operator">:</span> <span class="ruby-value">:patch</span>)
+  <span class="ruby-identifier">versions</span> = <span class="ruby-identifier">api_version_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-identifier">major</span> = <span class="ruby-identifier">versions</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">minor</span> = <span class="ruby-identifier">versions</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">patch</span> = <span class="ruby-identifier">versions</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">increment_by</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:patch</span>
+    <span class="ruby-identifier">patch</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:minor</span>
+    <span class="ruby-identifier">minor</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">patch</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:major</span>
+    <span class="ruby-identifier">major</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">minor</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">patch</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">new_version_string</span> = [<span class="ruby-identifier">major</span>, <span class="ruby-identifier">minor</span>, <span class="ruby-identifier">patch</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">new_version_string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_action</span><span
+            class="method-args">(action: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_action-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_action</span>(<span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">available_options</span> <span class="ruby-operator">||</span> []
+
+  <span class="ruby-identifier">action_name</span> = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">action_name</span>
+  <span class="ruby-identifier">keys</span> = []
+  <span class="ruby-identifier">key_descriptions</span> = []
+  <span class="ruby-identifier">key_default_values</span> = []
+  <span class="ruby-identifier">key_optionality_values</span> = []
+  <span class="ruby-identifier">key_type_overrides</span> = []
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ignore_param?</span>(<span class="ruby-identifier">function_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action_name</span>, <span class="ruby-identifier">param_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">key</span>)
+        <span class="ruby-keyword">next</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">keys</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">key_descriptions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">description</span>
+      <span class="ruby-identifier">key_default_values</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">code_gen_default_value</span>
+      <span class="ruby-identifier">key_optionality_values</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">optional</span>
+      <span class="ruby-identifier">key_type_overrides</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">data_type</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">action_return_type</span> = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">return_type</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tools_option_files</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">action_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-identifier">tool_swift_function</span> = <span class="ruby-constant">ToolSwiftFunction</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">action_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action_name</span>,
+      <span class="ruby-identifier">keys</span><span class="ruby-operator">:</span> <span class="ruby-identifier">keys</span>,
+      <span class="ruby-identifier">key_descriptions</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_descriptions</span>,
+      <span class="ruby-identifier">key_default_values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_default_values</span>,
+      <span class="ruby-identifier">key_optionality_values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_optionality_values</span>,
+      <span class="ruby-identifier">key_type_overrides</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_type_overrides</span>,
+      <span class="ruby-identifier">return_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action_return_type</span>
+    )
+    <span class="ruby-identifier">generated_protocol_file_path</span> = <span class="ruby-identifier">generate_tool_protocol</span>(<span class="ruby-identifier">tool_swift_function</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tool_swift_function</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generated_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">generated_protocol_file_path</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">generated_protocol_file_path</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">tool_swift_function</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">SwiftFunction</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">action_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action_name</span>,
+      <span class="ruby-identifier">keys</span><span class="ruby-operator">:</span> <span class="ruby-identifier">keys</span>,
+      <span class="ruby-identifier">key_descriptions</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_descriptions</span>,
+      <span class="ruby-identifier">key_default_values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_default_values</span>,
+      <span class="ruby-identifier">key_optionality_values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_optionality_values</span>,
+      <span class="ruby-identifier">key_type_overrides</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_type_overrides</span>,
+      <span class="ruby-identifier">return_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">action_return_type</span>
+    )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_lanefile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_lanefile</span><span
+            class="method-args">(lanefile_implementation_opening: nil, class_name: nil, tool_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_lanefile-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_fastlane_api_generator.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_lanefile</span>(<span class="ruby-identifier">lanefile_implementation_opening</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">class_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">tool_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">disclaimer</span> = []
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;// This class is automatically included in FastlaneRunner during build&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;// This autogenerated file will be overwritten or replaced during build time, or when you initialize `#{tool_name}`&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lanefile_implementation_opening</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;// If you want to enable `#{tool_name}`, run `fastlane #{tool_name} init`&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;// After, this file will be replaced with a custom implementation that contains values you supplied&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;// during the `init` process, and you won&#39;t see this message&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;}&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;// Generated with fastlane #{Fastlane::VERSION}&quot;</span>
+  <span class="ruby-identifier">disclaimer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">file_content</span> = <span class="ruby-identifier">disclaimer</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+  <span class="ruby-identifier">target_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@target_output_path</span>, <span class="ruby-node">&quot;#{class_name}.swift&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">target_path</span>, <span class="ruby-identifier">file_content</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-identifier">target_path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">target_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

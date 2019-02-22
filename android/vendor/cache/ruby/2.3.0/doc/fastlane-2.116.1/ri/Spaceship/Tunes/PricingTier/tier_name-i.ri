@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"tier_name:ETI",Spaceship::Tunes::PricingTier#tier_name;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"?@return (String) Name of the tier (e.g. "Free" for Tier 0);T:
+@fileI"2spaceship/lib/spaceship/tunes/pricing_tier.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Spaceship::Tunes::PricingTier;TcRDoc::NormalClass0

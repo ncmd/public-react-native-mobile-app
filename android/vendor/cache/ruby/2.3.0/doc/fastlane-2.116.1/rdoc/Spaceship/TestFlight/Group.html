@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::TestFlight::Group - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Spaceship::TestFlight::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-add_tester_to_groups-21">::add_tester_to_groups!</a>
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-create-21">::create!</a>
+    
+    <li ><a href="#method-c-default_external_group">::default_external_group</a>
+    
+    <li ><a href="#method-c-delete-21">::delete!</a>
+    
+    <li ><a href="#method-c-filter_groups">::filter_groups</a>
+    
+    <li ><a href="#method-c-find">::find</a>
+    
+    <li ><a href="#method-c-internal_group">::internal_group</a>
+    
+    <li ><a href="#method-c-perform_for_groups_in_app">::perform_for_groups_in_app</a>
+    
+    <li ><a href="#method-c-remove_tester_from_groups-21">::remove_tester_from_groups!</a>
+    
+    <li ><a href="#method-i-active-3F">#active?</a>
+    
+    <li ><a href="#method-i-add_tester-21">#add_tester!</a>
+    
+    <li ><a href="#method-i-builds">#builds</a>
+    
+    <li ><a href="#method-i-default_external_group-3F">#default_external_group?</a>
+    
+    <li ><a href="#method-i-internal_group-3F">#internal_group?</a>
+    
+    <li ><a href="#method-i-remove_tester-21">#remove_tester!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::TestFlight::Group">
+  <h1 id="class-Spaceship::TestFlight::Group" class="class">
+    class Spaceship::TestFlight::Group
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-app_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-created" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">created</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-is_active" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_active</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-is_default_external_group" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_default_external_group</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-is_internal_group" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_internal_group</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-provider_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">provider_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-add_tester_to_groups-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_tester_to_groups!</span><span
+            class="method-args">(tester: nil, app: nil, groups: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_tester_to_groups-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_tester_to_groups!</span>(<span class="ruby-identifier">tester</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">perform_for_groups_in_app</span>(<span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-identifier">groups</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">add_tester!</span>(<span class="ruby-identifier">tester</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">groups</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_groups</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>)
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">g</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">g</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create!</span><span
+            class="method-args">(app_id: nil, group_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">group</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">group</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_group_for_app</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_name</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_external_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_external_group</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_external_group-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_external_group</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">groups</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>)
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">find</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:default_external_group?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-delete-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete!</span><span
+            class="method-args">(app_id: nil, group_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">delete!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">group</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_name</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">delete_group_for_app</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-filter_groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filter_groups</span><span
+            class="method-args">(app_id: nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="filter_groups-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filter_groups</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">groups</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>)
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">select</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(app_id: nil, group_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">groups</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>)
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">g</span><span class="ruby-operator">|</span> <span class="ruby-identifier">g</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">group_name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-internal_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_group</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_group-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_group</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">groups</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>)
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">find</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:internal_group?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-perform_for_groups_in_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">perform_for_groups_in_app</span><span
+            class="method-args">(app: nil, groups: nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="perform_for_groups_in_app-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">perform_for_groups_in_app</span>(<span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">default_external_group</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">default_external_group</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_external_group</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;The app #{app.name} does not have a default external group. Please make sure to pass group names to the `:groups` option.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">test_flight_groups</span> = [<span class="ruby-identifier">default_external_group</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">test_flight_groups</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filter_groups</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">group</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;There are no groups available matching the names passed to the `:groups` option.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">test_flight_groups</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">test_flight_groups</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-remove_tester_from_groups-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_tester_from_groups!</span><span
+            class="method-args">(tester: nil, app: nil, groups: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_tester_from_groups-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">remove_tester_from_groups!</span>(<span class="ruby-identifier">tester</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">perform_for_groups_in_app</span>(<span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-identifier">groups</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">remove_tester!</span>(<span class="ruby-identifier">tester</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-active-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">active?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="active-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">active?</span>
+  <span class="ruby-identifier">is_active</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_tester-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_tester!</span><span
+            class="method-args">(tester)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>First we need to add the tester to the app It&#39;s ok if the tester
+already exists, we just have to do this… don&#39;t ask This will enable
+testing for the tester for a given app, as just creating the tester on an
+account-level is not enough to add the tester to a group. If this isn&#39;t
+done the next request would fail. This is a bug we reported to the <a
+href="../Portal/App.html">App</a> Store Connect team, as it also happens on
+the <a href="../Portal/App.html">App</a> Store Connect UI on 18. April 2017</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_tester-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_tester!</span>(<span class="ruby-identifier">tester</span>)
+  <span class="ruby-comment"># This post request creates an account-level tester and then makes it available to the app, or just makes</span>
+  <span class="ruby-comment"># it available to the app if it already exists</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_app_level_tester</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_id</span>,
+                             <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">first_name</span>,
+                              <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">last_name</span>,
+                                  <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>)
+  <span class="ruby-comment"># This put request adds the tester to the group</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">post_tester_to_group</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>,
+                                 <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>,
+                            <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">first_name</span>,
+                             <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">last_name</span>,
+                                <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-builds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">builds</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="builds-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">builds</span>
+  <span class="ruby-identifier">builds</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">builds_for_group</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">builds</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">b</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_external_group-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_external_group?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_external_group-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_external_group?</span>
+  <span class="ruby-identifier">is_default_external_group</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_group-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_group?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_group-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">internal_group?</span>
+  <span class="ruby-identifier">is_internal_group</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_tester-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_tester!</span><span
+            class="method-args">(tester)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_tester-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/group.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_tester!</span>(<span class="ruby-identifier">tester</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">delete_tester_from_group</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">tester_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">tester_id</span>, <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

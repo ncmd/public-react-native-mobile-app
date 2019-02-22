@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::SocketServer - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-execute_action_command">#execute_action_command</a>
+    
+    <li ><a href="#method-i-handle_action_command">#handle_action_command</a>
+    
+    <li ><a href="#method-i-handle_control_command">#handle_control_command</a>
+    
+    <li ><a href="#method-i-handle_disconnect">#handle_disconnect</a>
+    
+    <li ><a href="#method-i-listen">#listen</a>
+    
+    <li ><a href="#method-i-parse_and_execute_command">#parse_and_execute_command</a>
+    
+    <li ><a href="#method-i-process_action_command">#process_action_command</a>
+    
+    <li ><a href="#method-i-receive_and_process_commands">#receive_and_process_commands</a>
+    
+    <li ><a href="#method-i-send_response">#send_response</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::SocketServer">
+  <h1 id="class-Fastlane::SocketServer" class="class">
+    class Fastlane::SocketServer
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="COMMAND_EXECUTION_STATE">COMMAND_EXECUTION_STATE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-command_executor" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">command_executor</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-return_value_processor" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">return_value_processor</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( command_executor: nil, return_value_processor: nil, connection_timeout: 5, stay_alive: false, port: 2000 )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(
+  <span class="ruby-identifier">command_executor</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+  <span class="ruby-identifier">return_value_processor</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+  <span class="ruby-identifier">connection_timeout</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span>,
+  <span class="ruby-identifier">stay_alive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+  <span class="ruby-identifier">port</span><span class="ruby-operator">:</span> <span class="ruby-value">2000</span>
+)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">return_value_processor</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">return_value_processor</span> = <span class="ruby-constant">JSONReturnValueProcessor</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@command_executor</span> = <span class="ruby-identifier">command_executor</span>
+  <span class="ruby-ivar">@return_value_processor</span> = <span class="ruby-identifier">return_value_processor</span>
+  <span class="ruby-ivar">@connection_timeout</span> = <span class="ruby-identifier">connection_timeout</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@stay_alive</span> = <span class="ruby-identifier">stay_alive</span>
+  <span class="ruby-ivar">@port</span> = <span class="ruby-identifier">port</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this is the public API, don&#39;t call anything else</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">listen</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@stay_alive</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;stay_alive is set to true, restarting server&quot;</span>)
+    <span class="ruby-identifier">listen</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-execute_action_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute_action_command</span><span
+            class="method-args">(command: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>execute fastlane action command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute_action_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute_action_command</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">command_return</span> = <span class="ruby-ivar">@command_executor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>, <span class="ruby-identifier">target_object</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">## probably need to just return Strings, or ready_for_next with object isn&#39;t String</span>
+  <span class="ruby-identifier">return_object</span> = <span class="ruby-identifier">command_return</span>.<span class="ruby-identifier">return_value</span>
+  <span class="ruby-identifier">return_value_type</span> = <span class="ruby-identifier">command_return</span>.<span class="ruby-identifier">return_value_type</span>
+  <span class="ruby-identifier">closure_arg</span> = <span class="ruby-identifier">command_return</span>.<span class="ruby-identifier">closure_argument_value</span>
+
+  <span class="ruby-identifier">return_object</span> = <span class="ruby-identifier">return_value_processor</span>.<span class="ruby-identifier">prepare_object</span>(
+    <span class="ruby-identifier">return_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">return_object</span>,
+    <span class="ruby-identifier">return_value_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">return_value_type</span>
+  )
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">closure_arg</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">closure_arg</span> = <span class="ruby-identifier">closure_arg</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">closure_arg</span> = <span class="ruby-identifier">return_value_processor</span>.<span class="ruby-identifier">prepare_object</span>(
+      <span class="ruby-identifier">return_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">closure_arg</span>,
+      <span class="ruby-identifier">return_value_type</span><span class="ruby-operator">:</span> <span class="ruby-value">:string</span> <span class="ruby-comment"># always assume string for closure error_callback</span>
+    )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:exception</span>] = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">payload</span> = {
+    <span class="ruby-identifier">payload</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;ready_for_next&quot;</span>,
+      <span class="ruby-identifier">return_object</span><span class="ruby-operator">:</span> <span class="ruby-identifier">return_object</span>,
+      <span class="ruby-identifier">closure_argument_value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">closure_arg</span>
+    }
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">payload</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:exception</span>] = <span class="ruby-identifier">e</span>
+
+  <span class="ruby-identifier">exception_array</span> = []
+  <span class="ruby-identifier">exception_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{e.class}:&quot;</span>
+  <span class="ruby-identifier">exception_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-string">&quot;cause&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">e</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">cause</span>)
+    <span class="ruby-identifier">exception_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;cause: #{e.class}&quot;</span>
+    <span class="ruby-identifier">exception_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">payload</span> = {
+    <span class="ruby-identifier">payload</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;failure&quot;</span>,
+      <span class="ruby-identifier">failure_information</span><span class="ruby-operator">:</span> <span class="ruby-identifier">exception_array</span>.<span class="ruby-identifier">flatten</span>
+    }
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">payload</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_action_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_action_command</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>execute and send back response to client</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_action_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_action_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">response_json</span> = <span class="ruby-identifier">process_action_command</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">send_response</span>(<span class="ruby-identifier">response_json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_control_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_control_command</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>we got a server control command from the client to do something like
+shutdown</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_control_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_control_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">exit_reason</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">cancel_signal?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;received cancel signal shutting down, reason: #{command.reason}&quot;</span>)
+
+    <span class="ruby-comment"># send an ack to the client to let it know we&#39;re shutting down</span>
+    <span class="ruby-identifier">cancel_response</span> = <span class="ruby-string">&#39;{&quot;payload&quot;:{&quot;status&quot;:&quot;cancelled&quot;}}&#39;</span>
+    <span class="ruby-identifier">send_response</span>(<span class="ruby-identifier">cancel_response</span>)
+
+    <span class="ruby-identifier">exit_reason</span> = <span class="ruby-value">:cancelled</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">done_signal?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;received done signal shutting down&quot;</span>)
+
+    <span class="ruby-comment"># client is already in the process of shutting down, no need to ack</span>
+    <span class="ruby-identifier">exit_reason</span> = <span class="ruby-value">:done</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># if the command came in with a user-facing message, display it</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">user_message</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-identifier">command</span>.<span class="ruby-identifier">user_message</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># currently all control commands should trigger a disconnect and shutdown</span>
+  <span class="ruby-identifier">handle_disconnect</span>(<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">exit_reason</span><span class="ruby-operator">:</span> <span class="ruby-identifier">exit_reason</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:already_shutdown</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_disconnect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_disconnect</span><span
+            class="method-args">(error: false, exit_reason: :error)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_disconnect-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_disconnect</span>(<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">exit_reason</span><span class="ruby-operator">:</span> <span class="ruby-value">:error</span>)
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:exit_reason</span>] = <span class="ruby-identifier">exit_reason</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Client disconnected, a pipe broke, or received malformed data&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">exit_reason</span> <span class="ruby-operator">==</span> <span class="ruby-value">:error</span>
+  <span class="ruby-comment"># clean up</span>
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-ivar">@server</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-listen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">listen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="listen-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">listen</span>
+  <span class="ruby-ivar">@server</span> = <span class="ruby-constant">TCPServer</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;localhost&#39;</span>, <span class="ruby-ivar">@port</span>) <span class="ruby-comment"># Socket to listen on port 2000</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Waiting for #{@connection_timeout} seconds for a connection from FastlaneRunner&quot;</span>)
+
+  <span class="ruby-comment"># set thread local to ready so we can check it</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:ready</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Timeout</span>.<span class="ruby-identifier">timeout</span>(<span class="ruby-ivar">@connection_timeout</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@client</span> = <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">accept</span> <span class="ruby-comment"># Wait for a client to connect</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;fastlane failed to receive a connection from the FastlaneRunner binary after #{@connection_timeout} seconds, shutting down&quot;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Something went wrong while waiting for a connection from the FastlaneRunner binary, shutting down\n#{e}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Client connected&quot;</span>)
+
+  <span class="ruby-comment"># this loops forever</span>
+  <span class="ruby-identifier">receive_and_process_commands</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_and_execute_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_and_execute_command</span><span
+            class="method-args">(command_string: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_and_execute_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_and_execute_command</span>(<span class="ruby-identifier">command_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">command</span> = <span class="ruby-constant">CommandParser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command_string</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">command</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ControlCommand</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">handle_control_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ActionCommand</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">handle_action_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># catch all</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Command #{command} not supported&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_action_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_action_command</span><span
+            class="method-args">(command: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>record fastlane action command and then execute it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="process_action_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_action_command</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;received command:#{command.inspect}&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">execute_action_command</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-receive_and_process_commands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">receive_and_process_commands</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="receive_and_process_commands-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">receive_and_process_commands</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span> <span class="ruby-comment"># no idea how many commands are coming, so we loop until an error or the done command is sent</span>
+    <span class="ruby-identifier">execution_state</span> = <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:ready</span>]
+
+    <span class="ruby-identifier">command_string</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">command_string</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">recv</span>(<span class="ruby-value">1_048_576</span>) <span class="ruby-comment"># 1024 * 1024</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNRESET</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">e</span>)
+      <span class="ruby-identifier">execution_state</span> = <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:error</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">execution_state</span> <span class="ruby-operator">==</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:ready</span>]
+      <span class="ruby-comment"># Ok, all is good, let&#39;s see what command we have</span>
+      <span class="ruby-identifier">execution_state</span> = <span class="ruby-identifier">parse_and_execute_command</span>(<span class="ruby-identifier">command_string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command_string</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">execution_state</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:ready</span>]
+      <span class="ruby-comment"># command executed successfully, let&#39;s setup for the next command</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:already_shutdown</span>]
+      <span class="ruby-comment"># we shutdown in response to a command, nothing left to do but exit</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:error</span>]
+      <span class="ruby-comment"># we got an error somewhere, let&#39;s shutdown and exit</span>
+      <span class="ruby-identifier">handle_disconnect</span>(<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">exit_reason</span><span class="ruby-operator">:</span> <span class="ruby-value">:error</span>)
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_response</span><span
+            class="method-args">(json)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>send json back to client</p>
+          
+          
+
+          
+          <div class="method-source-code" id="send_response-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/server/socket_server.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_response</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;sending #{json}&quot;</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">json</span>) <span class="ruby-comment"># Send some json to the client</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:error</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">COMMAND_EXECUTION_STATE</span>[<span class="ruby-value">:ready</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

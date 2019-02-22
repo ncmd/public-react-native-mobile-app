@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"subscription_duration:ETI"6Spaceship::Tunes::IAPDetail#subscription_duration;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"+@return (String) subscription duration;T:
+@fileI"0spaceship/lib/spaceship/tunes/iap_detail.rb;T:0@omit_headings_from_table_of_contents_below0F@I" Spaceship::Tunes::IAPDetail;TcRDoc::NormalClass0

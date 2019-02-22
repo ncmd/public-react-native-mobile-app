@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"currency_code:ETI"0Spaceship::Tunes::PricingInfo#currency_code;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"/@return (String) currency code, e.g. "USD";T:
+@fileI"2spaceship/lib/spaceship/tunes/pricing_info.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Spaceship::Tunes::PricingInfo;TcRDoc::NormalClass0

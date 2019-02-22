@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Precheck::Rule - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../FastlaneCore/ConfigItem.html">FastlaneCore::ConfigItem</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-default_value">::default_value</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-env_name">::env_name</a>
+    
+    <li ><a href="#method-c-friendly_name">::friendly_name</a>
+    
+    <li ><a href="#method-c-key">::key</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-check_item">#check_item</a>
+    
+    <li ><a href="#method-i-customize_with_data">#customize_with_data</a>
+    
+    <li ><a href="#method-i-friendly_name">#friendly_name</a>
+    
+    <li ><a href="#method-i-handle_item-3F">#handle_item?</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-item_field_supported-3F">#item_field_supported?</a>
+    
+    <li ><a href="#method-i-needs_customization-3F">#needs_customization?</a>
+    
+    <li ><a href="#method-i-perform_check">#perform_check</a>
+    
+    <li ><a href="#method-i-rule_block">#rule_block</a>
+    
+    <li ><a href="#method-i-skip_item_not_meant_for_this_rule">#skip_item_not_meant_for_this_rule</a>
+    
+    <li ><a href="#method-i-supported_fields_symbol_set">#supported_fields_symbol_set</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Precheck::Rule">
+  <h1 id="class-Precheck::Rule" class="class">
+    class Precheck::Rule
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-default_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_value-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_value</span>
+  <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-env_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="env_name-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">env_name</span>
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-friendly_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">friendly_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="friendly_name-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">friendly_name</span>
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">key</span>
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(short_option: nil, verify_block: nil, is_string: nil, type: nil, conflicting_options: nil, conflict_block: nil, deprecated: nil, sensitive: nil, display_in_shell: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../FastlaneCore/ConfigItem.html#method-c-new">FastlaneCore::ConfigItem.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">conflict_block</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">deprecated</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">display_in_shell</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">key</span>,
+        <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">env_name</span>,
+        <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">description</span>,
+        <span class="ruby-identifier">short_option</span><span class="ruby-operator">:</span> <span class="ruby-identifier">short_option</span>,
+        <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">default_value</span>,
+        <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">verify_block</span>,
+        <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">is_string</span>,
+        <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>,
+        <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+        <span class="ruby-identifier">conflicting_options</span><span class="ruby-operator">:</span> <span class="ruby-identifier">conflicting_options</span>,
+        <span class="ruby-identifier">conflict_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">conflict_block</span>,
+        <span class="ruby-identifier">deprecated</span><span class="ruby-operator">:</span> <span class="ruby-identifier">deprecated</span>,
+        <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sensitive</span>,
+        <span class="ruby-identifier">display_in_shell</span><span class="ruby-operator">:</span> <span class="ruby-identifier">display_in_shell</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_item</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_item-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_item</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-comment"># validate the item we have was properly matched to this rule: TextItem -&gt; TextRule, URLItem -&gt; URLRule</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">skip_item_not_meant_for_this_rule</span>(<span class="ruby-identifier">item</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">handle_item?</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">skip_item_not_meant_for_this_rule</span>(<span class="ruby-identifier">item</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">item_field_supported?</span>(<span class="ruby-identifier">item_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">item_name</span>)
+
+  <span class="ruby-comment"># do the actual checking now</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">perform_check</span>(<span class="ruby-identifier">item</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-customize_with_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">customize_with_data</span><span
+            class="method-args">(data: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>some rules can be customized with extra data at runtime, see <a
+href="CustomTextRule.html">CustomTextRule</a> as an example</p>
+          
+          
+
+          
+          <div class="method-source-code" id="customize_with_data-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">customize_with_data</span>(<span class="ruby-identifier">data</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-friendly_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">friendly_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="friendly_name-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">friendly_name</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">friendly_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_item-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_item?</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>each rule can define what type of <a
+href="ItemToCheck.html">ItemToCheck</a> subclass they support override this
+method and return true or false</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_item-3F-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_item?</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-node">&quot;#{self.class}(description: #{@description}, key: #{@key})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-item_field_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">item_field_supported?</span><span
+            class="method-args">(item_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="item_field_supported-3F-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">item_field_supported?</span>(<span class="ruby-identifier">item_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">supported_fields_symbol_set</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">supported_fields_symbol_set</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">item_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-needs_customization-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">needs_customization?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>some rules can be customized with extra data at runtime, see <a
+href="CustomTextRule.html">CustomTextRule</a> as an example</p>
+          
+          
+
+          
+          <div class="method-source-code" id="needs_customization-3F-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">needs_customization?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-perform_check" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">perform_check</span><span
+            class="method-args">(item: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="perform_check-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">perform_check</span>(<span class="ruby-identifier">item</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">item_data</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">is_optional</span>
+    <span class="ruby-comment"># item is optional, and empty, so that&#39;s totally fine</span>
+    <span class="ruby-identifier">check_result</span> = <span class="ruby-constant">RuleReturn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">validation_state</span><span class="ruby-operator">:</span> <span class="ruby-constant">VALIDATION_STATES</span>[<span class="ruby-value">:passed</span>])
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">RuleCheckResult</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">check_result</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">check_result</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rule_block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>.<span class="ruby-identifier">item_data</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">RuleCheckResult</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">check_result</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rule_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rule_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rule_block-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rule_block</span>
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-skip_item_not_meant_for_this_rule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_item_not_meant_for_this_rule</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="skip_item_not_meant_for_this_rule-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">skip_item_not_meant_for_this_rule</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-comment"># item isn&#39;t mean for this rule, which is fine, we can just keep passing it along</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-supported_fields_symbol_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">supported_fields_symbol_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>some rules only support specific fields, by default, all fields are
+supported unless restricted by providing a list of symbols matching the
+item_name as defined as the <a href="ItemToCheck.html">ItemToCheck</a> is
+generated</p>
+          
+          
+
+          
+          <div class="method-source-code" id="supported_fields_symbol_set-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">supported_fields_symbol_set</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File precheck/lib/precheck/rule.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

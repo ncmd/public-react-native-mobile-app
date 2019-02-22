@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>frame_screenshots - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Easily+put+your+screenshots+into+the+right+device+frames">Easily put your screenshots into the right device frames</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Frame+screenshot">Frame screenshot</a>
+    <li><a href="#label-Advanced+Features">Advanced Features</a>
+    <li><a href="#label-Results">Results</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Basic+Usage">Basic Usage</a>
+    <li><a href="#label-Advanced+Usage+-28optional-29">Advanced Usage (optional)</a>
+    <li><a href="#label-Text+and+Background">Text and Background</a>
+    <li><a href="#label-Framefile.json"><code>Framefile.json</code></a>
+    <li><a href="#label-General+parameters">General parameters</a>
+    <li><a href="#label-Specific+parameters">Specific parameters</a>
+    <li><a href="#label-3Ca+name-3D-22keyword-and-title-parameters-22-3E-3C-2Fa-3EFramefile+keyword+and+title+parameters">&lt;a name=“keyword-and-title-parameters”&gt;&lt;/a&gt;Framefile <code>keyword</code> and <code>title</code> parameters</a>
+    <li><a href="#label-Example">Example</a>
+    <li><a href="#label-.strings+files"><code>.strings</code> files</a>
+    <li><a href="#label-Screenshot+orientation">Screenshot orientation</a>
+    <li><a href="#label-force_orientation_block"><code>force_orientation_block</code></a>
+    <li><a href="#label-Examples">Examples</a>
+    <li><a href="#label-Mac">Mac</a>
+    <li><a href="#label-Example">Example</a>
+    <li><a href="#label-Tips">Tips</a>
+    <li><a href="#label-Generate+localized+screenshots">Generate localized screenshots</a>
+    <li><a href="#label-Upload+screenshots">Upload screenshots</a>
+    <li><a href="#label-Use+a+clean+status+bar">Use a clean status bar</a>
+    <li><a href="#label-Gray+artifacts+around+text">Gray artifacts around text</a>
+    <li><a href="#label-Uninstall">Uninstall</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/frame_screenshots.md">
+<p align="center">
+  <img src="/img/actions/frameit.png" width="250">
+</p>
+<h6 id="label-Easily+put+your+screenshots+into+the+right+device+frames">Easily put your screenshots into the right device frames<span><a href="#label-Easily+put+your+screenshots+into+the+right+device+frames">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p><em>frameit</em> allows you to put a gorgeous device frame around your iOS
+and macOS screenshots just by running one simple command. Use
+<em>frameit</em> to prepare perfect screenshots for the App Store, your
+website, QA or emails.</p>
+<hr>
+<p align="center">
+    <a href="#features">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#tips">Tips</a>
+</p><hr>
+<h5 align="center"><em>frameit</em> is part of <a href="https://fastlane.tools">fastlane</a>: The easiest way to automate beta deployments and releases for your iOS and Android apps.</h5>
+<h1 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Frame+screenshot">Frame screenshot<span><a href="#label-Frame+screenshot">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Put a gorgeous device frame around your iOS and macOS screenshots just by
+running one simple command. Support for:</p>
+<ul><li>
+<p>iPhone, iPad and Mac</p>
+</li><li>
+<p>Portrait and Landscape modes</p>
+</li><li>
+<p>Several device frame colors</p>
+</li></ul>
+
+<p>The complete and updated list of supported devices and colors can be found
+<a
+href="https://github.com/fastlane/frameit-frames/tree/gh-pages/latest">here</a></p>
+
+<p>Here is a nice gif, that shows <em>frameit</em> in action:</p>
+
+<p><img src="/img/actions/FrameitGit.gif?raw=1"></p>
+
+<h2 id="label-Advanced+Features">Advanced Features<span><a href="#label-Advanced+Features">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Put framed screenshot on colored background, define padding</p>
+</li><li>
+<p>add text above or under framed screenshot</p>
+</li><li>
+<p>keyword + text</p>
+</li><li>
+<p>choose text font and color</p>
+</li><li>
+<p>multi line text</p>
+</li><li>
+<p>“intelligent” positioning of text that always looks good(ish)</p>
+</li></ul>
+
+<h2 id="label-Results">Results<span><a href="#label-Results">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><img src="/img/actions/ScreenshotsBig.png?raw=1"></p>
+<hr>
+
+<p><img src="/img/actions/ScreenshotsOverview.png?raw=1"></p>
+<hr>
+
+<p><img src="/img/actions/MacExample.png?raw=1"></p>
+<h5 align="center">The <em>frameit</em> 2.0 update was kindly sponsored by <a href="https://mindnode.com/">MindNode</a>, seen in the screenshots above.</h5>
+<p>The first time that <em>frameit</em> is executed the frames will be
+downloaded automatically. Originally the frames are coming from <a
+href="http://facebook.design/devices">Facebook frameset</a> and they are
+kept on <a href="https://github.com/fastlane/frameit-frames">this repo</a>.</p>
+
+<p>More information about this process and how to update the frames can be
+found <a
+href="https://github.com/fastlane/fastlane/tree/master/frameit/frames_generator">here</a></p>
+
+<h1 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Basic+Usage">Basic Usage<span><a href="#label-Basic+Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Why should you have to use Photoshop, just to add a frame around your
+screenshots?</p>
+
+<p>Just navigate to your folder of screenshots and use the following command:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">frameit</span>
+</pre>
+
+<p>To use the silver version of the frames:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">frameit</span> <span class="ruby-identifier">silver</span>
+</pre>
+
+<p>To download the latest frames</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">frameit</span> <span class="ruby-identifier">download_frames</span>
+</pre>
+
+<p>Note: When using <em>frameit</em> without titles on top, the screenshots
+will have the full resolution, which means they can&#39;t be uploaded to
+the App Store directly. They are supposed to be used for websites, print
+media and emails. Check out the section below to use the screenshots for
+the App Store.</p>
+
+<h2 id="label-Advanced+Usage+-28optional-29">Advanced Usage (optional)<span><a href="#label-Advanced+Usage+-28optional-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Text+and+Background">Text and Background<span><a href="#label-Text+and+Background">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>With <em>frameit</em> it&#39;s possible to add a custom background and text
+below or above the framed screenshots in fonts and colors you define.</p>
+
+<p>A working example can be found in the <a
+href="https://github.com/fastlane/examples/tree/master/MindNode/screenshots">fastlane
+examples</a> project.</p>
+
+<h3 id="label-Framefile.json"><code>Framefile.json</code><span><a href="#label-Framefile.json">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The Framefile allows to define general and screenshot specific information.
+It has the following general JSON structure:</p>
+
+<pre>{
+  &quot;device_frame_version&quot;: &quot;latest&quot;,
+  &quot;default&quot;: {
+    ...
+  },
+  &quot;data&quot;: [
+     ...
+  ]
+}</pre>
+
+<h3 id="label-General+parameters">General parameters<span><a href="#label-General+parameters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The general parameters are defined in the <code>default</code> key and can
+be:</p>
+
+<p>| Key | Description | Default value | |—–|————-|—————| |
+<code>background</code> | The background that should be used for the framed
+screenshot. Specify the (relative) path to the image file (e.g.
+<code>*.jpg</code>). This parameter is mandatory. | NA | |
+<code>keyword</code> | An object that contains up to 3 keys to describe the
+optional keyword. See <a href="#keyword-and-title-parameters">table</a>
+below. | NA | | <code>title</code> | An object that contains up to 3 keys
+to describe the mandatory title. See <a
+href="#keyword-and-title-parameters">table</a> below. | NA | |
+<code>stack_title</code> | Specifies whether <em>frameit</em> should
+display the keyword above the title when both keyword and title are
+defined. If it is false, the title and keyword will be displayed side by
+side when both keyword and title are defined. | <code>false</code> | |
+<code>title_below_image</code> | Specifies whether <em>frameit</em> should
+place the title and optional keyword below the device frame. If it is
+false, it will be placed above the device frame. | <code>false</code> | |
+<code>show_complete_frame</code> | Specifies whether <em>frameit</em>
+should shrink the device frame so that it is completely shown in the framed
+screenshot. If it is false, clipping of the device frame might occur at the
+bottom (when <code>title_below_image</code> is <code>false</code>) or top
+(when <code>title_below_image</code> is <code>true</code>) of the framed
+screenshot. | <code>false</code> | | <code>padding</code> | The content of
+the framed screenshot will be resized to match the specified
+<code>padding</code> around all edges. The vertical padding is also applied
+between the text and the top or bottom (depending on
+<code>title_below_image</code>) of the device frame. &lt;p&gt; There are 3
+different options of specyfying the padding: &lt;p&gt; 1. Default: An
+integer value that defines both horizontal and vertical padding in pixels.
+<br> 2. A string that defines (different) padding values in pixels for
+horizontal and vertical padding. The syntax is
+<code>&quot;&lt;horizontal&gt;x&lt;vertical&gt;&quot;</code>, e.g.
+<code>&quot;30x60&quot;</code>. <br> 3. A string that defines (different)
+padding values in percentage for horizontal and vertical padding. The
+syntax is <code>&quot;&lt;horizontal&gt;%x&lt;vertical&gt;%&quot;</code>,
+e.g. <code>&quot;5%x10%&quot;</code>. <br> <strong>Note:</strong> The
+percentage is calculated from the smallest image dimension (height or
+width). &lt;p&gt; A combination of option 2 and 3 is possible, e.g.
+<code>&quot;5%x40&quot;</code>. | <code>50</code> | |
+<code>interline_spacing</code> | Specifies whether <em>frameit</em> should
+add or subtract this many pixels between the individual lines of text. This
+only applies to a multi-line <code>title</code> and/or <code>keyword</code>
+to expand or squash together the individual lines of text. | <code>0</code>
+| | <code>font_scale_factor</code> | Specifies whether <em>frameit</em>
+should increase or decrease the font size of the text. | <code>0.1</code> |
+| <code>frame</code> | Overrides the color of the frame to be used. (Valid
+values are
+<code>BLACK,</code>WHITE<code>,</code>GOLD<code>and</code>ROSE_GOLD`) | NA
+|</p>
+
+<h3 id="label-Specific+parameters">Specific parameters<span><a href="#label-Specific+parameters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The screenshot specific parameters are related to the keyword and title
+texts. These are defined in the <code>data</code> key. This is an array
+with the following keys for each screenshot:</p>
+
+<p>| Key | Description | |—–|————-| | <code>filter</code> | This is mandatory
+to link the individual configuration to the screenshot, based on part of
+the file name. &lt;p&gt;Example:<br>If a screenshot is named <code>iPhone
+8-Brainstorming.png</code> you can use value <code>Brainstorming</code> for
+<code>filter</code>. If there are more than one <code>filter</code>
+matching an entry, they will all be applied in order (which means that the
+last one has the highest precedence). All other keys from that array
+element will only be applied on this specific screenshot. | |
+<code>keyword</code> | Similar use as in <code>default</code>, except that
+parameter <code>text</code> can be used here because it is screenshot
+specific. | | <code>title</code> | Similar use as in <code>default</code>,
+except that parameter <code>text</code> can be used here because it is
+screenshot specific. | | <code>frame</code> | Overrides the color of the
+frame to be used. (Valid values are
+<code>BLACK,</code>WHITE<code>,</code>GOLD<code>and</code>ROSE_GOLD`) | NA
+|</p>
+
+<h3 id="label-3Ca+name-3D-22keyword-and-title-parameters-22-3E-3C-2Fa-3EFramefile+keyword+and+title+parameters">&lt;a name=“keyword-and-title-parameters”&gt;&lt;/a&gt;Framefile <code>keyword</code> and <code>title</code> parameters<span><a href="#label-3Ca+name-3D-22keyword-and-title-parameters-22-3E-3C-2Fa-3EFramefile+keyword+and+title+parameters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The <code>keyword</code> and <code>title</code> parameters are both used in
+<code>default</code> and <code>data</code>. They both consist of the
+following optional keys:</p>
+
+<p>| Key | Description | Default value | |—–|————-|—————| | <code>color</code>
+| The font color for the text. Specify a hex/html color code. |
+<code>#000000</code> (black) | | <code>font</code> | The font family for
+the text. Specify the (relative) path to the font file (e.g. an OpenType
+Font). | The default <code>imagemagick</code> font, which is system
+dependent. | | <code>text</code> | The text that should be used for the
+<code>keyword</code> or <code>title</code>. &lt;p&gt; Note: If you want to
+use localised text, use <a href="#strings-files">.strings files</a>. | NA |</p>
+
+<h3 id="label-Example">Example<span><a href="#label-Example">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>{
+  &quot;device_frame_version&quot;: &quot;latest&quot;,
+  &quot;default&quot;: {
+    &quot;keyword&quot;: {
+      &quot;font&quot;: &quot;./fonts/MyFont-Rg.otf&quot;
+    },
+    &quot;title&quot;: {
+      &quot;font&quot;: &quot;./fonts/MyFont-Th.otf&quot;,
+      &quot;color&quot;: &quot;#545454&quot;
+    },
+    &quot;background&quot;: &quot;./background.jpg&quot;,
+    &quot;padding&quot;: 50,
+    &quot;show_complete_frame&quot;: false,
+    &quot;stack_title&quot; : false,
+    &quot;title_below_image&quot;: true,
+    &quot;frame&quot;: &quot;WHITE&quot;
+  },
+
+  &quot;data&quot;: [
+    {
+      &quot;filter&quot;: &quot;Brainstorming&quot;,
+      &quot;keyword&quot;: {
+        &quot;color&quot;: &quot;#d21559&quot;
+      }
+    },
+    {
+      &quot;filter&quot;: &quot;Organizing&quot;,
+      &quot;keyword&quot;: {
+        &quot;color&quot;: &quot;#feb909&quot;
+      },
+      &quot;frame&quot;: &quot;ROSE_GOLD&quot;
+    },
+    {
+      &quot;filter&quot;: &quot;Sharing&quot;,
+      &quot;keyword&quot;: {
+        &quot;color&quot;: &quot;#aa4dbc&quot;
+      }
+    },
+    {
+      &quot;filter&quot;: &quot;Styling&quot;,
+      &quot;keyword&quot;: {
+        &quot;color&quot;: &quot;#31bb48&quot;
+      }
+    }
+  ]
+}</pre>
+
+<p>You can find a more complex <a
+href="https://github.com/fastlane/examples/blob/master/MindNode/screenshots/Framefile.json">configuration</a>
+to also support Chinese, Japanese and Korean languages.</p>
+
+<p>The <code>Framefile.json</code> should be in the <code>screenshots</code>
+folder, as seen in the <a
+href="https://github.com/fastlane/examples/tree/master/MindNode/screenshots">example</a>.</p>
+
+<h3 id="label-.strings+files"><code>.strings</code> files<span><a href="#label-.strings+files">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To define the title and optionally the keyword, put two
+<code>.strings</code> files into the language folder (e.g. <a
+href="https://github.com/fastlane/examples/tree/master/MindNode/screenshots/en-US">en-US
+in the example project</a>)</p>
+
+<p>The <code>keyword.strings</code> and <code>title.strings</code> are
+standard <code>.strings</code> file you already use for your iOS apps,
+making it easy to use your existing translation service to get localized
+titles.</p>
+
+<p><strong>Notes</strong></p>
+<ul><li>
+<p>These <code>.strings</code> files <strong>MUST</strong> be utf-8 (UTF-8) or
+utf-16 encoded (UTF-16 BE with BOM). They also must begin with an empty
+line. If you are having trouble see <a
+href="https://github.com/fastlane/fastlane/issues/1740">issue #1740</a></p>
+</li><li>
+<p>You <strong>MUST</strong> provide a background if you want titles.
+<em>frameit</em> will not add the tiles if a background is not specified.</p>
+</li></ul>
+
+<h3 id="label-Screenshot+orientation">Screenshot orientation<span><a href="#label-Screenshot+orientation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>By default <em>frameit</em> adds a frame to your screenshot based on an
+orientation you took it. For a portrait (vertical orientation) it is going
+to add portrait frame and for a landscape (horizontal orientation) -
+landscape left (= <a
+href="https://developer.apple.com/documentation/uikit/uiinterfaceorientation/landscapeleft">Home
+button on the left side</a>).</p>
+
+<p>One way to override the default behavior is editing the file name by adding
+<code>force_landscaperight</code> to the end.</p>
+
+<h3 id="label-force_orientation_block"><code>force_orientation_block</code><span><a href="#label-force_orientation_block">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If the default behavior doesn&#39;t fit your needs and you don&#39;t want
+or can&#39;t rename your screenshots, you can customize
+<em>frameit</em>&#39;s orientation behavior by setting a
+<code>force_orientation_block</code> parameter. The valid values are:
+<code>:landscape_left</code> (home button on the left side),
+<code>:landscape_right</code> (home button on the right side),
+<code>:portrait</code> (home button on the bottom), <code>nil</code> (home
+button on the right side).</p>
+
+<h3 id="label-Examples">Examples<span><a href="#label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-comment"># It matches the filename to the framed device orientation</span>
+<span class="ruby-identifier">frameit</span>(
+  <span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;./fastlane/screenshots&quot;</span>,
+  <span class="ruby-identifier">force_orientation_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">filename</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;iPad Pro (12.9-inch)-01LoginScreen&quot;</span> 
+        :<span class="ruby-identifier">landscape_right</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;iPhone 6 Plus-01LoginScreen&quot;</span>
+        :<span class="ruby-identifier">portrait</span>
+      <span class="ruby-comment"># and so on</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+)
+</pre>
+
+<pre class="ruby"><span class="ruby-comment"># It frames the screenshots in landscape right whenever the filename contains `landscape` word</span>
+<span class="ruby-identifier">frameit</span>(
+  <span class="ruby-identifier">silver</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+  <span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;./fastlane/screenshots&quot;</span>,
+  <span class="ruby-identifier">force_orientation_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span> = <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;landscape&quot;</span>)
+      :<span class="ruby-identifier">landscape_right</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+)
+</pre>
+
+<h1 id="label-Mac">Mac<span><a href="#label-Mac">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>With <em>frameit</em> it&#39;s possible to also frame macOS Application
+screenshots. You have to provide the following:</p>
+<ul><li>
+<p>A (relative) path to a <code>background</code> image file, which should
+contain both the background and the Mac.</p>
+</li><li>
+<p>The <code>offset</code> information so <em>frameit</em> knows where to
+position your screenshot on the <code>background</code>:</p>
+</li><li>
+<p><code>offset</code> : A string that specifies the horizontal and vertical
+offset in pixels, with respect to the top left corner of the
+<code>background</code> image. The syntax is
+<code>&quot;+&lt;horizontal&gt;+&lt;vertical&gt;&quot;</code>, e.g.
+<code>&quot;+200+150&quot;</code>.</p>
+</li><li>
+<p><code>titleHeight</code> : The height in pixels that should be used for the
+title.</p>
+</li></ul>
+
+<h2 id="label-Example">Example<span><a href="#label-Example">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby">{
+  <span class="ruby-string">&quot;default&quot;</span><span class="ruby-operator">:</span> {
+    <span class="ruby-string">&quot;title&quot;</span><span class="ruby-operator">:</span> {
+      <span class="ruby-string">&quot;color&quot;</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#545454&quot;</span>
+    },
+    <span class="ruby-string">&quot;background&quot;</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Mac.jpg&quot;</span>,
+    <span class="ruby-string">&quot;offset&quot;</span><span class="ruby-operator">:</span> {
+      <span class="ruby-string">&quot;offset&quot;</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;+676+479&quot;</span>,
+      <span class="ruby-string">&quot;titleHeight&quot;</span><span class="ruby-operator">:</span> <span class="ruby-value">320</span>
+    }
+  },
+  <span class="ruby-string">&quot;data&quot;</span><span class="ruby-operator">:</span> [
+    {
+      <span class="ruby-string">&quot;filter&quot;</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Brainstorming&quot;</span>,
+      <span class="ruby-string">&quot;keyword&quot;</span><span class="ruby-operator">:</span> {
+        <span class="ruby-string">&quot;color&quot;</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#d21559&quot;</span>
+      }
+    }
+  ]
+}
+</pre>
+
+<p>Check out the <a
+href="https://github.com/fastlane/examples/tree/master/MindNode/screenshots">MindNode
+example project</a>.</p>
+
+<h1 id="label-Tips">Tips<span><a href="#label-Tips">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Generate+localized+screenshots">Generate localized screenshots<span><a href="#label-Generate+localized+screenshots">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Check out <a
+href="https://docs.fastlane.tools/actions/snapshot/">snapshot</a> to
+automatically generate screenshots using <code>UI Automation</code>.</p>
+
+<h2 id="label-Upload+screenshots">Upload screenshots<span><a href="#label-Upload+screenshots">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Use <a href="https://docs.fastlane.tools/actions/deliver/">deliver</a> to
+upload iOS screenshots to App Store Connect, or <a
+href="https://docs.fastlane.tools/actions/supply/">supply</a> to upload
+Android screenshots to Play Store completely automatically 🚀</p>
+
+<h2 id="label-Use+a+clean+status+bar">Use a clean status bar<span><a href="#label-Use+a+clean+status+bar">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can use <a
+href="https://github.com/shinydevelopment/SimulatorStatusMagic">SimulatorStatusMagic</a>
+to clean up the status bar.</p>
+
+<h2 id="label-Gray+artifacts+around+text">Gray artifacts around text<span><a href="#label-Gray+artifacts+around+text">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>If you run into any quality issues, like having a border around the font,
+it usually helps to just re-install <code>imagemagick</code>. You can do so
+by running</p>
+
+<pre class="ruby"><span class="ruby-identifier">brew</span> <span class="ruby-identifier">uninstall</span> <span class="ruby-identifier">imagemagick</span>
+<span class="ruby-identifier">brew</span> <span class="ruby-identifier">install</span> <span class="ruby-identifier">imagemagick</span>
+</pre>
+
+<h2 id="label-Uninstall">Uninstall<span><a href="#label-Uninstall">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>sudo gem uninstall fastlane</code></p>
+</li><li>
+<p><code>rm -rf ~/.frameit</code></p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

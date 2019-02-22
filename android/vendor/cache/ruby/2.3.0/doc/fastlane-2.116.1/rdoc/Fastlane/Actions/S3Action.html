@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::S3Action - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-author">::author</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-deprecated_notes">::deprecated_notes</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-expand_path_with_substitutions_from_ipa_plist">::expand_path_with_substitutions_from_ipa_plist</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-load_from_original_gem_name">::load_from_original_gem_name</a>
+    
+    <li ><a href="#method-c-load_from_v1_gem_name">::load_from_v1_gem_name</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+    <li ><a href="#method-c-s3_client">::s3_client</a>
+    
+    <li ><a href="#method-c-upload_file">::upload_file</a>
+    
+    <li ><a href="#method-c-v1_sdk_module_present-3F">::v1_sdk_module_present?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::S3Action">
+  <h1 id="class-Fastlane::Actions::S3Action" class="class">
+    class Fastlane::Actions::S3Action
+  </h1>
+
+  <section class="description">
+    
+<p>rubocop:disable Metrics/ClassLength</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 421</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">author</span>
+  <span class="ruby-string">&quot;joshdholtz&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:ipa</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;.ipa file for the build &quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">IPA_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:dsym</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;zipped .dsym package for the build &quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYM_OUTPUT_PATH</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:upload_metadata</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Upload relevant metadata for this build&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:plist_template_path</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;plist template path&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:plist_file_name</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;uploaded plist filename&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:html_template_path</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;html erb template path&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:html_file_name</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;uploaded html filename&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:version_template_path</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;version erb template path&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:version_file_name</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;uploaded version filename&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:access_key</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_ACCESS_KEY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;AWS Access Key ID &quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;AWS_ACCESS_KEY_ID&#39;</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:secret_access_key</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_SECRET_ACCESS_KEY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;AWS Secret Access Key &quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;AWS_SECRET_ACCESS_KEY&#39;</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:bucket</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_BUCKET&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;AWS bucket name&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;AWS_BUCKET_NAME&#39;</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:region</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_REGION&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;AWS region (for bucket creation) &quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;AWS_REGION&#39;</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:path</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_PATH&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3 &#39;path&#39;. Values from Info.plist will be substituted for keys wrapped in {}  &quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;v{CFBundleShortVersionString}_b{CFBundleVersion}/&#39;</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:source</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_SOURCE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Optional source directory e.g. ./build &quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:acl</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;S3_ACL&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Uploaded object permissions e.g public_read (default), private, public_read_write, authenticated_read &quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;public_read&quot;</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category</span>
+  <span class="ruby-value">:deprecated</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-deprecated_notes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecated_notes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deprecated_notes-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 451</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">deprecated_notes</span>
+  [
+    <span class="ruby-string">&quot;Please use the `aws_s3` plugin instead.&quot;</span>,
+    <span class="ruby-string">&quot;Install using `fastlane add_plugin aws_s3`.&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Generates a plist file and uploads all to AWS S3&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  [
+    <span class="ruby-string">&quot;Upload a new build to Amazon S3 to distribute the build to beta testers.&quot;</span>,
+    <span class="ruby-string">&quot;Works for both Ad Hoc and Enterprise signed applications. This step will generate the necessary HTML, plist, and version files for you.&quot;</span>,
+    <span class="ruby-string">&quot;It is recommended to **not** store the AWS access keys in the `Fastfile`. The uploaded `version.json` file provides an easy way for apps to poll if a new update is available.&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 429</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;s3&#39;</span>,
+    <span class="ruby-string">&#39;s3(
+      # All of these are used to make Shenzhen\s `ipa distribute:s3` command
+      access_key: ENV[&quot;S3_ACCESS_KEY&quot;],               # Required from user.
+      secret_access_key: ENV[&quot;S3_SECRET_ACCESS_KEY&quot;], # Required from user.
+      bucket: ENV[&quot;S3_BUCKET&quot;],                       # Required from user.
+      ipa: &quot;AppName.ipa&quot;,                             # Optional is you use `ipa` to build
+      dsym: &quot;AppName.app.dSYM.zip&quot;,                   # Optional is you use `ipa` to build
+      path: &quot;v{CFBundleShortVersionString}_b{CFBundleVersion}/&quot;, # This is actually the default.
+      upload_metadata: true,                          # Upload version.json, plist and HTML. Set to false to skip uploading of these files.
+      version_file_name: &quot;app_version.json&quot;,          # Name of the file to upload to S3. Defaults to &quot;version.json&quot;
+      version_template_path: &quot;path/to/erb&quot;            # Path to an ERB to configure the structure of the version JSON file
+    )&#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-expand_path_with_substitutions_from_ipa_plist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expand_path_with_substitutions_from_ipa_plist</span><span
+            class="method-args">(ipa, path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>NOT a fan of this as this was taken straight from Shenzhen <a
+href="https://github.com/nomad/shenzhen/blob/986792db5d4d16a80c865a2748ee96ba63644821/lib/shenzhen/plugins/s3.rb#L32">github.com/nomad/shenzhen/blob/986792db5d4d16a80c865a2748ee96ba63644821/lib/shenzhen/plugins/s3.rb#L32</a></p>
+
+<p>Need to find a way to not use this copied method</p>
+
+<p>AGAIN, I am not happy about this right now. Using this for prototype
+reasons.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expand_path_with_substitutions_from_ipa_plist-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">expand_path_with_substitutions_from_ipa_plist</span>(<span class="ruby-identifier">ipa</span>, <span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">substitutions</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\{CFBundle[^}]+\}/</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">substitutions</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">info</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaFileAnalyser</span>.<span class="ruby-identifier">fetch_info_plist_file</span>(<span class="ruby-identifier">ipa</span>) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+
+  <span class="ruby-identifier">substitutions</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">substitution</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">substitution</span>[<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>]
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">info</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">substitution</span>), <span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 425</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load_from_original_gem_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_from_original_gem_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return true if loading the AWS SDK from the &#39;aws-sdk&#39; gem yields
+the expected v1 API, or false otherwise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_from_original_gem_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_from_original_gem_name</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># We don&#39;t use `Actions.verify_gem!` here, because we want to silently be OK with this gem not being</span>
+    <span class="ruby-comment"># present, in case the user has already migrated to &#39;aws-sdk-v1&#39; (see #load_from_v1_gem_name)</span>
+    <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-string">&#39;aws-sdk&#39;</span>)
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;aws-sdk&#39;</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;The &#39;aws-sdk&#39; gem is not present&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;The &#39;aws-sdk&#39; gem is present&quot;</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load_from_v1_gem_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_from_v1_gem_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_from_v1_gem_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_from_v1_gem_name</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">verify_gem!</span>(<span class="ruby-string">&#39;aws-sdk-v1&#39;</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;aws-sdk-v1&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;S3_IPA_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;Direct HTTP link to the uploaded ipa file&#39;</span>],
+    [<span class="ruby-string">&#39;S3_DSYM_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;Direct HTTP link to the uploaded dsym file&#39;</span>],
+    [<span class="ruby-string">&#39;S3_PLIST_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;Direct HTTP link to the uploaded plist file&#39;</span>],
+    [<span class="ruby-string">&#39;S3_HTML_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;Direct HTTP link to the uploaded HTML file&#39;</span>],
+    [<span class="ruby-string">&#39;S3_VERSION_OUTPUT_PATH&#39;</span>, <span class="ruby-string">&#39;Direct HTTP link to the uploaded Version file&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-comment"># Calling fetch on config so that default values will be used</span>
+  <span class="ruby-identifier">params</span> = {}
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:ipa</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:dsym</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:dsym</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:access_key</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:access_key</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:secret_access_key</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:secret_access_key</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:bucket</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:bucket</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:region</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:region</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:acl</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:acl</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:source</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:source</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:path</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:path</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:upload_metadata</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:upload_metadata</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:plist_template_path</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:plist_template_path</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:plist_file_name</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:plist_file_name</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:html_template_path</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:html_template_path</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:html_file_name</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:html_file_name</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:version_template_path</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:version_template_path</span>]
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:version_file_name</span>] = <span class="ruby-identifier">config</span>[<span class="ruby-value">:version_file_name</span>]
+
+  <span class="ruby-comment"># Pulling parameters for other uses</span>
+  <span class="ruby-identifier">s3_region</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:region</span>]
+  <span class="ruby-identifier">s3_access_key</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:access_key</span>]
+  <span class="ruby-identifier">s3_secret_access_key</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:secret_access_key</span>]
+  <span class="ruby-identifier">s3_bucket</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:bucket</span>]
+  <span class="ruby-identifier">ipa_file</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:ipa</span>]
+  <span class="ruby-identifier">dsym_file</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:dsym</span>]
+  <span class="ruby-identifier">s3_path</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:path</span>]
+  <span class="ruby-identifier">acl</span>     = <span class="ruby-identifier">params</span>[<span class="ruby-value">:acl</span>].<span class="ruby-identifier">to_sym</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No S3 access key given, pass using `access_key: &#39;key&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s3_access_key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No S3 secret access key given, pass using `secret_access_key: &#39;secret key&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s3_secret_access_key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No S3 bucket given, pass using `bucket: &#39;bucket&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s3_bucket</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No IPA file path given, pass using `ipa: &#39;ipa path&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ipa_file</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">plist_template_path</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:plist_template_path</span>]
+  <span class="ruby-identifier">plist_file_name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:plist_file_name</span>]
+  <span class="ruby-identifier">html_template_path</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:html_template_path</span>]
+  <span class="ruby-identifier">html_file_name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:html_file_name</span>]
+  <span class="ruby-identifier">version_template_path</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:version_template_path</span>]
+  <span class="ruby-identifier">version_file_name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:version_file_name</span>]
+
+  <span class="ruby-identifier">s3_client</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">s3_client</span>(<span class="ruby-identifier">s3_access_key</span>, <span class="ruby-identifier">s3_secret_access_key</span>, <span class="ruby-identifier">s3_region</span>)
+  <span class="ruby-identifier">bucket</span> = <span class="ruby-identifier">s3_client</span>.<span class="ruby-identifier">buckets</span>[<span class="ruby-identifier">s3_bucket</span>]
+
+  <span class="ruby-identifier">url_part</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">expand_path_with_substitutions_from_ipa_plist</span>(<span class="ruby-identifier">ipa_file</span>, <span class="ruby-identifier">s3_path</span>)
+
+  <span class="ruby-identifier">ipa_file_basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">ipa_file</span>)
+  <span class="ruby-identifier">ipa_file_name</span> = <span class="ruby-node">&quot;#{url_part}#{ipa_file_basename}&quot;</span>
+  <span class="ruby-identifier">ipa_file_data</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">ipa_file</span>, <span class="ruby-string">&#39;rb&#39;</span>)
+
+  <span class="ruby-identifier">ipa_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_file</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">ipa_file_name</span>, <span class="ruby-identifier">ipa_file_data</span>, <span class="ruby-identifier">acl</span>)
+
+  <span class="ruby-comment"># Setting action and environment variables</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_IPA_OUTPUT_PATH</span>] = <span class="ruby-identifier">ipa_url</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_IPA_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">ipa_url</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dsym_file</span>
+    <span class="ruby-identifier">dsym_file_basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">dsym_file</span>)
+    <span class="ruby-identifier">dsym_file_name</span> = <span class="ruby-node">&quot;#{url_part}#{dsym_file_basename}&quot;</span>
+    <span class="ruby-identifier">dsym_file_data</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">dsym_file</span>, <span class="ruby-string">&#39;rb&#39;</span>)
+
+    <span class="ruby-identifier">dsym_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_file</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">dsym_file_name</span>, <span class="ruby-identifier">dsym_file_data</span>, <span class="ruby-identifier">acl</span>)
+
+    <span class="ruby-comment"># Setting action and environment variables</span>
+    <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_DSYM_OUTPUT_PATH</span>] = <span class="ruby-identifier">dsym_url</span>
+    <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_DSYM_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">dsym_url</span>
+
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:upload_metadata</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment">#####################################</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># html and plist building</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#####################################</span>
+
+  <span class="ruby-comment"># Gets info used for the plist</span>
+  <span class="ruby-identifier">info</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaFileAnalyser</span>.<span class="ruby-identifier">fetch_info_plist_file</span>(<span class="ruby-identifier">ipa_file</span>)
+
+  <span class="ruby-identifier">build_num</span> = <span class="ruby-identifier">info</span>[<span class="ruby-string">&#39;CFBundleVersion&#39;</span>]
+  <span class="ruby-identifier">bundle_id</span> = <span class="ruby-identifier">info</span>[<span class="ruby-string">&#39;CFBundleIdentifier&#39;</span>]
+  <span class="ruby-identifier">bundle_version</span> = <span class="ruby-identifier">info</span>[<span class="ruby-string">&#39;CFBundleShortVersionString&#39;</span>]
+  <span class="ruby-identifier">title</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escapeHTML</span>(<span class="ruby-identifier">info</span>[<span class="ruby-string">&#39;CFBundleName&#39;</span>])
+  <span class="ruby-identifier">device_family</span> = <span class="ruby-identifier">info</span>[<span class="ruby-string">&#39;UIDeviceFamily&#39;</span>]
+  <span class="ruby-identifier">full_version</span> = <span class="ruby-node">&quot;#{bundle_version}.#{build_num}&quot;</span>
+
+  <span class="ruby-comment"># Creating plist and html names</span>
+  <span class="ruby-identifier">s3_domain</span> = <span class="ruby-constant">AWS</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Endpoints</span>.<span class="ruby-identifier">hostname</span>(<span class="ruby-identifier">s3_region</span>, <span class="ruby-string">&#39;s3&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;s3.amazonaws.com&#39;</span>
+  <span class="ruby-identifier">plist_file_name</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{url_part}#{URI.escape(title)}.plist&quot;</span>
+  <span class="ruby-identifier">plist_url</span> = <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPS</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">host</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s3_domain</span>, <span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;/#{s3_bucket}/#{plist_file_name}&quot;</span>).<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">html_file_name</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;index.html&quot;</span>
+
+  <span class="ruby-identifier">version_file_name</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;version.json&quot;</span>
+
+  <span class="ruby-comment"># grabs module</span>
+  <span class="ruby-identifier">eth</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ErbTemplateHelper</span>
+
+  <span class="ruby-comment"># Creates plist from template</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">plist_template_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">plist_template_path</span>)
+    <span class="ruby-identifier">plist_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load_from_path</span>(<span class="ruby-identifier">plist_template_path</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">plist_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;s3_plist_template&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">plist_render</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">plist_template</span>, {
+    <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ipa_url</span>,
+    <span class="ruby-identifier">ipa_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ipa_url</span>,
+    <span class="ruby-identifier">build_num</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build_num</span>,
+    <span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+    <span class="ruby-identifier">bundle_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_version</span>,
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-identifier">title</span>
+  })
+
+  <span class="ruby-comment"># Creates html from template</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">html_template_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">html_template_path</span>)
+    <span class="ruby-identifier">html_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load_from_path</span>(<span class="ruby-identifier">html_template_path</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">html_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;s3_html_template&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">html_render</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">html_template</span>, {
+    <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">plist_url</span>,
+    <span class="ruby-identifier">plist_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">plist_url</span>,
+    <span class="ruby-identifier">ipa_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ipa_url</span>,
+    <span class="ruby-identifier">build_num</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build_num</span>,
+    <span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_id</span>,
+    <span class="ruby-identifier">bundle_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_version</span>,
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-identifier">title</span>,
+    <span class="ruby-identifier">device_family</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_family</span>
+  })
+
+  <span class="ruby-comment"># Creates version from template</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version_template_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">version_template_path</span>)
+    <span class="ruby-identifier">version_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load_from_path</span>(<span class="ruby-identifier">version_template_path</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">version_template</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&quot;s3_version_template&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">version_render</span> = <span class="ruby-identifier">eth</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">version_template</span>, {
+    <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">plist_url</span>,
+    <span class="ruby-identifier">plist_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">plist_url</span>,
+    <span class="ruby-identifier">ipa_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ipa_url</span>,
+    <span class="ruby-identifier">build_num</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build_num</span>,
+    <span class="ruby-identifier">bundle_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bundle_version</span>,
+    <span class="ruby-identifier">full_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">full_version</span>
+  })
+
+  <span class="ruby-comment">#####################################</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># html and plist uploading</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#####################################</span>
+
+  <span class="ruby-identifier">plist_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_file</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">plist_file_name</span>, <span class="ruby-identifier">plist_render</span>, <span class="ruby-identifier">acl</span>)
+  <span class="ruby-identifier">html_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_file</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">html_file_name</span>, <span class="ruby-identifier">html_render</span>, <span class="ruby-identifier">acl</span>)
+  <span class="ruby-identifier">version_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_file</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">version_file_name</span>, <span class="ruby-identifier">version_render</span>, <span class="ruby-identifier">acl</span>)
+
+  <span class="ruby-comment"># Setting action and environment variables</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_PLIST_OUTPUT_PATH</span>] = <span class="ruby-identifier">plist_url</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_PLIST_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">plist_url</span>
+
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_HTML_OUTPUT_PATH</span>] = <span class="ruby-identifier">html_url</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_HTML_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">html_url</span>
+
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_VERSION_OUTPUT_PATH</span>] = <span class="ruby-identifier">version_url</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">S3_VERSION_OUTPUT_PATH</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">version_url</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully uploaded ipa file to &#39;#{Actions.lane_context[SharedValues::S3_IPA_OUTPUT_PATH]}&#39;&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-s3_client" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">s3_client</span><span
+            class="method-args">(s3_access_key, s3_secret_access_key, s3_region)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="s3_client-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">s3_client</span>(<span class="ruby-identifier">s3_access_key</span>, <span class="ruby-identifier">s3_secret_access_key</span>, <span class="ruby-identifier">s3_region</span>)
+  <span class="ruby-comment"># The AWS SDK API changed completely in v2.x. The most stable way to keep using the V1 API is to</span>
+  <span class="ruby-comment"># require the &#39;aws-sdk-v1&#39; gem directly. However, for those customers who are using the &#39;aws-sdk&#39;</span>
+  <span class="ruby-comment"># gem at v1.x, we don&#39;t want to break their setup which currently works.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># Therefore, we will attempt to load the v1 API from the original gem name, but go on to load</span>
+  <span class="ruby-comment"># from the aws-sdk-v1 gem name if necessary</span>
+  <span class="ruby-identifier">loaded_original_gem</span> = <span class="ruby-identifier">load_from_original_gem_name</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">loaded_original_gem</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">v1_sdk_module_present?</span>
+    <span class="ruby-identifier">load_from_v1_gem_name</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Loaded AWS SDK v1.x from the `aws-sdk-v1` gem&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Loaded AWS SDK v1.x from the `aws-sdk` gem&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">s3_region</span>
+    <span class="ruby-identifier">s3_client</span> = <span class="ruby-constant">AWS</span><span class="ruby-operator">::</span><span class="ruby-constant">S3</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">access_key_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s3_access_key</span>,
+      <span class="ruby-identifier">secret_access_key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s3_secret_access_key</span>,
+      <span class="ruby-identifier">region</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s3_region</span>
+    )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">s3_client</span> = <span class="ruby-constant">AWS</span><span class="ruby-operator">::</span><span class="ruby-constant">S3</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">access_key_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s3_access_key</span>,
+      <span class="ruby-identifier">secret_access_key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s3_secret_access_key</span>
+    )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s3_client</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-upload_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_file</span><span
+            class="method-args">(bucket, file_name, file_data, acl)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload_file-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upload_file</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">file_data</span>, <span class="ruby-identifier">acl</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">objects</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">file_data</span>, <span class="ruby-identifier">acl</span><span class="ruby-operator">:</span> <span class="ruby-identifier">acl</span>)
+
+  <span class="ruby-comment"># When you enable versioning on a S3 bucket,</span>
+  <span class="ruby-comment"># writing to an object will create an object version</span>
+  <span class="ruby-comment"># instead of replacing the existing object.</span>
+  <span class="ruby-comment"># http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/ObjectVersion.html</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">AWS</span><span class="ruby-operator">::</span><span class="ruby-constant">S3</span><span class="ruby-operator">::</span><span class="ruby-constant">ObjectVersion</span>)
+    <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Return public url</span>
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_url</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-v1_sdk_module_present-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">v1_sdk_module_present?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="v1_sdk_module_present-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/s3.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">v1_sdk_module_present?</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># Here we&#39;ll make sure that the `AWS` module is defined. If it is, the gem is the v1.x API.</span>
+    <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-string">&quot;AWS&quot;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Couldn&#39;t find the needed `AWS` module in the &#39;aws-sdk&#39; gem&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Found the needed `AWS` module in the &#39;aws-sdk&#39; gem&quot;</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

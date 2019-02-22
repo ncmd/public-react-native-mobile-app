@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Tunes::Build - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">TunesBase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-cancel_beta_review-21">#cancel_beta_review!</a>
+    
+    <li ><a href="#method-i-details">#details</a>
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-submit_for_beta_review-21">#submit_for_beta_review!</a>
+    
+    <li ><a href="#method-i-testing_status">#testing_status</a>
+    
+    <li ><a href="#method-i-update_build_information-21">#update_build_information!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Tunes::Build">
+  <h1 id="class-Spaceship::Tunes::Build" class="class">
+    class Spaceship::Tunes::Build
+  </h1>
+
+  <section class="description">
+    
+<p>Represents a build which is inside the build train</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-app_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The name of the app this build is for</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-apple_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">apple_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The <a href="../Portal/App.html">App</a> identifier of
+this app, provided by <a href="../Portal/App.html">App</a> Store Connect
+@example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;1013943394&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-build_train" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">build_train</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Spaceship::Tunes::BuildTrain) A reference to the build train this
+build is contained in</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-build_version" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">build_version</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The build version (not the version number), but also is
+named `build number`</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-crash_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">crash_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Might be nil. The number of crashes of this build</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-external_expiry_date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">external_expiry_date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer): When is the external build going to expire?</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-external_install_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">external_install_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Number of installs for this build that come from external
+users</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-external_testing_enabled" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">external_testing_enabled</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Bool) Is external beta testing enabled for this train? Only one
+train can have enabled testing.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-external_testing_status" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">external_testing_status</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The status of internal testflight testing for this build.
+One of active, submitForReview, approvedInactive, waiting</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-icon_url" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">icon_url</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) URL to the app icon of this build (150x150px)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) The ID generated by <a href="../Portal/App.html">App</a>
+Store Connect</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-install_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">install_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Number of installs of this build</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-internal_expiry_date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">internal_expiry_date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) When is this build going to be invalid</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-internal_install_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">internal_install_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Number of installs for this build that come from internal
+users</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-internal_testing_enabled" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">internal_testing_enabled</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Bool) Is internal beta testing enabled for this train? Only one
+train can have enabled testing.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The platform of this build (e.g. &#39;ios&#39;)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-processing" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">processing</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Boolean) Is this build currently processing?</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-processing_state" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">processing_state</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The build processing state, may be nil @example
+“invalidBinary” @example “processingFailed”</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ready_to_install" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ready_to_install</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Bool):</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-session_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">session_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Might be nil. The number of sessions for this build</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-train_version" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">train_version</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The version number (e.g. 1.3)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-upload_date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">upload_date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) The number of ticks since 1970 (e.g. 1413966436000)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-valid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">valid</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Boolean)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-watch_kit_enabled" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">watch_kit_enabled</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Bool) Does this build support WatchKit?</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cancel_beta_review-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cancel_beta_review!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This will cancel the review process for this <a
+href="../TestFlight.html">TestFlight</a> build</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cancel_beta_review-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/build.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cancel_beta_review!</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">remove_testflight_build_from_review!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>,
+                                               <span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">train_version</span>,
+                                        <span class="ruby-identifier">build_number</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_version</span>,
+                                            <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/build.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">details</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">build_details</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>,
+                                   <span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">train_version</span>,
+                            <span class="ruby-identifier">build_number</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_version</span>,
+                                <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;apple_id&#39;</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>
+  <span class="ruby-constant">BuildDetails</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/build.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_expiry_date</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_expiry_date</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-submit_for_beta_review-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">submit_for_beta_review!</span><span
+            class="method-args">(metadata)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This will submit this build for <a href="../TestFlight.html">TestFlight</a>
+beta review @param metadata [Hash] A hash containing the following
+information (keys must be symbols):</p>
+
+<pre>{
+  # Required Metadata:
+   changelog: &quot;Changelog&quot;,
+   description: &quot;Your Description&quot;,
+   feedback_email: &quot;Email Address for Feedback&quot;,
+   marketing_url: &quot;https://marketing.com&quot;,
+   first_name: &quot;Felix&quot;,
+   last_name: &quot;Krause&quot;,
+   review_email: &quot;Contact email address for Apple&quot;,
+   phone_number: &quot;0128383383&quot;,
+   review_notes: &quot;Review notes&quot;
+
+ # Optional Metadata:
+   privacy_policy_url: nil,
+   review_notes: nil,
+   review_user_name: nil,
+   review_password: nil,
+   encryption: false
+}</pre>
+
+<p>Note that iTC will pull a lot of this information from previous builds or
+the app store information, all of the required values must be set either in
+this hash or automatically for this to work</p>
+          
+          
+
+          
+          <div class="method-source-code" id="submit_for_beta_review-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/build.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_for_beta_review!</span>(<span class="ruby-identifier">metadata</span>)
+  <span class="ruby-identifier">parameters</span> = {
+    <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>,
+    <span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">train_version</span>,
+    <span class="ruby-identifier">build_number</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_version</span>,
+    <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>
+  }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">metadata</span>)
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">submit_testflight_build_for_review!</span>(<span class="ruby-identifier">parameters</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">parameters</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-testing_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">testing_status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] A nicely formatted string about the state of this build
+@examples:</p>
+
+<pre>External, Internal, Inactive, Expired</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="testing_status-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/build.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">testing_status</span>
+  <span class="ruby-identifier">testing</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;External&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_testing_enabled</span>
+  <span class="ruby-identifier">testing</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;Internal&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_testing_enabled</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_expiry_date</span> <span class="ruby-operator">/</span> <span class="ruby-value">1000</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-identifier">testing</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;Inactive&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">testing</span> = <span class="ruby-string">&quot;Expired&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">testing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_build_information-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_build_information!</span><span
+            class="method-args">(whats_new: nil, description: nil, feedback_email: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_build_information-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/build.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_build_information!</span>(<span class="ruby-identifier">whats_new</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+                              <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+                              <span class="ruby-identifier">feedback_email</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">parameters</span> = {
+    <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">apple_id</span>,
+    <span class="ruby-identifier">train</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">train_version</span>,
+    <span class="ruby-identifier">build_number</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_version</span>,
+    <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">platform</span>
+  }.<span class="ruby-identifier">merge</span>({
+    <span class="ruby-identifier">whats_new</span><span class="ruby-operator">:</span> <span class="ruby-identifier">whats_new</span>,
+    <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-identifier">description</span>,
+    <span class="ruby-identifier">feedback_email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">feedback_email</span>
+  })
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">update_build_information!</span>(<span class="ruby-identifier">parameters</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

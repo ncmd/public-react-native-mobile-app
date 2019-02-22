@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"default_value:ETI"+FastlaneCore::ConfigItem#default_value;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"Sthe value which is used if there was no given values and no environment values;T:
+@fileI"Afastlane_core/lib/fastlane_core/configuration/config_item.rb;T:0@omit_headings_from_table_of_contents_below0F@I"FastlaneCore::ConfigItem;TcRDoc::NormalClass0

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Base - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-attr_accessor">::attr_accessor</a>
+    
+    <li ><a href="#method-c-attr_mapping">::attr_mapping</a>
+    
+    <li ><a href="#method-c-attributes">::attributes</a>
+    
+    <li ><a href="#method-c-factory">::factory</a>
+    
+    <li ><a href="#method-c-mapping_module">::mapping_module</a>
+    
+    <li class="calls-super" ><a href="#method-c-method_missing">::method_missing</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-set_client">::set_client</a>
+    
+    <li ><a href="#method-i-attributes">#attributes</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-inspect_value">#inspect_value</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Base">
+  <h1 id="class-Spaceship::Base" class="class">
+    class Spaceship::Base
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Base.html">Spaceship::Base</a> is the superclass for models in
+Apple Developer <a href="Portal.html">Portal</a>. It&#39;s mainly
+responsible for mapping responses to objects.</p>
+
+<p>A class-level attribute `client` is used to maintain the spaceship which we
+are using to talk to ADP.</p>
+
+<p>Example of creating a new ADP model:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Widget</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">attr_accessor</span> :<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">foo_bar</span>, :<span class="ruby-identifier">wiz_baz</span>
+  <span class="ruby-identifier">attr_mapping</span>({
+    <span class="ruby-string">&#39;name&#39;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">name</span>,
+    <span class="ruby-string">&#39;fooBar&#39;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">foo_bar</span>,
+    <span class="ruby-string">&#39;wizBaz&#39;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">wiz_baz</span>
+  })
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>When you want to instantiate a model pass in the parsed response:
+`Widget.new(widget_json)`</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-client" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">client</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-client" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">client</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Spaceship::Client) The current spaceship client used by the model
+to make requests.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-raw_data" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">raw_data</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Hash/Array) Holds the raw data we got from Apple&#39;s</p>
+
+<pre class="ruby"><span class="ruby-identifier">server</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">use</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">later</span>
+</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-attr_accessor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_accessor</span><span
+            class="method-args">(*vars)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From <a
+href="https://stackoverflow.com/questions/2487333/fastest-one-liner-way-to-list-attr-accessors-in-ruby">stackoverflow.com/questions/2487333/fastest-one-liner-way-to-list-attr-accessors-in-ruby</a>
+This will store a list of defined attr_accessors to easily access them when
+inspecting the values</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="attr_accessor-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attr_accessor</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">vars</span>)
+  <span class="ruby-ivar">@attributes</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">vars</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">vars</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-attr_mapping" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_mapping</span><span
+            class="method-args">(attr_map = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines the attribute mapping between the response from Apple and our model
+objects. Keys are to match keys in the response and the values are to match
+attributes on the model.</p>
+
+<p>Example of using `attr_mapping`</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Widget</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">attr_accessor</span> :<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">foo_bar</span>, :<span class="ruby-identifier">wiz_baz</span>
+  <span class="ruby-identifier">attr_mapping</span>({
+    <span class="ruby-string">&#39;name&#39;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">name</span>,
+    <span class="ruby-string">&#39;fooBar&#39;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">foo_bar</span>,
+    <span class="ruby-string">&#39;wizBaz&#39;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">wiz_baz</span>
+  })
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="attr_mapping-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr_mapping</span>(<span class="ruby-identifier">attr_map</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr_map</span>
+    <span class="ruby-ivar">@attr_mapping</span> = <span class="ruby-identifier">attr_map</span>
+    <span class="ruby-ivar">@attr_mapping</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">getter</span> = <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-identifier">setter</span> = <span class="ruby-node">&quot;#{method_name}=&quot;</span>.<span class="ruby-identifier">to_sym</span>
+
+      <span class="ruby-comment"># Seems like the `public_instance_methods.include?` doesn&#39;t always work</span>
+      <span class="ruby-comment"># More context https://github.com/fastlane/fastlane/issues/11481</span>
+      <span class="ruby-comment"># That&#39;s why we have the `begin` `rescue` code here</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">remove_method</span>(<span class="ruby-identifier">getter</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">public_instance_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">getter</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">remove_method</span>(<span class="ruby-identifier">setter</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">public_instance_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">setter</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">include</span>(<span class="ruby-identifier">mapping_module</span>(<span class="ruby-ivar">@attr_mapping</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@attr_mapping</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">ancestors</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">attr_mapping</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@attr_mapping</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attributes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attributes</span>
+  <span class="ruby-ivar">@attributes</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-identifier">par</span> = []
+
+  <span class="ruby-identifier">par</span> = (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">attributes</span> <span class="ruby-operator">||</span> []) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Base</span>
+
+  <span class="ruby-ivar">@attributes</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">par</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-factory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">factory</span><span
+            class="method-args">(attrs, existing_client = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The factory class-method. This should only be used or overridden in very
+specific use-cases</p>
+
+<p>The only time it makes sense to use or override this method is when we want
+a base class to return a sub-class based on attributes.</p>
+
+<p>Here, we define the method to be the same as `Spaceship::Base.new(attrs)`,
+be it should be used only by classes that override it.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Certificate</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-comment">#=&gt; #&lt;PushCertificate ... &gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="factory-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">existing_client</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">existing_client</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mapping_module" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mapping_module</span><span
+            class="method-args">(attr_mapping)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Binds attributes getters and setters to underlying data returned from the
+API. Setting any properties will alter the `raw_data` hash.</p>
+
+<p>@return (Module) with the mapped getters and setters defined. Can be
+`include`, `extend`, or `prepend` into a class or object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mapping_module-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mapping_module</span>(<span class="ruby-identifier">attr_mapping</span>)
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">attr_mapping</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">source</span>, <span class="ruby-identifier">dest</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">getter</span> = <span class="ruby-identifier">dest</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-identifier">setter</span> = <span class="ruby-node">&quot;#{dest}=&quot;</span>.<span class="ruby-identifier">to_sym</span>
+
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">getter</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">get</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">source</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>))
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">setter</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_data</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataHash</span>.<span class="ruby-identifier">new</span>({})
+        <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>), <span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(method_sym, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call a method to return a subclass constant.</p>
+
+<p>If `method_sym` is an underscored name of a class, return the class with
+the current client passed into it. If the method does not match,
+NoMethodError is raised.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Certificate</span>.<span class="ruby-identifier">production_push</span>
+<span class="ruby-comment">#=&gt; Certificate::ProductionPush</span>
+
+<span class="ruby-constant">ProvisioningProfile</span>.<span class="ruby-identifier">ad_hoc</span>
+<span class="ruby-comment">#=&gt; ProvisioningProfile::AdHoc</span>
+
+<span class="ruby-constant">ProvisioningProfile</span>.<span class="ruby-identifier">some_other_method</span>
+<span class="ruby-comment">#=&gt; NoMethodError: undefined method `some_other_method&#39; for ProvisioningProfile</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">module_name</span> = <span class="ruby-identifier">method_sym</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">module_name</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/^[a-z\d]/</span>) { <span class="ruby-node">$&amp;</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-identifier">module_name</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r{(?:_|(/))([a-z\d])}</span>) { <span class="ruby-node">$2</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">module_name</span>)
+    <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">module_name</span>)
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">set_client</span>(<span class="ruby-ivar">@client</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(attrs = {}, existing_client = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The initialize method accepts a parsed response from Apple and sets all
+attributes that are defined by `attr_mapping`</p>
+
+<p>Do not override `initialize` in your own models.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attrs</span> = {}, <span class="ruby-identifier">existing_client</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">val</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_data</span> = <span class="ruby-constant">DataHash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">existing_client</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">client</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_client" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_client</span><span
+            class="method-args">(client)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets client and returns self for chaining. @return (Spaceship::Base)
+rubocop:disable Style/AccessorMethodName</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_client-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_client</span>(<span class="ruby-identifier">client</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">client</span> = <span class="ruby-identifier">client</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attributes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attributes</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">attributes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Inspect related code</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-comment"># To avoid circular references, we keep track of the references</span>
+  <span class="ruby-comment"># of all objects already inspected from the first call to inspect</span>
+  <span class="ruby-comment"># in this call stack</span>
+  <span class="ruby-comment"># We use a Thread local storage for multi-thread friendliness</span>
+  <span class="ruby-identifier">thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+  <span class="ruby-identifier">tree_root</span> = <span class="ruby-identifier">thread</span>[<span class="ruby-value">:inspected_objects</span>].<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">thread</span>[<span class="ruby-value">:inspected_objects</span>] = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tree_root</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">thread</span>[<span class="ruby-value">:inspected_objects</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-comment"># already inspected objects have a default value,</span>
+    <span class="ruby-comment"># let&#39;s follow Ruby&#39;s convention for circular references</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-node">&quot;#&lt;Object ...&gt;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">thread</span>[<span class="ruby-value">:inspected_objects</span>].<span class="ruby-identifier">add</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">inspect_value</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">thread</span>[<span class="ruby-value">:inspected_objects</span>] = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tree_root</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-node">&quot;&lt;#{self.class.name} \n#{value}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method can be used by subclasses to do additional initialisation using
+the `raw_data`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-inspect_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect_value-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/base.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect_value</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">k</span>).<span class="ruby-identifier">inspect</span>
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot;\n\t&quot;</span>) <span class="ruby-comment"># to align nested elements</span>
+
+    <span class="ruby-node">&quot;\t#{k}=#{v}&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, \n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

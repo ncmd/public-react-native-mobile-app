@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Fastlane::Actions - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-action_class_ref">::action_class_ref</a>
+    
+    <li ><a href="#method-c-add_modified_files">::add_modified_files</a>
+    
+    <li ><a href="#method-c-alias_actions">::alias_actions</a>
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-clear_lane_context">::clear_lane_context</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-execute_action">::execute_action</a>
+    
+    <li ><a href="#method-c-executed_actions">::executed_actions</a>
+    
+    <li ><a href="#method-c-formerly_bundled_actions">::formerly_bundled_actions</a>
+    
+    <li ><a href="#method-c-get_all_official_actions">::get_all_official_actions</a>
+    
+    <li ><a href="#method-c-git_author">::git_author</a>
+    
+    <li ><a href="#method-c-git_author_email">::git_author_email</a>
+    
+    <li ><a href="#method-c-git_branch">::git_branch</a>
+    
+    <li ><a href="#method-c-git_log_between">::git_log_between</a>
+    
+    <li ><a href="#method-c-git_log_last_commits">::git_log_last_commits</a>
+    
+    <li ><a href="#method-c-git_log_merge_commit_filtering_option">::git_log_merge_commit_filtering_option</a>
+    
+    <li ><a href="#method-c-is_class_action-3F">::is_class_action?</a>
+    
+    <li ><a href="#method-c-is_deprecated-3F">::is_deprecated?</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-lane_context">::lane_context</a>
+    
+    <li ><a href="#method-c-last_git_commit">::last_git_commit</a>
+    
+    <li ><a href="#method-c-last_git_commit_dict">::last_git_commit_dict</a>
+    
+    <li ><a href="#method-c-last_git_commit_formatted_with">::last_git_commit_formatted_with</a>
+    
+    <li ><a href="#method-c-last_git_commit_hash">::last_git_commit_hash</a>
+    
+    <li ><a href="#method-c-last_git_commit_message">::last_git_commit_message</a>
+    
+    <li ><a href="#method-c-last_git_tag_name">::last_git_tag_name</a>
+    
+    <li ><a href="#method-c-load_default_actions">::load_default_actions</a>
+    
+    <li ><a href="#method-c-load_external_actions">::load_external_actions</a>
+    
+    <li ><a href="#method-c-load_helpers">::load_helpers</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-reset_aliases">::reset_aliases</a>
+    
+    <li ><a href="#method-c-return_value">::return_value</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+    <li ><a href="#method-c-sh">::sh</a>
+    
+    <li ><a href="#method-c-sh_control_output">::sh_control_output</a>
+    
+    <li ><a href="#method-c-sh_no_action">::sh_no_action</a>
+    
+    <li ><a href="#method-c-shell_command_from_args">::shell_command_from_args</a>
+    
+    <li ><a href="#method-c-verify_gem-21">::verify_gem!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Fastlane::Actions">
+  <h1 id="module-Fastlane::Actions" class="module">
+    module Fastlane::Actions
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ARGS_MAP">ARGS_MAP
+        
+        <dd>
+        
+      
+        <dt id="GIT_MERGE_COMMIT_FILTERING_OPTIONS">GIT_MERGE_COMMIT_FILTERING_OPTIONS
+        
+        <dd>
+        
+      
+        <dt id="S3_ARGS_MAP">S3_ARGS_MAP
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-action_class_ref" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action_class_ref</span><span
+            class="method-args">(action_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the class ref to the action based on the action name Returns nil if
+the action is not aailable</p>
+          
+          
+
+          
+          <div class="method-source-code" id="action_class_ref-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">action_class_ref</span>(<span class="ruby-identifier">action_name</span>)
+  <span class="ruby-identifier">class_name</span> = <span class="ruby-identifier">action_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">fastlane_class</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;Action&#39;</span>
+  <span class="ruby-identifier">class_ref</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">class_ref</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Actions</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">class_name</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">class_ref</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-add_modified_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_modified_files</span><span
+            class="method-args">(files)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add an array of paths relative to the repo root or absolute paths that have
+been modified by an action.</p>
+
+<p>:files: An array of paths relative to the repo root or absolute paths</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_modified_files-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/commit_version_bump.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_modified_files</span>(<span class="ruby-identifier">files</span>)
+  <span class="ruby-identifier">modified_files</span> = <span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">MODIFIED_FILES</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">modified_files</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">files</span>
+  <span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">MODIFIED_FILES</span>] = <span class="ruby-identifier">modified_files</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-alias_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alias_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="alias_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">alias_actions</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@alias_actions</span>
+    <span class="ruby-ivar">@alias_actions</span> = {}
+    <span class="ruby-constant">ActionsList</span>.<span class="ruby-identifier">all_actions</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:aliases</span>)
+      <span class="ruby-ivar">@alias_actions</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">aliases</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@alias_actions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span>
+  <span class="ruby-comment"># So no one will ever forget your contribution to fastlane :) You are awesome btw!</span>
+  [<span class="ruby-string">&quot;Your GitHub/Twitter Name&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">available_options</span>
+  <span class="ruby-comment"># Define all options your action supports. </span>
+  
+  <span class="ruby-comment"># Below a few examples</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:api_token</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_[[NAME_UP]]_API_TOKEN&quot;</span>, <span class="ruby-comment"># The name of the environment variable</span>
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;API Token for [[NAME_CLASS]]&quot;</span>, <span class="ruby-comment"># a short description of this parameter</span>
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No API token for [[NAME_CLASS]] given, pass using `api_token: &#39;token&#39;`&quot;</span>) <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">value</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span>)
+                                    <span class="ruby-comment"># UI.user_error!(&quot;Couldn&#39;t find file at path &#39;#{value}&#39;&quot;) unless File.exist?(value)</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:development</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_[[NAME_UP]]_DEVELOPMENT&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Create a development certificate instead of a distribution one&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-comment"># true: verifies the input is a string, false: every kind of value</span>
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>) <span class="ruby-comment"># the default value if the user didn&#39;t provide one</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear_lane_context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_lane_context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Used in tests to get a clear lane before every test</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_lane_context-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear_lane_context</span>
+  <span class="ruby-ivar">@lane_context</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Documentation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;A short description with &lt;= 80 characters of what this action does&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">details</span>
+  <span class="ruby-comment"># Optional:</span>
+  <span class="ruby-comment"># this is your chance to provide a more detailed description of this action</span>
+  <span class="ruby-string">&quot;You can use this action to do cool things...&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-execute_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute_action</span><span
+            class="method-args">(step_name) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pass a block which should be tracked. One block = one testcase @param
+step_name (String) the name of the currently built code (e.g. snapshot,
+sigh, …)</p>
+
+<pre>This might be nil, in which case the step is not printed out to the terminal</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="execute_action-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">execute_action</span>(<span class="ruby-identifier">step_name</span>)
+  <span class="ruby-identifier">start</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-comment"># before the raise block, since `start` is required in the ensure block</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;No block given&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">error</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">exc</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Step: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">step_name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">step_name</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">exc</span> = <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">error</span> = <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n\n&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-comment"># This is also called, when the block has a return statement</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">step_name</span>
+    <span class="ruby-identifier">duration</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>
+
+    <span class="ruby-identifier">executed_actions</span> <span class="ruby-operator">&lt;&lt;</span> {
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">step_name</span>,
+      <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error</span>,
+      <span class="ruby-identifier">time</span><span class="ruby-operator">:</span> <span class="ruby-identifier">duration</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exc</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">exc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-executed_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">executed_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="executed_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">executed_actions</span>
+  <span class="ruby-ivar">@executed_actions</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-formerly_bundled_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formerly_bundled_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="formerly_bundled_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">formerly_bundled_actions</span>
+  [<span class="ruby-string">&quot;xcake&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_all_official_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_all_official_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns a list of official integrations rubocop:disable
+Style/AccessorMethodName</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_all_official_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_all_official_actions</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;*.rb&#39;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>))].<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;.rb&#39;</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-git_author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_author</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated Use <code>git_author_email</code> instead Get the author email
+of the last git commit <strong>DEPRECATED:</strong> Use
+<code>git_author_email</code> instead.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="git_author-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_author</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecated</span>(<span class="ruby-string">&#39;`git_author` is deprecated. Please use `git_author_email` instead.&#39;</span>)
+  <span class="ruby-identifier">git_author_email</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-git_author_email" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_author_email</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the author email of the last git commit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="git_author_email-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_author_email</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%ae&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-git_branch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_branch</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current git branch - can be replaced using the environment
+variable `GIT_BRANCH`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="git_branch-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_branch</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;GIT_BRANCH&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;GIT_BRANCH&#39;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-comment"># set by Jenkins</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-string">&quot;git rev-parse --abbrev-ref HEAD&quot;</span>, <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-git_log_between" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_log_between</span><span
+            class="method-args">(pretty_format, from, to, merge_commit_filtering, date_format = nil, ancestry_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="git_log_between-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_log_between</span>(<span class="ruby-identifier">pretty_format</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">merge_commit_filtering</span>, <span class="ruby-identifier">date_format</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">ancestry_path</span>)
+  <span class="ruby-identifier">command</span> = [<span class="ruby-string">&#39;git log&#39;</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--pretty=\&quot;#{pretty_format}\&quot;&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--date=\&quot;#{date_format}\&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">date_format</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--ancestry-path&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestry_path</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{from.shellescape}...#{to.shellescape}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">git_log_merge_commit_filtering_option</span>(<span class="ruby-identifier">merge_commit_filtering</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">command</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>), <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">chomp</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-git_log_last_commits" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_log_last_commits</span><span
+            class="method-args">(pretty_format, commit_count, merge_commit_filtering, date_format = nil, ancestry_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="git_log_last_commits-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_log_last_commits</span>(<span class="ruby-identifier">pretty_format</span>, <span class="ruby-identifier">commit_count</span>, <span class="ruby-identifier">merge_commit_filtering</span>, <span class="ruby-identifier">date_format</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">ancestry_path</span>)
+  <span class="ruby-identifier">command</span> = [<span class="ruby-string">&#39;git log&#39;</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--pretty=\&quot;#{pretty_format}\&quot;&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--date=\&quot;#{date_format}\&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">date_format</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--ancestry-path&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestry_path</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-n #{commit_count}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">git_log_merge_commit_filtering_option</span>(<span class="ruby-identifier">merge_commit_filtering</span>)
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">command</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>), <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">chomp</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_class_action-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_class_action?</span><span
+            class="method-args">(class_ref)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a boolean indicating whether the class reference is a <a
+href="Action.html">Fastlane::Action</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_class_action-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_class_action?</span>(<span class="ruby-identifier">class_ref</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">is_an_action</span> = <span class="ruby-identifier">class_ref</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">is_an_action</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_deprecated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_deprecated?</span><span
+            class="method-args">(class_ref)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a boolean indicating if the class reference is a deprecated <a
+href="Action.html">Fastlane::Action</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_deprecated-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_deprecated?</span>(<span class="ruby-identifier">class_ref</span>)
+  <span class="ruby-identifier">is_class_action?</span>(<span class="ruby-identifier">class_ref</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">category</span> <span class="ruby-operator">==</span> <span class="ruby-value">:deprecated</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-comment"># you can do things like</span>
+  <span class="ruby-comment"># </span>
+  <span class="ruby-comment">#  true</span>
+  <span class="ruby-comment"># </span>
+  <span class="ruby-comment">#  platform == :ios</span>
+  <span class="ruby-comment"># </span>
+  <span class="ruby-comment">#  [:ios, :mac].include?(platform)</span>
+  <span class="ruby-comment"># </span>
+
+  <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lane_context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lane_context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The shared hash can be accessed by any action and contains information like
+the screenshots path or beta URL</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lane_context-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lane_context</span>
+  <span class="ruby-ivar">@lane_context</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-last_git_commit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_git_commit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the unwrapped subject and body of the last commit
+<strong>DEPRECATED:</strong> Use <code>last_git_commit_message</code>
+instead.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_git_commit-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_git_commit</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&#39;`last_git_commit` is deprecated. Please use `last_git_commit_message` instead.&#39;</span>)
+  <span class="ruby-identifier">last_git_commit_message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-last_git_commit_dict" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_git_commit_dict</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="last_git_commit_dict-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_git_commit_dict</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%an&#39;</span>).<span class="ruby-identifier">nil?</span>
+
+  {
+      <span class="ruby-identifier">author</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%an&#39;</span>),
+      <span class="ruby-identifier">author_email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%ae&#39;</span>),
+      <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%B&#39;</span>),
+      <span class="ruby-identifier">commit_hash</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%H&#39;</span>),
+      <span class="ruby-identifier">abbreviated_commit_hash</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%h&#39;</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-last_git_commit_formatted_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_git_commit_formatted_with</span><span
+            class="method-args">(pretty_format, date_format = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the last git commit information formatted into a <a
+href="../String.html">String</a> by the provided pretty format <a
+href="../String.html">String</a>. See the git-log documentation for valid
+format placeholders</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_git_commit_formatted_with-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-identifier">pretty_format</span>, <span class="ruby-identifier">date_format</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">command</span> = [<span class="ruby-string">&#39;git log -1&#39;</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--pretty=\&quot;#{pretty_format}\&quot;&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--date=\&quot;#{date_format}\&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">date_format</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">command</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>), <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">chomp</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-last_git_commit_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_git_commit_hash</span><span
+            class="method-args">(short)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the hash of the last commit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_git_commit_hash-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_git_commit_hash</span>(<span class="ruby-identifier">short</span>)
+  <span class="ruby-identifier">format_specifier</span> = <span class="ruby-identifier">short</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;%h&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;%H&#39;</span>
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-identifier">format_specifier</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">string</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-last_git_commit_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_git_commit_message</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the unwrapped subject and body of the last commit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_git_commit_message-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_git_commit_message</span>
+  <span class="ruby-identifier">s</span> = (<span class="ruby-identifier">last_git_commit_formatted_with</span>(<span class="ruby-string">&#39;%B&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-last_git_tag_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_git_tag_name</span><span
+            class="method-args">(match_lightweight = true, tag_match_pattern = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="last_git_tag_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_git_tag_name</span>(<span class="ruby-identifier">match_lightweight</span> = <span class="ruby-keyword">true</span>, <span class="ruby-identifier">tag_match_pattern</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">tag_pattern_param</span> = <span class="ruby-identifier">tag_match_pattern</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;=#{tag_match_pattern.shellescape}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-identifier">command</span> = [<span class="ruby-string">&#39;git describe&#39;</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--tags&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">match_lightweight</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;`git rev-list --tags#{tag_pattern_param} --max-count=1`&quot;</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-identifier">command</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>), <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">chomp</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load_default_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_default_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_default_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_default_actions</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;*.rb&#39;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>))].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-identifier">file</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load_external_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_external_actions</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_external_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_external_actions</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You need to pass a valid path&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;*.rb&#39;</span>, <span class="ruby-identifier">path</span>)].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-identifier">file</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-identifier">content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;utf-8&quot;</span>)
+      <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">lines</span>
+        .<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">match</span>(<span class="ruby-node">/#{file}:(\d+):(.*)/</span>) }
+        .<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:nil?</span>)
+        .<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">content_error</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">error</span>[<span class="ruby-value">1</span>]) }
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Syntax error in #{File.basename(file)}&quot;</span>)
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;.rb&#39;</span>, <span class="ruby-string">&#39;&#39;</span>)
+
+    <span class="ruby-identifier">class_name</span> = <span class="ruby-identifier">file_name</span>.<span class="ruby-identifier">fastlane_class</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;Action&#39;</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">class_ref</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Actions</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">class_name</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_ref</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:run</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully loaded custom action &#39;#{file}&#39;.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not find method &#39;run&#39; in class #{class_name}.&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;For more information, check out the docs: https://docs.fastlane.tools/&#39;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Action &#39;#{file_name}&#39; is damaged!&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+      <span class="ruby-comment"># Action not found</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not find &#39;#{class_name}&#39; class defined.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;For more information, check out the docs: https://docs.fastlane.tools/&#39;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Action &#39;#{file_name}&#39; is damaged!&quot;</span>, <span class="ruby-identifier">show_github_issues</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">reset_aliases</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load_helpers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_helpers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Import all the helpers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_helpers-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_helpers</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../helper/*.rb&#39;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>))].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-identifier">file</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>
+  <span class="ruby-comment"># Define the shared values you are going to provide</span>
+  <span class="ruby-comment"># Example</span>
+  [
+    [<span class="ruby-string">&#39;[[NAME_UP]]_CUSTOM_VALUE&#39;</span>, <span class="ruby-string">&#39;A description of what this value contains&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_aliases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_aliases</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_aliases-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/actions_helper.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reset_aliases</span>
+  <span class="ruby-ivar">@alias_actions</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-return_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">return_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="return_value-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">return_value</span>
+  <span class="ruby-comment"># If your method provides a return value, you can describe here what it does</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/assets/custom_action_template.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-comment"># fastlane will take care of reading in the parameter and fetching the environment variable:</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span> <span class="ruby-node">&quot;Parameter API Token: #{params[:api_token]}&quot;</span>
+
+  <span class="ruby-comment"># sh &quot;shellcommand ./path&quot;</span>
+
+  <span class="ruby-comment"># Actions.lane_context[SharedValues::[[NAME_UP]]_CUSTOM_VALUE] = &quot;my_val&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sh" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sh</span><span
+            class="method-args">(*command, log: true, error_callback: nil, &b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute a shell command This method will output the string and execute it
+Just an alias for <a
+href="Actions.html#method-c-sh_no_action">::sh_no_action</a> When running
+this in tests, it will return the actual command instead of executing it
+@param log [Boolean] should fastlane print out the executed command @param
+error_callback [Block] a callback invoked with the command output if there
+is a non-zero exit status</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sh-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/sh_helper.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">sh_control_output</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">log</span>, <span class="ruby-identifier">print_command_output</span><span class="ruby-operator">:</span> <span class="ruby-identifier">log</span>, <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_callback</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sh_control_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sh_control_output</span><span
+            class="method-args">(*command, print_command: true, print_command_output: true, error_callback: nil) { |exit_status || $?, result, shell_command| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param command The command to be executed (variadic) @param print_command
+[Boolean] Should we print the command that&#39;s being executed @param
+print_command_output [Boolean] Should we print the command output during
+execution @param error_callback [Block] A block that&#39;s called if the
+command exits with a non-zero status @yield [status, result, cmd] The
+return status of the command, all output from the command and an equivalent
+shell command @yieldparam [Process::Status] status A Process::Status
+indicating the status of the completed command @yieldparam [String] result
+The complete output to stdout and stderr of the completed command
+@yieldparam [String] cmd A shell command equivalent to the arguments passed
+rubocop: disable Metrics/PerceivedComplexity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sh_control_output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/sh_helper.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sh_control_output</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">print_command_output</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">print_command</span> = <span class="ruby-identifier">print_command_output</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$troubleshoot</span>
+  <span class="ruby-comment"># Set the encoding first, the user might have set it wrong</span>
+  <span class="ruby-identifier">previous_encoding</span> = [<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>, <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span>]
+  <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>
+  <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>
+
+  <span class="ruby-comment"># Workaround to support previous Fastlane syntax.</span>
+  <span class="ruby-comment"># This has some limitations. For example, it requires the caller to shell escape</span>
+  <span class="ruby-comment"># everything because of usages like [&quot;ls -la&quot;, &quot;/tmp&quot;] instead of [&quot;ls&quot;, &quot;-la&quot;, &quot;/tmp&quot;].</span>
+  <span class="ruby-identifier">command</span> = [<span class="ruby-identifier">command</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)] <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+
+  <span class="ruby-identifier">shell_command</span> = <span class="ruby-identifier">shell_command_from_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">shell_command</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">print_command</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">exit_status</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">sh_enabled?</span>
+    <span class="ruby-comment"># The argument list is passed directly to Open3.popen2e, which</span>
+    <span class="ruby-comment"># handles the variadic argument list in the same way as Kernel#spawn.</span>
+    <span class="ruby-comment"># (http://ruby-doc.org/core-2.4.2/Kernel.html#method-i-spawn) or</span>
+    <span class="ruby-comment"># Process.spawn (http://ruby-doc.org/core-2.4.2/Process.html#method-c-spawn).</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># sh &quot;ls -la /Applications/Xcode\ 7.3.1.app&quot;</span>
+    <span class="ruby-comment"># sh &quot;ls&quot;, &quot;-la&quot;, &quot;/Applications/Xcode 7.3.1.app&quot;</span>
+    <span class="ruby-comment"># sh({ &quot;FOO&quot; =&gt; &quot;Hello&quot; }, &quot;echo $FOO&quot;)</span>
+    <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">popen2e</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">io</span>, <span class="ruby-identifier">thread</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">io</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">io</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-identifier">line</span>.<span class="ruby-identifier">strip</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">print_command_output</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">exit_status</span> = <span class="ruby-identifier">thread</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Checking Process::Status#exitstatus instead of #success? makes for more</span>
+    <span class="ruby-comment"># testable code. (Tests mock exitstatus only.) This is also consistent</span>
+    <span class="ruby-comment"># with previous implementations of sh and... probably portable to all</span>
+    <span class="ruby-comment"># relevant platforms.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">exit_status</span>.<span class="ruby-identifier">exitstatus</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">print_command</span>
+                  <span class="ruby-node">&quot;Exit status of command &#39;#{shell_command}&#39; was #{exit_status.exitstatus} instead of 0.&quot;</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-node">&quot;Shell command exited with exit status #{exit_status.exitstatus} instead of 0.&quot;</span>
+                <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;\n#{result}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">print_command_output</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_callback</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>)
+        <span class="ruby-comment"># block notified below, on success or failure</span>
+        <span class="ruby-identifier">error_callback</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">error_callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">shell_error!</span>(<span class="ruby-identifier">message</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">shell_command</span> <span class="ruby-comment"># only for the tests</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-comment"># Avoid yielding nil in tests. $? will be meaningless, but calls to</span>
+    <span class="ruby-comment"># it will not crash. There is no Process::Status.new. The alternative</span>
+    <span class="ruby-comment"># is to move this inside the sh_enabled? check and not yield in tests.</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">exit_status</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">$?</span>, <span class="ruby-identifier">result</span>, <span class="ruby-identifier">shell_command</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span> = <span class="ruby-identifier">previous_encoding</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span> = <span class="ruby-identifier">previous_encoding</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sh_no_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sh_no_action</span><span
+            class="method-args">(*command, log: true, error_callback: nil, &b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sh_no_action-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/sh_helper.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sh_no_action</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-identifier">log</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">sh_control_output</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">log</span>, <span class="ruby-identifier">print_command_output</span><span class="ruby-operator">:</span> <span class="ruby-identifier">log</span>, <span class="ruby-identifier">error_callback</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_callback</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-shell_command_from_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shell_command_from_args</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Used to produce a shell command string from a list of arguments that may be
+passed to methods such as Kernel#system, Kernel#spawn and Open3.popen2e in
+order to print the command to the terminal. The same *args are passed
+directly to a system call (Open3.popen2e). This interpretation is not used
+when executing a command.</p>
+
+<p>@param args Any number of arguments used to construct a command @raise
+[ArgumentError] If no arguments passed @return [String] A shell command
+representing the arguments passed in</p>
+          
+          
+
+          
+          <div class="method-source-code" id="shell_command_from_args-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/sh_helper.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">shell_command_from_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;sh requires at least one argument&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-comment"># Optional initial environment Hash</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">command</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{k}=#{v.shellescape}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot; &quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Support [ &quot;/usr/local/bin/foo&quot;, &quot;foo&quot; ], &quot;-x&quot;, ...</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">shellescape</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shelljoin</span>
+    <span class="ruby-identifier">command</span>.<span class="ruby-identifier">chomp!</span>(<span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shelljoin</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-verify_gem-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_gem!</span><span
+            class="method-args">(gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>will make sure a gem is installed. If it&#39;s not an appropriate error
+message is shown this will <strong>not</strong> &#39;require&#39; the gem</p>
+          
+          
+
+          
+          <div class="method-source-code" id="verify_gem-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/gem_helper.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verify_gem!</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">FastlaneRequire</span>.<span class="ruby-identifier">install_gem_if_needed</span>(<span class="ruby-identifier">gem_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">require_gem</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+    <span class="ruby-comment"># We don&#39;t import this by default, as it&#39;s not always the same</span>
+    <span class="ruby-comment"># also e.g. cocoapods is just required and not imported</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not find gem &#39;#{gem_name}&#39;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;If you installed fastlane using `sudo gem install fastlane` run&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-node">&quot;sudo gem install #{gem_name}&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;to install the missing gem&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;If you use a Gemfile add this to your Gemfile:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;  gem &#39;#{gem_name}&#39;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;and run `bundle install`&quot;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;You have to install the `#{gem_name}` gem on this machine&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-git_log_merge_commit_filtering_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">git_log_merge_commit_filtering_option</span><span
+            class="method-args">(merge_commit_filtering)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="git_log_merge_commit_filtering_option-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/git_helper.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">git_log_merge_commit_filtering_option</span>(<span class="ruby-identifier">merge_commit_filtering</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">merge_commit_filtering</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:exclude_merges</span>
+    <span class="ruby-string">&quot;--no-merges&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:only_include_merges</span>
+    <span class="ruby-string">&quot;--merges&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:include_merges</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

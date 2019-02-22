@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"pricing_info:ETI">Spaceship::Tunes::IAPSubscriptionPricingTier#pricing_info;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"o@return ([Spaceship::Tunes::IAPSubscriptionPricingInfo]) A list of all prices for the respective countries;T:
+@fileI"Cspaceship/lib/spaceship/tunes/iap_subscription_pricing_tier.rb;T:0@omit_headings_from_table_of_contents_below0F@I"1Spaceship::Tunes::IAPSubscriptionPricingTier;TcRDoc::NormalClass0

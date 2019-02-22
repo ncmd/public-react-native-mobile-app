@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Tunes::AppVersion - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">TunesBase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-factory">::factory</a>
+    
+    <li ><a href="#method-c-find">::find</a>
+    
+    <li ><a href="#method-i-candidate_builds">#candidate_builds</a>
+    
+    <li ><a href="#method-i-check_preview_screenshot_resolution">#check_preview_screenshot_resolution</a>
+    
+    <li ><a href="#method-i-container_data_for_language_and_device">#container_data_for_language_and_device</a>
+    
+    <li ><a href="#method-i-create_languages">#create_languages</a>
+    
+    <li ><a href="#method-i-current_build_number">#current_build_number</a>
+    
+    <li ><a href="#method-i-generate_image_metadata">#generate_image_metadata</a>
+    
+    <li ><a href="#method-i-generate_promocodes-21">#generate_promocodes!</a>
+    
+    <li ><a href="#method-i-is_live-3F">#is_live?</a>
+    
+    <li ><a href="#method-i-raw_data_details">#raw_data_details</a>
+    
+    <li ><a href="#method-i-reject-21">#reject!</a>
+    
+    <li ><a href="#method-i-release-21">#release!</a>
+    
+    <li ><a href="#method-i-release_to_all_users-21">#release_to_all_users!</a>
+    
+    <li ><a href="#method-i-save-21">#save!</a>
+    
+    <li ><a href="#method-i-screenshots_data_for_language_and_device">#screenshots_data_for_language_and_device</a>
+    
+    <li ><a href="#method-i-select_build">#select_build</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-setup_large_app_icon">#setup_large_app_icon</a>
+    
+    <li ><a href="#method-i-setup_messages_screenshots_for">#setup_messages_screenshots_for</a>
+    
+    <li ><a href="#method-i-setup_screenshots">#setup_screenshots</a>
+    
+    <li ><a href="#method-i-setup_screenshots_for">#setup_screenshots_for</a>
+    
+    <li ><a href="#method-i-setup_trailers">#setup_trailers</a>
+    
+    <li ><a href="#method-i-setup_trailers_for">#setup_trailers_for</a>
+    
+    <li ><a href="#method-i-setup_transit_app_file">#setup_transit_app_file</a>
+    
+    <li ><a href="#method-i-setup_watch_app_icon">#setup_watch_app_icon</a>
+    
+    <li ><a href="#method-i-supports_app_transit-3F">#supports_app_transit?</a>
+    
+    <li ><a href="#method-i-toggle_phased_release">#toggle_phased_release</a>
+    
+    <li ><a href="#method-i-trailer_data_for_language_and_device">#trailer_data_for_language_and_device</a>
+    
+    <li ><a href="#method-i-unfold_languages">#unfold_languages</a>
+    
+    <li ><a href="#method-i-update_rating">#update_rating</a>
+    
+    <li ><a href="#method-i-upload_geojson-21">#upload_geojson!</a>
+    
+    <li ><a href="#method-i-upload_large_icon-21">#upload_large_icon!</a>
+    
+    <li ><a href="#method-i-upload_screenshot-21">#upload_screenshot!</a>
+    
+    <li ><a href="#method-i-upload_trailer-21">#upload_trailer!</a>
+    
+    <li ><a href="#method-i-upload_watch_icon-21">#upload_watch_icon!</a>
+    
+    <li ><a href="#method-i-url">#url</a>
+    
+    <li ><a href="#method-i-video_preview_resolution_for">#video_preview_resolution_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Tunes::AppVersion">
+  <h1 id="class-Spaceship::Tunes::AppVersion" class="class">
+    class Spaceship::Tunes::AppVersion
+  </h1>
+
+  <section class="description">
+    
+<p>Represents an editable version of an <a href="../Portal/App.html">App</a>
+Store Connect <a href="Application.html">Application</a> This can either be
+the live or the edit version retrieved via the app rubocop:disable
+Metrics/ClassLength</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-factory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">factory</span><span
+            class="method-args">(attrs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new object based on a hash. This is used to create a new object
+based on the server response.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="factory-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">unfold_languages</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(application, app_id, is_live, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param application (Spaceship::Tunes::Application) The app this version is
+for @param app_id (String) The unique Apple ID of this app @param <a
+href="AppVersion.html#attribute-i-is_live">#is_live</a> (Boolean)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">application</span>, <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">is_live</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># we only support applications</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;We do not support BUNDLE types right now&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;BUNDLE&#39;</span>
+
+  <span class="ruby-comment"># too bad the &quot;id&quot; field is empty, it forces us to make more requests to the server</span>
+  <span class="ruby-comment"># these could also be cached</span>
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">app_version</span>(<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">is_live</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attrs</span>
+
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:application</span>] = <span class="ruby-identifier">application</span>
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:is_live</span>] = <span class="ruby-identifier">is_live</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-candidate_builds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">candidate_builds</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all builds that can be sent to review</p>
+          
+          
+
+          
+          <div class="method-source-code" id="candidate_builds-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 337</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">candidate_builds</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">candidate_builds</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_id</span>)
+  <span class="ruby-identifier">builds</span> = []
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&quot;type&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;BUILD&quot;</span> <span class="ruby-comment"># I don&#39;t know if it can be something else.</span>
+    <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:apple_id</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>
+    <span class="ruby-identifier">builds</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">builds</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_preview_screenshot_resolution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_preview_screenshot_resolution</span><span
+            class="method-args">(preview_screenshot_path, device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>ensure the specified preview screenshot has the expected resolution the
+specified target <code>device</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_preview_screenshot_resolution-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 892</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_preview_screenshot_resolution</span>(<span class="ruby-identifier">preview_screenshot_path</span>, <span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">is_portrait</span> = <span class="ruby-constant">Utilities</span>.<span class="ruby-identifier">portrait?</span>(<span class="ruby-identifier">preview_screenshot_path</span>)
+  <span class="ruby-identifier">expected_resolution</span> = <span class="ruby-constant">TunesClient</span>.<span class="ruby-identifier">video_preview_resolution_for</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">is_portrait</span>)
+  <span class="ruby-identifier">actual_resolution</span> = <span class="ruby-constant">Utilities</span>.<span class="ruby-identifier">resolution</span>(<span class="ruby-identifier">preview_screenshot_path</span>)
+  <span class="ruby-identifier">orientation</span> = <span class="ruby-identifier">is_portrait</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;portrait&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;landscape&quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid #{orientation} screenshot resolution for device #{device}. Should be #{expected_resolution}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">actual_resolution</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">expected_resolution</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-container_data_for_language_and_device" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">container_data_for_language_and_device</span><span
+            class="method-args">(data_field, language, device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="container_data_for_language_and_device-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 694</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">container_data_for_language_and_device</span>(<span class="ruby-identifier">data_field</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{device} isn&#39;t a valid device name&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">DeviceType</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">device</span>)
+
+  <span class="ruby-identifier">languages</span> = <span class="ruby-identifier">raw_data_details</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>[<span class="ruby-string">&quot;language&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">language</span> }
+  <span class="ruby-comment"># IDEA: better error for non existing language</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{language} isn&#39;t an activated language&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">languages</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">lang_details</span> = <span class="ruby-identifier">languages</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">display_families</span> = <span class="ruby-identifier">lang_details</span>[<span class="ruby-string">&quot;displayFamilies&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>]
+  <span class="ruby-identifier">device_details</span> = <span class="ruby-identifier">display_families</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">display_family</span><span class="ruby-operator">|</span> <span class="ruby-identifier">display_family</span>[<span class="ruby-string">&#39;name&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">device</span> }
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Couldn&#39;t find device family for #{device}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_details</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unexpected state: missing device details for #{device}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">device_details</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">data_field</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">device_details</span>[<span class="ruby-identifier">data_field</span>]
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;App Store Connect error: #{ex}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_languages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_languages</span><span
+            class="method-args">(languages)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call this method to make sure the given languages are available for this
+app You should call this method before accessing the name, description and
+other localized values This will create the new language if it&#39;s not
+available yet and do nothing if everything&#39;s there Important: Due to a
+bug you have to fetch the `edit_version` again, as it doesn&#39;t get
+refreshed immediately</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_languages-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_languages</span>(<span class="ruby-identifier">languages</span>)
+  <span class="ruby-identifier">languages</span> = [<span class="ruby-identifier">languages</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">languages</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Please pass an array&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">languages</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+
+  <span class="ruby-identifier">copy_from</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">languages</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>[<span class="ruby-string">&#39;language&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;en-US&#39;</span> } <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">languages</span>.<span class="ruby-identifier">first</span>
+
+  <span class="ruby-identifier">languages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># First, see if it&#39;s already available</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">languages</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">local</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">local</span>[<span class="ruby-string">&#39;language&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">language</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+
+    <span class="ruby-identifier">new_language</span> = <span class="ruby-identifier">copy_from</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-identifier">new_language</span>[<span class="ruby-string">&#39;language&#39;</span>] = <span class="ruby-identifier">language</span>
+
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">languages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_language</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-current_build_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_build_number</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current_build_number-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 326</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_build_number</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_live?</span>
+    <span class="ruby-identifier">build_version</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">candidate_builds</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">candidate_builds</span>.<span class="ruby-identifier">sort_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:upload_date</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">build_version</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_image_metadata" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_image_metadata</span><span
+            class="method-args">(image_data, original_file_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method will generate the required keys/values for <a
+href="../Portal/App.html">App</a> Store Connect to validate the uploaded
+image</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_image_metadata-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 427</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_image_metadata</span>(<span class="ruby-identifier">image_data</span>, <span class="ruby-identifier">original_file_name</span>)
+  {
+    <span class="ruby-identifier">assetToken</span><span class="ruby-operator">:</span> <span class="ruby-identifier">image_data</span>[<span class="ruby-string">&quot;token&quot;</span>],
+    <span class="ruby-identifier">originalFileName</span><span class="ruby-operator">:</span> <span class="ruby-identifier">original_file_name</span>,
+    <span class="ruby-identifier">size</span><span class="ruby-operator">:</span> <span class="ruby-identifier">image_data</span>[<span class="ruby-string">&quot;length&quot;</span>],
+    <span class="ruby-identifier">height</span><span class="ruby-operator">:</span> <span class="ruby-identifier">image_data</span>[<span class="ruby-string">&quot;height&quot;</span>],
+    <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-identifier">image_data</span>[<span class="ruby-string">&quot;width&quot;</span>],
+    <span class="ruby-identifier">checksum</span><span class="ruby-operator">:</span> <span class="ruby-identifier">image_data</span>[<span class="ruby-string">&quot;md5&quot;</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_promocodes-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_promocodes!</span><span
+            class="method-args">(quantity)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Promo codes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_promocodes-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 637</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_promocodes!</span>(<span class="ruby-identifier">quantity</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">generate_app_version_promocodes!</span>(
+    <span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>,
+    <span class="ruby-identifier">version_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_id</span>,
+    <span class="ruby-identifier">quantity</span><span class="ruby-operator">:</span> <span class="ruby-identifier">quantity</span>
+  )
+  <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppVersionGeneratedPromocodes</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_live-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_live?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool) Is that version currently available in the <a
+href="../Portal/App.html">App</a> Store?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_live-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_live?</span>
+  <span class="ruby-identifier">is_live</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raw_data_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raw_data_details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raw_data_details-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 900</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raw_data_details</span>
+  <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;details&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reject-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reject!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reject-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 656</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reject!</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Version not rejectable&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">can_reject_version</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">reject!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="release-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 626</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release!</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">release!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_to_all_users-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_to_all_users!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="release_to_all_users-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 630</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_to_all_users!</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">release_to_all_users!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Push all changes that were made back to <a
+href="../Portal/App.html">App</a> Store Connect</p>
+          
+          
+
+          
+          <div class="method-source-code" id="save-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 402</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">update_app_version!</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version_id</span>, <span class="ruby-identifier">raw_data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-screenshots_data_for_language_and_device" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">screenshots_data_for_language_and_device</span><span
+            class="method-args">(language, device, is_messages)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="screenshots_data_for_language_and_device-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 685</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">screenshots_data_for_language_and_device</span>(<span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>, <span class="ruby-identifier">is_messages</span>)
+  <span class="ruby-identifier">data_field</span> = <span class="ruby-identifier">is_messages</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;messagesScreenshots&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;screenshots&quot;</span>
+  <span class="ruby-identifier">container_data_for_language_and_device</span>(<span class="ruby-identifier">data_field</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_build</span><span
+            class="method-args">(build)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Select a build to be submitted for Review. You have to pass a build you got
+from - <a
+href="AppVersion.html#method-i-candidate_builds">#candidate_builds</a>
+Don&#39;t forget to call save! after calling this method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="select_build-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 351</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_build</span>(<span class="ruby-identifier">build</span>)
+  <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">set</span>([<span class="ruby-string">&#39;preReleaseBuildVersionString&#39;</span>, <span class="ruby-string">&#39;value&#39;</span>], <span class="ruby-identifier">build</span>.<span class="ruby-identifier">build_version</span>)
+  <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">set</span>([<span class="ruby-string">&#39;preReleaseBuildTrainVersionString&#39;</span>], <span class="ruby-identifier">build</span>.<span class="ruby-identifier">train_version</span>)
+  <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">set</span>([<span class="ruby-string">&#39;preReleaseBuildUploadDate&#39;</span>], <span class="ruby-identifier">build</span>.<span class="ruby-identifier">upload_date</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Private methods</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 414</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-identifier">status</span> = <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&#39;status&#39;</span>]
+  <span class="ruby-ivar">@app_status</span> = <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppStatus</span>.<span class="ruby-identifier">get_from_string</span>(<span class="ruby-identifier">status</span>)
+
+  <span class="ruby-identifier">setup_large_app_icon</span>
+  <span class="ruby-identifier">setup_watch_app_icon</span>
+  <span class="ruby-identifier">setup_transit_app_file</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">supports_app_transit?</span>
+  <span class="ruby-identifier">setup_screenshots</span>
+  <span class="ruby-identifier">setup_trailers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_large_app_icon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_large_app_icon</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_large_app_icon-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 663</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_large_app_icon</span>
+  <span class="ruby-identifier">large_app_icon</span> = <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;largeAppIcon&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>]
+  <span class="ruby-ivar">@large_app_icon</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@large_app_icon</span> = <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppImage</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">large_app_icon</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">large_app_icon</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_messages_screenshots_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_messages_screenshots_for</span><span
+            class="method-args">(row)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>generates the nested data structure to represent screenshots</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup_messages_screenshots_for-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 829</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_messages_screenshots_for</span>(<span class="ruby-identifier">row</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;displayFamilies&quot;</span>].<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">display_families</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;displayFamilies&quot;</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;value&quot;</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">display_families</span>
+
+  <span class="ruby-identifier">result</span> = []
+
+  <span class="ruby-identifier">display_families</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">display_family</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">display_family_screenshots</span> = <span class="ruby-identifier">display_family</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;messagesScreenshots&quot;</span>, {})
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">display_family_screenshots</span>
+    <span class="ruby-identifier">display_family_screenshots</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;value&quot;</span>, []).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">screenshot</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">screenshot_data</span> = <span class="ruby-identifier">screenshot</span>[<span class="ruby-string">&quot;value&quot;</span>]
+      <span class="ruby-identifier">data</span> = {
+          <span class="ruby-identifier">device_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">display_family</span>[<span class="ruby-string">&#39;name&#39;</span>],
+          <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;language&quot;</span>],
+          <span class="ruby-identifier">is_imessage</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># to identify imessage screenshots later on (e.g: during download)</span>
+      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">screenshot_data</span>)
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppScreenshot</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_screenshots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_screenshots</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_screenshots-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 710</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_screenshots</span>
+  <span class="ruby-comment"># Enable Scaling for all screen sizes that don&#39;t have at least one screenshot</span>
+  <span class="ruby-comment"># We automatically disable scaling once we upload at least one screenshot</span>
+  <span class="ruby-identifier">language_details</span> = <span class="ruby-identifier">raw_data_details</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_language</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">language_details</span> = (<span class="ruby-identifier">current_language</span>[<span class="ruby-string">&quot;displayFamilies&quot;</span>] <span class="ruby-operator">||</span> {})[<span class="ruby-string">&quot;value&quot;</span>]
+    (<span class="ruby-identifier">language_details</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device_language_details</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_language_details</span>[<span class="ruby-string">&quot;screenshots&quot;</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_language_details</span>[<span class="ruby-string">&quot;screenshots&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>].<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+      <span class="ruby-comment"># The current row includes screenshots for all device types</span>
+      <span class="ruby-comment"># so we need to enable scaling for both iOS and watchOS apps</span>
+      <span class="ruby-identifier">device_language_details</span>[<span class="ruby-string">&quot;scaled&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_language_details</span>[<span class="ruby-string">&quot;scaled&quot;</span>]
+      <span class="ruby-identifier">device_language_details</span>[<span class="ruby-string">&quot;messagesScaled&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">device_language_details</span>[<span class="ruby-string">&quot;messagesScaled&quot;</span>]
+      <span class="ruby-comment"># we unset `scaled` or `messagesScaled` as soon as we upload a</span>
+      <span class="ruby-comment"># screenshot for this device/language combination</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@screenshots</span> = {}
+  <span class="ruby-identifier">raw_data_details</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Now that&#39;s one language right here</span>
+    <span class="ruby-ivar">@screenshots</span>[<span class="ruby-identifier">row</span>[<span class="ruby-string">&#39;language&#39;</span>]] = <span class="ruby-identifier">setup_screenshots_for</span>(<span class="ruby-identifier">row</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">setup_messages_screenshots_for</span>(<span class="ruby-identifier">row</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_screenshots_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_screenshots_for</span><span
+            class="method-args">(row)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>generates the nested data structure to represent screenshots</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup_screenshots_for-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 736</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_screenshots_for</span>(<span class="ruby-identifier">row</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;displayFamilies&quot;</span>].<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">display_families</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;displayFamilies&quot;</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;value&quot;</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">display_families</span>
+
+  <span class="ruby-identifier">result</span> = []
+
+  <span class="ruby-identifier">display_families</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">display_family</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># {</span>
+    <span class="ruby-comment">#   &quot;name&quot;: &quot;iphone6Plus&quot;,</span>
+    <span class="ruby-comment">#   &quot;scaled&quot;: {</span>
+    <span class="ruby-comment">#     &quot;value&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;isEditable&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#   },</span>
+    <span class="ruby-comment">#   &quot;screenshots&quot;: {</span>
+    <span class="ruby-comment">#     &quot;value&quot;: [{</span>
+    <span class="ruby-comment">#       &quot;value&quot;: {</span>
+    <span class="ruby-comment">#         &quot;assetToken&quot;: &quot;Purple62/v4/08/0a/04/080a0430-c2cc-2577-f491-9e0a09c58ffe/mzl.pbcpzqyg.jpg&quot;,</span>
+    <span class="ruby-comment">#         &quot;sortOrder&quot;: 1,</span>
+    <span class="ruby-comment">#         &quot;type&quot;: null,</span>
+    <span class="ruby-comment">#         &quot;originalFileName&quot;: &quot;ios-414-1.jpg&quot;</span>
+    <span class="ruby-comment">#       },</span>
+    <span class="ruby-comment">#       &quot;isEditable&quot;: true,</span>
+    <span class="ruby-comment">#       &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#       &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#     }, {</span>
+    <span class="ruby-comment">#       &quot;value&quot;: {</span>
+    <span class="ruby-comment">#         &quot;assetToken&quot;: &quot;Purple71/v4/de/81/aa/de81aa10-64f6-332e-c974-9ee46adab675/mzl.cshkjvwl.jpg&quot;,</span>
+    <span class="ruby-comment">#         &quot;sortOrder&quot;: 2,</span>
+    <span class="ruby-comment">#         &quot;type&quot;: null,</span>
+    <span class="ruby-comment">#         &quot;originalFileName&quot;: &quot;ios-414-2.jpg&quot;</span>
+    <span class="ruby-comment">#       },</span>
+    <span class="ruby-comment">#       &quot;isEditable&quot;: true,</span>
+    <span class="ruby-comment">#       &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#       &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#     }],</span>
+    <span class="ruby-comment">#   &quot;messagesScaled&quot;: {</span>
+    <span class="ruby-comment">#     &quot;value&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;isEditable&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#   },</span>
+    <span class="ruby-comment">#   &quot;messagesScreenshots&quot;: {</span>
+    <span class="ruby-comment">#     &quot;value&quot;: [{</span>
+    <span class="ruby-comment">#       &quot;value&quot;: {</span>
+    <span class="ruby-comment">#         &quot;assetToken&quot;: &quot;Purple62/v4/08/0a/04/080a0430-c2cc-2577-f491-9e0a09c58ffe/mzl.pbcpzqyg.jpg&quot;,</span>
+    <span class="ruby-comment">#         &quot;sortOrder&quot;: 1,</span>
+    <span class="ruby-comment">#         &quot;type&quot;: null,</span>
+    <span class="ruby-comment">#         &quot;originalFileName&quot;: &quot;ios-414-1.jpg&quot;</span>
+    <span class="ruby-comment">#       },</span>
+    <span class="ruby-comment">#       &quot;isEditable&quot;: true,</span>
+    <span class="ruby-comment">#       &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#       &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#     }, {</span>
+    <span class="ruby-comment">#       &quot;value&quot;: {</span>
+    <span class="ruby-comment">#         &quot;assetToken&quot;: &quot;Purple71/v4/de/81/aa/de81aa10-64f6-332e-c974-9ee46adab675/mzl.cshkjvwl.jpg&quot;,</span>
+    <span class="ruby-comment">#         &quot;sortOrder&quot;: 2,</span>
+    <span class="ruby-comment">#         &quot;type&quot;: null,</span>
+    <span class="ruby-comment">#         &quot;originalFileName&quot;: &quot;ios-414-2.jpg&quot;</span>
+    <span class="ruby-comment">#       },</span>
+    <span class="ruby-comment">#       &quot;isEditable&quot;: true,</span>
+    <span class="ruby-comment">#       &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#       &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#     }],</span>
+    <span class="ruby-comment">#     &quot;isEditable&quot;: true,</span>
+    <span class="ruby-comment">#     &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#   },</span>
+    <span class="ruby-comment">#   &quot;trailer&quot;: {</span>
+    <span class="ruby-comment">#     &quot;value&quot;: null,</span>
+    <span class="ruby-comment">#     &quot;isEditable&quot;: true,</span>
+    <span class="ruby-comment">#     &quot;isRequired&quot;: false,</span>
+    <span class="ruby-comment">#     &quot;errorKeys&quot;: null</span>
+    <span class="ruby-comment">#   }</span>
+    <span class="ruby-comment"># }</span>
+
+    <span class="ruby-identifier">display_family</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;screenshots&quot;</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;value&quot;</span>, []).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">screenshot</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">screenshot_data</span> = <span class="ruby-identifier">screenshot</span>[<span class="ruby-string">&quot;value&quot;</span>]
+      <span class="ruby-identifier">data</span> = {
+          <span class="ruby-identifier">device_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">display_family</span>[<span class="ruby-string">&#39;name&#39;</span>],
+          <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;language&quot;</span>]
+      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">screenshot_data</span>)
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppScreenshot</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_trailers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_trailers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_trailers-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 854</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_trailers</span>
+  <span class="ruby-ivar">@trailers</span> = {}
+  <span class="ruby-identifier">raw_data_details</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Now that&#39;s one language right here</span>
+    <span class="ruby-ivar">@trailers</span>[<span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;language&quot;</span>]] = <span class="ruby-identifier">setup_trailers_for</span>(<span class="ruby-identifier">row</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_trailers_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_trailers_for</span><span
+            class="method-args">(row)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>generates the nested data structure to represent trailers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup_trailers_for-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 863</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_trailers_for</span>(<span class="ruby-identifier">row</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;displayFamilies&quot;</span>].<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">display_families</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;displayFamilies&quot;</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;value&quot;</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">display_families</span>
+
+  <span class="ruby-identifier">result</span> = []
+
+  <span class="ruby-identifier">display_families</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">display_family</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">display_family</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;trailers&quot;</span>, {}).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;value&quot;</span>, []).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">trailer</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">trailer_data</span> = <span class="ruby-identifier">trailer</span>[<span class="ruby-string">&quot;value&quot;</span>]
+      <span class="ruby-identifier">data</span> = {
+        <span class="ruby-identifier">device_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">display_family</span>[<span class="ruby-string">&#39;name&#39;</span>],
+        <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;language&quot;</span>]
+      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">trailer_data</span>)
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppTrailer</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_transit_app_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_transit_app_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_transit_app_file-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 679</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_transit_app_file</span>
+  <span class="ruby-identifier">transit_app_file</span> = <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;transitAppFile&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>]
+  <span class="ruby-ivar">@transit_app_file</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@transit_app_file</span> = <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">TransitAppFile</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">transit_app_file</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">transit_app_file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_watch_app_icon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_watch_app_icon</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_watch_app_icon-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 669</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_watch_app_icon</span>
+  <span class="ruby-identifier">watch_app_icon</span> = <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;watchAppIcon&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>]
+  <span class="ruby-ivar">@watch_app_icon</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@watch_app_icon</span> = <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">AppImage</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">watch_app_icon</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">watch_app_icon</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-supports_app_transit-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">supports_app_transit?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="supports_app_transit-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 675</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">supports_app_transit?</span>
+  <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;transitAppFile&quot;</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-toggle_phased_release" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">toggle_phased_release</span><span
+            class="method-args">(enabled: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Currently <a
+href="AppVersion.html#attribute-i-phased_release">#phased_release</a>
+doesn&#39;t seem to have all the features enabled</p>
+
+<pre>=&gt; {&quot;state&quot;=&gt;{&quot;value&quot;=&gt;&quot;NOT_STARTED&quot;, &quot;isEditable&quot;=&gt;true, &quot;isRequired&quot;=&gt;false, &quot;errorKeys&quot;=&gt;nil},
+   &quot;startDate&quot;=&gt;nil,
+   &quot;lastPaused&quot;=&gt;nil,
+   &quot;pausedDuration&quot;=&gt;nil,
+   &quot;totalPauseDays&quot;=&gt;30,
+   &quot;currentDayNumber&quot;=&gt;nil,
+   &quot;dayPercentageMap&quot;=&gt;{&quot;1&quot;=&gt;1, &quot;2&quot;=&gt;2, &quot;3&quot;=&gt;5, &quot;4&quot;=&gt;10, &quot;5&quot;=&gt;20, &quot;6&quot;=&gt;50, &quot;7&quot;=&gt;100},
+   &quot;isEnabled&quot;=&gt;true}</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="toggle_phased_release-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">toggle_phased_release</span>(<span class="ruby-identifier">enabled</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">state</span> = (<span class="ruby-identifier">enabled</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;INACTIVE&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;NOT_STARTED&quot;</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">phased_release</span>[<span class="ruby-string">&quot;state&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-identifier">state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trailer_data_for_language_and_device" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trailer_data_for_language_and_device</span><span
+            class="method-args">(language, device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="trailer_data_for_language_and_device-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 690</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trailer_data_for_language_and_device</span>(<span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">container_data_for_language_and_device</span>(<span class="ruby-string">&quot;trailers&quot;</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unfold_languages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unfold_languages</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prefill name, keywords, etc…</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unfold_languages-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 613</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unfold_languages</span>
+  {
+    <span class="ruby-identifier">keywords</span><span class="ruby-operator">:</span> <span class="ruby-value">:keywords</span>,
+    <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-value">:description</span>,
+    <span class="ruby-identifier">supportUrl</span><span class="ruby-operator">:</span> <span class="ruby-value">:support_url</span>,
+    <span class="ruby-identifier">marketingUrl</span><span class="ruby-operator">:</span> <span class="ruby-value">:marketing_url</span>,
+    <span class="ruby-identifier">releaseNotes</span><span class="ruby-operator">:</span> <span class="ruby-value">:release_notes</span>,
+    <span class="ruby-identifier">promotionalText</span><span class="ruby-operator">:</span> <span class="ruby-value">:promotional_text</span>
+  }.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">json</span>, <span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@#{attribute}&quot;</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-constant">LanguageItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">json</span>, <span class="ruby-identifier">languages</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_rating" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_rating</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the age restriction rating Call it like this: v.update_rating({</p>
+
+<pre>&#39;CARTOON_FANTASY_VIOLENCE&#39; =&gt; 0,
+&#39;MATURE_SUGGESTIVE&#39; =&gt; 2,
+&#39;UNRESTRICTED_WEB_ACCESS&#39; =&gt; 0,
+&#39;GAMBLING_CONTESTS&#39; =&gt; 0</pre>
+
+<p>})</p>
+
+<p>Available Values <a
+href="https://docs.fastlane.tools/actions/deliver/#reference">docs.fastlane.tools/actions/deliver/#reference</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_rating-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_rating</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Must be a hash&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">to_edit</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&#39;ratings&#39;</span>][<span class="ruby-string">&#39;nonBooleanDescriptors&#39;</span>].<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">current</span>[<span class="ruby-string">&#39;name&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">to_edit</span>
+      <span class="ruby-identifier">to_set</span> = <span class="ruby-string">&quot;NONE&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">to_set</span> = <span class="ruby-string">&quot;INFREQUENT_MILD&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">to_set</span> = <span class="ruby-string">&quot;FREQUENT_INTENSE&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid value &#39;#{value}&#39; for &#39;#{key}&#39;, must be 0-2&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">to_set</span>
+      <span class="ruby-identifier">to_edit</span>[<span class="ruby-string">&#39;level&#39;</span>] = <span class="ruby-node">&quot;ITC.apps.ratings.level.#{to_set}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Maybe it&#39;s a boolean descriptor?</span>
+      <span class="ruby-identifier">to_edit</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&#39;ratings&#39;</span>][<span class="ruby-string">&#39;booleanDescriptors&#39;</span>].<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">current</span>[<span class="ruby-string">&#39;name&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">to_edit</span>
+        <span class="ruby-identifier">to_set</span> = <span class="ruby-string">&quot;NO&quot;</span>
+        <span class="ruby-identifier">to_set</span> = <span class="ruby-string">&quot;YES&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">to_edit</span>[<span class="ruby-string">&#39;level&#39;</span>] = <span class="ruby-node">&quot;ITC.apps.ratings.level.#{to_set}&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find option &#39;#{key}&#39; in the list of available options&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_geojson-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_geojson!</span><span
+            class="method-args">(geojson_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads or removes the transit app file @param icon_path (String): The path
+to the geojson file. Use nil to remove it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_geojson-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_geojson!</span>(<span class="ruby-identifier">geojson_path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">geojson_path</span>
+    <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;transitAppFile&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@transit_app_file</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">upload_file</span> = <span class="ruby-constant">UploadFile</span>.<span class="ruby-identifier">from_path</span>(<span class="ruby-identifier">geojson_path</span>)
+  <span class="ruby-identifier">geojson_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">upload_geojson</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">upload_file</span>)
+
+  <span class="ruby-ivar">@transit_app_file</span> = <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">TransitAppFile</span>.<span class="ruby-identifier">factory</span>({}) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@transit_app_file</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@transit_app_file</span> .<span class="ruby-identifier">url</span> = <span class="ruby-keyword">nil</span> <span class="ruby-comment"># response.headers[&#39;Location&#39;]</span>
+  <span class="ruby-ivar">@transit_app_file</span>.<span class="ruby-identifier">asset_token</span> = <span class="ruby-identifier">geojson_data</span>[<span class="ruby-string">&quot;token&quot;</span>]
+  <span class="ruby-ivar">@transit_app_file</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">upload_file</span>.<span class="ruby-identifier">file_name</span>
+  <span class="ruby-ivar">@transit_app_file</span>.<span class="ruby-identifier">time_stamp</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">*</span> <span class="ruby-value">1000</span> <span class="ruby-comment"># works without but...</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_large_icon-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_large_icon!</span><span
+            class="method-args">(icon_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads or removes the large icon @param icon_path (String): The path to
+the icon. Use nil to remove it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_large_icon-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_large_icon!</span>(<span class="ruby-identifier">icon_path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">icon_path</span>
+    <span class="ruby-ivar">@large_app_icon</span>.<span class="ruby-identifier">reset!</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">upload_image</span> = <span class="ruby-constant">UploadFile</span>.<span class="ruby-identifier">from_path</span>(<span class="ruby-identifier">icon_path</span>)
+  <span class="ruby-identifier">image_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">upload_large_icon</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">upload_image</span>)
+
+  <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;largeAppIcon&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-identifier">generate_image_metadata</span>(<span class="ruby-identifier">image_data</span>, <span class="ruby-identifier">upload_image</span>.<span class="ruby-identifier">file_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_screenshot-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_screenshot!</span><span
+            class="method-args">(screenshot_path, sort_order, language, device, is_messages)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads or removes a screenshot @param icon_path (String): The path to the
+screenshot. Use nil to remove it @param sort_order (Fixnum): The
+sort_order, from 1 to 5 @param language (String): The language for this
+screenshot @param device (string): The device for this screenshot @param
+is_messages (Bool): True if the screenshot is for iMessage</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_screenshot-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 488</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_screenshot!</span>(<span class="ruby-identifier">screenshot_path</span>, <span class="ruby-identifier">sort_order</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>, <span class="ruby-identifier">is_messages</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;sort_order must be higher than 0&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sort_order</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;sort_order must not be &gt; 10&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sort_order</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+  <span class="ruby-comment"># this will also check both language and device parameters</span>
+  <span class="ruby-identifier">device_lang_screenshots</span> = <span class="ruby-identifier">screenshots_data_for_language_and_device</span>(<span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>, <span class="ruby-identifier">is_messages</span>)[<span class="ruby-string">&quot;value&quot;</span>]
+
+  <span class="ruby-identifier">existing_sort_orders</span> = <span class="ruby-identifier">device_lang_screenshots</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>[<span class="ruby-string">&quot;value&quot;</span>][<span class="ruby-string">&quot;sortOrder&quot;</span>] }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">screenshot_path</span> <span class="ruby-comment"># adding / replacing</span>
+    <span class="ruby-identifier">upload_file</span> = <span class="ruby-constant">UploadFile</span>.<span class="ruby-identifier">from_path</span>(<span class="ruby-identifier">screenshot_path</span>)
+    <span class="ruby-identifier">screenshot_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">upload_screenshot</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">upload_file</span>, <span class="ruby-identifier">device</span>, <span class="ruby-identifier">is_messages</span>)
+
+    <span class="ruby-comment"># Since October 2016 we also need to pass the size, height, width and checksum</span>
+    <span class="ruby-comment"># otherwise App Store Connect validation will fail at a later point</span>
+    <span class="ruby-identifier">new_screenshot</span> = {
+      <span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> {
+        <span class="ruby-string">&quot;assetToken&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">screenshot_data</span>[<span class="ruby-string">&quot;token&quot;</span>],
+        <span class="ruby-string">&quot;sortOrder&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sort_order</span>,
+        <span class="ruby-string">&quot;originalFileName&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">upload_file</span>.<span class="ruby-identifier">file_name</span>,
+        <span class="ruby-string">&quot;size&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">screenshot_data</span>[<span class="ruby-string">&quot;length&quot;</span>],
+        <span class="ruby-string">&quot;height&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">screenshot_data</span>[<span class="ruby-string">&quot;height&quot;</span>],
+        <span class="ruby-string">&quot;width&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">screenshot_data</span>[<span class="ruby-string">&quot;width&quot;</span>],
+        <span class="ruby-string">&quot;checksum&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">screenshot_data</span>[<span class="ruby-string">&quot;md5&quot;</span>]
+      }
+    }
+
+    <span class="ruby-comment"># We disable &quot;scaling&quot; for this device type / language combination</span>
+    <span class="ruby-comment"># We only set this, if we actually successfully uploaded a new screenshot</span>
+    <span class="ruby-comment"># for this device / language combination</span>
+    <span class="ruby-comment"># if this value is not set, iTC will fallback to another device type for screenshots</span>
+    <span class="ruby-identifier">language_details</span> = <span class="ruby-identifier">raw_data_details</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>[<span class="ruby-string">&quot;language&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">language</span> }[<span class="ruby-string">&quot;displayFamilies&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>]
+    <span class="ruby-identifier">device_language_details</span> = <span class="ruby-identifier">language_details</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">display_family</span><span class="ruby-operator">|</span> <span class="ruby-identifier">display_family</span>[<span class="ruby-string">&#39;name&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">device</span> }
+    <span class="ruby-identifier">scaled_key</span> = <span class="ruby-identifier">is_messages</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;messagesScaled&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;scaled&quot;</span>
+    <span class="ruby-identifier">device_language_details</span>[<span class="ruby-identifier">scaled_key</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">sort_order</span>) <span class="ruby-comment"># replace</span>
+      <span class="ruby-identifier">device_lang_screenshots</span>[<span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">sort_order</span>)] = <span class="ruby-identifier">new_screenshot</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-comment"># add</span>
+      <span class="ruby-identifier">device_lang_screenshots</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_screenshot</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># removing</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;cannot remove screenshot with non existing sort_order&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">sort_order</span>)
+    <span class="ruby-identifier">device_lang_screenshots</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">sort_order</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">setup_screenshots</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_trailer-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_trailer!</span><span
+            class="method-args">(trailer_path, sort_order, language, device, timestamp = "05.00", preview_image_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads, removes a trailer video</p>
+
+<p>A preview image for the video is required by ITC and is usually
+automatically extracted by your browser. This method will either
+automatically extract it from the video (using `ffmpeg`) or allow you to
+specify it using <code>preview_image_path</code>. If the preview image is
+specified, `ffmpeg` will not be used. The image resolution will be checked
+against expectations (which might be different from the trailer resolution.</p>
+
+<p>It is recommended to extract the preview image using the spaceship related
+tools in order to ensure the appropriate format and resolution are used.</p>
+
+<p>Note: to extract its resolution and a screenshot preview, the `ffmpeg` tool
+will be used</p>
+
+<p>@param trailer_path (String): The path to the trailer. Use nil to remove it
+@param sort_order (Fixnum): The sort_order, from 1 to 5 @param language
+(String): The language for this screenshot @param device (String): The
+device for this screenshot @param timestamp (String): The optional
+timestamp of the screenshot to grab @param preview_image_path (String): The
+optional image path for the video preview</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_trailer-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 553</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_trailer!</span>(<span class="ruby-identifier">trailer_path</span>, <span class="ruby-identifier">sort_order</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>, <span class="ruby-identifier">timestamp</span> = <span class="ruby-string">&quot;05.00&quot;</span>, <span class="ruby-identifier">preview_image_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;No app trailer supported for iphone35&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">device</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;iphone35&#39;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;sort_order must be higher than 0&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sort_order</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;sort_order must not be &gt; 3&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sort_order</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+
+  <span class="ruby-identifier">device_lang_trailers</span> = <span class="ruby-identifier">trailer_data_for_language_and_device</span>(<span class="ruby-identifier">language</span>, <span class="ruby-identifier">device</span>)[<span class="ruby-string">&quot;value&quot;</span>]
+  <span class="ruby-identifier">existing_sort_orders</span> = <span class="ruby-identifier">device_lang_trailers</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>[<span class="ruby-string">&quot;value&quot;</span>][<span class="ruby-string">&quot;sortPosition&quot;</span>] }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">trailer_path</span> <span class="ruby-comment"># adding / replacing trailer</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid timestamp #{timestamp}&quot;</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">timestamp</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^[0-9][0-9].[0-9][0-9]$/</span>).<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">preview_image_path</span>
+      <span class="ruby-identifier">check_preview_screenshot_resolution</span>(<span class="ruby-identifier">preview_image_path</span>, <span class="ruby-identifier">device</span>)
+      <span class="ruby-identifier">video_preview_path</span> = <span class="ruby-identifier">preview_image_path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># IDEA: optimization, we could avoid fetching the screenshot if the timestamp hasn&#39;t changed</span>
+      <span class="ruby-identifier">video_preview_resolution</span> = <span class="ruby-identifier">video_preview_resolution_for</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">trailer_path</span>)
+
+      <span class="ruby-comment"># Keep a reference of the video_preview here to avoid Ruby getting rid of the Tempfile in the meanwhile</span>
+      <span class="ruby-identifier">video_preview</span> = <span class="ruby-constant">Utilities</span>.<span class="ruby-identifier">grab_video_preview</span>(<span class="ruby-identifier">trailer_path</span>, <span class="ruby-identifier">timestamp</span>, <span class="ruby-identifier">video_preview_resolution</span>)
+      <span class="ruby-identifier">video_preview_path</span> = <span class="ruby-identifier">video_preview</span>.<span class="ruby-identifier">path</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">video_preview_file</span> = <span class="ruby-constant">UploadFile</span>.<span class="ruby-identifier">from_path</span>(<span class="ruby-identifier">video_preview_path</span>)
+    <span class="ruby-identifier">video_preview_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">upload_trailer_preview</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">video_preview_file</span>, <span class="ruby-identifier">device</span>)
+
+    <span class="ruby-identifier">upload_file</span> = <span class="ruby-constant">UploadFile</span>.<span class="ruby-identifier">from_path</span>(<span class="ruby-identifier">trailer_path</span>)
+    <span class="ruby-identifier">trailer_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">upload_trailer</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">upload_file</span>)
+
+    <span class="ruby-identifier">ts</span> = <span class="ruby-node">&quot;00:00:#{timestamp}&quot;</span>
+    <span class="ruby-identifier">ts</span>[<span class="ruby-value">8</span>] = <span class="ruby-string">&#39;:&#39;</span>
+
+    <span class="ruby-identifier">new_trailer</span> = {
+      <span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> {
+        <span class="ruby-string">&quot;videoAssetToken&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">trailer_data</span>[<span class="ruby-string">&quot;responses&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;token&quot;</span>],
+        <span class="ruby-string">&quot;descriptionXML&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">trailer_data</span>[<span class="ruby-string">&quot;responses&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;descriptionDoc&quot;</span>],
+        <span class="ruby-string">&quot;contentType&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">upload_file</span>.<span class="ruby-identifier">content_type</span>,
+        <span class="ruby-string">&quot;sortPosition&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sort_order</span>,
+        <span class="ruby-string">&quot;size&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_preview_data</span>[<span class="ruby-string">&quot;length&quot;</span>],
+        <span class="ruby-string">&quot;width&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_preview_data</span>[<span class="ruby-string">&quot;width&quot;</span>],
+        <span class="ruby-string">&quot;height&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_preview_data</span>[<span class="ruby-string">&quot;height&quot;</span>],
+        <span class="ruby-string">&quot;checksum&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_preview_data</span>[<span class="ruby-string">&quot;md5&quot;</span>],
+        <span class="ruby-string">&quot;pictureAssetToken&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_preview_data</span>[<span class="ruby-string">&quot;token&quot;</span>],
+        <span class="ruby-string">&quot;previewFrameTimeCode&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ts</span>.<span class="ruby-identifier">to_s</span>,
+        <span class="ruby-string">&quot;isPortrait&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Utilities</span>.<span class="ruby-identifier">portrait?</span>(<span class="ruby-identifier">video_preview_path</span>)
+      }
+    }
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">sort_order</span>) <span class="ruby-comment"># replace</span>
+      <span class="ruby-identifier">device_lang_trailers</span>[<span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">sort_order</span>)] = <span class="ruby-identifier">new_trailer</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-comment"># add</span>
+      <span class="ruby-identifier">device_lang_trailers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_trailer</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># removing trailer</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;cannot remove trailer with non existing sort_order&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">sort_order</span>)
+    <span class="ruby-identifier">device_lang_trailers</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-identifier">existing_sort_orders</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">sort_order</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">setup_trailers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_watch_icon-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_watch_icon!</span><span
+            class="method-args">(icon_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uploads or removes the watch icon @param icon_path (String): The path to
+the icon. Use nil to remove it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_watch_icon-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_watch_icon!</span>(<span class="ruby-identifier">icon_path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">icon_path</span>
+    <span class="ruby-ivar">@watch_app_icon</span>.<span class="ruby-identifier">reset!</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">upload_image</span> = <span class="ruby-constant">UploadFile</span>.<span class="ruby-identifier">from_path</span>(<span class="ruby-identifier">icon_path</span>)
+  <span class="ruby-identifier">image_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">upload_watch_icon</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">upload_image</span>)
+
+  <span class="ruby-identifier">raw_data</span>[<span class="ruby-string">&quot;watchAppIcon&quot;</span>][<span class="ruby-string">&quot;value&quot;</span>] = <span class="ruby-identifier">generate_image_metadata</span>(<span class="ruby-identifier">image_data</span>, <span class="ruby-identifier">upload_image</span>.<span class="ruby-identifier">file_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) An URL to this specific resource. You can enter this URL
+into your browser</p>
+          
+          
+
+          
+          <div class="method-source-code" id="url-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 407</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/#{application.apple_id}/#{self.platform}/versioninfo/&quot;</span>
+  <span class="ruby-identifier">url</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;deliverable&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_live?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-video_preview_resolution_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">video_preview_resolution_for</span><span
+            class="method-args">(device, video_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>identify the required resolution for this particular video screenshot</p>
+          
+          
+
+          
+          <div class="method-source-code" id="video_preview_resolution_for-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/tunes/app_version.rb, line 886</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">video_preview_resolution_for</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">video_path</span>)
+  <span class="ruby-identifier">is_portrait</span> = <span class="ruby-constant">Utilities</span>.<span class="ruby-identifier">portrait?</span>(<span class="ruby-identifier">video_path</span>)
+  <span class="ruby-constant">TunesClient</span>.<span class="ruby-identifier">video_preview_resolution_for</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">is_portrait</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

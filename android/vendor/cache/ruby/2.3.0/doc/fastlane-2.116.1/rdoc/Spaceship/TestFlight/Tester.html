@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::TestFlight::Tester - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Spaceship::TestFlight::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-create_app_level_tester">::create_app_level_tester</a>
+    
+    <li ><a href="#method-c-find">::find</a>
+    
+    <li ><a href="#method-c-remove_testers_from_testflight">::remove_testers_from_testflight</a>
+    
+    <li ><a href="#method-c-search">::search</a>
+    
+    <li ><a href="#method-i-pretty_install_date">#pretty_install_date</a>
+    
+    <li ><a href="#method-i-remove_from_app-21">#remove_from_app!</a>
+    
+    <li ><a href="#method-i-remove_from_testflight-21">#remove_from_testflight!</a>
+    
+    <li ><a href="#method-i-resend_invite">#resend_invite</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::TestFlight::Tester">
+  <h1 id="class-Spaceship::TestFlight::Tester" class="class">
+    class Spaceship::TestFlight::Tester
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-email" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">email</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The email of this tester @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;tester@spaceship.com&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-first_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">first_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The first name of this tester @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Cary&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-groups" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">groups</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-last_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">last_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The last name of this tester @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Bennett&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-latest_install_info" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">latest_install_info</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Hash) @example {</p>
+
+<pre>&quot;latestInstalledAppAdamId&quot;: &quot;1222374686&quot;,
+&quot;latestInstalledBuildId&quot;: &quot;20739770&quot;,
+&quot;latestInstalledDate&quot;: &quot;1496866405755&quot;,
+&quot;latestInstalledShortVersion&quot;: &quot;1.0&quot;,
+&quot;latestInstalledVersion&quot;: &quot;68&quot;</pre>
+
+<p>}</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-latest_installed_date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">latest_installed_date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-session_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">session_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Number of sessions</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-status" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">status</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;invited&quot;</span>
+<span class="ruby-string">&quot;installed&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-status_mod_time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">status_mod_time</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Integer) Date of the last modification of the status (e.g. invite
+sent)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tester_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tester_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The identifier of this tester, provided by <a
+href="../Portal/App.html">App</a> Store Connect @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;60f858b4-60a8-428a-963a-f943a3d68d17&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) Returns all beta testers available for this account</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">testers_for_app</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">data</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create_app_level_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_app_level_tester</span><span
+            class="method-args">(app_id: nil, first_name: nil, last_name: nil, email: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_app_level_tester-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_app_level_tester</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_app_level_tester</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>,
+                                 <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">first_name</span>,
+                                 <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_name</span>,
+                                 <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(app_id: nil, email: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>*DEPRECATED: Use `Spaceship::TestFlight::Tester.search` method instead*</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">testers</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>, <span class="ruby-identifier">is_email_exact_match</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">testers</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-remove_testers_from_testflight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_testers_from_testflight</span><span
+            class="method-args">(app_id: nil, tester_ids: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_testers_from_testflight-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">remove_testers_from_testflight</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">tester_ids</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">remove_testers_from_testflight</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">tester_ids</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester_ids</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">(app_id: nil, text: nil, is_email_exact_match: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Spaceship::TestFlight::Tester) Returns the testers matching the
+parameter. ITC searchs all fields, and is full text. The search results are
+the union of all words in the search text @param text (String) (required):
+Value used to filter the tester, case insensitive</p>
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">is_email_exact_match</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-identifier">testers_matching_text</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">search_for_tester_in_app</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-identifier">text</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">data</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>) }
+  <span class="ruby-identifier">testers_matching_text</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_email_exact_match</span>
+    <span class="ruby-identifier">text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-identifier">testers_matching_text</span> = <span class="ruby-identifier">testers_matching_text</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tester</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">text</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">testers_matching_text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-pretty_install_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pretty_install_date</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pretty_install_date-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pretty_install_date</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">latest_installed_date</span>
+
+  <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>((<span class="ruby-identifier">latest_installed_date</span> <span class="ruby-operator">/</span> <span class="ruby-value">1000</span>)).<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%Y-%m-%d %H:%M&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_from_app-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_from_app!</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_from_app-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_from_app!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">delete_tester_from_app</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">tester_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tester_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_from_testflight-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_from_testflight!</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_from_testflight-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_from_testflight!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">remove_testers_from_testflight</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">tester_ids</span><span class="ruby-operator">:</span> [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">tester_id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resend_invite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resend_invite</span><span
+            class="method-args">(app_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resend_invite-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/test_flight/tester.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resend_invite</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">resend_invite_to_external_tester</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">tester_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tester_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

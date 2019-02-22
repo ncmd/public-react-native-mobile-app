@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"developer_status:ETI"/Spaceship::Portal::Person#developer_status;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9@return (String) Developer status (active, inactive);T:
+@fileI"-spaceship/lib/spaceship/portal/person.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::Person;TcRDoc::NormalClass0

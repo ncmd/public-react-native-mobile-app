@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"version_set:ETI"-Spaceship::Tunes::BuildTrain#version_set;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"J@return (Spaceship::Tunes::VersionSet) A reference to the version set;To:RDoc::Markup::Verbatim;	[I"this train is for;T:@format0:
+@fileI"1spaceship/lib/spaceship/tunes/build_train.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::BuildTrain;TcRDoc::NormalClass0

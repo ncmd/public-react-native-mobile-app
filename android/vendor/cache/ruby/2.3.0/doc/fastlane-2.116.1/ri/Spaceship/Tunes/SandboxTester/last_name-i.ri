@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"last_name:ETI".Spaceship::Tunes::SandboxTester#last_name;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"3@return (String) The last name of this tester ;TI"@example;To:RDoc::Markup::Verbatim;	[I""Bennett";T:@format0:
+@fileI"4spaceship/lib/spaceship/tunes/sandbox_tester.rb;T:0@omit_headings_from_table_of_contents_below0F@I"$Spaceship::Tunes::SandboxTester;TcRDoc::NormalClass0

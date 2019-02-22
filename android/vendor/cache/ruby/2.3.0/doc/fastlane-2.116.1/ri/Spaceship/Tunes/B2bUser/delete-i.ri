@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"delete:ETI"%Spaceship::Tunes::B2bUser#delete;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"/@return (Bool) delete the user to b2b list;T:
+@fileI".spaceship/lib/spaceship/tunes/b2b_user.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Tunes::B2bUser;TcRDoc::NormalClass0

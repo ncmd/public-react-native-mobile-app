@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"tester_id:ETI",Spaceship::TestFlight::Tester#tester_id;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"S@return (String) The identifier of this tester, provided by App Store Connect ;TI"@example;To:RDoc::Markup::Verbatim;	[I"+"60f858b4-60a8-428a-963a-f943a3d68d17";T:@format0:
+@fileI"2spaceship/lib/spaceship/test_flight/tester.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Spaceship::TestFlight::Tester;TcRDoc::NormalClass0

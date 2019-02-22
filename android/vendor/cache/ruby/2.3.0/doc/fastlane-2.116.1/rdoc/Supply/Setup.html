@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Supply::Setup - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-client">#client</a>
+    
+    <li ><a href="#method-i-create_screenshots_folder">#create_screenshots_folder</a>
+    
+    <li ><a href="#method-i-download_images">#download_images</a>
+    
+    <li ><a href="#method-i-metadata_path">#metadata_path</a>
+    
+    <li ><a href="#method-i-perform_download">#perform_download</a>
+    
+    <li ><a href="#method-i-store_apk_listing">#store_apk_listing</a>
+    
+    <li ><a href="#method-i-store_metadata">#store_metadata</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Supply::Setup">
+  <h1 id="class-Supply::Setup" class="class">
+    class Supply::Setup
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_screenshots_folder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_screenshots_folder</span><span
+            class="method-args">(listing)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_screenshots_folder-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_screenshots_folder</span>(<span class="ruby-identifier">listing</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;📱  Downloading screenshots (#{listing.language})&quot;</span>)
+
+  <span class="ruby-identifier">containing</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">metadata_path</span>, <span class="ruby-identifier">listing</span>.<span class="ruby-identifier">language</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-constant">IMAGES_FOLDER_NAME</span>))
+  <span class="ruby-constant">Supply</span><span class="ruby-operator">::</span><span class="ruby-constant">SCREENSHOT_TYPES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">screenshot_type</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-constant">IMAGES_FOLDER_NAME</span>, <span class="ruby-identifier">screenshot_type</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;📵  Due to a limitation of the Google Play API, there is no way for `supply` to download your existing screenshots. Please copy your screenshots into `metadata/android/#{listing.language}/images/`&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_images" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_images</span><span
+            class="method-args">(listing)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_images-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_images</span>(<span class="ruby-identifier">listing</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;🖼️  Downloading images (#{listing.language})&quot;</span>)
+
+  <span class="ruby-comment"># We cannot download existing screenshots as they are compressed</span>
+  <span class="ruby-comment"># But we can at least download the images</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;net/http&#39;</span>
+
+  <span class="ruby-constant">IMAGES_TYPES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">image_type</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> [<span class="ruby-string">&#39;featureGraphic&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">image_type</span>)
+      <span class="ruby-comment"># we don&#39;t get all files in full resolution :(</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;📵  Due to a limitation of the Google Play API, there is no way for `supply` to download your existing feature graphic. Please copy your feature graphic to `metadata/android/#{listing.language}/images/featureGraphic.png`&quot;</span>)
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Downloading `#{image_type}` for #{listing.language}...&quot;</span>)
+
+      <span class="ruby-identifier">url</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">fetch_images</span>(<span class="ruby-identifier">image_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">image_type</span>, <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">listing</span>.<span class="ruby-identifier">language</span>).<span class="ruby-identifier">last</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>
+
+      <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">metadata_path</span>, <span class="ruby-identifier">listing</span>.<span class="ruby-identifier">language</span>, <span class="ruby-constant">IMAGES_FOLDER_NAME</span>, <span class="ruby-node">&quot;#{image_type}.png&quot;</span>)
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">path</span>, <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get</span>(<span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">url</span>)))
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error downloading &#39;#{image_type}&#39; for #{listing.language}...&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-perform_download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">perform_download</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="perform_download-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">perform_download</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;🕗  Downloading metadata, images, screenshots...&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">metadata_path</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Metadata already exists at path &#39;#{metadata_path}&#39;&quot;</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">begin_edit</span>(<span class="ruby-identifier">package_name</span><span class="ruby-operator">:</span> <span class="ruby-constant">Supply</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:package_name</span>])
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">listings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">listing</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">store_metadata</span>(<span class="ruby-identifier">listing</span>)
+    <span class="ruby-identifier">create_screenshots_folder</span>(<span class="ruby-identifier">listing</span>)
+    <span class="ruby-identifier">download_images</span>(<span class="ruby-identifier">listing</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">apks_version_codes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">apk_version_code</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">client</span>.<span class="ruby-identifier">apk_listings</span>(<span class="ruby-identifier">apk_version_code</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">apk_listing</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">store_apk_listing</span>(<span class="ruby-identifier">apk_listing</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">abort_current_edit</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;✅  Successfully stored metadata in &#39;#{metadata_path}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_apk_listing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_apk_listing</span><span
+            class="method-args">(apk_listing)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_apk_listing-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_apk_listing</span>(<span class="ruby-identifier">apk_listing</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;🔨  Downloading changelogs (#{apk_listing.language}, #{apk_listing.apk_version_code})&quot;</span>)
+
+  <span class="ruby-identifier">containing</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">metadata_path</span>, <span class="ruby-identifier">apk_listing</span>.<span class="ruby-identifier">language</span>, <span class="ruby-constant">CHANGELOGS_FOLDER_NAME</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">containing</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">containing</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-node">&quot;#{apk_listing.apk_version_code}.txt&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Writing to #{path}...&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">apk_listing</span>.<span class="ruby-identifier">recent_changes</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_metadata" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_metadata</span><span
+            class="method-args">(listing)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_metadata-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_metadata</span>(<span class="ruby-identifier">listing</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;📝  Downloading metadata (#{listing.language})&quot;</span>)
+
+  <span class="ruby-identifier">containing</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">metadata_path</span>, <span class="ruby-identifier">listing</span>.<span class="ruby-identifier">language</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">containing</span>)
+
+  <span class="ruby-constant">Supply</span><span class="ruby-operator">::</span><span class="ruby-constant">AVAILABLE_METADATA_FIELDS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-node">&quot;#{key}.txt&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Writing to #{path}...&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&#39;w:UTF-8&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">listing</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>)) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-client" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">client</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="client-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">client</span>
+  <span class="ruby-ivar">@client</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Client</span>.<span class="ruby-identifier">make_from_config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-metadata_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">metadata_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="metadata_path-source">
+            <pre><span class="ruby-comment"># File supply/lib/supply/setup.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">metadata_path</span>
+  <span class="ruby-ivar">@metadata_path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Supply</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:metadata_path</span>]
+  <span class="ruby-ivar">@metadata_path</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;fastlane/metadata/android&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">fastlane_enabled?</span>
+  <span class="ruby-ivar">@metadata_path</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;metadata&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">fastlane_enabled?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@metadata_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

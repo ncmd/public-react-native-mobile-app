@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::Shell - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Interface.html">FastlaneCore::Interface</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-command">#command</a>
+    
+    <li ><a href="#method-i-command_output">#command_output</a>
+    
+    <li ><a href="#method-i-confirm">#confirm</a>
+    
+    <li ><a href="#method-i-content_error">#content_error</a>
+    
+    <li ><a href="#method-i-deprecated">#deprecated</a>
+    
+    <li ><a href="#method-i-error">#error</a>
+    
+    <li ><a href="#method-i-format_string">#format_string</a>
+    
+    <li ><a href="#method-i-header">#header</a>
+    
+    <li ><a href="#method-i-important">#important</a>
+    
+    <li ><a href="#method-i-input">#input</a>
+    
+    <li ><a href="#method-i-interactive-3F">#interactive?</a>
+    
+    <li ><a href="#method-i-log">#log</a>
+    
+    <li ><a href="#method-i-message">#message</a>
+    
+    <li ><a href="#method-i-password">#password</a>
+    
+    <li ><a href="#method-i-select">#select</a>
+    
+    <li ><a href="#method-i-success">#success</a>
+    
+    <li ><a href="#method-i-verbose">#verbose</a>
+    
+    <li ><a href="#method-i-verify_interactive-21">#verify_interactive!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::Shell">
+  <h1 id="class-FastlaneCore::Shell" class="class">
+    class FastlaneCore::Shell
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Shell.html">Shell</a> is the terminal output of things For
+documentation for each of the methods open `interface.rb`</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;$ #{message}&quot;</span>.<span class="ruby-identifier">cyan</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_output</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_output-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_output</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">actual</span> = (<span class="ruby-identifier">message</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\r&quot;</span>).<span class="ruby-identifier">last</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-comment"># as clearing the line will remove the `&gt;` and the time stamp</span>
+  <span class="ruby-identifier">actual</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">msg</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_DISABLE_OUTPUT_FORMAT&quot;</span>)
+      <span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">msg</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;▸&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;▸ &quot;</span>
+      <span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">prefix</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">magenta</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-confirm" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">confirm</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="confirm-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">confirm</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">verify_interactive!</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">agree</span>(<span class="ruby-node">&quot;#{format_string}#{message.to_s.yellow} (y/n)&quot;</span>, <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-content_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content_error</span><span
+            class="method-args">(content, error_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="content_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content_error</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">error_line</span>)
+  <span class="ruby-identifier">error_line</span> = <span class="ruby-identifier">error_line</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">error_line</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">contents</span> = <span class="ruby-identifier">content</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\r?\n/</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+
+  <span class="ruby-identifier">start_line</span> = <span class="ruby-identifier">error_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">error_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">end_line</span> = <span class="ruby-identifier">error_line</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">contents</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">error_line</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">contents</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_line</span>, <span class="ruby-identifier">end_line</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">error_line</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot; =&gt; &quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;    &quot;</span>
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">rjust</span>(<span class="ruby-constant">Math</span>.<span class="ruby-identifier">log10</span>(<span class="ruby-identifier">end_line</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;:\t#{contents[line - 1]}&quot;</span>
+    <span class="ruby-identifier">error</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deprecated" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecated</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deprecated-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecated</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">deprecated</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Messaging: show text to the user</p>
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">red</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-format_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_string</span><span
+            class="method-args">(datetime = Time.now, severity = "")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_string-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_string</span>(<span class="ruby-identifier">datetime</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">severity</span> = <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;#{severity} [#{datetime.strftime(&#39;%Y-%m-%d %H:%M:%S.%2N&#39;)}]: &quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_HIDE_TIMESTAMP&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;[#{datetime.strftime(&#39;%H:%M:%S&#39;)}]: &quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">format</span> = <span class="ruby-identifier">format_string</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">8</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">TTY</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;--- #{message} ---&quot;</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">message</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-constant">TTY</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">success</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-important" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">important</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="important-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">important</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">yellow</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-input" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">input</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="input-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">input</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">verify_interactive!</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;#{format_string}#{message.to_s.yellow}&quot;</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interactive-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interactive?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Errors: Inputs</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interactive-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interactive?</span>
+  <span class="ruby-identifier">interactive</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">interactive</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">isatty</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">interactive</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">ci?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">interactive</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-log" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">log</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="log-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">log</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@log</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@log</span>
+
+  <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">ENV</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;DEBUG&#39;</span>)
+    <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Logging disabled while running tests. Force them by setting the DEBUG environment variable&quot;</span>)
+    <span class="ruby-ivar">@log</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>) <span class="ruby-comment"># don&#39;t show any logs when running tests</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@log</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">$stdout</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">formatter</span> = <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">severity</span>, <span class="ruby-identifier">datetime</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-identifier">msg</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;#{format_string(datetime, severity)}#{msg}\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@log</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">message</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="message-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-password" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">password</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="password-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">password</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">verify_interactive!</span>(<span class="ruby-identifier">message</span>)
+
+  <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;#{format_string}#{message.to_s.yellow}&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-string">&quot;*&quot;</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select</span><span
+            class="method-args">(message, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">verify_interactive!</span>(<span class="ruby-identifier">message</span>)
+
+  <span class="ruby-identifier">important</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">choose</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-success" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">success</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="success-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">success</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">green</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verbose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verbose</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verbose-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">log</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-verify_interactive-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_interactive!</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_interactive-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/implementations/shell.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_interactive!</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">interactive?</span>
+  <span class="ruby-identifier">important</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;Could not retrieve response as fastlane runs in non-interactive mode&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

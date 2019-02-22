@@ -84,8 +84,8 @@ class LandingMain extends React.Component {
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <Button onPress={() => Actions.signupmain()} title="Sign up" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                     <Button onPress={() => Actions.loginmain()} title="Log in" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorSecondary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, borderColor: this.props.style[0].BorderColorPrimary, borderWidth: this.props.style[0].ButtonBorderWidthPrimary, marginTop: 10, padding: 5, elevation: 0, backgroundColor: "transparent" }} />
-                    <InvisibleUITestButton title=" " testID="landingsignup" onPress={() => Actions.signupmain()} style={{ height: 0, width: 0 }} />
-                    <InvisibleUITestButton title=" " testID="landinglogin" onPress={() => Actions.loginmain()} style={{ height: 0, width: 0 }} />
+                    <InvisibleUITestButton title=" " accessibilityLabel="landingsignup" testID="landingsignup" onPress={() => Actions.signupmain()} style={{ height: 0, width: 0 }} />
+                    <InvisibleUITestButton title=" " accessibilityLabel="landinglogin" testID="landinglogin" onPress={() => Actions.loginmain()} style={{ height: 0, width: 0 }} />
                 </View>
             </View>
         );

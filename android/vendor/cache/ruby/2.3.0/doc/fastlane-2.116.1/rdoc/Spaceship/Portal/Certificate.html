@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Portal::Certificate - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">PortalBase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-create-21">::create!</a>
+    
+    <li ><a href="#method-c-create_certificate_signing_request">::create_certificate_signing_request</a>
+    
+    <li ><a href="#method-c-factory">::factory</a>
+    
+    <li ><a href="#method-c-find">::find</a>
+    
+    <li ><a href="#method-i-download">#download</a>
+    
+    <li ><a href="#method-i-download_raw">#download_raw</a>
+    
+    <li ><a href="#method-i-is_push-3F">#is_push?</a>
+    
+    <li ><a href="#method-i-mac-3F">#mac?</a>
+    
+    <li ><a href="#method-i-revoke-21">#revoke!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Portal::Certificate">
+  <h1 id="class-Spaceship::Portal::Certificate" class="class">
+    class Spaceship::Portal::Certificate
+  </h1>
+
+  <section class="description">
+    
+<p>Represents a certificate from the Apple Developer <a
+href="../Portal.html">Portal</a>.</p>
+
+<p>This can either be a code signing identity or a push profile</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CERTIFICATE_TYPE_IDS">CERTIFICATE_TYPE_IDS
+        
+        <dd>
+        
+      
+        <dt id="IOS_CERTIFICATE_TYPE_IDS">IOS_CERTIFICATE_TYPE_IDS
+        
+        <dd>
+        
+      
+        <dt id="MAC_CERTIFICATE_TYPE_IDS">MAC_CERTIFICATE_TYPE_IDS
+        
+        <dd>
+        
+      
+        <dt id="OLDER_IOS_CERTIFICATE_TYPES">OLDER_IOS_CERTIFICATE_TYPES
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-can_download" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">can_download</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Bool) Whether or not the certificate can be downloaded</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-created" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">created</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Date) The date and time when the certificate was created @example</p>
+
+<pre>2015-04-01 21:24:00 UTC</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-expires" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expires</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Date) The date and time when the certificate will expire @example</p>
+
+<pre>2016-04-01 21:24:00 UTC</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The ID given from the developer portal. You&#39;ll
+probably not need it. @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;P577TH3PAA&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The name of the certificate @example Company</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;SunApps GmbH&quot;</span>
+</pre>
+
+<p>@example Push Profile</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Apple Push Services&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-owner_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">owner_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The ID of the owner, that can be used to</p>
+
+<pre class="ruby"><span class="ruby-identifier">fetch</span> <span class="ruby-identifier">more</span> <span class="ruby-identifier">information</span>
+</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;75B83SPLAA&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-owner_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">owner_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The name of the owner</p>
+
+<p>@example Code Signing Identity (usually the company name)</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;SunApps Gmbh&quot;</span>
+</pre>
+
+<p>@example Push <a href="Certificate.html">Certificate</a> (the bundle
+identifier)</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;tools.fastlane.app&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-owner_type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">owner_type</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The owner type that defines if it&#39;s a push profile</p>
+
+<pre>or a code signing identity</pre>
+
+<p>@example Code Signing Identity</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;team&quot;</span>
+</pre>
+
+<p>@example Push <a href="Certificate.html">Certificate</a></p>
+
+<pre class="ruby"><span class="ruby-string">&quot;bundle&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-status" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">status</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) Status of the certificate @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Issued&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type_display_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type_display_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Indicates the type of this certificate which is automatically used to
+determine the class of the certificate. Available values listed in <a
+href="Certificate.html#CERTIFICATE_TYPE_IDS">CERTIFICATE_TYPE_IDS</a>
+@return (String) The type of the certificate @example Production <a
+href="Certificate.html">Certificate</a></p>
+
+<pre class="ruby"><span class="ruby-string">&quot;R58UK2EWSO&quot;</span>
+</pre>
+
+<p>@example Development <a href="Certificate.html">Certificate</a></p>
+
+<pre class="ruby"><span class="ruby-string">&quot;5QPB9NHCEI&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">(mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param mac [Bool] Fetches Mac certificates if true. (Ignored if called from
+a subclass) @return (Array) Returns all certificates of this account.</p>
+
+<pre>If this is called from a subclass of Certificate, this will
+only include certificates matching the current type.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Certificate</span> <span class="ruby-comment"># are we the base-class?</span>
+    <span class="ruby-identifier">type_ids</span> = <span class="ruby-identifier">mac</span> <span class="ruby-operator">?</span> <span class="ruby-constant">MAC_CERTIFICATE_TYPE_IDS</span> <span class="ruby-operator">:</span> <span class="ruby-constant">IOS_CERTIFICATE_TYPE_IDS</span>
+    <span class="ruby-identifier">types</span> = <span class="ruby-identifier">type_ids</span>.<span class="ruby-identifier">keys</span>
+    <span class="ruby-identifier">types</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">OLDER_IOS_CERTIFICATE_TYPES</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mac</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">types</span> = [<span class="ruby-constant">CERTIFICATE_TYPE_IDS</span>.<span class="ruby-identifier">key</span>(<span class="ruby-keyword">self</span>)]
+    <span class="ruby-identifier">mac</span> = <span class="ruby-constant">MAC_CERTIFICATE_TYPE_IDS</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">certificates</span>(<span class="ruby-identifier">types</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cert</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">factory</span>(<span class="ruby-identifier">cert</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create!</span><span
+            class="method-args">(csr: nil, bundle_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate a new certificate based on a code certificate signing request
+@param csr (OpenSSL::X509::Request) (required): The certificate signing
+request to use. Get one using</p>
+
+<pre class="ruby"><span class="ruby-value">%x`create_certificate_signing_request`</span>
+</pre>
+
+<p>@param bundle_id (String) (optional): The app identifier this certificate
+is for.</p>
+
+<pre>This value is only needed if you create a push profile. For normal code signing
+certificates, you must only pass a certificate signing request.</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-comment"># Create a new certificate signing request</span>
+<span class="ruby-identifier">csr</span>, <span class="ruby-identifier">pkey</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span>.<span class="ruby-identifier">create_certificate_signing_request</span>
+
+<span class="ruby-comment"># Use the signing request to create a new distribution certificate</span>
+<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">Production</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">csr</span><span class="ruby-operator">:</span> <span class="ruby-identifier">csr</span>)
+</pre>
+
+<p>@return (Certificate): The newly created certificate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create!</span>(<span class="ruby-identifier">csr</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">type</span> = <span class="ruby-constant">CERTIFICATE_TYPE_IDS</span>.<span class="ruby-identifier">key</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">mac</span> = <span class="ruby-constant">MAC_CERTIFICATE_TYPE_IDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>)
+
+  <span class="ruby-comment"># look up the app_id by the bundle_id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">bundle_id</span>
+    <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>.<span class="ruby-identifier">set_client</span>(<span class="ruby-identifier">client</span>).<span class="ruby-identifier">find</span>(<span class="ruby-identifier">bundle_id</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find app with bundle id &#39;#{bundle_id}&#39;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>
+    <span class="ruby-identifier">app_id</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># ensure csr is a OpenSSL::X509::Request</span>
+  <span class="ruby-identifier">csr</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">csr</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-comment"># if this succeeds, we need to save the .cer and the private key in keychain access or wherever they go in linux</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_certificate!</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">to_pem</span>, <span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">mac</span>)
+  <span class="ruby-comment"># munge the response to make it work for the factory</span>
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;certificateTypeDisplayId&#39;</span>] = <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;certificateType&#39;</span>][<span class="ruby-string">&#39;certificateTypeDisplayId&#39;</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create_certificate_signing_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_certificate_signing_request</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new code signing request that can be used to generate a new
+certificate @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Create</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">new</span> <span class="ruby-identifier">certificate</span> <span class="ruby-identifier">signing</span> <span class="ruby-identifier">request</span>
+<span class="ruby-identifier">csr</span>, <span class="ruby-identifier">pkey</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">create_certificate_signing_request</span>
+
+<span class="ruby-comment"># Use the signing request to create a new distribution certificate</span>
+<span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">production</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">csr</span><span class="ruby-operator">:</span> <span class="ruby-identifier">csr</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_certificate_signing_request-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_certificate_signing_request</span>
+  <span class="ruby-identifier">key</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">PKey</span><span class="ruby-operator">::</span><span class="ruby-constant">RSA</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2048</span>)
+  <span class="ruby-identifier">csr</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">version</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">Name</span>.<span class="ruby-identifier">new</span>([
+                                          [<span class="ruby-string">&#39;CN&#39;</span>, <span class="ruby-string">&#39;PEM&#39;</span>, <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">ASN1</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF8STRING</span>]
+                                        ])
+  <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">public_key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">public_key</span>
+  <span class="ruby-identifier">csr</span>.<span class="ruby-identifier">sign</span>(<span class="ruby-identifier">key</span>, <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">csr</span>, <span class="ruby-identifier">key</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-factory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">factory</span><span
+            class="method-args">(attrs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new object based on a hash. This is used to create a new object
+based on the server response.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="factory-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-comment"># Example:</span>
+  <span class="ruby-comment"># =&gt; {&quot;name&quot;=&gt;&quot;iOS Distribution: SunApps GmbH&quot;,</span>
+  <span class="ruby-comment">#  &quot;certificateId&quot;=&gt;&quot;XC5PH8DAAA&quot;,</span>
+  <span class="ruby-comment">#  &quot;serialNumber&quot;=&gt;&quot;797E732CCE8B7AAA&quot;,</span>
+  <span class="ruby-comment">#  &quot;status&quot;=&gt;&quot;Issued&quot;,</span>
+  <span class="ruby-comment">#  &quot;statusCode&quot;=&gt;0,</span>
+  <span class="ruby-comment">#  &quot;expirationDate&quot;=&gt;#&lt;DateTime: 2015-11-25T22:45:50+00:00 ((2457352j,81950s,0n),+0s,2299161j)&gt;,</span>
+  <span class="ruby-comment">#  &quot;certificatePlatform&quot;=&gt;&quot;ios&quot;,</span>
+  <span class="ruby-comment">#  &quot;certificateType&quot;=&gt;</span>
+  <span class="ruby-comment">#   {&quot;certificateTypeDisplayId&quot;=&gt;&quot;R58UK2EAAA&quot;,</span>
+  <span class="ruby-comment">#    &quot;name&quot;=&gt;&quot;iOS Distribution&quot;,</span>
+  <span class="ruby-comment">#    &quot;platform&quot;=&gt;&quot;ios&quot;,</span>
+  <span class="ruby-comment">#    &quot;permissionType&quot;=&gt;&quot;distribution&quot;,</span>
+  <span class="ruby-comment">#    &quot;distributionType&quot;=&gt;&quot;store&quot;,</span>
+  <span class="ruby-comment">#    &quot;distributionMethod&quot;=&gt;&quot;app&quot;,</span>
+  <span class="ruby-comment">#    &quot;ownerType&quot;=&gt;&quot;team&quot;,</span>
+  <span class="ruby-comment">#    &quot;daysOverlap&quot;=&gt;364,</span>
+  <span class="ruby-comment">#    &quot;maxActive&quot;=&gt;2}}</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;certificateType&#39;</span>]
+    <span class="ruby-comment"># On some accounts this is nested, so we need to flatten it</span>
+    <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;certificateType&#39;</span>])
+    <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;certificateType&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Parse the dates</span>
+  <span class="ruby-comment"># rubocop:disable Style/RescueModifier</span>
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;expirationDate&#39;</span>] = (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;expirationDate&#39;</span>]) <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;expirationDate&#39;</span>])
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;dateCreated&#39;</span>] = (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;dateCreated&#39;</span>]) <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;dateCreated&#39;</span>])
+  <span class="ruby-comment"># rubocop:enable Style/RescueModifier</span>
+
+  <span class="ruby-comment"># Here we go</span>
+  <span class="ruby-identifier">klass</span> = <span class="ruby-constant">CERTIFICATE_TYPE_IDS</span>[<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;certificateTypeDisplayId&#39;</span>]]
+  <span class="ruby-identifier">klass</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Certificate</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">client</span> = <span class="ruby-ivar">@client</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(certificate_id, mac: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param mac [Bool] Searches Mac certificates if true @return (Certificate)
+Find a certificate based on the ID of the certificate.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">certificate_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>).<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">certificate_id</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (OpenSSL::X509::Certificate) Downloads and parses the certificate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="download-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download</span>
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">download_raw</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_raw" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_raw</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) Download the raw data of the certificate without parsing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="download_raw-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_raw</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">download_certificate</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">type_display_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_push-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_push?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool): Is this certificate a push profile for apps?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_push-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_push?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">PushCertificate</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool) Is this a Mac profile?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac?</span>
+  <span class="ruby-constant">MAC_CERTIFICATE_TYPE_IDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type_display_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-revoke-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revoke!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Revoke the certificate. You shouldn&#39;t use this method probably.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="revoke-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/certificate.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revoke!</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">revoke_certificate!</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">type_display_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

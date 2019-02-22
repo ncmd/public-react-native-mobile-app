@@ -67,7 +67,7 @@ class SignupMain extends React.Component {
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, height: '20%', justifyContent: 'center', alignItems: 'center' }}>
                     <Button onPress={() => Actions.signupstep1()} title="Continue" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                     <Text style={{fontSize: 12,width:"80%", color:'white', padding:10,  fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }}>Your information is encrypted and securely transmitted using SSL.</Text>
-                    <InvisibleUITestButton title=" " testID="signupback" onPress={() => Actions.landingmain()} style={{ height: 0, width: 0 }} />
+                    <InvisibleUITestButton title=" " accessibilityLabel="signupback" testID="signupback" onPress={() => Actions.landingmain()} style={{ height: 0, width: 0 }} />
                 </View>
             </View>
         );

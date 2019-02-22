@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"status:ETI"-Spaceship::Portal::CloudContainer#status;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I".@return (String) Status of the container ;TI"@example;To:RDoc::Markup::Verbatim;	[I""current";T:@format0:
+@fileI"6spaceship/lib/spaceship/portal/cloud_container.rb;T:0@omit_headings_from_table_of_contents_below0F@I"&Spaceship::Portal::CloudContainer;TcRDoc::NormalClass0

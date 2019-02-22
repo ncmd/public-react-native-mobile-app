@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Snapshot::ReportsGenerator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-available_devices">#available_devices</a>
+    
+    <li ><a href="#method-i-generate">#generate</a>
+    
+    <li ><a href="#method-i-xcode_8_and_below_device_name_mappings">#xcode_8_and_below_device_name_mappings</a>
+    
+    <li ><a href="#method-i-xcode_9_and_above_device_name_mappings">#xcode_9_and_above_device_name_mappings</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Snapshot::ReportsGenerator">
+  <h1 id="class-Snapshot::ReportsGenerator" class="class">
+    class Snapshot::ReportsGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-available_devices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_devices</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_devices-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reports_generator.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_devices</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_at_least?</span>(<span class="ruby-string">&quot;9.0&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">xcode_9_and_above_device_name_mappings</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">xcode_8_and_below_device_name_mappings</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reports_generator.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Generating HTML Report&quot;</span>)
+
+  <span class="ruby-identifier">screens_path</span> = <span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:output_directory</span>]
+
+  <span class="ruby-ivar">@data_by_language</span> = {}
+  <span class="ruby-ivar">@data_by_screen</span> = {}
+
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">screens_path</span>, <span class="ruby-string">&quot;*&quot;</span>)].<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language_folder</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">language</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">language_folder</span>)
+    <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">language_folder</span>, <span class="ruby-string">&#39;*.png&#39;</span>)].<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">screenshot</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">screenshot</span>)
+      <span class="ruby-identifier">available_devices</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key_name</span>, <span class="ruby-identifier">output_name</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">file_name</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key_name</span>)
+        <span class="ruby-comment"># This screenshot is from this device</span>
+
+        <span class="ruby-ivar">@data_by_language</span>[<span class="ruby-identifier">language</span>] <span class="ruby-operator">||=</span> {}
+        <span class="ruby-ivar">@data_by_language</span>[<span class="ruby-identifier">language</span>][<span class="ruby-identifier">output_name</span>] <span class="ruby-operator">||=</span> []
+
+        <span class="ruby-identifier">screen_name</span> = <span class="ruby-identifier">file_name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">key_name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;.png&#39;</span>, <span class="ruby-string">&#39;&#39;</span>)
+        <span class="ruby-ivar">@data_by_screen</span>[<span class="ruby-identifier">screen_name</span>] <span class="ruby-operator">||=</span> {}
+        <span class="ruby-ivar">@data_by_screen</span>[<span class="ruby-identifier">screen_name</span>][<span class="ruby-identifier">output_name</span>] <span class="ruby-operator">||=</span> {}
+
+        <span class="ruby-identifier">resulting_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">file_name</span>)
+        <span class="ruby-ivar">@data_by_language</span>[<span class="ruby-identifier">language</span>][<span class="ruby-identifier">output_name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">resulting_path</span>
+        <span class="ruby-ivar">@data_by_screen</span>[<span class="ruby-identifier">screen_name</span>][<span class="ruby-identifier">output_name</span>][<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">resulting_path</span>
+        <span class="ruby-keyword">break</span> <span class="ruby-comment"># to not include iPhone 6 and 6 Plus (name is contained in the other name)</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">html_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Snapshot</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;lib&quot;</span>, <span class="ruby-string">&quot;snapshot/page.html.erb&quot;</span>)
+  <span class="ruby-identifier">html</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">html_path</span>)).<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>) <span class="ruby-comment"># https://web.archive.org/web/20160430190141/www.rrn.dk/rubys-erb-templating-system</span>
+
+  <span class="ruby-identifier">export_path</span> = <span class="ruby-node">&quot;#{screens_path}/screenshots.html&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">export_path</span>, <span class="ruby-identifier">html</span>)
+
+  <span class="ruby-identifier">export_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">export_path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully created HTML file with an overview of all the screenshots: &#39;#{export_path}&#39;&quot;</span>)
+  <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;open &#39;#{export_path}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:skip_open_summary</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xcode_8_and_below_device_name_mappings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_8_and_below_device_name_mappings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_8_and_below_device_name_mappings-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reports_generator.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xcode_8_and_below_device_name_mappings</span>
+  <span class="ruby-comment"># The order IS important, since those names are used to check for include?</span>
+  <span class="ruby-comment"># and the iPhone 6 is included in the iPhone 6 Plus</span>
+  {
+    <span class="ruby-string">&#39;AppleTV1080p&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Apple TV&#39;</span>,
+    <span class="ruby-string">&#39;iPhone7Plus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone7Plus (5.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone7&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone7 (4.7-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone6sPlus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone6sPlus (5.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone6Plus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone6Plus (5.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone6s&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone6s (4.7-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone6&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone6 (4.7-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone5&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone5 (4-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone4&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone4 (3.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhoneSE&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone SE&quot;</span>,
+    <span class="ruby-string">&#39;iPad2&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPad2&quot;</span>,
+    <span class="ruby-string">&#39;iPadAir2&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Air 2&#39;</span>,
+    <span class="ruby-string">&#39;iPadPro(12.9-inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Air Pro (12.9-inch)&#39;</span>,
+    <span class="ruby-string">&#39;iPadPro(9.7-inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Air Pro (9.7-inch)&#39;</span>,
+    <span class="ruby-string">&#39;iPadPro(9.7inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPad Pro (9.7-inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPadPro(12.9inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPad Pro (12.9-inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPadPro&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPad Pro&quot;</span>,
+    <span class="ruby-string">&#39;iPad&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPad&quot;</span>,
+    <span class="ruby-string">&#39;Mac&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Mac&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xcode_9_and_above_device_name_mappings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_9_and_above_device_name_mappings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_9_and_above_device_name_mappings-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/reports_generator.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xcode_9_and_above_device_name_mappings</span>
+  {
+    <span class="ruby-comment"># snapshot in Xcode 9 saves screenshots with the SIMULATOR_DEVICE_NAME</span>
+    <span class="ruby-comment"># which includes spaces</span>
+    <span class="ruby-string">&#39;iPhone XS Max&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone XS Max&quot;</span>,
+    <span class="ruby-string">&#39;iPhone XS&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone XS&quot;</span>,
+    <span class="ruby-string">&#39;iPhone XR&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone XR&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 8 Plus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 8 Plus&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 8&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 8&quot;</span>,
+    <span class="ruby-string">&#39;iPhone X&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone X&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 7 Plus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 7 Plus (5.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 7&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 7 (4.7-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 6s Plus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 6s Plus (5.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 6 Plus&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 6 Plus (5.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 6s&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 6s (4.7-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 6&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 6 (4.7-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 5s&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 5s (4-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 5&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 5 (4-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPhone SE&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone SE&quot;</span>,
+    <span class="ruby-string">&#39;iPhone 4s&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;iPhone 4s (3.5-Inch)&quot;</span>,
+    <span class="ruby-string">&#39;iPad 2&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad 2&#39;</span>,
+    <span class="ruby-string">&#39;iPad Air 2&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Air 2&#39;</span>,
+    <span class="ruby-string">&#39;iPad Air&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Air&#39;</span>,
+    <span class="ruby-string">&#39;iPad (5th generation)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad (5th generation)&#39;</span>,
+    <span class="ruby-string">&#39;iPad Pro (9.7-inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (9.7-inch)&#39;</span>,
+    <span class="ruby-string">&#39;iPad Pro (9.7 inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (9.7-inch)&#39;</span>, <span class="ruby-comment"># iOS 10.3.1 simulator</span>
+    <span class="ruby-string">&#39;iPad Pro (10.5-inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (10.5-inch)&#39;</span>,
+    <span class="ruby-string">&#39;iPad Pro (11-inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (11-inch)&#39;</span>,
+    <span class="ruby-string">&#39;iPad Pro (12.9-inch) (2nd generation)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (12.9-inch) (2nd generation)&#39;</span>,
+    <span class="ruby-string">&#39;iPad Pro (12.9-inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (12.9-inch)&#39;</span>,
+    <span class="ruby-string">&#39;iPad Pro (12.9 inch)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (12.9-inch)&#39;</span>, <span class="ruby-comment"># iOS 10.3.1 simulator</span>
+    <span class="ruby-string">&#39;iPad Pro&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;iPad Pro (12.9-inch)&#39;</span>, <span class="ruby-comment"># iOS 9.3 simulator</span>
+    <span class="ruby-string">&#39;Apple TV 1080p&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Apple TV&#39;</span>,
+    <span class="ruby-string">&#39;Apple TV 4K (at 1080p)&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Apple TV 4K (at 1080p)&#39;</span>,
+    <span class="ruby-string">&#39;Apple TV 4K&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Apple TV 4K&#39;</span>,
+    <span class="ruby-string">&#39;Apple TV&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Apple TV&#39;</span>,
+    <span class="ruby-string">&#39;Mac&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Mac&#39;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

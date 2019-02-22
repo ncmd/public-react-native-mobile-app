@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"region:ETI"'Spaceship::Tunes::Territory#region;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"\@return (String) The region (e.g. "The United States and Canada" for the United States);T:
+@fileI"/spaceship/lib/spaceship/tunes/territory.rb;T:0@omit_headings_from_table_of_contents_below0F@I" Spaceship::Tunes::Territory;TcRDoc::NormalClass0

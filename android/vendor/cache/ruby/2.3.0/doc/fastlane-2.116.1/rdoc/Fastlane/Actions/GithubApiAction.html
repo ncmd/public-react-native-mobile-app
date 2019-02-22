@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Actions::GithubApiAction - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Action.html">Fastlane::Action</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-authors">::authors</a>
+    
+    <li ><a href="#method-c-available_options">::available_options</a>
+    
+    <li ><a href="#method-c-call_endpoint">::call_endpoint</a>
+    
+    <li ><a href="#method-c-category">::category</a>
+    
+    <li ><a href="#method-c-construct_body">::construct_body</a>
+    
+    <li ><a href="#method-c-construct_headers">::construct_headers</a>
+    
+    <li ><a href="#method-c-construct_url">::construct_url</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-details">::details</a>
+    
+    <li ><a href="#method-c-example_code">::example_code</a>
+    
+    <li ><a href="#method-c-is_supported-3F">::is_supported?</a>
+    
+    <li ><a href="#method-c-output">::output</a>
+    
+    <li ><a href="#method-c-parse_json">::parse_json</a>
+    
+    <li ><a href="#method-c-return_value">::return_value</a>
+    
+    <li ><a href="#method-c-run">::run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Actions::GithubApiAction">
+  <h1 id="class-Fastlane::Actions::GithubApiAction" class="class">
+    class Fastlane::Actions::GithubApiAction
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">authors</span>
+  [<span class="ruby-string">&quot;tommeier&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_options-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_options</span>
+  [
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:server_url</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_SERVER_URL&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The server url. e.g. &#39;https://your.internal.github.host/api/v3&#39; (Default: &#39;https://api.github.com&#39;)&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;https://api.github.com&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please include the protocol in the server url, e.g. https://your.github.server/api/v3&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;//&quot;</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:api_token</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_TOKEN&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Personal API Token for GitHub - generate one at https://github.com/settings/tokens&quot;</span>,
+                                 <span class="ruby-identifier">sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">code_gen_sensitive</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;GITHUB_API_TOKEN&quot;</span>],
+                                 <span class="ruby-identifier">default_value_dynamic</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:http_method</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_HTTP_METHOD&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The HTTP method. e.g. GET / POST&quot;</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;GET&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-keyword">unless</span> <span class="ruby-node">%w(GET POST PUT DELETE HEAD CONNECT PATCH)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>)
+                                     <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Unrecognised HTTP method&quot;</span>)
+                                   <span class="ruby-keyword">end</span>
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:body</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_REQUEST_BODY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The request body in JSON or hash format&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> {},
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:raw_body</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_REQUEST_RAW_BODY&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The request body taken vertabim instead of as JSON, useful for file uploads&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:path</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_PATH&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The endpoint path. e.g. &#39;/repos/:owner/:repo/readme&#39;&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:url</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_URL&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The complete full url - used instead of path. e.g. &#39;https://uploads.github.com/repos/fastlane...&#39;&quot;</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">verify_block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                                   <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please include the protocol in the url, e.g. https://uploads.github.com&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;//&quot;</span>)
+                                 <span class="ruby-keyword">end</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:error_handlers</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Optional error handling hash based on status code, or pass &#39;*&#39; to handle all errors&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> {},
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:headers</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Optional headers to apply&quot;</span>,
+                                 <span class="ruby-identifier">is_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> {},
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>),
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-value">:secure</span>,
+                                 <span class="ruby-identifier">env_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;FL_GITHUB_API_SECURE&quot;</span>,
+                                 <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Optionally disable secure requests (ssl_verify_peer)&quot;</span>,
+                                 <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-constant">Boolean</span>,
+                                 <span class="ruby-identifier">default_value</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                 <span class="ruby-identifier">optional</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-category" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">category</span>
+  <span class="ruby-value">:source_control</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Documentation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>
+  <span class="ruby-string">&quot;Call a GitHub API endpoint and get the resulting JSON response&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="details-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">details</span>
+  [
+    <span class="ruby-string">&quot;Calls any GitHub API endpoint. You must provide your GitHub Personal token (get one from [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)).&quot;</span>,
+    <span class="ruby-string">&quot;Out parameters provide the status code and the full response JSON if valid, otherwise the raw response body.&quot;</span>,
+    <span class="ruby-string">&quot;Documentation: [https://developer.github.com/v3](https://developer.github.com/v3).&quot;</span>
+  ].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-example_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_code-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">example_code</span>
+  [
+    <span class="ruby-string">&#39;result = github_api(
+    server_url: &quot;https://api.github.com&quot;,
+    api_token: ENV[&quot;GITHUB_TOKEN&quot;],
+    http_method: &quot;GET&quot;,
+    path: &quot;/repos/:owner/:repo/readme&quot;,
+    body: { ref: &quot;master&quot; }
+  )&#39;</span>,
+    <span class="ruby-string">&#39;# Alternatively call directly with optional error handling or block usage
+    GithubApiAction.run(
+      server_url: &quot;https://api.github.com&quot;,
+      api_token: ENV[&quot;GITHUB_TOKEN&quot;],
+      http_method: &quot;GET&quot;,
+      path: &quot;/repos/:owner/:repo/readme&quot;,
+      error_handlers: {
+        404 =&gt; proc do |result|
+          UI.message(&quot;Something went wrong - I couldn\t find it...&quot;)
+        end,
+        \*\ =&gt; proc do |result|
+          UI.message(&quot;Handle all error codes other than 404&quot;)
+        end
+      }
+    ) do |result|
+      UI.message(&quot;JSON returned: #{result[:json]}&quot;)
+    end
+  &#39;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_supported?</span><span
+            class="method-args">(platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_supported-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_supported?</span>(<span class="ruby-identifier">platform</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">output</span>
+  [
+    [<span class="ruby-string">&#39;GITHUB_API_STATUS_CODE&#39;</span>, <span class="ruby-string">&#39;The status code returned from the request&#39;</span>],
+    [<span class="ruby-string">&#39;GITHUB_API_RESPONSE&#39;</span>, <span class="ruby-string">&#39;The full response body&#39;</span>],
+    [<span class="ruby-string">&#39;GITHUB_API_JSON&#39;</span>, <span class="ruby-string">&#39;The parsed json returned from GitHub&#39;</span>]
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-return_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">return_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="return_value-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">return_value</span>
+  <span class="ruby-string">&quot;A hash including the HTTP status code (:status), the response body (:body), and if valid JSON has been returned the parsed JSON (:json).&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params) { |result| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json&#39;</span>
+
+  <span class="ruby-identifier">http_method</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-value">:http_method</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;GET&#39;</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">construct_url</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:server_url</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:path</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:url</span>])
+  <span class="ruby-identifier">headers</span> = <span class="ruby-identifier">construct_headers</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:api_token</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:headers</span>])
+  <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">construct_body</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:body</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:raw_body</span>])
+  <span class="ruby-identifier">error_handlers</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:error_handlers</span>] <span class="ruby-operator">||</span> {}
+  <span class="ruby-identifier">secure</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:secure</span>]
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">call_endpoint</span>(
+    <span class="ruby-identifier">url</span>,
+    <span class="ruby-identifier">http_method</span>,
+    <span class="ruby-identifier">headers</span>,
+    <span class="ruby-identifier">payload</span>,
+    <span class="ruby-identifier">secure</span>
+  )
+
+  <span class="ruby-identifier">status_code</span> = <span class="ruby-identifier">response</span>[<span class="ruby-value">:status</span>]
+  <span class="ruby-identifier">result</span> = {
+    <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status_code</span>,
+    <span class="ruby-identifier">body</span><span class="ruby-operator">:</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>,
+    <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">parse_json</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>) <span class="ruby-operator">||</span> {}
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">status_code</span>.<span class="ruby-identifier">between?</span>(<span class="ruby-value">200</span>, <span class="ruby-value">299</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Response:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;---&quot;</span>)
+    <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">handled_error</span> = <span class="ruby-identifier">error_handlers</span>[<span class="ruby-identifier">status_code</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">error_handlers</span>[<span class="ruby-string">&#39;*&#39;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">handled_error</span>
+      <span class="ruby-identifier">handled_error</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;---&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Request failed:\n#{http_method}: #{url}&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Headers:\n#{headers}&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;---&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Response:&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;GitHub responded with #{status_code}\n---\n#{response.body}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">GITHUB_API_STATUS_CODE</span>] = <span class="ruby-identifier">result</span>[<span class="ruby-value">:status</span>]
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">GITHUB_API_RESPONSE</span>] = <span class="ruby-identifier">result</span>[<span class="ruby-value">:body</span>]
+  <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">GITHUB_API_JSON</span>] = <span class="ruby-identifier">result</span>[<span class="ruby-value">:json</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-call_endpoint" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_endpoint</span><span
+            class="method-args">(url, http_method, headers, body, secure)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call_endpoint-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call_endpoint</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">http_method</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">secure</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;excon&#39;</span>
+
+  <span class="ruby-constant">Excon</span>.<span class="ruby-identifier">defaults</span>[<span class="ruby-value">:ssl_verify_peer</span>] = <span class="ruby-identifier">secure</span>
+  <span class="ruby-identifier">middlewares</span> = <span class="ruby-constant">Excon</span>.<span class="ruby-identifier">defaults</span>[<span class="ruby-value">:middlewares</span>] <span class="ruby-operator">+</span> [<span class="ruby-constant">Excon</span><span class="ruby-operator">::</span><span class="ruby-constant">Middleware</span><span class="ruby-operator">::</span><span class="ruby-constant">RedirectFollower</span>] <span class="ruby-comment"># allow redirect in case of repo renames</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;#{http_method} : #{url}&quot;</span>)
+
+  <span class="ruby-identifier">connection</span> = <span class="ruby-constant">Excon</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">request</span>(
+    <span class="ruby-identifier">method</span><span class="ruby-operator">:</span> <span class="ruby-identifier">http_method</span>,
+    <span class="ruby-identifier">headers</span><span class="ruby-operator">:</span> <span class="ruby-identifier">headers</span>,
+    <span class="ruby-identifier">middlewares</span><span class="ruby-operator">:</span> <span class="ruby-identifier">middlewares</span>,
+    <span class="ruby-identifier">body</span><span class="ruby-operator">:</span> <span class="ruby-identifier">body</span>,
+    <span class="ruby-identifier">debug_request</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>,
+    <span class="ruby-identifier">debug_response</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-construct_body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">construct_body</span><span
+            class="method-args">(body, raw_body)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="construct_body-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">construct_body</span>(<span class="ruby-identifier">body</span>, <span class="ruby-identifier">raw_body</span>)
+  <span class="ruby-identifier">body</span> <span class="ruby-operator">||=</span> {}
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_body</span>
+    <span class="ruby-identifier">raw_body</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_json</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_json</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please provide valid JSON, or a hash as request body&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parse_json</span>(<span class="ruby-identifier">body</span>)
+    <span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-construct_headers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">construct_headers</span><span
+            class="method-args">(api_token, overrides)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="construct_headers-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">construct_headers</span>(<span class="ruby-identifier">api_token</span>, <span class="ruby-identifier">overrides</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;base64&#39;</span>
+  <span class="ruby-identifier">headers</span> = { <span class="ruby-string">&#39;User-Agent&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;fastlane-github_api&#39;</span> }
+  <span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Authorization&#39;</span>] = <span class="ruby-node">&quot;Basic #{Base64.strict_encode64(api_token)}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">api_token</span>
+  <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">overrides</span> <span class="ruby-operator">||</span> {})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-construct_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">construct_url</span><span
+            class="method-args">(server_url, path, url)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="construct_url-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">construct_url</span>(<span class="ruby-identifier">server_url</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">return_url</span> = (<span class="ruby-identifier">server_url</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">path</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">server_url</span>, <span class="ruby-identifier">path</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">url</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please provide either `server_url` (e.g. https://api.github.com) and &#39;path&#39; or full &#39;url&#39; for GitHub API endpoint&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">return_url</span>
+
+  <span class="ruby-identifier">return_url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_json</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_json-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/actions/github_api.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_json</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

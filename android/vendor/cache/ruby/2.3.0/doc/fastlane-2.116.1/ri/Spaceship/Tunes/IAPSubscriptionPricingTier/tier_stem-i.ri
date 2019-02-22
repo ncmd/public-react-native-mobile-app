@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"tier_stem:ETI";Spaceship::Tunes::IAPSubscriptionPricingTier#tier_stem;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"R@return (String) Number of the subscription price tier (e.g. "1" for Tier 1 );T:
+@fileI"Cspaceship/lib/spaceship/tunes/iap_subscription_pricing_tier.rb;T:0@omit_headings_from_table_of_contents_below0F@I"1Spaceship::Tunes::IAPSubscriptionPricingTier;TcRDoc::NormalClass0

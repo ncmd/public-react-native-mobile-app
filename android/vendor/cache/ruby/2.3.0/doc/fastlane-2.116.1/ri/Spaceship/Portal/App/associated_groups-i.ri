@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"associated_groups:ETI"-Spaceship::Portal::App#associated_groups;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"E@return (Array of Spaceship::Portal::AppGroup) Associated groups;T:
+@fileI"*spaceship/lib/spaceship/portal/app.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::App;TcRDoc::NormalClass0

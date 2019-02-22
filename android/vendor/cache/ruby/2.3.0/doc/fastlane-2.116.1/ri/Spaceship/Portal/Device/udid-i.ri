@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	udid:ETI"#Spaceship::Portal::Device#udid;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"-@return (String) The UDID of the device ;TI"@example;To:RDoc::Markup::Verbatim;	[I"/"4c24a7ee5caaa4847f49aaab2d87483053f53b65";T:@format0:
+@fileI"-spaceship/lib/spaceship/portal/device.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::Device;TcRDoc::NormalClass0

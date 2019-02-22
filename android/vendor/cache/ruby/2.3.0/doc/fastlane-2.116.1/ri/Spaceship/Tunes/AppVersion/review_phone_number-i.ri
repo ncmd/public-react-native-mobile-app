@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"review_phone_number:ETI"5Spaceship::Tunes::AppVersion#review_phone_number;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9@return (String) App Review Information Phone Number;T:
+@fileI"1spaceship/lib/spaceship/tunes/app_version.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppVersion;TcRDoc::NormalClass0

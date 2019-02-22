@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Frameit::Editor - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-actual_font_size">#actual_font_size</a>
+    
+    <li ><a href="#method-i-build_text_images">#build_text_images</a>
+    
+    <li ><a href="#method-i-complex_framing">#complex_framing</a>
+    
+    <li ><a href="#method-i-device_top">#device_top</a>
+    
+    <li ><a href="#method-i-effective_text_height">#effective_text_height</a>
+    
+    <li ><a href="#method-i-fetch_config">#fetch_config</a>
+    
+    <li ><a href="#method-i-fetch_frame_color">#fetch_frame_color</a>
+    
+    <li ><a href="#method-i-fetch_text">#fetch_text</a>
+    
+    <li ><a href="#method-i-font">#font</a>
+    
+    <li ><a href="#method-i-frame-21">#frame!</a>
+    
+    <li ><a href="#method-i-generate_background">#generate_background</a>
+    
+    <li ><a href="#method-i-horizontal_frame_padding">#horizontal_frame_padding</a>
+    
+    <li ><a href="#method-i-is_complex_framing_mode-3F">#is_complex_framing_mode?</a>
+    
+    <li ><a href="#method-i-keyword_padding">#keyword_padding</a>
+    
+    <li ><a href="#method-i-load_frame">#load_frame</a>
+    
+    <li ><a href="#method-i-modify_offset">#modify_offset</a>
+    
+    <li ><a href="#method-i-offset">#offset</a>
+    
+    <li ><a href="#method-i-prepare_image">#prepare_image</a>
+    
+    <li ><a href="#method-i-put_device_into_background">#put_device_into_background</a>
+    
+    <li ><a href="#method-i-put_into_frame">#put_into_frame</a>
+    
+    <li ><a href="#method-i-put_title_into_background">#put_title_into_background</a>
+    
+    <li ><a href="#method-i-put_title_into_background_stacked">#put_title_into_background_stacked</a>
+    
+    <li ><a href="#method-i-resize_frame-21">#resize_frame!</a>
+    
+    <li ><a href="#method-i-resize_text">#resize_text</a>
+    
+    <li ><a href="#method-i-rotation_for_device_orientation">#rotation_for_device_orientation</a>
+    
+    <li ><a href="#method-i-scale_padding">#scale_padding</a>
+    
+    <li ><a href="#method-i-should_skip-3F">#should_skip?</a>
+    
+    <li ><a href="#method-i-store_result">#store_result</a>
+    
+    <li ><a href="#method-i-title_below_image">#title_below_image</a>
+    
+    <li ><a href="#method-i-title_min_height">#title_min_height</a>
+    
+    <li ><a href="#method-i-vertical_frame_padding">#vertical_frame_padding</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Frameit::Editor">
+  <h1 id="class-Frameit::Editor" class="class">
+    class Frameit::Editor
+  </h1>
+
+  <section class="description">
+    
+<p>Currently the class is 2 lines too long. Reevaluate refactoring when
+it&#39;s length changes significantly</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-debug_mode" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">debug_mode</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-frame" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">frame</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-frame_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">frame_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-image" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">image</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-screenshot" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">screenshot</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-space_to_device" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">space_to_device</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(screenshot, debug_mode = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">screenshot</span>, <span class="ruby-identifier">debug_mode</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@screenshot</span> = <span class="ruby-identifier">screenshot</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">debug_mode</span> = <span class="ruby-identifier">debug_mode</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-frame-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">frame!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="frame-21-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frame!</span>
+  <span class="ruby-identifier">prepare_image</span>
+
+  <span class="ruby-ivar">@frame_path</span> = <span class="ruby-identifier">load_frame</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@frame_path</span> <span class="ruby-comment"># Mac doesn&#39;t need a frame</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">frame</span> = <span class="ruby-constant">MiniMagick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@frame_path</span>)
+    <span class="ruby-comment"># Rotate the frame according to the device orientation</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">frame</span>.<span class="ruby-identifier">rotate</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">rotation_for_device_orientation</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Editor</span>
+    <span class="ruby-comment"># Couldn&#39;t find device frame (probably an iPhone 4, for which there are no images available any more)</span>
+    <span class="ruby-comment"># Message is already shown elsewhere</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_complex_framing_mode?</span>
+    <span class="ruby-ivar">@image</span> = <span class="ruby-identifier">complex_framing</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># easy mode from 1.0 - no title or background</span>
+    <span class="ruby-identifier">put_into_frame</span> <span class="ruby-comment"># put it in the frame</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">store_result</span> <span class="ruby-comment"># write to file system</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_frame" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_frame</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_frame-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_frame</span>
+  <span class="ruby-identifier">color</span> = <span class="ruby-identifier">fetch_frame_color</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">color</span>
+    <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">color</span> = <span class="ruby-identifier">color</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">TemplateFinder</span>.<span class="ruby-identifier">get_template</span>(<span class="ruby-identifier">screenshot</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare_image" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_image</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_image-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_image</span>
+  <span class="ruby-ivar">@image</span> = <span class="ruby-constant">MiniMagick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rotation_for_device_orientation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rotation_for_device_orientation</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rotation_for_device_orientation-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rotation_for_device_orientation</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">90</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">landscape_right?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">-90</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">landscape_left?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_skip-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_skip?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_skip-3F-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_skip?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">is_complex_framing_mode?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">fetch_text</span>(<span class="ruby-value">:title</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-actual_font_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actual_font_size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actual_font_size-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actual_font_size</span>
+  <span class="ruby-identifier">font_scale_factor</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;font_scale_factor&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0.1</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Parameter &#39;font_scale_factor&#39; can not be 0. Please provide a value larger than 0.0 (default = 0.1).&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">font_scale_factor</span> <span class="ruby-operator">==</span> <span class="ruby-value">0.0</span>
+  [<span class="ruby-ivar">@image</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">font_scale_factor</span>].<span class="ruby-identifier">max</span>.<span class="ruby-identifier">round</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_text_images" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_text_images</span><span
+            class="method-args">(max_width, max_height, stack_title)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This will build up to 2 individual images with the title and optional
+keyword, which will then be added to the real image</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_text_images-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_text_images</span>(<span class="ruby-identifier">max_width</span>, <span class="ruby-identifier">max_height</span>, <span class="ruby-identifier">stack_title</span>)
+  <span class="ruby-identifier">words</span> = [<span class="ruby-value">:keyword</span>, <span class="ruby-value">:title</span>].<span class="ruby-identifier">keep_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fetch_text</span>(<span class="ruby-identifier">a</span>) } <span class="ruby-comment"># optional keyword/title</span>
+  <span class="ruby-identifier">results</span> = {}
+  <span class="ruby-identifier">trim_boxes</span> = {}
+  <span class="ruby-identifier">top_vertical_trim_offset</span> = <span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">INFINITY</span> <span class="ruby-comment"># Init at a large value, as the code will search for a minimal value.</span>
+  <span class="ruby-identifier">bottom_vertical_trim_offset</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Create empty background</span>
+    <span class="ruby-identifier">empty_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Frameit</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;lib/assets/empty.png&quot;</span>)
+    <span class="ruby-identifier">text_image</span> = <span class="ruby-constant">MiniMagick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">empty_path</span>)
+    <span class="ruby-identifier">image_height</span> = <span class="ruby-identifier">max_height</span> <span class="ruby-comment"># gets trimmed afterwards anyway, and on the iPad the `y` would get cut</span>
+    <span class="ruby-identifier">text_image</span>.<span class="ruby-identifier">combine_options</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Oversize as the text might be larger than the actual image. We&#39;re trimming afterwards anyway</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{max_width * 5.0}x#{image_height}!&quot;</span>) <span class="ruby-comment"># `!` says it should ignore the ratio</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">current_font</span> = <span class="ruby-identifier">font</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">text</span> = <span class="ruby-identifier">fetch_text</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Using #{current_font} as font the #{key} of #{screenshot.path}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_font</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Adding text &#39;#{text}&#39;&quot;</span>)
+
+    <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&#39;\n&#39;</span>, <span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/(?&lt;!\)(&#39;)/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;\\#{s}&quot;</span> } <span class="ruby-comment"># escape unescaped apostrophes with a backslash</span>
+
+    <span class="ruby-identifier">interline_spacing</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;interline_spacing&#39;</span>]
+
+    <span class="ruby-comment"># Add the actual title</span>
+    <span class="ruby-identifier">text_image</span>.<span class="ruby-identifier">combine_options</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">font</span>(<span class="ruby-identifier">current_font</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_font</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">gravity</span>(<span class="ruby-string">&quot;Center&quot;</span>)
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">pointsize</span>(<span class="ruby-identifier">actual_font_size</span>)
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">draw</span>(<span class="ruby-node">&quot;text 0,0 &#39;#{text}&#39;&quot;</span>)
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">interline_spacing</span>(<span class="ruby-identifier">interline_spacing</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">interline_spacing</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">fill</span>(<span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-string">&#39;color&#39;</span>])
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">results</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">text_image</span>
+
+    <span class="ruby-comment"># Natively trimming the image with .trim will result in the loss of the common baseline between the text in all images when side-by-side (e.g. stack_title is false).</span>
+    <span class="ruby-comment"># Hence retrieve the calculated trim bounding box without actually trimming:</span>
+    <span class="ruby-identifier">calculated_trim_box</span> = <span class="ruby-identifier">text_image</span>.<span class="ruby-identifier">identify</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">b</span>.<span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%@&quot;</span>) <span class="ruby-comment"># CALCULATED: trim bounding box (without actually trimming), see: http://www.imagemagick.org/script/escape.php</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Create a Trimbox object from the MiniMagick .identify string with syntax &quot;&lt;width&gt;x&lt;height&gt;+&lt;offset_x&gt;+&lt;offset_y&gt;&quot;:</span>
+    <span class="ruby-identifier">trim_box</span> = <span class="ruby-constant">Frameit</span><span class="ruby-operator">::</span><span class="ruby-constant">Trimbox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">calculated_trim_box</span>)
+
+    <span class="ruby-comment"># Get the minimum top offset of the trim box:</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">top_vertical_trim_offset</span>
+      <span class="ruby-identifier">top_vertical_trim_offset</span> = <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Get the maximum bottom offset of the trim box, this is the top offset + height:</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">height</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">bottom_vertical_trim_offset</span>
+      <span class="ruby-identifier">bottom_vertical_trim_offset</span> = <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">height</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Store for the crop action:</span>
+    <span class="ruby-identifier">trim_boxes</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">trim_box</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Crop text images:</span>
+  <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Get matching trim box:</span>
+    <span class="ruby-identifier">trim_box</span> = <span class="ruby-identifier">trim_boxes</span>[<span class="ruby-identifier">key</span>]
+
+    <span class="ruby-comment"># For side-by-side text images (e.g. stack_title is false) adjust the trim box based on top_vertical_trim_offset and bottom_vertical_trim_offset to maintain the text baseline:</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">stack_title</span>
+      <span class="ruby-comment"># Determine the trim area by maintaining the same vertical top offset based on the smallest value from all trim boxes (top_vertical_trim_offset).</span>
+      <span class="ruby-comment"># When the vertical top offset is larger than the smallest vertical top offset, the trim box needs to be adjusted:</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">top_vertical_trim_offset</span>
+        <span class="ruby-comment"># Increase the height of the trim box with the difference in vertical top offset:</span>
+        <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">top_vertical_trim_offset</span>
+        <span class="ruby-comment"># Change the vertical top offset to match that of the others:</span>
+        <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> = <span class="ruby-identifier">top_vertical_trim_offset</span>
+
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Trim box for key \&quot;#{key}\&quot; is adjusted to align top: #{trim_box}\n&quot;</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Check if the height needs to be adjusted to reach the bottom offset:</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">height</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">bottom_vertical_trim_offset</span>
+        <span class="ruby-comment"># Set the height of the trim box to the difference between vertical bottom and top offset:</span>
+        <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">height</span> = <span class="ruby-identifier">bottom_vertical_trim_offset</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">offset_y</span>
+
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Trim box for key \&quot;#{key}\&quot; is adjusted to align bottom: #{trim_box}\n&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Crop image with (adjusted) trim box parameters in MiniMagick string format:</span>
+    <span class="ruby-identifier">results</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">crop</span>(<span class="ruby-identifier">trim_box</span>.<span class="ruby-identifier">string_format</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">results</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-complex_framing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">complex_framing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>more complex mode: background, frame and title</p>
+          
+          
+
+          
+          <div class="method-source-code" id="complex_framing-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">complex_framing</span>
+  <span class="ruby-identifier">background</span> = <span class="ruby-identifier">generate_background</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">space_to_device</span> = <span class="ruby-identifier">vertical_frame_padding</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;title&#39;</span>]
+    <span class="ruby-identifier">background</span> = <span class="ruby-identifier">put_title_into_background</span>(<span class="ruby-identifier">background</span>, <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;stack_title&#39;</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">frame</span> <span class="ruby-comment"># we have no frame on le mac</span>
+    <span class="ruby-identifier">resize_frame!</span>
+    <span class="ruby-identifier">put_into_frame</span>
+
+    <span class="ruby-comment"># Decrease the size of the framed screenshot to fit into the defined padding + background</span>
+    <span class="ruby-identifier">frame_width</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">horizontal_frame_padding</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">frame_height</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">effective_text_height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">vertical_frame_padding</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;show_complete_frame&#39;</span>]
+      <span class="ruby-comment"># calculate the final size of the screenshot to resize in one go</span>
+      <span class="ruby-comment"># it may be limited either by the width or height of the frame</span>
+      <span class="ruby-identifier">image_aspect_ratio</span> = <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span>
+      <span class="ruby-identifier">image_width</span> = [<span class="ruby-identifier">frame_width</span>, <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">width</span>].<span class="ruby-identifier">min</span>
+      <span class="ruby-identifier">image_height</span> = [<span class="ruby-identifier">frame_height</span>, <span class="ruby-identifier">image_width</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">image_aspect_ratio</span>].<span class="ruby-identifier">min</span>
+      <span class="ruby-identifier">image_width</span> = <span class="ruby-identifier">image_height</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">image_aspect_ratio</span>
+      <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{image_width}x#{image_height}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">image_width</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">image_height</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">height</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># the screenshot size is only limited by width.</span>
+      <span class="ruby-comment"># If higher than the frame, the screenshot is cut off at the bottom</span>
+      <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{frame_width}x&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">frame_width</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">width</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@image</span> = <span class="ruby-identifier">put_device_into_background</span>(<span class="ruby-identifier">background</span>)
+
+  <span class="ruby-identifier">image</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-device_top" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">device_top</span><span
+            class="method-args">(background)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="device_top-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">device_top</span>(<span class="ruby-identifier">background</span>)
+  <span class="ruby-ivar">@device_top</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">title_below_image</span>
+      <span class="ruby-identifier">background</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">effective_text_height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">height</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">effective_text_height</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-effective_text_height" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">effective_text_height</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="effective_text_height-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">effective_text_height</span>
+  [<span class="ruby-identifier">space_to_device</span>, <span class="ruby-identifier">title_min_height</span>].<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_config</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads the config (colors, background, texts, etc.) Don&#39;t use this
+method to access the actual text and use `fetch_texts` instead</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_config-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_config</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@config</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@config</span>
+
+  <span class="ruby-identifier">config_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>), <span class="ruby-string">&quot;Framefile.json&quot;</span>)
+  <span class="ruby-identifier">config_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;../..&quot;</span>, <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>), <span class="ruby-string">&quot;Framefile.json&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">config_path</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">ConfigParser</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">config_path</span>)
+  <span class="ruby-keyword">return</span> {} <span class="ruby-keyword">unless</span> <span class="ruby-identifier">file</span> <span class="ruby-comment"># no config file at all</span>
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">fetch_value</span>(<span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_frame_color" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_frame_color</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_frame_color-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 520</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_frame_color</span>
+  <span class="ruby-identifier">color</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;frame&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">color</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;BLACK&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Frameit</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">BLACK</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">color</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;WHITE&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Frameit</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">SILVER</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">color</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;GOLD&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Frameit</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">GOLD</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">color</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;ROSE_GOLD&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Frameit</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">ROSE_GOLD</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_text</span><span
+            class="method-args">(type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetches the title + keyword for this particular screenshot</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_text-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 502</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_text</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Valid parameters :keyword, :title&quot;</span>) <span class="ruby-keyword">unless</span> [<span class="ruby-value">:keyword</span>, <span class="ruby-value">:title</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>)
+
+  <span class="ruby-comment"># Try to get it from a keyword.strings or title.strings file</span>
+  <span class="ruby-identifier">strings_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>), <span class="ruby-node">&quot;#{type}.strings&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">strings_path</span>)
+    <span class="ruby-identifier">parsed</span> = <span class="ruby-constant">StringsParser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">strings_path</span>)
+    <span class="ruby-identifier">text_array</span> = <span class="ruby-identifier">parsed</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>.<span class="ruby-identifier">upcase</span>) }
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">text_array</span>.<span class="ruby-identifier">last</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">text_array</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">text_array</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-comment"># Ignore empty string</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Falling back to text in Framefile.json as there was nothing specified in the #{type}.strings file&quot;</span>)
+
+  <span class="ruby-comment"># No string files, fallback to Framefile config</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-string">&#39;text&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-string">&#39;text&#39;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-string">&#39;text&#39;</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-comment"># Ignore empty string</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-font" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">font</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The font we want to use</p>
+          
+          
+
+          
+          <div class="method-source-code" id="font-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 536</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">font</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">single_font</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-string">&#39;font&#39;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">single_font</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">single_font</span>
+
+  <span class="ruby-identifier">fonts</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-string">&#39;fonts&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fonts</span>
+    <span class="ruby-identifier">fonts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">font</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">font</span>[<span class="ruby-string">&#39;supported&#39;</span>]
+        <span class="ruby-identifier">font</span>[<span class="ruby-string">&#39;supported&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">language</span>)
+            <span class="ruby-keyword">return</span> <span class="ruby-identifier">font</span>[<span class="ruby-string">&quot;font&quot;</span>]
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># No `supported` array, this will always be true</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;Found a font with no list of supported languages, using this now&quot;</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">font</span>[<span class="ruby-string">&quot;font&quot;</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;No custom font specified for #{screenshot}, using the default one&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_background" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_background</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a correctly sized background image</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_background-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_background</span>
+  <span class="ruby-identifier">background</span> = <span class="ruby-constant">MiniMagick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;background&#39;</span>])
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">background</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">size</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">background</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{screenshot.size[0]}x#{screenshot.size[1]}^&quot;</span>) <span class="ruby-comment"># `^` says it should fill area</span>
+    <span class="ruby-identifier">background</span>.<span class="ruby-identifier">merge!</span>([<span class="ruby-string">&quot;-gravity&quot;</span>, <span class="ruby-string">&quot;center&quot;</span>, <span class="ruby-string">&quot;-crop&quot;</span>, <span class="ruby-node">&quot;#{screenshot.size[0]}x#{screenshot.size[1]}+0+0&quot;</span>]) <span class="ruby-comment"># crop from center</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">background</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-horizontal_frame_padding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">horizontal_frame_padding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Horizontal adding around the frames</p>
+          
+          
+
+          
+          <div class="method-source-code" id="horizontal_frame_padding-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">horizontal_frame_padding</span>
+  <span class="ruby-identifier">padding</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;padding&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;x&#39;</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">padding</span> = <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;x&#39;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">scale_padding</span>(<span class="ruby-identifier">padding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_complex_framing_mode-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_complex_framing_mode?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do we add a background and title as well?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_complex_framing_mode-3F-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_complex_framing_mode?</span>
+  <span class="ruby-keyword">return</span> (<span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;background&#39;</span>] <span class="ruby-keyword">and</span> (<span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;title&#39;</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;keyword&#39;</span>]))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keyword_padding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keyword_padding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The space between the keyword and the title</p>
+          
+          
+
+          
+          <div class="method-source-code" id="keyword_padding-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keyword_padding</span>
+  (<span class="ruby-identifier">actual_font_size</span> <span class="ruby-operator">/</span> <span class="ruby-value">3.0</span>).<span class="ruby-identifier">round</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-modify_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modify_offset</span><span
+            class="method-args">(multiplicator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this is used to correct the 1:1 offset information the offset information
+is stored to work for the template images since we resize the template
+images to have higher quality screenshots we need to modify the offset
+information by a certain factor</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modify_offset-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modify_offset</span>(<span class="ruby-identifier">multiplicator</span>)
+  <span class="ruby-comment"># Format: &quot;+133+50&quot;</span>
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">offset</span>[<span class="ruby-string">&#39;offset&#39;</span>]
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;+&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">multiplicator</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;+&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">multiplicator</span>
+  <span class="ruby-identifier">new_offset</span> = <span class="ruby-node">&quot;+#{x.round}+#{y.round}&quot;</span>
+  <span class="ruby-ivar">@offset_information</span>[<span class="ruby-string">&#39;offset&#39;</span>] = <span class="ruby-identifier">new_offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="offset-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">offset</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@offset_information</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@offset_information</span>
+
+  <span class="ruby-ivar">@offset_information</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;offset&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Offsets</span>.<span class="ruby-identifier">image_offset</span>(<span class="ruby-identifier">screenshot</span>).<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@offset_information</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@offset_information</span>[<span class="ruby-string">&#39;offset&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@offset_information</span>[<span class="ruby-string">&#39;offset&#39;</span>])
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@offset_information</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find offset_information for &#39;#{screenshot}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put_device_into_background" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put_device_into_background</span><span
+            class="method-args">(background)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="put_device_into_background-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put_device_into_background</span>(<span class="ruby-identifier">background</span>)
+  <span class="ruby-identifier">left_space</span> = (<span class="ruby-identifier">background</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span>).<span class="ruby-identifier">round</span>
+
+  <span class="ruby-ivar">@image</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">composite</span>(<span class="ruby-identifier">image</span>, <span class="ruby-string">&quot;png&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-string">&quot;Over&quot;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{left_space}+#{device_top(background)}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">image</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put_into_frame" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put_into_frame</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>puts the screenshot into the frame</p>
+          
+          
+
+          
+          <div class="method-source-code" id="put_into_frame-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put_into_frame</span>
+  <span class="ruby-comment"># We have to rotate the screenshot, since the offset information is for portrait</span>
+  <span class="ruby-comment"># only. Instead of doing the calculations ourselves, it&#39;s much easier to let</span>
+  <span class="ruby-comment"># imagemagick do the hard lifting for landscape screenshots</span>
+  <span class="ruby-identifier">rotation</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rotation_for_device_orientation</span>
+  <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">rotate</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">rotation</span>)
+  <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">rotate</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">rotation</span>)
+
+  <span class="ruby-comment"># Debug Mode: Add filename to frame</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">debug_mode</span>
+    <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@frame_path</span>, <span class="ruby-string">&quot;.*&quot;</span>)
+    <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-string">&#39;Apple&#39;</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-comment"># remove &#39;Apple&#39;</span>
+
+    <span class="ruby-identifier">width</span> = <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">size</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">font_size</span> = <span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">20</span> <span class="ruby-comment"># magic number that works well</span>
+
+    <span class="ruby-identifier">offset_top</span> = <span class="ruby-identifier">offset</span>[<span class="ruby-string">&#39;offset&#39;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;+&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_f</span>
+    <span class="ruby-identifier">annotate_offset</span> = <span class="ruby-node">&quot;+0+#{offset_top}&quot;</span> <span class="ruby-comment"># magic number that works semi well</span>
+
+    <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">combine_options</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">gravity</span>(<span class="ruby-string">&#39;North&#39;</span>)
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">undercolor</span>(<span class="ruby-string">&#39;#00000080&#39;</span>)
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">fill</span>(<span class="ruby-string">&#39;white&#39;</span>)
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">pointsize</span>(<span class="ruby-identifier">font_size</span>)
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">annotate</span>(<span class="ruby-identifier">annotate_offset</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@image</span> = <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">composite</span>(<span class="ruby-identifier">image</span>, <span class="ruby-string">&quot;png&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-string">&quot;DstOver&quot;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-identifier">offset</span>[<span class="ruby-string">&#39;offset&#39;</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Revert the rotation from above</span>
+  <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">rotate</span>(<span class="ruby-identifier">rotation</span>)
+  <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">rotate</span>(<span class="ruby-identifier">rotation</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put_title_into_background" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put_title_into_background</span><span
+            class="method-args">(background, stack_title)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="put_title_into_background-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put_title_into_background</span>(<span class="ruby-identifier">background</span>, <span class="ruby-identifier">stack_title</span>)
+  <span class="ruby-identifier">text_images</span> = <span class="ruby-identifier">build_text_images</span>(<span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">horizontal_frame_padding</span>, <span class="ruby-identifier">image</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">vertical_frame_padding</span>, <span class="ruby-identifier">stack_title</span>)
+
+  <span class="ruby-identifier">keyword</span> = <span class="ruby-identifier">text_images</span>[<span class="ruby-value">:keyword</span>]
+  <span class="ruby-identifier">title</span> = <span class="ruby-identifier">text_images</span>[<span class="ruby-value">:title</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">stack_title</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">title</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">background</span> = <span class="ruby-identifier">put_title_into_background_stacked</span>(<span class="ruby-identifier">background</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">keyword</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">background</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># sum_width: the width of both labels together including the space inbetween</span>
+  <span class="ruby-comment">#   is used to calculate the ratio</span>
+  <span class="ruby-identifier">sum_width</span> = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">width</span>
+  <span class="ruby-identifier">sum_width</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">keyword_padding</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyword</span>
+
+  <span class="ruby-identifier">title_below_image</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;title_below_image&#39;</span>]
+
+  <span class="ruby-comment"># Resize the 2 labels if they exceed the available space either horizontally or vertically:</span>
+  <span class="ruby-identifier">image_scale_factor</span> = <span class="ruby-value">1.0</span> <span class="ruby-comment"># default</span>
+  <span class="ruby-identifier">ratio_horizontal</span> = <span class="ruby-identifier">sum_width</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">horizontal_frame_padding</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>) <span class="ruby-comment"># The fraction of the text images compared to the left and right padding</span>
+  <span class="ruby-identifier">ratio_vertical</span> = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">actual_font_size</span> <span class="ruby-comment"># The fraction of the actual height of the images compared to the available space</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ratio_horizontal</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1.0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">ratio_vertical</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1.0</span>
+    <span class="ruby-comment"># If either is too large, resize with the maximum ratio:</span>
+    <span class="ruby-identifier">image_scale_factor</span> = (<span class="ruby-value">1.0</span> <span class="ruby-operator">/</span> [<span class="ruby-identifier">ratio_horizontal</span>, <span class="ruby-identifier">ratio_vertical</span>].<span class="ruby-identifier">max</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Text for image #{self.screenshot.path} is quite long, reducing font size by #{(100 * (1.0 - image_scale_factor)).round(1)}%&quot;</span>)
+
+    <span class="ruby-identifier">title</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{(image_scale_factor * title.width).round}x&quot;</span>)
+    <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{(image_scale_factor * keyword.width).round}x&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyword</span>
+    <span class="ruby-identifier">sum_width</span> <span class="ruby-operator">*=</span> <span class="ruby-identifier">image_scale_factor</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">vertical_padding</span> = <span class="ruby-identifier">vertical_frame_padding</span> <span class="ruby-comment"># assign padding to variable</span>
+  <span class="ruby-identifier">left_space</span> = (<span class="ruby-identifier">background</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">sum_width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span>).<span class="ruby-identifier">round</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">space_to_device</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">actual_font_size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">vertical_padding</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">title_below_image</span>
+    <span class="ruby-identifier">title_top</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">effective_text_height</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">title_top</span> = <span class="ruby-identifier">device_top</span>(<span class="ruby-identifier">background</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># First, put the keyword on top of the screenshot, if we have one</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyword</span>
+    <span class="ruby-identifier">background</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">composite</span>(<span class="ruby-identifier">keyword</span>, <span class="ruby-string">&quot;png&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-string">&quot;Over&quot;</span>)
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{left_space}+#{title_top}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">left_space</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">keyword_padding</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">image_scale_factor</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Then, put the title on top of the screenshot next to the keyword</span>
+  <span class="ruby-identifier">background</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">composite</span>(<span class="ruby-identifier">title</span>, <span class="ruby-string">&quot;png&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-string">&quot;Over&quot;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{left_space}+#{title_top}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">background</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put_title_into_background_stacked" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put_title_into_background_stacked</span><span
+            class="method-args">(background, title, keyword)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add the title above or below the device</p>
+          
+          
+
+          
+          <div class="method-source-code" id="put_title_into_background_stacked-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put_title_into_background_stacked</span>(<span class="ruby-identifier">background</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">keyword</span>)
+  <span class="ruby-identifier">resize_text</span>(<span class="ruby-identifier">title</span>)
+  <span class="ruby-identifier">resize_text</span>(<span class="ruby-identifier">keyword</span>)
+
+  <span class="ruby-identifier">vertical_padding</span> = <span class="ruby-identifier">vertical_frame_padding</span> <span class="ruby-comment"># assign padding to variable</span>
+  <span class="ruby-identifier">spacing_between_title_and_keyword</span> = (<span class="ruby-identifier">actual_font_size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">title_left_space</span> = (<span class="ruby-identifier">background</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span>).<span class="ruby-identifier">round</span>
+  <span class="ruby-identifier">keyword_left_space</span> = (<span class="ruby-identifier">background</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span>).<span class="ruby-identifier">round</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">space_to_device</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">spacing_between_title_and_keyword</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">vertical_padding</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">title_below_image</span>
+    <span class="ruby-identifier">keyword_top</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">effective_text_height</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">spacing_between_title_and_keyword</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">height</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">keyword_top</span> = <span class="ruby-identifier">device_top</span>(<span class="ruby-identifier">background</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">spacing_between_title_and_keyword</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">height</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">title_top</span> = <span class="ruby-identifier">keyword_top</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">spacing_between_title_and_keyword</span>
+
+  <span class="ruby-comment"># keyword</span>
+  <span class="ruby-identifier">background</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">composite</span>(<span class="ruby-identifier">keyword</span>, <span class="ruby-string">&quot;png&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-string">&quot;Over&quot;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{keyword_left_space}+#{keyword_top}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># Place the title below the keyword</span>
+  <span class="ruby-identifier">background</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">composite</span>(<span class="ruby-identifier">title</span>, <span class="ruby-string">&quot;png&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">compose</span>(<span class="ruby-string">&quot;Over&quot;</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{title_left_space}+#{title_top}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">background</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resize_frame-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resize_frame!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resize the frame as it&#39;s too low quality by default</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resize_frame-21-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resize_frame!</span>
+  <span class="ruby-identifier">screenshot_width</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">portrait?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">size</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">size</span>[<span class="ruby-value">1</span>]
+
+  <span class="ruby-identifier">multiplicator</span> = (<span class="ruby-identifier">screenshot_width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">offset</span>[<span class="ruby-string">&#39;width&#39;</span>].<span class="ruby-identifier">to_f</span>) <span class="ruby-comment"># by how much do we have to change this?</span>
+  <span class="ruby-identifier">new_frame_width</span> = <span class="ruby-identifier">multiplicator</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">width</span> <span class="ruby-comment"># the new width for the frame</span>
+  <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{new_frame_width.round}x&quot;</span>) <span class="ruby-comment"># resize it to the calculated width</span>
+  <span class="ruby-identifier">modify_offset</span>(<span class="ruby-identifier">multiplicator</span>) <span class="ruby-comment"># modify the offset to properly insert the screenshot into the frame later</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resize_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resize_text</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resize_text-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resize_text</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">width</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">width</span>
+  <span class="ruby-identifier">ratio</span> = <span class="ruby-identifier">width</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">horizontal_frame_padding</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ratio</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1.0</span>
+    <span class="ruby-comment"># too large - resizing now</span>
+    <span class="ruby-identifier">text</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-node">&quot;#{((1.0 / ratio) * text.width).round}x&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scale_padding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scale_padding</span><span
+            class="method-args">(padding)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scale_padding-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scale_padding</span>(<span class="ruby-identifier">padding</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;%&#39;</span>)
+    <span class="ruby-identifier">padding</span> = ([<span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">image</span>.<span class="ruby-identifier">height</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.01</span>).<span class="ruby-identifier">ceil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">multi</span> = <span class="ruby-value">1.0</span>
+  <span class="ruby-identifier">multi</span> = <span class="ruby-value">1.7</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">triple_density?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">padding</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">multi</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_result" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_result</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_result-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_result</span>
+  <span class="ruby-identifier">output_path</span> = <span class="ruby-identifier">screenshot</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;.png&#39;</span>, <span class="ruby-string">&#39;_framed.png&#39;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;.PNG&#39;</span>, <span class="ruby-string">&#39;_framed.png&#39;</span>)
+  <span class="ruby-identifier">image</span>.<span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;png&quot;</span>)
+  <span class="ruby-identifier">image</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">output_path</span>)
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">hide_loading_indicator</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Added frame: &#39;#{File.expand_path(output_path)}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-title_below_image" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">title_below_image</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="title_below_image-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">title_below_image</span>
+  <span class="ruby-ivar">@title_below_image</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;title_below_image&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-title_min_height" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">title_min_height</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Minimum height for the title</p>
+          
+          
+
+          
+          <div class="method-source-code" id="title_min_height-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">title_min_height</span>
+  <span class="ruby-ivar">@title_min_height</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">height</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;title_min_height&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">height</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">height</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;%&#39;</span>)
+      <span class="ruby-identifier">height</span> = ([<span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">image</span>.<span class="ruby-identifier">height</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.01</span>).<span class="ruby-identifier">ceil</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">height</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vertical_frame_padding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vertical_frame_padding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Vertical adding around the frames</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vertical_frame_padding-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/editor.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">vertical_frame_padding</span>
+  <span class="ruby-identifier">padding</span> = <span class="ruby-identifier">fetch_config</span>[<span class="ruby-string">&#39;padding&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;x&#39;</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">padding</span> = <span class="ruby-identifier">padding</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;x&#39;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">scale_padding</span>(<span class="ruby-identifier">padding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

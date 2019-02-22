@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::AndroidPackageNameGuesser - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-android_package_name_arg-3F">::android_package_name_arg?</a>
+    
+    <li ><a href="#method-c-fetch_package_name_from_file">::fetch_package_name_from_file</a>
+    
+    <li ><a href="#method-c-guess_package_name">::guess_package_name</a>
+    
+    <li ><a href="#method-c-guess_package_name_from_appfile">::guess_package_name_from_appfile</a>
+    
+    <li ><a href="#method-c-guess_package_name_from_args">::guess_package_name_from_args</a>
+    
+    <li ><a href="#method-c-guess_package_name_from_config_files">::guess_package_name_from_config_files</a>
+    
+    <li ><a href="#method-c-guess_package_name_from_environment">::guess_package_name_from_environment</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::AndroidPackageNameGuesser">
+  <h1 id="class-FastlaneCore::AndroidPackageNameGuesser" class="class">
+    class FastlaneCore::AndroidPackageNameGuesser
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-android_package_name_arg-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">android_package_name_arg?</span><span
+            class="method-args">(gem_name, arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="android_package_name_arg-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">android_package_name_arg?</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;--package_name&quot;</span> <span class="ruby-operator">||</span>
+         <span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;--app_package_name&quot;</span> <span class="ruby-operator">||</span>
+         (<span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;-p&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">gem_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;supply&#39;</span>) <span class="ruby-operator">||</span>
+         (<span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;-a&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">gem_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;screengrab&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fetch_package_name_from_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_package_name_from_file</span><span
+            class="method-args">(file_name, package_name_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_package_name_from_file-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_package_name_from_file</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">package_name_key</span>)
+  <span class="ruby-comment"># we only care about the package name item in the configuration file, so</span>
+  <span class="ruby-comment"># build an options array &amp; Configuration with just that one key and it will</span>
+  <span class="ruby-comment"># be fetched if it is present in the config file</span>
+  <span class="ruby-identifier">genericfile_options</span> = [<span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ConfigItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">package_name_key</span>)]
+  <span class="ruby-identifier">options</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">genericfile_options</span>, {})
+  <span class="ruby-comment"># pass the empty proc to disable options validation, otherwise this will fail</span>
+  <span class="ruby-comment"># when the other (non-package name) keys are encountered in the config file;</span>
+  <span class="ruby-comment"># 3rd parameter &quot;true&quot; disables the printout of the contents of the</span>
+  <span class="ruby-comment"># configuration file, which is noisy and confusing in this case</span>
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">load_configuration_file</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">proc</span> {}, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">package_name_key</span>, <span class="ruby-identifier">ask</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-comment"># any option/file error here should just be treated as identifier not found</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-guess_package_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_package_name</span><span
+            class="method-args">(gem_name, args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>make a best-guess for the package_name for this project, using
+most-reliable signals</p>
+
+<pre>first and then using less accurate ones afterwards; because this method only returns
+a GUESS for the package_name, it is only useful for metrics or other places where
+absolute accuracy is not required</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="guess_package_name-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_package_name</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">package_name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">guess_package_name_from_args</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">guess_package_name_from_environment</span>
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">guess_package_name_from_appfile</span>
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">guess_package_name_from_config_files</span>
+  <span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-guess_package_name_from_appfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_package_name_from_appfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_package_name_from_appfile-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_package_name_from_appfile</span>
+  <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:package_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-guess_package_name_from_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_package_name_from_args</span><span
+            class="method-args">(gem_name, args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_package_name_from_args-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_package_name_from_args</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># args example: [&quot;-a&quot;, &quot;com.krausefx.app&quot;]</span>
+  <span class="ruby-identifier">package_name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">android_package_name_arg?</span>(<span class="ruby-identifier">gem_name</span>, <span class="ruby-identifier">current</span>)
+    <span class="ruby-comment"># argument names are followed by argument values in the args array;</span>
+    <span class="ruby-comment"># use [index + 1] to find the package name (range check the array</span>
+    <span class="ruby-comment"># to avoid array bounds errors)</span>
+    <span class="ruby-identifier">package_name</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">index</span>
+    <span class="ruby-keyword">break</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-guess_package_name_from_config_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_package_name_from_config_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_package_name_from_config_files-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_package_name_from_config_files</span>
+  <span class="ruby-identifier">package_name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">fetch_package_name_from_file</span>(<span class="ruby-string">&quot;Supplyfile&quot;</span>, <span class="ruby-value">:package_name</span>)
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">fetch_package_name_from_file</span>(<span class="ruby-string">&quot;Screengrabfile&quot;</span>, <span class="ruby-value">:app_package_name</span>)
+  <span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-guess_package_name_from_environment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_package_name_from_environment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_package_name_from_environment-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/android_package_name_guesser.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_package_name_from_environment</span>
+  <span class="ruby-identifier">package_name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SUPPLY_PACKAGE_NAME&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;SUPPLY_PACKAGE_NAME&quot;</span>)
+  <span class="ruby-identifier">package_name</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SCREENGRAB_APP_PACKAGE_NAME&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;SCREENGRAB_APP_PACKAGE_NAME&quot;</span>)
+  <span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

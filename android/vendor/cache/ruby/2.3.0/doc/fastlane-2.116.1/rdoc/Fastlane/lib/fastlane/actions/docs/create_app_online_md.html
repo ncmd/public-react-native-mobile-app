@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>create_app_online - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Create+new+iOS+apps+on+App+Store+Connect+and+Dev+Portal+using+your+command+line">Create new iOS apps on App Store Connect and Dev Portal using your command line</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Creating+a+new+application">Creating a new application</a>
+    <li><a href="#label-Enabling+-2F+Disabling+Application+Services">Enabling / Disabling Application Services</a>
+    <li><a href="#label-Parameters">Parameters</a>
+    <li><a href="#label-Creating+Apple+Pay+merchants+and+associating+them+with+an+App+ID">Creating Apple Pay merchants and associating them with an App ID</a>
+    <li><a href="#label-Environment+Variables">Environment Variables</a>
+    <li><a href="#label-fastlane+Integration"><em>fastlane</em> Integration</a>
+    <li><a href="#label-How+is+my+password+stored-3F">How is my password stored?</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/create_app_online.md">
+<p align="center">
+  <img src="/img/actions/produce.png" width="250">
+</p>
+<h6 id="label-Create+new+iOS+apps+on+App+Store+Connect+and+Dev+Portal+using+your+command+line">Create new iOS apps on App Store Connect and Dev Portal using your command line<span><a href="#label-Create+new+iOS+apps+on+App+Store+Connect+and+Dev+Portal+using+your+command+line">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p><em>produce</em> creates new iOS apps on both the Apple Developer Portal
+and App Store Connect with the minimum required information.</p>
+<hr>
+<p align="center">
+    <a href="#features">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#how-does-it-work">How does it work?</a>
+</p><hr>
+
+<h1 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><strong>Create</strong> new apps on both App Store Connect and the Apple
+Developer Portal</p>
+</li><li>
+<p><strong>Modify</strong> Application Services on the Apple Developer Portal</p>
+</li><li>
+<p><strong>Create</strong> App Groups on the Apple Developer Portal</p>
+</li><li>
+<p><strong>Associate</strong> apps with App Groups on the Apple Developer
+Portal</p>
+</li><li>
+<p><strong>Create</strong> iCloud Containers on the Apple Developer Portal</p>
+</li><li>
+<p><strong>Associate</strong> apps with iCloud Containers on the Apple
+Developer Portal</p>
+</li><li>
+<p><strong>Create</strong> Merchant Identifiers on the Apple Developer Portal</p>
+</li><li>
+<p><strong>Associate</strong> apps with Merchant Identifiers on the Apple
+Developer Portal</p>
+</li><li>
+<p>Support for <strong>multiple Apple accounts</strong>, storing your
+credentials securely in the Keychain</p>
+</li></ul>
+
+<h1 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Creating+a+new+application">Creating a new application<span><a href="#label-Creating+a+new+application">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span>
+</pre>
+
+<p>To get a list of all available parameters:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">help</span>
+</pre>
+
+<pre>Commands: (* default)
+  associate_group      Associate with a group, which is created if needed or simply located otherwise
+  associate_merchant   Associate with a merchant for use with Apple Pay. Apple Pay will be enabled for this app
+  create             * Creates a new app on App Store Connect and the Apple Developer Portal
+  disable_services     Disable specific Application Services for a specific app on the Apple Developer Portal
+  enable_services      Enable specific Application Services for a specific app on the Apple Developer Portal
+  group                Ensure that a specific App Group exists
+  cloud_container      Ensure that a specific iCloud Container exists
+  help                 Display global or [command] help documentation
+  merchant             Ensure that a specific Merchant exists
+
+Global Options:
+  --verbose
+  -h, --help           Display help documentation
+  -v, --version        Display version information
+
+Options for create:
+  -u, --username STRING Your Apple ID Username (PRODUCE_USERNAME)
+  -a, --app_identifier STRING App Identifier (Bundle ID, e.g. com.krausefx.app) (PRODUCE_APP_IDENTIFIER)
+  -e, --bundle_identifier_suffix STRING App Identifier Suffix (Ignored if App Identifier does not ends with .*) (PRODUCE_APP_IDENTIFIER_SUFFIX)
+  -q, --app_name STRING App Name (PRODUCE_APP_NAME)
+  -z, --app_version STRING Initial version number (e.g. &#39;1.0&#39;) (PRODUCE_VERSION)
+  -y, --sku STRING     SKU Number (e.g. &#39;1234&#39;) (PRODUCE_SKU)
+  -j, --platform STRING The platform to use (optional) (PRODUCE_PLATFORM)
+  -m, --language STRING Primary Language (e.g. &#39;English&#39;, &#39;German&#39;) (PRODUCE_LANGUAGE)
+  -c, --company_name STRING The name of your company. Only required if it&#39;s the first app you create (PRODUCE_COMPANY_NAME)
+  -i, --skip_itc [VALUE] Skip the creation of the app on App Store Connect (PRODUCE_SKIP_ITC)
+  -d, --skip_devcenter [VALUE] Skip the creation of the app on the Apple Developer Portal (PRODUCE_SKIP_DEVCENTER)
+  -s, --itc_users ARRAY Array of App Store Connect users. If provided, you can limit access to this newly created app for users with the App Manager, Developer, Marketer or Sales roles (ITC_USERS)
+  -b, --team_id STRING The ID of your Developer Portal team if you&#39;re in multiple teams (PRODUCE_TEAM_ID)
+  -l, --team_name STRING The name of your Developer Portal team if you&#39;re in multiple teams (PRODUCE_TEAM_NAME)
+  -k, --itc_team_id [VALUE] The ID of your App Store Connect team if you&#39;re in multiple teams (PRODUCE_ITC_TEAM_ID)
+  -p, --itc_team_name STRING The name of your App Store Connect team if you&#39;re in multiple teams (PRODUCE_ITC_TEAM_NAME)</pre>
+
+<h2 id="label-Enabling+-2F+Disabling+Application+Services">Enabling / Disabling Application Services<span><a href="#label-Enabling+-2F+Disabling+Application+Services">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>If you want to enable Application Services for an App ID (HomeKit and
+HealthKit in this example):</p>
+
+<pre>fastlane produce enable_services --homekit --healthkit</pre>
+
+<p>If you want to disable Application Services for an App ID (iCloud in this
+case):</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span> <span class="ruby-identifier">disable_services</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">icloud</span>
+</pre>
+
+<p>If you want to create a new App Group:</p>
+
+<pre>fastlane produce group -g group.krausefx -n &quot;Example App Group&quot;</pre>
+
+<p>If you want to associate an app with an App Group:</p>
+
+<pre>fastlane produce associate_group -a com.krausefx.app group.krausefx</pre>
+
+<p>If you want to create a new iCloud Container:</p>
+
+<pre>fastlane produce cloud_container -g iCloud.com.krausefx.app -n &quot;Example iCloud Container&quot;</pre>
+
+<p>If you want to associate an app with an iCloud Container:</p>
+
+<pre>fastlane produce associate_cloud_container -a com.krausefx.app iCloud.com.krausefx.app</pre>
+
+<p>If you want to associate an app with multiple iCloud Containers:</p>
+
+<pre>fastlane produce associate_cloud_container -a com.krausefx.app iCloud.com.krausefx.app1 iCloud.com.krausefx.app2</pre>
+
+<h1 id="label-Parameters">Parameters<span><a href="#label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Get a list of all available options using</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span> <span class="ruby-identifier">enable_services</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">help</span>
+</pre>
+
+<pre>--app-group          Enable App Groups
+--apple-pay          Enable Apple Pay
+--associated-domains Enable Associated Domains
+--data-protection STRING Enable Data Protection, suitable values are &quot;complete&quot;, &quot;unlessopen&quot; and &quot;untilfirstauth&quot;
+--game-center        Enable Game Center
+--healthkit          Enable HealthKit
+--homekit            Enable HomeKit
+--hotspot            Enable Hotspot
+--icloud STRING      Enable iCloud, suitable values are &quot;legacy&quot; and &quot;cloudkit&quot;
+--in-app-purchase    Enable In-App Purchase
+--inter-app-audio    Enable Inter-App-Audio
+--multipath          Enable Multipath
+--network-extension  Enable Network Extensions
+--nfc-tag-reading    Enable NFC Tag Reading
+--personal-vpn       Enable Personal VPN
+--passbook           Enable Passbook (deprecated)
+--push-notification  Enable Push notification (only enables the service, does not configure certificates)
+--sirikit            Enable SiriKit
+--vpn-conf           Enable VPN Configuration (deprecated)
+--wallet             Enable Wallet
+--wireless-conf      Enable Wireless Accessory Configuration</pre>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span> <span class="ruby-identifier">disable_services</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">help</span>
+</pre>
+
+<pre>--app-group          Disable App Groups
+--apple-pay          Disable Apple Pay
+--associated-domains Disable Associated Domains
+--data-protection    Disable Data Protection
+--game-center        Disable Game Center
+--healthkit          Disable HealthKit
+--homekit            Disable HomeKit
+--hotspot            Disable Hotspot
+--icloud             Disable iCloud
+--in-app-purchase    Disable In-App Purchase
+--inter-app-audio    Disable Inter-App-Audio
+--multipath          Disable Multipath
+--network-extension  Disable Network Extensions
+--nfc-tag-reading    Disable NFC Tag Reading
+--personal-vpn       Disable Personal VPN
+--passbook           Disable Passbook (deprecated)
+--push-notification  Disable Push notifications
+--sirikit            Disable SiriKit
+--vpn-conf           Disable VPN Configuration (deprecated)
+--wallet             Disable Wallet
+--wireless-conf      Disable Wireless Accessory Configuration</pre>
+
+<h2 id="label-Creating+Apple+Pay+merchants+and+associating+them+with+an+App+ID">Creating Apple Pay merchants and associating them with an App ID<span><a href="#label-Creating+Apple+Pay+merchants+and+associating+them+with+an+App+ID">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>If you want to create a new Apple Pay Merchant Identifier:</p>
+
+<pre>fastlane produce merchant -o merchant.com.example.production -r &quot;Example Merchant Production&quot;</pre>
+
+<p>Use <code>--help</code> for more information about all available parameters</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span> <span class="ruby-identifier">merchant</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">help</span>
+</pre>
+
+<p>If you want to associate an app with a Merchant Identifier:</p>
+
+<pre>fastlane produce associate_merchant -a com.krausefx.app merchant.com.example.production</pre>
+
+<p>If you want to associate an app with multiple Merchant Identifiers:</p>
+
+<pre>fastlane produce associate_merchant -a com.krausefx.app merchant.com.example.production merchant.com.example.sandbox</pre>
+
+<p>Use –help for more information about all available parameters</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">produce</span> <span class="ruby-identifier">associate_merchant</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">help</span>
+</pre>
+
+<h2 id="label-Environment+Variables">Environment Variables<span><a href="#label-Environment+Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>All available values can also be passed using environment variables, run
+<code>fastlane produce --help</code> to get a list of all available
+parameters.</p>
+
+<h2 id="label-fastlane+Integration"><em>fastlane</em> Integration<span><a href="#label-fastlane+Integration">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Your <code>Fastfile</code> should look like this</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">release</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">produce</span>(
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;felix@krausefx.com&#39;</span>,
+    <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;com.krausefx.app&#39;</span>,
+    <span class="ruby-identifier">app_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;MyApp&#39;</span>,
+    <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;English&#39;</span>,
+    <span class="ruby-identifier">app_version</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;1.0&#39;</span>,
+    <span class="ruby-identifier">sku</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;123&#39;</span>,
+    <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;SunApps GmbH&#39;</span>, <span class="ruby-comment"># only necessary when in multiple teams</span>
+    
+    <span class="ruby-comment"># Optional</span>
+    <span class="ruby-comment"># App services can be enabled during app creation</span>
+    <span class="ruby-identifier">enable_services</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">app_group</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,               <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">apple_pay</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,               <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">associated_domains</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,      <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">data_protection</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;complete&quot;</span>,   <span class="ruby-comment"># Valid values: &quot;complete&quot;, &quot;unlessopen&quot;, &quot;untilfirstauth&quot;,</span>
+      <span class="ruby-identifier">game_center</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,             <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">health_kit</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,              <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">home_kit</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,                <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">hotspot</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,                 <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">icloud</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;cloudkit&quot;</span>,            <span class="ruby-comment"># Valid values: &quot;legacy&quot;, &quot;cloudkit&quot;</span>
+      <span class="ruby-identifier">in_app_purchase</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,         <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">inter_app_audio</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,         <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">passbook</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,                <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">multipath</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,               <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">network_extensions</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,      <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">nfc_tag_reading</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,         <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">personal_vpn</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,            <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">passbook</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,                <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot; (deprecated)</span>
+      <span class="ruby-identifier">push_notification</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,       <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">siri_kit</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,                <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">vpn_configuration</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,       <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot; (deprecated)</span>
+      <span class="ruby-identifier">wallet</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,                  <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+      <span class="ruby-identifier">wireless_accessory</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;on&quot;</span>,      <span class="ruby-comment"># Valid values: &quot;on&quot;, &quot;off&quot;</span>
+    }
+  )
+
+  <span class="ruby-identifier">deliver</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To use the newly generated app in <em>deliver</em>, you need to add this
+line to your <code>Deliverfile</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">apple_id</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;PRODUCE_APPLE_ID&#39;</span>])
+</pre>
+
+<p>This will tell <em>deliver</em>, which <code>App ID</code> to use, since
+the app is not yet available in the App Store.</p>
+
+<p>You&#39;ll still have to fill out the remaining information (like
+screenshots, app description and pricing). You can use <a
+href="https://docs.fastlane.tools/actions/deliver/">deliver</a> to upload
+your app metadata using a CLI</p>
+
+<h2 id="label-How+is+my+password+stored-3F">How is my password stored?<span><a href="#label-How+is+my+password+stored-3F">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><em>produce</em> uses the <a
+href="https://github.com/fastlane/fastlane/tree/master/credentials_manager">password
+manager</a> from <em>fastlane</em>. Take a look the <a
+href="https://github.com/fastlane/fastlane/tree/master/credentials_manager">CredentialsManager
+README</a> for more information.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

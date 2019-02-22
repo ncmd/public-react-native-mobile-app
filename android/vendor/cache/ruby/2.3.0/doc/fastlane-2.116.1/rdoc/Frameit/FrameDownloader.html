@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Frameit::FrameDownloader - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-templates_path">::templates_path</a>
+    
+    <li ><a href="#method-i-download_file">#download_file</a>
+    
+    <li ><a href="#method-i-download_frames">#download_frames</a>
+    
+    <li ><a href="#method-i-frames_exist-3F">#frames_exist?</a>
+    
+    <li ><a href="#method-i-print_disclaimer">#print_disclaimer</a>
+    
+    <li ><a href="#method-i-templates_path">#templates_path</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Frameit::FrameDownloader">
+  <h1 id="class-Frameit::FrameDownloader" class="class">
+    class Frameit::FrameDownloader
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="HOST_URL">HOST_URL
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-templates_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">templates_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="templates_path-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/frame_downloader.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">templates_path</span>
+  <span class="ruby-comment"># Previously ~/.frameit/device_frames_2/x</span>
+  <span class="ruby-identifier">legacy_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;HOME&#39;</span>], <span class="ruby-string">&quot;.frameit/devices_frames_2&quot;</span>, <span class="ruby-constant">Frameit</span>.<span class="ruby-identifier">frames_version</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">legacy_path</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">legacy_path</span>)
+
+  <span class="ruby-comment"># New path, being ~/.fastlane/frameit/x</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FastlaneCore</span>.<span class="ruby-identifier">fastlane_user_dir</span>, <span class="ruby-string">&quot;frameit&quot;</span>, <span class="ruby-constant">Frameit</span>.<span class="ruby-identifier">frames_version</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-download_frames" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_frames</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_frames-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/frame_downloader.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_frames</span>
+  <span class="ruby-identifier">print_disclaimer</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fileutils&#39;</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Downloading device frames to &#39;#{templates_path}&#39;&quot;</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">templates_path</span>)
+
+  <span class="ruby-identifier">frames_version</span> = <span class="ruby-identifier">download_file</span>(<span class="ruby-string">&quot;version.txt&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Using frame version &#39;#{frames_version}&#39;, you can optionally lock that version in your Framefile.json using `device_frame_version`&quot;</span>)
+
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">download_file</span>(<span class="ruby-string">&quot;files.json&quot;</span>))
+  <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">content</span> = <span class="ruby-identifier">download_file</span>(<span class="ruby-identifier">current</span>, <span class="ruby-identifier">txt</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{index + 1} of #{files.count} files&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">binwrite</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">templates_path</span>, <span class="ruby-identifier">current</span>), <span class="ruby-identifier">content</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">templates_path</span>, <span class="ruby-string">&quot;offsets.json&quot;</span>), <span class="ruby-identifier">download_file</span>(<span class="ruby-string">&quot;offsets.json&quot;</span>))
+
+  <span class="ruby-comment"># Write the version.txt at the very end to properly resume downloads</span>
+  <span class="ruby-comment"># if it&#39;s interrupted</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">templates_path</span>, <span class="ruby-string">&quot;version.txt&quot;</span>), <span class="ruby-identifier">frames_version</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully downloaded all required image assets&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-frames_exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">frames_exist?</span><span
+            class="method-args">(version: "latest")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="frames_exist-3F-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/frame_downloader.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frames_exist?</span>(<span class="ruby-identifier">version</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;latest&quot;</span>)
+  <span class="ruby-identifier">version_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">templates_path</span>, <span class="ruby-string">&quot;version.txt&quot;</span>)
+  <span class="ruby-identifier">version</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">version_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">version_path</span>)
+  <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{templates_path}/*.png&quot;</span>].<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-print_disclaimer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_disclaimer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_disclaimer-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/frame_downloader.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_disclaimer</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">header</span>(<span class="ruby-string">&quot;Device frames disclaimer&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;All used device frames are available via Facebook Design: http://facebook.design/devices&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;----------------------------------------&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;While Facebook has redrawn and shares these assets for the benefit&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;of the design community, Facebook does not own any of the underlying&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;product or user interface designs.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;By accessing these assets, you agree to obtain all necessary permissions&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;from the underlying rights holders and/or adhere to any applicable brand&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;use guidelines before using them.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Facebook disclaims all express or implied warranties with respect to these assets, including&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;non-infringement of intellectual property rights.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;----------------------------------------&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-templates_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">templates_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="templates_path-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/frame_downloader.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">templates_path</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">templates_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-download_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_file</span><span
+            class="method-args">(path, txt: "file")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_file-source">
+            <pre><span class="ruby-comment"># File frameit/lib/frameit/frame_downloader.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">txt</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;file&quot;</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;uri&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;excon&#39;</span>
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">HOST_URL</span>, <span class="ruby-constant">Frameit</span>.<span class="ruby-identifier">frames_version</span>, <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">path</span>))
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Downloading #{txt} from &#39;#{url}&#39; ...&quot;</span>)
+  <span class="ruby-identifier">body</span> = <span class="ruby-constant">Excon</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">url</span>).<span class="ruby-identifier">body</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">body</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&lt;Error&gt;&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">body</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Error accessing URL &#39;#{url}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"version_id:ETI"3Spaceship::Tunes::AppVersionHistory#version_id;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9@return (String) The platform value of this version.;T:
+@fileI"9spaceship/lib/spaceship/tunes/app_version_history.rb;T:0@omit_headings_from_table_of_contents_below0F@I"(Spaceship::Tunes::AppVersionHistory;TcRDoc::NormalClass0

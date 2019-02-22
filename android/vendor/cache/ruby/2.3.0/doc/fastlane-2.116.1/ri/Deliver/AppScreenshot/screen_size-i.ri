@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"screen_size:ETI"'Deliver::AppScreenshot#screen_size;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@@return [Deliver::ScreenSize] the screen size (device type);To:RDoc::Markup::Verbatim;	[I"'specified at {Deliver::ScreenSize};T:@format0:
+@fileI"*deliver/lib/deliver/app_screenshot.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Deliver::AppScreenshot;TcRDoc::NormalClass0

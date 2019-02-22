@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::ConnectAPI::Client - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Client.html">Spaceship::Client</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-hostname">::hostname</a>
+    
+    <li ><a href="#method-i-assert_required_params">#assert_required_params</a>
+    
+    <li ><a href="#method-i-build_url">#build_url</a>
+    
+    <li ><a href="#method-i-get_builds">#get_builds</a>
+    
+    <li ><a href="#method-i-handle_errors">#handle_errors</a>
+    
+    <li ><a href="#method-i-handle_response">#handle_response</a>
+    
+    <li ><a href="#method-i-local_variable_get">#local_variable_get</a>
+    
+    <li ><a href="#method-i-post_for_testflight_review">#post_for_testflight_review</a>
+    
+    <li ><a href="#method-i-provider_id">#provider_id</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::ConnectAPI::Client">
+  <h1 id="class-Spaceship::ConnectAPI::Client" class="class">
+    class Spaceship::ConnectAPI::Client
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-hostname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hostname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../../Spaceship.html">Spaceship</a> HTTP client for the <a
+href="../Portal/App.html">App</a> Store Connect API.</p>
+
+<p>This client is solely responsible for the making HTTP requests and parsing
+their responses. Parameters should be either named parameters, or for large
+request data bodies, pass in anything that can resond to `to_json`.</p>
+
+<p>Each request method should validate the required parameters. A required
+parameter is one that would result in 400-range response if it is not
+supplied. Each request method should make only one request. For more
+high-level logic, put code in the data models.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hostname-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hostname</span>
+  <span class="ruby-string">&#39;https://appstoreconnect.apple.com/iris/v1/&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-build_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_url</span><span
+            class="method-args">(path: nil, filter: nil, includes: nil, limit: nil, sort: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_url-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_url</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">filter</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">includes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">limit</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">filters</span> = <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;&amp;filter[#{key}]=#{filter[key]}&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;#{path}?&amp;include=#{includes}&amp;limit=#{limit}&amp;sort=#{sort}#{filters}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_builds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_builds</span><span
+            class="method-args">(filter: {}, includes: "buildBetaDetail,betaBuildMetrics", limit: 10, sort: "uploadedDate")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_builds-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_builds</span>(<span class="ruby-identifier">filter</span><span class="ruby-operator">:</span> {}, <span class="ruby-identifier">includes</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;buildBetaDetail,betaBuildMetrics&quot;</span>, <span class="ruby-identifier">limit</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;uploadedDate&quot;</span>)
+  <span class="ruby-identifier">assert_required_params</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-identifier">binding</span>)
+
+  <span class="ruby-comment"># GET</span>
+  <span class="ruby-comment"># https://appstoreconnect.apple.com/iris/v1/builds</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">build_url</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;builds&quot;</span>, <span class="ruby-identifier">filter</span><span class="ruby-operator">:</span> <span class="ruby-identifier">filter</span>, <span class="ruby-identifier">includes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">includes</span>, <span class="ruby-identifier">limit</span><span class="ruby-operator">:</span> <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sort</span>)
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">handle_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_for_testflight_review" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_for_testflight_review</span><span
+            class="method-args">(build_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_for_testflight_review-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_for_testflight_review</span>(<span class="ruby-identifier">build_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">assert_required_params</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-identifier">binding</span>)
+
+  <span class="ruby-comment"># POST</span>
+  <span class="ruby-comment"># https://appstoreconnect.apple.com/iris/v1/betaAppReviewSubmissions</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># {&quot;data&quot;:{&quot;type&quot;:&quot;betaAppReviewSubmissions&quot;,&quot;relationships&quot;:{&quot;build&quot;:{&quot;data&quot;:{&quot;type&quot;:&quot;builds&quot;,&quot;id&quot;:&quot;6f90f04a-3b48-4d4a-9bbd-9475c294a579&quot;}}}}}</span>
+
+  <span class="ruby-identifier">body</span> = {
+    <span class="ruby-identifier">data</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;betaAppReviewSubmissions&quot;</span>,
+      <span class="ruby-identifier">relationships</span><span class="ruby-operator">:</span> {
+        <span class="ruby-identifier">build</span><span class="ruby-operator">:</span> {
+          <span class="ruby-identifier">data</span><span class="ruby-operator">:</span> {
+            <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;builds&quot;</span>,
+            <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build_id</span>
+          }
+        }
+      }
+    }
+  }
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;betaAppReviewSubmissions&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">handle_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-handle_errors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_errors</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_errors-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_errors</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-comment"># Example error format</span>
+  <span class="ruby-comment"># {</span>
+  <span class="ruby-comment">#   &quot;errors&quot; : [ {</span>
+  <span class="ruby-comment">#     &quot;id&quot; : &quot;ce8c391e-f858-411b-a14b-5aa26e0915f2&quot;,</span>
+  <span class="ruby-comment">#     &quot;status&quot; : &quot;400&quot;,</span>
+  <span class="ruby-comment">#     &quot;code&quot; : &quot;PARAMETER_ERROR.INVALID&quot;,</span>
+  <span class="ruby-comment">#     &quot;title&quot; : &quot;A parameter has an invalid value&quot;,</span>
+  <span class="ruby-comment">#     &quot;detail&quot; : &quot;&#39;uploadedDate3&#39; is not a valid field name&quot;,</span>
+  <span class="ruby-comment">#     &quot;source&quot; : {</span>
+  <span class="ruby-comment">#       &quot;parameter&quot; : &quot;sort&quot;</span>
+  <span class="ruby-comment">#     }</span>
+  <span class="ruby-comment">#   } ]</span>
+  <span class="ruby-comment"># }</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;errors&#39;</span>].<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;#{error[&#39;title&#39;]} - #{error[&#39;detail&#39;]}&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_response</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_response-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_response</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-value">200</span><span class="ruby-operator">...</span><span class="ruby-value">300</span>).<span class="ruby-identifier">cover?</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">empty?</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">InternalServerError</span>, <span class="ruby-node">&quot;Server error got #{response.status}&quot;</span> <span class="ruby-keyword">if</span> (<span class="ruby-value">500</span><span class="ruby-operator">...</span><span class="ruby-value">600</span>).<span class="ruby-identifier">cover?</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;error&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;error&#39;</span>]
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>, <span class="ruby-identifier">handle_errors</span>(<span class="ruby-identifier">response</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;errors&#39;</span>]
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>, <span class="ruby-node">&quot;Temporary App Store Connect error: #{response.body}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;statusCode&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;ERROR&#39;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;data&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;data&#39;</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assert_required_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_required_params</span><span
+            class="method-args">(method_name, binding)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>used to assert all of the named parameters are supplied values</p>
+
+<p>@raises NameError if the values are nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_required_params-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_required_params</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">binding</span>)
+  <span class="ruby-identifier">parameter_names</span> = <span class="ruby-identifier">method</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span> }
+  <span class="ruby-identifier">parameter_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">local_variable_get</span>(<span class="ruby-identifier">binding</span>, <span class="ruby-identifier">name</span>).<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>, <span class="ruby-node">&quot;`#{name}&#39; is a required parameter&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_variable_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_variable_get</span><span
+            class="method-args">(binding, name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="local_variable_get-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_variable_get</span>(<span class="ruby-identifier">binding</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:local_variable_get</span>)
+    <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">local_variable_get</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-provider_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">provider_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="provider_id-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/connect_api/client.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">provider_id</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">team_id</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">provider</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">provider</span>.<span class="ruby-identifier">provider_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

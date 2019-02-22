@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"is_live:ETI")Spaceship::Tunes::AppVersion#is_live;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"T@return (Bool) Is that the version that's currently available in the App Store?;T:
+@fileI"1spaceship/lib/spaceship/tunes/app_version.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppVersion;TcRDoc::NormalClass0

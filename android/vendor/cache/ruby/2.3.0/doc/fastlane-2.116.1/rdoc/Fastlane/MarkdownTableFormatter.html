@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::MarkdownTableFormatter - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-column_width">#column_width</a>
+    
+    <li ><a href="#method-i-header_separator_row">#header_separator_row</a>
+    
+    <li ><a href="#method-i-pad">#pad</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-separator">#separator</a>
+    
+    <li ><a href="#method-i-table">#table</a>
+    
+    <li ><a href="#method-i-to_md">#to_md</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::MarkdownTableFormatter">
+  <h1 id="class-Fastlane::MarkdownTableFormatter" class="class">
+    class Fastlane::MarkdownTableFormatter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(string, header = true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>taken from: <a
+href="https://github.com/benbalter/markdown-table-formatter">github.com/benbalter/markdown-table-formatter</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">header</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@doc</span> = <span class="ruby-identifier">string</span>
+  <span class="ruby-ivar">@header</span> = <span class="ruby-identifier">header</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-column_width" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">column_width</span><span
+            class="method-args">(column)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="column_width-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">column_width</span>(<span class="ruby-identifier">column</span>)
+  <span class="ruby-identifier">width</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">table</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">length</span> = <span class="ruby-identifier">row</span>[<span class="ruby-identifier">column</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">width</span> = <span class="ruby-identifier">length</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">width</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">width</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-header_separator_row" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header_separator_row</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="header_separator_row-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header_separator_row</span>
+  <span class="ruby-identifier">output</span> = []
+  [<span class="ruby-operator">*</span><span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">table</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">length</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">separator</span>(<span class="ruby-identifier">column_width</span>(<span class="ruby-identifier">column</span>)))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pad" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pad</span><span
+            class="method-args">(string, length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pad-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pad</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">length</span>, <span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>converts the markdown string into an array of arrays</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>
+  <span class="ruby-ivar">@table</span> = []
+  <span class="ruby-identifier">rows</span> = <span class="ruby-ivar">@doc</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\r?\n/</span>)
+  <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row_array</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;|&quot;</span>)
+    <span class="ruby-identifier">row_array</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:strip!</span>)
+    <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">row_array</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-value">1</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@header</span> <span class="ruby-comment"># strip header separator</span>
+  <span class="ruby-ivar">@table</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">separator</span><span
+            class="method-args">(length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="separator-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">separator</span>(<span class="ruby-identifier">length</span>)
+  <span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">length</span>, <span class="ruby-string">&#39;-&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-table" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">table</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="table-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">table</span>
+  <span class="ruby-ivar">@table</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_md" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_md</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_md-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/markdown_table_formatter.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_md</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">table</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">header_separator_row</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@header</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">map!</span>.<span class="ruby-identifier">with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell_row</span>, <span class="ruby-identifier">index_row</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pad</span>(<span class="ruby-identifier">cell_row</span>, <span class="ruby-identifier">column_width</span>(<span class="ruby-identifier">index_row</span>)) }
+    <span class="ruby-identifier">output</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{row.join(&#39; | &#39;).lstrip} |\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

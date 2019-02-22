@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CredentialsManager::AccountManager - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_to_keychain">#add_to_keychain</a>
+    
+    <li ><a href="#method-i-ask_for_login">#ask_for_login</a>
+    
+    <li ><a href="#method-i-default_prefix-3F">#default_prefix?</a>
+    
+    <li ><a href="#method-i-fetch_password_from_env">#fetch_password_from_env</a>
+    
+    <li ><a href="#method-i-invalid_credentials">#invalid_credentials</a>
+    
+    <li ><a href="#method-i-mac-3F">#mac?</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-password">#password</a>
+    
+    <li ><a href="#method-i-remove_from_keychain">#remove_from_keychain</a>
+    
+    <li ><a href="#method-i-server_name">#server_name</a>
+    
+    <li ><a href="#method-i-user">#user</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CredentialsManager::AccountManager">
+  <h1 id="class-CredentialsManager::AccountManager" class="class">
+    class CredentialsManager::AccountManager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_PREFIX">DEFAULT_PREFIX
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-prefix" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">prefix</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Is used for iTunes Transporter</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(user: nil, password: nil, prefix: nil, note: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param prefix [String] Very optional, is used for the</p>
+
+<pre class="ruby"><span class="ruby-identifier">iTunes</span> <span class="ruby-constant">Transporter</span> <span class="ruby-identifier">which</span> <span class="ruby-identifier">uses</span> <span class="ruby-identifier">application</span> <span class="ruby-identifier">specific</span> <span class="ruby-identifier">passwords</span>
+</pre>
+
+<p>@param note [String] An optional note that will be shown next</p>
+
+<pre class="ruby"><span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">password</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">username</span> <span class="ruby-identifier">prompt</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">note</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@prefix</span> = <span class="ruby-identifier">prefix</span> <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_PREFIX</span>
+
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">password</span>
+  <span class="ruby-ivar">@note</span> = <span class="ruby-identifier">note</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_to_keychain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_to_keychain</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_to_keychain-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_to_keychain</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>
+    <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">server_name</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">server_name</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_prefix-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_prefix?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the default prefix “deliver”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_prefix-3F-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_prefix?</span>
+  <span class="ruby-ivar">@prefix</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DEFAULT_PREFIX</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_password_from_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_password_from_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_password_from_env-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_password_from_env</span>
+  <span class="ruby-identifier">password</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PASSWORD&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_PASSWORD&quot;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">password</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-invalid_credentials" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">invalid_credentials</span><span
+            class="method-args">(force: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call this method to ask the user to re-enter the credentials @param force:
+if false, the user is asked before it gets deleted @return: Did the user
+decide to remove the old entry and enter a new password?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="invalid_credentials-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">invalid_credentials</span>(<span class="ruby-identifier">force</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;The login credentials for &#39;#{user}&#39; seem to be wrong&quot;</span>.<span class="ruby-identifier">red</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_password_from_env</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;The password was taken from the environment variable&quot;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Please make sure it is correct&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">force</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">agree</span>(<span class="ruby-string">&quot;Do you want to re-enter your password? (y/n)&quot;</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Removing Keychain entry for user &#39;#{user}&#39;...&quot;</span>.<span class="ruby-identifier">yellow</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac?</span>
+    <span class="ruby-identifier">remove_from_keychain</span>
+    <span class="ruby-identifier">ask_for_login</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use env variables from this method to augment internet password item with
+additional data. These variables are used by Xamarin Studio to authenticate
+Apple developers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">hash</span> = {}
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:p</span>] = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PATH&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PATH&quot;</span>]
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:P</span>] = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PORT&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PORT&quot;</span>]
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:r</span>] = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PROTOCOL&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_PROTOCOL&quot;</span>]
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-password" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">password</span><span
+            class="method-args">(ask_if_missing: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="password-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">password</span>(<span class="ruby-identifier">ask_if_missing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_prefix?</span>
+    <span class="ruby-ivar">@password</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">fetch_password_from_env</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@password</span>
+    <span class="ruby-identifier">item</span> = <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">server</span><span class="ruby-operator">:</span> <span class="ruby-identifier">server_name</span>)
+    <span class="ruby-ivar">@password</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">password</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ask_for_login</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">ask_if_missing</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@password</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_from_keychain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_from_keychain</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_from_keychain-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_from_keychain</span>
+  <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">server</span><span class="ruby-operator">:</span> <span class="ruby-identifier">server_name</span>)
+  <span class="ruby-ivar">@password</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-server_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">server_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="server_name-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">server_name</span>
+  <span class="ruby-node">&quot;#{@prefix}.#{user}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="user-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_prefix?</span>
+    <span class="ruby-ivar">@user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_USER&quot;</span>]
+    <span class="ruby-ivar">@user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DELIVER_USER&quot;</span>]
+    <span class="ruby-ivar">@user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:apple_id</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ask_for_login</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ask_for_login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_for_login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ask_for_login-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_for_login</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_HIDE_LOGIN_INFORMATION&quot;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;-------------------------------------------------------------------------------------&quot;</span>.<span class="ruby-identifier">green</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Please provide your Apple Developer Program account credentials&quot;</span>.<span class="ruby-identifier">green</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;The login information you enter will be stored in your macOS Keychain&quot;</span>.<span class="ruby-identifier">green</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_prefix?</span>
+      <span class="ruby-comment"># We don&#39;t want to show this message, if we ask for the application specific password</span>
+      <span class="ruby-comment"># which has a different prefix</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;You can also pass the password using the `FASTLANE_PASSWORD` environment variable&quot;</span>.<span class="ruby-identifier">green</span>)
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;See more information about it on GitHub: https://github.com/fastlane/fastlane/tree/master/credentials_manager&quot;</span>.<span class="ruby-identifier">green</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac?</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;-------------------------------------------------------------------------------------&quot;</span>.<span class="ruby-identifier">green</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Missing username, and running in non-interactive shell&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">isatty</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">prompt_text</span> = <span class="ruby-string">&quot;Username&quot;</span>
+    <span class="ruby-identifier">prompt_text</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; (#{@note})&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@note</span>
+    <span class="ruby-identifier">prompt_text</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;: &quot;</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">ask</span>(<span class="ruby-identifier">prompt_text</span>) <span class="ruby-keyword">while</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># Returning here since only the username was asked for. This method will be called again when a password is needed.</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Missing password for user #{@user}, and running in non-interactive shell&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">isatty</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">note</span> = <span class="ruby-ivar">@note</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; &quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@note</span>
+    <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;Password (#{note}for #{@user}): &quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-string">&quot;*&quot;</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_DONT_STORE_PASSWORD&quot;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mac?</span>
+
+  <span class="ruby-comment"># Now we store this information in the keychain</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_to_keychain</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Could not store password in keychain&quot;</span>.<span class="ruby-identifier">red</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper.mac? - but we don&#39;t have access to the helper here</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File credentials_manager/lib/credentials_manager/account_manager.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac?</span>
+  (<span class="ruby-regexp">/darwin/</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RUBY_PLATFORM</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

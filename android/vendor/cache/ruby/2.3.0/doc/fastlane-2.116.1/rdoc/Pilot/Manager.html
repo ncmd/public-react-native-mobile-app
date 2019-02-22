@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pilot::Manager - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-app">#app</a>
+    
+    <li ><a href="#method-i-fetch_app_id">#fetch_app_id</a>
+    
+    <li ><a href="#method-i-fetch_app_identifier">#fetch_app_identifier</a>
+    
+    <li ><a href="#method-i-fetch_app_platform">#fetch_app_platform</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pilot::Manager">
+  <h1 id="class-Pilot::Manager" class="class">
+    class Pilot::Manager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Access the current configuration</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The app object we&#39;re currently using</p>
+          
+          
+
+          
+          <div class="method-source-code" id="app-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/manager.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-ivar">@apple_id</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">fetch_app_id</span>
+
+  <span class="ruby-ivar">@app</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@apple_id</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@app</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find app with #{(config[:apple_id] || config[:app_identifier])}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@app</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_app_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_app_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Config Related</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_app_id-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/manager.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_app_id</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@apple_id</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@apple_id</span>
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>] = <span class="ruby-identifier">fetch_app_identifier</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>]
+    <span class="ruby-ivar">@app</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>])
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find app &#39;#{config[:app_identifier]}&#39; on the account of &#39;#{config[:username]}&#39; on App Store Connect&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@app</span>
+    <span class="ruby-identifier">app_id</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">apple_id</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">app_id</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Could not automatically find the app ID, please enter it here (e.g. 956814360): &quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">app_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_app_identifier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_app_identifier</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_app_identifier-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/manager.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_app_identifier</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>]
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaFileAnalyser</span>.<span class="ruby-identifier">fetch_app_identifier</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>])
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Please enter the app&#39;s bundle identifier: &quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;App identifier (#{result})&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_app_platform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_app_platform</span><span
+            class="method-args">(required: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_app_platform-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/manager.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_app_platform</span>(<span class="ruby-identifier">required</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_platform</span>]
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaFileAnalyser</span>.<span class="ruby-identifier">fetch_app_platform</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">required</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Please enter the app&#39;s platform (appletvos, ios, osx): &quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;App Platform must be ios, appletvos, or osx&quot;</span>) <span class="ruby-keyword">unless</span> [<span class="ruby-string">&#39;ios&#39;</span>, <span class="ruby-string">&#39;appletvos&#39;</span>, <span class="ruby-string">&#39;osx&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">result</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;App Platform (#{result})&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/manager.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:username</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AppfileConfig</span>.<span class="ruby-identifier">try_fetch_value</span>(<span class="ruby-value">:apple_id</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Login to App Store Connect (#{config[:username]})&quot;</span>)
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">login</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value">:username</span>])
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">select_team</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Login successful&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/manager.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@config</span> <span class="ruby-comment"># to not login multiple times</span>
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">login</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>capture_android_screenshots - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Automated+localized+screenshots+of+your+Android+app+on+every+device">Automated localized screenshots of your Android app on every device</a>
+    <li><a href="#label-Why+should+I+automate+this+process-3F">Why should I automate this process?</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Gradle+dependency">Gradle dependency</a>
+    <li><a href="#label-Configuring+your+Manifest+Permissions">Configuring your Manifest Permissions</a>
+    <li><a href="#label-Configuring+your+-3Ca+href-3D-22-23ui-tests-22-3EUI+Tests-3C-2Fa-3E+for+Screenshots">Configuring your &lt;a href=“#ui-tests”&gt;UI Tests&lt;/a&gt; for Screenshots</a>
+    <li><a href="#label-Generating+Screenshots+with+Screengrab">Generating Screenshots with Screengrab</a>
+    <li><a href="#label-Improved+screenshot+capture+with+UI+Automator">Improved screenshot capture with UI Automator</a>
+    <li><a href="#label-Improved+screenshot+capture+with+Falcon">Improved screenshot capture with Falcon</a>
+    <li><a href="#label-Advanced+Screengrabfile+Configuration">Advanced Screengrabfile Configuration</a>
+    <li><a href="#label-Tips">Tips</a>
+    <li><a href="#label-UI+Tests">UI Tests</a>
+    <li><a href="#label-Example+UI+Test+Class+-28Using+JUnit4-29">Example UI Test Class (Using JUnit4)</a>
+    <li><a href="#label-Clean+Status+Bar">Clean Status Bar</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/capture_android_screenshots.md">
+<p align="center">
+  <img src="/img/actions/screengrab.png" width="250">
+</p>
+<h6 id="label-Automated+localized+screenshots+of+your+Android+app+on+every+device">Automated localized screenshots of your Android app on every device<span><a href="#label-Automated+localized+screenshots+of+your+Android+app+on+every+device">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p><em>screengrab</em> generates localized screenshots of your Android app for
+different device types and languages for Google Play and can be uploaded
+using <a href="https://fastlane.tools/supply">supply</a>.</p>
+
+<p>&lt;img src=“/img/actions/running-screengrab.gif” width=“640”&gt;</p>
+
+<h3 id="label-Why+should+I+automate+this+process-3F">Why should I automate this process?<span><a href="#label-Why+should+I+automate+this+process-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Create hundreds of screenshots in multiple languages on emulators or real
+devices, saving you hours</p>
+</li><li>
+<p>Easily verify that localizations fit into labels on all screen dimensions
+to find UI mistakes before you ship</p>
+</li><li>
+<p>You only need to configure it once for anyone on your team to run it</p>
+</li><li>
+<p>Keep your screenshots perfectly up-to-date with every app update. Your
+customers deserve it!</p>
+</li><li>
+<p>Fully integrates with <a href="https://fastlane.tools">fastlane</a> and <a
+href="https://fastlane.tools/supply">supply</a></p>
+</li></ul>
+
+<h1 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Install the gem</p>
+
+<pre class="ruby"><span class="ruby-identifier">sudo</span> <span class="ruby-identifier">gem</span> <span class="ruby-identifier">install</span> <span class="ruby-identifier">fastlane</span>
+</pre>
+
+<h5 id="label-Gradle+dependency">Gradle dependency<span><a href="#label-Gradle+dependency">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">androidTestCompile</span>(<span class="ruby-string">&#39;tools.fastlane:screengrab:x.x.x&#39;</span>)
+</pre>
+
+<p>The latest version is <a
+href="https://bintray.com/fastlane/fastlane/screengrab/_latestVersion">
+rdoc-image:https://api.bintray.com/packages/fastlane/fastlane/screengrab/images/download.svg
+</a></p>
+
+<h5 id="label-Configuring+your+Manifest+Permissions">Configuring your Manifest Permissions<span><a href="#label-Configuring+your+Manifest+Permissions">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Ensure that the following permissions exist in your
+<strong>src/debug/AndroidManifest.xml</strong></p>
+
+<pre>&lt;!-- Allows unlocking your device and activating its screen so UI tests can succeed --&gt;
+&lt;uses-permission android:name=&quot;android.permission.DISABLE_KEYGUARD&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot;/&gt;
+
+&lt;!-- Allows for storing and retrieving screenshots --&gt;
+&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
+
+&lt;!-- Allows changing locales --&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_CONFIGURATION&quot; /&gt;</pre>
+
+<h5 id="label-Configuring+your+-3Ca+href-3D-22-23ui-tests-22-3EUI+Tests-3C-2Fa-3E+for+Screenshots">Configuring your &lt;a href=“#ui-tests”&gt;UI Tests&lt;/a&gt; for Screenshots<span><a href="#label-Configuring+your+-3Ca+href-3D-22-23ui-tests-22-3EUI+Tests-3C-2Fa-3E+for+Screenshots">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ol><li>
+<p>Add <code>@ClassRule public static final LocaleTestRule localeTestRule =
+new LocaleTestRule();</code> to your tests class to handle automatic
+switching of locales</p>
+</li><li>
+<p>To capture screenshots, add the following to your tests
+<code>Screengrab.screenshot(&quot;name_of_screenshot_here&quot;);</code> on
+the appropriate screens</p>
+</li></ol>
+
+<h1 id="label-Generating+Screenshots+with+Screengrab">Generating Screenshots with <a href="../../../../../Screengrab.html">Screengrab</a><span><a href="#label-Generating+Screenshots+with+Screengrab">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Then, before running <code>fastlane screengrab</code> you&#39;ll need a
+debug and test apk</p>
+</li><li>
+<p>You can create your APKs manually with <code>./gradlew assembleDebug
+assembleAndroidTest</code></p>
+</li><li>
+<p>You can also create a lane and use <code>build_android_app</code>:
+<code>ruby desc &quot;Build debug and test APK for screenshots&quot; lane
+:build_for_screengrab do   build_android_app(     task: &#39;assemble&#39;,
+build_type: &#39;Debug&#39;   )   build_android_app(     task:
+&#39;assemble&#39;,     build_type: &#39;AndroidTest&#39;   ) end </code></p>
+</li><li>
+<p>Once complete run <code>fastlane screengrab</code> in your app project
+directory to generate screenshots</p>
+</li><li>
+<p>You will be prompted to provide any required parameters which are not in
+your <strong>Screengrabfile</strong> or provided as command line arguments</p>
+</li><li>
+<p>Your screenshots will be saved to <code>fastlane/metadata/android</code> in
+the directory where you ran <em>screengrab</em></p>
+</li></ul>
+
+<h2 id="label-Improved+screenshot+capture+with+UI+Automator">Improved screenshot capture with UI Automator<span><a href="#label-Improved+screenshot+capture+with+UI+Automator">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>As of <em>screengrab</em> 0.5.0, you can specify different strategies to
+control the way <em>screengrab</em> captures screenshots. The newer
+strategy delegates to <a
+href="https://developer.android.com/topic/libraries/testing-support-library/index.html#UIAutomator">UI
+Automator</a> which fixes a number of problems compared to the original
+strategy:</p>
+<ul><li>
+<p>Shadows/elevation are correctly captured for Material UI</p>
+</li><li>
+<p>Multi-window situations are correctly captured (dialogs, etc.)</p>
+</li><li>
+<p>Works on Android N</p>
+</li></ul>
+
+<p>However, UI Automator requires a device with <strong>API level &gt;=
+18</strong>, so it is not yet the default strategy. To enable it for all
+screenshots by default, make the following call before your tests run:</p>
+
+<pre class="ruby"><span class="ruby-constant">Screengrab</span>.<span class="ruby-identifier">setDefaultScreenshotStrategy</span>(<span class="ruby-identifier">new</span> <span class="ruby-constant">UiAutomatorScreenshotStrategy</span>());
+</pre>
+
+<h2 id="label-Improved+screenshot+capture+with+Falcon">Improved screenshot capture with Falcon<span><a href="#label-Improved+screenshot+capture+with+Falcon">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>As of <em>screengrab</em> 1.2.0, you can specify a new strategy to delegate
+to <a href="https://github.com/jraska/Falcon">Falcon</a>. Falcon may work
+better than UI Automator in some situations and also provides similar
+benefits as UI Automator:</p>
+<ul><li>
+<p>Multi-window situations are correctly captured (dialogs, etc.)</p>
+</li><li>
+<p>Works on Android N</p>
+</li></ul>
+
+<p>Falcon requires a device with <strong>API level &gt;= 10</strong>. To
+enable it for all screenshots by default, make the following call before
+your tests run:</p>
+
+<pre class="ruby"><span class="ruby-constant">Screengrab</span>.<span class="ruby-identifier">setDefaultScreenshotStrategy</span>(<span class="ruby-identifier">new</span> <span class="ruby-constant">FalconScreenshotStrategy</span>(<span class="ruby-identifier">activityRule</span>.<span class="ruby-identifier">getActivity</span>()));
+</pre>
+
+<h2 id="label-Advanced+Screengrabfile+Configuration">Advanced Screengrabfile Configuration<span><a href="#label-Advanced+Screengrabfile+Configuration">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Running <code>fastlane screengrab init</code> generated a Screengrabfile
+which can store all of your configuration options. Since most values will
+not change often for your project, it is recommended to store them there.</p>
+
+<p>The <code>Screengrabfile</code> is written in Ruby, so you may find it
+helpful to use an editor that highlights Ruby syntax to modify this file.</p>
+
+<pre class="ruby"><span class="ruby-comment"># remove the leading &#39;#&#39; to uncomment lines</span>
+
+<span class="ruby-comment"># app_package_name(&#39;your.app.package&#39;)</span>
+<span class="ruby-comment"># use_tests_in_packages([&#39;your.screenshot.tests.package&#39;])</span>
+
+<span class="ruby-comment"># app_apk_path(&#39;path/to/your/app.apk&#39;)</span>
+<span class="ruby-comment"># tests_apk_path(&#39;path/to/your/tests.apk&#39;)</span>
+
+<span class="ruby-identifier">locales</span>([<span class="ruby-string">&#39;en-US&#39;</span>, <span class="ruby-string">&#39;fr-FR&#39;</span>, <span class="ruby-string">&#39;it-IT&#39;</span>])
+
+<span class="ruby-comment"># clear all previously generated screenshots in your local output directory before creating new ones</span>
+<span class="ruby-identifier">clear_previous_screenshots</span>(<span class="ruby-keyword">true</span>)
+</pre>
+
+<p>For more information about all available options run</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">screengrab</span>
+</pre>
+
+<h1 id="label-Tips">Tips<span><a href="#label-Tips">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-UI+Tests">UI Tests<span><a href="#label-UI+Tests">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Check out <a
+href="http://developer.android.com/training/testing/ui-testing/espresso-testing.html">Testing
+UI for a Single App</a> for an introduction to using Espresso for UI
+testing.</p>
+
+<h5 id="label-Example+UI+Test+Class+-28Using+JUnit4-29">Example UI Test Class (Using JUnit4)<span><a href="#label-Example+UI+Test+Class+-28Using+JUnit4-29">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre>@RunWith(JUnit4.class)
+public class JUnit4StyleTests {
+    @ClassRule
+    public static final LocaleTestRule localeTestRule = new LocaleTestRule();
+
+    @Rule
+    public ActivityTestRule&lt;MainActivity&gt; activityRule = new ActivityTestRule&lt;&gt;(MainActivity.class);
+
+    @Test
+    public void testTakeScreenshot() {
+        Screengrab.screenshot(&quot;before_button_click&quot;);
+
+        onView(withId(R.id.fab)).perform(click());
+
+        Screengrab.screenshot(&quot;after_button_click&quot;);
+    }
+}</pre>
+
+<p>There is an <a
+href="https://github.com/fastlane/fastlane/tree/master/screengrab/example/src/androidTest/java/tools/fastlane/localetester">example
+project</a> showing how to use use JUnit 3 or 4 and Espresso with the
+screengrab Java library to capture screenshots during a UI test run.</p>
+
+<p>Using JUnit 4 is preferable because of its ability to perform actions
+before and after the entire test class is run. This means you will change
+the device&#39;s locale far fewer times when compared with JUnit 3 running
+those commands before and after each test method.</p>
+
+<p>When using JUnit 3 you&#39;ll need to add a bit more code:</p>
+<ul><li>
+<p>Use
+<code>LocaleUtil.changeDeviceLocaleTo(LocaleUtil.getTestLocale());</code>
+in <code>setUp()</code></p>
+</li><li>
+<p>Use
+<code>LocaleUtil.changeDeviceLocaleTo(LocaleUtil.getEndingLocale());</code>
+in <code>tearDown()</code></p>
+</li><li>
+<p>Use
+<code>Screengrab.screenshot(&quot;name_of_screenshot_here&quot;);</code> to
+capture screenshots at the appropriate points in your tests</p>
+</li></ul>
+
+<p>If you&#39;re having trouble getting your device unlocked and the screen
+activated to run tests, try using
+<code>ScreenUtil.activateScreenForTesting(activity);</code> in your test
+setup.</p>
+
+<h2 id="label-Clean+Status+Bar">Clean Status Bar<span><a href="#label-Clean+Status+Bar">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can use <a
+href="https://github.com/PSPDFKit-labs/QuickDemo">QuickDemo</a> to clean up
+the status bar for your screenshots.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

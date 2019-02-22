@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::Helper::CrashlyticsHelper - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-discover_crashlytics_path">::discover_crashlytics_path</a>
+    
+    <li ><a href="#method-c-download_android_tools">::download_android_tools</a>
+    
+    <li ><a href="#method-c-generate_android_command">::generate_android_command</a>
+    
+    <li ><a href="#method-c-generate_android_manifest_tempfile">::generate_android_manifest_tempfile</a>
+    
+    <li ><a href="#method-c-generate_ios_command">::generate_ios_command</a>
+    
+    <li ><a href="#method-c-write_to_tempfile">::write_to_tempfile</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::Helper::CrashlyticsHelper">
+  <h1 id="class-Fastlane::Helper::CrashlyticsHelper" class="class">
+    class Fastlane::Helper::CrashlyticsHelper
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-discover_crashlytics_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">discover_crashlytics_path</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="discover_crashlytics_path-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/crashlytics_helper.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">discover_crashlytics_path</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:crashlytics_path</span>]
+
+  <span class="ruby-comment"># Finding submit binary inside of given Crashlytics path (for backwards compatability)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;submit&quot;</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&#39;**&#39;</span>, <span class="ruby-string">&#39;submit&#39;</span>)].<span class="ruby-identifier">last</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;:crashlytics_path passed through parameters did not point to a submit binary. Using this submit binary on that path instead: &#39;#{path}&#39;&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Using :crashlytics_path passed in through parameters: &#39;#{path}&#39;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Check for submit binary outside of Crashlytics.framework (for Crashlytics 3.4.1 and over)</span>
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;./Pods/Crashlytics/submit&quot;</span>].<span class="ruby-identifier">first</span>
+
+  <span class="ruby-comment"># Check for submit binary in Crashlytics.framework (for Crashlytics 3.4.1 and under)</span>
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;./Pods/iOS/Crashlytics/Crashlytics.framework/submit&quot;</span>].<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;./**/Crashlytics.framework/submit&quot;</span>].<span class="ruby-identifier">last</span>
+
+  <span class="ruby-identifier">downcase_path</span> = <span class="ruby-identifier">path</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">downcase_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">downcase_path</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;pods&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">downcase_path</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;crashlytics.framework&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecated</span>(<span class="ruby-string">&quot;Crashlytics has moved the submit binary outside of Crashlytics.framework directory as of 3.4.1. Please change :crashlytics_path to `&lt;PODS_ROOT&gt;/Crashlytics/submit`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-download_android_tools" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_android_tools</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_android_tools-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/crashlytics_helper.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_android_tools</span>
+  <span class="ruby-identifier">containing</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;~/Library&quot;</span>), <span class="ruby-string">&quot;CrashlyticsAndroid&quot;</span>)
+  <span class="ruby-identifier">zip_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-string">&quot;crashlytics-devtools.zip&quot;</span>)
+  <span class="ruby-identifier">jar_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-string">&quot;crashlytics-devtools.jar&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">jar_path</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">jar_path</span>)
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-string">&quot;https://ssl-download-crashlytics-com.s3.amazonaws.com/android/ant/crashlytics.zip&quot;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;net/http&#39;</span>
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">containing</span>)
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Downloading Crashlytics Support Library - this might take a minute...&quot;</span>)
+
+    <span class="ruby-comment"># Work around ruby defect, where HTTP#get_response and HTTP#post_form don&#39;t use ENV proxy settings</span>
+    <span class="ruby-comment"># https://bugs.ruby-lang.org/issues/12724</span>
+    <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-identifier">url</span>)
+    <span class="ruby-identifier">http_conn</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>)
+    <span class="ruby-identifier">http_conn</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">http_conn</span>.<span class="ruby-identifier">request_get</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error!</span>(<span class="ruby-node">&quot;#{result.message} (#{result.code})&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">zip_path</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">body</span>)
+
+    <span class="ruby-comment"># Now unzip the file</span>
+    <span class="ruby-constant">Action</span>.<span class="ruby-identifier">sh</span>(<span class="ruby-node">&quot;unzip &#39;#{zip_path}&#39; -d &#39;#{containing}&#39;&quot;</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Couldn&#39;t find &#39;crashlytics-devtools.jar&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">jar_path</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully downloaded Crashlytics Support Library to &#39;#{jar_path}&#39;&quot;</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Error fetching remote file: #{ex}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">jar_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generate_android_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_android_command</span><span
+            class="method-args">(params, android_manifest_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_android_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/crashlytics_helper.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_android_command</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">android_manifest_path</span>)
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:crashlytics_path</span>] = <span class="ruby-identifier">download_android_tools</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:crashlytics_path</span>]
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;The `crashlytics_path` must be a jar file for Android&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:crashlytics_path</span>].<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.jar&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;JAVA_HOME&#39;</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">command</span> = [<span class="ruby-string">&quot;java&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">command</span> = [<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;JAVA_HOME&#39;</span>], <span class="ruby-string">&quot;/bin/java&quot;</span>).<span class="ruby-identifier">shellescape</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-jar #{File.expand_path(params[:crashlytics_path])}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;-androidRes .&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-apiKey #{params[:api_token]}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-apiSecret #{params[:build_secret]}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-uploadDist #{File.expand_path(params[:apk_path]).shellescape}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-androidManifest #{File.expand_path(android_manifest_path).shellescape}&quot;</span>
+
+  <span class="ruby-comment"># Optional</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-betaDistributionEmails #{params[:emails].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:emails</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-betaDistributionReleaseNotesFilePath #{File.expand_path(params[:notes_path]).shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:notes_path</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-betaDistributionGroupAliases #{params[:groups].shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:groups</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-betaDistributionNotifications #{(params[:notifications] ? &#39;true&#39; : &#39;false&#39;)}&quot;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generate_android_manifest_tempfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_android_manifest_tempfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_android_manifest_tempfile-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/crashlytics_helper.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_android_manifest_tempfile</span>
+  <span class="ruby-comment"># We have to generate an empty XML file to make the crashlytics CLI happy :)</span>
+  <span class="ruby-identifier">write_to_tempfile</span>(<span class="ruby-string">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;manifest&gt;&lt;/manifest&gt;&#39;</span>, <span class="ruby-string">&#39;xml&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generate_ios_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_ios_command</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_ios_command-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/crashlytics_helper.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_ios_command</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">submit_binary</span> = <span class="ruby-identifier">discover_crashlytics_path</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">submit_binary</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Couldn&#39;t find Crashlytics&#39; submit binary in current directory. Make sure to add the &#39;Crashlytics&#39; pod to your &#39;Podfile&#39; and run `pod update`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">submit_binary</span>) <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;submit&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Invalid crashlytics path was detected with &#39;#{submit_binary}&#39;. Path must point to the `submit` binary (example: &#39;./Pods/Crashlytics/submit&#39;)&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">submit_binary</span> = <span class="ruby-string">&quot;Crashlytics.framework/submit&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-identifier">command</span> = []
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">submit_binary</span>.<span class="ruby-identifier">shellescape</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:api_token</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:build_secret</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-ipaPath &#39;#{params[:ipa_path]}&#39;&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-emails &#39;#{params[:emails]}&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:emails</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-notesPath &#39;#{params[:notes_path]}&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:notes_path</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-groupAliases &#39;#{params[:groups]}&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:groups</span>]
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-notifications #{(params[:notifications] ? &#39;YES&#39; : &#39;NO&#39;)}&quot;</span>
+  <span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;-debug #{(params[:debug] ? &#39;YES&#39; : &#39;NO&#39;)}&quot;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-write_to_tempfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_to_tempfile</span><span
+            class="method-args">(value, tempfilename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_to_tempfile-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/helper/crashlytics_helper.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_to_tempfile</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">tempfilename</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;tempfile&#39;</span>
+
+  <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tempfilename</span>).<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

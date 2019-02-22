@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Gym::ErrorHandler - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-handle_build_error">::handle_build_error</a>
+    
+    <li ><a href="#method-c-handle_empty_archive">::handle_empty_archive</a>
+    
+    <li ><a href="#method-c-handle_package_error">::handle_package_error</a>
+    
+    <li ><a href="#method-c-print">::print</a>
+    
+    <li ><a href="#method-c-print_build_error_instructions">::print_build_error_instructions</a>
+    
+    <li ><a href="#method-c-print_environment_information">::print_environment_information</a>
+    
+    <li ><a href="#method-c-print_full_log_path">::print_full_log_path</a>
+    
+    <li ><a href="#method-c-print_xcode9_plist_warning">::print_xcode9_plist_warning</a>
+    
+    <li ><a href="#method-c-print_xcode_path_instructions">::print_xcode_path_instructions</a>
+    
+    <li ><a href="#method-c-print_xcode_version">::print_xcode_version</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Gym::ErrorHandler">
+  <h1 id="class-Gym::ErrorHandler" class="class">
+    class Gym::ErrorHandler
+  </h1>
+
+  <section class="description">
+    
+<p>This classes methods are called when something goes wrong in the building
+process</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-handle_build_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_build_error</span><span
+            class="method-args">(output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String] The output of the errored build This method should raise an
+exception in any case, as the return code indicated a failed build</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_build_error-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_build_error</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-comment"># The order of the handling below is important</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Your build settings specify a provisioning profile with the UUID/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Invalid code signing settings&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Your project defines a provisioning profile which doesn&#39;t exist on your local machine&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You can use sigh (https://docs.fastlane.tools/actions/sigh/) to download and install the provisioning profile&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Follow this guide: https://docs.fastlane.tools/codesigning/GettingStarted/&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Provisioning profile does not match bundle identifier/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Invalid code signing settings&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Your project defines a provisioning profile that doesn&#39;t match the bundle identifier of your app&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Make sure you use the correct provisioning profile for this app&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Take a look at the ouptput above for more information&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You can follow this guide: https://docs.fastlane.tools/codesigning/GettingStarted/&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/provisioning profiles matching the bundle identifier .(.*)./</span> <span class="ruby-comment"># the . around the (.*) are for the strange &quot;</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-node">&quot;You don&#39;t have the provisioning profile for &#39;#{$1}&#39; installed on the local machine&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Make sure you have the profile on this computer and it&#39;s properly installed&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You can use sigh (https://docs.fastlane.tools/actions/sigh/) to download and install the provisioning profile&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Follow this guide: https://docs.fastlane.tools/codesigning/GettingStarted/&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/matching the bundle identifier .(.*). were found/</span> <span class="ruby-comment"># the . around the (.*) are for the strange &quot;</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-node">&quot;You don&#39;t have a provisioning profile for the bundle identifier &#39;#{$1}&#39; installed on the local machine&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Make sure you have the profile on this computer and it&#39;s properly installed&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You can use sigh (https://docs.fastlane.tools/actions/sigh/) to download and install the provisioning profile&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Follow this guide: https://docs.fastlane.tools/codesigning/GettingStarted/&quot;</span>)
+
+  <span class="ruby-comment"># Insert more code signing specific errors here</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/code signing is required/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Your project settings define invalid code signing settings&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;To generate an ipa file you need to enable code signing for your project&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Additionally make sure you have a code signing identity set&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Follow this guide: https://docs.fastlane.tools/codesigning/GettingStarted/&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/US\-ASCII/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Your shell environment is not correctly configured&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Instead of UTF-8 your shell uses US-ASCII&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Please add the following to your &#39;~/.bashrc&#39;:&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;       export LANG=en_US.UTF-8&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;       export LANGUAGE=en_US.UTF-8&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;       export LC_ALL=en_US.UTF-8&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You&#39;ll have to restart your shell session after updating the file.&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;If you are using zshell or another shell, make sure to edit the correct bash file.&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;For more information visit this stackoverflow answer:&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;https://stackoverflow.com/a/17031697/445598&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">print_xcode_path_instructions</span>
+  <span class="ruby-identifier">print_xcode_version</span>
+  <span class="ruby-identifier">print_full_log_path</span>
+  <span class="ruby-identifier">print_environment_information</span>
+  <span class="ruby-identifier">print_build_error_instructions</span>
+
+  <span class="ruby-comment"># This error is rather common and should be below the other (a little noisy) output</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Code signing is required for product/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Seems like Xcode is not happy with the code signing setup&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Please make sure to check out the raw `xcodebuild` output&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-constant">Gym</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildCommandGenerator</span>.<span class="ruby-identifier">xcodebuild_log_path</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;The very bottom of the file will tell you the raw Xcode error message&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;indicating on why the code signing step failed&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">build_failure!</span>(<span class="ruby-string">&quot;Error building the application - see the log above&quot;</span>, <span class="ruby-identifier">error_info</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-handle_empty_archive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_empty_archive</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_empty_archive-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_empty_archive</span>
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;The generated archive is invalid, this can have various reasons:&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Usually it&#39;s caused by the `Skip Install` option in Xcode, set it to `NO`&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;For more information visit https://developer.apple.com/library/ios/technotes/tn2215/_index.html&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Also, make sure to have a valid code signing identity and provisioning profile installed&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Follow this guide to setup code signing https://docs.fastlane.tools/codesigning/GettingStarted/&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;If your intention was only to export an ipa be sure to provide a valid archive at the archive path.&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;This error might also happen if your workspace/project file is not in the root directory of your project.&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;To workaround that issue, you can wrap your calls to gym with&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;`Dir.chdir(&#39;../path/to/dir/containing/proj&#39;) do`&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;For an example you can check out&quot;</span>)
+  <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;https://github.com/artsy/emission-nebula/commit/44fe51a7fea8f7d52f0f77d6c3084827fe5dd59e&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">build_failure!</span>(<span class="ruby-string">&quot;Archive invalid&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-handle_package_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_package_error</span><span
+            class="method-args">(output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Array] The output of the errored build (line by line) This method
+should raise an exception in any case, as the return code indicated a
+failed build</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_package_error-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_package_error</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/single\-bundle/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Your project does not contain a single–bundle application or contains multiple products&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Please read the documentation provided by Apple: https://developer.apple.com/library/ios/technotes/tn2215/_index.html&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/no signing identity matches &#39;(.*)&#39;/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-node">&quot;Could not find code signing identity &#39;#{$1}&#39;&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Make sure the name of the code signing identity is correct&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;and it matches a locally installed code signing identity&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You can pass the name of the code signing identity using the&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;`codesigning_identity` option&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/no provisioning profile matches &#39;(.*)&#39;/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-node">&quot;Could not find provisioning profile with the name &#39;#{$1}&#39;&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Make sure the name of the provisioning profile is correct&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;and it matches a locally installed profile&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/mismatch between specified provisioning profile and signing identity/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Mismatch between provisioning profile and code signing identity&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;This means, the specified provisioning profile was not created using&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;the specified certificate.&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Run cert and sigh before gym to make sure to have all signing resources ready&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/requires a provisioning profile/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;No provisioning profile provided&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Make sure to pass a valid provisioning for each required target&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-node">&quot;Check out the docs on how to fix this: https://docs.fastlane.tools/actions/gym/#export-options&quot;</span>)
+  <span class="ruby-comment"># insert more specific code signing errors here</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Codesign check fails/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;A general code signing error occurred. Make sure you passed a valid&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;provisioning profile and code signing identity.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">print_xcode_version</span>
+  <span class="ruby-identifier">print_full_log_path</span>
+  <span class="ruby-identifier">print_environment_information</span>
+  <span class="ruby-identifier">print_build_error_instructions</span>
+  <span class="ruby-identifier">print_xcode9_plist_warning</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">build_failure!</span>(<span class="ruby-string">&quot;Error packaging up the application&quot;</span>, <span class="ruby-identifier">error_info</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-print" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Just to make things easier</p>
+          
+          
+
+          
+          <div class="method-source-code" id="print-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">text</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_build_error_instructions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_build_error_instructions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indicate that code signing errors are not caused by fastlane and that
+fastlane only runs `xcodebuild` commands</p>
+          
+          
+
+          
+          <div class="method-source-code" id="print_build_error_instructions-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_build_error_instructions</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Looks like fastlane ran into a build/archive error with your project&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;It&#39;s hard to tell what&#39;s causing the error, so we wrote some guides on how&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;to troubleshoot build and signing issues: https://docs.fastlane.tools/codesigning/getting-started/&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Before submitting an issue on GitHub, please follow the guide above and make&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;sure your project is set up correctly.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;fastlane uses `xcodebuild` commands to generate your binary, you can see the&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;the full commands printed out in yellow in the above log.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Make sure to inspect the output above, as usually you&#39;ll find more error information there&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_environment_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_environment_information</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_environment_information-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_environment_information</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_method</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;development&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Your `export_method` in gym is defined as `development`&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;which might cause problems when signing your application&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Are you sure want to build and export for development?&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please make sure to define the correct export methods when calling&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;gym in your Fastfile or from the command line&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_options</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_options</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-comment"># We want to tell the user if there is an obvious mismatch between the selected</span>
+    <span class="ruby-comment"># `export_method` and the selected provisioning profiles</span>
+    <span class="ruby-identifier">selected_export_method</span> = <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_method</span>].<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">selected_provisioning_profiles</span> = <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_options</span>][<span class="ruby-value">:provisioningProfiles</span>] <span class="ruby-operator">||</span> []
+    <span class="ruby-comment"># We could go ahead and find all provisioning profiles that match that name</span>
+    <span class="ruby-comment"># and then get its type, however that&#39;s not 100% reliable, as we can&#39;t distinguish between</span>
+    <span class="ruby-comment"># Ad Hoc and Development profiles for example.</span>
+    <span class="ruby-comment"># As an easier and more obvious alternative, we&#39;ll take the provisioning profile names</span>
+    <span class="ruby-comment"># and see if it contains the export_method name and see if there is a mismatch</span>
+
+    <span class="ruby-comment"># The reason we have multiple variations of the spelling is that</span>
+    <span class="ruby-comment"># the provisioning profile might be called anything below</span>
+    <span class="ruby-comment"># There is no 100% good way to detect the profile type based on the name</span>
+    <span class="ruby-identifier">available_export_types</span> = {
+      <span class="ruby-string">&quot;app-store&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;app-store&quot;</span>,
+      <span class="ruby-string">&quot;app store&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;app-store&quot;</span>,
+      <span class="ruby-string">&quot;appstore&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;app-store&quot;</span>,
+      <span class="ruby-string">&quot;enterprise&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;enterprise&quot;</span>,
+      <span class="ruby-string">&quot;in-house&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;enterprise&quot;</span>,
+      <span class="ruby-string">&quot;in house&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;enterprise&quot;</span>,
+      <span class="ruby-string">&quot;inhouse&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;enterprise&quot;</span>,
+      <span class="ruby-string">&quot;ad-hoc&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ad-hoc&quot;</span>,
+      <span class="ruby-string">&quot;adhoc&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ad-hoc&quot;</span>,
+      <span class="ruby-string">&quot;ad hoc&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ad-hoc&quot;</span>,
+      <span class="ruby-string">&quot;development&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;development&quot;</span>
+    }
+
+    <span class="ruby-identifier">selected_provisioning_profiles</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_bundle_identifier</span>, <span class="ruby-identifier">current_profile_name</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">available_export_types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_to_try</span>, <span class="ruby-identifier">matching_type</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current_profile_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_to_try</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>)
+
+        <span class="ruby-comment"># Check if there is a mismatch between the name and the selected export method</span>
+        <span class="ruby-comment"># Example</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-comment">#   current_profile_name = &quot;me.themoji.app.beta App Store&quot;&quot;</span>
+        <span class="ruby-comment">#   current_to_try = &quot;app store&quot;</span>
+        <span class="ruby-comment">#   matching_type = :appstore</span>
+        <span class="ruby-comment">#   selected_export_method = &quot;enterprise&quot;</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-comment"># As seen above, there is obviously a mismatch, the user selected an App Store</span>
+        <span class="ruby-comment"># profile, but the export method that&#39;s being passed to Xcode is &quot;enterprise&quot;</span>
+
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">matching_type</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">selected_export_method</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;There seems to be a mismatch between your provided `export_method` in gym&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;and the selected provisioning profiles. You passed the following options:&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;  export_method:      #{selected_export_method}&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;  Bundle identifier:  #{current_bundle_identifier}&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;  Profile name:       #{current_profile_name}&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;  Profile type:       #{matching_type}&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Make sure to either change the `export_method` passed from your Fastfile or CLI&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;or select the correct provisioning profiles by updating your Xcode project&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;or passing the profiles to use by using match or manually via the `export_options` hash&quot;</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_full_log_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_full_log_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_full_log_path-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_full_log_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:disable_xcpretty</span>]
+
+  <span class="ruby-identifier">log_path</span> = <span class="ruby-constant">Gym</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildCommandGenerator</span>.<span class="ruby-identifier">xcodebuild_log_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">log_path</span>)
+
+  <span class="ruby-comment"># `xcodebuild` doesn&#39;t properly mark lines as failure reason or important information</span>
+  <span class="ruby-comment"># so we assume that the last few lines show the error message that&#39;s relevant</span>
+  <span class="ruby-comment"># (at least that&#39;s what was correct during testing)</span>
+  <span class="ruby-identifier">log_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">log_path</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)[<span class="ruby-value">-5</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+  <span class="ruby-identifier">log_content</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-identifier">row</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;⬆️  Check out the few lines of raw `xcodebuild` output above for potential hints on how to solve this error&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;📋  For the complete and more detailed error log, check the full log at:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;📋  #{log_path}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_xcode9_plist_warning" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_xcode9_plist_warning</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_xcode9_plist_warning-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_xcode9_plist_warning</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_at_least?</span>(<span class="ruby-string">&quot;9.0&quot;</span>)
+
+  <span class="ruby-comment"># prevent crash in case of packaging error AND if you have set export_options to a path.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_options</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+
+  <span class="ruby-identifier">export_options</span> = <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_options</span>] <span class="ruby-operator">||</span> {}
+  <span class="ruby-identifier">provisioning_profiles</span> = <span class="ruby-identifier">export_options</span>[<span class="ruby-value">:provisioningProfiles</span>] <span class="ruby-operator">||</span> []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">provisioning_profiles</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Looks like no provisioning profile mapping was provided&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Please check the complete output, in particular the very top&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;and see if you can find more information. You can also run fastlane&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;with the `--verbose` flag.&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Alternatively you can provide the provisioning profile mapping manually&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;https://docs.fastlane.tools/codesigning/xcode-project/#xcode-9-and-up&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_xcode_path_instructions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_xcode_path_instructions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_xcode_path_instructions-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_xcode_path_instructions</span>
+  <span class="ruby-identifier">xcode_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;../..&quot;</span>, <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_path</span>)
+  <span class="ruby-identifier">default_xcode_path</span> = <span class="ruby-string">&quot;/Applications/&quot;</span>
+
+  <span class="ruby-identifier">xcode_installations_in_default_path</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">default_xcode_path</span>, <span class="ruby-string">&quot;Xcode*.app&quot;</span>)]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">xcode_installations_in_default_path</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Maybe the error shown is caused by using the wrong version of Xcode&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Found multiple versions of Xcode in &#39;#{default_xcode_path}&#39;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Make sure you selected the right version for your project&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;This build process was executed using &#39;#{xcode_path}&#39;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;If you want to update your Xcode path, either&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;- Specify the Xcode version in your Fastfile&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-node">&quot;xcversion(version: \&quot;8.1\&quot;) # Selects Xcode 8.1.0&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;- Specify an absolute path to your Xcode installation in your Fastfile&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-string">&quot;xcode_select \&quot;/Applications/Xcode8.app\&quot;&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;- Manually update the path using&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-string">&quot;sudo xcode-select -s /Applications/Xcode.app&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_xcode_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_xcode_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_xcode_version-source">
+            <pre><span class="ruby-comment"># File gym/lib/gym/error_handler.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_xcode_version</span>
+  <span class="ruby-comment"># lots of the times, the user didn&#39;t set the correct Xcode version to their Xcode path</span>
+  <span class="ruby-comment"># since many users don&#39;t look at the table of summary before running a tool, let&#39;s make</span>
+  <span class="ruby-comment"># sure they are aware of the Xcode version and SDK they&#39;re using</span>
+  <span class="ruby-identifier">values</span> = {
+    <span class="ruby-identifier">xcode_path</span><span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;../..&quot;</span>, <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_path</span>),
+    <span class="ruby-identifier">gym_version</span><span class="ruby-operator">:</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>,
+    <span class="ruby-identifier">export_method</span><span class="ruby-operator">:</span> <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:export_method</span>]
+  }
+
+  <span class="ruby-identifier">sdk_path</span> = <span class="ruby-constant">Gym</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">build_settings</span>(<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;SDKROOT&quot;</span>)
+  <span class="ruby-identifier">values</span>[<span class="ruby-value">:sdk</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">sdk_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">sdk_path</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">print_values</span>(<span class="ruby-identifier">config</span><span class="ruby-operator">:</span> <span class="ruby-identifier">values</span>,
+                                     <span class="ruby-identifier">hide_keys</span><span class="ruby-operator">:</span> [],
+                                         <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Build environment&quot;</span>.<span class="ruby-identifier">yellow</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

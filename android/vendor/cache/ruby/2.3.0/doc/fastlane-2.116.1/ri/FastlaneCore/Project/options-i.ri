@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"options:ETI""FastlaneCore::Project#options;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"AThe config object containing the scheme, configuration, etc.;T:
+@fileI"/fastlane_core/lib/fastlane_core/project.rb;T:0@omit_headings_from_table_of_contents_below0F@I"FastlaneCore::Project;TcRDoc::NormalClass0

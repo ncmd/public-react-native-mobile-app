@@ -1,0 +1,2776 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Client - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-client_with_authorization_from">::client_with_authorization_from</a>
+    
+    <li ><a href="#method-c-hostname">::hostname</a>
+    
+    <li ><a href="#method-c-login">::login</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-spaceship_session_env">::spaceship_session_env</a>
+    
+    <li ><a href="#method-i-UI">#UI</a>
+    
+    <li ><a href="#method-i-cookie">#cookie</a>
+    
+    <li ><a href="#method-i-detect_most_common_errors_and_raise_exceptions">#detect_most_common_errors_and_raise_exceptions</a>
+    
+    <li ><a href="#method-i-directory_accessible-3F">#directory_accessible?</a>
+    
+    <li ><a href="#method-i-do_login">#do_login</a>
+    
+    <li ><a href="#method-i-encode_params">#encode_params</a>
+    
+    <li ><a href="#method-i-extract_key_from_block">#extract_key_from_block</a>
+    
+    <li ><a href="#method-i-fastlane_user_dir">#fastlane_user_dir</a>
+    
+    <li ><a href="#method-i-fetch_olympus_session">#fetch_olympus_session</a>
+    
+    <li ><a href="#method-i-fetch_program_license_agreement_messages">#fetch_program_license_agreement_messages</a>
+    
+    <li ><a href="#method-i-get_id_for_number">#get_id_for_number</a>
+    
+    <li ><a href="#method-i-handle_two_factor">#handle_two_factor</a>
+    
+    <li ><a href="#method-i-handle_two_step">#handle_two_step</a>
+    
+    <li ><a href="#method-i-handle_two_step_for_device">#handle_two_step_for_device</a>
+    
+    <li ><a href="#method-i-handle_two_step_or_factor">#handle_two_step_or_factor</a>
+    
+    <li ><a href="#method-i-itc_service_key">#itc_service_key</a>
+    
+    <li ><a href="#method-i-load_session_from_env">#load_session_from_env</a>
+    
+    <li ><a href="#method-i-load_session_from_file">#load_session_from_file</a>
+    
+    <li ><a href="#method-i-log_request">#log_request</a>
+    
+    <li ><a href="#method-i-log_response">#log_response</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-page_size">#page_size</a>
+    
+    <li ><a href="#method-i-paging">#paging</a>
+    
+    <li ><a href="#method-i-parse_response">#parse_response</a>
+    
+    <li ><a href="#method-i-persistent_cookie_path">#persistent_cookie_path</a>
+    
+    <li ><a href="#method-i-raise_insufficient_permission_error-21">#raise_insufficient_permission_error!</a>
+    
+    <li ><a href="#method-i-request">#request</a>
+    
+    <li ><a href="#method-i-request_two_factor_code_from_phone">#request_two_factor_code_from_phone</a>
+    
+    <li ><a href="#method-i-send_request">#send_request</a>
+    
+    <li ><a href="#method-i-send_request_auto_paginate">#send_request_auto_paginate</a>
+    
+    <li ><a href="#method-i-send_shared_login_request">#send_shared_login_request</a>
+    
+    <li ><a href="#method-i-should_process_next_rel-3F">#should_process_next_rel?</a>
+    
+    <li ><a href="#method-i-store_cookie">#store_cookie</a>
+    
+    <li ><a href="#method-i-store_csrf_tokens">#store_csrf_tokens</a>
+    
+    <li ><a href="#method-i-store_session">#store_session</a>
+    
+    <li ><a href="#method-i-team_id">#team_id</a>
+    
+    <li ><a href="#method-i-team_id-3D">#team_id=</a>
+    
+    <li ><a href="#method-i-team_information">#team_information</a>
+    
+    <li ><a href="#method-i-team_name">#team_name</a>
+    
+    <li ><a href="#method-i-teams">#teams</a>
+    
+    <li ><a href="#method-i-update_request_headers">#update_request_headers</a>
+    
+    <li ><a href="#method-i-user_details_data">#user_details_data</a>
+    
+    <li ><a href="#method-i-with_retry">#with_retry</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Client">
+  <h1 id="class-Spaceship::Client" class="class">
+    class Spaceship::Client
+  </h1>
+
+  <section class="description">
+    
+<p>rubocop:disable Metrics/ClassLength</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="AUTH_TYPES">AUTH_TYPES
+        
+        <dd>
+        
+      
+        <dt id="AppleTimeoutError">AppleTimeoutError
+        
+        <dd>
+        
+      
+        <dt id="BadGatewayError">BadGatewayError
+        
+        <dd>
+        
+      
+        <dt id="BasicPreferredInfoError">BasicPreferredInfoError
+        
+        <dd><p>legacy support</p>
+        
+      
+        <dt id="GatewayTimeoutError">GatewayTimeoutError
+        
+        <dd>
+        
+      
+        <dt id="InsufficientPermissions">InsufficientPermissions
+        
+        <dd>
+        
+      
+        <dt id="InternalServerError">InternalServerError
+        
+        <dd>
+        
+      
+        <dt id="InvalidUserCredentialsError">InvalidUserCredentialsError
+        
+        <dd>
+        
+      
+        <dt id="NoUserCredentialsError">NoUserCredentialsError
+        
+        <dd>
+        
+      
+        <dt id="PROTOCOL_VERSION">PROTOCOL_VERSION
+        
+        <dd>
+        
+      
+        <dt id="ProgramLicenseAgreementUpdated">ProgramLicenseAgreementUpdated
+        
+        <dd>
+        
+      
+        <dt id="USER_AGENT">USER_AGENT
+        
+        <dd>
+        
+      
+        <dt id="UnauthorizedAccessError">UnauthorizedAccessError
+        
+        <dd>
+        
+      
+        <dt id="UnexpectedResponse">UnexpectedResponse
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-client" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">client</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-csrf_tokens" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">csrf_tokens</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-logger" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">logger</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The logger in which all requests are logged /tmp/spaceship[time]_[pid].log
+by default</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-provider" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">provider</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-user" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">user</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The user that is currently logged in</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-user_email" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">user_email</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The email of the user that is currently logged in</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-client_with_authorization_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">client_with_authorization_from</span><span
+            class="method-args">(another_client)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Instantiates a client but with a cookie derived from another client.</p>
+
+<p>HACK: since the `@cookie` is not exposed, we use this hacky way of sharing
+the instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="client_with_authorization_from-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">client_with_authorization_from</span>(<span class="ruby-identifier">another_client</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">cookie</span><span class="ruby-operator">:</span> <span class="ruby-identifier">another_client</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@cookie</span>), <span class="ruby-identifier">current_team_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">another_client</span>.<span class="ruby-identifier">team_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hostname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hostname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hostname-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hostname</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;You must implement self.hostname&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">(user = nil, password = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Authenticates with Apple&#39;s web services. This method has to be called
+once to generate a valid session. The session will automatically be used
+from then on.</p>
+
+<p>This method will automatically use the username from the Appfile (if
+available) and fetch the password from the Keychain (if available)</p>
+
+<p>@param user (String) (optional): The username (usually the email address)
+@param password (String) (optional): The password</p>
+
+<p>@raise InvalidUserCredentialsError: raised if authentication failed</p>
+
+<p>@return (Spaceship::Client) The client the login method was called for</p>
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">login</span>(<span class="ruby-identifier">user</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">instance</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance</span>.<span class="ruby-identifier">login</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+    <span class="ruby-identifier">instance</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidUserCredentialsError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Invalid User Credentials&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(cookie: nil, current_team_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">cookie</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">current_team_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">options</span> = {
+   <span class="ruby-identifier">request</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">timeout</span><span class="ruby-operator">:</span>       (<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_TIMEOUT&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">300</span>).<span class="ruby-identifier">to_i</span>,
+      <span class="ruby-identifier">open_timeout</span><span class="ruby-operator">:</span>  (<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_TIMEOUT&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">300</span>).<span class="ruby-identifier">to_i</span>
+    }
+  }
+  <span class="ruby-ivar">@current_team_id</span> = <span class="ruby-identifier">current_team_id</span>
+  <span class="ruby-ivar">@cookie</span> = <span class="ruby-identifier">cookie</span> <span class="ruby-operator">||</span> <span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">CookieJar</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@client</span> = <span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">response</span>(<span class="ruby-value">:json</span>, <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-regexp">/\bjson$/</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">response</span>(<span class="ruby-value">:xml</span>, <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-regexp">/\bxml$/</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">response</span>(<span class="ruby-value">:plist</span>, <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-regexp">/\bplist$/</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">use</span>(<span class="ruby-value">:cookie_jar</span>, <span class="ruby-identifier">jar</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@cookie</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">use</span>(<span class="ruby-constant">FaradayMiddleware</span><span class="ruby-operator">::</span><span class="ruby-constant">RelsMiddleware</span>)
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">adapter</span>(<span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">default_adapter</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SPACESHIP_DEBUG&#39;</span>]
+      <span class="ruby-comment"># for debugging only</span>
+      <span class="ruby-comment"># This enables tracking of networking requests using Charles Web Proxy</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">proxy</span> = <span class="ruby-string">&quot;https://127.0.0.1:8888&quot;</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">ssl</span>[<span class="ruby-value">:verify_mode</span>] = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_PROXY&quot;</span>]
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">proxy</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_PROXY&quot;</span>]
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">ssl</span>[<span class="ruby-value">:verify_mode</span>] = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_PROXY_SSL_VERIFY_NONE&quot;</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DEBUG&quot;</span>]
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;To run spaceship through a local proxy, use SPACESHIP_DEBUG&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spaceship_session_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spaceship_session_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch the session cookie from the environment (if exists)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="spaceship_session_env-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 594</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">spaceship_session_env</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_SESSION&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_SESSION&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-UI" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">UI</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public getter for all <a href="Client.html#method-i-UI">#UI</a> related
+code rubocop:disable Style/MethodName</p>
+          
+          
+
+          
+          <div class="method-source-code" id="UI-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/ui.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">UI</span>
+  <span class="ruby-constant">UserInterface</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cookie" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cookie</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the session cookie.</p>
+
+<p>@return (String) the cookie-string in the RFC6265 format: <a
+href="https://tools.ietf.org/html/rfc6265#section-4.2.1">tools.ietf.org/html/rfc6265#section-4.2.1</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="cookie-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cookie</span>
+  <span class="ruby-ivar">@cookie</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detect_most_common_errors_and_raise_exceptions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detect_most_common_errors_and_raise_exceptions</span><span
+            class="method-args">(body)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="detect_most_common_errors_and_raise_exceptions-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 728</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detect_most_common_errors_and_raise_exceptions</span>(<span class="ruby-identifier">body</span>)
+  <span class="ruby-comment"># Check if the failure is due to missing permissions (App Store Connect)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;messages&quot;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;messages&quot;</span>][<span class="ruby-string">&quot;error&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Forbidden&quot;</span>)
+    <span class="ruby-identifier">raise_insufficient_permission_error!</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;messages&quot;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;messages&quot;</span>][<span class="ruby-string">&quot;error&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;insufficient privileges&quot;</span>)
+    <span class="ruby-comment"># Passing a specific `caller_location` here to make sure we return the correct method</span>
+    <span class="ruby-comment"># With the default location the error would say that `parse_response` is the caller</span>
+    <span class="ruby-identifier">raise_insufficient_permission_error!</span>(<span class="ruby-identifier">caller_location</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Internal Server Error - Read&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InternalServerError</span>, <span class="ruby-string">&quot;Received an internal server error from App Store Connect / Developer Portal, please try again later&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Gateway Timeout - In read&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">GatewayTimeoutError</span>, <span class="ruby-string">&quot;Received a gateway timeout error from App Store Connect / Developer Portal, please try again later&quot;</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;resultString&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Program License Agreement&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ProgramLicenseAgreementUpdated</span>, <span class="ruby-node">&quot;#{body[&#39;userString&#39;]} Please manually log into your Apple Developer account to review and accept the updated agreement.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fastlane_user_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fastlane_user_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This is a duplicate method of
+fastlane_core/fastlane_core.rb#fastlane_user_dir</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fastlane_user_dir-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fastlane_user_dir</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">home</span>, <span class="ruby-string">&quot;.fastlane&quot;</span>))
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_olympus_session" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_olympus_session</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the `itctx` from the new (22nd May 2017) API endpoint “olympus”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_olympus_session-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 516</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_olympus_session</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&quot;https://olympus.itunes.apple.com/v1/session&quot;</span>)
+  <span class="ruby-identifier">body</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-identifier">body</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">body</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">user_map</span> = <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;user&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_map</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_email</span> = <span class="ruby-identifier">user_map</span>[<span class="ruby-string">&quot;emailAddress&quot;</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">provider</span> = <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;provider&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">provider</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">provider</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Provider</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">provider_hash</span><span class="ruby-operator">:</span> <span class="ruby-identifier">provider</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_program_license_agreement_messages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_program_license_agreement_messages</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get contract messages from <a href="Portal/App.html">App</a> Store
+Connect&#39;s “olympus” endpoint</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_program_license_agreement_messages-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 599</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_program_license_agreement_messages</span>
+  <span class="ruby-identifier">all_messages</span> = []
+
+  <span class="ruby-identifier">messages_request</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&quot;https://olympus.itunes.apple.com/v1/contractMessages&quot;</span>)
+  <span class="ruby-identifier">body</span> = <span class="ruby-identifier">messages_request</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-identifier">body</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">body</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">body</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">messages</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">all_messages</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">messages</span>[<span class="ruby-string">&quot;message&quot;</span>])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">all_messages</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_id_for_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_id_for_number</span><span
+            class="method-args">(phone_numbers, result)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_id_for_number-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_id_for_number</span>(<span class="ruby-identifier">phone_numbers</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">phone_numbers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">phone</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">phone_id</span> = <span class="ruby-identifier">phone</span>[<span class="ruby-string">&#39;id&#39;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">phone_id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">phone</span>[<span class="ruby-string">&#39;numberWithDialCode&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_two_factor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_two_factor</span><span
+            class="method-args">(response, depth = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_two_factor-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_two_factor</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">depth</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Two-factor Authentication (6 digits code) is enabled for account &#39;#{self.user}&#39;&quot;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;More information about Two-factor Authentication: https://support.apple.com/en-us/HT204915&quot;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+    <span class="ruby-identifier">two_factor_url</span> = <span class="ruby-node">&quot;https://github.com/fastlane/fastlane/tree/master/spaceship#2-step-verification&quot;</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;If you&#39;re running this in a non-interactive session (e.g. server or CI)&quot;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;check out #{two_factor_url}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># &quot;verification code&quot; has already be pushed to devices</span>
+
+  <span class="ruby-identifier">security_code</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;securityCode&quot;</span>]
+  <span class="ruby-comment"># &quot;securityCode&quot;: {</span>
+  <span class="ruby-comment">#         &quot;length&quot;: 6,</span>
+  <span class="ruby-comment">#         &quot;tooManyCodesSent&quot;: false,</span>
+  <span class="ruby-comment">#         &quot;tooManyCodesValidated&quot;: false,</span>
+  <span class="ruby-comment">#         &quot;securityCodeLocked&quot;: false</span>
+  <span class="ruby-comment"># },</span>
+  <span class="ruby-identifier">code_length</span> = <span class="ruby-identifier">security_code</span>[<span class="ruby-string">&quot;length&quot;</span>]
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;(Input `sms` to escape this prompt and select a trusted phone number to send the code as a text message)&quot;</span>)
+  <span class="ruby-identifier">code_type</span> = <span class="ruby-string">&#39;trusteddevice&#39;</span>
+  <span class="ruby-identifier">code</span> = <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;Please enter the #{code_length} digit code:&quot;</span>)
+  <span class="ruby-identifier">body</span> = { <span class="ruby-string">&quot;securityCode&quot;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;code&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_s</span> } }.<span class="ruby-identifier">to_json</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;sms&#39;</span>
+    <span class="ruby-identifier">code_type</span> = <span class="ruby-string">&#39;phone&#39;</span>
+    <span class="ruby-identifier">body</span> = <span class="ruby-identifier">request_two_factor_code_from_phone</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;trustedPhoneNumbers&quot;</span>], <span class="ruby-identifier">code_length</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Requesting session...&quot;</span>)
+
+  <span class="ruby-comment"># Send &quot;verification code&quot; back to server to get a valid session</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;https://idmsa.apple.com/appleauth/auth/verify/#{code_type}/securitycode&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">body</span>
+    <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># we use `Spaceship::TunesClient.new.handle_itc_response`</span>
+    <span class="ruby-comment"># since this might be from the Dev Portal, but for 2 factor</span>
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TunesClient</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">handle_itc_response</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>) <span class="ruby-comment"># this will fail if the code is invalid</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-comment"># If the code was entered wrong</span>
+    <span class="ruby-comment"># {</span>
+    <span class="ruby-comment">#   &quot;service_errors&quot;: [{</span>
+    <span class="ruby-comment">#     &quot;code&quot;: &quot;-21669&quot;,</span>
+    <span class="ruby-comment">#     &quot;title&quot;: &quot;Incorrect Verification Code&quot;,</span>
+    <span class="ruby-comment">#     &quot;message&quot;: &quot;Incorrect verification code.&quot;</span>
+    <span class="ruby-comment">#   }],</span>
+    <span class="ruby-comment">#   &quot;hasError&quot;: true</span>
+    <span class="ruby-comment"># }</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;verification code&quot;</span>) <span class="ruby-comment"># to have a nicer output</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Error: Incorrect verification code&quot;</span>)
+      <span class="ruby-identifier">depth</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">handle_two_factor</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">depth</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">store_session</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_two_step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_two_step</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_two_step-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_two_step</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;securityCode&quot;</span>, {})[<span class="ruby-string">&quot;tooManyCodesLock&quot;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Too many verification codes have been sent. Enter the last code you received, use one of your devices, or try again later.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Two-step Verification (4 digits code) is enabled for account &#39;#{self.user}&#39;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;More information about Two-step Verification: https://support.apple.com/en-us/HT204152&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Please select a trusted device to verify your identity&quot;</span>)
+  <span class="ruby-identifier">available</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;trustedDevices&quot;</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;#{current[&#39;name&#39;]}\t#{current[&#39;modelName&#39;] || &#39;SMS&#39;}\t(#{current[&#39;id&#39;]})&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">choose</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">available</span>)
+
+  <span class="ruby-identifier">device_id</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/.*\t.*\t\((.*)\)/</span>)[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">handle_two_step_for_device</span>(<span class="ruby-identifier">device_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_two_step_for_device" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_two_step_for_device</span><span
+            class="method-args">(device_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this is extracted into its own method so it can be called multiple times
+(see end)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_two_step_for_device-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_two_step_for_device</span>(<span class="ruby-identifier">device_id</span>)
+  <span class="ruby-comment"># Request token to device</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:put</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;https://idmsa.apple.com/appleauth/auth/verify/device/#{device_id}/securitycode&quot;</span>)
+    <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># we use `Spaceship::TunesClient.new.handle_itc_response`</span>
+  <span class="ruby-comment"># since this might be from the Dev Portal, but for 2 step</span>
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TunesClient</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">handle_itc_response</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>)
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Successfully requested notification&quot;</span>)
+  <span class="ruby-identifier">code</span> = <span class="ruby-identifier">ask</span>(<span class="ruby-string">&quot;Please enter the 4 digit code: &quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Requesting session...&quot;</span>)
+
+  <span class="ruby-comment"># Send token to server to get a valid session</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-node">&quot;https://idmsa.apple.com/appleauth/auth/verify/device/#{device_id}/securitycode&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = { <span class="ruby-string">&quot;code&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TunesClient</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">handle_itc_response</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>) <span class="ruby-comment"># this will fail if the code is invalid</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-comment"># If the code was entered wrong</span>
+    <span class="ruby-comment"># {</span>
+    <span class="ruby-comment">#   &quot;securityCode&quot;: {</span>
+    <span class="ruby-comment">#     &quot;code&quot;: &quot;1234&quot;</span>
+    <span class="ruby-comment">#   },</span>
+    <span class="ruby-comment">#   &quot;securityCodeLocked&quot;: false,</span>
+    <span class="ruby-comment">#   &quot;recoveryKeyLocked&quot;: false,</span>
+    <span class="ruby-comment">#   &quot;recoveryKeySupported&quot;: true,</span>
+    <span class="ruby-comment">#   &quot;manageTrustedDevicesLinkName&quot;: &quot;appleid.apple.com&quot;,</span>
+    <span class="ruby-comment">#   &quot;suppressResend&quot;: false,</span>
+    <span class="ruby-comment">#   &quot;authType&quot;: &quot;hsa&quot;,</span>
+    <span class="ruby-comment">#   &quot;accountLocked&quot;: false,</span>
+    <span class="ruby-comment">#   &quot;validationErrors&quot;: [{</span>
+    <span class="ruby-comment">#     &quot;code&quot;: &quot;-21669&quot;,</span>
+    <span class="ruby-comment">#     &quot;title&quot;: &quot;Incorrect Verification Code&quot;,</span>
+    <span class="ruby-comment">#     &quot;message&quot;: &quot;Incorrect verification code.&quot;</span>
+    <span class="ruby-comment">#   }]</span>
+    <span class="ruby-comment"># }</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;verification code&quot;</span>) <span class="ruby-comment"># to have a nicer output</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Error: Incorrect verification code&quot;</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">handle_two_step_for_device</span>(<span class="ruby-identifier">device_id</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">store_session</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_two_step_or_factor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_two_step_or_factor</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_two_step_or_factor-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_two_step_or_factor</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-comment"># extract `x-apple-id-session-id` and `scnt` from response, to be used by `update_request_headers`</span>
+  <span class="ruby-ivar">@x_apple_id_session_id</span> = <span class="ruby-identifier">response</span>[<span class="ruby-string">&quot;x-apple-id-session-id&quot;</span>]
+  <span class="ruby-ivar">@scnt</span> = <span class="ruby-identifier">response</span>[<span class="ruby-string">&quot;scnt&quot;</span>]
+
+  <span class="ruby-comment"># get authentication options</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;https://idmsa.apple.com/appleauth/auth&quot;</span>)
+    <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;trustedDevices&quot;</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">handle_two_step</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;trustedPhoneNumbers&quot;</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;trustedPhoneNumbers&quot;</span>].<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">handle_two_factor</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Although response from Apple indicated activated Two-step Verification or Two-factor Authentication, spaceship didn&#39;t know how to handle this response: #{r.body}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-itc_service_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">itc_service_key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="itc_service_key-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 536</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">itc_service_key</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@service_key</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@service_key</span>
+
+  <span class="ruby-comment"># Check if we have a local cache of the key</span>
+  <span class="ruby-identifier">itc_service_key_path</span> = <span class="ruby-string">&quot;/tmp/spaceship_itc_service_key.txt&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">itc_service_key_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">itc_service_key_path</span>)
+
+  <span class="ruby-comment"># Fixes issue https://github.com/fastlane/fastlane/issues/13281</span>
+  <span class="ruby-comment"># Even though we are using https://appstoreconnect.apple.com, the service key needs to still use a</span>
+  <span class="ruby-comment"># hostname through itunesconnect.apple.com</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&quot;https://olympus.itunes.apple.com/v1/app/config?hostname=itunesconnect.apple.com&quot;</span>)
+  <span class="ruby-ivar">@service_key</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;authServiceKey&quot;</span>].<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Service key is empty&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@service_key</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-comment"># Cache the key locally</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">itc_service_key_path</span>, <span class="ruby-ivar">@service_key</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@service_key</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">AppleTimeoutError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Could not receive latest API key from App Store Connect, this might be a server issue.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_session_from_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_session_from_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_session_from_env-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 573</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_session_from_env</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">spaceship_session_env</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Loading session from environment variable&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;cookie.yml&#39;</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">spaceship_session_env</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\\n&quot;</span>, <span class="ruby-string">&quot;\n&quot;</span>))
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@cookie</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Error loading session from environment&quot;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Make sure to pass the session in a valid format&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">unlink</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_session_from_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_session_from_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Session</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_session_from_file-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 564</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_session_from_file</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">persistent_cookie_path</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Loading session from &#39;#{persistent_cookie_path}&#39;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-ivar">@cookie</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">persistent_cookie_path</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">(user = nil, password = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Authenticates with Apple&#39;s web services. This method has to be called
+once to generate a valid session. The session will automatically be used
+from then on.</p>
+
+<p>This method will automatically use the username from the Appfile (if
+available) and fetch the password from the Keychain (if available)</p>
+
+<p>@param user (String) (optional): The username (usually the email address)
+@param password (String) (optional): The password</p>
+
+<p>@raise InvalidUserCredentialsError: raised if authentication failed</p>
+
+<p>@return (Spaceship::Client) The client the login method was called for</p>
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>(<span class="ruby-identifier">user</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;credentials_manager/account_manager&#39;</span>
+
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Reading keychain entry, because either user or password were empty&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+
+    <span class="ruby-identifier">keychain_entry</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AccountManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+    <span class="ruby-identifier">user</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">keychain_entry</span>.<span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">password</span> = <span class="ruby-identifier">keychain_entry</span>.<span class="ruby-identifier">password</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoUserCredentialsError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;No login data provided&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">password</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">do_login</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>) <span class="ruby-comment"># calls `send_login_request` in sub class (which then will redirect back here to `send_shared_login_request`, below)</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">InvalidUserCredentialsError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keychain_entry</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">keychain_entry</span>.<span class="ruby-identifier">invalid_credentials</span>
+      <span class="ruby-identifier">login</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-page_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">page_size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The page size we want to request, defaults to 500</p>
+          
+          
+
+          
+          <div class="method-source-code" id="page_size-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">page_size</span>
+  <span class="ruby-ivar">@page_size</span> <span class="ruby-operator">||=</span> <span class="ruby-value">500</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-paging" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">paging</span><span
+            class="method-args">() { |page| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles the paging for you… for free Just pass a block and use the
+parameter as page number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="paging-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">paging</span>
+  <span class="ruby-identifier">page</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">results</span> = []
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">page</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">page</span>)
+
+    <span class="ruby-identifier">results</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">current</span>
+
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">current</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">page_size</span> <span class="ruby-comment"># no more results</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">results</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_response</span><span
+            class="method-args">(response, expected_key = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_response-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 693</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">expected_key</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+    <span class="ruby-comment"># If we have an `expected_key`, select that from response.body Hash</span>
+    <span class="ruby-comment"># Else, don&#39;t.</span>
+
+    <span class="ruby-comment"># the returned error message and info, is html encoded -&gt;  &amp;quot;issued&amp;quot; -&gt; make this readable -&gt;  &quot;issued&quot;</span>
+    <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;userString&quot;</span>] = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescapeHTML</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;userString&quot;</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;userString&quot;</span>]
+    <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;resultString&quot;</span>] = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescapeHTML</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;resultString&quot;</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;resultString&quot;</span>]
+
+    <span class="ruby-identifier">content</span> = <span class="ruby-identifier">expected_key</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-identifier">expected_key</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># if content (filled with whole body or just expected_key) is missing</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">detect_most_common_errors_and_raise_exceptions</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnexpectedResponse</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-comment"># else if it is a hash and `resultString` includes `NotAllowed`</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">content</span>[<span class="ruby-string">&quot;resultString&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;NotAllowed&quot;</span>)
+    <span class="ruby-comment"># example content when doing a Developer Portal action with not enough permission</span>
+    <span class="ruby-comment"># =&gt; {&quot;responseId&quot;=&gt;&quot;e5013d83-c5cb-4ba0-bb62-734a8d56007f&quot;,</span>
+    <span class="ruby-comment">#    &quot;resultCode&quot;=&gt;1200,</span>
+    <span class="ruby-comment">#    &quot;resultString&quot;=&gt;&quot;webservice.certificate.downloadNotAllowed&quot;,</span>
+    <span class="ruby-comment">#    &quot;userString&quot;=&gt;&quot;You are not permitted to download this certificate.&quot;,</span>
+    <span class="ruby-comment">#    &quot;creationTimestamp&quot;=&gt;&quot;2017-01-26T22:44:13Z&quot;,</span>
+    <span class="ruby-comment">#    &quot;protocolVersion&quot;=&gt;&quot;QH65B2&quot;,</span>
+    <span class="ruby-comment">#    &quot;userLocale&quot;=&gt;&quot;en_US&quot;,</span>
+    <span class="ruby-comment">#    &quot;requestUrl&quot;=&gt;&quot;https://developer.apple.com/services-account/QH65B2/account/ios/certificate/downloadCertificateContent.action&quot;,</span>
+    <span class="ruby-comment">#    &quot;httpCode&quot;=&gt;200}</span>
+    <span class="ruby-identifier">raise_insufficient_permission_error!</span>(<span class="ruby-identifier">additional_error_string</span><span class="ruby-operator">:</span> <span class="ruby-identifier">content</span>[<span class="ruby-string">&quot;userString&quot;</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">store_csrf_tokens</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-identifier">content</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-persistent_cookie_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">persistent_cookie_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns preferred path for storing cookie for two step verification.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="persistent_cookie_path-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">persistent_cookie_path</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_COOKIE_PATH&quot;</span>]
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPACESHIP_COOKIE_PATH&quot;</span>], <span class="ruby-string">&quot;spaceship&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>, <span class="ruby-string">&quot;cookie&quot;</span>))
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastlane_user_dir</span>, <span class="ruby-string">&quot;spaceship&quot;</span>), <span class="ruby-string">&quot;~/.spaceship&quot;</span>, <span class="ruby-string">&quot;/var/tmp/spaceship&quot;</span>, <span class="ruby-node">&quot;#{Dir.tmpdir}/spaceship&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">dir_parts</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">dir</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">directory_accessible?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">dir_parts</span>.<span class="ruby-identifier">first</span>))
+        <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>, <span class="ruby-string">&quot;cookie&quot;</span>))
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_insufficient_permission_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_insufficient_permission_error!</span><span
+            class="method-args">(additional_error_string: nil, caller_location: 2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This also gets called from subclasses</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_insufficient_permission_error-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 746</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_insufficient_permission_error!</span>(<span class="ruby-identifier">additional_error_string</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">caller_location</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>)
+  <span class="ruby-comment"># get the method name of the request that failed</span>
+  <span class="ruby-comment"># `block in` is used very often for requests when surrounded for paging or retrying blocks</span>
+  <span class="ruby-comment"># The ! is part of some methods when they modify or delete a resource, so we don&#39;t want to show it</span>
+  <span class="ruby-comment"># Using `sub` instead of `delete` as we don&#39;t want to allow multiple matches</span>
+  <span class="ruby-identifier">calling_method_name</span> = <span class="ruby-identifier">caller_locations</span>(<span class="ruby-identifier">caller_location</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&quot;block in&quot;</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;!&quot;</span>).<span class="ruby-identifier">strip</span>
+
+  <span class="ruby-comment"># calling the computed property self.team_id can get us into an exception handling loop</span>
+  <span class="ruby-identifier">team_id</span> = <span class="ruby-ivar">@current_team_id</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;(Team ID #{@current_team_id}) &quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">error_message</span> = <span class="ruby-node">&quot;User #{self.user} #{team_id}doesn&#39;t have enough permission for the following action: #{calling_method_name}&quot;</span>
+  <span class="ruby-identifier">error_message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; (#{additional_error_string})&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">additional_error_string</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">InsufficientPermissions</span>, <span class="ruby-identifier">error_message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request</span><span
+            class="method-args">(method, url_or_path = nil, params = nil, headers = {}, auto_paginate = false, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="request-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 671</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">params</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">headers</span> = {}, <span class="ruby-identifier">auto_paginate</span> = <span class="ruby-keyword">false</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">csrf_tokens</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;User-Agent&#39;</span>] = <span class="ruby-constant">USER_AGENT</span>
+
+  <span class="ruby-comment"># Before encoding the parameters, log them</span>
+  <span class="ruby-identifier">log_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-comment"># form-encode the params only if there are params, and the block is not supplied.</span>
+  <span class="ruby-comment"># this is so that certain requests can be made using the block for more control</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-value">:post</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span> = <span class="ruby-identifier">encode_params</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">auto_paginate</span>
+               <span class="ruby-identifier">send_request_auto_paginate</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+             <span class="ruby-keyword">else</span>
+               <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+             <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request_two_factor_code_from_phone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request_two_factor_code_from_phone</span><span
+            class="method-args">(phone_numbers, code_length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="request_two_factor_code_from_phone-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request_two_factor_code_from_phone</span>(<span class="ruby-identifier">phone_numbers</span>, <span class="ruby-identifier">code_length</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Please select a trusted phone number to send code to:&quot;</span>)
+
+  <span class="ruby-identifier">available</span> = <span class="ruby-identifier">phone_numbers</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span>[<span class="ruby-string">&#39;numberWithDialCode&#39;</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">choose</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">available</span>)
+
+  <span class="ruby-identifier">phone_id</span> = <span class="ruby-identifier">get_id_for_number</span>(<span class="ruby-identifier">phone_numbers</span>, <span class="ruby-identifier">result</span>)
+
+  <span class="ruby-comment"># Request code</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:put</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;https://idmsa.apple.com/appleauth/auth/verify/phone&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = { <span class="ruby-string">&quot;phoneNumber&quot;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;id&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">phone_id</span> }, <span class="ruby-string">&quot;mode&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sms&quot;</span> }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># we use `Spaceship::TunesClient.new.handle_itc_response`</span>
+  <span class="ruby-comment"># since this might be from the Dev Portal, but for 2 step</span>
+  <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TunesClient</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">handle_itc_response</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">body</span>)
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Successfully requested text message&quot;</span>)
+
+  <span class="ruby-identifier">code</span> = <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;Please enter the #{code_length} digit code you received at #{result}:&quot;</span>)
+  { <span class="ruby-string">&quot;securityCode&quot;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;code&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_s</span> }, <span class="ruby-string">&quot;phoneNumber&quot;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;id&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">phone_id</span> }, <span class="ruby-string">&quot;mode&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sms&quot;</span> }.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_shared_login_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_shared_login_request</span><span
+            class="method-args">(user, password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method is used for both the Apple Dev <a href="Portal.html">Portal</a>
+and <a href="Portal/App.html">App</a> Store Connect This will also handle 2
+step verification and 2 factor authentication</p>
+
+<p>It is called in `send_login_request` of sub classes (which the method
+`login`, above, transferred over to via `do_login`)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="send_shared_login_request-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_shared_login_request</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-comment"># Check if we have a cached/valid session</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># Background:</span>
+  <span class="ruby-comment"># December 4th 2017 Apple introduced a rate limit - which is of course fine by itself -</span>
+  <span class="ruby-comment"># but unfortunately also rate limits successful logins. If you call multiple tools in a</span>
+  <span class="ruby-comment"># lane (e.g. call match 5 times), this would lock you out of the account for a while.</span>
+  <span class="ruby-comment"># By loading existing sessions and checking if they&#39;re valid, we&#39;re sending less login requests.</span>
+  <span class="ruby-comment"># More context on why this change was necessary https://github.com/fastlane/fastlane/pull/11108</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># If there was a successful manual login before, we have a session on disk</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">load_session_from_file</span>
+    <span class="ruby-comment"># Check if the session is still valid here</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-comment"># We use the olympus session to determine if the old session is still valid</span>
+      <span class="ruby-comment"># As this will raise an exception if the old session has expired</span>
+      <span class="ruby-comment"># If the old session is still valid, we don&#39;t have to do anything else in this method</span>
+      <span class="ruby-comment"># that&#39;s why we return true</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_olympus_session</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-comment"># If the `fetch_olympus_session` method raises an exception</span>
+      <span class="ruby-comment"># we&#39;ll land here, and therefore continue doing a full login process</span>
+      <span class="ruby-comment"># This happens if the session we loaded from the cache isn&#39;t valid any more</span>
+      <span class="ruby-comment"># which is common, as the session automatically invalidates after x hours (we don&#39;t know x)</span>
+      <span class="ruby-comment"># In this case we don&#39;t actually care about the exact exception, and why it was failing</span>
+      <span class="ruby-comment"># because either way, we&#39;ll have to do a fresh login, where we do the actual error handling</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Available session is not valid any more. Continuing with normal login.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># The user can pass the session via environment variable (Mainly used in CI environments)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">load_session_from_env</span>
+    <span class="ruby-comment"># see above</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-comment"># see above</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_olympus_session</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Session loaded from environment variable is not valid. Continuing with normal login.&quot;</span>)
+      <span class="ruby-comment"># see above</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># After this point, we sure have no valid session any more and have to create a new one</span>
+  <span class="ruby-comment">#</span>
+
+  <span class="ruby-identifier">data</span> = {
+    <span class="ruby-identifier">accountName</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>,
+    <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>,
+    <span class="ruby-identifier">rememberMe</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+  }
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># The below workaround is only needed for 2 step verified machines</span>
+    <span class="ruby-comment"># Due to escaping of cookie values we have a little workaround here</span>
+    <span class="ruby-comment"># By default the cookie jar would generate the following header</span>
+    <span class="ruby-comment">#   DES5c148...=HSARM.......xaA/O69Ws/CHfQ==SRVT</span>
+    <span class="ruby-comment"># However we need the following</span>
+    <span class="ruby-comment">#   DES5c148...=&quot;HSARM.......xaA/O69Ws/CHfQ==SRVT&quot;</span>
+    <span class="ruby-comment"># There is no way to get the cookie jar value with &quot; around the value</span>
+    <span class="ruby-comment"># so we manually modify the cookie (only this one) to be properly escaped</span>
+    <span class="ruby-comment"># Afterwards we pass this value manually as a header</span>
+    <span class="ruby-comment"># It&#39;s not enough to just modify @cookie, it needs to be done after self.cookie</span>
+    <span class="ruby-comment"># as a string operation</span>
+    <span class="ruby-identifier">important_cookie</span> = <span class="ruby-ivar">@cookie</span>.<span class="ruby-identifier">store</span>.<span class="ruby-identifier">entries</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;DES&quot;</span>) }
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">important_cookie</span>
+      <span class="ruby-identifier">modified_cookie</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cookie</span> <span class="ruby-comment"># returns a string of all cookies</span>
+      <span class="ruby-identifier">unescaped_important_cookie</span> = <span class="ruby-node">&quot;#{important_cookie.name}=#{important_cookie.value}&quot;</span>
+      <span class="ruby-identifier">escaped_important_cookie</span> = <span class="ruby-node">&quot;#{important_cookie.name}=\&quot;#{important_cookie.value}\&quot;&quot;</span>
+      <span class="ruby-identifier">modified_cookie</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-identifier">unescaped_important_cookie</span>, <span class="ruby-identifier">escaped_important_cookie</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;https://idmsa.apple.com/appleauth/auth/signin&quot;</span>)
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_json</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;X-Requested-With&#39;</span>] = <span class="ruby-string">&#39;XMLHttpRequest&#39;</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;X-Apple-Widget-Key&#39;</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">itc_service_key</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Accept&#39;</span>] = <span class="ruby-string">&#39;application/json, text/javascript&#39;</span>
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&quot;Cookie&quot;</span>] = <span class="ruby-identifier">modified_cookie</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">modified_cookie</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">UnauthorizedAccessError</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidUserCredentialsError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;Invalid username and password combination. Used &#39;#{user}&#39; as the username.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Now we know if the login is successful or if we need to do 2 factor</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">403</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidUserCredentialsError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;Invalid username and password combination. Used &#39;#{user}&#39; as the username.&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">200</span>
+    <span class="ruby-identifier">fetch_olympus_session</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">409</span>
+    <span class="ruby-comment"># 2 step/factor is enabled for this account, first handle that</span>
+    <span class="ruby-identifier">handle_two_step_or_factor</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-comment"># and then get the olympus session</span>
+    <span class="ruby-identifier">fetch_olympus_session</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;invalid=&quot;true&quot;&#39;</span>)
+      <span class="ruby-comment"># User Credentials are wrong</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidUserCredentialsError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-node">&quot;Invalid username and password combination. Used &#39;#{user}&#39; as the username.&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">412</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">AUTH_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;authType&quot;</span>])
+      <span class="ruby-comment"># Need to acknowledge Apple ID and Privacy statement - https://github.com/fastlane/fastlane/issues/12577</span>
+      <span class="ruby-comment"># Looking for status of 412 might be enough but might be safer to keep looking only at what is being reported</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">AppleIDAndPrivacyAcknowledgementNeeded</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Need to acknowledge to Apple&#39;s Apple ID and Privacy statement. Please manually log into https://appleid.apple.com (or https://appstoreconnect.apple.com) to acknowledge the statement.&quot;</span>
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;Set-Cookie&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;itctx&quot;</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Looks like your Apple ID is not enabled for App Store Connect, make sure to be able to login online&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">info</span> = [<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>, <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;Set-Cookie&#39;</span>]]
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">info</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_cookie" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_cookie</span><span
+            class="method-args">(path: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_cookie-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_cookie</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">persistent_cookie_path</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-identifier">path</span>))
+
+  <span class="ruby-comment"># really important to specify the session to true</span>
+  <span class="ruby-comment"># otherwise myacinfo and more won&#39;t be stored</span>
+  <span class="ruby-ivar">@cookie</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">:yaml</span>, <span class="ruby-identifier">session</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_session" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_session</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_session-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_session</span>
+  <span class="ruby-comment"># If the request was successful, r.body is actually nil</span>
+  <span class="ruby-comment"># The previous request will fail if the user isn&#39;t on a team</span>
+  <span class="ruby-comment"># on App Store Connect, but it still works, so we&#39;re good</span>
+
+  <span class="ruby-comment"># Tell iTC that we are trustworthy (obviously)</span>
+  <span class="ruby-comment"># This will update our local cookies to something new</span>
+  <span class="ruby-comment"># They probably have a longer time to live than the other poor cookies</span>
+  <span class="ruby-comment"># Changed Keys</span>
+  <span class="ruby-comment"># - myacinfo</span>
+  <span class="ruby-comment"># - DES5c148586dfd451e55afb0175f62418f91</span>
+  <span class="ruby-comment"># We actually only care about the DES value</span>
+
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;https://idmsa.apple.com/appleauth/auth/2sv/trust&quot;</span>)
+    <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># This request will fail if the user isn&#39;t added to a team on iTC</span>
+  <span class="ruby-comment"># However we don&#39;t really care, this request will still return the</span>
+  <span class="ruby-comment"># correct DES... cookie</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">store_cookie</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) The currently selected Team ID</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_id-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_id</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@current_team_id</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@current_team_id</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">teams</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;The current user is in #{teams.count} teams. Pass a team ID or call `select_team` to choose a team. Using the first one for now.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@current_team_id</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">teams</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;contentProvider&#39;</span>][<span class="ruby-string">&#39;contentProviderId&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_id-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_id=</span><span
+            class="method-args">(team_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set a new team ID which will be used from now on</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_id-3D-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_id=</span>(<span class="ruby-identifier">team_id</span>)
+  <span class="ruby-comment"># First, we verify the team actually exists, because otherwise iTC would return the</span>
+  <span class="ruby-comment"># following confusing error message</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#     invalid content provider id</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">available_teams</span> = <span class="ruby-identifier">teams</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">team</span><span class="ruby-operator">|</span>
+    {
+      <span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">team</span>[<span class="ruby-string">&quot;contentProvider&quot;</span>] <span class="ruby-operator">||</span> {})[<span class="ruby-string">&quot;contentProviderId&quot;</span>],
+      <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">team</span>[<span class="ruby-string">&quot;contentProvider&quot;</span>] <span class="ruby-operator">||</span> {})[<span class="ruby-string">&quot;name&quot;</span>]
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">available_teams</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">available_team</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">team_id</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">available_team</span>[<span class="ruby-value">:team_id</span>].<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-identifier">error_string</span> = <span class="ruby-node">&quot;Could not set team ID to &#39;#{team_id}&#39;, only found the following available teams:\n\n#{available_teams.map { |team| &quot;- #{team[:team_id]} (#{team[:team_name]})&quot; }.join(&quot;\n&quot;)}\n&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">error_string</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-string">&quot;ra/v1/session/webSession&quot;</span>)
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = {
+      <span class="ruby-identifier">contentProviderId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>,
+      <span class="ruby-identifier">dsId</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_detail_data</span>.<span class="ruby-identifier">ds_id</span> <span class="ruby-comment"># https://github.com/fastlane/fastlane/issues/6711</span>
+    }.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] = <span class="ruby-string">&#39;application/json&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">handle_itc_response</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+
+  <span class="ruby-ivar">@current_team_id</span> = <span class="ruby-identifier">team_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_information</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Hash) Fetches all information of the currently used team</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_information-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_information</span>
+  <span class="ruby-identifier">teams</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>[<span class="ruby-string">&#39;teamId&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">team_id</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) Fetches name from currently used team</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_name-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_name</span>
+  (<span class="ruby-identifier">team_information</span> <span class="ruby-operator">||</span> {})[<span class="ruby-string">&#39;name&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teams" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teams</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) A list of all available teams</p>
+          
+          
+
+          
+          <div class="method-source-code" id="teams-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teams</span>
+  <span class="ruby-identifier">user_details_data</span>[<span class="ruby-string">&#39;associatedAccounts&#39;</span>].<span class="ruby-identifier">sort_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">team</span><span class="ruby-operator">|</span>
+    [
+      <span class="ruby-identifier">team</span>[<span class="ruby-string">&#39;contentProvider&#39;</span>][<span class="ruby-string">&#39;name&#39;</span>],
+      <span class="ruby-identifier">team</span>[<span class="ruby-string">&#39;contentProvider&#39;</span>][<span class="ruby-string">&#39;contentProviderId&#39;</span>]
+    ]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_request_headers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_request_headers</span><span
+            class="method-args">(req)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Responsible for setting all required header attributes for the requests to
+succeed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_request_headers-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/two_step_or_factor_client.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_request_headers</span>(<span class="ruby-identifier">req</span>)
+  <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&quot;X-Apple-Id-Session-Id&quot;</span>] = <span class="ruby-ivar">@x_apple_id_session_id</span>
+  <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&quot;X-Apple-Widget-Key&quot;</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">itc_service_key</span>
+  <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&quot;Accept&quot;</span>] = <span class="ruby-string">&quot;application/json&quot;</span>
+  <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&quot;scnt&quot;</span>] = <span class="ruby-ivar">@scnt</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user_details_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_details_data</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch the general information of the user, is used by various methods
+across spaceship Sample return value</p>
+
+<h1 id="method-i-user_details_data-label-3E+-7B-22associatedAccounts-22-3D-3E">&gt; {“associatedAccounts”=&gt;<span><a href="#method-i-user_details_data-label-3E+-7B-22associatedAccounts-22-3D-3E">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre> [{&quot;contentProvider&quot;=&gt;{&quot;contentProviderId&quot;=&gt;11142800, &quot;name&quot;=&gt;&quot;Felix Krause&quot;, &quot;contentProviderTypes&quot;=&gt;[&quot;Purple Software&quot;]}, &quot;roles&quot;=&gt;[&quot;Developer&quot;], &quot;lastLogin&quot;=&gt;1468784113000}],
+&quot;sessionToken&quot;=&gt;{&quot;dsId&quot;=&gt;&quot;8501011116&quot;, &quot;contentProviderId&quot;=&gt;18111111, &quot;expirationDate&quot;=&gt;nil, &quot;ipAddress&quot;=&gt;nil},
+&quot;permittedActivities&quot;=&gt;
+ {&quot;EDIT&quot;=&gt;
+   [&quot;UserManagementSelf&quot;,
+    &quot;GameCenterTestData&quot;,
+    &quot;AppAddonCreation&quot;],
+  &quot;REPORT&quot;=&gt;
+   [&quot;UserManagementSelf&quot;,
+    &quot;AppAddonCreation&quot;],
+  &quot;VIEW&quot;=&gt;
+   [&quot;TestFlightAppExternalTesterManagement&quot;,
+    ...
+    &quot;HelpGeneral&quot;,
+    &quot;HelpApplicationLoader&quot;]},
+&quot;preferredCurrencyCode&quot;=&gt;&quot;EUR&quot;,
+&quot;preferredCountryCode&quot;=&gt;nil,
+&quot;countryOfOrigin&quot;=&gt;&quot;AT&quot;,
+&quot;isLocaleNameReversed&quot;=&gt;false,
+&quot;feldsparToken&quot;=&gt;nil,
+&quot;feldsparChannelName&quot;=&gt;nil,
+&quot;hasPendingFeldsparBindingRequest&quot;=&gt;false,
+&quot;isLegalUser&quot;=&gt;false,
+&quot;userId&quot;=&gt;&quot;1771111155&quot;,
+&quot;firstname&quot;=&gt;&quot;Detlef&quot;,
+&quot;lastname&quot;=&gt;&quot;Mueller&quot;,
+&quot;isEmailInvalid&quot;=&gt;false,
+&quot;hasContractInfo&quot;=&gt;false,
+&quot;canEditITCUsersAndRoles&quot;=&gt;false,
+&quot;canViewITCUsersAndRoles&quot;=&gt;true,
+&quot;canEditIAPUsersAndRoles&quot;=&gt;false,
+&quot;transporterEnabled&quot;=&gt;false,
+&quot;contentProviderFeatures&quot;=&gt;[&quot;APP_SILOING&quot;, &quot;PROMO_CODE_REDESIGN&quot;, ...],
+&quot;contentProviderType&quot;=&gt;&quot;Purple Software&quot;,
+&quot;displayName&quot;=&gt;&quot;Detlef&quot;,
+&quot;contentProviderId&quot;=&gt;&quot;18742800&quot;,
+&quot;userFeatures&quot;=&gt;[],
+&quot;visibility&quot;=&gt;true,
+&quot;DYCVisibility&quot;=&gt;false,
+&quot;contentProvider&quot;=&gt;&quot;Felix Krause&quot;,
+&quot;userName&quot;=&gt;&quot;detlef@krausefx.com&quot;}</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="user_details_data-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_details_data</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@_cached_user_details</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_cached_user_details</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&#39;/WebObjects/iTunesConnect.woa/ra/user/detail&#39;</span>)
+  <span class="ruby-ivar">@_cached_user_details</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">r</span>, <span class="ruby-string">&#39;data&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_retry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_retry</span><span
+            class="method-args">(tries = 5) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Helpers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_retry-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 618</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_retry</span>(<span class="ruby-identifier">tries</span> = <span class="ruby-value">5</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">_block</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">rescue</span>          <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionFailed</span>,
+    <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeoutError</span>, <span class="ruby-comment"># New Faraday version: Faraday::TimeoutError =&gt; ex</span>
+    <span class="ruby-constant">BadGatewayError</span>,
+    <span class="ruby-constant">AppleTimeoutError</span>,
+    <span class="ruby-constant">GatewayTimeoutError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">tries</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tries</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Timeout received: &#39;#{ex.class}&#39;, &#39;#{ex.message}&#39;. Retrying after 3 seconds (remaining: #{tries})...&quot;</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>)
+
+    <span class="ruby-identifier">sleep</span>(<span class="ruby-value">3</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&quot;SpecHelper&quot;</span>)
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-comment"># re-raise the exception</span>
+<span class="ruby-keyword">rescue</span>          <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">ParsingError</span>, <span class="ruby-comment"># &lt;h2&gt;Internal Server Error&lt;/h2&gt; with content type json</span>
+    <span class="ruby-constant">InternalServerError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-identifier">tries</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tries</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Internal Server Error received: &#39;#{ex.class}&#39;, &#39;#{ex.message}&#39;. Retrying after 3 seconds (remaining: #{tries})...&quot;</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>)
+
+    <span class="ruby-identifier">sleep</span>(<span class="ruby-value">3</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&quot;SpecHelper&quot;</span>)
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-comment"># re-raise the exception</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">UnauthorizedAccessError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@loggedin</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">tries</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">zero?</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Auth error received: &#39;#{ex.class}&#39;, &#39;#{ex.message}&#39;. Login in again then retrying after 3 seconds (remaining: #{tries})...&quot;</span>
+    <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">spaceship_session_env</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnauthorizedAccessError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Authentication error, you passed an invalid session using the environment variable FASTLANE_SESSION or SPACESHIP_SESSION&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">do_login</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">user</span>, <span class="ruby-ivar">@password</span>)
+    <span class="ruby-identifier">sleep</span>(<span class="ruby-value">3</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&quot;SpecHelper&quot;</span>)
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-comment"># re-raise the exception</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-directory_accessible-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">directory_accessible?</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="directory_accessible-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 763</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">directory_accessible?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-do_login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">do_login</span><span
+            class="method-args">(user, password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="do_login-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 767</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">do_login</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-ivar">@loggedin</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">send_login_request</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>) <span class="ruby-comment"># different in subclasses</span>
+  <span class="ruby-ivar">@loggedin</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_params</span><span
+            class="method-args">(params, headers)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode_params-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 874</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode_params</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>)
+  <span class="ruby-identifier">params</span> = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">ParamsHash</span>[<span class="ruby-identifier">params</span>].<span class="ruby-identifier">to_query</span>
+  <span class="ruby-identifier">headers</span> = { <span class="ruby-string">&#39;Content-Type&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extract_key_from_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract_key_from_block</span><span
+            class="method-args">(key) { |obj| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extract_key_from_block-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 814</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extract_key_from_block</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>
+      <span class="ruby-identifier">attr_accessor</span> <span class="ruby-value">:body</span>, <span class="ruby-value">:headers</span>, <span class="ruby-value">:params</span>, <span class="ruby-value">:url</span>
+      <span class="ruby-comment"># rubocop: disable Style/TrivialAccessors</span>
+      <span class="ruby-comment"># the block calls `url` (not `url=`) so need to define `url` method</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">url</span>(<span class="ruby-identifier">url</span>)
+        <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">url</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># rubocop: enable Style/TrivialAccessors</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">headers</span> = {}
+    <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">obj</span>)
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@#{key}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-log_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">log_request</span><span
+            class="method-args">(method, url, params, headers = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="log_request-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 784</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">log_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">url</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_key_from_block</span>(<span class="ruby-string">&#39;url&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">body</span> = <span class="ruby-identifier">extract_key_from_block</span>(<span class="ruby-string">&#39;body&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">body_to_log</span> = <span class="ruby-string">&#39;[undefined body]&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">body</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">body</span>)
+      <span class="ruby-comment"># replace password in body if present</span>
+      <span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;password&#39;</span>] = <span class="ruby-string">&#39;***&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;password&quot;</span>)
+      <span class="ruby-identifier">body_to_log</span> = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span>
+      <span class="ruby-comment"># no json, no password to replace</span>
+      <span class="ruby-identifier">body_to_log</span> = <span class="ruby-string">&quot;[non JSON body]&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">params_to_log</span> = <span class="ruby-constant">Hash</span>(<span class="ruby-identifier">params</span>).<span class="ruby-identifier">dup</span> <span class="ruby-comment"># to also work with nil</span>
+  <span class="ruby-identifier">params_to_log</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:accountPassword</span>) <span class="ruby-comment"># Dev Portal</span>
+  <span class="ruby-identifier">params_to_log</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:theAccountPW</span>) <span class="ruby-comment"># iTC</span>
+  <span class="ruby-identifier">params_to_log</span> = <span class="ruby-identifier">params_to_log</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;{#{key}: #{value}}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;&gt;&gt; #{method.upcase} #{url}: #{body_to_log} #{params_to_log.join(&#39;, &#39;)}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-log_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">log_response</span><span
+            class="method-args">(method, url, response, headers = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="log_response-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 808</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">log_response</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">response</span>, <span class="ruby-identifier">headers</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">url</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_key_from_block</span>(<span class="ruby-string">&#39;url&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">body</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;&lt;&lt; #{method.upcase} #{url}: #{response.status} #{body}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_request</span><span
+            class="method-args">(method, url_or_path, params, headers, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Actually sends the request to the remote server Automatically retries the
+request up to 3 times if something goes wrong</p>
+          
+          
+
+          
+          <div class="method-source-code" id="send_request-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 834</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">with_retry</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">log_response</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">response</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+    <span class="ruby-identifier">resp_hash</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:status</span>] <span class="ruby-operator">==</span> <span class="ruby-value">401</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Auth lost&quot;</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnauthorizedAccessError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Unauthorized Access&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&lt;title&gt;302 Found&lt;/title&gt;&quot;</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">AppleTimeoutError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Apple 302 detected - this might be temporary server error, check https://developer.apple.com/system-status/ to see if there is a known downtime&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&lt;h3&gt;Bad Gateway&lt;/h3&gt;&quot;</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">BadGatewayError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-string">&quot;Apple 502 detected - this might be temporary server error, try again later&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_request_auto_paginate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_request_auto_paginate</span><span
+            class="method-args">(method, url_or_path, params, headers, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send_request_auto_paginate-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 858</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_request_auto_paginate</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url_or_path</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">should_process_next_rel?</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">last_response</span> = <span class="ruby-identifier">response</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">rels</span>[<span class="ruby-value">:next</span>]
+    <span class="ruby-identifier">last_response</span> = <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">rels</span>[<span class="ruby-value">:next</span>], <span class="ruby-identifier">params</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">should_process_next_rel?</span>(<span class="ruby-identifier">last_response</span>)
+    <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;data&#39;</span>].<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;data&#39;</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_process_next_rel-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_process_next_rel?</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_process_next_rel-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 870</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_process_next_rel?</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">&#39;data&#39;</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_csrf_tokens" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_csrf_tokens</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is called from `parse_response` to store the latest csrf_token (if
+available)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="store_csrf_tokens-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/client.rb, line 775</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_csrf_tokens</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">headers</span>
+    <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">headers</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-node">%w(csrf csrf_ts)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>) }
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-ivar">@csrf_tokens</span> = <span class="ruby-identifier">tokens</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

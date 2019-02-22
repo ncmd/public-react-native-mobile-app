@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"description:ETI"Fastlane::Lane#description;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"E@return [Array] An array containing the description of this lane;To:RDoc::Markup::Verbatim;	[I"'Each item of the array is one line;T:@format0:
+@fileI""fastlane/lib/fastlane/lane.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Fastlane::Lane;TcRDoc::NormalClass0

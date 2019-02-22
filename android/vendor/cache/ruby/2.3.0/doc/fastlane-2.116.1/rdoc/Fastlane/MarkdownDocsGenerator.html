@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::MarkdownDocsGenerator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-actions_md_contents">#actions_md_contents</a>
+    
+    <li ><a href="#method-i-actions_path">#actions_path</a>
+    
+    <li ><a href="#method-i-all_actions_from_enhancer">#all_actions_from_enhancer</a>
+    
+    <li ><a href="#method-i-custom_action_docs_path">#custom_action_docs_path</a>
+    
+    <li ><a href="#method-i-filename_for_action">#filename_for_action</a>
+    
+    <li ><a href="#method-i-fill_built_in_actions">#fill_built_in_actions</a>
+    
+    <li ><a href="#method-i-generate-21">#generate!</a>
+    
+    <li ><a href="#method-i-load_custom_action_md">#load_custom_action_md</a>
+    
+    <li ><a href="#method-i-load_custom_action_md_erb">#load_custom_action_md_erb</a>
+    
+    <li ><a href="#method-i-number_of_launches_for_action">#number_of_launches_for_action</a>
+    
+    <li ><a href="#method-i-readable_category_name">#readable_category_name</a>
+    
+    <li ><a href="#method-i-where_is">#where_is</a>
+    
+    <li ><a href="#method-i-work">#work</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::MarkdownDocsGenerator">
+  <h1 id="class-Fastlane::MarkdownDocsGenerator" class="class">
+    class Fastlane::MarkdownDocsGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-categories" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">categories</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane&#39;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fastlane/documentation/actions_list&#39;</span>
+  <span class="ruby-constant">Fastlane</span>.<span class="ruby-identifier">load_actions</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">work</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-actions_md_contents" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actions_md_contents</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actions_md_contents-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actions_md_contents</span>
+  <span class="ruby-identifier">action_mds</span> = {}
+
+  <span class="ruby-constant">ActionsList</span>.<span class="ruby-identifier">all_actions</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@action</span> = <span class="ruby-identifier">action</span>
+    <span class="ruby-ivar">@action_filename</span> = <span class="ruby-identifier">filename_for_action</span>(<span class="ruby-identifier">action</span>)
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@action_filename</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@custom_content</span> = <span class="ruby-identifier">load_custom_action_md</span>(<span class="ruby-identifier">action</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">superclass</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>
+      <span class="ruby-ivar">@custom_content</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">load_custom_action_md</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">superclass</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">template</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;lib/assets/ActionDetails.md.erb&quot;</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template</span>), <span class="ruby-value">0</span>, <span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+
+    <span class="ruby-identifier">action_mds</span>[<span class="ruby-identifier">action</span>.<span class="ruby-identifier">action_name</span>] = <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">action_mds</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-actions_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actions_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actions_path-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actions_path</span>
+  <span class="ruby-string">&quot;lib/fastlane/actions/&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-all_actions_from_enhancer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_actions_from_enhancer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all_actions_from_enhancer-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_actions_from_enhancer</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json&#39;</span>
+  <span class="ruby-ivar">@_launches</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;assets/action_ranking.json&quot;</span>))) <span class="ruby-comment"># root because we&#39;re in a temporary directory here</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-custom_action_docs_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">custom_action_docs_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="custom_action_docs_path-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_action_docs_path</span>
+  <span class="ruby-string">&quot;lib/fastlane/actions/docs/&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filename_for_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filename_for_action</span><span
+            class="method-args">(action)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="filename_for_action-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filename_for_action</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-identifier">absolute_path</span> = <span class="ruby-identifier">where_is</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">absolute_path</span>)
+
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-identifier">actions_path</span>, <span class="ruby-identifier">filename</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Action &#39;#{action.name}&#39; not found in root fastlane project... skipping&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Action &#39;#{action.name}&#39; found at #{path}&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fill_built_in_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fill_built_in_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fill_built_in_actions-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_built_in_actions</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">categories</span> = {}
+
+  <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span><span class="ruby-operator">::</span><span class="ruby-constant">AVAILABLE_CATEGORIES</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">categories</span>[<span class="ruby-identifier">readable_category_name</span>(<span class="ruby-identifier">a</span>)] = {} }
+
+  <span class="ruby-comment"># Fill categories with all built-in actions</span>
+  <span class="ruby-constant">ActionsList</span>.<span class="ruby-identifier">all_actions</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">readable</span> = <span class="ruby-identifier">readable_category_name</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">category</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">categories</span>[<span class="ruby-identifier">readable</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">categories</span>[<span class="ruby-identifier">readable</span>][<span class="ruby-identifier">number_of_launches_for_action</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">action_name</span>)] = <span class="ruby-identifier">action</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Action &#39;#{action.name}&#39; doesn&#39;t contain category information... skipping&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate!</span><span
+            class="method-args">(target_path: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate!</span>(<span class="ruby-identifier">target_path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;yaml&#39;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">target_path</span>)
+  <span class="ruby-identifier">docs_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">target_path</span>, <span class="ruby-string">&quot;docs&quot;</span>)
+
+  <span class="ruby-comment"># Generate actions.md</span>
+  <span class="ruby-identifier">template</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;lib/assets/Actions.md.erb&quot;</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template</span>), <span class="ruby-value">0</span>, <span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>) <span class="ruby-comment"># https://web.archive.org/web/20160430190141/www.rrn.dk/rubys-erb-templating-system</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">docs_dir</span>, <span class="ruby-string">&quot;actions.md&quot;</span>), <span class="ruby-identifier">result</span>)
+
+  <span class="ruby-comment"># Generate actions sub pages (e.g. actions/slather.md, actions/scan.md)</span>
+  <span class="ruby-identifier">all_actions_ref_yml</span> = []
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">docs_dir</span>, <span class="ruby-string">&quot;actions&quot;</span>))
+  <span class="ruby-constant">ActionsList</span>.<span class="ruby-identifier">all_actions</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@action</span> = <span class="ruby-identifier">action</span> <span class="ruby-comment"># to provide a reference in the .html.erb template</span>
+    <span class="ruby-ivar">@action_filename</span> = <span class="ruby-identifier">filename_for_action</span>(<span class="ruby-identifier">action</span>)
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@action_filename</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Make sure to always assign `@custom_content`, as we&#39;re in a loop and `@` is needed for the `erb`</span>
+    <span class="ruby-ivar">@custom_content</span> = <span class="ruby-identifier">load_custom_action_md</span>(<span class="ruby-identifier">action</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">superclass</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>
+      <span class="ruby-comment"># This means, the current method is an alias</span>
+      <span class="ruby-comment"># meaning we&#39;re gonna look if the parent class</span>
+      <span class="ruby-comment"># has a custom md file.</span>
+      <span class="ruby-comment"># e.g. `DeliverAction`&#39;s superclass is `UploadToAppStoreAction`</span>
+      <span class="ruby-ivar">@custom_content</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">load_custom_action_md</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">superclass</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">template</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;lib/assets/ActionDetails.md.erb&quot;</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template</span>), <span class="ruby-value">0</span>, <span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>) <span class="ruby-comment"># https://web.archive.org/web/20160430190141/www.rrn.dk/rubys-erb-templating-system</span>
+
+    <span class="ruby-identifier">file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;actions&quot;</span>, <span class="ruby-node">&quot;#{action.action_name}.md&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">docs_dir</span>, <span class="ruby-identifier">file_name</span>), <span class="ruby-identifier">result</span>)
+
+    <span class="ruby-identifier">all_actions_ref_yml</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-identifier">action</span>.<span class="ruby-identifier">action_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">file_name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Modify the mkdocs.yml to list all the actions</span>
+  <span class="ruby-identifier">mkdocs_yml_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">target_path</span>, <span class="ruby-string">&quot;mkdocs.yml&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find mkdocs.yml in #{target_path}, make sure to point to the fastlane/docs repo&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">mkdocs_yml_path</span>)
+  <span class="ruby-identifier">mkdocs_yml</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">mkdocs_yml_path</span>)
+  <span class="ruby-identifier">hidden_actions_array</span> = <span class="ruby-identifier">mkdocs_yml</span>[<span class="ruby-string">&quot;pages&quot;</span>].<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">p</span>[<span class="ruby-string">&quot;_Actions&quot;</span>].<span class="ruby-identifier">nil?</span> }
+  <span class="ruby-identifier">hidden_actions_array</span>[<span class="ruby-string">&quot;_Actions&quot;</span>] = <span class="ruby-identifier">all_actions_ref_yml</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">mkdocs_yml_path</span>, <span class="ruby-identifier">mkdocs_yml</span>.<span class="ruby-identifier">to_yaml</span>)
+
+  <span class="ruby-comment"># Copy over the assets from the `actions/docs/assets` directory</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">custom_action_docs_path</span>, <span class="ruby-string">&quot;assets&quot;</span>, <span class="ruby-string">&quot;*&quot;</span>)].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_asset_path</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Copying asset #{current_asset_path}&quot;</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">current_asset_path</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">docs_dir</span>, <span class="ruby-string">&quot;img&quot;</span>, <span class="ruby-string">&quot;actions&quot;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">current_asset_path</span>)))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Generated new docs on path #{target_path}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_custom_action_md" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_custom_action_md</span><span
+            class="method-args">(action)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_custom_action_md-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_custom_action_md</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-comment"># check if there is a custom detail view in markdown available in the fastlane code base</span>
+  <span class="ruby-identifier">custom_file_location</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-identifier">custom_action_docs_path</span>, <span class="ruby-node">&quot;#{action.action_name}.md&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">custom_file_location</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Using custom md file for action #{action.action_name}&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">custom_file_location</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">load_custom_action_md_erb</span>(<span class="ruby-identifier">action</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_custom_action_md_erb" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_custom_action_md_erb</span><span
+            class="method-args">(action)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_custom_action_md_erb-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_custom_action_md_erb</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-comment"># check if there is a custom detail view as markdown ERB available in the fastlane code base</span>
+  <span class="ruby-identifier">custom_file_location</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-identifier">custom_action_docs_path</span>, <span class="ruby-node">&quot;#{action.action_name}.md.erb&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">custom_file_location</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Using custom md.erb file for action #{action.action_name}&quot;</span>)
+
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">custom_file_location</span>), <span class="ruby-value">0</span>, <span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>) <span class="ruby-comment"># https://web.archive.org/web/20160430190141/www.rrn.dk/rubys-erb-templating-system</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-number_of_launches_for_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">number_of_launches_for_action</span><span
+            class="method-args">(action_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="number_of_launches_for_action-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">number_of_launches_for_action</span>(<span class="ruby-identifier">action_name</span>)
+  <span class="ruby-identifier">found</span> = <span class="ruby-identifier">all_actions_from_enhancer</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;action&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">action_name</span>.<span class="ruby-identifier">to_s</span> }
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">found</span>[<span class="ruby-string">&quot;index&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">10_000</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rand</span> <span class="ruby-comment"># new actions that we&#39;ve never tracked before will be shown at the bottom of the page, need `rand` to not overwrite them</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-where_is" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">where_is</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="where_is-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">where_is</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-comment"># Gets all source files for action</span>
+  <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">methods</span>(<span class="ruby-keyword">false</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">method</span>(<span class="ruby-identifier">m</span>) }
+  <span class="ruby-identifier">source_files</span> = <span class="ruby-identifier">methods</span>
+                 .<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:source_location</span>)
+                 .<span class="ruby-identifier">compact</span>
+                 .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>)<span class="ruby-operator">|</span> <span class="ruby-identifier">file</span> }
+                 .<span class="ruby-identifier">uniq</span>
+
+  <span class="ruby-comment"># Return file or error if multiples</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">source_files</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">source_files</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-node">&quot;Multiple source files were found for action `#{klass}`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-work" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">work</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="work-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">work</span>
+  <span class="ruby-identifier">fill_built_in_actions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-readable_category_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readable_category_name</span><span
+            class="method-args">(category_symbol)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="readable_category_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/documentation/markdown_docs_generator.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">readable_category_name</span>(<span class="ruby-identifier">category_symbol</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">category_symbol</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:misc</span>
+    <span class="ruby-string">&quot;Misc&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:source_control</span>
+    <span class="ruby-string">&quot;Source Control&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:notifications</span>
+    <span class="ruby-string">&quot;Notifications&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:code_signing</span>
+    <span class="ruby-string">&quot;Code Signing&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:documentation</span>
+    <span class="ruby-string">&quot;Documentation&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:testing</span>
+    <span class="ruby-string">&quot;Testing&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:building</span>
+    <span class="ruby-string">&quot;Building&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:push</span>
+    <span class="ruby-string">&quot;Push&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:screenshots</span>
+    <span class="ruby-string">&quot;Screenshots&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:project</span>
+    <span class="ruby-string">&quot;Project&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:beta</span>
+    <span class="ruby-string">&quot;Beta&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:production</span>
+    <span class="ruby-string">&quot;Releasing your app&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:app_store_connect</span>
+    <span class="ruby-string">&quot;App Store Connect&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:deprecated</span>
+    <span class="ruby-string">&quot;Deprecated&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">category_symbol</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

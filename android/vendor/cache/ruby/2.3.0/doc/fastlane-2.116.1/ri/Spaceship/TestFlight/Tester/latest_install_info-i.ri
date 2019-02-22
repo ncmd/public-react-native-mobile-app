@@ -1,0 +1,9 @@
+U:RDoc::Attr[iI"latest_install_info:ETI"6Spaceship::TestFlight::Tester#latest_install_info;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@return (Hash) ;TI"@example ;TI"{;To:RDoc::Markup::Verbatim;	[
+I"/"latestInstalledAppAdamId": "1222374686",
+;TI"+"latestInstalledBuildId": "20739770",
+;TI"-"latestInstalledDate": "1496866405755",
+;TI"+"latestInstalledShortVersion": "1.0",
+;TI"$"latestInstalledVersion": "68"
+;T:@format0o;
+;	[I"};T:
+@fileI"2spaceship/lib/spaceship/test_flight/tester.rb;T:0@omit_headings_from_table_of_contents_below0F@I""Spaceship::TestFlight::Tester;TcRDoc::NormalClass0

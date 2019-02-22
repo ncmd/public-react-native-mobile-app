@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Scan::ErrorHandler - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-handle_build_error">::handle_build_error</a>
+    
+    <li ><a href="#method-c-print">::print</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Scan::ErrorHandler">
+  <h1 id="class-Scan::ErrorHandler" class="class">
+    class Scan::ErrorHandler
+  </h1>
+
+  <section class="description">
+    
+<p>This classes methods are called when something goes wrong in the building
+process</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-handle_build_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_build_error</span><span
+            class="method-args">(output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String] The output of the errored build This method should raise an
+exception in any case, as the return code indicated a failed build</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_build_error-source">
+            <pre><span class="ruby-comment"># File scan/lib/scan/error_handler.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_build_error</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-comment"># The order of the handling below is import</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/US\-ASCII/</span>
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Your shell environment is not correctly configured&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Instead of UTF-8 your shell uses US-ASCII&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;Please add the following to your &#39;~/.bashrc&#39;:&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;       export LANG=en_US.UTF-8&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;       export LANGUAGE=en_US.UTF-8&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;       export LC_ALL=en_US.UTF-8&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;You&#39;ll have to restart your shell session after updating the file.&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;If you are using zshell or another shell, make sure to edit the correct bash file.&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;For more information visit this stackoverflow answer:&quot;</span>)
+    <span class="ruby-identifier">print</span>(<span class="ruby-string">&quot;https://stackoverflow.com/a/17031697/445598&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Testing failed/</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">build_failure!</span>(<span class="ruby-string">&quot;Error building the application - see the log above&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Executed/</span>, <span class="ruby-regexp">/Failing tests:/</span>
+    <span class="ruby-comment"># this is *really* important:</span>
+    <span class="ruby-comment"># we don&#39;t want to raise an exception here</span>
+    <span class="ruby-comment"># as we handle this in runner.rb at a later point</span>
+    <span class="ruby-comment"># after parsing the actual test results</span>
+    <span class="ruby-comment"># ------------------------------------------------</span>
+    <span class="ruby-comment"># For the &quot;Failing tests:&quot; case, this covers Xcode</span>
+    <span class="ruby-comment"># 10 parallel testing failure, which doesn&#39;t</span>
+    <span class="ruby-comment"># print out the &quot;Executed&quot; line that would show</span>
+    <span class="ruby-comment"># test summary (number of tests passed, etc.).</span>
+    <span class="ruby-comment"># Instead, it just prints &quot;Failing tests:&quot;</span>
+    <span class="ruby-comment"># followed by a list of tests that failed.</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">build_failure!</span>(<span class="ruby-string">&quot;Error building/testing the application - see the log above&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-print" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Just to make things easier</p>
+          
+          
+
+          
+          <div class="method-source-code" id="print-source">
+            <pre><span class="ruby-comment"># File scan/lib/scan/error_handler.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">text</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>get_push_certificate - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Automatically+generate+and+renew+your+push+notification+profiles">Automatically generate and renew your push notification profiles</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Note+about+empty+p12+passwords+and+Keychain+Access.app">Note about empty <code>p12</code> passwords and Keychain Access.app</a>
+    <li><a href="#label-Environment+Variables">Environment Variables</a>
+    <li><a href="#label-How+does+it+work-3F">How does it work?</a>
+    <li><a href="#label-How+is+my+password+stored-3F">How is my password stored?</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/get_push_certificate.md">
+<p align="center">
+  <img src="/img/actions/pem.png" width="250">
+</p>
+<h6 id="label-Automatically+generate+and+renew+your+push+notification+profiles">Automatically generate and renew your push notification profiles<span><a href="#label-Automatically+generate+and+renew+your+push+notification+profiles">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p>Tired of manually creating and maintaining your push notification profiles
+for your iOS apps? Tired of generating a <em>pem</em> file for your server?</p>
+
+<p><em>pem</em> does all that for you, just by simply running <em>pem</em>.</p>
+
+<p><em>pem</em> creates new .pem, .cer, and .p12 files to be uploaded to your
+push server if a valid push notification profile is needed. <em>pem</em>
+does not cover uploading the file to your server.</p>
+
+<p>To automate iOS Provisioning profiles you can use <a
+href="https://docs.fastlane.tools/actions/match/">match</a>.</p>
+<hr>
+<p align="center">
+    <a href="#features">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#how-does-it-work">How does it work?</a> &bull;
+    <a href="#tips">Tips</a> &bull;
+    <a href="#need-help">Need help?</a>
+</p><hr>
+<h5 align="center"><em>pem</em> is part of <a href="https://fastlane.tools">fastlane</a>: The easiest way to automate beta deployments and releases for your iOS and Android apps.</h5>
+<h1 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Well, it&#39;s actually just one: Generate the <em>pem</em> file for your
+server.</p>
+
+<p>Check out this gif:</p>
+
+<p><img src="/img/actions/PEMRecording.gif"></p>
+
+<h1 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">pem</span>
+</pre>
+
+<p>Yes, that&#39;s the whole command!</p>
+
+<p>This does the following:</p>
+<ul><li>
+<p>Create a new signing request</p>
+</li><li>
+<p>Create a new push certification</p>
+</li><li>
+<p>Downloads the certificate</p>
+</li><li>
+<p>Generates a new <code>.pem</code> file in the current working directory,
+which you can upload to your server</p>
+</li></ul>
+
+<p>Note that <em>pem</em> will never revoke your existing certificates.
+<em>pem</em> can&#39;t download any of your existing push certificates, as
+the private key is only available on the machine it was created on.</p>
+
+<p>If you already have a push certificate enabled, which is active for at
+least 30 more days, <em>pem</em> will not create a new certificate. If you
+still want to create one, use the <code>force</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">pem</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">force</span>
+</pre>
+
+<p>You can pass parameters like this:</p>
+
+<pre>fastlane pem -a com.krausefx.app -u username</pre>
+
+<p>If you want to generate a development certificate instead:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">pem</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">development</span>
+</pre>
+
+<p>Set a password for your <code>p12</code> file:</p>
+
+<pre>fastlane pem -p &quot;MyPass&quot;</pre>
+
+<p>You can specify a name for the output file:</p>
+
+<pre>fastlane pem -o my.pem</pre>
+
+<p>To get a list of available options run:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">pem</span>
+</pre>
+
+<h3 id="label-Note+about+empty+p12+passwords+and+Keychain+Access.app">Note about empty <code>p12</code> passwords and Keychain Access.app<span><a href="#label-Note+about+empty+p12+passwords+and+Keychain+Access.app">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><em>pem</em> will produce a valid <code>p12</code> without specifying a
+password, or using the empty-string as the password. While the file is
+valid, the Mac&#39;s Keychain Access will not allow you to open the file
+without specifying a passphrase.</p>
+
+<p>Instead, you may verify the file is valid using OpenSSL:</p>
+
+<pre>openssl pkcs12 -info -in my.p12</pre>
+
+<p>If you need the <code>p12</code> in your keychain, perhaps to test push
+with an app like <a href="https://github.com/KnuffApp/Knuff">Knuff</a> or
+<a href="https://github.com/noodlewerk/NWPusher">Pusher</a>, you can use
+<code>openssl</code> to export the <code>p12</code> to <em>pem</em> and
+back to <code>p12</code>:</p>
+
+<pre>% openssl pkcs12 -in my.p12 -out my.pem
+Enter Import Password:
+  &lt;hit enter: the p12 has no password&gt;
+MAC verified OK
+Enter PEM pass phrase:
+  &lt;enter a temporary password to encrypt the pem file&gt;
+
+% openssl pkcs12 -export -in my.pem -out my-with-passphrase.p12
+Enter pass phrase for temp.pem:
+  &lt;enter the temporary password to decrypt the pem file&gt;
+
+Enter Export Password:
+  &lt;enter a password for encrypting the new p12 file&gt;</pre>
+
+<h2 id="label-Environment+Variables">Environment Variables<span><a href="#label-Environment+Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Run <code>fastlane action pem</code> to get a list of available environment
+variables.</p>
+
+<h1 id="label-How+does+it+work-3F">How does it work?<span><a href="#label-How+does+it+work-3F">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>pem</em> uses <a href="https://spaceship.airforce">spaceship</a> to
+communicate with the Apple Developer Portal to request a new push
+certificate for you.</p>
+
+<h2 id="label-How+is+my+password+stored-3F">How is my password stored?<span><a href="#label-How+is+my+password+stored-3F">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><em>pem</em> uses the <a
+href="https://github.com/fastlane/fastlane/tree/master/credentials_manager">password
+manager</a> from <em>fastlane</em>. Take a look the <a
+href="https://github.com/fastlane/fastlane/tree/master/credentials_manager">CredentialsManager
+README</a> for more information.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

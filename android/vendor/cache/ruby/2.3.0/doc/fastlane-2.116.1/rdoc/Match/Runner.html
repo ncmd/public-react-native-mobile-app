@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::Runner - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-device_count_different-3F">#device_count_different?</a>
+    
+    <li ><a href="#method-i-fetch_certificate">#fetch_certificate</a>
+    
+    <li ><a href="#method-i-fetch_provisioning_profile">#fetch_provisioning_profile</a>
+    
+    <li ><a href="#method-i-prefixed_working_directory">#prefixed_working_directory</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-update_optional_values_depending_on_storage_type">#update_optional_values_depending_on_storage_type</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::Runner">
+  <h1 id="class-Match::Runner" class="class">
+    class Match::Runner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-currently_used_team_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">currently_used_team_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The Team ID that was fetched This will always be `nil` in readonly mode</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-files_to_commit" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">files_to_commit</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-spaceship" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">spaceship</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-storage_mode" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">storage_mode</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-device_count_different-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">device_count_different?</span><span
+            class="method-args">(profile: nil, keychain_path: nil, platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="device_count_different-3F-source">
+            <pre><span class="ruby-comment"># File match/lib/match/runner.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">device_count_different?</span>(<span class="ruby-identifier">profile</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">keychain_path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">profile</span>
+
+  <span class="ruby-identifier">parsed</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">profile</span>, <span class="ruby-identifier">keychain_path</span>)
+  <span class="ruby-identifier">uuid</span> = <span class="ruby-identifier">parsed</span>[<span class="ruby-string">&quot;UUID&quot;</span>]
+  <span class="ruby-identifier">portal_profile</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">provisioning_profile</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">uuid</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">uuid</span> }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">portal_profile</span>
+    <span class="ruby-identifier">profile_device_count</span> = <span class="ruby-identifier">portal_profile</span>.<span class="ruby-identifier">devices</span>.<span class="ruby-identifier">count</span>
+
+    <span class="ruby-identifier">portal_device_count</span> =
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">platform</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:ios</span>
+        <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">device</span>.<span class="ruby-identifier">all_ios_profile_devices</span>.<span class="ruby-identifier">count</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:tvos</span>
+        <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">device</span>.<span class="ruby-identifier">all_apple_tvs</span>.<span class="ruby-identifier">count</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:mac</span>
+        <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">device</span>.<span class="ruby-identifier">all_macs</span>.<span class="ruby-identifier">count</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">device</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">count</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">portal_device_count</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">profile_device_count</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_certificate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_certificate</span><span
+            class="method-args">(params: nil, working_directory: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_certificate-source">
+            <pre><span class="ruby-comment"># File match/lib/match/runner.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_certificate</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">cert_type</span> = <span class="ruby-constant">Match</span>.<span class="ruby-identifier">cert_type_sym</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>])
+
+  <span class="ruby-identifier">certs</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">prefixed_working_directory</span>(<span class="ruby-identifier">working_directory</span>), <span class="ruby-string">&quot;certs&quot;</span>, <span class="ruby-identifier">cert_type</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;*.cer&quot;</span>)]
+  <span class="ruby-identifier">keys</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">prefixed_working_directory</span>(<span class="ruby-identifier">working_directory</span>), <span class="ruby-string">&quot;certs&quot;</span>, <span class="ruby-identifier">cert_type</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;*.p12&quot;</span>)]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">certs</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Couldn&#39;t find a valid code signing identity for #{cert_type}... creating one for you now&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;No code signing identity found and can not create a new one because you enabled `readonly`&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:readonly</span>]
+    <span class="ruby-identifier">cert_path</span> = <span class="ruby-constant">Generator</span>.<span class="ruby-identifier">generate_certificate</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">cert_type</span>, <span class="ruby-identifier">prefixed_working_directory</span>(<span class="ruby-identifier">working_directory</span>))
+    <span class="ruby-identifier">private_key_path</span> = <span class="ruby-identifier">cert_path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;.cer&quot;</span>, <span class="ruby-string">&quot;.p12&quot;</span>)
+
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files_to_commit</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cert_path</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files_to_commit</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">private_key_path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cert_path</span> = <span class="ruby-identifier">certs</span>.<span class="ruby-identifier">last</span>
+
+    <span class="ruby-comment"># Check validity of certificate</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">is_cert_valid?</span>(<span class="ruby-identifier">cert_path</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Your certificate &#39;#{File.basename(cert_path)}&#39; is valid&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Your certificate &#39;#{File.basename(cert_path)}&#39; is not valid, please check end date and renew it if necessary&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Installing certificate...&quot;</span>)
+
+      <span class="ruby-comment"># Only looking for cert in &quot;custom&quot; (non login.keychain) keychain</span>
+      <span class="ruby-comment"># Doing this for backwards compatability</span>
+      <span class="ruby-identifier">keychain_name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;login.keychain&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>]
+
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CertChecker</span>.<span class="ruby-identifier">installed?</span>(<span class="ruby-identifier">cert_path</span>, <span class="ruby-identifier">in_keychain</span><span class="ruby-operator">:</span> <span class="ruby-identifier">keychain_name</span>)
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Certificate &#39;#{File.basename(cert_path)}&#39; is already installed on this machine&quot;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">cert_path</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>], <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_password</span>])
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Import the private key</span>
+      <span class="ruby-comment"># there seems to be no good way to check if it&#39;s already installed - so just install it</span>
+      <span class="ruby-comment"># Key will only be added to the partition list if it isn&#39;t already installed</span>
+      <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">last</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>], <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_password</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Skipping installation of certificate as it would not work on this operating system.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>]
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">cert_path</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>])
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">last</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>])
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Get and print info of certificate</span>
+    <span class="ruby-identifier">info</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">get_cert_info</span>(<span class="ruby-identifier">cert_path</span>)
+    <span class="ruby-constant">TablePrinter</span>.<span class="ruby-identifier">print_certificate_info</span>(<span class="ruby-identifier">cert_info</span><span class="ruby-operator">:</span> <span class="ruby-identifier">info</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">cert_path</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;.cer&quot;</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-comment"># Certificate ID</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_provisioning_profile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_provisioning_profile</span><span
+            class="method-args">(params: nil, certificate_id: nil, app_identifier: nil, working_directory: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The UUID of the provisioning profile so we can verify it
+with the Apple Developer Portal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_provisioning_profile-source">
+            <pre><span class="ruby-comment"># File match/lib/match/runner.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_provisioning_profile</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">prov_type</span> = <span class="ruby-constant">Match</span>.<span class="ruby-identifier">profile_type_sym</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>])
+
+  <span class="ruby-identifier">names</span> = [<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Generator</span>.<span class="ruby-identifier">profile_type_name</span>(<span class="ruby-identifier">prov_type</span>), <span class="ruby-identifier">app_identifier</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:ios</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">names</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">profile_name</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;_&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;*&quot;</span>, <span class="ruby-string">&#39;\*&#39;</span>) <span class="ruby-comment"># this is important, as it shouldn&#39;t be a wildcard</span>
+  <span class="ruby-identifier">base_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">prefixed_working_directory</span>(<span class="ruby-identifier">working_directory</span>), <span class="ruby-string">&quot;profiles&quot;</span>, <span class="ruby-identifier">prov_type</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-identifier">profiles</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">base_dir</span>, <span class="ruby-node">&quot;#{profile_name}.mobileprovision&quot;</span>)]
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+    <span class="ruby-identifier">keychain_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">keychain_path</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>].<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Install the provisioning profiles</span>
+  <span class="ruby-identifier">profile</span> = <span class="ruby-identifier">profiles</span>.<span class="ruby-identifier">last</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:force_for_new_devices</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:readonly</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prov_type</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:appstore</span>
+      <span class="ruby-identifier">params</span>[<span class="ruby-value">:force</span>] = <span class="ruby-identifier">device_count_different?</span>(<span class="ruby-identifier">profile</span><span class="ruby-operator">:</span> <span class="ruby-identifier">profile</span>, <span class="ruby-identifier">keychain_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">keychain_path</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_sym</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:force</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># App Store provisioning profiles don&#39;t contain device identifiers and</span>
+      <span class="ruby-comment"># thus shouldn&#39;t be renewed if the device count has changed.</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Warning: `force_for_new_devices` is set but is ignored for App Store provisioning profiles.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;You can safely stop specifying `force_for_new_devices` when running Match for type &#39;appstore&#39;.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:force</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:readonly</span>]
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;No matching provisioning profiles found for &#39;#{profile_name}&#39;&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;A new one cannot be created because you enabled `readonly`&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">base_dir</span>) <span class="ruby-comment"># folder for `prov_type` does not exist on first match use for that type</span>
+        <span class="ruby-identifier">all_profiles</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">base_dir</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;.&quot;</span>) }
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Provisioning profiles in your repo for type `#{prov_type}`:&quot;</span>)
+        <span class="ruby-identifier">all_profiles</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;- &#39;#{p}&#39;&quot;</span>) }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;If you are certain that a profile should exist, double-check the recent changes to your match repository&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No matching provisioning profiles found and can not create a new one because you enabled `readonly`. Check the output above for more information.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">profile</span> = <span class="ruby-constant">Generator</span>.<span class="ruby-identifier">generate_provisioning_profile</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>,
+                                                   <span class="ruby-identifier">prov_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prov_type</span>,
+                                              <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">certificate_id</span>,
+                                              <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+                                           <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prefixed_working_directory</span>(<span class="ruby-identifier">working_directory</span>))
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files_to_commit</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">profile</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+    <span class="ruby-identifier">installed_profile</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>.<span class="ruby-identifier">install</span>(<span class="ruby-identifier">profile</span>, <span class="ruby-identifier">keychain_path</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parsed</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">profile</span>, <span class="ruby-identifier">keychain_path</span>)
+  <span class="ruby-identifier">uuid</span> = <span class="ruby-identifier">parsed</span>[<span class="ruby-string">&quot;UUID&quot;</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>]
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">profile</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">spaceship</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">spaceship</span>.<span class="ruby-identifier">profile_exists</span>(<span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>], <span class="ruby-identifier">uuid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uuid</span>)
+    <span class="ruby-comment"># This profile is invalid, let&#39;s remove the local file and generate a new one</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">profile</span>)
+    <span class="ruby-comment"># This method will be called again, no need to modify `files_to_commit`</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">fill_environment</span>(<span class="ruby-constant">Utils</span>.<span class="ruby-identifier">environment_variable_name</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+                                                                   <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prov_type</span>,
+                                                               <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>]),
+
+                         <span class="ruby-identifier">uuid</span>)
+
+  <span class="ruby-comment"># TeamIdentifier is returned as an array, but we&#39;re not sure why there could be more than one</span>
+  <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">fill_environment</span>(<span class="ruby-constant">Utils</span>.<span class="ruby-identifier">environment_variable_name_team_id</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+                                                                           <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prov_type</span>,
+                                                                       <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>]),
+                         <span class="ruby-identifier">parsed</span>[<span class="ruby-string">&quot;TeamIdentifier&quot;</span>].<span class="ruby-identifier">first</span>)
+
+  <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">fill_environment</span>(<span class="ruby-constant">Utils</span>.<span class="ruby-identifier">environment_variable_name_profile_name</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+                                                                                <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prov_type</span>,
+                                                                            <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>]),
+                         <span class="ruby-identifier">parsed</span>[<span class="ruby-string">&quot;Name&quot;</span>])
+
+  <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">fill_environment</span>(<span class="ruby-constant">Utils</span>.<span class="ruby-identifier">environment_variable_name_profile_path</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+                                                                                <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prov_type</span>,
+                                                                            <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>]),
+                         <span class="ruby-identifier">installed_profile</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">uuid</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prefixed_working_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prefixed_working_directory</span><span
+            class="method-args">(working_directory)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Used when creating a new certificate or profile</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prefixed_working_directory-source">
+            <pre><span class="ruby-comment"># File match/lib/match/runner.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prefixed_working_directory</span>(<span class="ruby-identifier">working_directory</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">storage_mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;git&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">working_directory</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">storage_mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;google_cloud&quot;</span>
+    <span class="ruby-comment"># We fall back to &quot;*&quot;, which means certificates and profiles</span>
+    <span class="ruby-comment"># from all teams that use this bucket would be installed. This is not ideal, but</span>
+    <span class="ruby-comment"># unless the user provides a `team_id`, we can&#39;t know which one to use</span>
+    <span class="ruby-comment"># This only happens if `readonly` is activated, and no `team_id` was provided</span>
+    <span class="ruby-ivar">@_folder_prefix</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currently_used_team_id</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_folder_prefix</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-comment"># We use a `@_folder_prefix` variable, to keep state between multiple calls of this</span>
+      <span class="ruby-comment"># method, as the value won&#39;t change. This way the warning is only printed once</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Looks like you run `match` in `readonly` mode, and didn&#39;t provide a `team_id`. This will still work, however it is recommended to provide a `team_id` in your Appfile or Matchfile&quot;</span>)
+      <span class="ruby-ivar">@_folder_prefix</span> = <span class="ruby-string">&quot;*&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">working_directory</span>, <span class="ruby-ivar">@_folder_prefix</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;No implementation for `prefixed_working_directory`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File match/lib/match/runner.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files_to_commit</span> = []
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:output_path</span>]
+
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">print_values</span>(<span class="ruby-identifier">config</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>,
+                                         <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Summary for match #{Fastlane::VERSION}&quot;</span>)
+
+  <span class="ruby-identifier">update_optional_values_depending_on_storage_type</span>(<span class="ruby-identifier">params</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">storage_mode</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:storage_mode</span>]
+
+  <span class="ruby-comment"># Choose the right storage and encryption implementations</span>
+  <span class="ruby-identifier">storage</span> = <span class="ruby-constant">Storage</span>.<span class="ruby-identifier">for_mode</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:storage_mode</span>], {
+    <span class="ruby-identifier">git_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_url</span>],
+    <span class="ruby-identifier">shallow_clone</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:shallow_clone</span>],
+    <span class="ruby-identifier">skip_docs</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:skip_docs</span>],
+    <span class="ruby-identifier">git_branch</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_branch</span>],
+    <span class="ruby-identifier">git_full_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_full_name</span>],
+    <span class="ruby-identifier">git_user_email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_user_email</span>],
+    <span class="ruby-identifier">clone_branch_directly</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:clone_branch_directly</span>],
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">google_cloud_bucket_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:google_cloud_bucket_name</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">google_cloud_keys_file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:google_cloud_keys_file</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-identifier">google_cloud_project_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:google_cloud_project_id</span>].<span class="ruby-identifier">to_s</span>
+  })
+  <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">download</span>
+
+  <span class="ruby-comment"># Init the encryption only after the `storage.download` was called to have the right working directory</span>
+  <span class="ruby-identifier">encryption</span> = <span class="ruby-constant">Encryption</span>.<span class="ruby-identifier">for_storage_mode</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:storage_mode</span>], {
+    <span class="ruby-identifier">git_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_url</span>],
+    <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">working_directory</span>
+  })
+  <span class="ruby-identifier">encryption</span>.<span class="ruby-identifier">decrypt_files</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">encryption</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:readonly</span>]
+    <span class="ruby-comment"># In readonly mode, we still want to see if the user provided a team_id</span>
+    <span class="ruby-comment"># see `prefixed_working_directory` comments for more details</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currently_used_team_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_id</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">spaceship</span> = <span class="ruby-constant">SpaceshipEnsure</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_id</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:team_name</span>])
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currently_used_team_id</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">spaceship</span>.<span class="ruby-identifier">team_id</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;enterprise&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">in_house?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You defined the profile type &#39;enterprise&#39;, but your Apple account doesn&#39;t support In-House profiles&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:app_identifier</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">app_identifiers</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:app_identifier</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">app_identifiers</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:app_identifier</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\s*,\s*/</span>).<span class="ruby-identifier">uniq</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># sometimes we get an array with arrays, this is a bug. To unblock people using match, I suggest we flatten!</span>
+  <span class="ruby-comment"># then in the future address the root cause of https://github.com/fastlane/fastlane/issues/11324</span>
+  <span class="ruby-identifier">app_identifiers</span>.<span class="ruby-identifier">flatten!</span>
+
+  <span class="ruby-comment"># Verify the App ID (as we don&#39;t want &#39;match&#39; to fail at a later point)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">spaceship</span>
+    <span class="ruby-identifier">app_identifiers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">app_identifier</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">spaceship</span>.<span class="ruby-identifier">bundle_identifier_exists</span>(<span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>], <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Certificate</span>
+  <span class="ruby-identifier">cert_id</span> = <span class="ruby-identifier">fetch_certificate</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>, <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">working_directory</span>)
+  <span class="ruby-identifier">spaceship</span>.<span class="ruby-identifier">certificate_exists</span>(<span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>], <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">cert_id</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">spaceship</span>
+
+  <span class="ruby-comment"># Provisioning Profiles</span>
+  <span class="ruby-identifier">app_identifiers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">app_identifier</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">fetch_provisioning_profile</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>,
+                                  <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">cert_id</span>,
+                                  <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>,
+                               <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">working_directory</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files_to_commit</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:readonly</span>]
+    <span class="ruby-identifier">encryption</span>.<span class="ruby-identifier">encrypt_files</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">encryption</span>
+    <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">save_changes!</span>(<span class="ruby-identifier">files_to_commit</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files_to_commit</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Print a summary table for each app_identifier</span>
+  <span class="ruby-identifier">app_identifiers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">app_identifier</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">TablePrinter</span>.<span class="ruby-identifier">print_summary</span>(<span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>, <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>], <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:platform</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;All required keys, certificates and provisioning profiles are installed 🙌&quot;</span>.<span class="ruby-identifier">green</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">UnexpectedResponse</span>, <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidUserCredentialsError</span>, <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">NoUserCredentialsError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;An error occurred while verifying your certificates and profiles with the Apple Developer Portal.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;If you already have your certificates stored in git, you can run `fastlane match` in readonly mode&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;to just install the certificates and profiles without accessing the Dev Portal.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;To do so, just pass `readonly: true` to your match call.&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">clear_changes</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">storage</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_optional_values_depending_on_storage_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_optional_values_depending_on_storage_type</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Be smart about optional values here Depending on the storage mode,
+different values are required</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_optional_values_depending_on_storage_type-source">
+            <pre><span class="ruby-comment"># File match/lib/match/runner.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_optional_values_depending_on_storage_type</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:storage_mode</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;git&quot;</span>
+    <span class="ruby-identifier">params</span>.<span class="ruby-identifier">option_for_key</span>(<span class="ruby-value">:git_url</span>).<span class="ruby-identifier">optional</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

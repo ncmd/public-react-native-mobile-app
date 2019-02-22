@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::FastlaneRequire - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-find_gem_name">::find_gem_name</a>
+    
+    <li ><a href="#method-c-format_gem_require_name">::format_gem_require_name</a>
+    
+    <li ><a href="#method-c-gem_installed-3F">::gem_installed?</a>
+    
+    <li ><a href="#method-c-install_gem_if_needed">::install_gem_if_needed</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::FastlaneRequire">
+  <h1 id="class-Fastlane::FastlaneRequire" class="class">
+    class Fastlane::FastlaneRequire
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-find_gem_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_gem_name</span><span
+            class="method-args">(user_supplied_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_gem_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/fastlane_require.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_gem_name</span>(<span class="ruby-identifier">user_supplied_name</span>)
+  <span class="ruby-identifier">fetcher</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecFetcher</span>.<span class="ruby-identifier">fetcher</span>
+  <span class="ruby-identifier">gems</span> = <span class="ruby-identifier">fetcher</span>.<span class="ruby-identifier">suggest_gems_from_name</span>(<span class="ruby-identifier">user_supplied_name</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">gems</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-format_gem_require_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_gem_require_name</span><span
+            class="method-args">(gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_gem_require_name-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/fastlane_require.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_gem_require_name</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-comment"># from &quot;fastlane-plugin-xcversion&quot; to &quot;fastlane/plugin/xcversion&quot;</span>
+  <span class="ruby-identifier">gem_name</span> = <span class="ruby-identifier">gem_name</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;/&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">gem_name</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;fastlane-plugin-&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">gem_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gem_installed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gem_installed?</span><span
+            class="method-args">(name, req = Gem::Requirement.default)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gem_installed-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/fastlane_require.rb, line 41</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">gem_installed?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">req</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>)
+        <span class="ruby-identifier">installed</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">req</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">version</span> }
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">installed</span>
+
+        <span class="ruby-comment"># In special cases a gem is already preinstalled, e.g. YAML.</span>
+        <span class="ruby-comment"># To find out we try to load a gem with that name in a child process</span>
+        <span class="ruby-comment"># (so we don&#39;t actually load anything we don&#39;t want to load)</span>
+        <span class="ruby-comment"># See https://github.com/fastlane/fastlane/issues/6951</span>
+        <span class="ruby-identifier">require_tester</span> = <span class="ruby-string">&quot;          begin
+            require ARGV.first
+          rescue LoadError
+            exit(1)
+          end
+&quot;</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^ */</span>, <span class="ruby-string">&#39;&#39;</span>)
+        <span class="ruby-identifier">system</span>(<span class="ruby-constant">RbConfig</span>.<span class="ruby-identifier">ruby</span>, <span class="ruby-string">&quot;-e&quot;</span>, <span class="ruby-identifier">require_tester</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;; &quot;</span>), <span class="ruby-identifier">name</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">success?</span>
+      <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-install_gem_if_needed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">install_gem_if_needed</span><span
+            class="method-args">(gem_name: nil, require_gem: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="install_gem_if_needed-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/fastlane_require.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">install_gem_if_needed</span>(<span class="ruby-identifier">gem_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">require_gem</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">gem_require_name</span> = <span class="ruby-identifier">format_gem_require_name</span>(<span class="ruby-identifier">gem_name</span>)
+
+  <span class="ruby-comment"># check if it&#39;s installed</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">gem_installed?</span>(<span class="ruby-identifier">gem_name</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;gem &#39;#{gem_name}&#39; is already installed&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-identifier">gem_require_name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">require_gem</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">bundler?</span>
+    <span class="ruby-comment"># User uses bundler, we don&#39;t want to install gems on the fly here</span>
+    <span class="ruby-comment"># Instead tell the user how to add it to their Gemfile</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Missing gem &#39;#{gem_name}&#39;, please add the following to your local Gemfile:&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-node">&quot;gem \&quot;#{gem_name}\&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Add &#39;gem \&quot;#{gem_name}\&quot;&#39; to your Gemfile and restart fastlane&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;rubygems/command_manager&quot;</span>
+  <span class="ruby-identifier">installer</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandManager</span>.<span class="ruby-identifier">instance</span>[<span class="ruby-value">:install</span>]
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Installing Ruby gem &#39;#{gem_name}&#39;...&quot;</span>)
+
+  <span class="ruby-identifier">spec_name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find_gem_name</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Found gem \&quot;#{spec_name}\&quot; instead of the required name \&quot;#{gem_name}\&quot;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">spec_name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">gem_name</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span>
+
+  <span class="ruby-comment"># We install the gem like this because we also want to gem to be available to be required</span>
+  <span class="ruby-comment"># at this point. If we were to shell out, this wouldn&#39;t be the case</span>
+  <span class="ruby-identifier">installer</span>.<span class="ruby-identifier">install_gem</span>(<span class="ruby-identifier">spec_name</span>, <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully installed &#39;#{gem_name}&#39;&quot;</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-identifier">gem_require_name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">require_gem</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

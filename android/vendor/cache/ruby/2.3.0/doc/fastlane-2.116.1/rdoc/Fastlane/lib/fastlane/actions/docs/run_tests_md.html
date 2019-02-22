@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>run_tests - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/jquery.js"></script>
+<script src="../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-The+easiest+way+to+run+tests+of+your+iOS+and+Mac+app">The easiest way to run tests of your iOS and Mac app</a>
+    <li><a href="#label-What-27s+scan-3F">What&#39;s scan?</a>
+    <li><a href="#label-Before+scan">Before <em>scan</em></a>
+    <li><a href="#label-With+scan">With <em>scan</em></a>
+    <li><a href="#label-Why+scan-3F">Why <em>scan</em>?</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Scanfile">Scanfile</a>
+    <li><a href="#label-Automating+the+whole+process">Automating the whole process</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault.html">DeliverfileDefault</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/DeliverfileDefault_swift.html">DeliverfileDefault.swift</a>
+  
+    <li><a href="../../../../../deliver/lib/assets/ScreenshotsHelp.html">ScreenshotsHelp</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate.html">AppfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplate_swift.html">AppfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/AppfileTemplateAndroid.html">AppfileTemplateAndroid</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate.html">DefaultFastfileTemplate</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/DefaultFastfileTemplate_swift.html">DefaultFastfileTemplate.swift</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_bash.html">completion.bash</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_fish.html">completion.fish</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_sh.html">completion.sh</a>
+  
+    <li><a href="../../../../../fastlane/lib/assets/completions/completion_zsh.html">completion.zsh</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/device_grid/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/build_ios_app_md.html">build_ios_app</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_android_screenshots_md.html">capture_android_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/capture_ios_screenshots_md.html">capture_ios_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/check_app_store_metadata_md.html">check_app_store_metadata</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/create_app_online_md.html">create_app_online</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/frame_screenshots_md.html">frame_screenshots</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_certificates_md.html">get_certificates</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_provisioning_profile_md.html">get_provisioning_profile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/get_push_certificate_md.html">get_push_certificate</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/run_tests_md.html">run_tests</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/sync_code_signing_md.html">sync_code_signing</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_play_store_md.html">upload_to_play_store</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/actions/docs/upload_to_testflight_md.html">upload_to_testflight</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/helper/README_md.html">README</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../fastlane/lib/fastlane/plugins/template/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate.html">GymfileTemplate</a>
+  
+    <li><a href="../../../../../gym/lib/assets/GymfileTemplate_swift.html">GymfileTemplate.swift</a>
+  
+    <li><a href="../../../../../gym/lib/assets/wrap_xcodebuild/xcbuild-safe_sh.html">xcbuild-safe.sh</a>
+  
+    <li><a href="../../../../../gym/lib/gym/generators/README_md.html">README</a>
+  
+    <li><a href="../../../../../gym/lib/gym/xcodebuild_fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate.html">MatchfileTemplate</a>
+  
+    <li><a href="../../../../../match/lib/assets/MatchfileTemplate_swift.html">MatchfileTemplate.swift</a>
+  
+    <li><a href="../../../../../match/lib/assets/READMETemplate_md.html">READMETemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate.html">PrecheckfileTemplate</a>
+  
+    <li><a href="../../../../../precheck/lib/assets/PrecheckfileTemplate_swift.html">PrecheckfileTemplate.swift</a>
+  
+    <li><a href="../../../../../precheck/lib/precheck/rules/rules_data/curse_word_hashes/en_us_txt.html">en_us</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate.html">ScanfileTemplate</a>
+  
+    <li><a href="../../../../../scan/lib/assets/ScanfileTemplate_swift.html">ScanfileTemplate.swift</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate.html">ScreengrabfileTemplate</a>
+  
+    <li><a href="../../../../../screengrab/lib/assets/ScreengrabfileTemplate_swift.html">ScreengrabfileTemplate.swift</a>
+  
+    <li><a href="../../../../../sigh/lib/assets/resign_sh.html">resign.sh</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate.html">SnapfileTemplate</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapfileTemplate_swift.html">SnapfileTemplate.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelper_swift.html">SnapshotHelper.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/assets/SnapshotHelperXcode8_swift.html">SnapshotHelperXcode8.swift</a>
+  
+    <li><a href="../../../../../snapshot/lib/snapshot/fixes/README_md.html">README</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMapping_json.html">languageMapping.json</a>
+  
+    <li><a href="../../../../../spaceship/lib/assets/languageMappingReadable_json.html">languageMappingReadable.json</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page fastlane/lib/fastlane/actions/docs/run_tests.md">
+<p align="center">
+  <img src="/img/actions/scan.png" width="250">
+</p>
+<h6 id="label-The+easiest+way+to+run+tests+of+your+iOS+and+Mac+app">The easiest way to run tests of your iOS and Mac app<span><a href="#label-The+easiest+way+to+run+tests+of+your+iOS+and+Mac+app">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p><em>scan</em> makes it easy to run tests of your iOS and Mac app on a
+simulator or connected device.</p>
+<hr>
+<p align="center">
+    <a href="#whats-scan">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#scanfile">Scanfile</a>
+</p><hr>
+
+<h1 id="label-What-27s+scan-3F">What&#39;s scan?<span><a href="#label-What-27s+scan-3F">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><img src="https://pbs.twimg.com/media/CURcEpuWoAArE3d.png:large"></p>
+
+<h3 id="label-Before+scan">Before <em>scan</em><span><a href="#label-Before+scan">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>xcodebuild \
+  -workspace MyApp.xcworkspace \
+  -scheme &quot;MyApp&quot; \
+  -sdk iphonesimulator \
+  -destination &#39;platform=iOS Simulator,name=iPhone 6,OS=8.1&#39; \
+  test</pre>
+
+<p>As the output will look like this</p>
+
+<pre>/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/Objects-normal/arm64/main.o Example/main.m normal arm64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/felixkrause/Developer/fastlane/gym/example/cocoapods
+    export LANG=en_US.US-ASCII
+    export PATH=&quot;/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode-beta.app/Contents/Developer/usr/bin:/Users/felixkrause/.rvm/gems/ruby-2.2.0/bin:/Users/felixkrause/.rvm/gems/ruby-2.2.0@global/bin:/Users/felixkrause/.rvm/rubies/ruby-2.2.0/bin:/Users/felixkrause/.rvm/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin&quot;
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch arm64 -fmessage-length=126 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu99 -fobjc-arc -fmodules -gmodules -fmodules-cache-path=/Users/felixkrause/Library/Developer/Xcode/DerivedData/ModuleCache -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -fbuild-session-file=/Users/felixkrause/Library/Developer/Xcode/DerivedData/ModuleCache/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -fno-common -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -miphoneos-version-min=9.0 -g -fvisibility=hidden -Wno-sign-conversion -fembed-bitcode -iquote /Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/ExampleProductName-generated-files.hmap -I/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/ExampleProductName-own-target-headers.hmap -I/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/ExampleProductName-all-target-headers.hmap -iquote /Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/ExampleProductName-project-headers.hmap -I/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/BuildProductsPath/Release-iphoneos/include -I/Users/felixkrause/Developer/fastlane/gym/example/cocoapods/Pods/Headers/Public -I/Users/felixkrause/Developer/fastlane/gym/example/cocoapods/Pods/Headers/Public/HexColors -I/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/DerivedSources/arm64 -I/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/DerivedSources -F/Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/BuildProductsPath/Release-iphoneos -isystem /Users/felixkrause/Developer/fastlane/gym/example/cocoapods/Pods/Headers/Public -isystem /Users/felixkrause/Developer/fastlane/gym/example/cocoapods/Pods/Headers/Public/HexColors -MMD -MT dependencies -MF /Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/Objects-normal/arm64/main.d --serialize-diagnostics /Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/Objects-normal/arm64/main.dia -c /Users/felixkrause/Developer/fastlane/gym/example/cocoapods/Example/main.m -o /Users/felixkrause/Library/Developer/Xcode/DerivedData/Example-fhlmxikmujknefgidqwqvtbatohi/Build/Intermediates/ArchiveIntermediates/Example/IntermediateBuildFilesPath/Example.build/Release-iphoneos/Example.build/Objects-normal/arm64/main.o</pre>
+
+<p>you&#39;ll probably want to use something like <a
+href="https://github.com/supermarin/xcpretty">xcpretty</a>, which will look
+like this:</p>
+
+<pre>set -o pipefail &amp;&amp;
+  xcodebuild \
+    -workspace MyApp.xcworkspace \
+    -scheme &quot;MyApp&quot; \
+    -sdk iphonesimulator \
+    -destination &#39;platform=iOS Simulator,name=iPhone 6,OS=8.1&#39; \
+    test \
+  | xcpretty \
+    -r &quot;html&quot; \
+    -o &quot;tests.html&quot;</pre>
+
+<h3 id="label-With+scan">With <em>scan</em><span><a href="#label-With+scan">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">scan</span>
+</pre>
+
+<h3 id="label-Why+scan-3F">Why <em>scan</em>?<span><a href="#label-Why+scan-3F">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><em>scan</em> uses the latest APIs and tools to make running tests plain
+simple and offer a great integration into your existing workflow, like <a
+href="https://fastlane.tools">fastlane</a> or Jenkins.</p>
+
+<p>| | scan Features | |———-|—————–| 🏁 | Beautiful inline build output while
+running the tests 🚠 | Sensible defaults: Automatically detect the project,
+schemes and more 📊 | Support for HTML, JSON and JUnit reports 🔎 | Xcode
+duplicated your simulators again? <em>scan</em> will handle this for you 🔗
+| Works perfectly with <a href="https://fastlane.tools">fastlane</a> and
+other tools 🚅 | Don&#39;t remember any complicated build commands, just
+<em>scan</em> 🔧 | Easy and dynamic configuration using parameters and
+environment variables 📢 | Beautiful slack notifications of the test results
+💾 | Store common build settings in a <code>Scanfile</code> 📤 | The raw
+<code>xcodebuild</code> outputs are stored in
+<code>~/Library/Logs/scan</code> 💻 | Supports both iOS and Mac applications
+👱 | Automatically switches to the <a
+href="https://github.com/kattrali/xcpretty-travis-formatter">travis
+formatter</a> when running on Travis 📖 | Helps you resolve common test
+errors like simulator not responding</p>
+
+<p><em>scan</em> uses a plain <code>xcodebuild</code> command, therefore
+keeping 100% compatible with <code>xcodebuild</code>. To generate the nice
+output, <em>scan</em> uses <a
+href="https://github.com/supermarin/xcpretty">xcpretty</a>. You can alway
+access the raw output in <code>~/Library/Logs/scan</code>.</p>
+
+<p><img src="/img/actions/scanScreenshot.png"> <img
+src="/img/actions/slack.png"> <img src="/img/actions/scanHTML.png"> <img
+src="/img/actions/scanHTMLFailing.png"></p>
+
+<h1 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">scan</span>
+</pre>
+
+<p>That&#39;s all you need to run your tests. If you want more control, here
+are some available parameters:</p>
+
+<pre>fastlane scan --workspace &quot;Example.xcworkspace&quot; --scheme &quot;AppName&quot; --device &quot;iPhone 6&quot; --clean</pre>
+
+<p>If you need to use a different xcode install, use <code>xcode-select</code>
+or define <code>DEVELOPER_DIR</code>:</p>
+
+<pre>DEVELOPER_DIR=&quot;/Applications/Xcode6.2.app&quot; scan</pre>
+
+<p>To run <em>scan</em> on multiple devices via <a
+href="https://fastlane.tools">fastlane</a>, add this to your
+<code>Fastfile</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scan</span>(
+  <span class="ruby-identifier">workspace</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Example.xcworkspace&quot;</span>,
+  <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> [<span class="ruby-string">&quot;iPhone 6s&quot;</span>, <span class="ruby-string">&quot;iPad Air&quot;</span>]
+)
+</pre>
+
+<p>For a list of all available parameters use</p>
+
+<pre class="ruby"><span class="ruby-identifier">fastlane</span> <span class="ruby-identifier">action</span> <span class="ruby-identifier">scan</span>
+</pre>
+
+<p>To access the raw <code>xcodebuild</code> output open
+<code>~/Library/Logs/scan</code></p>
+
+<h1 id="label-Scanfile">Scanfile<span><a href="#label-Scanfile">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Since you might want to manually trigger the tests but don&#39;t want to
+specify all the parameters every time, you can store your defaults in a so
+called <code>Scanfile</code>.</p>
+
+<p>Run <code>fastlane scan init</code> to create a new configuration file.
+Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scheme</span>(<span class="ruby-string">&quot;Example&quot;</span>)
+<span class="ruby-identifier">devices</span>([<span class="ruby-string">&quot;iPhone 6s&quot;</span>, <span class="ruby-string">&quot;iPad Air&quot;</span>])
+
+<span class="ruby-identifier">clean</span>(<span class="ruby-keyword">true</span>)
+
+<span class="ruby-identifier">output_types</span>(<span class="ruby-string">&quot;html&quot;</span>)
+</pre>
+
+<h1 id="label-Automating+the+whole+process">Automating the whole process<span><a href="#label-Automating+the+whole+process">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>scan</em> works great together with <a
+href="https://fastlane.tools">fastlane</a>, which connects all deployment
+tools into one streamlined workflow.</p>
+
+<p>Using <em>fastlane</em> you can define a configuration like</p>
+
+<pre class="ruby"><span class="ruby-identifier">lane</span> :<span class="ruby-identifier">test</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">scan</span>(<span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Example&quot;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

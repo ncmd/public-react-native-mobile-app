@@ -1,0 +1,5 @@
+U:RDoc::Attr[iI"type_display_id:ETI"3Spaceship::Portal::Certificate#type_display_id;TI"RW;T:privateo:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[
+I",Indicates the type of this certificate ;TI";which is automatically used to determine the class of ;TI"Fthe certificate. Available values listed in CERTIFICATE_TYPE_IDS ;TI"2@return (String) The type of the certificate ;TI"$@example Production Certificate;To:RDoc::Markup::Verbatim;	[I""R58UK2EWSO"
+;T:@format0o;
+;	[I"%@example Development Certificate;To;;	[I""5QPB9NHCEI";T;0:
+@fileI"2spaceship/lib/spaceship/portal/certificate.rb;T:0@omit_headings_from_table_of_contents_below0F@I"#Spaceship::Portal::Certificate;TcRDoc::NormalClass0

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"person_id:ETI"(Spaceship::Portal::Person#person_id;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@return (String) Person Id;T:
+@fileI"-spaceship/lib/spaceship/portal/person.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::Person;TcRDoc::NormalClass0

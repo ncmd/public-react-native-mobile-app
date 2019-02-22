@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"privacy_url:ETI"-Spaceship::Tunes::AppDetails#privacy_url;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"H@return (Hash) A hash representing the privacy URL in all languages;T:
+@fileI"1spaceship/lib/spaceship/tunes/app_details.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppDetails;TcRDoc::NormalClass0

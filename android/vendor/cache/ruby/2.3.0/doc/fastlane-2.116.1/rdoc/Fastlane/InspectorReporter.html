@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::InspectorReporter - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-inspector_could_not_create_report">#inspector_could_not_create_report</a>
+    
+    <li ><a href="#method-i-inspector_received_empty_report">#inspector_received_empty_report</a>
+    
+    <li ><a href="#method-i-inspector_started_query">#inspector_started_query</a>
+    
+    <li ><a href="#method-i-inspector_successfully_received_report">#inspector_successfully_received_report</a>
+    
+    <li ><a href="#method-i-print_issue_full">#print_issue_full</a>
+    
+    <li ><a href="#method-i-print_open_link_hint">#print_open_link_hint</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::InspectorReporter">
+  <h1 id="class-Fastlane::InspectorReporter" class="class">
+    class Fastlane::InspectorReporter
+  </h1>
+
+  <section class="description">
+    
+<p>Adds all the necessary emojis (obv)</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="NUMBER_OF_ISSUES_INLINE">NUMBER_OF_ISSUES_INLINE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-inspector_could_not_create_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspector_could_not_create_report</span><span
+            class="method-args">(error, query, inspector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when there have been networking issues in creating the report.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspector_could_not_create_report-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/github_issue_inspector_reporter.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspector_could_not_create_report</span>(<span class="ruby-identifier">error</span>, <span class="ruby-identifier">query</span>, <span class="ruby-identifier">inspector</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Could not access the GitHub API, you may have better luck via the website.&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;https://github.com/#{inspector.repo_owner}/#{inspector.repo_name}/search?q=#{query}&amp;type=Issues&amp;utf8=✓&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Error: #{error.name}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspector_received_empty_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspector_received_empty_report</span><span
+            class="method-args">(report, inspector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called once the report has been received, but when there are no issues
+found.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspector_received_empty_report-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/github_issue_inspector_reporter.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspector_received_empty_report</span>(<span class="ruby-identifier">report</span>, <span class="ruby-identifier">inspector</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Found no similar issues. To create a new issue, please visit:&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;https://github.com/#{inspector.repo_owner}/#{inspector.repo_name}/issues/new&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Run `fastlane env` to append the fastlane environment to your issue&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspector_started_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspector_started_query</span><span
+            class="method-args">(query, inspector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called just as the investigation has begun.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspector_started_query-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/github_issue_inspector_reporter.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspector_started_query</span>(<span class="ruby-identifier">query</span>, <span class="ruby-identifier">inspector</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Looking for related GitHub issues on #{inspector.repo_owner}/#{inspector.repo_name}...&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Search query: #{query}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspector_successfully_received_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspector_successfully_received_report</span><span
+            class="method-args">(report, inspector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called once the inspector has received a report with more than one issue.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspector_successfully_received_report-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/github_issue_inspector_reporter.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspector_successfully_received_report</span>(<span class="ruby-identifier">report</span>, <span class="ruby-identifier">inspector</span>)
+  <span class="ruby-identifier">report</span>.<span class="ruby-identifier">issues</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-constant">NUMBER_OF_ISSUES_INLINE</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">issue</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print_issue_full</span>(<span class="ruby-identifier">issue</span>) }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">report</span>.<span class="ruby-identifier">issues</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">NUMBER_OF_ISSUES_INLINE</span>
+    <span class="ruby-identifier">report</span>.<span class="ruby-identifier">url</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-string">&#39;\&#39;</span>, <span class="ruby-string">&#39;%27&#39;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;and #{report.total_results - NUMBER_OF_ISSUES_INLINE} more at: #{report.url}&quot;</span>)
+    <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">print_open_link_hint</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-print_issue_full" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_issue_full</span><span
+            class="method-args">(issue)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_issue_full-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/github_issue_inspector_reporter.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_issue_full</span>(<span class="ruby-identifier">issue</span>)
+  <span class="ruby-identifier">resolved</span> = <span class="ruby-identifier">issue</span>.<span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;closed&#39;</span>
+  <span class="ruby-identifier">status</span> = (<span class="ruby-identifier">resolved</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">issue</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">green</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">issue</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">red</span>)
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;➡️  #{issue.title.yellow}&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;    #{issue.html_url} [#{status}] #{issue.comments} 💬&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;    #{Time.parse(issue.updated_at).to_pretty}&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-print_open_link_hint" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_open_link_hint</span><span
+            class="method-args">(newline = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_open_link_hint-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/github_issue_inspector_reporter.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_open_link_hint</span>(<span class="ruby-identifier">newline</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">newline</span>
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;🔗  You can ⌘ + double-click on links to open them directly in your browser.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">mac?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

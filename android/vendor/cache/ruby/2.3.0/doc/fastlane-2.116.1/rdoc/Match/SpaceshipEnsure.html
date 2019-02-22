@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::SpaceshipEnsure - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-bundle_identifier_exists">#bundle_identifier_exists</a>
+    
+    <li ><a href="#method-i-certificate_exists">#certificate_exists</a>
+    
+    <li ><a href="#method-i-profile_exists">#profile_exists</a>
+    
+    <li ><a href="#method-i-team_id">#team_id</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::SpaceshipEnsure">
+  <h1 id="class-Match::SpaceshipEnsure" class="class">
+    class Match::SpaceshipEnsure
+  </h1>
+
+  <section class="description">
+    
+<p>Ensures the certificate and profiles are also available on App Store
+Connect</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(user, team_id, team_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File match/lib/match/spaceship_ensure.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">team_id</span>, <span class="ruby-identifier">team_name</span>)
+  <span class="ruby-comment"># We&#39;ll try to manually fetch the password</span>
+  <span class="ruby-comment"># to tell the user that a password is optional</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;credentials_manager/account_manager&#39;</span>
+
+  <span class="ruby-identifier">keychain_entry</span> = <span class="ruby-constant">CredentialsManager</span><span class="ruby-operator">::</span><span class="ruby-constant">AccountManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keychain_entry</span>.<span class="ruby-identifier">password</span>(<span class="ruby-identifier">ask_if_missing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;You can also run `fastlane match` in readonly mode to not require any access to the&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Developer Portal. This way you only share the keys and credentials&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-string">&quot;fastlane match --readonly&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;More information https://docs.fastlane.tools/actions/match/#access-control&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Verifying that the certificate and profile are still valid on the Dev Portal...&quot;</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">login</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">select_team</span>(<span class="ruby-identifier">team_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_id</span>, <span class="ruby-identifier">team_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">team_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bundle_identifier_exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bundle_identifier_exists</span><span
+            class="method-args">(username: nil, app_identifier: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bundle_identifier_exists-source">
+            <pre><span class="ruby-comment"># File match/lib/match/spaceship_ensure.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bundle_identifier_exists</span>(<span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">found</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_identifier</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;sigh/runner&#39;</span>
+  <span class="ruby-constant">Sigh</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">print_produce_command</span>({
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">username</span>,
+    <span class="ruby-identifier">app_identifier</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_identifier</span>
+  })
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;An app with that bundle ID needs to exist in order to create a provisioning profile for it&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;================================================================&quot;</span>)
+  <span class="ruby-identifier">available_apps</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{a.bundle_id} (#{a.name})&quot;</span> }
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Available apps:\n- #{available_apps.join(&quot;\n- &quot;)}&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Make sure to run `fastlane match` with the same user and team every time.&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find bundle identifier &#39;#{app_identifier}&#39; for the user &#39;#{username}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-certificate_exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">certificate_exists</span><span
+            class="method-args">(username: nil, certificate_id: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="certificate_exists-source">
+            <pre><span class="ruby-comment"># File match/lib/match/spaceship_ensure.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">certificate_exists</span>(<span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">certificate_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">found</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cert</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cert</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">certificate_id</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Certificate &#39;#{certificate_id}&#39; (stored in your storage) is not available on the Developer Portal&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;for the user #{username}&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Make sure to use the same user and team every time you run &#39;match&#39; for this&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Git repository. This might be caused by revoking the certificate on the Dev Portal&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;To reset the certificates of your Apple account, you can use the `fastlane match nuke` feature, more information on https://docs.fastlane.tools/actions/match/&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-profile_exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile_exists</span><span
+            class="method-args">(username: nil, uuid: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="profile_exists-source">
+            <pre><span class="ruby-comment"># File match/lib/match/spaceship_ensure.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">profile_exists</span>(<span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">uuid</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">found</span> = <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">provisioning_profile</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">profile</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">uuid</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">uuid</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">found</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Provisioning profile &#39;#{uuid}&#39; is not available on the Developer Portal for the user #{username}, fixing this now for you 🔨&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">found</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;&#39;#{found.name}&#39; is available on the Developer Portal, however it&#39;s &#39;Invalid&#39;, fixing this now for you 🔨&quot;</span>)
+    <span class="ruby-comment"># it&#39;s easier to just create a new one, than to repair an existing profile</span>
+    <span class="ruby-comment"># it has the same effects anyway, including a new UUID of the provisioning profile</span>
+    <span class="ruby-identifier">found</span>.<span class="ruby-identifier">delete!</span>
+    <span class="ruby-comment"># return nil to re-download the new profile in runner.rb</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-team_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">team_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The team ID of the currently logged in team</p>
+          
+          
+
+          
+          <div class="method-source-code" id="team_id-source">
+            <pre><span class="ruby-comment"># File match/lib/match/spaceship_ensure.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">team_id</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Spaceship</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">team_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

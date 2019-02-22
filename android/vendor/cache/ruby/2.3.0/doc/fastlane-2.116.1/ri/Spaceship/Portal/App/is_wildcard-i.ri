@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"is_wildcard:ETI"'Spaceship::Portal::App#is_wildcard;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"D@return (Bool) Is this app a wildcard app (e.g. com.krausefx.*);T:
+@fileI"*spaceship/lib/spaceship/portal/app.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::App;TcRDoc::NormalClass0

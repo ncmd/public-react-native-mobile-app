@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"id:ETI"!Spaceship::Portal::Device#id;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"[@return (String) The ID given from the developer portal. You'll probably not need it. ;TI"@example;To:RDoc::Markup::Verbatim;	[I""XJXGVS46MW";T:@format0:
+@fileI"-spaceship/lib/spaceship/portal/device.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Spaceship::Portal::Device;TcRDoc::NormalClass0

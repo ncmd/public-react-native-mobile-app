@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"3trade_representative_is_displayed_on_app_store:ETI"PSpaceship::Tunes::AppVersion#trade_representative_is_displayed_on_app_store;TI"RW;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"f@return (Boolean) Display Trade Representative Contact Information on the Korean App Store or not;T:
+@fileI"1spaceship/lib/spaceship/tunes/app_version.rb;T:0@omit_headings_from_table_of_contents_below0F@I"!Spaceship::Tunes::AppVersion;TcRDoc::NormalClass0

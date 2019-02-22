@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module FastlaneCore::Helper - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-backticks">::backticks</a>
+    
+    <li ><a href="#method-c-buildlog_path">::buildlog_path</a>
+    
+    <li ><a href="#method-c-bundler-3F">::bundler?</a>
+    
+    <li ><a href="#method-c-ci-3F">::ci?</a>
+    
+    <li ><a href="#method-c-colors_disabled-3F">::colors_disabled?</a>
+    
+    <li ><a href="#method-c-contained_fastlane-3F">::contained_fastlane?</a>
+    
+    <li ><a href="#method-c-executable-3F">::executable?</a>
+    
+    <li ><a href="#method-c-fastlane_enabled-3F">::fastlane_enabled?</a>
+    
+    <li ><a href="#method-c-fastlane_enabled_folder_path">::fastlane_enabled_folder_path</a>
+    
+    <li ><a href="#method-c-gem_path">::gem_path</a>
+    
+    <li ><a href="#method-c-hide_loading_indicator">::hide_loading_indicator</a>
+    
+    <li ><a href="#method-c-homebrew-3F">::homebrew?</a>
+    
+    <li ><a href="#method-c-is_ci-3F">::is_ci?</a>
+    
+    <li ><a href="#method-c-is_mac-3F">::is_mac?</a>
+    
+    <li ><a href="#method-c-is_test-3F">::is_test?</a>
+    
+    <li ><a href="#method-c-is_windows-3F">::is_windows?</a>
+    
+    <li ><a href="#method-c-itms_path">::itms_path</a>
+    
+    <li ><a href="#method-c-json_file-3F">::json_file?</a>
+    
+    <li ><a href="#method-c-keychain_path">::keychain_path</a>
+    
+    <li ><a href="#method-c-linux-3F">::linux?</a>
+    
+    <li ><a href="#method-c-log">::log</a>
+    
+    <li ><a href="#method-c-mac-3F">::mac?</a>
+    
+    <li ><a href="#method-c-mac_app-3F">::mac_app?</a>
+    
+    <li ><a href="#method-c-mac_stock_terminal-3F">::mac_stock_terminal?</a>
+    
+    <li ><a href="#method-c-operating_system">::operating_system</a>
+    
+    <li ><a href="#method-c-rubygems-3F">::rubygems?</a>
+    
+    <li ><a href="#method-c-sh_enabled-3F">::sh_enabled?</a>
+    
+    <li ><a href="#method-c-should_show_loading_indicator-3F">::should_show_loading_indicator?</a>
+    
+    <li ><a href="#method-c-show_loading_indicator">::show_loading_indicator</a>
+    
+    <li ><a href="#method-c-strip_ansi_colors">::strip_ansi_colors</a>
+    
+    <li ><a href="#method-c-test-3F">::test?</a>
+    
+    <li ><a href="#method-c-transporter_java_executable_path">::transporter_java_executable_path</a>
+    
+    <li ><a href="#method-c-transporter_java_ext_dir">::transporter_java_ext_dir</a>
+    
+    <li ><a href="#method-c-transporter_java_jar_path">::transporter_java_jar_path</a>
+    
+    <li ><a href="#method-c-transporter_java_path">::transporter_java_path</a>
+    
+    <li ><a href="#method-c-transporter_path">::transporter_path</a>
+    
+    <li ><a href="#method-c-transporter_user_dir">::transporter_user_dir</a>
+    
+    <li ><a href="#method-c-windows-3F">::windows?</a>
+    
+    <li ><a href="#method-c-with_env_values">::with_env_values</a>
+    
+    <li ><a href="#method-c-xcode_at_least-3F">::xcode_at_least?</a>
+    
+    <li ><a href="#method-c-xcode_path">::xcode_path</a>
+    
+    <li ><a href="#method-c-xcode_server-3F">::xcode_server?</a>
+    
+    <li ><a href="#method-c-xcode_version">::xcode_version</a>
+    
+    <li ><a href="#method-c-zip_directory">::zip_directory</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-FastlaneCore::Helper">
+  <h1 id="module-FastlaneCore::Helper" class="module">
+    module FastlaneCore::Helper
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-backticks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">backticks</span><span
+            class="method-args">(command, print: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs a given command using backticks (`) and prints them out using the
+UI.command method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="backticks-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">print</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-node">%x`#{command}`</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command_output</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">print</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-buildlog_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buildlog_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Logs base directory</p>
+          
+          
+
+          
+          <div class="method-source-code" id="buildlog_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buildlog_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FL_BUILDLOG_PATH&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;~/Library/Logs&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bundler-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bundler?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [boolean] true if executing with bundler (like &#39;bundle exec
+fastlane [action]&#39;)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bundler-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bundler?</span>
+  <span class="ruby-comment"># Bundler environment variable</span>
+  [<span class="ruby-string">&#39;BUNDLE_BIN_PATH&#39;</span>, <span class="ruby-string">&#39;BUNDLE_GEMFILE&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">current</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-ci-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ci?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [boolean] true if building in a known CI environment</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ci-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ci?</span>
+  <span class="ruby-comment"># Check for Jenkins, Travis CI, ... environment variables</span>
+  [<span class="ruby-string">&#39;JENKINS_HOME&#39;</span>, <span class="ruby-string">&#39;JENKINS_URL&#39;</span>, <span class="ruby-string">&#39;TRAVIS&#39;</span>, <span class="ruby-string">&#39;CIRCLECI&#39;</span>, <span class="ruby-string">&#39;CI&#39;</span>, <span class="ruby-string">&#39;APPCENTER_BUILD_ID&#39;</span>, <span class="ruby-string">&#39;TEAMCITY_VERSION&#39;</span>, <span class="ruby-string">&#39;GO_PIPELINE_NAME&#39;</span>, <span class="ruby-string">&#39;bamboo_buildKey&#39;</span>, <span class="ruby-string">&#39;GITLAB_CI&#39;</span>, <span class="ruby-string">&#39;XCS&#39;</span>, <span class="ruby-string">&#39;TF_BUILD&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">current</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-colors_disabled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">colors_disabled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do we want to disable the colored output?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="colors_disabled-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">colors_disabled?</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_DISABLE_COLORS&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-contained_fastlane-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">contained_fastlane?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do we run from a bundled fastlane, which contains Ruby and <a
+href="../OpenSSL.html">OpenSSL</a>? Usually this means the fastlane
+directory is ~/.fastlane/bin/ We set this value via the environment
+variable `FASTLANE_SELF_CONTAINED`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="contained_fastlane-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">contained_fastlane?</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_SELF_CONTAINED&quot;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">homebrew?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-executable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">executable?</span><span
+            class="method-args">(cmd_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>checks if a given path is an executable file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="executable-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-identifier">cmd_path</span>)
+  <span class="ruby-comment"># no executable files on Windows, so existing is enough there</span>
+  <span class="ruby-identifier">cmd_path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">cmd_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-identifier">cmd_path</span>) <span class="ruby-operator">||</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">windows?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">cmd_path</span>)))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fastlane_enabled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fastlane_enabled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>fastlane</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fastlane_enabled-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastlane_enabled?</span>
+  <span class="ruby-comment"># This is called from the root context on the first start</span>
+  <span class="ruby-ivar">@enabled</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">!</span><span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fastlane_enabled_folder_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fastlane_enabled_folder_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if fastlane is enabled for this project and returns the folder where
+the configuration lives</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fastlane_enabled_folder_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastlane_enabled_folder_path</span>
+  <span class="ruby-identifier">fastlane_enabled?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gem_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gem_path</span><span
+            class="method-args">(gem_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><strong>DEPRECATED:</strong> Use the `ROOT` constant from the appropriate
+tool module instead e.g. File.join(Sigh::ROOT, &#39;lib&#39;,
+&#39;assets&#39;, &#39;resign.sh&#39;)</p>
+
+<p>Path to the installed gem to load resources (e.g. resign.sh)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gem_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 391</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gem_path</span>(<span class="ruby-identifier">gem_name</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecated</span>(<span class="ruby-string">&#39;`Helper.gem_path` is deprecated. Use the `ROOT` constant from the appropriate tool module instead.&#39;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_all_by_name</span>(<span class="ruby-identifier">gem_name</span>).<span class="ruby-identifier">any?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">gem_name</span>).<span class="ruby-identifier">gem_dir</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;./&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hide_loading_indicator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hide_loading_indicator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hide_loading_indicator-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 340</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hide_loading_indicator</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">should_show_loading_indicator?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@require_fastlane_spinner</span>
+    <span class="ruby-ivar">@require_fastlane_spinner</span>.<span class="ruby-identifier">success</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-homebrew-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">homebrew?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns true if fastlane was installed via Homebrew</p>
+          
+          
+
+          
+          <div class="method-source-code" id="homebrew-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">homebrew?</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_INSTALLED_VIA_HOMEBREW&quot;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_ci-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_ci?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_ci-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_ci?</span>
+  <span class="ruby-identifier">ci?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_mac-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_mac?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_test-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_test?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use <a href="Helper.html#method-c-test-3F">::test?</a>, <a
+href="Helper.html#method-c-ci-3F">::ci?</a>, <a
+href="Helper.html#method-c-mac-3F">::mac?</a> or <a
+href="Helper.html#method-c-windows-3F">::windows?</a> instead (legacy
+calls)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_test-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_test?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">test?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-is_windows-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_windows?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_windows-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 383</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_windows?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">windows?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-itms_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">itms_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return the full path to the iTMSTransporter executable</p>
+          
+          
+
+          
+          <div class="method-source-code" id="itms_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">itms_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_ITUNES_TRANSPORTER_PATH&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_ITUNES_TRANSPORTER_PATH&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac?</span>
+    [
+      <span class="ruby-string">&quot;../Applications/Application Loader.app/Contents/MacOS/itms&quot;</span>,
+      <span class="ruby-string">&quot;../Applications/Application Loader.app/Contents/itms&quot;</span>
+    ].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_path</span>, <span class="ruby-identifier">path</span>))
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">result</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find transporter at #{self.xcode_path}. Please make sure you set the correct path to your Xcode installation.&quot;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">windows?</span>
+    [
+      <span class="ruby-string">&quot;C:/Program Files (x86)/itms&quot;</span>
+    ].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Could not find transporter at usual locations. Please use environment variable `FASTLANE_ITUNES_TRANSPORTER_PATH` to specify your installation path.&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># not Mac or Windows</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-json_file-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_file?</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>checks if given file is a valid json file base taken from: <a
+href="http://stackoverflow.com/a/26235831/1945875">stackoverflow.com/a/26235831/1945875</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="json_file-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json_file?</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">filename</span>))
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-keychain_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keychain_path</span><span
+            class="method-args">(keychain_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>keychain</p>
+          
+          
+
+          
+          <div class="method-source-code" id="keychain_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">keychain_path</span>(<span class="ruby-identifier">keychain_name</span>)
+  <span class="ruby-comment"># Existing code expects that a keychain name will be expanded into a default path to Library/Keychains</span>
+  <span class="ruby-comment"># in the user&#39;s home directory. However, this will not allow the user to pass an absolute path</span>
+  <span class="ruby-comment"># for the keychain value</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># So, if the passed value can&#39;t be resolved as a file in Library/Keychains, just use it as-is</span>
+  <span class="ruby-comment"># as the keychain path.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># We need to expand each path because File.exist? won&#39;t handle directories including ~ properly</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># We also try to append `-db` at the end of the file path, as with Sierra the default Keychain name</span>
+  <span class="ruby-comment"># has changed for some users: https://github.com/fastlane/fastlane/issues/5649</span>
+
+  <span class="ruby-comment"># Remove the &quot;.keychain&quot; at the end of the keychain name</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">keychain_name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\.keychain$/</span>, <span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-identifier">possible_locations</span> = [
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">home</span>, <span class="ruby-string">&#39;Library&#39;</span>, <span class="ruby-string">&#39;Keychains&#39;</span>, <span class="ruby-identifier">name</span>),
+    <span class="ruby-identifier">name</span>
+  ].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>) }
+
+  <span class="ruby-comment"># Transforms [&quot;thing&quot;] to [&quot;thing-db&quot;, &quot;thing.keychain-db&quot;, &quot;thing&quot;, &quot;thing.keychain&quot;]</span>
+  <span class="ruby-identifier">keychain_paths</span> = []
+  <span class="ruby-identifier">possible_locations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">location</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">keychain_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{location}-db&quot;</span>
+    <span class="ruby-identifier">keychain_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{location}.keychain-db&quot;</span>
+    <span class="ruby-identifier">keychain_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">location</span>
+    <span class="ruby-identifier">keychain_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{location}.keychain&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">keychain_path</span> = <span class="ruby-identifier">keychain_paths</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">path</span>) }
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not locate the provided keychain. Tried:\n\t#{keychain_paths.join(&quot;\n\t&quot;)}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keychain_path</span>
+  <span class="ruby-identifier">keychain_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-linux-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">linux?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="linux-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">linux?</span>
+  (<span class="ruby-regexp">/linux/</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RUBY_PLATFORM</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-log" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">log</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method is deprecated, use the `UI` class <a
+href="https://docs.fastlane.tools/advanced/#user-input-and-output">docs.fastlane.tools/advanced/#user-input-and-output</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="log-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">log</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecated</span>(<span class="ruby-string">&quot;Helper.log is deprecated. Use `UI` class instead&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">log</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the currently running computer a Mac?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac?</span>
+  (<span class="ruby-regexp">/darwin/</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RUBY_PLATFORM</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mac_app-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac_app?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns true if fastlane was installed from the Fabric Mac app</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac_app-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac_app?</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FASTLANE_SELF_CONTAINED&quot;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;false&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mac_stock_terminal-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac_stock_terminal?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Does the user use the Mac stock terminal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac_stock_terminal-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac_stock_terminal?</span>
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;TERM_PROGRAM_VERSION&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-operating_system" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">operating_system</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="operating_system-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">operating_system</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;macOS&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_PLATFORM</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;darwin&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Windows&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_PLATFORM</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;mswin&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Linux&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_PLATFORM</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;linux&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Unknown&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-rubygems-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rubygems?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns true if fastlane was installed via RubyGems</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rubygems-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rubygems?</span>
+  <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">bundler?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">contained_fastlane?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">homebrew?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac_app?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sh_enabled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sh_enabled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return true if it is enabled to execute external commands</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sh_enabled-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sh_enabled?</span>
+  <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">test?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-should_show_loading_indicator-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_show_loading_indicator?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>loading indicator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="should_show_loading_indicator-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">should_show_loading_indicator?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_DISABLE_ANIMATION&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">ci?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-show_loading_indicator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_loading_indicator</span><span
+            class="method-args">(text = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show/Hide loading indicator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show_loading_indicator-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_loading_indicator</span>(<span class="ruby-identifier">text</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">should_show_loading_indicator?</span>
+    <span class="ruby-comment"># we set the default here, instead of at the parameters</span>
+    <span class="ruby-comment"># as we don&#39;t want to `UI.message` a rocket that&#39;s just there for the loading indicator</span>
+    <span class="ruby-identifier">text</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;🚀&quot;</span>
+    <span class="ruby-ivar">@require_fastlane_spinner</span> = <span class="ruby-constant">TTY</span><span class="ruby-operator">::</span><span class="ruby-constant">Spinner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;[:spinner] #{text} &quot;</span>, <span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:dots</span>)
+    <span class="ruby-ivar">@require_fastlane_spinner</span>.<span class="ruby-identifier">auto_spin</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">text</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-strip_ansi_colors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">strip_ansi_colors</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>removes ANSI colors from string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="strip_ansi_colors-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strip_ansi_colors</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\e\[([;\d]+)?m/</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-test-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return true if the currently running program is a unit test</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">test?</span>
+  <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&quot;SpecHelper&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transporter_java_executable_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transporter_java_executable_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>iTMSTransporter</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transporter_java_executable_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_java_executable_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_java_path</span>, <span class="ruby-string">&#39;bin&#39;</span>, <span class="ruby-string">&#39;java&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transporter_java_ext_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transporter_java_ext_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transporter_java_ext_dir-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_java_ext_dir</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_java_path</span>, <span class="ruby-string">&#39;lib&#39;</span>, <span class="ruby-string">&#39;ext&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transporter_java_jar_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transporter_java_jar_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transporter_java_jar_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_java_jar_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">itms_path</span>, <span class="ruby-string">&#39;lib&#39;</span>, <span class="ruby-string">&#39;itmstransporter-launcher.jar&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transporter_java_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transporter_java_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transporter_java_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_java_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">itms_path</span>, <span class="ruby-string">&#39;java&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transporter_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transporter_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return the full path to the iTMSTransporter executable</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transporter_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">itms_path</span>, <span class="ruby-string">&#39;bin&#39;</span>, <span class="ruby-string">&#39;iTMSTransporter&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">windows?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">itms_path</span>, <span class="ruby-string">&#39;iTMSTransporter&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transporter_user_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transporter_user_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transporter_user_dir-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transporter_user_dir</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">itms_path</span>, <span class="ruby-string">&#39;bin&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-windows-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">windows?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="windows-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">windows?</span>
+  <span class="ruby-comment"># taken from: https://stackoverflow.com/a/171011/1945875</span>
+  (<span class="ruby-regexp">/cygwin|mswin|mingw|bccwin|wince|emx/</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RUBY_PLATFORM</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-with_env_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_env_values</span><span
+            class="method-args">(hash) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes the provided block after adjusting the ENV to have the provided
+keys and values set as defined in hash. After the block completes, restores
+the ENV to its previous state.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_env_values-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">with_env_values</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">old_vals</span> = <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>) }
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">k</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">k</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">old_vals</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>)
+    <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">old_vals</span>[<span class="ruby-identifier">k</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-xcode_at_least-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_at_least?</span><span
+            class="method-args">(version)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return true if Xcode version is higher than 8.3</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_at_least-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_at_least?</span>(<span class="ruby-identifier">version</span>)
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Unable to locate Xcode. Please make sure to have Xcode installed on your machine&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">xcode_version</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">v</span> = <span class="ruby-identifier">xcode_version</span>
+  <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">v</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">version</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-xcode_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return the full path to the Xcode developer tools of the currently</p>
+
+<pre class="ruby"><span class="ruby-identifier">running</span> <span class="ruby-identifier">system</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_path-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_server?</span>
+    <span class="ruby-comment"># Xcode server always creates a link here</span>
+    <span class="ruby-identifier">xcode_server_xcode_path</span> = <span class="ruby-string">&quot;/Library/Developer/XcodeServer/CurrentXcodeSymlink/Contents/Developer&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;We&#39;re running as XcodeServer, setting path to #{xcode_server_xcode_path}&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">xcode_server_xcode_path</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">%x`xcode-select -p`</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;\n&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-xcode_server-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_server?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_server-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_server?</span>
+  <span class="ruby-comment"># XCS is set by Xcode Server</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;XCS&quot;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-xcode_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcode_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return The version of the currently used Xcode installation (e.g. “7.0”)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xcode_version-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xcode_version</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xcode_version</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@xcode_version</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@developer_dir</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;DEVELOPER_DIR&#39;</span>]
+
+  <span class="ruby-identifier">xcodebuild_path</span> = <span class="ruby-node">&quot;#{xcode_path}/usr/bin/xcodebuild&quot;</span>
+
+  <span class="ruby-identifier">xcode_build_installed</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">xcodebuild_path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">xcode_build_installed</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Couldn&#39;t find xcodebuild at #{xcodebuild_path}, check that it exists&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-node">%x`DEVELOPER_DIR=&#39;&#39; &quot;#{xcodebuild_path}&quot; -version`</span>
+    <span class="ruby-ivar">@xcode_version</span> = <span class="ruby-identifier">output</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>)[<span class="ruby-value">1</span>]
+    <span class="ruby-ivar">@developer_dir</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;DEVELOPER_DIR&#39;</span>]
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Error detecting currently used Xcode installation, please ensure that you have Xcode installed and set it using `sudo xcode-select -s [path]`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@xcode_version</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-zip_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zip_directory</span><span
+            class="method-args">(path, output_path, contents_only: false, overwrite: false, print: true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Zips directory</p>
+          
+          
+
+          
+          <div class="method-source-code" id="zip_directory-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/helper.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">zip_directory</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">output_path</span>, <span class="ruby-identifier">contents_only</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">overwrite</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">overwrite</span>
+    <span class="ruby-identifier">overwrite_command</span> = <span class="ruby-node">&quot; &amp;&amp; rm -f &#39;#{output_path}&#39;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">overwrite_command</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">contents_only</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;cd &#39;#{path}&#39;#{overwrite_command} &amp;&amp; zip -r &#39;#{output_path}&#39; *&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">containing_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">contents_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">path</span>)
+
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;cd &#39;#{containing_path}&#39;#{overwrite_command} &amp;&amp; zip -r &#39;#{output_path}&#39; &#39;#{contents_path}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">print</span>
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">backticks</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">print</span><span class="ruby-operator">:</span> <span class="ruby-identifier">print</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

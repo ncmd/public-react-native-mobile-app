@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::SwiftRunnerUpgrader - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_missing_groups_and_files-21">#add_missing_groups_and_files!</a>
+    
+    <li ><a href="#method-i-add_new_files_to_groups-21">#add_new_files_to_groups!</a>
+    
+    <li ><a href="#method-i-copy_file_if_needed-21">#copy_file_if_needed!</a>
+    
+    <li ><a href="#method-i-file_needs_update-3F">#file_needs_update?</a>
+    
+    <li ><a href="#method-i-find_missing_groups">#find_missing_groups</a>
+    
+    <li ><a href="#method-i-upgrade_files-21">#upgrade_files!</a>
+    
+    <li ><a href="#method-i-upgrade_if_needed-21">#upgrade_if_needed!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::SwiftRunnerUpgrader">
+  <h1 id="class-Fastlane::SwiftRunnerUpgrader" class="class">
+    class Fastlane::SwiftRunnerUpgrader
+  </h1>
+
+  <section class="description">
+    
+<p>build project</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="API_VERSION_REGEX">API_VERSION_REGEX
+        
+        <dd>
+        
+      
+        <dt id="RELATIVE_SOURCE_FILE_PATH">RELATIVE_SOURCE_FILE_PATH
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-fastlane_runner_target" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">fastlane_runner_target</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-manifest_groups" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">manifest_groups</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-manifest_hash" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">manifest_hash</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-source_swift_code_file_folder_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">source_swift_code_file_folder_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-target_project" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">target_project</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-target_swift_code_file_folder_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">target_swift_code_file_folder_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@source_swift_code_file_folder_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">ROOT</span>, <span class="ruby-string">&quot;/swift&quot;</span>))
+  <span class="ruby-ivar">@target_swift_code_file_folder_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift_folder_path</span>
+
+  <span class="ruby-identifier">manifest_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@source_swift_code_file_folder_path</span>, <span class="ruby-string">&quot;/upgrade_manifest.json&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;loading manifest: #{manifest_file}&quot;</span>)
+  <span class="ruby-ivar">@manifest_hash</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">manifest_file</span>))
+  <span class="ruby-ivar">@manifest_groups</span> = <span class="ruby-ivar">@manifest_hash</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">uniq</span>
+
+  <span class="ruby-identifier">runner_project_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">swift_runner_project_path</span>
+  <span class="ruby-ivar">@target_project</span> = <span class="ruby-constant">Xcodeproj</span><span class="ruby-operator">::</span><span class="ruby-constant">Project</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">runner_project_path</span>)
+
+  <span class="ruby-ivar">@root_group</span> = <span class="ruby-ivar">@target_project</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Fastlane Runner&quot;</span> }.<span class="ruby-identifier">first</span>
+
+  <span class="ruby-ivar">@fastlane_runner_target</span> = <span class="ruby-ivar">@target_project</span>.<span class="ruby-identifier">targets</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">target</span><span class="ruby-operator">|</span> <span class="ruby-identifier">target</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;FastlaneRunner&quot;</span> }.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_missing_groups_and_files-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_missing_groups_and_files!</span><span
+            class="method-args">(dry_run: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>adds new groups, and the files inside those groups Note: this does not add
+new files to existing groups, that is in add_new_files_to_groups!</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_missing_groups_and_files-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_missing_groups_and_files!</span>(<span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">missing_groups</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find_missing_groups</span>.<span class="ruby-identifier">to_set</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">missing_groups</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;No missing groups found, so we don&#39;t need to worry about adding new groups&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># well, we know we have some changes to make, so if this is a dry run,</span>
+  <span class="ruby-comment"># don&#39;t bother doing anything and just return true</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">dry_run</span>
+
+  <span class="ruby-identifier">missing_groups</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">missing_group_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">new_group</span> = <span class="ruby-ivar">@root_group</span>.<span class="ruby-identifier">new_group</span>(<span class="ruby-identifier">missing_group_name</span>)
+
+    <span class="ruby-comment"># find every file in the manifest that belongs to the new group, and add it to the new group</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">manifest_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span>, <span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">missing_group_name</span>.<span class="ruby-identifier">downcase</span>).<span class="ruby-identifier">zero?</span>
+      <span class="ruby-comment"># assumes this is a new file, we don&#39;t handle moving files between groups</span>
+      <span class="ruby-identifier">new_file_reference</span> = <span class="ruby-identifier">new_group</span>.<span class="ruby-identifier">new_file</span>(<span class="ruby-node">&quot;#{RELATIVE_SOURCE_FILE_PATH}#{filename}&quot;</span>)
+
+      <span class="ruby-comment"># add references to the target, and make sure they are added to the build phase to</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastlane_runner_target</span>.<span class="ruby-identifier">source_build_phase</span>.<span class="ruby-identifier">add_file_reference</span>(<span class="ruby-identifier">new_file_reference</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># yup, we definitely updated groups</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_new_files_to_groups-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_new_files_to_groups!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_new_files_to_groups-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_new_files_to_groups!</span>
+  <span class="ruby-identifier">inverted_hash</span> = {}
+
+  <span class="ruby-comment"># need {group =&gt; [file1, file2, etc..]} instead of: {file1 =&gt; group, file2 =&gt; group, etc...}</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">manifest_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span>, <span class="ruby-identifier">group_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">group_name</span> = <span class="ruby-identifier">group_name</span>.<span class="ruby-identifier">downcase</span>
+
+    <span class="ruby-identifier">files_in_group</span> = <span class="ruby-identifier">inverted_hash</span>[<span class="ruby-identifier">group_name</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">files_in_group</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">files_in_group</span> = []
+      <span class="ruby-identifier">inverted_hash</span>[<span class="ruby-identifier">group_name</span>] = <span class="ruby-identifier">files_in_group</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">files_in_group</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># this helps us signal to the user that we made changes</span>
+  <span class="ruby-identifier">updated_project</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-comment"># iterate through the groups and collect all the swift files in each</span>
+  <span class="ruby-ivar">@root_group</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># current group&#39;s filenames</span>
+    <span class="ruby-identifier">existing_group_files_set</span> = <span class="ruby-identifier">group</span>.<span class="ruby-identifier">files</span>
+                                    .<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">file</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;.swift&quot;</span>) }
+                                    .<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>)
+                                    .<span class="ruby-identifier">to_set</span>
+
+    <span class="ruby-identifier">group_name</span> = <span class="ruby-identifier">group</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-identifier">manifest_group_filenames</span> = <span class="ruby-identifier">inverted_hash</span>[<span class="ruby-identifier">group_name</span>]
+
+    <span class="ruby-comment"># compare the current group files to what the manifest says should minially be there</span>
+    <span class="ruby-identifier">manifest_group_filenames</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># current group is missing a file from the manifest, need to add it</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">existing_group_files_set</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">filename</span>)
+
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Adding new file #{filename} to group: `#{group.name}`&quot;</span>)
+      <span class="ruby-identifier">new_file_reference</span> = <span class="ruby-identifier">group</span>.<span class="ruby-identifier">new_file</span>(<span class="ruby-node">&quot;#{RELATIVE_SOURCE_FILE_PATH}#{filename}&quot;</span>)
+
+      <span class="ruby-comment"># add references to the target, and make sure they are added to the build phase to</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fastlane_runner_target</span>.<span class="ruby-identifier">source_build_phase</span>.<span class="ruby-identifier">add_file_reference</span>(<span class="ruby-identifier">new_file_reference</span>)
+
+      <span class="ruby-identifier">updated_project</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">updated_project</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_file_if_needed-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_file_if_needed!</span><span
+            class="method-args">(filename: nil, dry_run: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>currently just copies file, even if not needed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy_file_if_needed-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_file_if_needed!</span>(<span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">needs_update</span> = <span class="ruby-identifier">file_needs_update?</span>(<span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-identifier">filename</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;file #{filename} needs an update&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">needs_update</span>
+
+  <span class="ruby-comment"># Ok, we know if this file needs an update, can return now if it&#39;s a dry run</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">needs_update</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">dry_run</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">needs_update</span>
+    <span class="ruby-comment"># no work needed, just return</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">source</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">source_swift_code_file_folder_path</span>, <span class="ruby-node">&quot;/#{filename}&quot;</span>)
+  <span class="ruby-identifier">target</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">target_swift_code_file_folder_path</span>, <span class="ruby-node">&quot;/#{filename}&quot;</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">target</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;Copied #{source} to #{target}&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_needs_update-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_needs_update?</span><span
+            class="method-args">(filename: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>compares source file against the target file&#39;s FastlaneRunnerAPIVersion
+and returned `true` if there is a difference</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file_needs_update-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_needs_update?</span>(<span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># looking for something like: FastlaneRunnerAPIVersion [0.9.1]</span>
+  <span class="ruby-identifier">regex_to_use</span> = <span class="ruby-constant">API_VERSION_REGEX</span>
+
+  <span class="ruby-identifier">source</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">source_swift_code_file_folder_path</span>, <span class="ruby-node">&quot;/#{filename}&quot;</span>)
+  <span class="ruby-identifier">target</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">target_swift_code_file_folder_path</span>, <span class="ruby-node">&quot;/#{filename}&quot;</span>)
+
+  <span class="ruby-comment"># target doesn&#39;t have the file yet, so ya, I&#39;d say it needs to be updated</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">target</span>)
+
+  <span class="ruby-identifier">source_file_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">target_file_content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">target</span>)
+
+  <span class="ruby-identifier">bundled_version</span> = <span class="ruby-identifier">source_file_content</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">regex_to_use</span>)[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">target_version</span> = <span class="ruby-identifier">target_file_content</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">regex_to_use</span>)[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">file_versions_are_different</span> = <span class="ruby-identifier">bundled_version</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">target_version</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-node">&quot;#{filename} FastlaneRunnerAPIVersion (bundled/target): #{bundled_version}/#{target_version}&quot;</span>)
+  <span class="ruby-identifier">files_are_different</span> = <span class="ruby-identifier">source_file_content</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">target_file_content</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">files_are_different</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">file_versions_are_different</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;File versions are the same, but the two files are not equal, so that&#39;s a problem, setting needs update to &#39;true&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">needs_update</span> = <span class="ruby-identifier">file_versions_are_different</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">files_are_different</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">needs_update</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_missing_groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_missing_groups</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_missing_groups-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_missing_groups</span>
+  <span class="ruby-identifier">missing_groups</span> = []
+
+  <span class="ruby-identifier">existing_group_names_set</span> = <span class="ruby-ivar">@root_group</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">downcase</span> }.<span class="ruby-identifier">to_set</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">manifest_groups</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing_group_names_set</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">group_name</span>.<span class="ruby-identifier">downcase</span>)
+      <span class="ruby-identifier">missing_groups</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">group_name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">missing_groups</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upgrade_files-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upgrade_files!</span><span
+            class="method-args">(dry_run: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upgrade_files-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upgrade_files!</span>(<span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">upgraded_anything</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">manifest_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span>, <span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">upgraded_anything</span> = <span class="ruby-identifier">copy_file_if_needed!</span>(<span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dry_run</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">upgraded_anything</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">upgraded_anything</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upgrade_if_needed-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upgrade_if_needed!</span><span
+            class="method-args">(dry_run: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upgrade_if_needed-21-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/swift_runner_upgrader.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upgrade_if_needed!</span>(<span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">upgraded</span> = <span class="ruby-identifier">add_missing_groups_and_files!</span>(<span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dry_run</span>)
+  <span class="ruby-identifier">upgraded</span> = <span class="ruby-identifier">upgrade_files!</span>(<span class="ruby-identifier">dry_run</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dry_run</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">upgraded</span>
+  <span class="ruby-identifier">upgraded</span> = <span class="ruby-identifier">add_new_files_to_groups!</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">upgraded</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;FastlaneRunner project has been updated and can be written back to disk&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">upgraded</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">dry_run</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-string">&quot;FastlaneRunner project changes have been stored&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">upgraded</span>
+    <span class="ruby-identifier">target_project</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">upgraded</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">upgraded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

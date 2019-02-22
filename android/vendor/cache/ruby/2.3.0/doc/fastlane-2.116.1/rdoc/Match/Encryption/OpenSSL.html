@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::Encryption::OpenSSL - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Interface.html">Match::Encryption::Interface</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-configure">::configure</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-clear_password">#clear_password</a>
+    
+    <li ><a href="#method-i-decrypt_files">#decrypt_files</a>
+    
+    <li ><a href="#method-i-decrypt_specific_file">#decrypt_specific_file</a>
+    
+    <li ><a href="#method-i-encrypt_files">#encrypt_files</a>
+    
+    <li ><a href="#method-i-encrypt_specific_file">#encrypt_specific_file</a>
+    
+    <li ><a href="#method-i-iterate">#iterate</a>
+    
+    <li ><a href="#method-i-password">#password</a>
+    
+    <li ><a href="#method-i-server_name">#server_name</a>
+    
+    <li ><a href="#method-i-store_password">#store_password</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::Encryption::OpenSSL">
+  <h1 id="class-Match::Encryption::OpenSSL" class="class">
+    class Match::Encryption::OpenSSL
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-keychain_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">keychain_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-working_directory" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">working_directory</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">keychain_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:keychain_name</span>],
+    <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:working_directory</span>]
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(keychain_name: nil, working_directory: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param <a href="OpenSSL.html#attribute-i-keychain_name">#keychain_name</a>:
+The identifier used to store the passphrase in the Keychain @param <a
+href="OpenSSL.html#attribute-i-working_directory">#working_directory</a>:
+The path to where the certificates are stored</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">keychain_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">keychain_name</span> = <span class="ruby-identifier">keychain_name</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span> = <span class="ruby-identifier">working_directory</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-clear_password" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_password</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>removes the password from the keychain again</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_password-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_password</span>
+  <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">server</span><span class="ruby-operator">:</span> <span class="ruby-identifier">server_name</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">keychain_name</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decrypt_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decrypt_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decrypt_files-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrypt_files</span>
+  <span class="ruby-identifier">files</span> = []
+  <span class="ruby-identifier">iterate</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">decrypt_specific_file</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Couldn&#39;t decrypt the repo, please make sure you enter the right password!&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Invalid password passed via &#39;MATCH_PASSWORD&#39;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;MATCH_PASSWORD&quot;</span>]
+      <span class="ruby-identifier">clear_password</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">decrypt_files</span> <span class="ruby-comment"># call itself</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;🔓  Decrypted &#39;#{File.basename(current)}&#39;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;🔓  Successfully decrypted certificates repo&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">files</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encrypt_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encrypt_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encrypt_files-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encrypt_files</span>
+  <span class="ruby-identifier">files</span> = []
+  <span class="ruby-identifier">iterate</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">working_directory</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-identifier">encrypt_specific_file</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;🔒  Encrypted &#39;#{File.basename(current)}&#39;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;🔒  Successfully encrypted certificates repo&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">files</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_password" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_password</span><span
+            class="method-args">(password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_password-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_password</span>(<span class="ruby-identifier">password</span>)
+  <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">server_name</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">keychain_name</span>), <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">password</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-decrypt_specific_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decrypt_specific_file</span><span
+            class="method-args">(path: nil, password: nil, hash_algorithm: "MD5")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The encryption parameters in this implementations reflect the old behaviour
+which depended on the users&#39; local <a href="OpenSSL.html">OpenSSL</a>
+version 1.0.x <a href="OpenSSL.html">OpenSSL</a> and earlier versions use
+MD5, 1.1.0c and newer uses SHA256, we try both before giving an error</p>
+          
+          
+
+          
+          <div class="method-source-code" id="decrypt_specific_file-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrypt_specific_file</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">hash_algorithm</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;MD5&quot;</span>)
+  <span class="ruby-identifier">stored_data</span> = <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">decode64</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>))
+  <span class="ruby-identifier">salt</span> = <span class="ruby-identifier">stored_data</span>[<span class="ruby-value">8</span><span class="ruby-operator">..</span><span class="ruby-value">15</span>]
+  <span class="ruby-identifier">data_to_decrypt</span> = <span class="ruby-identifier">stored_data</span>[<span class="ruby-value">16</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+
+  <span class="ruby-identifier">decipher</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;AES-256-CBC&#39;</span>)
+  <span class="ruby-identifier">decipher</span>.<span class="ruby-identifier">decrypt</span>
+  <span class="ruby-identifier">decipher</span>.<span class="ruby-identifier">pkcs5_keyivgen</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">salt</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">hash_algorithm</span>)
+
+  <span class="ruby-identifier">decrypted_data</span> = <span class="ruby-identifier">decipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">data_to_decrypt</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">decipher</span>.<span class="ruby-identifier">final</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">binwrite</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">decrypted_data</span>)
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+  <span class="ruby-identifier">fallback_hash_algorithm</span> = <span class="ruby-string">&quot;SHA256&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash_algorithm</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">fallback_hash_algorithm</span>
+    <span class="ruby-identifier">decrypt_specific_file</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">path</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">password</span>, <span class="ruby-identifier">hash_algorithm</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fallback_hash_algorithm</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">error</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-node">&quot;Error decrypting &#39;#{path}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encrypt_specific_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encrypt_specific_file</span><span
+            class="method-args">(path: nil, password: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We encrypt with MD5 because that was the most common default value in older
+fastlane versions which used the local <a href="OpenSSL.html">OpenSSL</a>
+installation A more secure key and IV generation is needed in the future IV
+should be randomly generated and provided unencrypted salt should be
+randomly generated and provided unencrypted (like in the current
+implementation) key should be generated with OpenSSL::KDF::pbkdf2_hmac with
+properly chosen parameters Short explanation about salt and IV: <a
+href="https://stackoverflow.com/a/1950674/6324550">stackoverflow.com/a/1950674/6324550</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="encrypt_specific_file-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encrypt_specific_file</span>(<span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No password supplied&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">data_to_encrypt</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">binread</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">salt</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">random_bytes</span>(<span class="ruby-value">8</span>)
+
+  <span class="ruby-comment"># The :: is important, as there is a name clash</span>
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;AES-256-CBC&#39;</span>)
+  <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">encrypt</span>
+  <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">pkcs5_keyivgen</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">salt</span>, <span class="ruby-value">1</span>, <span class="ruby-string">&quot;MD5&quot;</span>)
+  <span class="ruby-identifier">encrypted_data</span> = <span class="ruby-string">&quot;Salted__&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">salt</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">data_to_encrypt</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">final</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">path</span>, <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">encode64</span>(<span class="ruby-identifier">encrypted_data</span>))
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneError</span>
+  <span class="ruby-identifier">raise</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">error</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-node">&quot;Error encrypting &#39;#{path}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-iterate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iterate</span><span
+            class="method-args">(source_path) { |path| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="iterate-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">iterate</span>(<span class="ruby-identifier">source_path</span>)
+  <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">source_path</span>, <span class="ruby-string">&quot;**&quot;</span>, <span class="ruby-string">&quot;*.{cer,p12,mobileprovision}&quot;</span>)].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-password" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">password</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Access the MATCH_PASSWORD, either from ENV variable, Keychain or user input</p>
+          
+          
+
+          
+          <div class="method-source-code" id="password-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">password</span>
+  <span class="ruby-identifier">password</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;MATCH_PASSWORD&quot;</span>]
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">password</span>
+    <span class="ruby-identifier">item</span> = <span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">InternetPassword</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">server</span><span class="ruby-operator">:</span> <span class="ruby-identifier">server_name</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">keychain_name</span>))
+    <span class="ruby-identifier">password</span> = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">password</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">password</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">interactive?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Neither the MATCH_PASSWORD environment variable nor the local keychain contained a password.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Bailing out instead of asking for a password, since this is non-interactive mode.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Try setting the MATCH_PASSWORD environment variable, or temporarily enable interactive mode to store a password.&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Enter the passphrase that should be used to encrypt/decrypt your certificates&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;This passphrase is specific per repository and will be stored in your local keychain&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Make sure to remember the password, as you&#39;ll need it when you run match on a different machine&quot;</span>)
+      <span class="ruby-identifier">password</span> = <span class="ruby-constant">ChangePassword</span>.<span class="ruby-identifier">ask_password</span>(<span class="ruby-identifier">confirm</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+      <span class="ruby-identifier">store_password</span>(<span class="ruby-identifier">password</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">password</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-server_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">server_name</span><span
+            class="method-args">(keychain_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>server name used for accessing the macOS keychain</p>
+          
+          
+
+          
+          <div class="method-source-code" id="server_name-source">
+            <pre><span class="ruby-comment"># File match/lib/match/encryption/openssl.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">server_name</span>(<span class="ruby-identifier">keychain_name</span>)
+  [<span class="ruby-string">&quot;match&quot;</span>, <span class="ruby-identifier">keychain_name</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;_&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"project_path:ETI"!Fastlane::Setup#project_path;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I")Path to the xcodeproj or xcworkspace;T:
+@fileI")fastlane/lib/fastlane/setup/setup.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Fastlane::Setup;TcRDoc::NormalClass0

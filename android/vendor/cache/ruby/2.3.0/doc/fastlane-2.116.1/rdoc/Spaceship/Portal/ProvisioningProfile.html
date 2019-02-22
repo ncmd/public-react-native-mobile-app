@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spaceship::Portal::ProvisioningProfile - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../PortalBase.html">Spaceship::PortalBase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-all_tvos">::all_tvos</a>
+    
+    <li ><a href="#method-c-create-21">::create!</a>
+    
+    <li ><a href="#method-c-factory">::factory</a>
+    
+    <li ><a href="#method-c-find_by_bundle_id">::find_by_bundle_id</a>
+    
+    <li ><a href="#method-c-pretty_type">::pretty_type</a>
+    
+    <li ><a href="#method-c-type">::type</a>
+    
+    <li ><a href="#method-i-certificate_valid-3F">#certificate_valid?</a>
+    
+    <li ><a href="#method-i-delete-21">#delete!</a>
+    
+    <li ><a href="#method-i-download">#download</a>
+    
+    <li ><a href="#method-i-mac-3F">#mac?</a>
+    
+    <li ><a href="#method-i-managed_by_xcode-3F">#managed_by_xcode?</a>
+    
+    <li ><a href="#method-i-repair-21">#repair!</a>
+    
+    <li ><a href="#method-i-template_name">#template_name</a>
+    
+    <li ><a href="#method-i-tvos-3F">#tvos?</a>
+    
+    <li ><a href="#method-i-update-21">#update!</a>
+    
+    <li ><a href="#method-i-valid-3F">#valid?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spaceship::Portal::ProvisioningProfile">
+  <h1 id="class-Spaceship::Portal::ProvisioningProfile" class="class">
+    class Spaceship::Portal::ProvisioningProfile
+  </h1>
+
+  <section class="description">
+    
+<p>Represents a provisioning profile of the Apple Dev <a
+href="../Portal.html">Portal</a></p>
+
+<p>NOTE: If the environment variable `SPACESHIP_AVOID_XCODE_API` is present
+when using this class, all requests will be made via Apple developer portal
+API. In the default case, this class will use the Xcode API for fetching
+provisioning profiles. This is an optimization that results in 1 query for
+all Profiles vs 1+N queries.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-app" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">app</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>A reference to the app this profile is for. You can then easily access the
+value directly @return (App) The app this profile is for</p>
+
+<p>@example Example Value</p>
+
+<pre>&lt;Spaceship::Portal::App
+  @app_id=&quot;2UMR2S6PAA&quot;
+  @name=&quot;App Name&quot;
+  @platform=&quot;ios&quot;
+  @prefix=&quot;5A997XSAAA&quot;
+  @bundle_id=&quot;com.krausefx.app&quot;
+  @is_wildcard=false
+  @dev_push_enabled=false
+  @prod_push_enabled=false&gt;</pre>
+
+<p>@example Usage</p>
+
+<pre class="ruby"><span class="ruby-identifier">profile</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">name</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-certificates" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">certificates</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Array) A list of certificates used for this profile @example
+Example Value</p>
+
+<pre>[
+ &lt;Spaceship::Portal::Certificate::Production
+   @status=nil
+   @id=&quot;XC5PH8D4AA&quot;
+   @name=&quot;iOS Distribution&quot;
+   @created=nil
+   @expires=#&lt;DateTime: 2015-11-25T22:45:50+00:00 ((2457352j,81950s,0n),+0s,2299161j)&gt;
+   @owner_type=&quot;team&quot;
+   @owner_name=nil
+   @owner_id=nil
+   @type_display_id=&quot;R58UK2EWAA&quot;&gt;]
+]</pre>
+
+<p>@example Usage</p>
+
+<pre class="ruby"><span class="ruby-identifier">profile</span>.<span class="ruby-identifier">certificates</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">id</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-devices" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">devices</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Array) A list of devices this profile is enabled for.</p>
+
+<pre>This will always be [] for AppStore profiles</pre>
+
+<p>@example Example Value</p>
+
+<pre>&lt;Spaceship::Portal::Device
+  @id=&quot;WXQ7V239BE&quot;
+  @name=&quot;Grahams iPhone 4s&quot;
+  @udid=&quot;ba0ac7d70f7a14c6fa02ef0e02f4fe9c5178e2f7&quot;
+  @platform=&quot;ios&quot;
+  @status=&quot;c&quot;&gt;]</pre>
+
+<p>@example Usage</p>
+
+<pre class="ruby"><span class="ruby-identifier">profile</span>.<span class="ruby-identifier">devices</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">name</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-distribution_method" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">distribution_method</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The profile distribution type. You probably want to</p>
+
+<pre>use the class type to detect the profile type instead of this string.</pre>
+
+<p>@example <a href="ProvisioningProfile/AppStore.html">AppStore</a> Profile</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;store&quot;</span>
+</pre>
+
+<p>@example <a href="ProvisioningProfile/AdHoc.html">AdHoc</a> Profile</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;adhoc&quot;</span>
+</pre>
+
+<p>@example <a href="ProvisioningProfile/Development.html">Development</a>
+Profile</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;limited&quot;</span>
+</pre>
+
+<p>@example Mac Developer ID Profile</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;direct&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-expires" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expires</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (DateTime) The date and time of when the profile</p>
+
+<pre>expires.</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-comment">#&lt;DateTime: 2015-11-25T22:45:50+00:00 ((2457352j,81950s,0n),+0s,2299161j)&gt;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The ID generated by the Dev <a
+href="../Portal.html">Portal</a></p>
+
+<pre>You&#39;ll probably not really need this value</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;2MAY7NPHAA&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-is_template_profile" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_template_profile</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Bool) Does the profile use a template (has extended entitlements)?</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-keyword">false</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-managing_app" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">managing_app</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>No information about this attribute</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The name of this profile @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;com.krausefx.app AppStore&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The supported platform for this profile @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;ios&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-profile_details" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">profile_details</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>This is the second level request, which is done before creating the object
+this includes information about the devices and the certificates more
+information on this issue <a
+href="https://github.com/fastlane/fastlane/issues/6137">github.com/fastlane/fastlane/issues/6137</a></p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-status" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">status</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The status of this profile @example Active (profile is
+fine)</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Active&quot;</span>
+</pre>
+
+<p>@example Expired (time ran out)</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Expired&quot;</span>
+</pre>
+
+<p>@example Invalid (e.g. code signing identity not available any more)</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Invalid&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sub_platform" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sub_platform</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The supported <a
+href="ProvisioningProfile.html#attribute-i-sub_platform">#sub_platform</a>
+for this profile @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;tvOS&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-template" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">template</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (Spaceship::Portal::ProvisioningProfileTemplate)</p>
+
+<pre class="ruby"><span class="ruby-constant">Model</span> <span class="ruby-identifier">representation</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">provisioning</span> <span class="ruby-identifier">profile</span> <span class="ruby-identifier">template</span>.
+<span class="ruby-constant">This</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">always</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_template_profile</span> <span class="ruby-identifier">returns</span> <span class="ruby-keyword">false</span>
+</pre>
+
+<p>@example Example Value</p>
+
+<pre>&lt;Spaceship::Portal::ProvisioningProfileTemplate
+  @template_description=&quot;Subscription Service iOS (dist)&quot;,
+  @entitlements=nil,
+  @purpose_description=&quot;Generic Provisioning Profile Template for App: com.apple.smoot.subscriptionservice&quot;,
+  @purpose_display_name=&quot;Subscription Service iOS (dist)&quot;,
+  @purpose_name=&quot;Subscription Service iOS (dist)&quot;,
+  @version=1&gt;</pre>
+
+<p>@example Usage</p>
+
+<pre class="ruby"><span class="ruby-identifier">profile</span>.<span class="ruby-identifier">template</span>.<span class="ruby-identifier">purpose_display_name</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The type of the profile (development or distribution).</p>
+
+<pre>You&#39;ll probably not need this value</pre>
+
+<p>@example Distribution</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;iOS Distribution&quot;</span>
+</pre>
+
+<p>@example <a href="ProvisioningProfile/Development.html">Development</a></p>
+
+<pre class="ruby"><span class="ruby-string">&quot;iOS Development&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-uuid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">uuid</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) The UDID of this provisioning profile</p>
+
+<pre>This value is used for example for code signing
+It is also contained in the actual profile</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;23d7df3b-9767-4e85-a1ea-1df4d8f32fec&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-version" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">version</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return (String) This will always be “2” @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;2&quot;</span>
+</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">(mac: false, xcode: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) Returns all profiles registered for this account</p>
+
+<pre>If you&#39;re calling this from a subclass (like AdHoc), this will
+only return the profiles that are of this type</pre>
+
+<p>@param mac (Bool) (optional): Pass true to get all Mac provisioning
+profiles @param xcode (Bool) (optional): Pass true to include Xcode managed
+provisioning profiles</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">xcode</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SPACESHIP_AVOID_XCODE_API&#39;</span>]
+    <span class="ruby-identifier">profiles</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">provisioning_profiles</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">profiles</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">provisioning_profiles_via_xcode_api</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># transform raw data to class instances</span>
+  <span class="ruby-identifier">profiles</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">profile</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">profile</span>) }
+
+  <span class="ruby-comment"># filter out the profiles managed by xcode</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">xcode</span>
+    <span class="ruby-identifier">profiles</span>.<span class="ruby-identifier">delete_if</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:managed_by_xcode?</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">profiles</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ProvisioningProfile</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">profiles</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">profile</span><span class="ruby-operator">|</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-all_tvos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_tvos</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) Returns all profiles registered for this account</p>
+
+<pre>If you&#39;re calling this from a subclass (like AdHoc), this will
+only return the profiles that are of this type</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="all_tvos-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 337</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_tvos</span>
+  <span class="ruby-identifier">profiles</span> = <span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">tv_os_profiles</span> = []
+  <span class="ruby-identifier">profiles</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tv_os_profile</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tv_os_profile</span>.<span class="ruby-identifier">tvos?</span>
+      <span class="ruby-identifier">tv_os_profiles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tv_os_profile</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tv_os_profiles</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create!</span><span
+            class="method-args">(name: nil, bundle_id: nil, certificate: nil, devices: [], mac: false, sub_platform: nil, template_name: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new provisioning profile @param name (String): The name of the
+provisioning profile on the Dev <a href="../Portal.html">Portal</a> @param
+bundle_id (String): The app identifier, this parameter is required @param
+certificate (Certificate): The certificate that should be used with this</p>
+
+<pre>provisioning profile. You can also pass an array of certificates to this method. This will
+only work for development profiles</pre>
+
+<p>@param devices (Array) (optional): An array of <a
+href="Device.html">Device</a> objects that should be used in this profile.</p>
+
+<pre>It is recommend to not pass devices as spaceship will automatically add all devices for AdHoc
+and Development profiles and add none for AppStore and Enterprise Profiles</pre>
+
+<p>@param mac (Bool) (optional): Pass true if you&#39;re making a Mac
+provisioning profile @param <a
+href="ProvisioningProfile.html#attribute-i-sub_platform">#sub_platform</a>
+(String) Used to create tvOS profiles at the moment. Value should equal
+&#39;tvOS&#39; or nil. @param <a
+href="ProvisioningProfile.html#method-i-template_name">#template_name</a>
+(String) (optional): The name of the provisioning profile template.</p>
+
+<pre>The value can be found by inspecting the Entitlements drop-down when creating/editing a
+provisioning profile in Developer Portal.</pre>
+
+<p>@return (ProvisioningProfile): The profile that was just created</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create!</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">certificate</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">sub_platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Missing required parameter &#39;bundle_id&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bundle_id</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Missing required parameter &#39;certificate&#39;. e.g. use `Spaceship::Portal::Certificate::Production.all.first`&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">App</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">bundle_id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find app with bundle id &#39;#{bundle_id}&#39;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid sub_platform #{sub_platform}, valid values are tvOS&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sub_platform</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sub_platform</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;tvOS&#39;</span>
+
+  <span class="ruby-comment"># Fill in sensible default values</span>
+  <span class="ruby-identifier">name</span> <span class="ruby-operator">||=</span> [<span class="ruby-identifier">bundle_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pretty_type</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">AppStore</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">InHouse</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Direct</span>
+    <span class="ruby-comment"># Distribution Profiles MUST NOT have devices</span>
+    <span class="ruby-identifier">devices</span> = []
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">certificate_parameter</span> = <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+  <span class="ruby-identifier">certificate_parameter</span> <span class="ruby-operator">||=</span> [<span class="ruby-identifier">certificate</span>.<span class="ruby-identifier">id</span>]
+
+  <span class="ruby-comment"># Fix https://github.com/KrauseFx/fastlane/issues/349</span>
+  <span class="ruby-identifier">certificate_parameter</span> = <span class="ruby-identifier">certificate_parameter</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">certificate_parameter</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Development</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">AdHoc</span>
+      <span class="ruby-comment"># For Development and AdHoc we usually want all compatible devices by default</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac</span>
+        <span class="ruby-identifier">devices</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Device</span>.<span class="ruby-identifier">all_macs</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">sub_platform</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;tvOS&#39;</span>
+        <span class="ruby-identifier">devices</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Device</span>.<span class="ruby-identifier">all_apple_tvs</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">devices</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Device</span>.<span class="ruby-identifier">all_ios_profile_devices</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">profile</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">with_retry</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">client</span>.<span class="ruby-identifier">create_provisioning_profile!</span>(<span class="ruby-identifier">name</span>,
+                                        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">type</span>,
+                                        <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+                                        <span class="ruby-identifier">certificate_parameter</span>,
+                                        <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>),
+                                        <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>,
+                                        <span class="ruby-identifier">sub_platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sub_platform</span>,
+                                        <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">template_name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">profile</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-factory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">factory</span><span
+            class="method-args">(attrs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new object based on a hash. This is used to create a new object
+based on the server response.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="factory-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-comment"># available values of `distributionMethod` at this point: [&#39;adhoc&#39;, &#39;store&#39;, &#39;limited&#39;, &#39;direct&#39;, &#39;inhouse&#39;]</span>
+  <span class="ruby-identifier">klass</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;distributionMethod&#39;</span>]
+          <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;limited&#39;</span>
+            <span class="ruby-constant">Development</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;store&#39;</span>
+            <span class="ruby-constant">AppStore</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;adhoc&#39;</span>
+            <span class="ruby-constant">AdHoc</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;inhouse&#39;</span>
+            <span class="ruby-constant">InHouse</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;direct&#39;</span>
+            <span class="ruby-constant">Direct</span> <span class="ruby-comment"># Mac-only</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Can&#39;t find class &#39;#{attrs[&#39;distributionMethod&#39;]}&#39;&quot;</span>
+          <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Parse the dates</span>
+  <span class="ruby-comment"># rubocop:disable Style/RescueModifier</span>
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;dateExpire&#39;</span>] = (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;dateExpire&#39;</span>]) <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;dateExpire&#39;</span>])
+  <span class="ruby-comment"># rubocop:enable Style/RescueModifier</span>
+
+  <span class="ruby-comment"># When a profile is created with a template name, the response</span>
+  <span class="ruby-comment"># (provisioning profiles info) already contains the data about</span>
+  <span class="ruby-comment"># template, which is used to instantiate the</span>
+  <span class="ruby-comment"># ProvisioningProfileTemplate model.</span>
+  <span class="ruby-comment"># Doing so saves an API call needed to fetch profile details.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># Verify if `attrs` contains the info needed to instantiate a template.</span>
+  <span class="ruby-comment"># If not, the template will be lazily loaded.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;profile&#39;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;profile&#39;</span>][<span class="ruby-string">&#39;description&#39;</span>]
+    <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;template&#39;</span>] = <span class="ruby-constant">ProvisioningProfileTemplate</span>.<span class="ruby-identifier">factory</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;template&#39;</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">client</span> = <span class="ruby-ivar">@client</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find_by_bundle_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_by_bundle_id</span><span
+            class="method-args">(bundle_id: nil, mac: false, sub_platform: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Array) Returns an array of provisioning</p>
+
+<pre class="ruby"><span class="ruby-identifier">profiles</span> <span class="ruby-identifier">matching</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">bundle</span> <span class="ruby-identifier">identifier</span>
+<span class="ruby-constant">Returns</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">no</span> <span class="ruby-identifier">profiles</span> <span class="ruby-identifier">were</span> <span class="ruby-identifier">found</span>
+<span class="ruby-constant">This</span> <span class="ruby-identifier">may</span> <span class="ruby-identifier">also</span> <span class="ruby-identifier">contain</span> <span class="ruby-identifier">invalid</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">expired</span> <span class="ruby-identifier">profiles</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="find_by_bundle_id-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_bundle_id</span>(<span class="ruby-identifier">bundle_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">sub_platform</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Missing required parameter &#39;bundle_id&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bundle_id</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid sub_platform #{sub_platform}, valid values are tvOS&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sub_platform</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sub_platform</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;tvOS&#39;</span>
+  <span class="ruby-identifier">find_tvos_profiles</span> = <span class="ruby-identifier">sub_platform</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;tvOS&#39;</span>
+  <span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac</span>).<span class="ruby-identifier">find_all</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">profile</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">bundle_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">bundle_id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">tvos?</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">find_tvos_profiles</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pretty_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pretty_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) The human readable name of this profile type. @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;AppStore&quot;</span>
+<span class="ruby-string">&quot;AdHoc&quot;</span>
+<span class="ruby-string">&quot;Development&quot;</span>
+<span class="ruby-string">&quot;InHouse&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="pretty_type-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pretty_type</span>
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>).<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) The profile type used for web requests to the Dev <a
+href="../Portal.html">Portal</a> @example</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;limited&quot;</span>
+<span class="ruby-string">&quot;store&quot;</span>
+<span class="ruby-string">&quot;adhoc&quot;</span>
+<span class="ruby-string">&quot;inhouse&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;You cannot create a ProvisioningProfile without a type. Use a subclass.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-certificate_valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">certificate_valid?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the certificate of this profile available? @return (Bool) is the
+certificate valid?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="certificate_valid-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 474</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">certificate_valid?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">certificates</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">certificates</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>).<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">c</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete the provisioning profile</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 409</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete!</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">delete_provisioning_profile!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Download the current provisioning profile. This will <strong>not</strong>
+store the provisioning profile on the file system. Instead this method will
+return the content of the profile. @return (String) The content of the
+provisioning profile</p>
+
+<pre>You&#39;ll probably want to store it on the file system</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;path.mobileprovision&quot;</span>, <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">download</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="download-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 404</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download</span>
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">download_provisioning_profile</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool) Is this a Mac provisioning profile?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 496</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mac?</span>
+  <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;mac&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-managed_by_xcode-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">managed_by_xcode?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool) Is this profile managed by Xcode?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="managed_by_xcode-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">managed_by_xcode?</span>
+  <span class="ruby-identifier">managing_app</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Xcode&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-repair-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">repair!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Repair an existing provisioning profile alias to update! @return
+(ProvisioningProfile) A new provisioning profile, as</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">repair</span> <span class="ruby-identifier">method</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">generate</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">profile</span> <span class="ruby-identifier">with</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">new</span> <span class="ruby-constant">ID</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="repair-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">repair!</span>
+  <span class="ruby-identifier">update!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (String) The name of the template (as displayed in Dev <a
+href="../Portal.html">Portal</a>)</p>
+
+<pre>or nil if provisioning profile doesn&#39;t have a template</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="template_name-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 554</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_name</span>
+  <span class="ruby-identifier">is_template_profile</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">template</span>.<span class="ruby-identifier">purpose_display_name</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tvos-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tvos?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool) Is this a tvos provisioning profile?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="tvos-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 501</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tvos?</span>
+  <span class="ruby-identifier">sub_platform</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;tvOS&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Updates the provisioning profile from the local data e.g. after you added
+new devices to the profile This will also update the code signing identity
+if necessary @return (ProvisioningProfile) A new provisioning profile, as</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">repair</span> <span class="ruby-identifier">method</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">generate</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">profile</span> <span class="ruby-identifier">with</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">new</span> <span class="ruby-constant">ID</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update-21-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 426</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update!</span>
+  <span class="ruby-comment"># sigh handles more specific filtering and validation steps that make this logic OK</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># This is the minimum protection needed for people using spaceship directly</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">certificate_valid?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">mac?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Development</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">certificates</span> = [<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">MacDevelopment</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">first</span>]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Direct</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">certificates</span> = [<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">DeveloperIdApplication</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">first</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">certificates</span> = [<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">MacAppDistribution</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">first</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Development</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">certificates</span> = [<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">Development</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">first</span>]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">InHouse</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">certificates</span> = [<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">InHouse</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">first</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">certificates</span> = [<span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span><span class="ruby-operator">::</span><span class="ruby-constant">Production</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">first</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">client</span>.<span class="ruby-identifier">with_retry</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">client</span>.<span class="ruby-identifier">repair_provisioning_profile!</span>(
+      <span class="ruby-identifier">id</span>,
+      <span class="ruby-identifier">name</span>,
+      <span class="ruby-identifier">distribution_method</span>,
+      <span class="ruby-identifier">app</span>.<span class="ruby-identifier">app_id</span>,
+      <span class="ruby-identifier">certificates</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>),
+      <span class="ruby-identifier">devices</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>),
+      <span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>,
+      <span class="ruby-identifier">sub_platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tvos?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;tvOS&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+      <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">template_name</span>
+    )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># We need to fetch the provisioning profile again, as the ID changes</span>
+  <span class="ruby-identifier">profile</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Portal</span><span class="ruby-operator">::</span><span class="ruby-constant">ProvisioningProfile</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">mac</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mac?</span>).<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># we can use the name as it&#39;s valid</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">profile</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return (Bool) Is the current provisioning profile valid?</p>
+
+<pre class="ruby"><span class="ruby-constant">To</span> <span class="ruby-identifier">also</span> <span class="ruby-identifier">verify</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">certificate</span> <span class="ruby-identifier">call</span> <span class="ruby-identifier">certificate_valid?</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="valid-3F-source">
+            <pre><span class="ruby-comment"># File spaceship/lib/spaceship/portal/provisioning_profile.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Active&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

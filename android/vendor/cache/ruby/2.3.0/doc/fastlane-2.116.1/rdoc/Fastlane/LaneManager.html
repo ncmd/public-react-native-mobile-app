@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Fastlane::LaneManager - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">LaneManagerBase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-choose_lane">::choose_lane</a>
+    
+    <li ><a href="#method-c-cruise_lane">::cruise_lane</a>
+    
+    <li ><a href="#method-c-skip_docs-3F">::skip_docs?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Fastlane::LaneManager">
+  <h1 id="class-Fastlane::LaneManager" class="class">
+    class Fastlane::LaneManager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-choose_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">choose_lane</span><span
+            class="method-args">(ff, platform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Lane.html">Lane</a> chooser if user didn&#39;t provide a lane
+@param platform: is probably nil, but user might have called `fastlane
+android`, and only wants to list those actions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="choose_lane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/lane_manager.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">choose_lane</span>(<span class="ruby-identifier">ff</span>, <span class="ruby-identifier">platform</span>)
+  <span class="ruby-identifier">available</span> = []
+
+  <span class="ruby-comment"># nil is the key for lanes that are not under a specific platform</span>
+  <span class="ruby-identifier">lane_platforms</span> = [<span class="ruby-keyword">nil</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">SupportedPlatforms</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">lane_platforms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">available</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">ff</span>.<span class="ruby-identifier">runner</span>.<span class="ruby-identifier">lanes</span>[<span class="ruby-identifier">p</span>].<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">lane</span><span class="ruby-operator">|</span> <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_private</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">available</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;It looks like you don&#39;t have any lanes to run just yet. Check out how to get started here: https://github.com/fastlane/fastlane 🚀&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">rows</span> = []
+  <span class="ruby-identifier">available</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lane</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">pretty_name</span>, <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value">0</span>, <span class="ruby-string">&quot;cancel&quot;</span>, <span class="ruby-string">&quot;No selection, exit fastlane!&quot;</span>]
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;terminal-table&#39;</span>
+
+  <span class="ruby-identifier">table</span> = <span class="ruby-constant">Terminal</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Available lanes to run&quot;</span>,
+    <span class="ruby-identifier">headings</span><span class="ruby-operator">:</span> [<span class="ruby-string">&#39;Number&#39;</span>, <span class="ruby-string">&#39;Lane Name&#39;</span>, <span class="ruby-string">&#39;Description&#39;</span>],
+    <span class="ruby-identifier">rows</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">transform_output</span>(<span class="ruby-identifier">rows</span>)
+  )
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Welcome to fastlane! Here&#39;s what your app is setup to do:&quot;</span>)
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">table</span>)
+
+  <span class="ruby-identifier">i</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;Which number would you like run?&quot;</span>)
+
+  <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">available</span>[<span class="ruby-identifier">i</span>]
+    <span class="ruby-identifier">selection</span> = <span class="ruby-identifier">available</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">last</span>.<span class="ruby-identifier">pretty_name</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Running lane `#{selection}`. Next time you can do this by directly typing `fastlane #{selection}` 🚀.&quot;</span>)
+    <span class="ruby-identifier">platform</span> = <span class="ruby-identifier">selection</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">lane_name</span> = <span class="ruby-identifier">selection</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>)[<span class="ruby-value">1</span>]
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane_name</span> <span class="ruby-comment"># no specific platform, just a root lane</span>
+      <span class="ruby-identifier">lane_name</span> = <span class="ruby-identifier">platform</span>
+      <span class="ruby-identifier">platform</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">platform</span>, <span class="ruby-identifier">lane_name</span> <span class="ruby-comment"># yeah</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Run `fastlane` the next time you need to build, test or release your app 🚀&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-cruise_lane" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cruise_lane</span><span
+            class="method-args">(platform, lane, parameters = nil, env = nil, fastfile_path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param platform The name of the platform to execute @param lane_name The
+name of the lane to execute @param parameters [Hash] The parameters passed
+from the command line to the lane @param env Dot Env Information @param A
+custom Fastfile path, this is used by fastlane.ci rubocop:disable
+Metrics/PerceivedComplexity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cruise_lane-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/lane_manager.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cruise_lane</span>(<span class="ruby-identifier">platform</span>, <span class="ruby-identifier">lane</span>, <span class="ruby-identifier">parameters</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">env</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">fastfile_path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;lane must be a string&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">lane</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;platform must be a string&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">platform</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">platform</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;parameters must be a hash&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">ff</span> = <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">FastFile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">fastfile_path</span> <span class="ruby-operator">||</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">FastlaneFolder</span>.<span class="ruby-identifier">fastfile_path</span>)
+
+  <span class="ruby-identifier">is_platform</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">is_platform</span> = <span class="ruby-identifier">ff</span>.<span class="ruby-identifier">is_platform_block?</span>(<span class="ruby-identifier">lane</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-comment"># rescue, because this raises an exception if it can&#39;t be found at all</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">is_platform</span>
+    <span class="ruby-comment"># maybe the user specified a default platform</span>
+    <span class="ruby-comment"># We&#39;ll only do this, if the lane specified isn&#39;t a platform, as we want to list all platforms then</span>
+
+    <span class="ruby-comment"># Make sure that&#39;s not a lane without a platform</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ff</span>.<span class="ruby-identifier">runner</span>.<span class="ruby-identifier">available_lanes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">lane</span>)
+      <span class="ruby-identifier">platform</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Actions</span>.<span class="ruby-identifier">lane_context</span>[<span class="ruby-constant">Actions</span><span class="ruby-operator">::</span><span class="ruby-constant">SharedValues</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_PLATFORM</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">platform</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lane</span>
+    <span class="ruby-comment"># Either, the user runs a specific lane in root or want to auto complete the available lanes for a platform</span>
+    <span class="ruby-comment"># e.g. `fastlane ios` should list all available iOS actions</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ff</span>.<span class="ruby-identifier">is_platform_block?</span>(<span class="ruby-identifier">lane</span>)
+      <span class="ruby-identifier">platform</span> = <span class="ruby-identifier">lane</span>
+      <span class="ruby-identifier">lane</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">platform</span>, <span class="ruby-identifier">lane</span> = <span class="ruby-identifier">choose_lane</span>(<span class="ruby-identifier">ff</span>, <span class="ruby-identifier">platform</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lane</span>
+
+  <span class="ruby-comment"># xcodeproj has a bug in certain versions that causes it to change directories</span>
+  <span class="ruby-comment"># and not return to the original working directory</span>
+  <span class="ruby-comment"># https://github.com/CocoaPods/Xcodeproj/issues/426</span>
+  <span class="ruby-comment"># Setting this environment variable causes xcodeproj to work around the problem</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;FORK_XCODE_WRITING&quot;</span>] = <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">platform</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;android&#39;</span>
+
+  <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span><span class="ruby-operator">::</span><span class="ruby-constant">DotenvHelper</span>.<span class="ruby-identifier">load_dot_env</span>(<span class="ruby-identifier">env</span>)
+
+  <span class="ruby-identifier">started</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">ff</span>.<span class="ruby-identifier">runner</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">lane</span>, <span class="ruby-identifier">platform</span>, <span class="ruby-identifier">parameters</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-identifier">print_lane_context</span>
+    <span class="ruby-identifier">print_error_line</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-identifier">e</span> = <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span> <span class="ruby-comment"># rubocop:disable Lint/RescueException</span>
+    <span class="ruby-comment"># We also catch Exception, since the implemented action might send a SystemExit signal</span>
+    <span class="ruby-comment"># (or similar). We still want to catch that, since we want properly finish running fastlane</span>
+    <span class="ruby-comment"># Tested with `xcake`, which throws a `Xcake::Informative` object</span>
+
+    <span class="ruby-identifier">print_lane_context</span>
+    <span class="ruby-identifier">print_error_line</span>(<span class="ruby-identifier">ex</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">StandardError</span>) <span class="ruby-comment"># we don&#39;t want to print things like &#39;system exit&#39;</span>
+    <span class="ruby-identifier">e</span> = <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># After running the lanes, since skip_docs might be somewhere in-between</span>
+  <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">DocsGenerator</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">ff</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">skip_docs?</span>
+
+  <span class="ruby-identifier">duration</span> = ((<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">started</span>) <span class="ruby-operator">/</span> <span class="ruby-value">60.0</span>).<span class="ruby-identifier">round</span>
+  <span class="ruby-identifier">finish_fastlane</span>(<span class="ruby-identifier">ff</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">e</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ff</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-skip_docs-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_docs?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:enable Metrics/PerceivedComplexity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="skip_docs-3F-source">
+            <pre><span class="ruby-comment"># File fastlane/lib/fastlane/lane_manager.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">skip_docs?</span>
+  <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">test?</span> <span class="ruby-operator">||</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Env</span>.<span class="ruby-identifier">truthy?</span>(<span class="ruby-string">&quot;FASTLANE_SKIP_DOCS&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

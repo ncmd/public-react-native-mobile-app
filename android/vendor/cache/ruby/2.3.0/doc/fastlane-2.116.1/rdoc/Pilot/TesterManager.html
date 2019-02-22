@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pilot::TesterManager - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Manager.html">Pilot::Manager</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-add_tester">#add_tester</a>
+    
+    <li ><a href="#method-i-create_tester">#create_tester</a>
+    
+    <li ><a href="#method-i-describe_tester">#describe_tester</a>
+    
+    <li ><a href="#method-i-find_app">#find_app</a>
+    
+    <li ><a href="#method-i-find_app_tester">#find_app_tester</a>
+    
+    <li ><a href="#method-i-find_current_user">#find_current_user</a>
+    
+    <li ><a href="#method-i-find_tester">#find_tester</a>
+    
+    <li ><a href="#method-i-list">#list</a>
+    
+    <li ><a href="#method-i-list_by_app">#list_by_app</a>
+    
+    <li ><a href="#method-i-list_testers">#list_testers</a>
+    
+    <li ><a href="#method-i-list_testers_by_app">#list_testers_by_app</a>
+    
+    <li ><a href="#method-i-remove_tester">#remove_tester</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pilot::TesterManager">
+  <h1 id="class-Pilot::TesterManager" class="class">
+    class Pilot::TesterManager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_tester</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_tester-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_tester</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">app</span> = <span class="ruby-identifier">find_app</span>(<span class="ruby-identifier">app_filter</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:apple_id</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>])
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You must provide either a Apple ID for the app (with the `:apple_id` option) or app identifier (with the `:app_identifier` option)&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>
+
+  <span class="ruby-identifier">groups_param</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:groups</span>]
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You must provide 1 or more groups (with the `:groups` option)&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">groups_param</span>
+
+  <span class="ruby-identifier">tester</span> = <span class="ruby-identifier">find_app_tester</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:email</span>], <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>)
+  <span class="ruby-identifier">tester</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">create_tester</span>(
+    <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:email</span>],
+    <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:first_name</span>],
+    <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:last_name</span>],
+    <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>
+  )
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># Groups are now required</span>
+    <span class="ruby-identifier">groups</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">add_tester_to_groups!</span>(<span class="ruby-identifier">tester</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:groups</span>])
+    <span class="ruby-identifier">group_names</span> = <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully added tester to group(s): #{group_names} in app: #{app.name}&quot;</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not add #{tester.email} to app: #{app.name}&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_tester</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_tester-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_tester</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">app_filter</span> = (<span class="ruby-identifier">config</span>[<span class="ruby-value">:apple_id</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>])
+  <span class="ruby-identifier">app</span> = <span class="ruby-identifier">find_app</span>(<span class="ruby-identifier">app_filter</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_filter</span>)
+
+  <span class="ruby-identifier">tester</span> = <span class="ruby-identifier">find_app_tester</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:email</span>], <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Tester #{config[:email]} not found&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tester</span>
+
+  <span class="ruby-identifier">describe_tester</span>(<span class="ruby-identifier">tester</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tester</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_testers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_testers</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list_testers-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_testers</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">app_filter</span> = (<span class="ruby-identifier">config</span>[<span class="ruby-value">:apple_id</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app_filter</span>
+    <span class="ruby-identifier">list_testers_by_app</span>(<span class="ruby-identifier">app_filter</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You must include an `app_identifier` to `list_testers`&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_tester</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_tester-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_tester</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">app_filter</span> = (<span class="ruby-identifier">config</span>[<span class="ruby-value">:apple_id</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>])
+  <span class="ruby-identifier">app</span> = <span class="ruby-identifier">find_app</span>(<span class="ruby-identifier">app_filter</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_filter</span>)
+
+  <span class="ruby-identifier">tester</span> = <span class="ruby-identifier">find_app_tester</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:email</span>], <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Tester #{config[:email]} not found&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tester</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>
+    <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">delete!</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully removed tester #{tester.email} from Users and Roles&quot;</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># If no groups are passed to options, remove the tester from the app-level,</span>
+    <span class="ruby-comment"># otherwise remove the tester from the groups specified.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:groups</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">test_flight_testers</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Tester</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>, <span class="ruby-identifier">is_email_exact_match</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">test_flight_testers</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not remove #{tester.email} from app: #{app.name}, reason: too many matches: #{test_flight_testers}&quot;</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">test_flight_testers</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not remove #{tester.email} from app: #{app.name}, reason: unable to find tester on app&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">test_flight_tester</span> = <span class="ruby-identifier">test_flight_testers</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">test_flight_tester</span>.<span class="ruby-identifier">remove_from_app!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully removed tester, #{test_flight_tester.email}, from app: #{app.name}&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">groups</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">remove_tester_from_groups!</span>(<span class="ruby-identifier">tester</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>, <span class="ruby-identifier">groups</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:groups</span>])
+      <span class="ruby-identifier">group_names</span> = <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully removed tester #{tester.email} from app #{app.name} in group(s) #{group_names}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not remove #{tester.email} from app: #{ex}&quot;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_tester</span><span
+            class="method-args">(email: nil, first_name: nil, last_name: nil, app: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_tester-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_tester</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">current_user</span> = <span class="ruby-identifier">find_current_user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">app_manager?</span>
+    <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Tester</span>.<span class="ruby-identifier">create_app_level_tester</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>,
+                                                      <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">first_name</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>,
+                                                       <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">last_name</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>,
+                                                           <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>)
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully added tester: #{email} to app: #{app.name}&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Tester</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Current account doesn&#39;t have permission to create a tester&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Could not create tester #{email}&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-describe_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">describe_tester</span><span
+            class="method-args">(tester)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print out all the details of a specific tester</p>
+          
+          
+
+          
+          <div class="method-source-code" id="describe_tester-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">describe_tester</span>(<span class="ruby-identifier">tester</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tester</span>
+
+  <span class="ruby-identifier">rows</span> = []
+
+  <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&quot;First name&quot;</span>, <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">first_name</span>]
+  <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&quot;Last name&quot;</span>, <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">last_name</span>]
+  <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&quot;Email&quot;</span>, <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&quot;Groups&quot;</span>, <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;;&quot;</span>)]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">latest_installed_date</span>
+    <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&quot;Latest Version&quot;</span>, <span class="ruby-node">&quot;#{tester.latest_install_info[&#39;latestInstalledShortVersion&#39;]} (#{tester.latest_install_info[&#39;latestInstalledVersion&#39;]})&quot;</span>]
+    <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&quot;Latest Install Date&quot;</span>, <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">pretty_install_date</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-constant">Terminal</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(
+         <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>.<span class="ruby-identifier">green</span>,
+         <span class="ruby-identifier">rows</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">transform_output</span>(<span class="ruby-identifier">rows</span>)
+  ))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_app</span><span
+            class="method-args">(app_filter: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_app-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_app</span>(<span class="ruby-identifier">app_filter</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app_filter</span>
+    <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_filter</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not find an app by #{app_filter}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_app_tester" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_app_tester</span><span
+            class="method-args">(email: nil, app: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_app_tester-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_app_tester</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">current_user</span> = <span class="ruby-identifier">find_current_user</span>
+  <span class="ruby-identifier">app_apple_id</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin?</span>
+    <span class="ruby-identifier">tester</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Tester</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_apple_id</span>, <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">app_manager?</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app_apple_id</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Account #{current_user.email_address} is only an &#39;App Manager&#39; and therefore you must also define what app this tester (#{email}) should be added to&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tester</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Tester</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_apple_id</span>, <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Account #{current_user.email_address} doesn&#39;t have a role that is allowed to administer app testers, current roles: #{current_user.roles}&quot;</span>)
+    <span class="ruby-identifier">tester</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tester</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Found existing tester #{email}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tester</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_current_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_current_user</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_current_user-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_current_user</span>
+  <span class="ruby-identifier">current_user_email</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">user_email</span>
+  <span class="ruby-identifier">current_user_apple_id</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span>.<span class="ruby-identifier">client</span>.<span class="ruby-identifier">user</span>
+
+  <span class="ruby-identifier">current_user</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Members</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">current_user_email</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current_user</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Unable to find a member for AppleID: #{current_user_apple_id}, email: #{current_user_email}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">current_user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">(all_testers, title, headings) { |tester| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Requires a block that accepts a tester and returns an array of tester
+column values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">all_testers</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">headings</span>)
+  <span class="ruby-identifier">rows</span> = <span class="ruby-identifier">all_testers</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">tester</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">tester</span>) }
+  <span class="ruby-identifier">puts</span>(<span class="ruby-constant">Terminal</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(
+         <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">green</span>,
+         <span class="ruby-identifier">headings</span><span class="ruby-operator">:</span> <span class="ruby-identifier">headings</span>,
+         <span class="ruby-identifier">rows</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">transform_output</span>(<span class="ruby-identifier">rows</span>)
+  ))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_by_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_by_app</span><span
+            class="method-args">(all_testers, title)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list_by_app-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_by_app</span>(<span class="ruby-identifier">all_testers</span>, <span class="ruby-identifier">title</span>)
+  <span class="ruby-identifier">headers</span> = [<span class="ruby-string">&quot;First&quot;</span>, <span class="ruby-string">&quot;Last&quot;</span>, <span class="ruby-string">&quot;Email&quot;</span>, <span class="ruby-string">&quot;Groups&quot;</span>]
+  <span class="ruby-identifier">list</span>(<span class="ruby-identifier">all_testers</span>, <span class="ruby-node">&quot;#{title} (#{all_testers.count})&quot;</span>, <span class="ruby-identifier">headers</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tester</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tester_groups</span> = <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;;&quot;</span>)
+    [
+      <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">first_name</span>,
+      <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">last_name</span>,
+      <span class="ruby-identifier">tester</span>.<span class="ruby-identifier">email</span>,
+      <span class="ruby-identifier">tester_groups</span>
+      <span class="ruby-comment"># Testers returned by the query made in the context of an app do not contain</span>
+      <span class="ruby-comment"># the version, or install date information</span>
+    ]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_testers_by_app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_testers_by_app</span><span
+            class="method-args">(app_filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list_testers_by_app-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/tester_manager.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_testers_by_app</span>(<span class="ruby-identifier">app_filter</span>)
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">Tunes</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_filter</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Couldn&#39;t find app with &#39;#{app_filter}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-identifier">testers</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Tester</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>)
+  <span class="ruby-identifier">list_by_app</span>(<span class="ruby-identifier">testers</span>, <span class="ruby-string">&quot;All Testers&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

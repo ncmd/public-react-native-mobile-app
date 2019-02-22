@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"version_string:ETI"7Spaceship::Tunes::AppVersionHistory#version_string;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"?@return (String) The version in string format (e.g. "1.0");T:
+@fileI"9spaceship/lib/spaceship/tunes/app_version_history.rb;T:0@omit_headings_from_table_of_contents_below0F@I"(Spaceship::Tunes::AppVersionHistory;TcRDoc::NormalClass0

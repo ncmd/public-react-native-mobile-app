@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Match::CommandsGenerator - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Commander::Methods</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Match::CommandsGenerator">
+  <h1 id="class-Match::CommandsGenerator" class="class">
+    class Match::CommandsGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File match/lib/match/commands_generator.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File match/lib/match/commands_generator.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:name</span>, <span class="ruby-string">&#39;match&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:version</span>, <span class="ruby-constant">Fastlane</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:description</span>, <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">DESCRIPTION</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Author&#39;</span>, <span class="ruby-string">&#39;Felix Krause &lt;match@krausefx.com&gt;&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Website&#39;</span>, <span class="ruby-string">&#39;https://fastlane.tools&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Documentation&#39;</span>, <span class="ruby-string">&#39;https://docs.fastlane.tools/actions/match/&#39;</span>
+  <span class="ruby-identifier">program</span> <span class="ruby-value">:help_formatter</span>, <span class="ruby-value">:compact</span>
+
+  <span class="ruby-identifier">global_option</span>(<span class="ruby-string">&#39;--verbose&#39;</span>) { <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Globals</span>.<span class="ruby-identifier">verbose</span> = <span class="ruby-keyword">true</span> }
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:run</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane match&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">DESCRIPTION</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please run `fastlane match [type]`, allowed values: development, adhoc, enterprise  or appstore&quot;</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">params</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">load_configuration_file</span>(<span class="ruby-string">&quot;Matchfile&quot;</span>)
+      <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Match</span>.<span class="ruby-identifier">environments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-identifier">type</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-node">&quot;fastlane match #{type}&quot;</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-node">&quot;Run match for a #{type} provisioning profile&quot;</span>
+
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">params</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+        <span class="ruby-identifier">params</span>.<span class="ruby-identifier">load_configuration_file</span>(<span class="ruby-string">&quot;Matchfile&quot;</span>) <span class="ruby-comment"># this has to be done *before* overwriting the value</span>
+        <span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>] = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:init</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane match init&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Create the Matchfile for you&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">containing</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">fastlane_enabled_folder_path</span>
+      <span class="ruby-identifier">is_swift_fastfile</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;swift&quot;</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_swift_fastfile</span>
+        <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-string">&quot;Matchfile.swift&quot;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-string">&quot;Matchfile&quot;</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+        <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;You already have a Matchfile in this directory (#{path})&quot;</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Setup</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-identifier">is_swift_fastfile</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:change_password</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&#39;fastlane match change_password&#39;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&#39;Re-encrypt all files with a different password&#39;</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">params</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">load_configuration_file</span>(<span class="ruby-string">&quot;Matchfile&quot;</span>)
+
+      <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">ChangePassword</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully changed the password. Make sure to update the password on all your clients and servers by running `fastlane match [environment]`&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:decrypt</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&quot;fastlane match decrypt&quot;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&quot;Decrypts the repository and keeps it on the filesystem&quot;</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">params</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">load_configuration_file</span>(<span class="ruby-string">&quot;Matchfile&quot;</span>)
+
+      <span class="ruby-identifier">storage</span> = <span class="ruby-constant">Storage</span>.<span class="ruby-identifier">for_mode</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:storage_mode</span>], {
+        <span class="ruby-identifier">git_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_url</span>],
+        <span class="ruby-identifier">shallow_clone</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:shallow_clone</span>],
+        <span class="ruby-identifier">git_branch</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_branch</span>],
+        <span class="ruby-identifier">clone_branch_directly</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:clone_branch_directly</span>]
+      })
+      <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">download</span>
+
+      <span class="ruby-identifier">encryption</span> = <span class="ruby-constant">Encryption</span>.<span class="ruby-identifier">for_storage_mode</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:storage_mode</span>], {
+        <span class="ruby-identifier">git_url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:git_url</span>],
+        <span class="ruby-identifier">working_directory</span><span class="ruby-operator">:</span> <span class="ruby-identifier">storage</span>.<span class="ruby-identifier">working_directory</span>
+      })
+      <span class="ruby-identifier">encryption</span>.<span class="ruby-identifier">decrypt_files</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">encryption</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Repo is at: &#39;#{storage.working_directory}&#39;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-value">:migrate</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&quot;fastlane match migrate&quot;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&quot;Migrate from one storage backend to another one&quot;</span>
+
+    <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Migrate</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">migrate</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> <span class="ruby-string">&quot;nuke&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># We have this empty command here, since otherwise the normal `match` command will be executed</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-string">&quot;fastlane match nuke&quot;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-string">&quot;Delete all certificates and provisioning profiles from the Apple Dev Portal&quot;</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Please run `fastlane match nuke [type], allowed values: development, distribution and enterprise. For the &#39;adhoc&#39; type, please use &#39;distribution&#39; instead.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  [<span class="ruby-string">&quot;development&quot;</span>, <span class="ruby-string">&quot;distribution&quot;</span>, <span class="ruby-string">&quot;enterprise&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-node">&quot;nuke #{type}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">syntax</span> = <span class="ruby-node">&quot;fastlane match nuke #{type}&quot;</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">description</span> = <span class="ruby-node">&quot;Delete all certificates and provisioning profiles from the Apple Dev Portal of the type #{type}&quot;</span>
+
+      <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommanderGenerator</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">c</span>)
+
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">action</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">params</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">create</span>(<span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">available_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">__hash__</span>)
+        <span class="ruby-identifier">params</span>.<span class="ruby-identifier">load_configuration_file</span>(<span class="ruby-string">&quot;Matchfile&quot;</span>)
+        <span class="ruby-constant">Match</span><span class="ruby-operator">::</span><span class="ruby-constant">Nuke</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">default_command</span>(<span class="ruby-value">:run</span>)
+
+  <span class="ruby-identifier">run!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

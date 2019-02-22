@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Snapshot::Setup - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-create">::create</a>
+    
+    <li ><a href="#method-c-print_instructions">::print_instructions</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Snapshot::Setup">
+  <h1 id="class-Snapshot::Setup" class="class">
+    class Snapshot::Setup
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(path, is_swift_fastfile: false, print_instructions_on_failure: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method will take care of creating a Snapfile and other necessary files</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/setup.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">is_swift_fastfile</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">print_instructions_on_failure</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-comment"># First generate all the names &amp; paths</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_swift_fastfile</span>
+    <span class="ruby-identifier">template_path</span> = <span class="ruby-node">&quot;#{Snapshot::ROOT}/lib/assets/SnapfileTemplate.swift&quot;</span>
+    <span class="ruby-identifier">snapfile_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&#39;Snapfile.swift&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">template_path</span> = <span class="ruby-node">&quot;#{Snapshot::ROOT}/lib/assets/SnapfileTemplate&quot;</span>
+    <span class="ruby-identifier">snapfile_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&#39;Snapfile&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">snapshot_helper_filename</span> = <span class="ruby-string">&quot;SnapshotHelperXcode8.swift&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">xcode_at_least?</span>(<span class="ruby-string">&quot;9.0&quot;</span>)
+    <span class="ruby-identifier">snapshot_helper_filename</span> = <span class="ruby-string">&quot;SnapshotHelper.swift&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">snapfile_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">print_instructions_on_failure</span>
+      <span class="ruby-identifier">print_instructions</span>(<span class="ruby-identifier">snapshot_helper_filename</span><span class="ruby-operator">:</span> <span class="ruby-identifier">snapshot_helper_filename</span>, <span class="ruby-identifier">snapfile_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">snapfile_path</span>)
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Snapfile already exists at path &#39;#{snapfile_path}&#39;. Run &#39;fastlane snapshot&#39; to generate screenshots.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">snapfile_path</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template_path</span>))
+
+  <span class="ruby-comment"># ensure that upgrade is cause when going from 8 to 9</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">snapshot_helper_filename</span>), <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-node">&quot;#{Snapshot::ROOT}/lib/assets/#{snapshot_helper_filename}&quot;</span>))
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;✅  Successfully created #{snapshot_helper_filename} &#39;#{File.join(path, snapshot_helper_filename)}&#39;&quot;</span>.<span class="ruby-identifier">green</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;✅  Successfully created new Snapfile at &#39;#{snapfile_path}&#39;&quot;</span>.<span class="ruby-identifier">green</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;-------------------------------------------------------&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">print_instructions</span>(<span class="ruby-identifier">snapshot_helper_filename</span><span class="ruby-operator">:</span> <span class="ruby-identifier">snapshot_helper_filename</span>, <span class="ruby-identifier">snapfile_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">snapfile_path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-print_instructions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_instructions</span><span
+            class="method-args">(snapshot_helper_filename: nil, snapfile_path: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_instructions-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/setup.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_instructions</span>(<span class="ruby-identifier">snapshot_helper_filename</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">snapfile_path</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Open your Xcode project and make sure to do the following:&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;1) Add a new UI Test target to your project&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;2) Add the ./fastlane/#{snapshot_helper_filename} to your UI Test target&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;   You can move the file anywhere you want&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;3) Call `setupSnapshot(app)` when launching your app&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;  let app = XCUIApplication()&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;  setupSnapshot(app)&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;  app.launch()&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;4) Add `snapshot(\&quot;0Launch\&quot;)` to wherever you want to trigger screenshots&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;5) Add a new Xcode scheme for the newly created UITest target&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;6) Add a Check to enable the `Shared` box of the newly created scheme&quot;</span>.<span class="ruby-identifier">yellow</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;More information: https://docs.fastlane.tools/getting-started/ios/screenshots/&quot;</span>.<span class="ruby-identifier">green</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

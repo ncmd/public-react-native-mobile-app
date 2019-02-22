@@ -1,0 +1,13 @@
+U:RDoc::Attr[iI"template:ETI"4Spaceship::Portal::ProvisioningProfile#template;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"=@return (Spaceship::Portal::ProvisioningProfileTemplate);To:RDoc::Markup::Verbatim;	[I"@Model representation of the provisioning profile template.
+;TI"BThis will be always nil if is_template_profile returns false
+;T:@format0o;
+;	[I"@example Example Value;To;;	[I"5<Spaceship::Portal::ProvisioningProfileTemplate
+;TI"@  @template_description="Subscription Service iOS (dist)",
+;TI"  @entitlements=nil,
+;TI"r  @purpose_description="Generic Provisioning Profile Template for App: com.apple.smoot.subscriptionservice",
+;TI"@  @purpose_display_name="Subscription Service iOS (dist)",
+;TI"8  @purpose_name="Subscription Service iOS (dist)",
+;TI"  @version=1>
+;T;0o;
+;	[I"@example Usage;To;;	[I"*profile.template.purpose_display_name;T;0:
+@fileI";spaceship/lib/spaceship/portal/provisioning_profile.rb;T:0@omit_headings_from_table_of_contents_below0F@%I"+Spaceship::Portal::ProvisioningProfile;TcRDoc::NormalClass0

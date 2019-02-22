@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"xcodebuild_suppress_stderr:ETI"5FastlaneCore::Project#xcodebuild_suppress_stderr;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"EShould we redirect stderr to /dev/null for xcodebuild commands? ;TI"/Gets rid of annoying plugin info warnings.;T:
+@fileI"/fastlane_core/lib/fastlane_core/project.rb;T:0@omit_headings_from_table_of_contents_below0F@I"FastlaneCore::Project;TcRDoc::NormalClass0

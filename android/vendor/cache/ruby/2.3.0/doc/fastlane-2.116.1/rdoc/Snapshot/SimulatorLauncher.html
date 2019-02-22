@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Snapshot::SimulatorLauncher - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">SimulatorLauncherBase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-cleanup_after_failure">#cleanup_after_failure</a>
+    
+    <li ><a href="#method-i-copy_screenshots">#copy_screenshots</a>
+    
+    <li ><a href="#method-i-default_number_of_simultaneous_simulators">#default_number_of_simultaneous_simulators</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-failed_devices">#failed_devices</a>
+    
+    <li ><a href="#method-i-launch_simultaneously">#launch_simultaneously</a>
+    
+    <li ><a href="#method-i-retry_tests">#retry_tests</a>
+    
+    <li ><a href="#method-i-take_screenshots_simultaneously">#take_screenshots_simultaneously</a>
+    
+    <li ><a href="#method-i-test_results_path">#test_results_path</a>
+    
+    <li ><a href="#method-i-xcodebuild_log_path">#xcodebuild_log_path</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Snapshot::SimulatorLauncher">
+  <h1 id="class-Snapshot::SimulatorLauncher" class="class">
+    class Snapshot::SimulatorLauncher
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cleanup_after_failure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cleanup_after_failure</span><span
+            class="method-args">(devices, language, locale, launch_args, return_code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cleanup_after_failure-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cleanup_after_failure</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span>, <span class="ruby-identifier">return_code</span>)
+  <span class="ruby-identifier">copy_screenshots</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span><span class="ruby-operator">:</span> <span class="ruby-identifier">launch_args</span>)
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Tests failed while running on: #{devices.join(&#39;, &#39;)}&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;For more detail about the test failures, check the logs here:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-identifier">xcodebuild_log_path</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>))
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;You can also find the test result data here:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-identifier">test_results_path</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;You can find the incomplete screenshots here:&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-constant">SCREENSHOTS_DIR</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">output_directory</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_screenshots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_screenshots</span><span
+            class="method-args">(language: nil, locale: nil, launch_args: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_screenshots-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_screenshots</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">launch_args</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raw_output</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">xcodebuild_log_path</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>))
+  <span class="ruby-identifier">dir_name</span> = <span class="ruby-identifier">locale</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">language</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Collector</span>.<span class="ruby-identifier">fetch_screenshots</span>(<span class="ruby-identifier">raw_output</span>, <span class="ruby-identifier">dir_name</span>, <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">launch_args</span>.<span class="ruby-identifier">first</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_number_of_simultaneous_simulators" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_number_of_simultaneous_simulators</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>With Xcode 9&#39;s ability to run tests on multiple concurrent simulators,
+this method sets the maximum number of simulators to run simultaneously to
+avoid overloading your machine.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_number_of_simultaneous_simulators-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_number_of_simultaneous_simulators</span>
+  <span class="ruby-identifier">cpu_count</span> = <span class="ruby-constant">CPUInspector</span>.<span class="ruby-identifier">cpu_count</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cpu_count</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">cpu_count</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">cpu_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(retries = 0, command: nil, language: nil, locale: nil, launch_args: nil, devices: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">retries</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">launch_args</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">prefix_hash</span> = [
+    {
+      <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Running Tests: &quot;</span>,
+      <span class="ruby-identifier">block</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Touching&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    }
+  ]
+  <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandExecutor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>,
+                                      <span class="ruby-identifier">print_all</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                  <span class="ruby-identifier">print_command</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+                                         <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-identifier">prefix_hash</span>,
+                                        <span class="ruby-identifier">loading</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Loading...&quot;</span>,
+                                          <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">output</span>, <span class="ruby-identifier">return_code</span><span class="ruby-operator">|</span>
+                                            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">collected_errors</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">failed_devices</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device</span>, <span class="ruby-identifier">messages</span><span class="ruby-operator">|</span>
+                                              <span class="ruby-node">&quot;#{device}: #{messages.join(&#39;, &#39;)}&quot;</span>
+                                            <span class="ruby-keyword">end</span>)
+
+                                            <span class="ruby-identifier">cleanup_after_failure</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span>, <span class="ruby-identifier">return_code</span>)
+
+                                            <span class="ruby-comment"># no exception raised... that means we need to retry</span>
+                                            <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Caught error... #{return_code}&quot;</span>)
+
+                                            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_number_of_retries_due_to_failing_simulator</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                                            <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_number_of_retries_due_to_failing_simulator</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">20</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">return_code</span> <span class="ruby-operator">!=</span> <span class="ruby-value">65</span>
+                                              <span class="ruby-comment"># If the return code is not 65, we should assume its a simulator failure and retry</span>
+                                              <span class="ruby-identifier">launch_simultaneously</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span>)
+                                            <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">retries</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">number_of_retries</span>
+                                              <span class="ruby-comment"># If there are retries remaining, run the tests again</span>
+                                              <span class="ruby-identifier">retry_tests</span>(<span class="ruby-identifier">retries</span>, <span class="ruby-identifier">command</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span>, <span class="ruby-identifier">devices</span>)
+                                            <span class="ruby-keyword">else</span>
+                                              <span class="ruby-comment"># It&#39;s important to raise an error, as we don&#39;t want to collect the screenshots</span>
+                                              <span class="ruby-constant">UI</span>.<span class="ruby-identifier">crash!</span>(<span class="ruby-string">&quot;Too many errors... no more retries...&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">stop_after_first_error</span>
+                                            <span class="ruby-keyword">end</span>
+                                          <span class="ruby-keyword">end</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-failed_devices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">failed_devices</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method returns a hash of { device name =&gt; [failure messages] } {</p>
+
+<pre>&#39;iPhone 7&#39;: [], # this empty array indicates success
+&#39;iPhone 7 Plus&#39;: [&quot;No tests were executed&quot;],
+&#39;iPad Air&#39;: [&quot;Launch session expired&quot;, &quot;Array out of bounds&quot;]</pre>
+
+<p>}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="failed_devices-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">failed_devices</span>
+  <span class="ruby-identifier">test_summaries</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{test_results_path}/*_TestSummaries.plist&quot;</span>]
+  <span class="ruby-identifier">test_summaries</span>.<span class="ruby-identifier">each_with_object</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plist</span>, <span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">summary</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">TestParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">plist</span>)
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">:run_destination_name</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">:number_of_tests</span>] <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>] = [<span class="ruby-string">&quot;No tests were executed&quot;</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">tests</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">summary</span>.<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">:tests</span>])
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">tests</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">test</span>[<span class="ruby-value">:failures</span>]).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">failure</span><span class="ruby-operator">|</span> <span class="ruby-identifier">failure</span>[<span class="ruby-value">:failure_message</span>] } }.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-launch_simultaneously" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">launch_simultaneously</span><span
+            class="method-args">(devices, language, locale, launch_arguments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="launch_simultaneously-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">launch_simultaneously</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_arguments</span>)
+  <span class="ruby-identifier">prepare_for_launch</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_arguments</span>)
+
+  <span class="ruby-identifier">add_media</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-value">:photo</span>, <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">add_photos</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">add_photos</span>
+  <span class="ruby-identifier">add_media</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-value">:video</span>, <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">add_videos</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">add_videos</span>
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">generate</span>(
+    <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> <span class="ruby-identifier">devices</span>,
+    <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>,
+    <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>,
+    <span class="ruby-identifier">log_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">xcodebuild_log_path</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>)
+  )
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Running snapshot on: #{devices.join(&#39;, &#39;)}&quot;</span>)
+
+  <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>, <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span><span class="ruby-operator">:</span> <span class="ruby-identifier">launch_arguments</span>, <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> <span class="ruby-identifier">devices</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">copy_screenshots</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span><span class="ruby-operator">:</span> <span class="ruby-identifier">launch_arguments</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-retry_tests" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">retry_tests</span><span
+            class="method-args">(retries, command, language, locale, launch_args, devices)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="retry_tests-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">retry_tests</span>(<span class="ruby-identifier">retries</span>, <span class="ruby-identifier">command</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span>, <span class="ruby-identifier">devices</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Retrying on devices: #{devices.join(&#39;, &#39;)}&quot;</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Number of retries remaining: #{launcher_config.number_of_retries - retries - 1}&quot;</span>)
+
+  <span class="ruby-comment"># Make sure all needed directories exist for next retry</span>
+  <span class="ruby-comment"># `copy_screenshots` in `cleanup_after_failure` can delete some needed directories</span>
+  <span class="ruby-comment"># https://github.com/fastlane/fastlane/issues/10786</span>
+  <span class="ruby-identifier">prepare_directories_for_launch</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_arguments</span><span class="ruby-operator">:</span> <span class="ruby-identifier">launch_args</span>)
+
+  <span class="ruby-comment"># Clear errors so a successful retry isn&#39;t reported as an over failure</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">collected_errors</span> = []
+
+  <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">retries</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">:</span> <span class="ruby-identifier">command</span>, <span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span><span class="ruby-operator">:</span> <span class="ruby-identifier">launch_args</span>, <span class="ruby-identifier">devices</span><span class="ruby-operator">:</span> <span class="ruby-identifier">devices</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-take_screenshots_simultaneously" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">take_screenshots_simultaneously</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="take_screenshots_simultaneously-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take_screenshots_simultaneously</span>
+  <span class="ruby-identifier">languages_finished</span> = {}
+  <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">launch_args_set</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">launch_args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">languages</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">language</span>, <span class="ruby-identifier">language_index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">locale</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">language</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">locale</span> = <span class="ruby-identifier">language</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-identifier">language</span> = <span class="ruby-identifier">language</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Clear logs so subsequent xcodebuild executions dont append to old ones</span>
+      <span class="ruby-identifier">log_path</span> = <span class="ruby-identifier">xcodebuild_log_path</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locale</span>)
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">log_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">log_path</span>)
+
+      <span class="ruby-comment"># Break up the array of devices into chunks that can</span>
+      <span class="ruby-comment"># be run simultaneously.</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">concurrent_simulators?</span>
+        <span class="ruby-identifier">all_devices</span> = <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">devices</span>
+        <span class="ruby-comment"># We have to break up the concurrent simulators by device version too, otherwise there is an error (see #10969)</span>
+        <span class="ruby-identifier">by_simulator_version</span> = <span class="ruby-identifier">all_devices</span>.<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">DeviceManager</span>.<span class="ruby-identifier">latest_simulator_version_for_device</span>(<span class="ruby-identifier">d</span>) }.<span class="ruby-identifier">values</span>
+        <span class="ruby-identifier">device_batches</span> = <span class="ruby-identifier">by_simulator_version</span>.<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-identifier">default_number_of_simultaneous_simulators</span>).<span class="ruby-identifier">to_a</span> }
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># Put each device in it&#39;s own array to run tests one at a time</span>
+        <span class="ruby-identifier">device_batches</span> = <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">devices</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">d</span>] }
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">device_batches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">devices</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">languages_finished</span>[<span class="ruby-identifier">language</span>] = <span class="ruby-identifier">launch_simultaneously</span>(<span class="ruby-identifier">devices</span>, <span class="ruby-identifier">language</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">launch_args</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">devices</span>.<span class="ruby-identifier">each_with_object</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">device</span>, <span class="ruby-identifier">results_hash</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">results_hash</span>[<span class="ruby-identifier">device</span>] = <span class="ruby-identifier">languages_finished</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_results_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_results_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_results_path-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_results_path</span>
+  <span class="ruby-identifier">derived_data_path</span> = <span class="ruby-constant">TestCommandGenerator</span>.<span class="ruby-identifier">derived_data_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">derived_data_path</span>, <span class="ruby-string">&#39;Logs/Test&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xcodebuild_log_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xcodebuild_log_path</span><span
+            class="method-args">(language: nil, locale: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xcodebuild_log_path-source">
+            <pre><span class="ruby-comment"># File snapshot/lib/snapshot/simulator_launchers/simulator_launcher.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xcodebuild_log_path</span>(<span class="ruby-identifier">language</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">name_components</span> = [<span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">project</span>.<span class="ruby-identifier">app_name</span>, <span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:scheme</span>]]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:namespace_log_files</span>]
+    <span class="ruby-identifier">name_components</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">devices</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;-&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">launcher_config</span>.<span class="ruby-identifier">devices</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">name_components</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">language</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">language</span>
+    <span class="ruby-identifier">name_components</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">locale</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-node">&quot;#{name_components.join(&#39;-&#39;)}.log&quot;</span>
+
+  <span class="ruby-identifier">containing</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">Snapshot</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:buildlog_path</span>])
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">containing</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">containing</span>, <span class="ruby-identifier">file_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

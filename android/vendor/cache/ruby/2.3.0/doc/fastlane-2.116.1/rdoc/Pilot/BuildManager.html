@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pilot::BuildManager - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Manager
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-sanitize_changelog">::sanitize_changelog</a>
+    
+    <li ><a href="#method-c-strip_emoji">::strip_emoji</a>
+    
+    <li ><a href="#method-c-truncate_changelog">::truncate_changelog</a>
+    
+    <li ><a href="#method-i-describe_build">#describe_build</a>
+    
+    <li ><a href="#method-i-distribute">#distribute</a>
+    
+    <li ><a href="#method-i-distribute_build">#distribute_build</a>
+    
+    <li ><a href="#method-i-list">#list</a>
+    
+    <li ><a href="#method-i-should_update_app_test_information-3F">#should_update_app_test_information?</a>
+    
+    <li ><a href="#method-i-should_update_build_information-3F">#should_update_build_information?</a>
+    
+    <li ><a href="#method-i-upload">#upload</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pilot::BuildManager">
+  <h1 id="class-Pilot::BuildManager" class="class">
+    class Pilot::BuildManager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-sanitize_changelog" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sanitize_changelog</span><span
+            class="method-args">(changelog)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sanitize_changelog-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sanitize_changelog</span>(<span class="ruby-identifier">changelog</span>)
+  <span class="ruby-identifier">changelog</span> = <span class="ruby-identifier">strip_emoji</span>(<span class="ruby-identifier">changelog</span>)
+  <span class="ruby-identifier">truncate_changelog</span>(<span class="ruby-identifier">changelog</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-strip_emoji" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">strip_emoji</span><span
+            class="method-args">(changelog)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="strip_emoji-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strip_emoji</span>(<span class="ruby-identifier">changelog</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">changelog</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">changelog</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">EmojiRegex</span><span class="ruby-operator">::</span><span class="ruby-constant">Regex</span>
+    <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-constant">EmojiRegex</span><span class="ruby-operator">::</span><span class="ruby-constant">Regex</span>, <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Emoji symbols have been removed from the changelog, since they&#39;re not allowed by Apple.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">changelog</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-truncate_changelog" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">truncate_changelog</span><span
+            class="method-args">(changelog)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="truncate_changelog-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">truncate_changelog</span>(<span class="ruby-identifier">changelog</span>)
+  <span class="ruby-identifier">max_changelog_length</span> = <span class="ruby-value">4000</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">changelog</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_changelog_length</span>
+    <span class="ruby-identifier">original_length</span> = <span class="ruby-identifier">changelog</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">bottom_message</span> = <span class="ruby-string">&quot;...&quot;</span>
+    <span class="ruby-identifier">changelog</span> = <span class="ruby-node">&quot;#{changelog[0...max_changelog_length - bottom_message.length]}#{bottom_message}&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Changelog has been truncated since it exceeds Apple&#39;s #{max_changelog_length} character limit. It currently contains #{original_length} characters.&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">changelog</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-distribute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">distribute</span><span
+            class="method-args">(options, build: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="distribute-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">distribute</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">build</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:apple_id</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>] = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;App Identifier: &quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">build</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">latest</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fetch_app_platform</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">build</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No build to distribute!&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_update_app_test_information?</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-identifier">app_test_info</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">AppTestInfo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build</span>.<span class="ruby-identifier">app_id</span>)
+    <span class="ruby-identifier">app_test_info</span>.<span class="ruby-identifier">test_info</span>.<span class="ruby-identifier">feedback_email</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:beta_app_feedback_email</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:beta_app_feedback_email</span>]
+    <span class="ruby-identifier">app_test_info</span>.<span class="ruby-identifier">test_info</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:beta_app_description</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:beta_app_description</span>]
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">app_test_info</span>.<span class="ruby-identifier">save_for_app!</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build</span>.<span class="ruby-identifier">app_id</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully set the beta_app_feedback_email and/or beta_app_description&quot;</span>)
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not set beta_app_feedback_email and/or beta_app_description: #{ex}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_update_build_information?</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">build</span>.<span class="ruby-identifier">update_build_information!</span>(<span class="ruby-identifier">whats_new</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>])
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully set the changelog for build&quot;</span>)
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Could not set changelog: #{ex}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">build</span>.<span class="ruby-identifier">auto_notify_enabled</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:notify_external_testers</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:skip_submission</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:reject_build_waiting_for_review</span>]
+    <span class="ruby-identifier">waiting_for_review_build</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">all_waiting_for_review</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">build</span>.<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fetch_app_platform</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">waiting_for_review_build</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Another build is already in review. Going to expire that build and submit the new one.&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Expiring build: #{waiting_for_review_build.train_version} - #{waiting_for_review_build.build_version}&quot;</span>)
+      <span class="ruby-identifier">waiting_for_review_build</span>.<span class="ruby-identifier">expire!</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Expired previous build: #{waiting_for_review_build.train_version} - #{waiting_for_review_build.build_version}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">distribute_build</span>(<span class="ruby-identifier">build</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">type</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:distribute_external</span>] <span class="ruby-operator">?</span> <span class="ruby-string">&#39;External&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;Internal&#39;</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Successfully distributed build to #{type} testers 🚀&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:apple_id</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">config</span>[<span class="ruby-value">:app_identifier</span>] = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;App Identifier: &quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">platform</span> = <span class="ruby-identifier">fetch_app_platform</span>(<span class="ruby-identifier">required</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">builds</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">all_processing_builds</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">builds</span>(<span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+  <span class="ruby-comment"># sort by upload_date</span>
+  <span class="ruby-identifier">builds</span>.<span class="ruby-identifier">sort!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">upload_date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">upload_date</span> }
+  <span class="ruby-identifier">rows</span> = <span class="ruby-identifier">builds</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">build</span><span class="ruby-operator">|</span> <span class="ruby-identifier">describe_build</span>(<span class="ruby-identifier">build</span>) }
+
+  <span class="ruby-identifier">puts</span>(<span class="ruby-constant">Terminal</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(
+         <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{app.name} Builds&quot;</span>.<span class="ruby-identifier">green</span>,
+         <span class="ruby-identifier">headings</span><span class="ruby-operator">:</span> [<span class="ruby-node">&quot;Version #&quot;</span>, <span class="ruby-node">&quot;Build #&quot;</span>, <span class="ruby-string">&quot;Installs&quot;</span>],
+         <span class="ruby-identifier">rows</span><span class="ruby-operator">:</span> <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintTable</span>.<span class="ruby-identifier">transform_output</span>(<span class="ruby-identifier">rows</span>)
+  ))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">sanitize_changelog</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>]
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No ipa file given&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:distribute_external</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">UI</span>.<span class="ruby-identifier">interactive?</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>] = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">input</span>(<span class="ruby-string">&quot;No changelog provided for new build. You can provide a changelog using the `changelog` option. For now, please provide a changelog here:&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;No changelog provided for new build. Please either disable `distribute_external` or provide a changelog using the `changelog` option&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-node">&quot;Ready to upload new build to TestFlight (App: #{app.apple_id})...&quot;</span>)
+
+  <span class="ruby-identifier">dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>
+
+  <span class="ruby-identifier">platform</span> = <span class="ruby-identifier">fetch_app_platform</span>
+  <span class="ruby-identifier">package_path</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaUploadPackageBuilder</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>,
+                                                                  <span class="ruby-identifier">ipa_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>],
+                                                              <span class="ruby-identifier">package_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dir</span>,
+                                                                  <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>)
+
+  <span class="ruby-identifier">transporter</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">ItunesTransporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>], <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">false</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:itc_provider</span>])
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">transporter</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">package_path</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;Error uploading ipa file, for more information see above&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">success</span>(<span class="ruby-string">&quot;Successfully uploaded the new binary to App Store Connect&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:skip_waiting_for_build_processing</span>]
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;Skip waiting for build processing&quot;</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-string">&quot;This means that no changelog will be set and no build will be distributed to testers&quot;</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;If you want to skip waiting for the processing to be finished, use the `skip_waiting_for_build_processing` option&quot;</span>)
+  <span class="ruby-identifier">app_version</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaFileAnalyser</span>.<span class="ruby-identifier">fetch_app_version</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>])
+  <span class="ruby-identifier">app_build</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">IpaFileAnalyser</span>.<span class="ruby-identifier">fetch_app_build</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value">:ipa</span>])
+  <span class="ruby-identifier">latest_build</span> = <span class="ruby-constant">FastlaneCore</span><span class="ruby-operator">::</span><span class="ruby-constant">BuildWatcher</span>.<span class="ruby-identifier">wait_for_build_processing_to_be_complete</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">apple_id</span>, <span class="ruby-identifier">platform</span><span class="ruby-operator">:</span> <span class="ruby-identifier">platform</span>, <span class="ruby-identifier">train_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_version</span>, <span class="ruby-identifier">build_version</span><span class="ruby-operator">:</span> <span class="ruby-identifier">app_build</span>, <span class="ruby-identifier">poll_interval</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:wait_processing_interval</span>], <span class="ruby-identifier">strict_build_watch</span><span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:wait_for_uploaded_build</span>])
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">latest_build</span>.<span class="ruby-identifier">train_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">app_version</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">latest_build</span>.<span class="ruby-identifier">build_version</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">app_build</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">important</span>(<span class="ruby-node">&quot;Uploaded app #{app_version} - #{app_build}, but received build #{latest_build.train_version} - #{latest_build.build_version}. If you want to wait for uploaded build to be finished processing, use the `wait_for_uploaded_build` option&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">distribute</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">build</span><span class="ruby-operator">:</span> <span class="ruby-identifier">latest_build</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-describe_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">describe_build</span><span
+            class="method-args">(build)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="describe_build-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">describe_build</span>(<span class="ruby-identifier">build</span>)
+  <span class="ruby-identifier">row</span> = [<span class="ruby-identifier">build</span>.<span class="ruby-identifier">train_version</span>,
+         <span class="ruby-identifier">build</span>.<span class="ruby-identifier">build_version</span>,
+         <span class="ruby-identifier">build</span>.<span class="ruby-identifier">install_count</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">row</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-distribute_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">distribute_build</span><span
+            class="method-args">(uploaded_build, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="distribute_build-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">distribute_build</span>(<span class="ruby-identifier">uploaded_build</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-node">&quot;Distributing new build to testers: #{uploaded_build.train_version} - #{uploaded_build.build_version}&quot;</span>)
+
+  <span class="ruby-comment"># This is where we could add a check to see if encryption is required and has been updated</span>
+  <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">export_compliance</span>.<span class="ruby-identifier">encryption_updated</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:groups</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:distribute_external</span>]
+    <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">beta_review_info</span>.<span class="ruby-identifier">demo_account_required</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:demo_account_required</span>] <span class="ruby-comment"># this needs to be set for iTC to continue</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">submit_for_testflight_review!</span>
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-comment"># App Store Connect currently may 504 on this request even though it manages to get the build in</span>
+      <span class="ruby-comment"># the approved state, this is a temporary workaround.</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;504&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">message</span>(<span class="ruby-string">&quot;Submitting the build for review timed out, trying to recover.&quot;</span>)
+      <span class="ruby-identifier">updated_build</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">app_id</span>, <span class="ruby-identifier">build_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ex</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">updated_build</span>.<span class="ruby-identifier">approved?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:groups</span>]
+    <span class="ruby-identifier">groups</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">filter_groups</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">app_id</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:groups</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">group</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">add_group!</span>(<span class="ruby-identifier">group</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:distribute_external</span>]
+    <span class="ruby-identifier">external_group</span> = <span class="ruby-constant">Spaceship</span><span class="ruby-operator">::</span><span class="ruby-constant">TestFlight</span><span class="ruby-operator">::</span><span class="ruby-constant">Group</span>.<span class="ruby-identifier">default_external_group</span>(<span class="ruby-identifier">app_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">app_id</span>)
+    <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">add_group!</span>(<span class="ruby-identifier">external_group</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">external_group</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">external_group</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:groups</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-string">&quot;You must specify at least one group using the `:groups` option to distribute externally&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># distribute internally</span>
+    <span class="ruby-comment"># in case any changes to export_compliance are required</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">export_compliance_missing?</span>
+      <span class="ruby-identifier">uploaded_build</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_update_app_test_information-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_update_app_test_information?</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_update_app_test_information-3F-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_update_app_test_information?</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:beta_app_description</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:beta_app_feedback_email</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_update_build_information-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_update_build_information?</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_update_build_information-3F-source">
+            <pre><span class="ruby-comment"># File pilot/lib/pilot/build_manager.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_update_build_information?</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:changelog</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

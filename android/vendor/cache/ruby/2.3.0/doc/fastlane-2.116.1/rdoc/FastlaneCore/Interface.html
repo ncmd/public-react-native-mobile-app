@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FastlaneCore::Interface - fastlane-2.116.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-abort_with_message-21">#abort_with_message!</a>
+    
+    <li ><a href="#method-i-build_failure-21">#build_failure!</a>
+    
+    <li ><a href="#method-i-command">#command</a>
+    
+    <li ><a href="#method-i-command_output">#command_output</a>
+    
+    <li ><a href="#method-i-confirm">#confirm</a>
+    
+    <li ><a href="#method-i-content_error">#content_error</a>
+    
+    <li ><a href="#method-i-crash-21">#crash!</a>
+    
+    <li ><a href="#method-i-deprecated">#deprecated</a>
+    
+    <li ><a href="#method-i-error">#error</a>
+    
+    <li ><a href="#method-i-header">#header</a>
+    
+    <li ><a href="#method-i-important">#important</a>
+    
+    <li ><a href="#method-i-input">#input</a>
+    
+    <li ><a href="#method-i-interactive-3F">#interactive?</a>
+    
+    <li ><a href="#method-i-message">#message</a>
+    
+    <li ><a href="#method-i-not_implemented">#not_implemented</a>
+    
+    <li ><a href="#method-i-password">#password</a>
+    
+    <li ><a href="#method-i-select">#select</a>
+    
+    <li ><a href="#method-i-shell_error-21">#shell_error!</a>
+    
+    <li ><a href="#method-i-success">#success</a>
+    
+    <li ><a href="#method-i-test_failure-21">#test_failure!</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-user_error-21">#user_error!</a>
+    
+    <li ><a href="#method-i-verbose">#verbose</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FastlaneCore::Interface">
+  <h1 id="class-FastlaneCore::Interface" class="class">
+    class FastlaneCore::Interface
+  </h1>
+
+  <section class="description">
+    
+<p>Abstract super class</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-abort_with_message-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">abort_with_message!</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use this method to exit the program because of terminal state that is
+neither the fault of fastlane, nor a problem with the user&#39;s input.
+Using this method instead of user_error! will avoid tracking this outcome
+as a fastlane failure.</p>
+
+<pre>e.g. tests ran successfully, but no screenshots were found</pre>
+
+<p>This will show the message, but hide the full stack trace.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="abort_with_message-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">abort_with_message!</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneCommonException</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_failure-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_failure!</span><span
+            class="method-args">(error_message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use this method to exit the program because of a build failure that&#39;s
+caused by the source code of the user. Example for this is that gym will
+fail when the code doesn&#39;t compile or because settings for the project
+are incorrect. By using this method we&#39;ll have more accurate results
+about fastlane failures</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_failure-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_failure!</span>(<span class="ruby-identifier">error_message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneBuildFailure</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>), <span class="ruby-identifier">error_message</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Command: Print out a terminal command that is being</p>
+
+<pre>executed.
+
+By default those messages shown in cyan</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_output</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Command Output: Print the output of a command with</p>
+
+<pre>this method
+
+By default those messages shown in magenta</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="command_output-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_output</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-confirm" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">confirm</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A simple yes or no question</p>
+          
+          
+
+          
+          <div class="method-source-code" id="confirm-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">confirm</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-content_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content_error</span><span
+            class="method-args">(content, error_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print lines of content around specific line where</p>
+
+<pre class="ruby"><span class="ruby-identifier">failed</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">parse</span>.
+
+<span class="ruby-constant">This</span> <span class="ruby-identifier">message</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">shown</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">error</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="content_error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content_error</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">error_line</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-crash-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">crash!</span><span
+            class="method-args">(exception)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pass an exception to this method to exit the program</p>
+
+<pre class="ruby"><span class="ruby-identifier">using</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">given</span> <span class="ruby-identifier">exception</span>
+</pre>
+
+<p>Use this method instead of user_error! if this error is unexpected, e.g. an
+invalid server response that shouldn&#39;t happen</p>
+          
+          
+
+          
+          <div class="method-source-code" id="crash-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">crash!</span>(<span class="ruby-identifier">exception</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneCrash</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deprecated" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecated</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Deprecated: Show that a particular function is deprecated</p>
+
+<pre>By default those messages shown in strong blue</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="deprecated-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecated</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Error: Can be used to show additional error</p>
+
+<pre>information before actually raising an exception
+or can be used to just show an error from which
+fastlane can recover (much magic)
+
+By default those messages are shown in red</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print a header = a text in a box</p>
+
+<pre class="ruby"><span class="ruby-identifier">use</span> <span class="ruby-identifier">this</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span> <span class="ruby-identifier">message</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">really</span> <span class="ruby-identifier">important</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-important" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">important</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Important: Can be used to show warnings to the user</p>
+
+<pre>not necessarily negative, but something the user should
+be aware of.
+
+By default those messages are shown in yellow</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="important-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">important</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-input" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">input</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get a standard text input (single line)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="input-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">input</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interactive-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interactive?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is is possible to ask the user questions?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interactive-3F-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interactive?</span>
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">message</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Message: Show a neutral message to the user</p>
+
+<pre>By default those messages shown in white/black</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="message-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-not_implemented" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">not_implemented</span><span
+            class="method-args">(method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!group Helpers</p>
+          
+          
+
+          
+          <div class="method-source-code" id="not_implemented-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">require_relative</span> <span class="ruby-string">&#39;ui&#39;</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">user_error!</span>(<span class="ruby-node">&quot;Current UI &#39;#{self}&#39; doesn&#39;t support method &#39;#{method_name}&#39;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-password" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">password</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Password input for the user, text field shouldn&#39;t show plain text</p>
+          
+          
+
+          
+          <div class="method-source-code" id="password-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">password</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select</span><span
+            class="method-args">(_message, _options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Let the user select one out of x items return value is the value of the
+option the user chose</p>
+          
+          
+
+          
+          <div class="method-source-code" id="select-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select</span>(<span class="ruby-identifier">_message</span>, <span class="ruby-identifier">_options</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shell_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shell_error!</span><span
+            class="method-args">(error_message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use this method to exit the program because of a shell command failure –
+the command returned a non-zero response. This does not specify the nature
+of the error. The error might be from a programming error, a user error, or
+an expected  error because the user of the Fastfile doesn&#39;t have their
+environment set up properly. Because of this, when these errors occur, it
+means that the caller of the shell command did not adequate error handling
+and the caller error handling should be improved.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="shell_error-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shell_error!</span>(<span class="ruby-identifier">error_message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneShellError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>), <span class="ruby-identifier">error_message</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-success" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">success</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Success: Show that something was successful</p>
+
+<pre>By default those messages are shown in green</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="success-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">success</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_failure-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_failure!</span><span
+            class="method-args">(error_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use this method to exit the program because of a test failure that&#39;s
+caused by the source code of the user. Example for this is that scan will
+fail when the tests fail. By using this method we&#39;ll have more accurate
+results about fastlane failures</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_failure-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_failure!</span>(<span class="ruby-identifier">error_message</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneTestFailure</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">error_message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>).<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_error!</span><span
+            class="method-args">(error_message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use this method to exit the program because of an user error</p>
+
+<pre>e.g. app doesn&#39;t exist on the given Developer Account
+     or invalid user credentials
+     or scan tests fail</pre>
+
+<p>This will show the error message, but doesn&#39;t show the full</p>
+
+<pre class="ruby"><span class="ruby-identifier">stack</span> <span class="ruby-identifier">trace</span>
+</pre>
+
+<p>Basically this should be used when you actively catch the error and want to
+show a nice error message to the user</p>
+          
+          
+
+          
+          <div class="method-source-code" id="user_error-21-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_error!</span>(<span class="ruby-identifier">error_message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">FastlaneError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>), <span class="ruby-identifier">error_message</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verbose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verbose</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Level Verbose: Print out additional information for the</p>
+
+<pre>users that are interested. Will only be printed when
+FastlaneCore::Globals.verbose? = true
+
+By default those messages are shown in white</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="verbose-source">
+            <pre><span class="ruby-comment"># File fastlane_core/lib/fastlane_core/ui/interface.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verbose</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-identifier">not_implemented</span>(<span class="ruby-identifier">__method__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

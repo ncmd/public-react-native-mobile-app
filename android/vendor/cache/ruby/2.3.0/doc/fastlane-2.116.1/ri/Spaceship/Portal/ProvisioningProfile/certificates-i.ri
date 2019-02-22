@@ -1,0 +1,15 @@
+U:RDoc::Attr[iI"certificates:ETI"8Spaceship::Portal::ProvisioningProfile#certificates;TI"RW;T:publico:RDoc::Markup::Document:@parts[	o:RDoc::Markup::Paragraph;	[I"B@return (Array) A list of certificates used for this profile ;TI"@example Example Value;To:RDoc::Markup::Verbatim;	[I"[
+;TI"2 <Spaceship::Portal::Certificate::Production
+;TI"   @status=nil
+;TI"   @id="XC5PH8D4AA"
+;TI"!   @name="iOS Distribution"
+;TI"   @created=nil
+;TI"\   @expires=#<DateTime: 2015-11-25T22:45:50+00:00 ((2457352j,81950s,0n),+0s,2299161j)>
+;TI"   @owner_type="team"
+;TI"   @owner_name=nil
+;TI"   @owner_id=nil
+;TI"(   @type_display_id="R58UK2EWAA">]
+;TI"]
+;T:@format0o;
+;	[I"@example Usage;To;;	[I""profile.certificates.first.id;T;0:
+@fileI";spaceship/lib/spaceship/portal/provisioning_profile.rb;T:0@omit_headings_from_table_of_contents_below0F@$I"+Spaceship::Portal::ProvisioningProfile;TcRDoc::NormalClass0
