@@ -48,14 +48,6 @@ platform :android do
         'android.injected.signing.key.password' => ENV["MYAPP_RELEASE_KEY_PASSWORD"]
       }
     )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'Debug'
-    )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'AndroidTest'
-    )
     capture_android_screenshots
     upload_to_play_store(
       apk: './app/build/outputs/apk/release/app-release.apk'
