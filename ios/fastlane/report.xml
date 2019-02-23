@@ -5,57 +5,57 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.004613">
+      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.003914">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: update_fastlane" time="2.007366">
+      <testcase classname="fastlane.lanes" name="01: update_fastlane" time="0.000895">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: default_platform" time="0.000944">
+      <testcase classname="fastlane.lanes" name="02: default_platform" time="0.000817">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: sync_code_signing" time="1.728979">
+      <testcase classname="fastlane.lanes" name="03: sync_code_signing" time="2.126455">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: increment_build_number" time="0.880588">
+      <testcase classname="fastlane.lanes" name="04: increment_build_number" time="0.832813">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: increment_version_number" time="0.574812">
+      <testcase classname="fastlane.lanes" name="05: increment_version_number" time="0.588899">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: build_app" time="117.961149">
+      <testcase classname="fastlane.lanes" name="06: build_app" time="114.112672">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: snapshot" time="142.352767">
+      <testcase classname="fastlane.lanes" name="07: snapshot" time="142.720466">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: get_build_number" time="0.248524">
+      <testcase classname="fastlane.lanes" name="08: get_build_number" time="0.232331">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: deliver" time="27.20963">
+      <testcase classname="fastlane.lanes" name="09: deliver" time="22.107946">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: upload_to_app_store" time="76.930059">
+      <testcase classname="fastlane.lanes" name="10: upload_to_app_store" time="76.220819">
         
       </testcase>
     

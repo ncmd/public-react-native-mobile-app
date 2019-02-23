@@ -12,23 +12,8 @@ platform :android do
     gradle(task: "test")
   end
 
-  desc "Local Screengrab"
-  lane :localload do
-    gradle(
-      task: 'clean'
-    )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'Debug'
-    )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'AndroidTest'
-    )
-  end
-
-  desc "Local Screengrab"
-  lane :localscreengrab do
+  desc "Local Build App"
+  lane :localdeploy do
     gradle(
       task: 'clean'
     )
@@ -41,16 +26,10 @@ platform :android do
       build_type: 'AndroidTest'
     )
     capture_android_screenshots
-  end
-
-  desc "Local Build App"
-  lane :localdeploy do
-    # Build APK
-    gradle(
+    build_android_app(
       task: 'assemble',
       build_type: 'Release'
     )
-    # Upload APK to Playstore
     upload_to_play_store(
       apk: './app/build/outputs/apk/release/app-release.apk'
     )
@@ -69,6 +48,15 @@ platform :android do
         'android.injected.signing.key.password' => ENV["MYAPP_RELEASE_KEY_PASSWORD"]
       }
     )
+    build_android_app(
+      task: 'assemble',
+      build_type: 'Debug'
+    )
+    build_android_app(
+      task: 'assemble',
+      build_type: 'AndroidTest'
+    )
+    capture_android_screenshots
     upload_to_play_store(
       apk: './app/build/outputs/apk/release/app-release.apk'
     )

@@ -58,5 +58,6 @@ publicreactnativeapp.app.dSYM.zip
 */ios/publicreactnativeapp.app.dSYM.zip
 */ios/publicreactnativeapp.ipa
 ios/publicreactnativeapp.app.dSYM.zip
-
+*/android/api-*.json
+android/api-*.json
 nohup.out

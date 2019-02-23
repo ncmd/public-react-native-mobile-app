@@ -31,6 +31,7 @@ class publicreactnativeappUITests: XCTestCase {
 
     func testExample() {
       let app = XCUIApplication()
+      sleep(10)
       snapshot("01LandingScreen")
       sleep(3)
       app.buttons["landingsignup"].tap()
@@ -38,7 +39,6 @@ class publicreactnativeappUITests: XCTestCase {
       snapshot("02LandingSignup")
       app.buttons["signupback"].tap()
       sleep(3)
-      app.buttons["landinglogin"].tap()
       snapshot("03LandingLogin")
     }
 
