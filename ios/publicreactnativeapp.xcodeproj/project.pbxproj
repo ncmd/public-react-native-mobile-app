@@ -54,6 +54,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B09271CCEDC9470E88D917B0 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F35BA9C4F4144DDAE2AA63E /* MaterialCommunityIcons.ttf */; };
 		B70EF60F221CB62E009A0631 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EF5E2221CB62E009A0631 /* SnapshotHelper.swift */; };
+		B74F4F842221DA9300E9F88B /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		B79690F7221CAE9E007E86BE /* publicreactnativeappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79690F6221CAE9E007E86BE /* publicreactnativeappUITests.swift */; };
 		C069B58743EC416E8D8703F7 /* libTouchID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DA4E48A672487EA2A51DAC /* libTouchID.a */; };
 		CC25DEEE22054B94AD16C0E5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E9DBFCD2F71465BABCD19E2 /* FontAwesome.ttf */; };
@@ -1500,6 +1501,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74F4F842221DA9300E9F88B /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F14BD917A02C441492ED5ADD /* AntDesign.ttf in Resources */,
@@ -1755,7 +1757,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 9S2JY9AX68;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1795,7 +1797,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = 9S2JY9AX68;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
