@@ -153,7 +153,7 @@ platform :ios do
     snapshot(
       project: 'publicreactnativeapp.xcodeproj',
       scheme: 'publicreactnativeappUITests',
-      devices: ['iPhone 6s Plus', 'iPad Pro (2nd generation)'],
+      devices: ['iPhone 6s Plus'],
       languages: ["en-US"],
       output_simulator_logs: true,
       clear_previous_screenshots: true,

@@ -230,11 +230,13 @@ FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD
 ## 2. React-native does not,generate main.jsbundle
 - Add it with XCODE: https://github.com/facebook/react-native/issues/18313#issuecomment-421551538
 - Solution:
+- https://stackoverflow.com/questions/49505446/main-jsbundle-does-not-exist-this-must-be-a-bug-with-echo-react-native
 ```
 npm install react-native-cli -g
 cd <root of react native project>
 react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
 ```
+- Open Xcode -> Select project target -> add main.jsbundle to Copy Bundle Resource in Build Phases.
 - Common Error:
 ```
 ❌  error: File /Users/travis/Library/Developer/Xcode/DerivedData/publicreactnativeapp-cmstzkswapckofaljfpwelwacbjr/Build/Intermediates.noindex/ArchiveIntermediates/publicreactnativeapp/BuildProductsPath/Release-iphoneos/publicreactnativeapp.app/main.jsbundle does not exist. This must be a bug with
