@@ -187,7 +187,7 @@ class SearchMain extends React.Component {
         // }
     }
     // Used for Flatlist - https://facebook.github.io/react-native/docs/flatlist
-    keyExtractor = (item, index) => item.watchlistStockId
+    keyExtractor = (item, index) => item.id
 
     actionStockView = async (stockid) => {
         await this.props.getStock(stockid)

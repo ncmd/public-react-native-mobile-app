@@ -23,11 +23,7 @@ export const stockPositionsGet = (userid) => async dispatch => {
     
 }
 
-export const stockPositionsAdd = (userid, stockticker, stockid) => async dispatch => {
-    let data = {
-        positionsStockId: stockid,
-        positionsTicker: stockticker,
-    }
+export const stockPositionsAdd = (stockid, stockticker, stockprice, stockquantity,userid) => async dispatch => {
     let ref = firebase.firestore().collection('accounts').doc(userid);
     // get existing positions
 
@@ -37,15 +33,16 @@ export const stockPositionsAdd = (userid, stockticker, stockid) => async dispatc
             // add new data
             prevPositions.push({
                 positionsStockId: stockid,
-                positionsTicker: stockticker,
+                positionsStockTicker: stockticker,
+                positionsStockPrice: stockprice,
+                positionsStockQuantity: stockquantity,
             })
             ref.update({
                 positions: prevPositions
             })
+            dispatch({ type: STOCK_WATCHLIST_ADD, payload: prevPositions });
         }
     }).catch(function (error) {
         console.log("Error getting document:", error);
     });
-    // add to redux
-    dispatch({ type: STOCK_POSITIONS_ADD, payload: data });
 }

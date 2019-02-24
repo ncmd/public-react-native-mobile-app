@@ -24,11 +24,6 @@ export const stockWatchlistGet = (userid) => async dispatch => {
 }
 
 export const stockWatchlistAdd = (stockid, stockticker, stockprice, userid) => async dispatch => {
-    let data = {
-        watchlistStockId: stockid,
-        watchlistStockTicker: stockticker,
-        watchlistStockPrice: stockprice,
-    }
     let ref = firebase.firestore().collection('accounts').doc(userid);
     // get existing watchlist
 

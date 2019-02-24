@@ -21,6 +21,9 @@ import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { Actions } from 'react-native-router-flux'
 import {
+    stockPositionsAdd
+} from '../../redux/actions/actions_stock_positions';
+import {
     stockOrderBuy,
 } from '../../redux/actions/actions_stock_order';
 import {
@@ -106,6 +109,7 @@ class StockOrder extends React.Component {
         console.log("User:",user)
         // stockOrderBuy = (userid,price,quantity,ticker)
         await this.props.stockOrderBuy(user.uid,this.state.stockData[this.state.stockData.length - 1],this.state.stockShareQuantity,this.props.stock[0].ticker)
+        await this.props.stockPositionsAdd(this.props.stock[0].id,this.props.stock[0].ticker,parseInt(this.state.stockData[this.state.stockData.length - 1]),this.state.stockShareQuantity,user.uid)
         Actions.reset('stockorderinvoice')
 
     }
@@ -177,4 +181,5 @@ export default connect(mapStateToProps, {
     iosStyleLoad,
     stockOrderBuy,
     loadAccountInformation,
+    stockPositionsAdd,
 })(StockOrder);

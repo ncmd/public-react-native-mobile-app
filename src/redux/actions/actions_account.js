@@ -43,7 +43,12 @@ export const createNewAccount = (emailaddress, phonenumber, firebaseuid) => asyn
     emailAddress: emailaddress,
     phoneNumber: phonenumber,
     firebaseUid: firebaseuid,
-    orders: []
+    orders: [],
+    positions:[],
+    watchlist:[],
+    netWorth:0,
+    portfolioValue:0,
+    buyingPower:0,
   })
 }
 

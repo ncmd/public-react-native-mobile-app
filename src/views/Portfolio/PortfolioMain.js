@@ -150,8 +150,8 @@ class PortfolioMain extends React.Component {
     renderItemPositions = ({ item }) => (
         <ListItem
             onPress={() => Actions.stockview()}
-            key={item.stockId}
-            title={item.stockTicker}
+            key={item.positionStockId}
+            title={item.positionsStockTicker}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
@@ -165,7 +165,7 @@ class PortfolioMain extends React.Component {
                 >
                     <ShadowUP />
                 </LineChart> */}
-                <Button title={item.stockPrice.toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+                <Button title={"$"+(item.positionsStockQuantity*item.positionsStockPrice).toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
             </View>}
             bottomDivider={true}
         />
@@ -179,7 +179,7 @@ class PortfolioMain extends React.Component {
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                <Button title={item.watchlistStockPrice} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+                <Button title={"$"+item.watchlistStockPrice.toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
             </View>}
             bottomDivider={true}
         />
