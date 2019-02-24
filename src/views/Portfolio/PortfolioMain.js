@@ -27,6 +27,7 @@ import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import PortfolioPerformance from './PortfolioPerformance';
+import PortfolioIpo from './PortfolioIpo';
 import { connect } from 'react-redux';
 import {
     androidStyleLoad,
@@ -68,7 +69,7 @@ class PortfolioMain extends React.Component {
         this.state = {
             index: 0,
             routes: [
-                { key: 'performance', title: "Performance" },
+                { key: 'performance', title:"Performance"},
                 { key: 'positions', title: "Positions" },
                 { key: 'watchlist', title: "Watchlist" },
             ],
@@ -238,11 +239,14 @@ class PortfolioMain extends React.Component {
         </View>
     );
 
+    FourthRoute = () => (
+        <PortfolioIpo />
+    );
+
     renderStockView() {
         return (
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <HeaderBase />
-
                 <TabView
                     navigationState={this.state}
                     renderScene={SceneMap({

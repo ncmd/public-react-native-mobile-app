@@ -10,6 +10,7 @@ import {
     ScrollView,
     Dimensions,
 } from 'react-native';
+import HeaderBase from '../../components/Header/HeaderBase';
 import Header from '../../components/Header/HeaderStockView'
 import { LineChart, Path, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
@@ -21,7 +22,11 @@ import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import NavigationBase from '../../components/Navigation/NavigationBase'
-// const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
+import { connect } from 'react-redux';
+import {
+    androidStyleLoad,
+    iosStyleLoad,
+} from '../../redux/actions/actions_styles';
 
 const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365]
 
@@ -51,7 +56,7 @@ const ShadowUP = ({ line }) => (
     />
 )
 
-class PortfolioPerformance extends React.Component {
+class PortfolioIpo extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -60,6 +65,7 @@ class PortfolioPerformance extends React.Component {
             stockData: [12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09, 10.55, 10.73, 10.65, 10.4, 10.32, 9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28],
             stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1W', '1M', '3M', '1Y', 'ALL'],
             stockTimePickerValuesToggle: false,
+            stockTicker: "",
             deviceWidth: 200,
             stockPerformance: '',
             stockVolume: 12023,
@@ -223,26 +229,38 @@ class PortfolioPerformance extends React.Component {
         }
     }
 
+    renderStockChart() {
+        return (
+            <View>
+                <View>
+                    <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
+                        CCDCDAQ <NumberFormat
+                            style={{ color: 'red' }}
+                            value={this.state.investmentTotal}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={''}
+                            renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>${this.state.investmentTotal + this.state.stockData[this.state.stockData.length - 1]}</Text>}
+                        />
+                    </Text>
+                    {this.renderStockPriceDifference()}
+                </View>
+                {this.renderStockChart(this.state.selectedIndex)}
+                {this.renderTimeSelectorButtonGroup()}
+            </View>
+        )
+    }
+
     renderStockView() {
         return (
-            <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <View style={{ marginBottom: 10, flex: 1 }}>
-                    <View>
-                        <View>
-                            <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                Net Worth: <NumberFormat
-                                    style={{ color: 'red' }}
-                                    value={this.state.investmentTotal}
-                                    displayType={'text'}
-                                    thousandSeparator={true}
-                                    prefix={''}
-                                    renderText={value => <Text style={{ paddingLeft: 25, color: "white", fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>${value}</Text>}
-                                />
-                            </Text>
-                            {this.renderStockPriceDifference()}
-                        </View>
-                        {this.renderStockChart(this.state.selectedIndex)}
-                        {this.renderTimeSelectorButtonGroup()}
+            <KeyboardAvoidingView behavior="padding" style={{ flex: 1, height:"100%", backgroundColor: "transparent", flexGrow: 1, flexDirection: 'column', justifyContent: 'center' }} enabled>
+                <View style={{ flex: 0, justifyContent: 'flex-start', alignItems: "center", flexDirection: 'column' }}>
+                    <View style={{padding:20}}>
+                        <Text style={{ padding: 20, fontSize: 30, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightBoldPrimary, color: 'white', textAlign: 'center' }}>Enter your ticker</Text>
+                        <TextInput maxLength={5} multiline={false} placeholder="APPLE" placeholderTextColor="grey" autoCapitalize="none" multiline={false} style={{ fontWeight: systemWeights.bold.fontWeight, color: "white", fontSize: 25, textAlign: "center" }}
+                            onChangeText={(ticker) => this.setState({ stockTicker: ticker })}>
+                        </TextInput>
+                        <Button title="Go IPO" titleStyle={{ fontSize: 25, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightBoldPrimary }} raised={false} buttonStyle={{ height: 50, borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                     </View>
                 </View>
             </KeyboardAvoidingView>
@@ -275,4 +293,13 @@ class PortfolioPerformance extends React.Component {
     }
 }
 
-export default PortfolioPerformance;
+function mapStateToProps({ style }) {
+    return {
+        style
+    };
+}
+
+export default connect(mapStateToProps, {
+    androidStyleLoad,
+    iosStyleLoad,
+})(PortfolioIpo);
