@@ -36,6 +36,13 @@ import {
 import {
     stockWatchlistGet,
 } from '../../redux/actions/actions_stock_watchlist';
+import {
+    getStocksAll,
+} from '../../redux/actions/actions_stocks';
+import {
+    stockPositionsGet
+} from '../../redux/actions/actions_stock_positions';
+import firebase from 'react-native-firebase';
 
 const ShadowDOWN = ({ line }) => (
     <Path
@@ -69,7 +76,7 @@ class PortfolioMain extends React.Component {
         this.state = {
             index: 0,
             routes: [
-                { key: 'performance', title:"Performance"},
+                { key: 'performance', title: "Performance" },
                 { key: 'positions', title: "Positions" },
                 { key: 'watchlist', title: "Watchlist" },
             ],
@@ -138,10 +145,15 @@ class PortfolioMain extends React.Component {
         }
     }
 
-    componentDidMount() {
-        console.log("PortfolioMain:", this.props.stockWatchlist)
-
+    async componentDidMount() {
+        var user = await firebase.auth().currentUser;
+        await this.props.getStocksAll()
+        await console.log(this.props.stocks)
+        await this.props.stockWatchlistGet(user.uid)
+        await console.log(this.props.stockWatchlist)
+        await this.props.stockPositionsGet(user.uid)
     }
+
 
 
     keyExtractorPositions = (item, index) => item.positionsStockId
@@ -165,7 +177,15 @@ class PortfolioMain extends React.Component {
                 >
                     <ShadowUP />
                 </LineChart> */}
-                <Button title={"$"+(item.positionsStockQuantity*item.positionsStockPrice).toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+                 
+                <Button title={<NumberFormat
+                            value={item.positionsStockQuantity.toString() * item.positionsStockPrice.toString()}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            decimalScale={2}
+                            prefix={'$'}
+                            renderText={value => <Text style={{ width: "50%", fontSize: 15, color: "#0e0d0d", textAlign: "right", paddingRight: 10, fontWeight: systemWeights.bold.fontWeight }}>{value}</Text>}
+                        />} buttonStyle={{ width: 120, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
             </View>}
             bottomDivider={true}
         />
@@ -179,7 +199,7 @@ class PortfolioMain extends React.Component {
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                <Button title={"$"+item.watchlistStockPrice.toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+                <Button title={"$" + item.watchlistStockPrice.toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
             </View>}
             bottomDivider={true}
         />
@@ -284,11 +304,14 @@ const styles = StyleSheet.create({
     },
 });
 
-function mapStateToProps({ style, stockWatchlist, stockPositions }) {
+function mapStateToProps({ style, stockWatchlist, stockPositions, account, stocks, stock }) {
     return {
         style,
         stockWatchlist,
         stockPositions,
+        account,
+        stocks,
+        stock,
     };
 }
 
@@ -296,4 +319,6 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     stockWatchlistGet,
+    getStocksAll,
+    stockPositionsGet,
 })(PortfolioMain);

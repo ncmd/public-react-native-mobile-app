@@ -105,11 +105,12 @@ class StockOrder extends React.Component {
 
     stockOrderSubmit = async () => {
     // stockOrderSubmit(){
-        var user = firebase.auth().currentUser;
+        var user = await firebase.auth().currentUser;
         console.log("User:",user)
         // stockOrderBuy = (userid,price,quantity,ticker)
+        console.log("This stock:",this.props.stock)
         await this.props.stockOrderBuy(user.uid,this.state.stockData[this.state.stockData.length - 1],this.state.stockShareQuantity,this.props.stock[0].ticker)
-        await this.props.stockPositionsAdd(this.props.stock[0].id,this.props.stock[0].ticker,parseInt(this.state.stockData[this.state.stockData.length - 1]),this.state.stockShareQuantity,user.uid)
+        await this.props.stockPositionsAdd(this.props.stock[0].id,this.props.stock[0].ticker,this.state.stockData[this.state.stockData.length - 1],this.state.stockShareQuantity,user.uid)
         Actions.reset('stockorderinvoice')
 
     }
