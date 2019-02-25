@@ -145,6 +145,7 @@ class PortfolioPerformance extends React.Component {
     }
 
     renderStockChartSelect(maxslice) {
+        console.log("PortfolioPerformance this.state.stockdata:",this.state.stockData)
         dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
 
         const HorizontalLine = (({ y }) => (

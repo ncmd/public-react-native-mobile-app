@@ -47,7 +47,6 @@ class SearchMain extends React.Component {
         super()
         this.state = {
             search: '',
-            stockWatchlist:[],
         }
     }
 
@@ -57,13 +56,19 @@ class SearchMain extends React.Component {
         await console.log(this.props.stocks)
         await this.props.stockWatchlistGet(user.uid)
         await console.log("SearchMain:", this.props.stockWatchlist)
-        this.setState({
-            stockWatchlist: this.props.stockWatchlist
-        })
     }
 
     updateSearch = search => {
         this.setState({ search });
+        const newData = this.arrayholder.filter(item => {
+            const itemData = `${item.symbol.toUpperCase()} ${item.name.toUpperCase()}`;
+            const textData = text.toUpperCase();
+      
+            return itemData.indexOf(textData) > -1;
+          });
+          this.setState({
+            data: newData,
+          });
     };
 
     favoriteStock(index) {
@@ -103,15 +108,15 @@ class SearchMain extends React.Component {
     // Used for Flatlist - https://facebook.github.io/react-native/docs/flatlist
     keyExtractor = (item, index) => item.id
 
-    actionStockView = async (stockid) => {
-        await this.props.getStock(stockid)
+    actionStockView = async (stockid, item) => {
+        await this.props.getStock(stockid, item)
         console.log("SearchMain this.props.stock:", this.props.stock)
         Actions.stockview()
     }
 
     renderItem = ({ item, index }) => (
         <ListItem
-            onPress={() => this.actionStockView(item.id)}
+            onPress={() => this.actionStockView(item.id, item)}
             key={item.id}
             title={item.ticker}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
@@ -134,6 +139,7 @@ class SearchMain extends React.Component {
                     placeholder="Search..."
                     onChangeText={this.updateSearch}
                     value={search}
+                    autoCorrect={false}
                     containerStyle={{ backgroundColor: "#0e0d0d" }}
                 />
                 <FlatList

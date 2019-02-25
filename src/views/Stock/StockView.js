@@ -29,6 +29,11 @@ import {
 import { connect } from 'react-redux';
 import {
     getStock,
+    getStock1hr,
+    getStock24hr,
+    getStock1wk,
+    getStock1mth,
+    getStock1yr,
 } from '../../redux/actions/actions_stock';
 
 const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365]
@@ -65,7 +70,7 @@ class StockView extends React.Component {
         this.state = {
             selectedIndex: 0,
             stockData: [12.87, 12.84, 12.06, 11.21, 10.25, 10.16, 9.99, 9.77, 9.16, 9.2, 9.33, 9.4, 9.94, 9.94, 10.09, 10.55, 10.73, 10.65, 10.4, 10.32, 9.58, 9.51, 9.48, 9.34, 9.34, 10.67, 10.69, 10.9, 11.1, 11.32, 11.34, 11.44, 12.57, 12.87, 12.81, 12.43, 12.42, 11.72, 11.69, 11.58, 11.27, 12.82, 12.77, 12.65, 12.18, 11.66, 11.26, 10.11, 10.97, 10.74, 10.94, 11.3, 11.4, 11.53, 11.87, 11.99, 12.45, 11.56, 11.86, 11.93, 11.98, 12.06, 12.2, 12.54, 12.54, 12.8, 12.9, 12.78, 12.28, 12.18, 12.09, 12, 11.67, 11.64, 11.49, 10.41, 10.14, 9.01, 9.08, 9.22, 9.49, 9.31, 9.27, 9.22, 9.24, 9.84, 9.96, 10, 10.01, 10.44, 10.55, 10.63, 10.74, 10.96, 9.83, 9.88, 9.99, 10.05, 10.1, 10.28],
-            stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '1Y'],
+            stockTimePickerValues: [<Text><Icon name="record" style={{ color: 'rgba(255,0,0,1)' }}></Icon>LIVE</Text>, '1H', '24H', '1W', '1M', '1Y'],
             stockTimePickerValuesToggle: false,
             deviceWidth: 200,
             stockPerformance: '',
@@ -149,9 +154,9 @@ class StockView extends React.Component {
         // When socket receives messages
         this.socket.onmessage = (e) => {
             console.log(e)
-            prevStockData = this.state.stockData
+            prevStockData = this.props.stock[0].dataselect
             prevStockData.push(parseFloat(e.data))
-            if (this.state.stockData[0] > this.state.stockData[this.state.stockData.length - 1]) {
+            if (this.props.stock[0].dataselect[0] > this.props.stock[0].dataselect[this.props.stock[0].dataselect.length - 1]) {
                 this.setState({
                     stockPerformance: 'down'
                 })
@@ -177,7 +182,19 @@ class StockView extends React.Component {
     }
 
     updateIndex(selectedIndex) {
+        console.log(this.props.stock)
         this.setState({ selectedIndex })
+        if (selectedIndex === 1){
+            this.props.getStock1hr(this.props.stock[0].id,this.props.stock[0])
+        } else if(selectedIndex === 2){
+            this.props.getStock24hr(this.props.stock[0].id,this.props.stock[0])
+        } else if(selectedIndex === 3){
+            this.props.getStock1wk(this.props.stock[0].id,this.props.stock[0])
+        } else if(selectedIndex === 4){
+            this.props.getStock1mth(this.props.stock[0].id,this.props.stock[0])
+        } else if(selectedIndex === 5){
+            this.props.getStock1yr(this.props.stock[0].id,this.props.stock[0])
+        }
     }
 
     handlePress(evt) {
@@ -192,15 +209,16 @@ class StockView extends React.Component {
     }
 
     renderStockChartSelect(maxslice) {
-        dayStockData = this.state.stockData.slice(this.state.stockData.length - { maxslice } + 1, this.state.stockData.length - 1);
-
+        console.log("this.props.stock[0].dataselect:",this.props.stock)
+        dayStockData = this.props.stock[0].dataselect.slice(this.props.stock[0].dataselect.length - { maxslice } + 1, this.props.stock[0].dataselect.length - 1);
+        const { loading } =  this.props
         const HorizontalLine = (({ y }) => (
-            <Line
+            !loading &&<Line
                 key={'zero-axis'}
                 x1={'0%'}
                 x2={'100%'}
-                y1={y(this.state.stockData[0])}
-                y2={y(this.state.stockData[0])}
+                y1={y(this.props.stock[0].dataselect[0])}
+                y2={y(this.props.stock[0].dataselect[0])}
                 borderRadius={1}
                 stroke={'white'}
                 strokeWidth={2}
@@ -209,7 +227,7 @@ class StockView extends React.Component {
         ))
 
         const Tooltip = ({ x, y }) => (
-            <G
+            !loading &&<G
                 x={x(this.state.fingerTouchXCoordinate)}
                 key={'tooltip'}
             >
@@ -234,10 +252,10 @@ class StockView extends React.Component {
 
         if (this.state.stockPerformance === 'up') {
             return (
-                <View>
+                !loading &&<View>
                     <LineChart
-                        style={{ height: 100, backgroundColor: "#0e0d0d" }}
-                        data={dayStockData}
+                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        data={this.props.stock[0].dataselect}
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
                         contentInset={{ top: 20, bottom: 20, left:10, right:10 }}
@@ -251,10 +269,10 @@ class StockView extends React.Component {
             )
         } else {
             return (
-                <View>
+                !loading &&<View>
                     <LineChart
-                        style={{ height: 100, backgroundColor: "#0e0d0d" }}
-                        data={dayStockData}
+                        style={{ height: 300, backgroundColor: "#0e0d0d" }}
+                        data={this.props.stock[0].dataselect}
                         animate={false}
                         svg={{ stroke: 'rgb(255,255,255)', strokeWidth: 2, strokeLinejoin: 'round' }}
                         contentInset={{ top: 20, bottom: 20, left:10, right:10 }}
@@ -275,10 +293,10 @@ class StockView extends React.Component {
     }
 
     renderStockPriceDifference() {
-        let previousPrice = this.state.stockData[this.state.stockData.length - 2]
-        let currentPrice = this.state.stockData[this.state.stockData.length - 1]
-        let differencePrice = currentPrice - this.state.stockData[0]
-        let differencePricePercentage = currentPrice / this.state.stockData[0] * 100
+        let previousPrice = this.props.stock[0].change1yr
+        let currentPrice = this.props.stock[0].price
+        let differencePrice = currentPrice - previousPrice
+        let differencePricePercentage = currentPrice / previousPrice * 100
         if (differencePrice < 0) {
             return (
                 <Text style={{ fontSize: 14, backgroundColor: "#0e0d0d", paddingLeft: 25, color: '#f45531', fontWeight: systemWeights.bold.fontWeight }}>
@@ -298,7 +316,7 @@ class StockView extends React.Component {
         const { loading } =  this.props
         return (
             !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <Header headerPrice={parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)} headerTicker={this.props.stock[0].ticker} />
+                <Header headerPrice={parseFloat(this.props.stock[0].price).toFixed(2)} headerTicker={this.props.stock[0].ticker} />
                 <View style={{marginBottom: 10, flex: 1 }}>
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
@@ -314,7 +332,7 @@ class StockView extends React.Component {
                                     {this.props.stock[0].fullName}
                                 </Text>
                                 <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, paddingTop: 5, paddingBottom: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                    ${parseFloat(this.state.stockData[this.state.stockData.length - 1]).toFixed(2)}
+                                    ${parseFloat(this.props.stock[0].price).toFixed(2)}
                                 </Text>
                                 {this.renderStockPriceDifference()}
                             </View>
@@ -399,4 +417,9 @@ export default connect(mapStateToProps, {
     androidStyleLoad,
     iosStyleLoad,
     getStock,
+    getStock1hr,
+    getStock24hr,
+    getStock1wk,
+    getStock1mth,
+    getStock1yr,
 })(StockView);
