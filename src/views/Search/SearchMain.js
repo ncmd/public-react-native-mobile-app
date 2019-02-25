@@ -47,13 +47,19 @@ class SearchMain extends React.Component {
         super()
         this.state = {
             search: '',
+            searchData: [],
         }
+        this.arrayholder = [];
     }
 
     async componentDidMount() {
         var user = await firebase.auth().currentUser;
         await this.props.getStocksAll()
         await console.log(this.props.stocks)
+        // this.setState({
+        //     searchData:this.props.stocks
+        // })
+        this.arrayholder = this.props.stocks
         await this.props.stockWatchlistGet(user.uid)
         await console.log("SearchMain:", this.props.stockWatchlist)
     }
@@ -61,13 +67,13 @@ class SearchMain extends React.Component {
     updateSearch = search => {
         this.setState({ search });
         const newData = this.arrayholder.filter(item => {
-            const itemData = `${item.symbol.toUpperCase()} ${item.name.toUpperCase()}`;
-            const textData = text.toUpperCase();
+            const itemData = `${item.fullName.toUpperCase()} ${item.ticker.toUpperCase()}`;
+            const textData = search.toUpperCase();
       
             return itemData.indexOf(textData) > -1;
           });
           this.setState({
-            data: newData,
+            searchData: newData,
           });
     };
 
@@ -140,11 +146,18 @@ class SearchMain extends React.Component {
                     onChangeText={this.updateSearch}
                     value={search}
                     autoCorrect={false}
+                    autoCapitalize="none" 
                     containerStyle={{ backgroundColor: "#0e0d0d" }}
                 />
-                <FlatList
+                 {/* <FlatList
                     data={this.props.stocks}
                     extraData={this.props.stockWatchlist}
+                    keyExtractor={this.keyExtractor}
+                    renderItem={this.renderItem}
+                /> */}
+                <FlatList
+                    data={this.state.searchData}
+                    extraData={this.props.stocks}
                     keyExtractor={this.keyExtractor}
                     renderItem={this.renderItem}
                 />
