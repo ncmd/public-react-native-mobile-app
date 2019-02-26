@@ -77,7 +77,7 @@ class SignupStep4 extends React.Component {
         var user = await firebase.auth().currentUser;
         this.props.createNewAccount(signup[0].email, signup[0].phone, user.uid)
         Alert.alert(
-            "Welcome to Loyal!",
+            "Welcome to publicreactnativeapp!",
             'You can now login to you\'re account!',
             [
                 { text: 'Login', onPress: () => Actions.reset('landingmain') },

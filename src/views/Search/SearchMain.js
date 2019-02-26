@@ -48,6 +48,7 @@ class SearchMain extends React.Component {
         this.state = {
             search: '',
             searchData: [],
+            searchState: false,
         }
         this.arrayholder = [];
     }
@@ -65,16 +66,25 @@ class SearchMain extends React.Component {
     }
 
     updateSearch = search => {
+        if (this.state.search.length > 0) {
+            this.setState({
+                searchState: true
+            })
+        } else {
+            this.setState({
+                searchState: false
+            })
+        }
         this.setState({ search });
         const newData = this.arrayholder.filter(item => {
             const itemData = `${item.fullName.toUpperCase()} ${item.ticker.toUpperCase()}`;
             const textData = search.toUpperCase();
-      
+
             return itemData.indexOf(textData) > -1;
-          });
-          this.setState({
+        });
+        this.setState({
             searchData: newData,
-          });
+        });
     };
 
     favoriteStock(index) {
@@ -124,7 +134,7 @@ class SearchMain extends React.Component {
         <ListItem
             onPress={() => this.actionStockView(item.id, item)}
             key={item.id}
-            title={item.ticker}
+            title={item.ticker.toUpperCase()}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             subtitle={item.fullName}
@@ -139,28 +149,31 @@ class SearchMain extends React.Component {
         const { loading } = this.props;
 
         return (
-            !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled >
+            !loading && <KeyboardAvoidingView keyboardVerticalOffset={0} style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled >
                 <HeaderBase />
                 <SearchBar
                     placeholder="Search..."
                     onChangeText={this.updateSearch}
                     value={search}
                     autoCorrect={false}
-                    autoCapitalize="none" 
+                    autoCapitalize="none"
                     containerStyle={{ backgroundColor: "#0e0d0d" }}
                 />
-                 {/* <FlatList
-                    data={this.props.stocks}
-                    extraData={this.props.stockWatchlist}
-                    keyExtractor={this.keyExtractor}
-                    renderItem={this.renderItem}
-                /> */}
-                <FlatList
-                    data={this.state.searchData}
-                    extraData={this.props.stocks}
-                    keyExtractor={this.keyExtractor}
-                    renderItem={this.renderItem}
-                />
+                {this.state.searchState ?
+                    <FlatList
+                        data={this.state.searchData}
+                        extraData={this.props.stocks}
+                        keyExtractor={this.keyExtractor}
+                        renderItem={this.renderItem}
+                    />
+                    :
+                    <FlatList
+                        data={this.props.stocks}
+                        extraData={this.props.stockWatchlist}
+                        keyExtractor={this.keyExtractor}
+                        renderItem={this.renderItem}
+                    />
+                }
             </KeyboardAvoidingView >
         )
     }

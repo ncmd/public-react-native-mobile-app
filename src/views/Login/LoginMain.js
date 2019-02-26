@@ -139,7 +139,7 @@ class LoginMain extends React.Component {
             console.log("User:", user.uid)
             // this.props.loadAccountInformation()
             // this.props.loadAccountInformation()
-            this.props.accountLogin()
+            await this.props.accountLogin(user.uid)
             console.log("LoginMain - this.props.account:", this.props.account)
         }
         );

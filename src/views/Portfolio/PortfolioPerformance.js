@@ -21,7 +21,12 @@ import NumberFormat from 'react-number-format';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import NavigationBase from '../../components/Navigation/NavigationBase'
+import { connect } from 'react-redux';
 // const timeSelectorButtonGroupValues = [<Text><Icon name="record" style={{ color: 'red' }}></Icon>LIVE</Text>, '1D', '1W', '1M', '3M', '6M', '1Y']
+import {
+    loadAccountInformation,
+} from '../../redux/actions/actions_account';
+import firebase from 'react-native-firebase';
 
 const timeSelectorMaxslice = [240, 288, 168, 30, 90, 180, 365]
 
@@ -96,7 +101,11 @@ class PortfolioPerformance extends React.Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        var user = firebase.auth().currentUser;
+        console.log("User:", user)
+        await this.props.loadAccountInformation(user.uid)
+        console.log("Account props:",this.props.account)
 
         // When socket opens
         this.socket.onopen = () => {
@@ -276,4 +285,12 @@ class PortfolioPerformance extends React.Component {
     }
 }
 
-export default PortfolioPerformance;
+function mapStateToProps({ account }) {
+    return {
+        account
+    };
+}
+
+export default connect(mapStateToProps, {
+    loadAccountInformation,
+})(PortfolioPerformance);

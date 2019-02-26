@@ -9,14 +9,9 @@ export default function (state = [{ email: "", phone: "", loggedIn: false, loadi
 
     switch (action.type) {
         case LOAD_ACCOUNT_INFORMATION:
-            return {
-                ...state[0],
-                emailAddress: action.emailAddress,
-                firebaseUid: action.firebaseUid,
-                phoneNumber: action.phoneNumber,
-                orders: action.orders,
-                loggedIn: action.loggedIn,
-            };
+        console.log("...state:",{...state})
+        console.log("...state[0]:",{...state[0]})
+            return state;
         case SET_ACCOUNT_INFORMATION:
             return [{
                 ...state[0],

@@ -90,6 +90,7 @@ class PortfolioMain extends React.Component {
         await this.props.stockWatchlistGet(user.uid)
         await console.log(this.props.stockWatchlist)
         await this.props.stockPositionsGet(user.uid)
+        console.log("This props account:",this.props.account)
     }
 
 
@@ -101,29 +102,18 @@ class PortfolioMain extends React.Component {
         <ListItem
             onPress={() => Actions.stockview()}
             key={item.positionStockId}
-            title={item.positionsStockTicker}
+            title={item.positionsStockTicker.toUpperCase()}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                {/* <LineChart
-                    style={{ width: 190, marginLeft: -125, backgroundColor: "transparent" }}
-                    data={item.stocktrend}
-                    animate={false}
-                    svg={{ stroke: 'rgb(33,206,153)', strokeWidth: 1, strokeLinejoin: 'round' }}
-                    contentInset={{ top: 5, bottom: 5, left: 5, right: 5 }}
-                    curve={shape.curveLinear}
-                >
-                    <ShadowUP />
-                </LineChart> */}
-                 
                 <Button title={<NumberFormat
-                            value={(item.positionsStockQuantity*item.positionsStockPrice).toString()}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            decimalScale={2}
-                            prefix={'$'}
-                            renderText={value => <Text style={{ width: "50%", fontSize: 15, color: "#0e0d0d", textAlign: "right", paddingRight: 10, fontWeight: systemWeights.bold.fontWeight }}>{value}</Text>}
-                        />} buttonStyle={{ width: 120, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+                    value={(item.positionsStockQuantity * item.positionsStockPrice).toString()}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    decimalScale={2}
+                    prefix={'$'}
+                    renderText={value => <Text style={{ width: "50%", fontSize: 15, color: "#0e0d0d", textAlign: "right", paddingRight: 10, fontWeight: systemWeights.bold.fontWeight }}>{value}</Text>}
+                />} buttonStyle={{ width: 120, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
             </View>}
             bottomDivider={true}
         />
@@ -133,11 +123,11 @@ class PortfolioMain extends React.Component {
         <ListItem
             onPress={() => Actions.stockview()}
             key={item.watchlistStockId}
-            title={item.watchlistStockTicker}
+            title={item.watchlistStockTicker.toUpperCase()}
             containerStyle={{ backgroundColor: "#0e0d0d" }}
             titleStyle={{ fontSize: 14, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "white" }}
             rightElement={<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                <Button title={"$" + item.watchlistStockPrice.toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
+                <Button title={"$" + item.watchlistStockPrice.toFixed(2).toString()} buttonStyle={{ width: 90, borderRadius: 5, backgroundColor: "#21ce99" }} titleStyle={{ fontSize: 14, color: "#0e0d0d", fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight }}></Button>
             </View>}
             bottomDivider={true}
         />
@@ -147,7 +137,6 @@ class PortfolioMain extends React.Component {
 
     _renderTabBar = props => {
         const inputRange = props.navigationState.routes.map((x, i) => i);
-
         return (
             <View style={styles.tabBar}>
                 {props.navigationState.routes.map((route, i) => {

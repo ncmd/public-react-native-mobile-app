@@ -9,15 +9,10 @@ import firebase from 'react-native-firebase';
 export const loadAccountInformation = (accountid) => async dispatch => {
   console.log("loadAccountInformation----")
   let data = []
-  let ref = firebase.firestore().collection('accounts').doc(accountid);
-  await ref.get().then(function (doc) {
-    // dispatch({ 
-    //   type: LOAD_ACCOUNT_INFORMATION, 
-    //   emailAddress: doc.data().emailAddress, 
-    //   phoneNumber: doc.data().phoneNumber, 
-    //   firebaseUid: doc.data().firebaseUid, 
-    //   orders: doc.data().orders, 
-    //   });
+
+
+  dispatch({
+    type: LOAD_ACCOUNT_INFORMATION
   });
 
 }
@@ -27,9 +22,11 @@ export const setAccountInformation = (thisdata) => dispatch => {
   dispatch({ type: SET_ACCOUNT_INFORMATION, payload: data });
 }
 
-export const accountLogin = () => dispatch => {
-  dispatch({ type: ACCOUNT_LOGIN, payload: true });
-  // console.log("accountLogin - this.props.account:",this.props.account)
+export const accountLogin = (accountid) => async dispatch => {
+  let ref = firebase.firestore().collection('accounts').doc(accountid);
+  await ref.get().then(function (doc) {
+    dispatch({ type: ACCOUNT_LOGIN, payload: true, data: doc.data() });
+  });
 }
 
 export const accountLogout = () => dispatch => {
@@ -44,17 +41,17 @@ export const createNewAccount = (emailaddress, phonenumber, firebaseuid) => asyn
     phoneNumber: phonenumber,
     firebaseUid: firebaseuid,
     orders: [],
-    positions:[],
-    watchlist:[],
-    netWorth:0,
-    portfolioValue:0,
-    buyingPower:0,
+    positions: [],
+    watchlist: [],
+    netWorth: 0,
+    portfolioValue: 0,
+    buyingPower: 0,
   })
 }
 
 export const accountWatchStock = (stockid) => async dispatch => {
   console.log("Watching stock")
-  
+
 }
 
 

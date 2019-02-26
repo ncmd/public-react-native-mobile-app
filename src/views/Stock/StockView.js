@@ -316,7 +316,7 @@ class StockView extends React.Component {
         const { loading } =  this.props
         return (
             !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
-                <Header headerPrice={parseFloat(this.props.stock[0].price).toFixed(2)} headerTicker={this.props.stock[0].ticker} />
+                <Header headerPrice={parseFloat(this.props.stock[0].price).toFixed(2)} headerTicker={this.props.stock[0].ticker.toUpperCase()} />
                 <View style={{marginBottom: 10, flex: 1 }}>
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }} ref={(ref) => { this.myScrollView = ref; }}>
                         <View>
@@ -326,7 +326,7 @@ class StockView extends React.Component {
                             </View>
                             <View>
                                 <Text style={{ fontSize: 14, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
-                                    {this.props.stock[0].ticker}
+                                    {this.props.stock[0].ticker.toUpperCase()}
                                 </Text>
                                 <Text style={{ fontSize: 25, color: "white", backgroundColor: "#0e0d0d", paddingLeft: 25, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>
                                     {this.props.stock[0].fullName}
