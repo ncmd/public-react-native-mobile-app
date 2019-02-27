@@ -66,7 +66,7 @@ matrix:
         - nohup bundle exec fastlane ios travisdeploy &
         - pwd
         # Silence gym in the background or else logs will pass 10000 and travis will force end the build
-        - for i in $(seq 1 10); do sleep 60; echo $i; done
+        - for i in $(seq 1 20); do sleep 60; echo $i; done
         # Check if ipa and app.dSYM.zip builds are created
         # You should see "publicreactnativeapp.app.dSYM.zip and publicreactnativeapp.ipa"
         - ls
