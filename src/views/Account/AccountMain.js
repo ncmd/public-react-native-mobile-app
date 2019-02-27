@@ -132,11 +132,11 @@ class AccountMain extends React.Component {
         return (
             !loading && <KeyboardAvoidingView behavior="padding" style={{ flex: 1, backgroundColor: "#0e0d0d", flexGrow: 1, flexDirection: 'column', justifyContent: 'flex-start' }} enabled>
                 <HeaderBase />
-                <FlatList
+                {/* <FlatList
                     data={this.state.list}
                     renderItem={this.renderItem}
                     scrollEnabled={false}
-                />
+                /> */}
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Account Number</Text>
                 <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>ABC123ABC123ABC123ABC</Text>
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-start', alignItems: 'center', width: "100%" }}>
