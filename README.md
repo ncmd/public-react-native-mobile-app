@@ -1,5 +1,23 @@
 # public-react-native-app
 
+# What is this? A react-native bootstrapped app that is deployable to Heroku usint Travis CI/CD + Fastlane
+
+## iOS
+<div style="display: flex; flex-direction: row; margin-bottom: 50px">
+  <img src="https://github.com/ncmd/public-react-native-mobile-app/blob/master/ios/fastlane/screenshots/en-US/iPhone%206s%20Plus-01LandingScreen.png" width="280" />
+  <img src="https://github.com/ncmd/public-react-native-mobile-app/blob/master/ios/fastlane/screenshots/en-US/iPhone%206s%20Plus-02LandingSignup.png" width="280" />
+  <img src="https://github.com/ncmd/public-react-native-mobile-app/blob/master/ios/fastlane/screenshots/en-US/iPhone%206s%20Plus-03LandingLogin.png" width="280" />
+</div>
+<br /><br />
+
+## Android
+<div style="display: flex; flex-direction: row; margin-bottom: 50px">
+  <img src="https://github.com/ncmd/public-react-native-mobile-app/blob/master/android/fastlane/output/en-US/images/phoneScreenshots/01LandingScreen_1550901771101.png" width="280" />
+  <img src="https://github.com/ncmd/public-react-native-mobile-app/blob/master/android/fastlane/output/en-US/images/phoneScreenshots/02LandingSignup_1550901773035.png" width="280" />
+  <img src="https://github.com/ncmd/public-react-native-mobile-app/blob/master/android/fastlane/output/en-US/images/phoneScreenshots/03LandingLogin_1550901774781.png" width="280" />
+</div>
+<br /><br />
+
 # Fastlane Deployment (Instructions for new app for REFERENCE; DO NOT DO THIS for this current app)
 ## Android
 0. You will need a developer license (or invite)
