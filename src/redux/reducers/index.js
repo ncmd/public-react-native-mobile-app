@@ -12,6 +12,7 @@ import pinReducer from './pinReducer';
 import routesReducer from './routesReducer';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
+import accountNetWorthReducer from './accountNetWorthReducer';
 
 
 const rootPersistConfig = {
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   routes: routesReducer,
   pin: pinReducer,
   account: accountReducer,
+  accountNetWorth: accountNetWorthReducer,
   style: stylesReducer,
   bottomnavigation: bottomNavigationReducer,
   stocks: stocksReducer,
