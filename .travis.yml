@@ -128,6 +128,7 @@ matrix:
         - pwd
         - gem update --system
         - gem install bundler
+        - gem install fastlane
         - pwd
         - openssl aes-256-cbc -K $encrypted_caf84e12f394_key -iv $encrypted_caf84e12f394_iv -in ./android/api-8452509954607468974-928983-a3a1a0fc3e4f.json.enc -out ./android/api-8452509954607468974-928983-a3a1a0fc3e4f.json -d
         - openssl aes-256-cbc -K $encrypted_6ddb6ecb5ee7_key -iv $encrypted_6ddb6ecb5ee7_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
