@@ -1,2 +1,2 @@
-json_key_file("./api-8452509954607468974-928983-dba2d4f1036a.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+json_key_file("./api-8452509954607468974-928983-a3a1a0fc3e4f.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 package_name("com.ncmd.publicreactnativeapp") # e.g. com.krausefx.app
