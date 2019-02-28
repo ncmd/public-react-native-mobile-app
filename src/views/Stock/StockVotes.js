@@ -175,7 +175,7 @@ class StockVotes extends React.Component {
                             <Button onPress={() => this.setModalVisible(!this.state.modalVisible)} title="Close" titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", width: '80%', color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, padding: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary }} />
                             <Text style={{ padding: 5, fontFamily: systemWeights.bold.fontFamily, fontWeight: systemWeights.bold.fontWeight }}>Shareholder Approver Meeting</Text>
                             <Text style={{ padding: 5 }}>Posted on February 13, 2019</Text>
-                            <Text style={{ padding: 5 }}>What the fuck is Kubernetes?</Text>
+                            <Text style={{ padding: 5 }}>What is Kubernetes?</Text>
                             <Image style={{width: 340, height:203}} source={{uri:'https://cdn-images-1.medium.com/max/1600/1*x19oVdiueoNINl-eZ6QUAg.png'}}/>
                             <Text style={{ padding: 5 }}>+$2,000.00</Text>
                             <Text style={{ padding: 5 }}>Implement a Kubernetes Cluster and redeploy docker Web and Database Docker services</Text>

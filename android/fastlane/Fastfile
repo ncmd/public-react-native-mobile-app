@@ -48,7 +48,7 @@ platform :android do
         'android.injected.signing.key.password' => ENV["MYAPP_RELEASE_KEY_PASSWORD"]
       }
     )
-    capture_android_screenshots
+    # capture_android_screenshots
     upload_to_play_store(
       apk: './app/build/outputs/apk/release/app-release.apk'
     )
