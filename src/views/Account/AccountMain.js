@@ -142,6 +142,7 @@ class AccountMain extends React.Component {
                 <View style={{ backgroundColor: this.props.style[0].ViewBackgroundColorPrimary, justifyContent: 'flex-start', alignItems: 'center', width: "100%" }}>
                     <Button title={'Log out'} onPress={() => this.logoutConfirmation()} titleStyle={{ fontSize: this.props.style[0].ButtonTextSizePrimary, textAlign: "center", color: this.props.style[0].ButtonTextColorPrimary, fontFamily: this.props.style[0].TextFontFamilyRegularPrimary, fontWeight: this.props.style[0].TextFontWeightRegularPrimary }} raised={false} buttonStyle={{ borderRadius: this.props.style[0].ButtonBorderRadiusPrimary, paddingRight: 30, paddingLeft: 30, paddingTop: 5, paddingBottom: 5, elevation: 0, backgroundColor: this.props.style[0].ButtonBackgroundColorPrimary, marginBottom: 20, marginTop: 10 }} />
                 </View>
+                <Text style={{ paddingLeft: 15, paddingTop: 5, fontSize: 12, fontFamily: systemWeights.regular.fontFamily, fontWeight: systemWeights.regular.fontWeight, color: "grey" }}>Cavalry Tactics Inc.</Text>
 
             </KeyboardAvoidingView>
         )

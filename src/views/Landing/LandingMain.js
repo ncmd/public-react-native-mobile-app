@@ -15,7 +15,7 @@ import {
 import { Button } from 'react-native-elements';
 import SLIicon from 'react-native-vector-icons/SimpleLineIcons';
 import MCIicon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import MIcon from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux';
 import {
     androidStyleLoad,
