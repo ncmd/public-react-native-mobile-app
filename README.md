@@ -1,6 +1,6 @@
 # public-react-native-app
 
-# What is this? A react-native bootstrapped app that is deployable to Heroku usint Travis CI/CD + Fastlane
+A react-native bootstrapped app that is deployable to Heroku usint Travis CI/CD + Fastlane
 
 ## iOS
 <div style="display: flex; flex-direction: row; margin-bottom: 50px">
