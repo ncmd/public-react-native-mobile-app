@@ -124,13 +124,13 @@ matrix:
         # - npm install
         # - react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
         - react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
-        # - cd android && bundle install && bundle update && ./gradlew clean
+        - cd android && bundle install && bundle update && ./gradlew clean
       script:
         - pwd
         - ls
         - ls ./app
         - fastlane supply init
-        # - bundle exec fastlane test
+        - bundle exec fastlane test
         - bundle exec fastlane build
       after_script:
         - chmod +x ./android/gradlew
