@@ -9,7 +9,9 @@
     "increment": "cd ios/ ; bundle exec fastlane run increment_build_number",
     "session": "cd ios/ ; echo \"y\" | bundle exec fastlane spaceauth -u $EMAIL_ADDRESS ; pbpaste > ./session.txt",
     "deploy-local": "cd ios/ ; bundle exec fastlane localdeploy ",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@haskkor/react-native-pincode": "^1.12.3",
@@ -38,7 +40,8 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "rxjs": "^6.4.0",
-    "validate.js": "^0.12.0"
+    "validate.js": "^0.12.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
@@ -49,5 +52,6 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "snyk": true
 }
